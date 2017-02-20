@@ -1,0 +1,144 @@
+/*****************************/
+/*** FLIPLET DEFAULT THEME ***/
+/********* CONTENTS **********/
+/*****************************/
+/*****************************
+01 - CHAT
+******************************/
+
+/* 01 - CHAT */
+
+.chat-wrapper {
+  background: $chatBackgroundColor;
+  color: $chatTextColor;
+}
+
+.convo-aside {
+  background: $chatConvoListBackgroundColor;
+
+  @media screen and (min-width: 640px) {
+    border-right: 1px solid lighten($chatTextColor, 70%);
+  }
+}
+
+.list-group {
+
+  li {
+    border-bottom: 1px solid lighten($chatTextColor, 75%);
+
+    .convo-user-avatar {
+        border: 1px solid lighten($chatTextColor, 60%);
+        background-color: lighten($chatTextColor, 70%);
+    }
+
+    @media screen and (min-width: 640px) {
+      &.active {
+          border-right: 2px solid $chatConvoListActiveBorder;
+          background-color: chatConvoListActiveBackground;
+      }
+    }
+  }
+}
+
+.msg-area {
+  background: $chatBackgroundColor;
+
+  .profile-header {
+    background: $chatProfileTopBarBackground;
+    border-bottom: 1px solid lighten($chatProfileTopBarTextColor, 60%);
+    color: $chatProfileTopBarTextColor;
+
+    .msg-user-avatar {
+        border: 1px solid lighten($chatTextColor, 60%);
+        background-color: lighten($chatTextColor, 70%);
+    }
+  }
+}
+
+
+.chat {
+
+  .chat-body {
+    background-color: $chatOwnBubbleBackground;
+    border: 1px solid transparent;
+    color: $chatOwnBubbleTextColor;
+
+    &.selected {
+      background-color: darken($chatOwnBubbleBackground, 20%);
+    }
+
+    .user-avatar {
+      border: 1px solid lighten($chatTextColor, 60%);
+      background-color: lighten($chatTextColor, 70%);
+    }
+  }
+}
+
+.chats .chat.chat-left .chat-body {
+  background-color: $chatOthersBubbleBackground;
+  border: 1px solid rgba($chatOthersBubbleTextColor, 0.6);
+  color: $chatOthersBubbleTextColor;
+}
+
+.input-holder {
+  background-color: $chatInputBarBackground;
+
+  .sending-to {
+    background-color: rgba(darken($chatInputBarBackground, 40%), 0.6);
+    color: lighten($chatTextColor, 30%);
+  }
+
+  .message-input {
+
+    textarea {
+      border-color: $chatInputBorder;
+
+      &:focus {
+          border-color: $chatInputActiveBorder;
+      }
+    }
+  }
+
+  .message-input-btn {
+    background-color: $primaryButtonColor;
+    border-color: transparent;
+
+    &:active:focus,
+    &:active:hover,
+    &:focus,
+    &:hover {
+        background-color: $primaryButtonColor;
+        border-color: transparent;
+    }
+  }
+}
+
+.msg-chats .load-more {
+  color: lighten($chatTextColor, 40%);
+  border: 1px solid lighten($chatTextColor, 40%);
+}
+
+.empty-area h4,
+.error-area h4,
+.loading-area h4 {
+  color: $chatTextColor;
+}
+
+.chat-wrapper {
+
+  .contact-directory {
+    color: $primaryButtonColor;
+    background-color: $chatConvoListBackgroundColor;
+    border-top: 1px solid lighten($chatTextColor, 70%);
+  }
+
+  .refresh-chat {
+    color: $primaryButtonColor;
+    background-color: $chatConvoListBackgroundColor;
+    border-top: 1px solid lighten($chatTextColor, 70%);
+  }
+}
+
+.chat-wrapper.offline .message-input-btn {
+    background-color: darken($chatInputBarBackground, 30%);
+}
