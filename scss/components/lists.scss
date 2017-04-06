@@ -3,116 +3,19 @@
 /********* CONTENTS **********/
 /*****************************/
 /*****************************
-01 - LIST
-02 - LIST SMALL THUMBS
-03 - LIST LARGE THUMBS
-04 - PDF FILE LIST
+01 - LIST, LIST SMALL THUMBS, LIST LARGE THUMBS
+02 - PDF FILE LIST
 ******************************/
 
-/* 01 - LIST */
+/* 01 - LIST, LIST SMALL THUMBS, LIST LARGE THUMBS */
 
-.list.list-default {
-
-  ul > li {
-    border-bottom: $listSeparatorColor;
-
-    &.linked:active {
-      background-color: $listClickColor;
-    }
-
-    &.linked:after {
-      color: $listChevronColor;
-    }
-
-    .list-title {
-      font-size: $titleSize;
-    	font-weight: $titleWeight;
-      color: $titleColor;
-    }
-
-    p + p {
-      font-size: $descriptionSize;
-    	font-weight: $descriptionWeight;
-      color: $descriptionColor;
-    }
-
-  }
-
-}
-
-ul {
-  &.list-save-filter {
-    border: 1px solid $listMyListToggleColor;
-
-    li {
-      border-left: 1px solid $listMyListToggleColor;
-      background: $bodyBackground;
-      color: $listMyListToggleColor;
-
-      &.active {
-        background: $listMyListToggleColor;
-        color: listMyListToggleActiveColor;
-      }
-    }
-  }
-}
-
-ul {
-  &.list-swipe {
-    .swipe-action {
-      background: $listMyListSwipeColor;
-      color: $listMyListSwipeTextColor;
-
-      &.swipe-action-right.active{
-        background: $listMyListSwipeRightColor;
-        color: $listMyListSwipeRightTextColor;
-      }
-
-      &.swipe-action-left.active {
-        background: $listMyListSwipeLeftColor;
-        color: $listMyListSwipeLeftTextColor;
-      }
-    }
-  }
-}
-
-/* 02 - LIST SMALL THUMBS */
-
-.list.list-thumb-s {
-
-  ul > li {
-    border-bottom: $listSeparatorColor;
-
-    &.linked:active {
-      background-color: $listClickColor;
-    }
-
-    &.linked:after {
-      color: $listChevronColor;
-    }
-
-    .list-title {
-      font-size: $titleSize;
-    	font-weight: $titleWeight;
-      color: $titleColor;
-    }
-
-    p + p {
-      font-size: $descriptionSize;
-    	font-weight: $descriptionWeight;
-      color: $descriptionColor;
-    }
-
-  }
-
-}
-
-/* 03 - LIST LARGE THUMBS */
-
+.list.list-default,
+.list.list-thumb-s,
 .list.list-thumb-l {
 
   ul > li {
     border-bottom: $listSeparatorColor;
+    background-color: $listBackgroundColor;
 
     &.linked:active {
       background-color: $listClickColor;
@@ -138,10 +41,40 @@ ul {
 
 }
 
-/* 04 - PDF FILE LIST */
+ul.list-save-filter {
+  border: 1px solid $listMyListToggleColor;
+
+  li {
+    border-left: 1px solid $listMyListToggleColor;
+    background: $bodyBackground;
+    color: $listMyListToggleColor;
+
+    &.active {
+      background: $listMyListToggleColor;
+      color: listMyListToggleActiveColor;
+    }
+  }
+}
+
+ul.list-swipe .swipe-action {
+  background: $listMyListSwipeColor;
+  color: $listMyListSwipeTextColor;
+
+  &.swipe-action-right.active{
+    background: $listMyListSwipeRightColor;
+    color: $listMyListSwipeRightTextColor;
+  }
+
+  &.swipe-action-left.active {
+    background: $listMyListSwipeLeftColor;
+    color: $listMyListSwipeLeftTextColor;
+  }
+}
+
+/* 02 - PDF FILE LIST */
 
 .list-search {
-    border-bottom: $listSearchBorder;
+  border-bottom: $listSearchBorder;
 }
 
 .btn.btn-link.search-cancel {
