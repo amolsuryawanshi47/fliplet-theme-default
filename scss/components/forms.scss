@@ -6,6 +6,7 @@
 01 - INPUT FIELDS
 02 - CHECKBOX / RADIO
 03 - STAR RATING
+04 - SELECT
 ******************************/
 
 /* 01 - INPUT FIELDS */
@@ -35,6 +36,28 @@
 
 /* 02- CHECKBOX / RADIO */
 
+.radio.radio-icon input[type="radio"] + label > span.check,
+.checkbox.checkbox-icon input[type="checkbox"] + label > span.check {
+  border: $formToggleBorder;
+  background-color: $formToggleBackgroundColor;
+}
+
+.radio.radio-icon input[type="radio"]:checked + label > span.check,
+.checkbox.checkbox-icon input[type="checkbox"]:checked + label > span.check {
+  background-color: $formToggleActiveBackgroundColor;
+}
+
+.radio.radio-icon input[type="radio"] + label > span.check > i.fa,
+.checkbox.checkbox-icon input[type="checkbox"] + label > span.check > i.fa {
+  color: $formToggleActiveBackgroundColor;
+}
+
+.radio.radio-icon input[type="radio"]:checked + label span.check > i.fa,
+.checkbox.checkbox-icon input[type="checkbox"]:checked + label span.check > i.fa {
+  color: $formToggleColor;
+}
+
+/* CODE FORM */
 .rtgl-ios + .rtgl-btn,
 .tgl-ios + .tgl-btn {
     background: $formToggleBackgroundColor;
@@ -56,4 +79,19 @@
 .star-rating .rating-star .fa {
     font-size: $formStarRatingSize;
     color: $formStarRatingColor;
+}
+
+/* 04 - SELECT */
+.select-proxy-display {
+  border: $formInputBorder;
+  border-radius: $formInputBorderRadius;
+  color: $bodyTextColor;
+}
+
+.select-proxy-display > .icon {
+  background-color: $formSelectArrowBackground;
+  color: $formSelectArrow;
+  border-top-right-radius: $formInputBorderRadius;
+  border-bottom-right-radius: $formInputBorderRadius;
+  border-left: $formInputBorder;
 }
