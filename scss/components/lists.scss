@@ -5,6 +5,8 @@
 /*****************************
 01 - LIST, LIST SMALL THUMBS, LIST LARGE THUMBS
 02 - PDF FILE LIST
+03 - RSS LIST
+04 - APP LIST
 ******************************/
 
 /* 01 - LIST, LIST SMALL THUMBS, LIST LARGE THUMBS */
@@ -85,5 +87,105 @@ ul.list-swipe .swipe-action {
   &:active:hover,
   &:active:focus {
     color: $linkHoverColor;
+  }
+}
+
+/* 03 - RSS LIST */
+.feed {
+  ul {
+    &.feed-panels {
+      &.line > li {
+        &.feed-item {
+          border-bottom: $listSeparatorColor;
+        }
+      }
+
+      &.stripes > li {
+        &.feed-item:nth-child(odd) {
+          background-color: $rssStripes;
+        }
+      }
+
+      & > li {
+        &.feed-item {
+          background-color: $listBackgroundColor;
+
+          &.line {
+            border-left-color: $rssHighlight;
+          }
+        }
+      }
+    }
+  }
+
+  .feed-item {
+    &.circle {
+      p.list-title {
+        .circle-icon {
+          background-color: $rssHighlight;
+        }
+      }
+    }
+
+    .list-title {
+      color: $titleColor;
+      font-size: $titleSize;
+      font-weight: $titleWeight;
+    }
+
+    .list-description {
+      color: $descriptionColor;
+      font-size: $descriptionSize;
+      font-weight: $descriptionWeight;
+    }
+
+    .icon {
+      color: $listChevronColor;
+    }
+  }
+}
+
+/* 04 - APP LIST */
+.list {
+  &.list-default {
+    ul>li {
+      &.download {
+        .icon:after {
+          color: $appListDownloadIconColor;
+        }
+      },
+      &.preparing {
+        .icon:after {
+          color: $appListPreparingIconColor;
+        }
+      }
+      &.completed {
+        .icon:after {
+          color: $appListCompletedIconColor;
+        }
+      }
+      .icon:after {
+        color: $listChevronColor;
+      }
+    }
+  }
+
+  li {
+    .progress {
+      background-color: lighten($listBackgroundColor,15%);
+
+      .progress-bar-flv {
+        background-color: $appListProgressBarColor;
+      }
+    }
+  }
+}
+
+#overlay-login,
+#overlay-admin {
+  .closeButton {
+    background-color: $appListCloseButtonColor;
+    color: $appListCloseButtonTextColor;
+    border-top-color: $appListCloseButtonBorderColor;
   }
 }
