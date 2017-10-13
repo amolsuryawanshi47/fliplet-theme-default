@@ -24,24 +24,33 @@
   border: $accordionBorder;
 }
 
-.panel-default {
-  border: $accordionBorder;
+.panel-group {
+  .panel {
+    background-color: $bodyBackground;
 
-  > .panel-title {
-    color: $accordionHeadingTextActive;
-    background-color: $accordionHeadingBgActive;
+    .panel-default {
+      border: $accordionBorder;
 
-    &.collapsed {
-      color: $accordionHeadingText;
-      background-color: $accordionHeadingBg;
+      > .panel-title {
+        color: $accordionHeadingTextActive;
+        background-color: $accordionHeadingBgActive;
 
-      &:after {
-        color: $accordionHeadingChevron;
+        &.collapsed {
+          color: $accordionHeadingText;
+          background-color: $accordionHeadingBg;
+
+          &:after {
+            color: $accordionHeadingChevron;
+          }
+        }
+
+        &:after {
+          color: $accordionHeadingChevronActive;
+        }
       }
-    }
-
-    &:after {
-      color: $accordionHeadingChevronActive;
     }
   }
 }
+
+
+    
