@@ -27,26 +27,23 @@
 .panel-group {
   .panel {
     background-color: $bodyBackground;
+    border: $accordionBorder;
 
-    .panel-default {
-      border: $accordionBorder;
+    > .panel-title {
+      color: $accordionHeadingTextActive;
+      background-color: $accordionHeadingBgActive;
 
-      > .panel-title {
-        color: $accordionHeadingTextActive;
-        background-color: $accordionHeadingBgActive;
-
-        &.collapsed {
-          color: $accordionHeadingText;
-          background-color: $accordionHeadingBg;
-
-          &:after {
-            color: $accordionHeadingChevron;
-          }
-        }
+      &.collapsed {
+        color: $accordionHeadingText;
+        background-color: $accordionHeadingBg;
 
         &:after {
-          color: $accordionHeadingChevronActive;
+          color: $accordionHeadingChevron;
         }
+      }
+
+      &:after {
+        color: $accordionHeadingChevronActive;
       }
     }
   }
