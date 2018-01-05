@@ -8,9 +8,7 @@
 
 /* 01 - APP LIST */
 
-#overlay-login,
-#overlay-app-download {
-
+.admin-overlay {
   .overlayNavbar {
     background: $appListLoginOverlayNavBar;
     color: $appListLoginOverlayNavBarTextColor;
@@ -19,18 +17,6 @@
   .overlayPanelContent {
     background: $appListLoginOverlayColor;
     color: $appListLoginOverlayTextColor;
-  }
-
-  .progress {
-    border-bottom: 1px solid lighten($appListLoginOverlayTextColor, 50%);
-
-    .progress-bar {
-      background-color: $appListProgressBarColor;
-    }
-  }
-
-  .download-overlay-cancel {
-    color: $linkColor;
   }
 }
 
@@ -60,5 +46,55 @@
         color: $appListProgressBarColor;
       } 
     }
+  }
+}
+
+/* 04 - APP LIST */
+.list {
+  &.list-default {
+    ul>li {
+      &.download {
+        .icon:after {
+          color: $appListDownloadIconColor;
+        }
+      },
+      &.preparing {
+        .icon:after {
+          color: $appListPreparingIconColor;
+        }
+      }
+      &.completed {
+        .icon:after {
+          color: $appListCompletedIconColor;
+        }
+      }
+      &.initial {
+        .icon:after {
+          color: $appListInitialIconColor;
+        }
+      }
+      .icon:after {
+        color: $listChevronColor;
+      }
+    }
+  }
+
+  li {
+    .progress {
+      background-color: darken($listBackgroundColor,5%);
+
+      .progress-bar-flv {
+        background-color: $appListProgressBarColor;
+      }
+    }
+  }
+}
+
+#overlay-admin,
+.admin-overlay {
+  .closeButton {
+    background-color: $appListCloseButtonColor;
+    color: $appListCloseButtonTextColor;
+    border-top-color: $appListCloseButtonBorderColor;
   }
 }
