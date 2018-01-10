@@ -41,18 +41,12 @@
 
 .list.list-default {
   ul {
-    & > li.cancel {
-      .icon:after {
-        color: $appListProgressBarColor;
-      } 
-    }
-  }
-}
-
-/* 04 - APP LIST */
-.list {
-  &.list-default {
-    ul>li {
+    & > li {
+      &.cancel {
+        .icon:after {
+          color: $appListProgressBarColor;
+        }
+      }
       &.download {
         .icon:after {
           color: $appListDownloadIconColor;
@@ -76,15 +70,13 @@
       .icon:after {
         color: $listChevronColor;
       }
-    }
-  }
 
-  li {
-    .progress {
-      background-color: darken($listBackgroundColor,5%);
+      .progress {
+        background-color: darken($listBackgroundColor,5%);
 
-      .progress-bar-flv {
-        background-color: $appListProgressBarColor;
+        .progress-bar-flv {
+          background-color: $appListProgressBarColor;
+        }
       }
     }
   }
