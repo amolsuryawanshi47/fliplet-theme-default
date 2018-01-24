@@ -11,6 +11,24 @@
 .chat-wrapper {
   background: $chatBackgroundColor;
   color: $chatTextColor;
+
+  &.offline {
+    .message-input-btn {
+      background-color: darken($chatInputBarBackground, 30%);
+    }
+  }
+
+  .contact-directory {
+    color: $primaryButtonColor;
+    background-color: $chatConvoListBackgroundColor;
+    border-top: 1px solid lighten($chatTextColor, 70%);
+  }
+
+  .refresh-chat {
+    color: $primaryButtonColor;
+    background-color: $chatConvoListBackgroundColor;
+    border-top: 1px solid lighten($chatTextColor, 70%);
+  }
 }
 
 .convo-aside {
@@ -34,7 +52,7 @@
     @media screen and (min-width: 640px) {
       &.active {
           border-right: 2px solid $chatConvoListActiveBorder;
-          background-color: chatConvoListActiveBackground;
+          background-color: $chatConvoListActiveBackground;
       }
     }
   }
@@ -122,23 +140,4 @@
 .error-area h4,
 .loading-area h4 {
   color: $chatTextColor;
-}
-
-.chat-wrapper {
-
-  .contact-directory {
-    color: $primaryButtonColor;
-    background-color: $chatConvoListBackgroundColor;
-    border-top: 1px solid lighten($chatTextColor, 70%);
-  }
-
-  .refresh-chat {
-    color: $primaryButtonColor;
-    background-color: $chatConvoListBackgroundColor;
-    border-top: 1px solid lighten($chatTextColor, 70%);
-  }
-}
-
-.chat-wrapper.offline .message-input-btn {
-    background-color: darken($chatInputBarBackground, 30%);
 }
