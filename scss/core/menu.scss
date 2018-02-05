@@ -4,69 +4,148 @@
 /*****************************/
 /*****************************
 01 - MENU
-
 ******************************/
-
 /* 01 - MENU */
-.fl-viewport-header {
-    background: $menuTopNavBackground;
-    text-shadow: 0 1px 0 $menuTopNavFontShadowColor;
-    border-bottom: 1px solid $menuTopNavBorder;
-    color: $menuTopNavFontColor;
-}
 
 .fl-viewport-header {
-  .nav-left {
+  background: $menuTopNavBackground;
+  text-shadow: 0 1px 0 $menuTopNavFontShadowColor;
+  border-bottom: 1px solid $menuTopNavBorder;
+  color: $menuTopNavFontColor;
+
+  .nav-left,
+  .nav-left-arrow,
+  .nav-right-arrow {
     color: $menuBackButtonColor;
   }
-  .nav-right {
+  .nav-right,
+  .nav-center {
     color: $menuButtonColor;
   }
 }
 
-.fl-menu-panel {
-    background: $menuBackgroundColor;
+.fl-menu-panel,
+.fl-menu .fl-menu-body-swipe {
+  background: $menuBackgroundColor;
+
+  .fl-list-default {
+    ul {
+      font-family: $menuFont;
+      font-size: $menuFontSize;
+    }
+  }
 }
 
 .fl-app-menu {
   .fl-list-default {
-      color: $menuFontColor;
+    color: $menuFontColor;
 
-      ul > li .fa {
-          color: $menuFontColor;
-      }
+    ul>li .fa {
+      color: $menuFontColor;
+    }
   }
 }
 
 .fl-close-menu {
-    color: $menuCloseButtonColor;
+  color: $menuCloseButtonColor;
 }
 
 .fl-app-menu-toolbar {
-    background: $menuFooterBackgroundColor;
+  background: $menuFooterBackgroundColor;
 
-    .copyright {
-        color: $menuFooterFontColor;
+  .copyright {
+    color: $menuFooterFontColor;
 
-        a {
-            color: $menuFooterFontColor;
-        }
+    a {
+      color: $menuFooterFontColor;
     }
-
-    &:before {
-        background: -moz-linear-gradient(top, rgba($menuBackgroundColor, 0) 0%, rgba($menuFooterBackgroundColor, 1) 100%);
-        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba($menuBackgroundColor, 0)), color-stop(100%, rgba($menuFooterBackgroundColor, 1)));
-        background: -webkit-linear-gradient(top, rgba($menuBackgroundColor, 0) 0%, rgba($menuFooterBackgroundColor, 1) 100%);
-        background: -o-linear-gradient(top, rgba($menuBackgroundColor, 0) 0%, rgba($menuFooterBackgroundColor, 1) 100%);
-        background: -ms-linear-gradient(top, rgba($menuBackgroundColor, 0) 0%, rgba($menuFooterBackgroundColor, 1) 100%);
-        background: linear-gradient(to bottom, rgba($menuBackgroundColor, 0) 0%, rgba($menuFooterBackgroundColor, 1) 100%);
-    }
+  }
 }
 
+.fl-bar-padding {
+  .fl-viewport-header {
+    border-bottom: none;
+    border-top: 1px solid $menuTopNavBorder;
+  }
+}
+  
+
 .fl-menu-default {
-    .fl-menu-panel {
-        &:before {
-          border-bottom: 11px solid $menuBackgroundColor;
-        }
+  .fl-menu-panel {
+    &:before {
+      border-bottom: 11px solid $menuBackgroundColor;
     }
+  }
+}
+
+/* Minimal Nav */
+.fl-viewport-menu {
+  ul {
+    background: $menuTopNavBackground;
+    border: 1px solid $menuTopNavBorder;
+
+    li {
+      &.fl-menu-arrow {
+        color: $menuBackButtonColor;
+      }
+      &.linked {
+        background-color: rgba($menuTopNavFontColor,0.2);
+
+        &.active {
+          background-color: $menuTopNavFontColor;
+        }
+      }
+    }
+  }
+}
+
+/* Expandable Menu */
+.fl-menu-circle-header {
+  .nav-toggle {
+    background: $menuExpButtonColor;
+    color: $menuExpButtonIconColor;
+
+    .fa {
+      color: $menuExpButtonIconColor;
+    }
+
+    &.active {
+      background: $menuExpButtonIconColor;
+      color: $menuExpButtonColor;
+      .fa {
+        color: $menuExpButtonColor;
+      }
+    }
+  }
+}
+
+.fl-menu-circle-nav-holder {
+  .nav-circle {
+    background: $menuExpBackground;
+  }
+}
+
+.fl-menu-circle-nav-list-holder {
+  .nav-list{
+    font-family: $menuFont;
+    font-size: $menuFontSize;
+
+    li {
+      color: $menuExpFontColor;
+    }
+  }
+  .fl-menu-foot {
+    a {
+      color: $menuExpFooterFontColor;
+    }
+  }
+}
+
+.fl-menu-panel-swipe {
+  .fl-list-default {
+    ul {
+      font-family: $menuFont;
+      font-size: $menuFontSize;
+    }
+  }
 }
