@@ -20,7 +20,16 @@
   }
   .nav-right,
   .nav-center {
-    color: $menuButtonColor;
+    .hamburger {
+      .hamburger-inner {
+        background-color: $menuButtonColor;
+
+        &:after,
+        &:before {
+          background-color: $menuButtonColor;
+        }
+      }
+    }
   }
 }
 
@@ -47,7 +56,16 @@
 }
 
 .fl-close-menu {
-  color: $menuCloseButtonColor;
+  .hamburger.is-active {
+    .hamburger-inner {
+      background-color: $menuCloseButtonColor;
+
+      &:after,
+      &:before {
+        background-color: $menuCloseButtonColor;
+      }
+    }
+  }
 }
 
 .fl-app-menu-toolbar {
@@ -105,15 +123,30 @@
     background: $menuExpButtonColor;
     color: $menuExpButtonIconColor;
 
-    .fa {
-      color: $menuExpButtonIconColor;
+    .hamburger {
+      .hamburger-inner {
+        background-color: $menuExpButtonIconColor;
+
+        &:after,
+        &:before {
+          background-color: $menuExpButtonIconColor;
+        }
+      }
     }
 
     &.active {
-      background: $menuExpButtonIconColor;
-      color: $menuExpButtonColor;
-      .fa {
-        color: $menuExpButtonColor;
+      background: $menuExpButtonColorOpen;
+      color: $menuExpButtonIconColorOpen;
+
+      .hamburger.is-active {
+        .hamburger-inner {
+          background-color: $menuExpButtonIconColorOpen;
+
+          &:after,
+          &:before {
+            background-color: $menuExpButtonIconColorOpen;
+          }
+        }
       }
     }
   }
@@ -122,6 +155,10 @@
 .fl-menu-circle-nav-holder {
   .nav-circle {
     background: $menuExpBackground;
+
+    &.active {
+      background: $menuExpBackgroundOpen;
+    }
   }
 }
 
