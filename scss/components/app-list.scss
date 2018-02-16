@@ -22,8 +22,7 @@
 
 .app-list {
   .loader {
-      border-left-color: $appListLoader;
-    }
+    border-left-color: $appListLoader;
   }
 
   .section-heading {
@@ -31,71 +30,74 @@
     font-weight: $appListHeadingsWeight;
   }
 
-  .list.list-default {
-    ul {
-      & > li {
-        &.linked:active {
-          background-color: $listBackgroundColor;
-        }
-        &.cancel {
-          .icon {
-            .fa {
-              &.cancel {
-                color: $appListProgressBarColor;
+  .list {
+    &.list-default {
+      ul {
+        & > li {
+          &.linked {
+            &:active {
+              background-color: $listBackgroundColor;
+            }
+          }
+          &.cancel {
+            .icon {
+              .fa {
+                &.cancel {
+                  color: $appListProgressBarColor;
+                }
               }
             }
           }
-        }
-        &.download {
-          .icon {
-            .fa {
-              &.download {
-                color: $appListDownloadIconColor;
+          &.download {
+            .icon {
+              .fa {
+                &.download {
+                  color: $appListDownloadIconColor;
+                }
               }
             }
           }
-        }
-        &.preparing {
-          .icon {
-            .fa {
-              &.download {
-                color: $appListPreparingIconColor;
+          &.preparing {
+            .icon {
+              .fa {
+                &.download {
+                  color: $appListPreparingIconColor;
+                }
               }
             }
           }
-        }
-        &.completed {
-          .icon {
-            .fa {
-              &.completed {
-                color: $appListCompletedIconColor;
+          &.completed {
+            .icon {
+              .fa {
+                &.completed {
+                  color: $appListCompletedIconColor;
+                }
               }
             }
           }
-        }
-        &.initial {
+          &.initial {
+            .icon .fa {
+              &.initial {
+                color: $appListInitialIconColor;
+              }
+            }
+          }
           .icon .fa {
-            &.initial {
-              color: $appListInitialIconColor;
-            }
+            color: $listChevronColor;
           }
-        }
-        .icon .fa {
-          color: $listChevronColor;
-        }
 
-        .progress {
-          background-color: darken($listBackgroundColor,5%);
+          .progress {
+            background-color: darken($listBackgroundColor,5%);
 
-          .progress-bar-flv {
-            background-color: $appListProgressBarColor;
+            .progress-bar-flv {
+              background-color: $appListProgressBarColor;
+            }
           }
         }
       }
     }
   }
 }
-
 
 #overlay-admin,
 .admin-overlay {
