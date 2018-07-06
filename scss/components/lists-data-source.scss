@@ -128,6 +128,85 @@
   }
 }
 
+/* COMMENTS */
+.news-feed-comment-panel {
+  background: $bodyBackground;
+
+  .loading-holder {
+    color: rgba($bodyTextColor, 0.4);
+  }
+
+  .comments-offline {
+    background-color: rgba($bodyTextColor, 0.4);
+    color: $bodyTextColor;
+  }
+}
+
+.news-feed-comment-panel-header {
+  background-color: $bodyBackground;
+}
+
+.news-feed-comment-input-holder {
+  background: $bodyBackground;
+  border-color: rgba($bodyTextColor, 0.1);
+
+  .cancel {
+    color: rgba($bodyTextColor, 0.7);
+
+    &:hover,
+    &:focus,
+    &:active:hover,
+    &:active:focus {
+      color: rgba($bodyTextColor, 0.7);
+    }
+  }
+
+  .btn.comment,
+  .btn.save {
+    border-color: rgba($bodyTextColor, 0.3);
+    color: rgba($bodyTextColor,0.3);
+  }
+
+  &.ready {
+    .btn.comment,
+    .btn.save {
+      border-color: $primaryButtonColor;
+      background-color: $primaryButtonColor;
+      color: $primaryButtonTextColor;
+    }
+  }
+}
+
+.top-comment-holder {
+  background-color: $bodyBackground;
+}
+
+.fl-individual-comment.editing .top-comment-holder {
+  background-color: rgba($bodyTextColor, 0.08);
+}
+
+.fl-comment-thumb {
+  background-color: rgba($bodyTextColor, 0.04);
+}
+
+textarea[data-comment-body] {
+  background-color: transparent;
+  color: $bodyTextColor;
+
+  ~ .typeahead.dropdown-menu {
+    border-color: rgba($bodyTextColor,0.1);
+
+    > .active > a {
+      background-color: $primaryButtonColor;
+      color: $primaryButtonTextColor;
+    }
+  }
+}
+
+.active .mention_username{
+  color: $primaryButtonTextColor;
+}
+
 /* AGENDA */
 .agenda-date-selector {
   background-color: rgba($bodyBackground, 0.85);
