@@ -112,24 +112,33 @@ a {
 }
 
 /* 04 - TABLES */
-table {
-  border-top: $tableBorderTop;
-  border-right: $tableBorderRight;
-  border-bottom: $tableBorderBottom;
-  border-left: $tableBorderLeft;
 
-  tr {
-    border-top: $rowBorderTop;
-    border-right: $rowBorderRight;
-    border-bottom: $rowBorderBottom;
-    border-left: $rowBorderLeft;
-  }
+.table > thead > tr > th,
+.table > tbody > tr > th,
+.table > tfoot > tr > th,
+.table > thead > tr > td,
+.table > tbody > tr > td,
+.table > tfoot > tr > td {
+  padding: $cellPadding;
+}
 
-  td {
+.table-bordered > thead > tr > th,
+.table-bordered > tbody > tr > th,
+.table-bordered > tfoot > tr > th,
+.table-bordered > thead > tr > td,
+.table-bordered > tbody > tr > td,
+.table-bordered > tfoot > tr > td {
+  border: $cellBorderTop;
+}
+
+table,
+table.mce-item-table {
+
+  th,
+  td,
+  caption {
     padding: $cellPadding;
-    border-top: $cellBorderTop;
-    border-right: $cellBorderRight;
-    border-bottom: $cellBorderBottom;
-    border-left: $cellBorderLeft;
+    border: $cellBorderTop;
   }
 }
+
