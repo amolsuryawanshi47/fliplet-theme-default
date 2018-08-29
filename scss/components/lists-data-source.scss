@@ -36,13 +36,17 @@
     color: $bodyTextColor;
   }
   .btn.search-btn {
-    border-color: $primaryButtonColor;
+    border-color: rgba($bodyTextColor, 0.8);
 
     &:hover,
     &:active,
     &:active:hover {
-      border-color: $primaryButtonColor;
+      border-color: rgba($bodyTextColor, 0.8);
     }
+  }
+
+  .search-feed:focus ~ .btn.search-btn {
+    border-color: $primaryButtonColor;
   }
 }
 
