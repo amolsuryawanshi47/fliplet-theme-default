@@ -3,10 +3,11 @@
 /********* CONTENTS **********/
 /*****************************/
 /*****************************
-01 - CHAT
+01 - CHAT v1.0
+01 - CHAT v2.0
 ******************************/
 
-/* 01 - CHAT */
+/* 01 - CHAT v1.0 */
 
 .chat-wrapper {
   background: $chatBackgroundColor;
@@ -155,4 +156,153 @@ body.fl-minimal-padding {
 .error-area h4,
 .loading-area h4 {
   color: $chatTextColor;
+}
+
+/* 02 - CHAT v2.0 */
+.chat-area,
+.contacts-holder-overlay,
+.group-name-holder,
+.group-participants-holder,
+.chat-area .chat-top-header,
+.contacts-holder-overlay .contacts-top-header,
+.group-name-holder .group-top-header,
+.group-participants-holder .group-participants-top-header,
+.chat-card-holder,
+.contact-card {
+  background-color: $bodyBackground;
+}
+
+.contact-card.contact-selected {
+  background-color: $primaryButtonColor;
+  color: $primaryButtonTextColor;
+}
+
+.chat-card-holder .show-more {
+  background-color: $bodyBackground;
+  color: $bodyTextColor;
+}
+
+.chat-card-holder .show-more:hover {
+  background-color: rgba($bodyTextColor, 0.1);
+  color: $bodyTextColor;
+}
+
+.chat-controls .start-new,
+.contacts-holder-overlay .contacts-back {
+  color: $primaryButtonColor;
+}
+
+.contacts-done-holder .contacts-done,
+.contacts-done-holder .contacts-create {
+  background-color: transparent;
+  border: 1px solid rgba($bodyTextColor, 0.6);
+  color: rgba($bodyTextColor, 0.6);
+}
+
+.contacts-top-header.ready .contacts-done-holder .contacts-done,
+.group-top-header.ready .contacts-done-holder .contacts-create {
+  background-color: $primaryButtonColor;
+  border: 1px solid $primaryButtonColor;
+  color: $primaryButtonTextColor;
+}
+
+.contact-image-wrapper .fa-times {
+  color: $bodyTextColor;
+  background-color: lighten($bodyTextColor, 75%);
+  border: 2px solid $bodyBackground;
+}
+
+.all-users-holder .seperator,
+.participants-bar {
+  background-color: lighten($bodyTextColor, 75%);
+}
+
+.group-name-field-holder .group-name-field {
+  border: 1px solid lighten($bodyTextColor, 60%);
+}
+
+.chat {
+  &.chat-right {
+    .chat-body {
+      background-color: $chatOwnBubbleBackground;
+      border: 1px solid transparent;
+      color: $chatOwnBubbleTextColor;
+
+      &:after {
+        border-color: transparent transparent transparent $chatOwnBubbleBackground;
+      }
+    }
+  }
+
+  &.chat-left {
+    .chat-body {
+      background-color: $chatOthersBubbleBackground;
+      border: 1px solid transparent;
+      color: $chatOthersBubbleTextColor;
+
+      &:after {
+        border-color: transparent transparent transparent $chatOthersBubbleBackground;
+      }
+    }
+  }
+
+  &.tapped {
+    &.chat-right {
+      .chat-body {
+        background-color: darken($chatOwnBubbleBackground, 10%);
+
+        &:after {
+          border-color: transparent transparent transparent darken($chatOwnBubbleBackground, 10%);
+        }
+      }
+    }
+
+    &.chat-left {
+      .chat-body {
+        background-color: darken($chatOthersBubbleBackground, 10%);
+
+        &:after {
+          border-color: transparent transparent transparent darken($chatOthersBubbleBackground, 10%);
+        }
+      }
+    }
+  }
+
+  &.editing {
+    &.chat-right,
+    &.chat-left {
+      .chat-body {
+        background-color: #fff2be;
+        color: $bodyTextColor;
+
+        &:after {
+          border-color: transparent transparent transparent #fff2be;
+        }
+      }
+    }
+  }
+}
+
+.chat-input-controls {
+  background-color: $bodyBackground;
+  border-top: 1px solid rgba($bodyTextColor, 0.3);
+
+  .input-second-row {
+    .send-button,
+    .send-save-button {
+      color: rgba($bodyTextColor, 0.3);
+      border: 1px solid rgba($bodyTextColor, 0.3);
+    }
+  }
+
+  &.ready {
+    .input-second-row {
+      .send-button,
+      .send-save-button {
+        background-color: $primaryButtonColor;
+        color: $primaryButtonTextColor;
+        border: 1px solid $primaryButtonColor;
+      }
+    }
+  }
 }
