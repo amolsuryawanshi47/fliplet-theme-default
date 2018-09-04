@@ -26,40 +26,39 @@
   }
 }
 
+// The use of !important in this case is to avoid CSS repetion
+// Some layouts on the LFD component have more specific targets
 .search-holder {
   .fa {
     color: $primaryButtonColor;
   }
   .form-control {
-    border-color: rgba($bodyTextColor, 0.3);
+    border: $formInputBorder !important;
     background-color: $bodyBackground;
     color: $bodyTextColor;
   }
   .btn.search-btn {
-    border-color: rgba($bodyTextColor, 0.8);
-    color: $bodyTextColor;
+    border: none;
 
     &:hover,
     &:active,
     &:active:hover {
-      border-color: rgba($bodyTextColor, 0.8);
-      color: $bodyTextColor;
+      border: none;
     }
   }
 
   .search-feed:focus ~ .btn.search-btn {
-    border-color: $primaryButtonColor;
-    color: $bodyTextColor;
+    border: none;
   }
 
   .list-search-icon .fa {
     opacity: 1;
-    color: $primaryButtonColor;
+    color: $linkColor !important;
   }
 
   & ~ .list-search-icon .fa {
     opacity: 1;
-    color: $primaryButtonColor;
+    color: $linkColor !important;
   }
 }
 
