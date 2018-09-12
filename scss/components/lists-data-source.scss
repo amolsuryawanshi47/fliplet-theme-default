@@ -233,6 +233,136 @@ textarea[data-comment-body] {
 }
 
 /* AGENDA */
+.new-agenda-list-container{
+  .agenda-date-selector {
+    background-color: rgba($bodyBackground, 0.85);
+
+    ul {
+      li {
+        color: rgba($bodyTextColor, 0.5);
+
+        .day {
+          color: rgba($bodyTextColor, 0.7);
+        }
+
+        &.placeholder {
+          color: rgba($bodyTextColor, 0.1);
+
+          .day {
+            color: rgba($bodyTextColor, 0.1);
+          }
+        }
+        &.active {
+          color: rgba($primaryButtonColor, 0.5);
+
+          .day {
+            color: rgba($primaryButtonColor, 1);
+          }
+        }
+      }
+    }
+  }
+
+  .agenda-list-item {
+    .slide-over {
+      .agenda-item-inner-content {
+        background-color: $bodyBackground;
+
+        .agenda-item-time {
+          color: $bodyTextColor;
+        }
+
+        .agenda-item-session-location {
+          color: $bodyTextColor;
+        }
+
+        h2.agenda-item-title {
+          color: $headingTwoColor;
+        }
+      }
+    }
+
+    &.open {
+      .slide-over {
+        .agenda-item-inner-content {
+          h2.agenda-item-title {
+            &:after {
+              background-color: $primaryButtonColor;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .agenda-item-bookmark-holder {
+    color: $bodyTextColor;
+
+    .fa-bookmark-o {
+      color: rgba($bodyTextColor, 0.2);
+    }
+  }
+
+  .bookmark-wrapper {
+    .fa-bookmark-o {
+      color: rgba($bodyTextColor, 0.2);
+
+      &:after {
+        color: rgba($bodyTextColor, 0.5);
+      }
+    }
+
+    .fa-bookmark {
+      color: $primaryButtonColor;
+    }
+  }
+
+  .agenda-list-item-content {
+    .slide-over {
+      background-color: $bodyBackground;
+    }
+  }
+
+  .agenda-list-controls {
+    background-color: $bodyBackground;
+
+    .toggle-agenda {
+      .fa {
+        color: $bodyTextColor;
+      }
+
+      &.mixitup-control-active {
+        .fa {
+          color: $primaryButtonColor;
+        }
+      }
+    }
+
+    .agenda-list-label {
+      color: $bodyTextColor;
+    }
+  }
+
+  .agenda-list-item {
+    .agenda-item-close-btn {
+      background-color: rgba($bodyBackground, 0.5);
+      color: $bodyTextColor;
+    }
+  }
+
+  .agenda-state-messages {
+    .loading-holder,
+    .offline-holder {
+      color: $bodyTextColor;
+    }
+  }
+
+  .agenda-list-card-holder.empty + .agenda-item-empty-state {
+    color: $bodyTextColor;
+  }
+}
+
+/* Old Agenda */
 .agenda-date-selector {
   background-color: rgba($bodyBackground, 0.85);
 
@@ -261,6 +391,7 @@ textarea[data-comment-body] {
     }
   }
 }
+
 .agenda-list-item {
   .slide-over {
     .agenda-item-inner-content {
