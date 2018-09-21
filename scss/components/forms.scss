@@ -97,7 +97,10 @@ $spinnerColor: lighten($bodyTextColor, 33%);
 
 .input-group-addon {
   color: $bodyTextColor;
-  border-right: 1px solid $bodyTextColor !important;
+}
+
+.input-group-addon:first-child {
+  border-right: $formInputBorder;
 }
 
 [_type="flStarRating"] .rating-star .fa {
@@ -106,6 +109,21 @@ $spinnerColor: lighten($bodyTextColor, 33%);
 
 [_type="flStarRating"] .rating-input:checked~.rating-star .fa {
   color: $formStarRatingSelected;
+}
+
+.field-signature canvas {
+  border: $formInputBorder !important;
+  border-top-width: 0 !important;
+  border-left-width: 0 !important;
+  border-right-width: 0 !important;
+}
+
+.form-group .mce-tinymce {
+  border: $formInputBorder;
+}
+
+.form-group .mce-top-part::before {
+  border-bottom: $formInputBorder;
 }
 
 .sending-form {
