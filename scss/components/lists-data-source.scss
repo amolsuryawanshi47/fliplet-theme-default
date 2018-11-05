@@ -2,28 +2,33 @@
 .new-small-card-list-container,
 .small-card-list-container {
   .small-card-list-detail-wrapper {
-    background-color: $bodyBackground;
+    background-color: $lfdBackgroundColor;
   }
 
   .small-card-search-filter-overlay {
+    .small-card-overlay-header {
+      background-color: $lfdOverlayBackgroundColor;
+    }
+
     .small-card-overlay-wrapper {
-      background-color: $bodyTextColor;
-      color: $bodyBackground;
+      background-color: $lfdOverlayBackgroundColor;
+      color: $lfdOverlayFontColor;
     }
 
     .hidden-filter-controls-filter {
-      border-color: rgba($bodyBackground, 0.8);
+      border-color: rgba($lfdOverlayFontColor, 0.8);
 
       &:hover,
       &:focus {
-        color: rgba($bodyBackground, 0.7);
+        color: rgba($lfdOverlayFontColor, 0.7);
       }
     }
   }
 
   .small-card-list-text-wrapper,
   .small-card-list-detail-content-wrapper {
-    background-color: $bodyBackground;
+    background-color: $lfdBackgroundColor;
+    color: $lfdFontColor;
   }
 
   .small-card-list-name,
@@ -31,11 +36,11 @@
   .small-card-list-location,
   .small-card-list-detail-role,
   .small-card-list-detail-location {
-    color: $bodyTextColor;
+    color: $lfdFontColor;
   }
 
   .small-card-list-detail-name {
-    color: $bodyTextColor;
+    color: $lfdFontColor;
 
     &:after {
       background-color: $primaryButtonColor;
@@ -46,47 +51,54 @@
 
 
   .small-card-list-detail-button a {
-    color: $bodyTextColor;
+    color: $lfdFontColor;
 
     &:hover,
     &:focus,
     &:active,
     &:active:hover,
     &:active:focus {
-      color: $bodyTextColor;
+      color: $lfdFontColor;
     }
   }
 
   .small-card-list-detail-close-btn {
-    color: $bodyTextColor;
-    background: rgba($bodyBackground, 0.5);
+    color: $lfdFontColor;
+    background: rgba($lfdBackgroundColor, 0.5);
   }
 
   .small-card-list-detail-image-wrapper {
-    color: rgba($bodyTextColor, 0.1);
-    background-color: rgba($bodyTextColor, 0.04);
+    color: rgba($lfdFontColor, 0.1);
+    background-color: rgba($lfdFontColor, 0.04);
+  }
+}
+
+.new-small-card-list-container {
+  .small-card-list-detail-wrapper.open {
+    background-color: $lfdDetailBackgroundColor;
   }
 }
 
 .small-card-detail-overlay {
   .small-card-detail-overlay-wrapper {
     .small-card-detail-overlay-panel {
-      background-color: $bodyBackground;
+      background-color: $lfdDetailBackgroundColor;
 
       .small-card-detail-wrapper {
         .small-card-list-detail-content-wrapper {
-          background-color: $bodyBackground;
+          background-color: $lfdDetailBackgroundColor;
+          color: $lfdDetailFontColor;
 
           .small-card-list-name,
           .small-card-list-role,
           .small-card-list-location,
           .small-card-list-detail-role,
           .small-card-list-detail-location {
-            color: $bodyTextColor;
+            color: $lfdDetailFontColor;
           }
 
           .small-card-list-detail-name {
-            color: $bodyTextColor;
+            color: $lfdDetailFontColor;
 
             &:after {
               background-color: $primaryButtonColor;
@@ -94,33 +106,33 @@
           }
 
           .small-card-list-detail-button a {
-            color: $bodyTextColor;
+            color: $lfdDetailFontColor;
 
             &:hover,
             &:focus,
             &:active,
             &:active:hover,
             &:active:focus {
-              color: $bodyTextColor;
+              color: $lfdDetailFontColor;
             }
           }
 
           .small-card-detail-overlay-close {
-            background-color: rgba($bodyBackground, 0.5);
-            color: $bodyTextColor;
+            background-color: rgba($lfdDetailBackgroundColor, 0.5);
+            color: $lfdDetailFontColor;
           }
         }
 
         .small-card-list-detail-image-wrapper {
-          color: rgba($bodyTextColor, 0.1);
-          background-color: rgba($bodyTextColor, 0.04);
+          color: rgba($lfdDetailFontColor, 0.1);
+          background-color: rgba($lfdDetailFontColor, 0.04);
         }
       }
     }
 
     .small-card-detail-overlay-close {
-      background-color: rgba($bodyBackground, 0.5);
-      color: $bodyTextColor;
+      background-color: rgba($lfdDetailBackgroundColor, 0.5);
+      color: $lfdDetailFontColor;
     }
   }
 }
@@ -129,21 +141,21 @@
 .simple-list-search-filter-overlay {
   .news-feed-overlay-wrapper,
   .simple-list-overlay-wrapper {
-    background-color: $bodyTextColor;
-    color: $bodyBackground;
+    background-color: $lfdOverlayBackgroundColor;
+    color: $lfdOverlayFontColor;
   }
 
   .news-feed-overlay-header,
   .simple-list-overlay-header {
-    background-color: $bodyTextColor;
+    background-color: $lfdOverlayBackgroundColor;
   }
 
   .hidden-filter-controls-filter {
-    border-color: rgba($bodyBackground, 0.8);
+    border-color: rgba($lfdOverlayFontColor, 0.8);
 
     &:hover,
     &:focus {
-      color: rgba($bodyBackground, 0.7);
+      color: rgba($lfdOverlayFontColor, 0.7);
     }
   }
 }
@@ -155,12 +167,12 @@
 .simple-list-container {
   .filter-holder {
     .panel-default > .panel-heading {
-      color: $bodyBackground;
-      background-color: $bodyTextColor;
-      border-bottom: 1px solid rgba($bodyBackground, 0.2);
+      color: $lfdOverlayFontColor;
+      background-color: $lfdOverlayBackgroundColor;
+      border-bottom: 1px solid rgba($lfdOverlayFontColor, 0.2);
     }
     .panel-group .panel {
-      background-color: lighten($bodyTextColor, 10%);
+      background-color: lighten($lfdOverlayBackgroundColor, 10%);
     }
   }
 
@@ -177,6 +189,8 @@
     }
     .btn.search-btn {
       border: none;
+      background-color: rgba($bodyTextColor, 0.1);
+      color: $bodyTextColor;
 
       &:hover,
       &:active,
@@ -219,10 +233,11 @@
 .news-feed-list-container {
   .slide-over {
     .news-feed-item-inner-content {
-      background-color: $bodyBackground;
+      background-color: $lfdBackgroundColor;
+      color: $lfdFontColor;
 
       h2.news-feed-item-title {
-        color: $headingTwoColor;
+        color: $lfdFontColor;
 
         &:after {
           background-color: $primaryButtonColor;
@@ -233,21 +248,21 @@
 
   .news-feed-list-item {
     .news-feed-item-close-btn {
-      background-color: rgba($bodyBackground, 0.5);
-      color: $bodyTextColor;
+      background-color: rgba($lfdBackgroundColor, 0.5);
+      color: $lfdFontColor;
     }
 
     &.open{
       .news-feed-item-content {
-        background-color: $bodyBackground;
+        background-color: $lfdBackgroundColor;
       }
     } 
   }
 
   .news-feed-item-content {
     .slide-under {
-      color: rgba($bodyTextColor, 0.1);
-      background-color: rgba($bodyTextColor, 0.04);
+      color: rgba($lfdFontColor, 0.1);
+      background-color: rgba($lfdFontColor, 0.04);
     }
   }
 }
@@ -255,14 +270,15 @@
 .news-feed-detail-overlay {
   .news-feed-detail-overlay-wrapper {
     .news-feed-detail-overlay-panel {
-      background-color: $bodyBackground;
+      background-color: $lfdDetailBackgroundColor;
     }
 
     .news-feed-item-inner-content {
-      background-color: $bodyBackground;
+      background-color: $lfdDetailBackgroundColor;
+      color: $lfdDetailFontColor;
 
       h2.news-feed-item-title {
-        color: $headingTwoColor;
+        color: $lfdDetailFontColor;
 
         &:after {
           background-color: $primaryButtonColor;
@@ -271,118 +287,123 @@
     }
 
     .news-feed-list-detail-image-wrapper {
-      color: rgba($bodyTextColor, 0.1);
-      background-color: rgba($bodyTextColor, 0.04);
+      color: rgba($lfdDetailFontColor, 0.1);
+      background-color: rgba($lfdDetailFontColor, 0.04);
     }
 
     .news-feed-detail-overlay-close {
-      background-color: rgba($bodyBackground, 0.5);
-      color: $bodyTextColor;
+      background-color: rgba($lfdDetailBackgroundColor, 0.5);
+      color: $lfdDetailFontColor;
     }
   }
 }
 
 /* COMMENTS */
 .news-feed-comment-panel,
-.new-news-feed-comment-panel {
-  background: $bodyBackground;
+.new-news-feed-comment-panel,
+.simple-list-comment-panel {
+  background: $lfdCommentsBackgroundColor;
 
   .loading-holder {
-    color: rgba($bodyTextColor, 0.4);
+    color: rgba($lfdCommentsFontColor, 0.4);
   }
 
   .comments-offline {
-    background-color: rgba($bodyTextColor, 0.4);
-    color: $bodyTextColor;
+    background-color: rgba($lfdCommentsFontColor, 0.4);
+    color: $lfdCommentsFontColor;
   }
-}
 
-.news-feed-comment-panel-header {
-  background-color: $bodyBackground;
-}
+  .news-feed-comment-panel-header,
+  .simple-list-comment-panel-header {
+    background-color: $lfdCommentsBackgroundColor;
+    color: $lfdCommentsFontColor;
+  }
 
-.news-feed-comment-input-holder {
-  background: $bodyBackground;
-  border-color: rgba($bodyTextColor, 0.1);
+  .news-feed-comment-input-holder,
+  .simple-list-comment-input-holder {
+    background: $lfdCommentsBackgroundColor;
+    border-color: rgba($lfdCommentsFontColor, 0.1);
 
-  .cancel {
-    color: rgba($bodyTextColor, 0.7);
+    .cancel {
+      color: rgba($lfdCommentsFontColor, 0.7);
 
-    &:hover,
-    &:focus,
-    &:active:hover,
-    &:active:focus {
-      color: rgba($bodyTextColor, 0.7);
+      &:hover,
+      &:focus,
+      &:active:hover,
+      &:active:focus {
+        color: rgba($lfdCommentsFontColor, 0.7);
+      }
     }
-  }
 
-  .btn.comment,
-  .btn.save {
-    border-color: rgba($bodyTextColor, 0.3);
-    color: rgba($bodyTextColor,0.3);
-  }
-
-  &.ready {
     .btn.comment,
     .btn.save {
-      border-color: $primaryButtonColor;
-      background-color: $primaryButtonColor;
-      color: $primaryButtonTextColor;
+      border-color: rgba($lfdCommentsFontColor, 0.3);
+      color: rgba($lfdCommentsFontColor,0.3);
+    }
+
+    &.ready {
+      .btn.comment,
+      .btn.save {
+        border-color: $primaryButtonColor;
+        background-color: $primaryButtonColor;
+        color: $primaryButtonTextColor;
+      }
     }
   }
-}
 
-.top-comment-holder {
-  background-color: $bodyBackground;
-}
+  .top-comment-holder {
+    background-color: $lfdCommentsBackgroundColor;
+  }
 
-.fl-individual-comment.editing .top-comment-holder {
-  background-color: rgba($bodyTextColor, 0.08);
-}
+  .fl-individual-comment.editing .top-comment-holder {
+    background-color: rgba($lfdCommentsFontColor, 0.08);
+  }
 
-.fl-comment-thumb {
-  background-color: rgba($bodyTextColor, 0.04);
-}
+  .fl-comment-thumb {
+    background-color: rgba($lfdCommentsFontColor, 0.04);
+  }
 
-textarea[data-comment-body] {
-  background-color: transparent;
-  color: $bodyTextColor;
+  textarea[data-comment-body] {
+    background-color: transparent;
+    color: $lfdCommentsFontColor;
 
-  ~ .typeahead.dropdown-menu {
-    border-color: rgba($bodyTextColor,0.1);
+    ~ .typeahead.dropdown-menu {
+      border-color: rgba($lfdCommentsFontColor,0.1);
 
-    > .active > a {
-      background-color: $primaryButtonColor;
-      color: $primaryButtonTextColor;
+      > .active > a {
+        background-color: $primaryButtonColor;
+        color: $primaryButtonTextColor;
+      }
     }
   }
-}
 
-.active .mention_username{
-  color: $primaryButtonTextColor;
+  .active .mention_username{
+    color: $primaryButtonTextColor;
+  }
 }
 
 /* AGENDA */
 .agenda-detail-overlay {
   .agenda-detail-overlay-panel {
-    background-color: $bodyBackground;
+    background-color: $lfdDetailBackgroundColor;
+    color: $lfdDetailFontColor;
 
     .agenda-detail-overlay-close {
-      background-color: rgba($bodyBackground, 0.5);
-      color: $bodyTextColor;
+      background-color: rgba($lfdDetailBackgroundColor, 0.5);
+      color: $lfdDetailFontColor;
     }
 
     .agenda-item-content-holder {
       .agenda-item-time {
-        color: $bodyTextColor;
+        color: $lfdDetailFontColor;
       }
 
       .agenda-item-session-location {
-        color: $bodyTextColor;
+        color: $lfdDetailFontColor;
       }
 
       h2.agenda-item-title {
-        color: $headingTwoColor;
+        color: $lfdDetailFontColor;
 
         &:after {
           background-color: $primaryButtonColor;
@@ -391,20 +412,20 @@ textarea[data-comment-body] {
 
       .agenda-item-bookmark-holder {
         .fa-bookmark-o {
-          color: rgba($bodyTextColor, 0.2);
+          color: rgba($lfdDetailFontColor, 0.2);
 
           &:after {
-            color: rgba($bodyTextColor, 0.5);
+            color: rgba($lfdDetailFontColor, 0.5);
           }
         }
       }
 
       .bookmark-wrapper {
         .fa-bookmark-o {
-          color: rgba($bodyTextColor, 0.2);
+          color: rgba($lfdDetailFontColor, 0.2);
 
           &:after {
-            color: rgba($bodyTextColor, 0.5);
+            color: rgba($lfdDetailFontColor, 0.5);
           }
         }
       }
@@ -414,21 +435,21 @@ textarea[data-comment-body] {
 
 .new-agenda-list-container {
   .agenda-date-selector {
-    background-color: rgba($bodyBackground, 0.85);
+    background-color: $lfdAgendaDatesBackgroundColor;
 
     ul {
       li {
-        color: rgba($bodyTextColor, 0.5);
+        color: rgba($lfdAgendaDatesFontColor, 0.5);
 
         .day {
-          color: rgba($bodyTextColor, 0.7);
+          color: rgba($lfdAgendaDatesFontColor, 0.7);
         }
 
         &.placeholder {
-          color: rgba($bodyTextColor, 0.1);
+          color: rgba($lfdAgendaDatesFontColor, 0.1);
 
           .day {
-            color: rgba($bodyTextColor, 0.1);
+            color: rgba($lfdAgendaDatesFontColor, 0.1);
           }
         }
         &.active {
@@ -445,18 +466,18 @@ textarea[data-comment-body] {
   .agenda-list-item {
     .slide-over {
       .agenda-item-inner-content {
-        background-color: $bodyBackground;
+        background-color: $lfdBackgroundColor;
 
         .agenda-item-time {
-          color: $bodyTextColor;
+          color: $lfdFontColor;
         }
 
         .agenda-item-session-location {
-          color: $bodyTextColor;
+          color: $lfdFontColor;
         }
 
         h2.agenda-item-title {
-          color: $headingTwoColor;
+          color: $lfdFontColor;
         }
       }
     }
@@ -475,19 +496,19 @@ textarea[data-comment-body] {
   }
 
   .agenda-item-bookmark-holder {
-    color: $bodyTextColor;
+    color: $lfdFontColor;
 
     .fa-bookmark-o {
-      color: rgba($bodyTextColor, 0.2);
+      color: rgba($lfdFontColor, 0.2);
     }
   }
 
   .bookmark-wrapper {
     .fa-bookmark-o {
-      color: rgba($bodyTextColor, 0.2);
+      color: rgba($lfdFontColor, 0.2);
 
       &:after {
-        color: rgba($bodyTextColor, 0.5);
+        color: rgba($lfdFontColor, 0.5);
       }
     }
 
@@ -498,16 +519,16 @@ textarea[data-comment-body] {
 
   .agenda-list-item-content {
     .slide-over {
-      background-color: $bodyBackground;
+      background-color: $lfdDetailBackgroundColor;
     }
   }
 
   .agenda-list-controls {
-    background-color: $bodyBackground;
+    background-color: $lfdAgendaDatesBackgroundColor;
 
     .toggle-agenda {
       .fa {
-        color: $bodyTextColor;
+        color: $lfdAgendaDatesFontColor;
       }
 
       &.mixitup-control-active {
@@ -518,46 +539,46 @@ textarea[data-comment-body] {
     }
 
     .agenda-list-label {
-      color: $bodyTextColor;
+      color: $lfdAgendaDatesFontColor;
     }
   }
 
   .agenda-list-item {
     .agenda-item-close-btn {
-      background-color: rgba($bodyBackground, 0.5);
-      color: $bodyTextColor;
+      background-color: rgba($lfdDetailBackgroundColor, 0.5);
+      color: $lfdDetailFontColor;
     }
   }
 
   .agenda-state-messages {
     .loading-holder,
     .offline-holder {
-      color: $bodyTextColor;
+      color: $lfdDetailFontColor;
     }
   }
 
   .agenda-list-card-holder.empty + .agenda-item-empty-state {
-    color: $bodyTextColor;
+    color: $lfdDetailFontColor;
   }
 }
 
 /* Old Agenda */
 .agenda-date-selector {
-  background-color: rgba($bodyBackground, 0.85);
+  background-color: $lfdAgendaDatesBackgroundColor;
 
   ul {
     li {
-      color: rgba($bodyTextColor, 0.5);
+      color: rgba($lfdAgendaDatesFontColor, 0.5);
 
       .day {
-        color: rgba($bodyTextColor, 0.7);
+        color: rgba($lfdAgendaDatesFontColor, 0.7);
       }
 
       &.placeholder {
-        color: rgba($bodyTextColor, 0.1);
+        color: rgba($lfdAgendaDatesFontColor, 0.1);
 
         .day {
-          color: rgba($bodyTextColor, 0.1);
+          color: rgba($lfdAgendaDatesFontColor, 0.1);
         }
       }
       &.active {
@@ -574,18 +595,18 @@ textarea[data-comment-body] {
 .agenda-list-item {
   .slide-over {
     .agenda-item-inner-content {
-      background-color: $bodyBackground;
+      background-color: $lfdBackgroundColor;
 
       .agenda-item-time {
-        color: $bodyTextColor;
+        color: $lfdFontColor;
       }
 
       .agenda-item-session-location {
-        color: $bodyTextColor;
+        color: $lfdFontColor;
       }
 
       h2.agenda-item-title {
-        color: $headingTwoColor;
+        color: $lfdFontColor;
       }
     }
   }
@@ -604,19 +625,19 @@ textarea[data-comment-body] {
 }
 
 .agenda-item-bookmark-holder {
-  color: $bodyTextColor;
+  color: $lfdFontColor;
 
   .fa-bookmark-o {
-    color: rgba($bodyTextColor, 0.2);
+    color: rgba($lfdFontColor, 0.2);
   }
 }
 
 .bookmark-wrapper {
   .fa-bookmark-o {
-    color: rgba($bodyTextColor, 0.2);
+    color: rgba($lfdFontColor, 0.2);
 
     &:after {
-      color: rgba($bodyTextColor, 0.5);
+      color: rgba($lfdFontColor, 0.5);
     }
   }
 
@@ -627,61 +648,61 @@ textarea[data-comment-body] {
 
 .agenda-list-item-content {
   .slide-over {
-    background-color: $bodyBackground;
+    background-color: $lfdBackgroundColor;
   }
 }
 
 .agenda-list-controls {
-  background-color: $bodyBackground;
+  background-color: $lfdAgendaDatesBackgroundColor;
 
   .toggle-agenda {
     .fa {
-      color: $bodyTextColor;
+      color: $lfdAgendaDatesFontColor;
     }
 
     &.mixitup-control-active {
       .fa {
-        color: $primaryButtonColor;
+        color: $lfdAgendaDatesFontColor;
       }
     }
   }
 
   .agenda-list-label {
-    color: $bodyTextColor;
+    color: $lfdDetailFontColor;
   }
 }
 
 .agenda-list-item {
   .agenda-item-close-btn {
-    background-color: rgba($bodyBackground, 0.5);
-    color: $bodyTextColor;
+    background-color: rgba($lfdDetailBackgroundColor, 0.5);
+    color: $lfdDetailFontColor;
   }
 }
 
 .agenda-state-messages {
   .loading-holder,
   .offline-holder {
-    color: $bodyTextColor;
+    color: $lfdFontColor;
   }
 }
 
 .agenda-list-card-holder.empty + .agenda-item-empty-state {
-  color: $bodyTextColor;
+  color: $lfdFontColor;
 }
 
 /* SMALL HORIZONTAL CARDS */
 .new-small-h-card-list-container,
 .small-h-card-list-container {
   .loading-data {
-    color: $bodyTextColor;
+    color: $lfdFontColor;
   }
 
   .small-h-card-list-detail-content-wrapper {
-    background-color: $bodyBackground;
+    background-color: $lfdBackgroundColor;
   }
 
   .small-h-card-list-detail-name {
-    color: $bodyTextColor;
+    color: $lfdFontColor;
 
     &:after {
       background-color: $primaryButtonColor;
@@ -690,57 +711,64 @@ textarea[data-comment-body] {
 
   .small-h-card-list-detail-role,
   .small-h-card-list-detail-location {
-    color: $bodyTextColor;
+    color: $lfdFontColor;
   }
 
   .small-h-card-list-detail-button {
     a {
-      color: $bodyTextColor;
+      color: $lfdFontColor;
 
       &:hover,
       &:focus,
       &:active,
       &:active:hover,
       &:active:focus {
-        color: $bodyTextColor;
+        color: $lfdFontColor;
       }
     }
   }
 
   .small-h-card-list-detail-wrapper {
-    background-color: $bodyBackground;
+    background-color: $lfdBackgroundColor;
   }
 
   .small-h-card-list-detail-image-wrapper {
     color: rgba($bodyTextColor, 0.1);
-    background-color: rgba($bodyTextColor, 0.04);
+    background-color: rgba($lfdFontColor, 0.04);
   }
 
   .small-h-card-list-detail-close-btn {
-    background-color: rgba($bodyBackground, 0.5);
-    color: $bodyTextColor;
+    background-color: rgba($lfdBackgroundColor, 0.5);
+    color: $lfdFontColor;
+  }
+}
+
+.new-small-h-card-list-container {
+  .small-h-card-list-detail-wrapper.open {
+    background-color: $lfdDetailBackgroundColor;
   }
 }
 
 .small-h-card-detail-overlay {
   .small-h-card-detail-overlay-wrapper {
     .small-h-card-detail-overlay-panel {
-      background-color: $bodyBackground;
+      background-color: $lfdDetailBackgroundColor;
+      color: $lfdDetailFontColor;
 
       .small-h-card-detail-wrapper {
         .small-h-card-list-detail-content-wrapper {
-          background-color: $bodyBackground;
+          background-color: $lfdDetailBackgroundColor;
 
           .small-h-card-list-name,
           .small-h-card-list-role,
           .small-h-card-list-location,
           .small-h-card-list-detail-role,
           .small-h-card-list-detail-location {
-            color: $bodyTextColor;
+            color: $lfdDetailFontColor;
           }
 
           .small-h-card-list-detail-name {
-            color: $bodyTextColor;
+            color: $lfdDetailFontColor;
 
             &:after {
               background-color: $primaryButtonColor;
@@ -748,33 +776,33 @@ textarea[data-comment-body] {
           }
 
           .small-h-card-list-detail-button a {
-            color: $bodyTextColor;
+            color: $lfdDetailFontColor;
 
             &:hover,
             &:focus,
             &:active,
             &:active:hover,
             &:active:focus {
-              color: $bodyTextColor;
+              color: $lfdDetailFontColor;
             }
           }
 
           .small-h-card-detail-overlay-close {
-            background-color: rgba($bodyBackground, 0.5);
-            color: $bodyTextColor;
+            background-color: rgba($lfdDetailBackgroundColor, 0.5);
+            color: $lfdDetailFontColor;
           }
         }
 
         .small-h-card-list-detail-image-wrapper {
-          color: rgba($bodyTextColor, 0.1);
-          background-color: rgba($bodyTextColor, 0.04);
+          color: rgba($lfdDetailFontColor, 0.1);
+          background-color: rgba($lfdDetailFontColor, 0.04);
         }
       }
     }
 
     .small-h-card-detail-overlay-close {
-      background-color: rgba($bodyBackground, 0.5);
-      color: $bodyTextColor;
+      background-color: rgba($lfdDetailBackgroundColor, 0.5);
+      color: $lfdDetailFontColor;
     }
   }
 }
@@ -785,18 +813,18 @@ textarea[data-comment-body] {
 }
 
 .btn.dynamic-list-edit-item {
-  border: 1px solid rgba($bodyTextColor, 0.3);
-  background-color: $bodyBackground;
-  color: rgba($bodyTextColor, 0.5);
+  border: 1px solid rgba($lfdDetailFontColor, 0.3);
+  background-color: $lfdDetailBackgroundColor;
+  color: rgba($lfdDetailFontColor, 0.5);
   border-radius: 40px;
 }
 
 .btn.dynamic-list-edit-item:hover,
 .btn.dynamic-list-edit-item:active,
 .btn.dynamic-list-edit-item:active:focus {
-  border: 1px solid rgba($bodyTextColor, 0.3);
-  background-color: rgba($bodyTextColor, 0.1);
-  color: $bodyTextColor;
+  border: 1px solid rgba($lfdDetailFontColor, 0.3);
+  background-color: rgba($lfdDetailFontColor, 0.1);
+  color: $lfdDetailFontColor;
 }
 
 .news-feed-bookmark-holder {
@@ -806,21 +834,24 @@ textarea[data-comment-body] {
 }
 
 .simple-list-container {
+  color: $lfdFontColor;
+
   .list-item-arrow {
-    color: $listChevronColor;
+    color: $lfdChevronColor;
   }
 
   .simple-list-item {
-    border-bottom: $listSeparatorColor;
+    border-bottom: $lfdSeparatorColor;
   }
 
   .simple-list-item .list-item-description,
   .simple-list-item .list-item-subtitle {
-    color: $bodyTextColor;
+    color: $lfdFontColor;
   }
 }
 
 .simple-list-detail-overlay-panel .simple-list-detail-overlay-heading,
 .simple-list-detail-overlay .simple-list-detail-overlay-panel {
-  background-color: $bodyBackground;
+  background-color: $lfdDetailBackgroundColor;
+  color: $lfdDetailFontColor;
 }
