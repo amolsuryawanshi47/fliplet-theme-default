@@ -1,4 +1,4 @@
-# Fliplet Default Theme
+# Fliplet Default Theme (Bootstrap)
 
 To develop themes, please follow our [theme development guide](https://github.com/Fliplet/fliplet-cli).
 
