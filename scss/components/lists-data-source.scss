@@ -165,6 +165,17 @@
 .new-news-feed-list-container,
 .news-feed-list-container,
 .simple-list-container {
+  .news-feed-search-filter-overlay,
+  .small-card-search-filter-overlay,
+  .simple-list-search-filter-overlay {
+    .apply-filters,
+    .hidden-filter-controls-filter.mixitup-control-active {
+      background-color: $primaryButtonColor;
+      color: $primaryButtonTextColor;
+      border-color: $primaryButtonColor;
+    }
+  } 
+
   .filter-holder {
     .panel-default > .panel-heading {
       color: $lfdOverlayFontColor;
@@ -173,6 +184,10 @@
     }
     .panel-group .panel {
       background-color: lighten($lfdOverlayBackgroundColor, 10%);
+
+      .panel-body {
+        background-color: transparent;
+      }
     }
   }
 
