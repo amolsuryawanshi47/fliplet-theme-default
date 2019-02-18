@@ -82,9 +82,8 @@
     background-color: rgba($chatTextColor, 0.1);
   }
 
-  .fa {
-    color: rgba($chatTextColor, 0.15);
-    background-color: transparent;
+  &.contact-selected .profile-image-holder .fa {
+    color: rgba($chatOwnBubbleTextColor, 0.15);
   }
 }
 
@@ -96,6 +95,18 @@
       background-color: rgba($chatTextColor, 0.15);
     }
   }
+}
+
+.tab-group .tab > .control-label {
+  border: 1px solid rgba($chatTextColor, 0.3);
+  color: rgba($chatTextColor, 0.3);
+}
+
+.tab-group .tab input:checked + .control-label,
+.tab-group .tab.active .control-label{
+  border-color: $chatOwnBubbleBackground;
+  background: $chatOwnBubbleBackground;
+  color: $chatOwnBubbleTextColor;
 }
 
 .contact-card {
@@ -118,14 +129,9 @@
   }
 }
 
-.chat-card-holder .show-more {
-  background-color: $chatBackgroundColor;
-  color: $chatTextColor;
-}
-
-.chat-card-holder .show-more:hover {
-  background-color: rgba($chatTextColor, 0.1);
-  color: $chatTextColor;
+.chat-card-holder .icon:hover,
+.contact-card .icon:hover {
+  background-color: rgba($chatTextColor, 0.2);
 }
 
 .chat-controls .start-new,
@@ -271,8 +277,6 @@
 }
 
 .section-label-wrapper {
-  background-color: $chatBackgroundColor;
-
   .search-holder .fa {
     color: $chatOwnBubbleBackground;
   }
@@ -280,6 +284,7 @@
   .search-holder .form-control {
     background-color: $chatBackgroundColor;
     color: $chatTextColor;
+    border: 1px solid rgba($chatTextColor, 0.3);
 
     &:focus {
       border: 1px solid $chatOwnBubbleBackground;
@@ -290,10 +295,6 @@
 .input-first-row textarea {
   background-color: $chatBackgroundColor;
   color: $chatTextColor;
-}
-
-.show-selected-users {
-  background-color: $chatBackgroundColor;
 }
 
 .all-users-holder .seperator,
