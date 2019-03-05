@@ -11,48 +11,149 @@
     "configuration": [
       {
         "name": "Quick settings",
+        "id": "quickSettings",
+        "inheritSettings": true,
         "quickSettings": true,
         "variables": [
           {
-            "name": "bodyBackground",
             "description": "Background color",
-            "type": "color",
-            "default": "#ffffff"
+            "fields": [
+              {
+                "name": "bodyBackground",
+                "default": "#ffffff",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "bodyBackgroundTablet",
+                    "default": "#ffffff"
+                  },
+                  "desktop": {
+                    "name": "bodyBackgroundDesktop",
+                    "default": "#ffffff"
+                  }
+                },
+                "type": "color"
+              }
+            ]
           },
           {
-            "name": "headingTextColor",
             "description": "Headings color",
-            "type": "color",
-            "default": "#333333"
+            "fields": [
+              {
+                "name": "headingTextColor",
+                "default": "#333333",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "headingTextColorTablet",
+                    "default": "#333333"
+                  },
+                  "desktop": {
+                    "name": "headingTextColorDesktop",
+                    "default": "#333333"
+                  }
+                },
+                "type": "color"
+              }
+            ]
           },
-            "name": "bodyTextColor",
+          {
             "description": "Body text color",
-            "type": "color",
-            "default": "#666666"
+            "fields": [
+              {
+                "name": "bodyTextColor",
+                "default": "#666666",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "bodyTextColorTablet",
+                    "default": "#666666"
+                  },
+                  "desktop": {
+                    "name": "bodyTextColorDesktop",
+                    "default": "#666666"
+                  }
+                },
+                "type": "color"
+              }
+            ]
           },
           {
-            "name": "highlightColor",
             "description": "Highlight color",
-            "type": "color",
-            "default": "#00abd1"
+            "fields": [
+              {
+                "name": "highlightColor",
+                "default": "#00abd1",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "highlightColorTablet",
+                    "default": "#00abd1"
+                  },
+                  "desktop": {
+                    "name": "highlightColorDesktop",
+                    "default": "#00abd1"
+                  }
+                },
+                "type": "color"
+              }
+            ]
           },
           {
-            "name": "secondaryColor",
             "description": "Secondary color",
-            "type": "color",
-            "default": "#ed9119"
+            "fields": [
+              {
+                "name": "secondaryColor",
+                "default": "#ed9119",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "secondaryColorTablet",
+                    "default": "#ed9119"
+                  },
+                  "desktop": {
+                    "name": "secondaryColorDesktop",
+                    "default": "#ed9119"
+                  }
+                },
+                "type": "color"
+              }
+            ]
           },
           {
-            "name": "headingFontFamily",
             "description": "Heading font family",
-            "type": "font",
-            "default": "Helvetica"
+            "fields": [
+              {
+                "name": "headingFontFamily",
+                "default": "Helvetica",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "headingFontFamilyTablet",
+                    "default": "Helvetica"
+                  },
+                  "desktop": {
+                    "name": "headingFontFamilyDesktop",
+                    "default": "Helvetica"
+                  }
+                },
+                "type": "font"
+              }
+            ]
           },
           {
-            "name": "bodyFontFamily",
             "description": "Body text font family",
-            "type": "font",
-            "default": "Helvetica"
+            "fields": [
+              {
+                "name": "bodyFontFamily",
+                "default": "Helvetica",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "bodyFontFamilyTablet",
+                    "default": "Helvetica"
+                  },
+                  "desktop": {
+                    "name": "bodyFontFamilyDesktop",
+                    "default": "Helvetica"
+                  }
+                },
+                "type": "font"
+              }
+            ]
           }
         ]
       },
@@ -60,22 +161,71 @@
         "name": "Body",
         "variables": [
           {
-            "name": "bodyFontSize",
-            "description": "Font size",
-            "type": "text",
-            "default": "16px"
-          },
-          {
-            "name": "bodyLineHeight",
-            "description": "Font line height",
-            "type": "text",
-            "default": "1.5"
-          },
-          {
-            "name": "bodyFontWeight",
-            "description": "Font weight",
-            "type": "text",
-            "default": "normal"
+            "description": "Body font style",
+            "id": "bodyFont",
+            "inheritFromMobile": true,
+            "fields": [
+              {
+                "name": "bodyFontSize",
+                "default": "16px",
+                "property": "px",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "bodyFontSizeTablet",
+                    "default": "16px",
+                    "property": "px"
+                  },
+                  "desktop": {
+                    "name": "bodyFontSizeDesktop",
+                    "default": "16px",
+                    "property": "px"
+                  }
+                },
+                "type": "size",
+                "properties": ["px", "pt", "em", "rem", "%"]
+              },
+              {
+                "name": "bodyFontWeight",
+                "default": "normal",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "bodyFontWeightTablet",
+                    "default": "normal"
+                  },
+                  "desktop": {
+                    "name": "bodyFontWeightDesktop",
+                    "default": "normal"
+                  }
+                },
+                "type": "font-style",
+                "properties": [
+                  "bold",
+                  "lighter",
+                  "italic",
+                  "underline"
+                ]
+              },
+              {
+                "name": "bodyLineHeight",
+                "default": "1.5",
+                "property": "x",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "bodyLineHeightTablet",
+                    "default": "1.5",
+                    "property": "x"
+                  },
+                  "desktop": {
+                    "name": "bodyLineHeightDesktop",
+                    "default": "1.5",
+                    "property": "x"
+                  }
+                },
+                "label": "Line height",
+                "type": "size",
+                "properties": ["x", "px", "pt", "em", "rem", "%"]
+              }
+            ]
           }
         ]
       },
