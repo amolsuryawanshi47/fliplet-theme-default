@@ -1,0 +1,44 @@
+// Body mixin
+@mixin body($options: ()) {
+  $configuration: map-merge((
+    backgroundColor: $bodyBackground,
+    fontColor: $bodyTextColor,
+    fontLineHeight: $bodyLineHeight,
+    fontWeight: $bodyFontWeight,
+    fontFamily: $bodyFontFamily,
+    fontSize: $bodyFontSize,
+  ), $options);
+
+  background: map-get($configuration, backgroundColor);
+  color: map-get($configuration, fontColor);
+  font: map-get($configuration, fontWeight) #{map-get($configuration, fontSize)}/#{map-get($configuration, fontLineHeight)} #{map-get($configuration, fontFamily)}, 'Arial, sans-serif';
+}
+
+body {
+  // Include styles for default mobile viewport
+  @include body();
+
+  // Styles for tablet
+  @include above($tabletBreakpoint) {
+    @include body((
+      backgroundColor: $bodyBackgroundTablet,
+      fontColor: $bodyTextColorTablet,
+      fontLineHeight: $bodyLineHeightTablet,
+      fontWeight: $bodyFontWeightTablet,
+      fontFamily: $bodyFontFamilyTablet,
+      fontSize: $bodyFontSizeTablet
+    ));
+  }
+
+  // Styles for desktop
+  @include above($desktopBreakpoint) {
+    @include body((
+      backgroundColor: $bodyBackgroundDesktop,
+      fontColor: $bodyTextColorDesktop,
+      fontLineHeight: $bodyLineHeightDesktop,
+      fontWeight: $bodyFontWeightDesktop,
+      fontFamily: $bodyFontFamilyDesktop,
+      fontSize: $bodyFontSizeDesktop
+    ));
+  }
+}

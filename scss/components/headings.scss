@@ -1,0 +1,36 @@
+// Headings mixin
+@mixin headings($options: ()) {
+  $configuration: map-merge((
+    headingColor: $headingTextColor,
+    headingFamily: $headingFontFamily
+  ), $options);
+
+  color: map-get($configuration, headingColor);
+  font-family: #{map-get($configuration, headingFamily)}, 'Arial, sans-serif';
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  // Include styles for default mobile viewport
+  @include headings();
+
+  // Styles for tablet
+  @include above($tabletBreakpoint) {
+    @include headings((
+      headingColor: $headingTextColorTablet,
+      headingFamily: $headingFontFamilyTablet
+    ));
+  }
+
+  // Styles for desktop
+  @include above($desktopBreakpoint) {
+    @include headings((
+      headingColor: $headingTextColorDesktop,
+      headingFamily: $headingFontFamilyDesktop
+    ));
+  }
+}
