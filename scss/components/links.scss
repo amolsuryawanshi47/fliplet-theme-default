@@ -1,0 +1,65 @@
+@mixin links($options: ()) {
+  $configuration: map-merge((
+    linkColor: $highlightColor
+  ), $options);
+
+  color: map-get($configuration, linkColor);
+}
+
+a {
+  text-decoration: none;
+
+  @include links();
+
+  // Styles for tablet
+  @include above($tabletBreakpoint) {
+    @include links((
+      linkColor: $highlightColorTablet
+    ));
+  }
+
+  // Styles for desktop
+  @include above($desktopBreakpoint) {
+    @include links((
+      linkColor: $highlightColorDesktop
+    ));
+  }
+
+  &:hover,
+  &:focus,
+  &:active:hover,
+  &:active:focus {
+    color: $linkHoverColor;
+    text-decoration: $linkHoverDecor;
+    outline: none;
+  }
+}
+
+.btn.btn-link {
+  text-decoration: none;
+
+  @include links();
+
+  // Styles for tablet
+  @include above($tabletBreakpoint) {
+    @include links((
+      linkColor: $highlightColorTablet
+    ));
+  }
+
+  // Styles for desktop
+  @include above($desktopBreakpoint) {
+    @include links((
+      linkColor: $highlightColorDesktop
+    ));
+  }
+
+  &:hover,
+  &:focus,
+  &:active:hover,
+  &:active:focus {
+    color: $linkHoverColor;
+    text-decoration: $linkHoverDecor;
+    outline: none;
+  }
+}

@@ -2,11 +2,18 @@
 @mixin headings($options: ()) {
   $configuration: map-merge((
     headingColor: $headingTextColor,
-    headingFamily: $headingFontFamily
+    headingFamily: $headingFontFamily,
+    headingSize: $headingOneSize,
+    headingLineHeight: $headingOneHeight,
+    headingWeight: $headingOneWeight,
+    headingMarginTop: $headingOneMarginTop,
+    headingMarginBottom: $headingOneMarginBottom
   ), $options);
 
   color: map-get($configuration, headingColor);
-  font-family: #{map-get($configuration, headingFamily)}, 'Arial, sans-serif';
+  font: map-get($configuration, headingWeight) #{map-get($configuration, headingSize)}/#{map-get($configuration, headingLineHeight)} #{map-get($configuration, headingFamily)}, 'Arial, sans-serif';
+  margin-top: map-get($configuration, headingMarginTop);
+  margin-bottom: map-get($configuration, headingMarginBottom);
 }
 
 h1,
@@ -31,6 +38,198 @@ h6 {
     @include headings((
       headingColor: $headingTextColorDesktop,
       headingFamily: $headingFontFamilyDesktop
+    ));
+  }
+}
+
+h1 {
+  // Include styles for default mobile viewport
+  @include headings();
+
+  // Styles for tablet
+  @include above($tabletBreakpoint) {
+    @include headings((
+      headingSize: $headingOneSizeTablet,
+      headingLineHeight: $headingOneHeightTablet,
+      headingWeight: $headingOneWeightTablet,
+      headingMarginTop: $headingOneMarginTopTablet,
+      headingMarginBottom: $headingOneMarginBottomTablet
+    ));
+  }
+
+  // Styles for desktop
+  @include above($desktopBreakpoint) {
+    @include headings((
+      headingSize: $headingOneSizeDesktop,
+      headingLineHeight: $headingOneHeightDesktop,
+      headingWeight: $headingOneWeightDesktop,
+      headingMarginTop: $headingOneMarginTopDesktop,
+      headingMarginBottom: $headingOneMarginBottomDesktop
+    ));
+  }
+}
+
+h2 {
+  // Include styles for default mobile viewport
+  @include headings((
+    headingSize: $headingTwoSize,
+    headingLineHeight: $headingTwoHeight,
+    headingWeight: $headingTwoWeight,
+    headingMarginTop: $headingTwoMarginTop,
+    headingMarginBottom: $headingTwoMarginBottom
+  ));
+
+  // Styles for tablet
+  @include above($tabletBreakpoint) {
+    @include headings((
+      headingSize: $headingTwoSizeTablet,
+      headingLineHeight: $headingTwoHeightTablet,
+      headingWeight: $headingTwoWeightTablet,
+      headingMarginTop: $headingTwoMarginTopTablet,
+      headingMarginBottom: $headingTwoMarginBottomTablet
+    ));
+  }
+
+  // Styles for desktop
+  @include above($desktopBreakpoint) {
+    @include headings((
+      headingSize: $headingTwoSizeDesktop,
+      headingLineHeight: $headingTwoHeightDesktop,
+      headingWeight: $headingTwoWeightDesktop,
+      headingMarginTop: $headingTwoMarginTopDesktop,
+      headingMarginBottom: $headingTwoMarginBottomDesktop
+    ));
+  }
+}
+
+h3 {
+  // Include styles for default mobile viewport
+  @include headings((
+    headingSize: $headingThreeSize,
+    headingLineHeight: $headingThreeHeight,
+    headingWeight: $headingThreeWeight,
+    headingMarginTop: $headingThreeMarginTop,
+    headingMarginBottom: $headingThreeMarginBottom
+  ));
+
+  // Styles for tablet
+  @include above($tabletBreakpoint) {
+    @include headings((
+      headingSize: $headingThreeSizeTablet,
+      headingLineHeight: $headingThreeHeightTablet,
+      headingWeight: $headingThreeWeightTablet,
+      headingMarginTop: $headingThreeMarginTopTablet,
+      headingMarginBottom: $headingThreeMarginBottomTablet
+    ));
+  }
+
+  // Styles for desktop
+  @include above($desktopBreakpoint) {
+    @include headings((
+      headingSize: $headingThreeSizeDesktop,
+      headingLineHeight: $headingThreeHeightDesktop,
+      headingWeight: $headingThreeWeightDesktop,
+      headingMarginTop: $headingThreeMarginTopDesktop,
+      headingMarginBottom: $headingThreeMarginBottomDesktop
+    ));
+  }
+}
+
+h4 {
+  // Include styles for default mobile viewport
+  @include headings((
+    headingSize: $headingFourSize,
+    headingLineHeight: $headingFourHeight,
+    headingWeight: $headingFourWeight,
+    headingMarginTop: $headingFourMarginTop,
+    headingMarginBottom: $headingFourMarginBottom
+  ));
+
+  // Styles for tablet
+  @include above($tabletBreakpoint) {
+    @include headings((
+      headingSize: $headingFourSizeTablet,
+      headingLineHeight: $headingFourHeightTablet,
+      headingWeight: $headingFourWeightTablet,
+      headingMarginTop: $headingFourMarginTopTablet,
+      headingMarginBottom: $headingFourMarginBottomTablet
+    ));
+  }
+
+  // Styles for desktop
+  @include above($desktopBreakpoint) {
+    @include headings((
+      headingSize: $headingFourSizeDesktop,
+      headingLineHeight: $headingFourHeightDesktop,
+      headingWeight: $headingFourWeightDesktop,
+      headingMarginTop: $headingFourMarginTopDesktop,
+      headingMarginBottom: $headingFourMarginBottomDesktop
+    ));
+  }
+}
+
+h5 {
+  // Include styles for default mobile viewport
+  @include headings((
+    headingSize: $headingFiveSize,
+    headingLineHeight: $headingFiveHeight,
+    headingWeight: $headingFiveWeight,
+    headingMarginTop: $headingFiveMarginTop,
+    headingMarginBottom: $headingFiveMarginBottom
+  ));
+
+  // Styles for tablet
+  @include above($tabletBreakpoint) {
+    @include headings((
+      headingSize: $headingFiveSizeTablet,
+      headingLineHeight: $headingFiveHeightTablet,
+      headingWeight: $headingFiveWeightTablet,
+      headingMarginTop: $headingFiveMarginTopTablet,
+      headingMarginBottom: $headingFiveMarginBottomTablet
+    ));
+  }
+
+  // Styles for desktop
+  @include above($desktopBreakpoint) {
+    @include headings((
+      headingSize: $headingFiveSizeDesktop,
+      headingLineHeight: $headingFiveHeightDesktop,
+      headingWeight: $headingFiveWeightDesktop,
+      headingMarginTop: $headingFiveMarginTopDesktop,
+      headingMarginBottom: $headingFiveMarginBottomDesktop
+    ));
+  }
+}
+
+h6 {
+  // Include styles for default mobile viewport
+  @include headings((
+    headingSize: $headingSixSize,
+    headingLineHeight: $headingSixHeight,
+    headingWeight: $headingSixWeight,
+    headingMarginTop: $headingSixMarginTop,
+    headingMarginBottom: $headingSixMarginBottom
+  ));
+
+  // Styles for tablet
+  @include above($tabletBreakpoint) {
+    @include headings((
+      headingSize: $headingSixSizeTablet,
+      headingLineHeight: $headingSixHeightTablet,
+      headingWeight: $headingSixWeightTablet,
+      headingMarginTop: $headingSixMarginTopTablet,
+      headingMarginBottom: $headingSixMarginBottomTablet
+    ));
+  }
+
+  // Styles for desktop
+  @include above($desktopBreakpoint) {
+    @include headings((
+      headingSize: $headingSixSizeDesktop,
+      headingLineHeight: $headingSixHeightDesktop,
+      headingWeight: $headingSixWeightDesktop,
+      headingMarginTop: $headingSixMarginTopDesktop,
+      headingMarginBottom: $headingSixMarginBottomDesktop
     ));
   }
 }
