@@ -7,6 +7,22 @@
 ******************************/
 
 /* 01 - BUTTONS */
+@mixin headings($options: ()) {
+  $configuration: map-merge((
+    headingColor: $headingOneColor,
+    headingFamily: $headingOneFontFamily,
+    headingSize: $headingOneSize,
+    headingLineHeight: $headingOneHeight,
+    headingWeight: $headingOneWeight,
+    headingMarginTop: $headingOneMarginTop,
+    headingMarginBottom: $headingOneMarginBottom
+  ), $options);
+
+  color: map-get($configuration, headingColor);
+  font: map-get($configuration, headingWeight) #{map-get($configuration, headingSize)}/#{map-get($configuration, headingLineHeight)} #{map-get($configuration, headingFamily)}, 'Arial, sans-serif';
+  margin-top: map-get($configuration, headingMarginTop);
+  margin-bottom: map-get($configuration, headingMarginBottom);
+}
 
 .btn-primary {
   background-color: $primaryButtonColor;

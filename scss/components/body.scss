@@ -1,15 +1,34 @@
 // Body mixin
 @mixin body($options: ()) {
   $configuration: map-merge((
-    backgroundColor: $bodyBackground,
+    backgroundImage: $bodyBackgroundImage,
+    backgroundColor: $bodyBackgroundColor,
     fontColor: $bodyTextColor,
     fontLineHeight: $bodyLineHeight,
     fontWeight: $bodyFontWeight,
     fontFamily: $bodyFontFam,
     fontSize: $bodyFontSize,
+    backgroundType: $bodyBackgroundType,
+    backgroundSize: $bodyBackgroundSize,
+    backgroundRepeat: $bodyBackgroundRepeat,
+    backgroundPosX: $bodyBackgroundPosX,
+    backgroundPosY: $bodyBackgroundPosY,
   ), $options);
 
-  background: map-get($configuration, backgroundColor);
+  @if map-get($configuration, backgroundType) == 'Image' {
+    @if map-get($configuration, backgroundImage) == 'none' {
+      background-image: map-get($configuration, backgroundImage)
+    } @else {
+      background-image: url(#{map-get($configuration, backgroundImage)});
+    }
+  } @else {
+    background-image: none;
+  }
+
+  background-color: map-get($configuration, backgroundColor);
+  background-size: map-get($configuration, backgroundSize);
+  background-repeat: map-get($configuration, backgroundRepeat);
+  background-position: map-get($configuration, backgroundPosX) map-get($configuration, backgroundPosY);
   color: map-get($configuration, fontColor);
   font: map-get($configuration, fontWeight) #{map-get($configuration, fontSize)}/#{map-get($configuration, fontLineHeight)} #{map-get($configuration, fontFamily)}, 'Arial, sans-serif';
 }
@@ -21,24 +40,36 @@ body {
   // Styles for tablet
   @include above($tabletBreakpoint) {
     @include body((
-      backgroundColor: $bodyBackgroundTablet,
+      backgroundImage: $bodyBackgroundImageTablet,
+      backgroundColor: $bodyBackgroundColorTablet,
       fontColor: $bodyTextColorTablet,
       fontLineHeight: $bodyLineHeightTablet,
       fontWeight: $bodyFontWeightTablet,
       fontFamily: $bodyFontFamTablet,
-      fontSize: $bodyFontSizeTablet
+      fontSize: $bodyFontSizeTablet,
+      backgroundType: $bodyBackgroundTypeTablet,
+      backgroundSize: $bodyBackgroundSizeTablet,
+      backgroundRepeat: $bodyBackgroundRepeatTablet,
+      backgroundPosX: $bodyBackgroundPosXTablet,
+      backgroundPosY: $bodyBackgroundPosYTablet,
     ));
   }
 
   // Styles for desktop
   @include above($desktopBreakpoint) {
     @include body((
-      backgroundColor: $bodyBackgroundDesktop,
+      backgroundImage: $bodyBackgroundImageDesktop,
+      backgroundColor: $bodyBackgroundColorDesktop,
       fontColor: $bodyTextColorDesktop,
       fontLineHeight: $bodyLineHeightDesktop,
       fontWeight: $bodyFontWeightDesktop,
       fontFamily: $bodyFontFamDesktop,
-      fontSize: $bodyFontSizeDesktop
+      fontSize: $bodyFontSizeDesktop,
+      backgroundType: $bodyBackgroundTypeDesktop,
+      backgroundSize: $bodyBackgroundSizeDesktop,
+      backgroundRepeat: $bodyBackgroundRepeatDesktop,
+      backgroundPosX: $bodyBackgroundPosXDesktop,
+      backgroundPosY: $bodyBackgroundPosYDesktop,
     ));
   }
 }
