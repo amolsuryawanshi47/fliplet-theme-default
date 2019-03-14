@@ -9,8 +9,8 @@
 
 .fl-viewport-header {
   background: $menuTopNavBackground;
-  text-shadow: 0 1px 0 $menuTopNavFontShadowColor;
-  border-bottom: 1px solid $menuTopNavBorder;
+  border: none;
+  box-shadow: 0px 1px 0px 0px $menuTopNavFontShadowColor;
   color: $menuTopNavFontColor;
 
   .nav-left,
@@ -29,6 +29,17 @@
           background-color: $menuButtonColor;
         }
       }
+
+      &.is-active {
+        .hamburger-inner {
+          background-color: $menuCloseButtonColor;
+
+          &:after,
+          &:before {
+            background-color: $menuCloseButtonColor;
+          }
+        }
+      }
     }
   }
 }
@@ -41,6 +52,10 @@
     ul {
       font-family: $menuFont;
       font-size: $menuFontSize;
+
+      li {
+        border-bottom: 1px solid rgba($menuTopNavFontColor, 0.2);
+      }
     }
   }
 }
@@ -55,21 +70,8 @@
   }
 }
 
-.fl-close-menu {
-  .hamburger.is-active {
-    .hamburger-inner {
-      background-color: $menuCloseButtonColor;
-
-      &:after,
-      &:before {
-        background-color: $menuCloseButtonColor;
-      }
-    }
-  }
-}
-
 .fl-app-menu-toolbar {
-  background: $menuFooterBackgroundColor;
+  background: $menuBackgroundColor;
 
   .copyright {
     color: $menuFooterFontColor;
@@ -83,7 +85,7 @@
 .fl-bar-padding {
   .fl-viewport-header {
     border-bottom: none;
-    border-top: 1px solid $menuTopNavBorder;
+    border-top: none;
   }
 }
   
@@ -100,7 +102,7 @@
 .fl-viewport-menu {
   ul {
     background: $menuTopNavBackground;
-    border: 1px solid $menuTopNavBorder;
+    border: none;
 
     li {
       &.fl-menu-arrow {
@@ -154,7 +156,7 @@
 
 .fl-menu-circle-nav-holder {
   .nav-circle {
-    background: $menuExpBackground;
+    background: $menuExpButtonColor;
 
     &.active {
       background: $menuExpBackgroundOpen;

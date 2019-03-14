@@ -1,33 +1,241 @@
-.panel-overlay>.panel-body {
-  background: $introOverlayColor;
-  color: $introBodyTextColor;
-  font-weight: $introBodyFontWeight;
-  line-height: $introBodyLineHeight;
-  font-size: $introBodyFontSize;
-  font-family: $introBodyFontFamily;
+// Intro layout mixin
+// @TODO: Check if removing these break apps: introLinkColor, introLinkHoverColor, introLinkHoverDecor
+
+@mixin intro($options: ()) {
+  $configuration: map-merge((
+    backgroundImage: $introBodyBackgroundImage,
+    backgroundColor: $introBodyBackgroundColor,
+    backgroundType: $introBodyBackgroundType,
+    backgroundSize: $introBodyBackgroundSize,
+    backgroundRepeat: $introBodyBackgroundRepeat,
+    backgroundPosX: $introBodyBackgroundPosX,
+    backgroundPosY: $introBodyBackgroundPosY,
+    fontFamily: $introBodyFontFamily,
+    fontSize: $introBodyFontSize,
+    fontColor: $introBodyTextColor,
+    fontWeight: $introBodyFontWeight,
+    fontLineHeight: $introBodyLineHeight
+  ), $options);
+
+  @if map-get($configuration, backgroundType) == 'Image' {
+    @if map-get($configuration, backgroundImage) == 'none' {
+      background-image: map-get($configuration, backgroundImage)
+    } @else {
+      background-image: url(#{map-get($configuration, backgroundImage)});
+    }
+  } @else {
+    background-image: none;
+  }
+
+  background-color: map-get($configuration, backgroundColor);
+  background-size: map-get($configuration, backgroundSize);
+  background-repeat: map-get($configuration, backgroundRepeat);
+  background-position: map-get($configuration, backgroundPosX) map-get($configuration, backgroundPosY);
+  color: map-get($configuration, fontColor);
+  font: map-get($configuration, fontWeight) #{map-get($configuration, fontSize)}/#{map-get($configuration, fontLineHeight)} #{map-get($configuration, fontFamily)}, 'Arial, sans-serif';
 }
 
-.panel-overlay>.panel-body h1,
-.panel-overlay>.panel-body h2,
-.panel-overlay>.panel-body h3,
-.panel-overlay>.panel-body h4,
-.panel-overlay>.panel-body h5,
-.panel-overlay>.panel-body h6 {
-  color: $introBodyTextColor;
+@mixin overlay($options: ()) {
+  $configuration: map-merge((
+    overlayColor: $introOverlayColor,
+    overlayPosition: $introOverlayPosition,
+    overlayPositionTop: $introOverlayPositionTop,
+    overlayPostionRight: $introOverlayPositionRight,
+    overlayPositionBottom: $introOverlayPositionBottom,
+    overlayPositionLeft: $introOverlayPositionLeft,
+    overlayBorderSides: $introOverlayBorderSides,
+    overlayBorderWidth: $introOverlayBorderWidth,
+    overlayBorderStyle: $introOverlayBorderStyle,
+    overlayBorderColor: $introOverlayBorderColor,
+    overlayBorderRadius: $introOverlayBorderRadius,
+    overlayShadowStyle: $introOverlayShadowStyle,
+    overlayShadowXoffset: $introOverlayShadowXoffset,
+    overlayShadowYoffset: $introOverlayShadowYoffset,
+    overlayShadowBlur: $introOverlayShadowBlur,
+    overlayShadowSpread: $introOverlayShadowSpread,
+    overlayShadowColor: $introOverlayShadowColor
+  ), $options);
+
+  position: map-get($configuration, overlayPosition);
+  top: map-get($configuration, overlayPositionTop);
+  right: map-get($configuration, overlayPostionRight);
+  bottom: map-get($configuration, overlayPositionBottom);
+  left: map-get($configuration, overlayPositionLeft);
+  background-color: map-get($configuration, overlayColor);
+
+  @if map-get($configuration, overlayShadowStyle) == 'inset' {
+    box-shadow: map-get($configuration, overlayShadowStyle) map-get($configuration, overlayShadowXoffset) map-get($configuration, overlayShadowYoffset) map-get($configuration, overlayShadowBlur) map-get($configuration, overlayShadowSpread) map-get($configuration, overlayShadowColor);
+  }
+  @if map-get($configuration, overlayShadowStyle) == 'none' {
+    box-shadow: map-get($configuration, overlayShadowStyle);
+  }
+  @if map-get($configuration, overlayShadowStyle) == 'outset' {
+    box-shadow: map-get($configuration, overlayShadowXoffset) map-get($configuration, overlayShadowYoffset) map-get($configuration, overlayShadowBlur) map-get($configuration, overlayShadowSpread) map-get($configuration, overlayShadowColor);
+  }
+
+  @if map-get($configuration, overlayBorderSides) == 'none' {
+    border: none;
+  }
+  @if map-get($configuration, overlayBorderSides) == 'all' {
+    border: map-get($configuration, overlayBorderWidth) map-get($configuration, overlayBorderStyle) map-get($configuration, overlayBorderColor);
+  }
+  @if map-get($configuration, overlayBorderSides) == 'top' {
+    border-top: map-get($configuration, overlayBorderWidth) map-get($configuration, overlayBorderStyle) map-get($configuration, overlayBorderColor);
+  }
+  @if map-get($configuration, overlayBorderSides) == 'right' {
+    border-right: map-get($configuration, overlayBorderWidth) map-get($configuration, overlayBorderStyle) map-get($configuration, overlayBorderColor);
+  }
+  @if map-get($configuration, overlayBorderSides) == 'bottom' {
+    border-bottom: map-get($configuration, overlayBorderWidth) map-get($configuration, overlayBorderStyle) map-get($configuration, overlayBorderColor);
+  }
+  @if map-get($configuration, overlayBorderSides) == 'left' {
+    border-left: map-get($configuration, overlayBorderWidth) map-get($configuration, overlayBorderStyle) map-get($configuration, overlayBorderColor);
+  }
+
+  border-radius: map-get($configuration, overlayBorderRadius);
 }
 
-.panel-overlay>.panel-body a,
-.panel-overlay>.panel-body .btn-link {
-  color: $introLinkColor;
+.fl-intro-layout {
+  position: relative;
+  height: calc(100vh - 24px);
+
+  // Include styles for default mobile viewport
+  @include intro();
+
+  // Styles for tablet
+  @include above($tabletBreakpoint) {
+    @include intro((
+      backgroundImage: $introBodyBackgroundImageTablet,
+      backgroundColor: $introBodyBackgroundColorTablet,
+      backgroundType: $introBodyBackgroundTypeTablet,
+      backgroundSize: $introBodyBackgroundSizeTablet,
+      backgroundRepeat: $introBodyBackgroundRepeatTablet,
+      backgroundPosX: $introBodyBackgroundPosXTablet,
+      backgroundPosY: $introBodyBackgroundPosYTablet,
+      fontFamily: $introBodyFontFamilyTablet,
+      fontSize: $introBodyFontSizeTablet,
+      fontColor: $introBodyTextColorTablet,
+      fontWeight: $introBodyFontWeightTablet,
+      fontLineHeight: $introBodyLineHeightTablet
+    ));
+  }
+
+  // Styles for desktop
+  @include above($desktopBreakpoint) {
+    @include intro((
+      backgroundImage: $introBodyBackgroundImageDesktop,
+      backgroundColor: $introBodyBackgroundColorDesktop,
+      backgroundType: $introBodyBackgroundTypeDesktop,
+      backgroundSize: $introBodyBackgroundSizeDesktop,
+      backgroundRepeat: $introBodyBackgroundRepeatDesktop,
+      backgroundPosX: $introBodyBackgroundPosXDesktop,
+      backgroundPosY: $introBodyBackgroundPosYDesktop,
+      fontFamily: $introBodyFontFamilyDesktop,
+      fontSize: $introBodyFontSizeDesktop,
+      fontColor: $introBodyTextColorDesktop,
+      fontWeight: $introBodyFontWeightDesktop,
+      fontLineHeight: $introBodyLineHeightDesktop
+    ));
+  }
+
+  .panel-overlay {
+    background: none;
+    position: absolute;
+    margin: 0;
+    border-radius: 0;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+
+    > .panel-body {
+      @include overlay();
+
+      // Styles for tablet
+      @include above($tabletBreakpoint) {
+        @include overlay((
+          overlayColor: $introOverlayColorTablet,
+          overlayPosition: $introOverlayPositionTablet,
+          overlayPositionTop: $introOverlayPositionTopTablet,
+          overlayPostionRight: $introOverlayPositionRightTablet,
+          overlayPositionBottom: $introOverlayPositionBottomTablet,
+          overlayPositionLeft: $introOverlayPositionLeftTablet,
+          overlayBorderSides: $introOverlayBorderSidesTablet,
+          overlayBorderWidth: $introOverlayBorderWidthTablet,
+          overlayBorderStyle: $introOverlayBorderStyleTablet,
+          overlayBorderColor: $introOverlayBorderColorTablet,
+          overlayBorderRadius: $introOverlayBorderRadiusTablet,
+          overlayShadowStyle: $introOverlayShadowStyleTablet,
+          overlayShadowXoffset: $introOverlayShadowXoffsetTablet,
+          overlayShadowYoffset: $introOverlayShadowYoffsetTablet,
+          overlayShadowBlur: $introOverlayShadowBlurTablet,
+          overlayShadowSpread: $introOverlayShadowSpreadTablet,
+          overlayShadowColor: $introOverlayShadowColorTablet
+        ));
+      }
+
+      // Styles for desktop
+      @include above($desktopBreakpoint) {
+        @include overlay((
+          overlayColor: $introOverlayColorDesktop,
+          overlayPosition: $introOverlayPositionDesktop,
+          overlayPositionTop: $introOverlayPositionTopDesktop,
+          overlayPostionRight: $introOverlayPositionRightDesktop,
+          overlayPositionBottom: $introOverlayPositionBottomDesktop,
+          overlayPositionLeft: $introOverlayPositionLeftDesktop,
+          overlayBorderSides: $introOverlayBorderSidesDesktop,
+          overlayBorderWidth: $introOverlayBorderWidthDesktop,
+          overlayBorderStyle: $introOverlayBorderStyleDesktop,
+          overlayBorderColor: $introOverlayBorderColorDesktop,
+          overlayBorderRadius: $introOverlayBorderRadiusDesktop,
+          overlayShadowStyle: $introOverlayShadowStyleDesktop,
+          overlayShadowXoffset: $introOverlayShadowXoffsetDesktop,
+          overlayShadowYoffset: $introOverlayShadowYoffsetDesktop,
+          overlayShadowBlur: $introOverlayShadowBlurDesktop,
+          overlayShadowSpread: $introOverlayShadowSpreadDesktop,
+          overlayShadowColor: $introOverlayShadowColorDesktop
+        ));
+      }
+    }
+  }
 }
 
-.panel-overlay>.panel-body a:focus,
-.panel-overlay>.panel-body a:active:hover,
-.panel-overlay>.panel-body a:active:focus,
-.panel-overlay>.panel-body .btn-link:hover,
-.panel-overlay>.panel-body .btn-link:focus,
-.panel-overlay>.panel-body .btn-link:active:hover,
-.panel-overlay>.panel-body .btn-link:active:focus {
-  color: $introLinkHoverColor;
-  text-decoration: $introLinkHoverDecor;
+.fl-with-bottom-menu {
+  .panel-overlay {
+    bottom: 41px;
+  }
 }
+
+// .panel-overlay>.panel-body {
+//   background: $introOverlayColor;
+//   color: $introBodyTextColor;
+//   font-weight: $introBodyFontWeight;
+//   line-height: $introBodyLineHeight;
+//   font-size: $introBodyFontSize;
+//   font-family: $introBodyFontFamily;
+// }
+
+// .panel-overlay>.panel-body h1,
+// .panel-overlay>.panel-body h2,
+// .panel-overlay>.panel-body h3,
+// .panel-overlay>.panel-body h4,
+// .panel-overlay>.panel-body h5,
+// .panel-overlay>.panel-body h6 {
+//   color: $introBodyTextColor;
+// }
+
+// .panel-overlay>.panel-body a,
+// .panel-overlay>.panel-body .btn-link {
+//   color: $introLinkColor;
+// }
+
+// .panel-overlay>.panel-body a:focus,
+// .panel-overlay>.panel-body a:active:hover,
+// .panel-overlay>.panel-body a:active:focus,
+// .panel-overlay>.panel-body .btn-link:hover,
+// .panel-overlay>.panel-body .btn-link:focus,
+// .panel-overlay>.panel-body .btn-link:active:hover,
+// .panel-overlay>.panel-body .btn-link:active:focus {
+//   color: $introLinkHoverColor;
+//   text-decoration: $introLinkHoverDecor;
+// }
