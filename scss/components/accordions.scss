@@ -7,48 +7,252 @@
 ******************************/
 
 /* 01 - ACCORDIONS */
+@mixin accordion($options: ()) {
+  $configuration: map-merge((
+    headingBackground: $accordionHeadingBg,
+    headingtext: $accordionHeadingText
+  ), $options);
+
+  color: map-get($configuration, headingtext);
+  background-color: map-get($configuration, headingBackground);
+}
+
+@mixin accordionActive($options: ()) {
+  $configuration: map-merge((
+    headingBackgroundActive: $accordionHeadingBgActive,
+    headingtextActive: $accordionHeadingTextActive
+  ), $options);
+
+  color: map-get($configuration, headingtextActive);
+  background-color: map-get($configuration, headingBackgroundActive);
+}
+
+@mixin accordionChevron($options: ()) {
+  $configuration: map-merge((
+    headingChevron: $accordionHeadingChevron
+  ), $options);
+
+  color: map-get($configuration, headingChevron);
+}
+
+@mixin accordionChevronActive($options: ()) {
+  $configuration: map-merge((
+    headingChevronActive: $accordionHeadingChevronActive
+  ), $options);
+
+  color: map-get($configuration, headingChevronActive);
+}
+
+@mixin accordionBorder($options: ()) {
+  $configuration: map-merge((
+    borderWidth: $accordionBorderWidth,
+    borderStyle: $accordionBorderStyle,
+    borderColor: $accordionBorderColor
+  ), $options);
+
+  border: map-get($configuration, borderWidth) map-get($configuration, borderStyle) map-get($configuration, borderColor);
+}
+
+@mixin accordionBody($options: ()) {
+  $configuration: map-merge((
+    backgroundColor: $bodyBackground,
+    fontColor: $bodyTextColor
+  ), $options);
+
+
+}
 
 .collapse-start {
-  color: $accordionHeadingText;
-  background-color: $accordionHeadingBg;
-  border: $accordionBorder;
+  @include accordion();
+  @include accordionBorder();
+
+  // Styles for tablet
+  @include above($tabletBreakpoint) {
+    @include accordion((
+      headingBackground: $accordionHeadingBgTablet,
+      headingtext: $accordionHeadingTextTablet
+    ));
+    @include accordionBorder((
+      borderWidth: $accordionBorderWidthTablet,
+      borderStyle: $accordionBorderStyleTablet,
+      borderColor: $accordionBorderColorTablet
+    ));
+  }
+
+  // Styles for desktop
+  @include above($desktopBreakpoint) {
+    @include accordion((
+      headingBackground: $accordionHeadingBgDesktop,
+      headingtext: $accordionHeadingTextTabletDesktop
+    ));
+    @include accordionBorder((
+      borderWidth: $accordionBorderWidthDesktop,
+      borderStyle: $accordionBorderStyleDesktop,
+      borderColor: $accordionBorderColorDesktop
+    ));
+  }
 }
 
 .collapse-start:after {
-  color: $accordionHeadingChevron;
+  @include accordionChevron();
+
+  // Styles for tablet
+  @include above($tabletBreakpoint) {
+    @include accordionChevron((
+      headingChevron: $accordionHeadingChevronTablet
+    ));
+  }
+
+  // Styles for desktop
+  @include above($desktopBreakpoint) {
+    @include accordionChevron((
+      headingChevron: $accordionHeadingChevronDesktop
+    ));
+  }
 }
 
 .collapse-end {
   color: $bodyTextColor;
   background-color: $bodyBackground;
-  border: $accordionBorder;
+
+  @include accordionBorder();
+
+  // Styles for tablet
+  @include above($tabletBreakpoint) {
+    color: $bodyTextColorTablet;
+    background-color: $bodyBackgroundTablet;
+
+    @include accordionBorder((
+      borderWidth: $accordionBorderWidthTablet,
+      borderStyle: $accordionBorderStyleTablet,
+      borderColor: $accordionBorderColorTablet
+    ));
+  }
+
+  // Styles for desktop
+  @include above($desktopBreakpoint) {
+    color: $bodyTextColorDesktop;
+    background-color: $bodyBackgroundDesktop;
+
+    @include accordionBorder((
+      borderWidth: $accordionBorderWidthDesktop,
+      borderStyle: $accordionBorderStyleDesktop,
+      borderColor: $accordionBorderColorDesktop
+    ));
+  }
 }
 
 .panel-group {
   .panel {
     background-color: transparent;
-    border: $accordionBorder;
+    @include accordionBorder();
+
+    // Styles for tablet
+    @include above($tabletBreakpoint) {
+      @include accordionBorder((
+        borderWidth: $accordionBorderWidthTablet,
+        borderStyle: $accordionBorderStyleTablet,
+        borderColor: $accordionBorderColorTablet
+      ));
+    }
+
+    // Styles for desktop
+    @include above($desktopBreakpoint) {
+      @include accordionBorder((
+        borderWidth: $accordionBorderWidthDesktop,
+        borderStyle: $accordionBorderStyleDesktop,
+        borderColor: $accordionBorderColorDesktop
+      ));
+    }
 
     > .panel-title {
-      color: $accordionHeadingTextActive;
-      background-color: $accordionHeadingBgActive;
+      @include accordionActive();
+
+      // Styles for tablet
+      @include above($tabletBreakpoint) {
+        @include accordionActive((
+          headingBackgroundActive: $accordionHeadingBgActiveTablet,
+          headingtextActive: $accordionHeadingTextActiveTablet
+        ));
+      }
+
+      // Styles for desktop
+      @include above($desktopBreakpoint) {
+        @include accordionActive((
+          headingBackgroundActive: $accordionHeadingBgActiveDesktop,
+          headingtextActive: $accordionHeadingTextActiveDesktop
+        ));
+      }
 
       &.collapsed {
-        color: $accordionHeadingText;
-        background-color: $accordionHeadingBg;
+        @include accordion();
+
+        // Styles for tablet
+        @include above($tabletBreakpoint) {
+          @include accordion((
+            headingBackground: $accordionHeadingBgTablet,
+            headingtext: $accordionHeadingTextTablet
+          ));
+        }
+
+        // Styles for desktop
+        @include above($desktopBreakpoint) {
+          @include accordion((
+            headingBackground: $accordionHeadingBgDesktop,
+            headingtext: $accordionHeadingTextTabletDesktop
+          ));
+        }
 
         &:after {
-          color: $accordionHeadingChevron;
+          @include accordionChevron();
+
+          // Styles for tablet
+          @include above($tabletBreakpoint) {
+            @include accordionChevron((
+              headingChevron: $accordionHeadingChevronTablet
+            ));
+          }
+
+          // Styles for desktop
+          @include above($desktopBreakpoint) {
+            @include accordionChevron((
+              headingChevron: $accordionHeadingChevronDesktop
+            ));
+          }
         }
       }
 
       &:after {
-        color: $accordionHeadingChevronActive;
+        @include accordionChevronActive();
+
+        // Styles for tablet
+        @include above($tabletBreakpoint) {
+          @include accordionChevronActive((
+            headingChevronActive: $accordionHeadingChevronActiveTablet
+          ));
+        }
+
+        // Styles for desktop
+        @include above($desktopBreakpoint) {
+          @include accordionChevron((
+            headingChevronActive: $accordionHeadingChevronActiveDesktop
+          ));
+        }
       }
     }
 
     .panel-body {
       background-color: $bodyBackground;
+
+      // Styles for tablet
+      @include above($tabletBreakpoint) {
+        background-color: $bodyBackgroundTablet;
+      }
+
+      // Styles for desktop
+      @include above($desktopBreakpoint) {
+        background-color: $bodyBackgroundDesktop;
+      }
     }
   }
 }

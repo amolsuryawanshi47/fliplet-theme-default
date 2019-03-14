@@ -53,7 +53,11 @@
     overlayShadowYoffset: $introOverlayShadowYoffset,
     overlayShadowBlur: $introOverlayShadowBlur,
     overlayShadowSpread: $introOverlayShadowSpread,
-    overlayShadowColor: $introOverlayShadowColor
+    overlayShadowColor: $introOverlayShadowColor,
+    overlayPaddingTop: $introOverlayPaddingTop,
+    overlayPaddingRight: $introOverlayPaddingRight,
+    overlayPaddingBottom: $introOverlayPaddingBottom,
+    overlayPaddingLeft: $introOverlayPaddingLeft
   ), $options);
 
   position: map-get($configuration, overlayPosition);
@@ -62,6 +66,7 @@
   bottom: map-get($configuration, overlayPositionBottom);
   left: map-get($configuration, overlayPositionLeft);
   background-color: map-get($configuration, overlayColor);
+  padding: map-get($configuration, overlayPaddingTop) map-get($configuration, overlayPaddingRight) map-get($configuration, overlayPaddingBottom) map-get($configuration, overlayPaddingLeft);
 
   @if map-get($configuration, overlayShadowStyle) == 'inset' {
     box-shadow: map-get($configuration, overlayShadowStyle) map-get($configuration, overlayShadowXoffset) map-get($configuration, overlayShadowYoffset) map-get($configuration, overlayShadowBlur) map-get($configuration, overlayShadowSpread) map-get($configuration, overlayShadowColor);
@@ -170,7 +175,11 @@
           overlayShadowYoffset: $introOverlayShadowYoffsetTablet,
           overlayShadowBlur: $introOverlayShadowBlurTablet,
           overlayShadowSpread: $introOverlayShadowSpreadTablet,
-          overlayShadowColor: $introOverlayShadowColorTablet
+          overlayShadowColor: $introOverlayShadowColorTablet,
+          overlayPaddingTop: $introOverlayPaddingTopTablet,
+          overlayPaddingRight: $introOverlayPaddingRightTablet,
+          overlayPaddingBottom: $introOverlayPaddingBottomTablet,
+          overlayPaddingLeft: $introOverlayPaddingLeftTablet
         ));
       }
 
@@ -193,7 +202,11 @@
           overlayShadowYoffset: $introOverlayShadowYoffsetDesktop,
           overlayShadowBlur: $introOverlayShadowBlurDesktop,
           overlayShadowSpread: $introOverlayShadowSpreadDesktop,
-          overlayShadowColor: $introOverlayShadowColorDesktop
+          overlayShadowColor: $introOverlayShadowColorDesktop,
+          overlayPaddingTop: $introOverlayPaddingTopDesktop,
+          overlayPaddingRight: $introOverlayPaddingRightDesktop,
+          overlayPaddingBottom: $introOverlayPaddingBottomDesktop,
+          overlayPaddingLeft: $introOverlayPaddingLeftDesktop
         ));
       }
     }

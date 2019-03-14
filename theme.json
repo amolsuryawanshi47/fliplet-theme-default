@@ -1600,7 +1600,92 @@
             ]
           },
           {
-            "description": "Border",
+            "description": "Overlay padding",
+            "fields": [
+              {
+                "name": "introOverlayPaddingTop",
+                "default": "15px",
+                "property": "px",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "introOverlayPaddingTopTablet",
+                    "default": "40px",
+                    "property": "px"
+                  },
+                  "desktop": {
+                    "name": "introOverlayPaddingTopDesktop",
+                    "default": "60px",
+                    "property": "px"
+                  }
+                },
+                "type": "size",
+                "label": "Top",
+                "properties": ["px", "pt", "em", "rem", "%"]
+              },
+              {
+                "name": "introOverlayPaddingRight",
+                "default": "15px",
+                "property": "px",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "introOverlayPaddingRightTablet",
+                    "default": "40px",
+                    "property": "px"
+                  },
+                  "desktop": {
+                    "name": "introOverlayPaddingRightDesktop",
+                    "default": "60px",
+                    "property": "px"
+                  }
+                },
+                "type": "size",
+                "label": "Right",
+                "properties": ["px", "pt", "em", "rem", "%"]
+              },
+              {
+                "name": "introOverlayPaddingBottom",
+                "default": "15px",
+                "property": "px",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "introOverlayPaddingBottomTablet",
+                    "default": "40px",
+                    "property": "px"
+                  },
+                  "desktop": {
+                    "name": "introOverlayPaddingBottomDesktop",
+                    "default": "60px",
+                    "property": "px"
+                  }
+                },
+                "type": "size",
+                "label": "Bottom",
+                "properties": ["px", "pt", "em", "rem", "%"]
+              },
+              {
+                "name": "introOverlayPaddingLeft",
+                "default": "15px",
+                "property": "px",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "introOverlayPaddingLeftTablet",
+                    "default": "40px",
+                    "property": "px"
+                  },
+                  "desktop": {
+                    "name": "introOverlayPaddingLeftDesktop",
+                    "default": "60px",
+                    "property": "px"
+                  }
+                },
+                "type": "size",
+                "label": "Left",
+                "properties": ["px", "pt", "em", "rem", "%"]
+              }
+            ]
+          },
+          {
+            "description": "Overlay border",
             "fields": [
               {
                 "name": "introOverlayBorderSides",
@@ -2474,46 +2559,170 @@
         "name": "Accordions",
         "variables": [
           {
-            "name": "accordionHeadingBg",
-            "description": "Heading background color",
-            "type": "color",
-            "default": "#f5f5f5"
+            "description": "Headings",
+            "fields": [
+              {
+                "name": "accordionHeadingBg",
+                "default": "#f5f5f5",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "accordionHeadingBgTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "accordionHeadingBgDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "label": "Background",
+                "type": "color"
+              },
+              {
+                "name": "accordionHeadingBgActive",
+                "default": "#f5f5f5",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "accordionHeadingBgActiveTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "accordionHeadingBgActiveDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "label": "Background when open",
+                "type": "color"
+              },
+              {
+                "name": "accordionHeadingText",
+                "default": "$bodyTextColor",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "accordionHeadingTextTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "accordionHeadingTextDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "label": "Text",
+                "type": "color"
+              },
+              {
+                "name": "accordionHeadingTextActive",
+                "default": "$bodyTextColor",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "accordionHeadingTextActiveTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "accordionHeadingTextActiveDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "label": "Text when open",
+                "type": "color"
+              },
+              {
+                "name": "accordionHeadingChevron",
+                "default": "$bodyTextColor",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "accordionHeadingChevronTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "accordionHeadingChevronDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "label": "Chevron",
+                "type": "color"
+              },
+              {
+                "name": "accordionHeadingChevronActive",
+                "default": "$bodyTextColor",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "accordionHeadingChevronActiveTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "accordionHeadingChevronActiveDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "label": "Chevron when open",
+                "type": "color"
+              }
+            ]
           },
           {
-            "name": "accordionHeadingBgActive",
-            "description": "Heading background color when open",
-            "type": "color",
-            "default": "#f5f5f5"
-          },
-          {
-            "name": "accordionHeadingText",
-            "description": "Heading text color",
-            "type": "color",
-            "default": "#333333"
-          },
-          {
-            "name": "accordionHeadingTextActive",
-            "description": "Heading text color when open",
-            "type": "color",
-            "default": "#333333"
-          },
-          {
-            "name": "accordionHeadingChevron",
-            "description": "Heading chevron color",
-            "type": "color",
-            "default": "#333333"
-          },
-          {
-            "name": "accordionHeadingChevronActive",
-            "description": "Heading chevron color when open",
-            "type": "color",
-            "default": "#333333"
-          },
-          {
-            "name": "accordionBorder",
-            "description": "Accordion border",
-            "type": "text",
-            "default": "1px solid #dddddd"
+            "description": "Border",
+            "fields": [
+              {
+                "name": "accordionBorderWidth",
+                "default": "1px",
+                "property": "px",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "accordionBorderWidthTablet",
+                    "default": "inherit-mobile",
+                    "property": "px"
+                  },
+                  "desktop": {
+                    "name": "accordionBorderWidthDesktop",
+                    "default": "inherit-tablet",
+                    "property": "px"
+                  }
+                },
+                "type": "size",
+                "properties": ["px", "pt", "em", "rem", "%"]
+              },
+              {
+                "name": "accordionBorderStyle",
+                "default": "solid",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "accordionBorderStyleTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "accordionBorderStyleDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "border-style",
+                "properties": [
+                  "none",
+                  "dotted",
+                  "dashed",
+                  "solid",
+                  "double",
+                  "groove",
+                  "ridge",
+                  "inset",
+                  "outset"
+                ]
+              },
+              {
+                "name": "accordionBorderColor",
+                "default": "#dddddd",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "accordionBorderColorTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "accordionBorderColorDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "color"
+              }
+            ]
           }
         ]
       },
