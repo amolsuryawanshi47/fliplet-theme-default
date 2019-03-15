@@ -166,6 +166,16 @@
                 "default": "Color",
                 "isFullRow": true,
                 "logic": {
+                  "None": {
+                    "hide": [
+                      "bodyBackgroundImage",
+                      "bodyBackgroundPosX",
+                      "bodyBackgroundPosY",
+                      "bodyBackgroundSize",
+                      "bodyBackgroundRepeat",
+                      "bodyBackgroundColor"
+                    ]
+                  },
                   "Color": {
                     "hide": [
                       "bodyBackgroundImage",
@@ -198,7 +208,7 @@
                   }
                 },
                 "type": "background",
-                "properties": ["Color", "Image"]
+                "properties": ["None", "Color", "Image"]
               },
               {
                 "name": "bodyBackgroundColor",
@@ -1224,6 +1234,16 @@
                 "default": "Color",
                 "isFullRow": true,
                 "logic": {
+                  "None": {
+                    "hide": [
+                      "introBodyBackgroundImage",
+                      "introBodyBackgroundPosX",
+                      "introBodyBackgroundPosY",
+                      "introBodyBackgroundSize",
+                      "introBodyBackgroundRepeat",
+                      "introBodyBackgroundColor"
+                    ]
+                  },
                   "Color": {
                     "hide": [
                       "introBodyBackgroundImage",
@@ -1256,7 +1276,7 @@
                   }
                 },
                 "type": "background",
-                "properties": ["Color", "Image"]
+                "properties": ["None", "Color", "Image"]
               },
               {
                 "name": "introBodyBackgroundColor",
@@ -2076,7 +2096,7 @@
               },
               {
                 "name": "menuTopNavFontColor",
-                "default": "#333333",
+                "default": "$bodyTextColor",
                 "breakpoints": {
                   "tablet": {
                     "name": "menuTopNavFontColorTablet",
@@ -2727,49 +2747,1534 @@
         ]
       },
       {
-        "name": "App Analytics",
+        "name": "Primary button",
         "variables": [
           {
-            "name": "appAnalyticsTextColor",
-            "description": "Text color",
-            "type": "color",
-            "default": "#153c49"
+            "description": "Background & text",
+            "fields": [
+              {
+                "name": "primaryButtonColor",
+                "default": "$highlightColor",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "primaryButtonColorTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "primaryButtonColorDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "label": "Background",
+                "type": "color"
+              },
+              {
+                "name": "primaryButtonTextColor",
+                "default": "#ffffff",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "primaryButtonTextColorTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "primaryButtonTextColorDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "label": "Text",
+                "type": "color"
+              }
+            ]
           },
           {
-            "name": "appAnalyticsPanelColor",
-            "description": "Panels background color",
-            "type": "color",
-            "default": "#f4f2f7"
+            "description": "Padding",
+            "fields": [
+              {
+                "name": "primaryButtonPaddingTop",
+                "default": "10px",
+                "property": "px",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "primaryButtonPaddingTopTablet",
+                    "default": "inherit-mobile",
+                    "property": "px"
+                  },
+                  "desktop": {
+                    "name": "primaryButtonPaddingTopDesktop",
+                    "default": "inherit-tablet",
+                    "property": "px"
+                  }
+                },
+                "type": "size",
+                "label": "Top",
+                "properties": ["px", "pt", "em", "rem", "%"]
+              },
+              {
+                "name": "primaryButtonPaddingRight",
+                "default": "16px",
+                "property": "px",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "primaryButtonPaddingRightTablet",
+                    "default": "inherit-mobile",
+                    "property": "px"
+                  },
+                  "desktop": {
+                    "name": "primaryButtonPaddingRightDesktop",
+                    "default": "inherit-tablet",
+                    "property": "px"
+                  }
+                },
+                "type": "size",
+                "label": "Right",
+                "properties": ["px", "pt", "em", "rem", "%"]
+              },
+              {
+                "name": "primaryButtonPaddingBottom",
+                "default": "10px",
+                "property": "px",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "primaryButtonPaddingBottomTablet",
+                    "default": "inherit-mobile",
+                    "property": "px"
+                  },
+                  "desktop": {
+                    "name": "primaryButtonPaddingBottomDesktop",
+                    "default": "inherit-tablet",
+                    "property": "px"
+                  }
+                },
+                "type": "size",
+                "label": "Bottom",
+                "properties": ["px", "pt", "em", "rem", "%"]
+              },
+              {
+                "name": "primaryButtonPaddingLeft",
+                "default": "16px",
+                "property": "px",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "primaryButtonPaddingLeftTablet",
+                    "default": "inherit-mobile",
+                    "property": "px"
+                  },
+                  "desktop": {
+                    "name": "primaryButtonPaddingLeftDesktop",
+                    "default": "inherit-tablet",
+                    "property": "px"
+                  }
+                },
+                "type": "size",
+                "label": "Left",
+                "properties": ["px", "pt", "em", "rem", "%"]
+              }
+            ]
           },
           {
-            "name": "appAnalyticsOverlayColor",
-            "description": "Overlays background color",
-            "type": "color",
-            "default": "#f4f2f7"
+            "description": "Border",
+            "fields": [
+              {
+                "name": "primaryButtonBorderSides",
+                "default": "none",
+                "logic": {
+                  "none": {
+                    "hide": [
+                      "primaryButtonBorderWidth",
+                      "primaryButtonBorderStyle",
+                      "primaryButtonBorderColor"
+                    ]
+                  },
+                  "all": {
+                    "show": [
+                      "primaryButtonBorderWidth",
+                      "primaryButtonBorderStyle",
+                      "primaryButtonBorderColor"
+                    ]
+                  },
+                  "top": {
+                    "show": [
+                      "primaryButtonBorderWidth",
+                      "primaryButtonBorderStyle",
+                      "primaryButtonBorderColor"
+                    ]
+                  },
+                  "right": {
+                    "show": [
+                      "primaryButtonBorderWidth",
+                      "primaryButtonBorderStyle",
+                      "primaryButtonBorderColor"
+                    ]
+                  },
+                  "bottom": {
+                    "show": [
+                      "primaryButtonBorderWidth",
+                      "primaryButtonBorderStyle",
+                      "primaryButtonBorderColor"
+                    ]
+                  },
+                  "left": {
+                    "show": [
+                      "primaryButtonBorderWidth",
+                      "primaryButtonBorderStyle",
+                      "primaryButtonBorderColor"
+                    ]
+                  }
+                },
+                "breakpoints": {
+                  "tablet": {
+                    "name": "primaryButtonBorderSidesTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "primaryButtonBorderSidesDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "select",
+                "properties": {
+                  "all": "All sides",
+                  "top": "Top",
+                  "right": "Right",
+                  "bottom": "Bottom",
+                  "left": "Left",
+                  "none": "None"
+                }
+              },
+              {
+                "name": "primaryButtonBorderWidth",
+                "default": "1px",
+                "property": "px",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "primaryButtonBorderWidthTablet",
+                    "default": "inherit-mobile",
+                    "property": "px"
+                  },
+                  "desktop": {
+                    "name": "primaryButtonBorderWidthDesktop",
+                    "default": "inherit-tablet",
+                    "property": "px"
+                  }
+                },
+                "type": "size",
+                "properties": ["px", "pt", "em", "rem", "%"]
+              },
+              {
+                "name": "primaryButtonBorderStyle",
+                "default": "solid",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "primaryButtonBorderStyleTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "primaryButtonBorderStyleDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "border-style",
+                "properties": [
+                  "none",
+                  "dotted",
+                  "dashed",
+                  "solid",
+                  "double",
+                  "groove",
+                  "ridge",
+                  "inset",
+                  "outset"
+                ]
+              },
+              {
+                "name": "primaryButtonBorderColor",
+                "default": "$highlightColor",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "primaryButtonBorderColorTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "primaryButtonBorderColorDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "color"
+              },
+              {
+                "name": "primaryButtonBorderRadius",
+                "default": "4px",
+                "property": "px",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "primaryButtonBorderRadiusTablet",
+                    "default": "inherit-mobile",
+                    "property": "px"
+                  },
+                  "desktop": {
+                    "name": "primaryButtonBorderRadiusDesktop",
+                    "default": "inherit-tablet",
+                    "property": "px"
+                  }
+                },
+                "label": "Corner radius",
+                "type": "size",
+                "properties": ["px", "pt", "em", "rem", "%"]
+              }
+            ]
           },
           {
-            "name": "appAnalyticsChartColorOne",
-            "description": "Current period chart color",
-            "type": "color",
-            "default": "rgba(67,204,240,0.4)"
+            "description": "Shadow",
+            "fields": [
+              {
+                "name": "primaryButtonShadowStyle",
+                "default": "none",
+                "logic": {
+                  "none": {
+                    "hide": [
+                      "primaryButtonShadowXoffset",
+                      "primaryButtonShadowYoffset",
+                      "primaryButtonShadowBlur",
+                      "primaryButtonShadowSpread",
+                      "primaryButtonShadowColor"
+                    ]
+                  },
+                  "outset": {
+                    "show": [
+                      "primaryButtonShadowXoffset",
+                      "primaryButtonShadowYoffset",
+                      "primaryButtonShadowBlur",
+                      "primaryButtonShadowSpread",
+                      "primaryButtonShadowColor"
+                    ]
+                  },
+                  "inset": {
+                    "show": [
+                      "primaryButtonShadowXoffset",
+                      "primaryButtonShadowYoffset",
+                      "primaryButtonShadowBlur",
+                      "primaryButtonShadowSpread",
+                      "primaryButtonShadowColor"
+                    ]
+                  }
+                },
+                "breakpoints": {
+                  "tablet": {
+                    "name": "primaryButtonShadowStyleTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "primaryButtonShadowStyleDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "select",
+                "properties": {
+                  "none": "None",
+                  "outset": "Outwards",
+                  "inset": "Inset"
+                }
+              },
+              {
+                "name": "primaryButtonShadowXoffset",
+                "default": "0px",
+                "property": "px",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "primaryButtonShadowXoffsetTablet",
+                    "default": "inherit-mobile",
+                    "property": "px"
+                  },
+                  "desktop": {
+                    "name": "primaryButtonShadowXoffsetDesktop",
+                    "default": "inherit-tablet",
+                    "property": "px"
+                  }
+                },
+                "label": "X offset",
+                "type": "size",
+                "properties": ["px", "pt", "em", "rem", "%"]
+              },
+              {
+                "name": "primaryButtonShadowYoffset",
+                "default": "10px",
+                "property": "px",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "primaryButtonShadowYoffsetTablet",
+                    "default": "inherit-mobile",
+                    "property": "px"
+                  },
+                  "desktop": {
+                    "name": "primaryButtonShadowYoffsetDesktop",
+                    "default": "inherit-tablet",
+                    "property": "px"
+                  }
+                },
+                "label": "Y offset",
+                "type": "size",
+                "properties": ["px", "pt", "em", "rem", "%"]
+              },
+              {
+                "name": "primaryButtonShadowBlur",
+                "default": "20px",
+                "property": "px",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "primaryButtonShadowBlurTablet",
+                    "default": "inherit-mobile",
+                    "property": "px"
+                  },
+                  "desktop": {
+                    "name": "primaryButtonShadowBlurDesktop",
+                    "default": "inherit-tablet",
+                    "property": "px"
+                  }
+                },
+                "label": "Blur",
+                "type": "size",
+                "properties": ["px", "pt", "em", "rem", "%"]
+              },
+              {
+                "name": "primaryButtonShadowSpread",
+                "default": "0px",
+                "property": "px",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "primaryButtonShadowSpreadTablet",
+                    "default": "inherit-mobile",
+                    "property": "px"
+                  },
+                  "desktop": {
+                    "name": "primaryButtonShadowSpreadDesktop",
+                    "default": "inherit-tablet",
+                    "property": "px"
+                  }
+                },
+                "label": "Spread",
+                "type": "size",
+                "properties": ["px", "pt", "em", "rem", "%"]
+              },
+              {
+                "name": "primaryButtonShadowColor",
+                "default": "rgba(0, 0, 0, 0.2)",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "primaryButtonShadowColorTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "primaryButtonShadowColorDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "color"
+              }
+            ]
           },
           {
-            "name": "appAnalyticsChartColorOneDot",
-            "description": "Current period dot color",
-            "type": "color",
-            "default": "#43ccf0"
+            "description": "Background & text (Clicked)",
+            "fields": [
+              {
+                "name": "primaryButtonHoverColor",
+                "default": "#0096B8",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "primaryButtonHoverColorTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "primaryButtonHoverColorDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "label": "Background",
+                "type": "color"
+              },
+              {
+                "name": "primaryButtonHoverTextColor",
+                "default": "$primaryButtonTextColor",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "primaryButtonHoverTextColorTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "primaryButtonHoverTextColorDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "label": "Text",
+                "type": "color"
+              }
+            ]
           },
           {
-            "name": "appAnalyticsChartColorTwo",
-            "description": "Prior period chart color",
-            "type": "color",
-            "default": "rgba(182,189,204,0.2)"
+            "description": "Border (Clicked)",
+            "fields": [
+              {
+                "name": "primaryButtonHoverBorderSides",
+                "default": "none",
+                "logic": {
+                  "none": {
+                    "hide": [
+                      "primaryButtonHoverBorderWidth",
+                      "primaryButtonHoverBorderStyle",
+                      "primaryButtonHoverBorderColor"
+                    ]
+                  },
+                  "all": {
+                    "show": [
+                      "primaryButtonHoverBorderWidth",
+                      "primaryButtonHoverBorderStyle",
+                      "primaryButtonHoverBorderColor"
+                    ]
+                  },
+                  "top": {
+                    "show": [
+                      "primaryButtonHoverBorderWidth",
+                      "primaryButtonHoverBorderStyle",
+                      "primaryButtonHoverBorderColor"
+                    ]
+                  },
+                  "right": {
+                    "show": [
+                      "primaryButtonHoverBorderWidth",
+                      "primaryButtonHoverBorderStyle",
+                      "primaryButtonHoverBorderColor"
+                    ]
+                  },
+                  "bottom": {
+                    "show": [
+                      "primaryButtonHoverBorderWidth",
+                      "primaryButtonHoverBorderStyle",
+                      "primaryButtonHoverBorderColor"
+                    ]
+                  },
+                  "left": {
+                    "show": [
+                      "primaryButtonHoverBorderWidth",
+                      "primaryButtonHoverBorderStyle",
+                      "primaryButtonHoverBorderColor"
+                    ]
+                  }
+                },
+                "breakpoints": {
+                  "tablet": {
+                    "name": "primaryButtonHoverBorderSidesTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "primaryButtonHoverBorderSidesDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "select",
+                "properties": {
+                  "all": "All sides",
+                  "top": "Top",
+                  "right": "Right",
+                  "bottom": "Bottom",
+                  "left": "Left",
+                  "none": "None"
+                }
+              },
+              {
+                "name": "primaryButtonHoverBorderWidth",
+                "default": "1px",
+                "property": "px",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "primaryButtonHoverBorderWidthTablet",
+                    "default": "inherit-mobile",
+                    "property": "px"
+                  },
+                  "desktop": {
+                    "name": "primaryButtonHoverBorderWidthDesktop",
+                    "default": "inherit-tablet",
+                    "property": "px"
+                  }
+                },
+                "type": "size",
+                "properties": ["px", "pt", "em", "rem", "%"]
+              },
+              {
+                "name": "primaryButtonHoverBorderStyle",
+                "default": "solid",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "primaryButtonHoverBorderStyleTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "primaryButtonHoverBorderStyleDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "border-style",
+                "properties": [
+                  "none",
+                  "dotted",
+                  "dashed",
+                  "solid",
+                  "double",
+                  "groove",
+                  "ridge",
+                  "inset",
+                  "outset"
+                ]
+              },
+              {
+                "name": "primaryButtonHoverBorderColor",
+                "default": "#0096B8",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "primaryButtonHoverBorderColorTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "primaryButtonHoverBorderColorDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "color"
+              },
+              {
+                "name": "primaryButtonHoverBorderRadius",
+                "default": "4px",
+                "property": "px",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "primaryButtonHoverBorderRadiusTablet",
+                    "default": "inherit-mobile",
+                    "property": "px"
+                  },
+                  "desktop": {
+                    "name": "primaryButtonHoverBorderRadiusDesktop",
+                    "default": "inherit-tablet",
+                    "property": "px"
+                  }
+                },
+                "label": "Corner radius",
+                "type": "size",
+                "properties": ["px", "pt", "em", "rem", "%"]
+              }
+            ]
           },
           {
-            "name": "appAnalyticsChartColorTwoDot",
-            "description": "Prior period dot color",
-            "type": "color",
-            "default": "#b6bdcc"
+            "description": "Shadow (Clicked)",
+            "fields": [
+              {
+                "name": "primaryButtonHoverShadowStyle",
+                "default": "none",
+                "logic": {
+                  "none": {
+                    "hide": [
+                      "primaryButtonHoverShadowXoffset",
+                      "primaryButtonHoverShadowYoffset",
+                      "primaryButtonHoverShadowBlur",
+                      "primaryButtonHoverShadowSpread",
+                      "primaryButtonHoverShadowColor"
+                    ]
+                  },
+                  "outset": {
+                    "show": [
+                      "primaryButtonHoverShadowXoffset",
+                      "primaryButtonHoverShadowYoffset",
+                      "primaryButtonHoverShadowBlur",
+                      "primaryButtonHoverShadowSpread",
+                      "primaryButtonHoverShadowColor"
+                    ]
+                  },
+                  "inset": {
+                    "show": [
+                      "primaryButtonHoverShadowXoffset",
+                      "primaryButtonHoverShadowYoffset",
+                      "primaryButtonHoverShadowBlur",
+                      "primaryButtonHoverShadowSpread",
+                      "primaryButtonHoverShadowColor"
+                    ]
+                  }
+                },
+                "breakpoints": {
+                  "tablet": {
+                    "name": "primaryButtonHoverShadowStyleTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "primaryButtonHoverShadowStyleDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "select",
+                "properties": {
+                  "none": "None",
+                  "outset": "Outwards",
+                  "inset": "Inset"
+                }
+              },
+              {
+                "name": "primaryButtonHoverShadowXoffset",
+                "default": "0px",
+                "property": "px",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "primaryButtonHoverShadowXoffsetTablet",
+                    "default": "inherit-mobile",
+                    "property": "px"
+                  },
+                  "desktop": {
+                    "name": "primaryButtonHoverShadowXoffsetDesktop",
+                    "default": "inherit-tablet",
+                    "property": "px"
+                  }
+                },
+                "label": "X offset",
+                "type": "size",
+                "properties": ["px", "pt", "em", "rem", "%"]
+              },
+              {
+                "name": "primaryButtonHoverShadowYoffset",
+                "default": "5px",
+                "property": "px",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "primaryButtonHoverShadowYoffsetTablet",
+                    "default": "inherit-mobile",
+                    "property": "px"
+                  },
+                  "desktop": {
+                    "name": "primaryButtonHoverShadowYoffsetDesktop",
+                    "default": "inherit-tablet",
+                    "property": "px"
+                  }
+                },
+                "label": "Y offset",
+                "type": "size",
+                "properties": ["px", "pt", "em", "rem", "%"]
+              },
+              {
+                "name": "primaryButtonHoverShadowBlur",
+                "default": "20px",
+                "property": "px",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "primaryButtonHoverShadowBlurTablet",
+                    "default": "inherit-mobile",
+                    "property": "px"
+                  },
+                  "desktop": {
+                    "name": "primaryButtonHoverShadowBlurDesktop",
+                    "default": "inherit-tablet",
+                    "property": "px"
+                  }
+                },
+                "label": "Blur",
+                "type": "size",
+                "properties": ["px", "pt", "em", "rem", "%"]
+              },
+              {
+                "name": "primaryButtonHoverShadowSpread",
+                "default": "0px",
+                "property": "px",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "primaryButtonHoverShadowSpreadTablet",
+                    "default": "inherit-mobile",
+                    "property": "px"
+                  },
+                  "desktop": {
+                    "name": "primaryButtonHoverShadowSpreadDesktop",
+                    "default": "inherit-tablet",
+                    "property": "px"
+                  }
+                },
+                "label": "Spread",
+                "type": "size",
+                "properties": ["px", "pt", "em", "rem", "%"]
+              },
+              {
+                "name": "primaryButtonHoverShadowColor",
+                "default": "rgba(0, 0, 0, 0.2)",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "primaryButtonHoverShadowColorTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "primaryButtonHoverShadowColorDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "color"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Secondary button",
+        "variables": [
+          {
+            "description": "Background & text",
+            "fields": [
+              {
+                "name": "secondaryButtonColor",
+                "default": "$secondaryColor",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "secondaryButtonColorTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "secondaryButtonColorDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "label": "Background",
+                "type": "color"
+              },
+              {
+                "name": "secondaryButtonTextColor",
+                "default": "#ffffff",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "secondaryButtonTextColorTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "secondaryButtonTextColorDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "label": "Text",
+                "type": "color"
+              }
+            ]
+          },
+          {
+            "description": "Padding",
+            "fields": [
+              {
+                "name": "secondaryButtonPaddingTop",
+                "default": "10px",
+                "property": "px",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "secondaryButtonPaddingTopTablet",
+                    "default": "inherit-mobile",
+                    "property": "px"
+                  },
+                  "desktop": {
+                    "name": "secondaryButtonPaddingTopDesktop",
+                    "default": "inherit-tablet",
+                    "property": "px"
+                  }
+                },
+                "type": "size",
+                "label": "Top",
+                "properties": ["px", "pt", "em", "rem", "%"]
+              },
+              {
+                "name": "secondaryButtonPaddingRight",
+                "default": "16px",
+                "property": "px",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "secondaryButtonPaddingRightTablet",
+                    "default": "inherit-mobile",
+                    "property": "px"
+                  },
+                  "desktop": {
+                    "name": "secondaryButtonPaddingRightDesktop",
+                    "default": "inherit-tablet",
+                    "property": "px"
+                  }
+                },
+                "type": "size",
+                "label": "Right",
+                "properties": ["px", "pt", "em", "rem", "%"]
+              },
+              {
+                "name": "secondaryButtonPaddingBottom",
+                "default": "10px",
+                "property": "px",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "secondaryButtonPaddingBottomTablet",
+                    "default": "inherit-mobile",
+                    "property": "px"
+                  },
+                  "desktop": {
+                    "name": "secondaryButtonPaddingBottomDesktop",
+                    "default": "inherit-tablet",
+                    "property": "px"
+                  }
+                },
+                "type": "size",
+                "label": "Bottom",
+                "properties": ["px", "pt", "em", "rem", "%"]
+              },
+              {
+                "name": "secondaryButtonPaddingLeft",
+                "default": "16px",
+                "property": "px",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "secondaryButtonPaddingLeftTablet",
+                    "default": "inherit-mobile",
+                    "property": "px"
+                  },
+                  "desktop": {
+                    "name": "secondaryButtonPaddingLeftDesktop",
+                    "default": "inherit-tablet",
+                    "property": "px"
+                  }
+                },
+                "type": "size",
+                "label": "Left",
+                "properties": ["px", "pt", "em", "rem", "%"]
+              }
+            ]
+          },
+          {
+            "description": "Border",
+            "fields": [
+              {
+                "name": "secondaryButtonBorderSides",
+                "default": "none",
+                "logic": {
+                  "none": {
+                    "hide": [
+                      "secondaryButtonBorderWidth",
+                      "secondaryButtonBorderStyle",
+                      "secondaryButtonBorderColor"
+                    ]
+                  },
+                  "all": {
+                    "show": [
+                      "secondaryButtonBorderWidth",
+                      "secondaryButtonBorderStyle",
+                      "secondaryButtonBorderColor"
+                    ]
+                  },
+                  "top": {
+                    "show": [
+                      "secondaryButtonBorderWidth",
+                      "secondaryButtonBorderStyle",
+                      "secondaryButtonBorderColor"
+                    ]
+                  },
+                  "right": {
+                    "show": [
+                      "secondaryButtonBorderWidth",
+                      "secondaryButtonBorderStyle",
+                      "secondaryButtonBorderColor"
+                    ]
+                  },
+                  "bottom": {
+                    "show": [
+                      "secondaryButtonBorderWidth",
+                      "secondaryButtonBorderStyle",
+                      "secondaryButtonBorderColor"
+                    ]
+                  },
+                  "left": {
+                    "show": [
+                      "secondaryButtonBorderWidth",
+                      "secondaryButtonBorderStyle",
+                      "secondaryButtonBorderColor"
+                    ]
+                  }
+                },
+                "breakpoints": {
+                  "tablet": {
+                    "name": "secondaryButtonBorderSidesTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "secondaryButtonBorderSidesDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "select",
+                "properties": {
+                  "all": "All sides",
+                  "top": "Top",
+                  "right": "Right",
+                  "bottom": "Bottom",
+                  "left": "Left",
+                  "none": "None"
+                }
+              },
+              {
+                "name": "secondaryButtonBorderWidth",
+                "default": "1px",
+                "property": "px",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "secondaryButtonBorderWidthTablet",
+                    "default": "inherit-mobile",
+                    "property": "px"
+                  },
+                  "desktop": {
+                    "name": "secondaryButtonBorderWidthDesktop",
+                    "default": "inherit-tablet",
+                    "property": "px"
+                  }
+                },
+                "type": "size",
+                "properties": ["px", "pt", "em", "rem", "%"]
+              },
+              {
+                "name": "secondaryButtonBorderStyle",
+                "default": "solid",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "secondaryButtonBorderStyleTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "secondaryButtonBorderStyleDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "border-style",
+                "properties": [
+                  "none",
+                  "dotted",
+                  "dashed",
+                  "solid",
+                  "double",
+                  "groove",
+                  "ridge",
+                  "inset",
+                  "outset"
+                ]
+              },
+              {
+                "name": "secondaryButtonBorderColor",
+                "default": "$secondaryColor",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "secondaryButtonBorderColorTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "secondaryButtonBorderColorDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "color"
+              },
+              {
+                "name": "secondaryButtonBorderRadius",
+                "default": "4px",
+                "property": "px",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "secondaryButtonBorderRadiusTablet",
+                    "default": "inherit-mobile",
+                    "property": "px"
+                  },
+                  "desktop": {
+                    "name": "secondaryButtonBorderRadiusDesktop",
+                    "default": "inherit-tablet",
+                    "property": "px"
+                  }
+                },
+                "label": "Corner radius",
+                "type": "size",
+                "properties": ["px", "pt", "em", "rem", "%"]
+              }
+            ]
+          },
+          {
+            "description": "Shadow",
+            "fields": [
+              {
+                "name": "secondaryButtonShadowStyle",
+                "default": "none",
+                "logic": {
+                  "none": {
+                    "hide": [
+                      "secondaryButtonShadowXoffset",
+                      "secondaryButtonShadowYoffset",
+                      "secondaryButtonShadowBlur",
+                      "secondaryButtonShadowSpread",
+                      "secondaryButtonShadowColor"
+                    ]
+                  },
+                  "outset": {
+                    "show": [
+                      "secondaryButtonShadowXoffset",
+                      "secondaryButtonShadowYoffset",
+                      "secondaryButtonShadowBlur",
+                      "secondaryButtonShadowSpread",
+                      "secondaryButtonShadowColor"
+                    ]
+                  },
+                  "inset": {
+                    "show": [
+                      "secondaryButtonShadowXoffset",
+                      "secondaryButtonShadowYoffset",
+                      "secondaryButtonShadowBlur",
+                      "secondaryButtonShadowSpread",
+                      "secondaryButtonShadowColor"
+                    ]
+                  }
+                },
+                "breakpoints": {
+                  "tablet": {
+                    "name": "secondaryButtonShadowStyleTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "secondaryButtonShadowStyleDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "select",
+                "properties": {
+                  "none": "None",
+                  "outset": "Outwards",
+                  "inset": "Inset"
+                }
+              },
+              {
+                "name": "secondaryButtonShadowXoffset",
+                "default": "0px",
+                "property": "px",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "secondaryButtonShadowXoffsetTablet",
+                    "default": "inherit-mobile",
+                    "property": "px"
+                  },
+                  "desktop": {
+                    "name": "secondaryButtonShadowXoffsetDesktop",
+                    "default": "inherit-tablet",
+                    "property": "px"
+                  }
+                },
+                "label": "X offset",
+                "type": "size",
+                "properties": ["px", "pt", "em", "rem", "%"]
+              },
+              {
+                "name": "secondaryButtonShadowYoffset",
+                "default": "10px",
+                "property": "px",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "secondaryButtonShadowYoffsetTablet",
+                    "default": "inherit-mobile",
+                    "property": "px"
+                  },
+                  "desktop": {
+                    "name": "secondaryButtonShadowYoffsetDesktop",
+                    "default": "inherit-tablet",
+                    "property": "px"
+                  }
+                },
+                "label": "Y offset",
+                "type": "size",
+                "properties": ["px", "pt", "em", "rem", "%"]
+              },
+              {
+                "name": "secondaryButtonShadowBlur",
+                "default": "20px",
+                "property": "px",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "secondaryButtonShadowBlurTablet",
+                    "default": "inherit-mobile",
+                    "property": "px"
+                  },
+                  "desktop": {
+                    "name": "secondaryButtonShadowBlurDesktop",
+                    "default": "inherit-tablet",
+                    "property": "px"
+                  }
+                },
+                "label": "Blur",
+                "type": "size",
+                "properties": ["px", "pt", "em", "rem", "%"]
+              },
+              {
+                "name": "secondaryButtonShadowSpread",
+                "default": "0px",
+                "property": "px",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "secondaryButtonShadowSpreadTablet",
+                    "default": "inherit-mobile",
+                    "property": "px"
+                  },
+                  "desktop": {
+                    "name": "secondaryButtonShadowSpreadDesktop",
+                    "default": "inherit-tablet",
+                    "property": "px"
+                  }
+                },
+                "label": "Spread",
+                "type": "size",
+                "properties": ["px", "pt", "em", "rem", "%"]
+              },
+              {
+                "name": "secondaryButtonShadowColor",
+                "default": "rgba(0, 0, 0, 0.2)",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "secondaryButtonShadowColorTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "secondaryButtonShadowColorDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "color"
+              }
+            ]
+          },
+          {
+            "description": "Background & text (Clicked)",
+            "fields": [
+              {
+                "name": "secondaryButtonHoverColor",
+                "default": "#D98312",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "secondaryButtonHoverColorTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "secondaryButtonHoverColorDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "label": "Background",
+                "type": "color"
+              },
+              {
+                "name": "secondaryButtonHoverTextColor",
+                "default": "$secondaryButtonTextColor",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "secondaryButtonHoverTextColorTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "secondaryButtonHoverTextColorDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "label": "Text",
+                "type": "color"
+              }
+            ]
+          },
+          {
+            "description": "Border (Clicked)",
+            "fields": [
+              {
+                "name": "secondaryButtonHoverBorderSides",
+                "default": "none",
+                "logic": {
+                  "none": {
+                    "hide": [
+                      "secondaryButtonHoverBorderWidth",
+                      "secondaryButtonHoverBorderStyle",
+                      "secondaryButtonHoverBorderColor"
+                    ]
+                  },
+                  "all": {
+                    "show": [
+                      "secondaryButtonHoverBorderWidth",
+                      "secondaryButtonHoverBorderStyle",
+                      "secondaryButtonHoverBorderColor"
+                    ]
+                  },
+                  "top": {
+                    "show": [
+                      "secondaryButtonHoverBorderWidth",
+                      "secondaryButtonHoverBorderStyle",
+                      "secondaryButtonHoverBorderColor"
+                    ]
+                  },
+                  "right": {
+                    "show": [
+                      "secondaryButtonHoverBorderWidth",
+                      "secondaryButtonHoverBorderStyle",
+                      "secondaryButtonHoverBorderColor"
+                    ]
+                  },
+                  "bottom": {
+                    "show": [
+                      "secondaryButtonHoverBorderWidth",
+                      "secondaryButtonHoverBorderStyle",
+                      "secondaryButtonHoverBorderColor"
+                    ]
+                  },
+                  "left": {
+                    "show": [
+                      "secondaryButtonHoverBorderWidth",
+                      "secondaryButtonHoverBorderStyle",
+                      "secondaryButtonHoverBorderColor"
+                    ]
+                  }
+                },
+                "breakpoints": {
+                  "tablet": {
+                    "name": "secondaryButtonHoverBorderSidesTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "secondaryButtonHoverBorderSidesDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "select",
+                "properties": {
+                  "all": "All sides",
+                  "top": "Top",
+                  "right": "Right",
+                  "bottom": "Bottom",
+                  "left": "Left",
+                  "none": "None"
+                }
+              },
+              {
+                "name": "secondaryButtonHoverBorderWidth",
+                "default": "1px",
+                "property": "px",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "secondaryButtonHoverBorderWidthTablet",
+                    "default": "inherit-mobile",
+                    "property": "px"
+                  },
+                  "desktop": {
+                    "name": "secondaryButtonHoverBorderWidthDesktop",
+                    "default": "inherit-tablet",
+                    "property": "px"
+                  }
+                },
+                "type": "size",
+                "properties": ["px", "pt", "em", "rem", "%"]
+              },
+              {
+                "name": "secondaryButtonHoverBorderStyle",
+                "default": "solid",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "secondaryButtonHoverBorderStyleTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "secondaryButtonHoverBorderStyleDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "border-style",
+                "properties": [
+                  "none",
+                  "dotted",
+                  "dashed",
+                  "solid",
+                  "double",
+                  "groove",
+                  "ridge",
+                  "inset",
+                  "outset"
+                ]
+              },
+              {
+                "name": "secondaryButtonHoverBorderColor",
+                "default": "#D98312",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "secondaryButtonHoverBorderColorTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "secondaryButtonHoverBorderColorDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "color"
+              },
+              {
+                "name": "secondaryButtonHoverBorderRadius",
+                "default": "4px",
+                "property": "px",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "secondaryButtonHoverBorderRadiusTablet",
+                    "default": "inherit-mobile",
+                    "property": "px"
+                  },
+                  "desktop": {
+                    "name": "secondaryButtonHoverBorderRadiusDesktop",
+                    "default": "inherit-tablet",
+                    "property": "px"
+                  }
+                },
+                "label": "Corner radius",
+                "type": "size",
+                "properties": ["px", "pt", "em", "rem", "%"]
+              }
+            ]
+          },
+          {
+            "description": "Shadow (Clicked)",
+            "fields": [
+              {
+                "name": "secondaryButtonHoverShadowStyle",
+                "default": "none",
+                "logic": {
+                  "none": {
+                    "hide": [
+                      "secondaryButtonHoverShadowXoffset",
+                      "secondaryButtonHoverShadowYoffset",
+                      "secondaryButtonHoverShadowBlur",
+                      "secondaryButtonHoverShadowSpread",
+                      "secondaryButtonHoverShadowColor"
+                    ]
+                  },
+                  "outset": {
+                    "show": [
+                      "secondaryButtonHoverShadowXoffset",
+                      "secondaryButtonHoverShadowYoffset",
+                      "secondaryButtonHoverShadowBlur",
+                      "secondaryButtonHoverShadowSpread",
+                      "secondaryButtonHoverShadowColor"
+                    ]
+                  },
+                  "inset": {
+                    "show": [
+                      "secondaryButtonHoverShadowXoffset",
+                      "secondaryButtonHoverShadowYoffset",
+                      "secondaryButtonHoverShadowBlur",
+                      "secondaryButtonHoverShadowSpread",
+                      "secondaryButtonHoverShadowColor"
+                    ]
+                  }
+                },
+                "breakpoints": {
+                  "tablet": {
+                    "name": "secondaryButtonHoverShadowStyleTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "secondaryButtonHoverShadowStyleDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "select",
+                "properties": {
+                  "none": "None",
+                  "outset": "Outwards",
+                  "inset": "Inset"
+                }
+              },
+              {
+                "name": "secondaryButtonHoverShadowXoffset",
+                "default": "0px",
+                "property": "px",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "secondaryButtonHoverShadowXoffsetTablet",
+                    "default": "inherit-mobile",
+                    "property": "px"
+                  },
+                  "desktop": {
+                    "name": "secondaryButtonHoverShadowXoffsetDesktop",
+                    "default": "inherit-tablet",
+                    "property": "px"
+                  }
+                },
+                "label": "X offset",
+                "type": "size",
+                "properties": ["px", "pt", "em", "rem", "%"]
+              },
+              {
+                "name": "secondaryButtonHoverShadowYoffset",
+                "default": "5px",
+                "property": "px",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "secondaryButtonHoverShadowYoffsetTablet",
+                    "default": "inherit-mobile",
+                    "property": "px"
+                  },
+                  "desktop": {
+                    "name": "secondaryButtonHoverShadowYoffsetDesktop",
+                    "default": "inherit-tablet",
+                    "property": "px"
+                  }
+                },
+                "label": "Y offset",
+                "type": "size",
+                "properties": ["px", "pt", "em", "rem", "%"]
+              },
+              {
+                "name": "secondaryButtonHoverShadowBlur",
+                "default": "20px",
+                "property": "px",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "secondaryButtonHoverShadowBlurTablet",
+                    "default": "inherit-mobile",
+                    "property": "px"
+                  },
+                  "desktop": {
+                    "name": "secondaryButtonHoverShadowBlurDesktop",
+                    "default": "inherit-tablet",
+                    "property": "px"
+                  }
+                },
+                "label": "Blur",
+                "type": "size",
+                "properties": ["px", "pt", "em", "rem", "%"]
+              },
+              {
+                "name": "secondaryButtonHoverShadowSpread",
+                "default": "0px",
+                "property": "px",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "secondaryButtonHoverShadowSpreadTablet",
+                    "default": "inherit-mobile",
+                    "property": "px"
+                  },
+                  "desktop": {
+                    "name": "secondaryButtonHoverShadowSpreadDesktop",
+                    "default": "inherit-tablet",
+                    "property": "px"
+                  }
+                },
+                "label": "Spread",
+                "type": "size",
+                "properties": ["px", "pt", "em", "rem", "%"]
+              },
+              {
+                "name": "secondaryButtonHoverShadowColor",
+                "default": "rgba(0, 0, 0, 0.2)",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "secondaryButtonHoverShadowColorTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "secondaryButtonHoverShadowColorDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "color"
+              }
+            ]
           }
         ]
       },
@@ -2877,96 +4382,6 @@
       {
         "name": "Buttons",
         "variables": [
-          {
-            "name": "primaryButtonColor",
-            "description": "Primary button color",
-            "type": "color",
-            "default": "#337ab7"
-          },
-          {
-            "name": "primaryButtonTextColor",
-            "description": "Primary button text color",
-            "type": "color",
-            "default": "#ffffff"
-          },
-          {
-            "name": "primaryButtonBorder",
-            "description": "Primary button border",
-            "type": "text",
-            "default": "none",
-            "hint": "e.g. 1px solid transparent"
-          },
-          {
-            "name": "primaryButtonBorderRadius",
-            "description": "Primary button border radius",
-            "type": "text",
-            "default": "6px",
-            "hint": "e.g. 6px 6px 6px 6px"
-          },
-          {
-            "name": "primaryButtonHoverColor",
-            "description": "Primary button color when clicked",
-            "type": "color",
-            "default": "#286090"
-          },
-          {
-            "name": "primaryButtonHoverTextColor",
-            "description": "Primary button text color when clicked",
-            "type": "color",
-            "default": "#ffffff"
-          },
-          {
-            "name": "primaryButtonHoverBorder",
-            "description": "Primary button border when clicked",
-            "type": "text",
-            "default": "none",
-            "hint": "e.g. 1px solid transparent"
-          },
-          {
-            "name": "secondaryButtonColor",
-            "description": "Secondary button color",
-            "type": "color",
-            "default": "#c0c0c0"
-          },
-          {
-            "name": "secondaryButtonTextColor",
-            "description": "Secondary button text color",
-            "type": "color",
-            "default": "#333333"
-          },
-          {
-            "name": "secondaryButtonBorder",
-            "description": "Secondary button border",
-            "type": "text",
-            "default": "none",
-            "hint": "e.g. 1px solid transparent"
-          },
-          {
-            "name": "secondaryButtonBorderRadius",
-            "description": "Secondary button border radius",
-            "type": "text",
-            "default": "6px",
-            "hint": "e.g. 6px 6px 6px 6px"
-          },
-          {
-            "name": "secondaryButtonHoverColor",
-            "description": "Secondary button color when clicked",
-            "type": "color",
-            "default": "#b1b1b1"
-          },
-          {
-            "name": "secondaryButtonHoverTextColor",
-            "description": "Secondary button text color when clicked",
-            "type": "color",
-            "default": "#333333"
-          },
-          {
-            "name": "secondaryButtonHoverBorder",
-            "description": "Secondary button border when clicked",
-            "type": "text",
-            "default": "none",
-            "hint": "e.g. 1px solid transparent"
-          },
           {
             "name": "linkColor",
             "description": "Text link color",

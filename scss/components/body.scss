@@ -21,16 +21,20 @@
     } @else {
       background-image: url(#{map-get($configuration, backgroundImage)});
     }
-  } @else {
+  } @else if map-get($configuration, backgroundType) == 'Color' {
     background-image: none;
+    background-color: map-get($configuration, backgroundColor);
+  } @else {
+    background: none;
   }
 
-  background-color: map-get($configuration, backgroundColor);
   background-size: map-get($configuration, backgroundSize);
   background-repeat: map-get($configuration, backgroundRepeat);
   background-position: map-get($configuration, backgroundPosX) map-get($configuration, backgroundPosY);
   color: map-get($configuration, fontColor);
-  font: map-get($configuration, fontWeight) #{map-get($configuration, fontSize)}/#{map-get($configuration, fontLineHeight)} #{map-get($configuration, fontFamily)}, 'Arial, sans-serif';
+  font: map-get($configuration, fontWeight)
+    #{map-get($configuration, fontSize)}/#{map-get($configuration, fontLineHeight)}
+    #{map-get($configuration, fontFamily)}, 'Arial, sans-serif';
 }
 
 body {

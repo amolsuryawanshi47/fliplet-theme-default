@@ -7,16 +7,86 @@
 ******************************/
 /* 01 - MENU */
 
-.fl-viewport-header {
-  background: $menuTopNavBackground;
+@mixin viewportHeader($options: ()) {
+  $configuration: map-merge((
+    headerBackgroundColor: $menuTopNavBackground,
+    headerTextColor: $menuTopNavFontColor,
+    headerShadowStyle: $menuShadowStyle,
+    headerShadowXOffset: $menuShadowXoffset,
+    headerShadowYOffset: $menuShadowYoffset,
+    headerShadowBlur: $menuShadowBlur,
+    headerShadowSpread: $menuShadowSpread,
+    headerShadowColor: $menuTopNavFontShadowColor
+  ), $options);
+
+  background-color: map-get($configuration, headerBackgroundColor);
+  color: map-get($configuration, headerTextColor);
+
+  @if map-get($configuration, headerShadowStyle) == 'inset' {
+    box-shadow: map-get($configuration, headerShadowStyle)
+      map-get($configuration, headerShadowXOffset)
+      map-get($configuration, headerShadowYOffset)
+      map-get($configuration, headerShadowBlur)
+      map-get($configuration, headerShadowSpread)
+      map-get($configuration, headerShadowColor);
+  }
+  @if map-get($configuration, headerShadowStyle) == 'none' {
+    box-shadow: map-get($configuration, headerShadowStyle);
+  }
+  @if map-get($configuration, headerShadowStyle) == 'outset' {
+    box-shadow: map-get($configuration, headerShadowXOffset)
+      map-get($configuration, headerShadowYOffset)
+      map-get($configuration, headerShadowBlur)
+      map-get($configuration, headerShadowSpread)
+      map-get($configuration, headerShadowColor);
+  }
+
   border: none;
-  box-shadow: 0px 1px 0px 0px $menuTopNavFontShadowColor;
-  color: $menuTopNavFontColor;
+}
+
+.fl-viewport-header {
+  @include viewportHeader();
+
+  // Styles for tablet
+  @include above($tabletBreakpoint) {
+    @include viewportHeader((
+      headerBackgroundColor: $menuTopNavBackgroundTablet,
+      headerTextColor: $menuTopNavFontColorTablet,
+      headerShadowXOffset: $menuShadowXoffsetTablet,
+      headerShadowYOffset: $menuShadowYoffsetTablet,
+      headerShadowBlur: $menuShadowBlurTablet,
+      headerShadowSpread: $menuShadowSpreadTablet,
+      headerShadowColor: $menuTopNavFontShadowColorTablet
+    ));
+  }
+
+  // Styles for desktop
+  @include above($desktopBreakpoint) {
+    @include viewportHeader((
+      headerBackgroundColor: $menuTopNavBackgroundDesktop,
+      headerTextColor: $menuTopNavFontColorDesktop,
+      headerShadowXOffset: $menuShadowXoffsetDesktop,
+      headerShadowYOffset: $menuShadowYoffsetDesktop,
+      headerShadowBlur: $menuShadowBlurDesktop,
+      headerShadowSpread: $menuShadowSpreadDesktop,
+      headerShadowColor: $menuTopNavFontShadowColorDesktop
+    ));
+  }
 
   .nav-left,
   .nav-left-arrow,
   .nav-right-arrow {
     color: $menuBackButtonColor;
+
+    // Styles for tablet
+    @include above($tabletBreakpoint) {
+      color: $menuBackButtonColorTablet;
+    }
+
+    // Styles for desktop
+    @include above($desktopBreakpoint) {
+      color: $menuBackButtonColorDesktop;
+    }
   }
   .nav-right,
   .nav-center {
@@ -28,6 +98,26 @@
         &:before {
           background-color: $menuButtonColor;
         }
+
+        // Styles for tablet
+        @include above($tabletBreakpoint) {
+          background-color: $menuButtonColorTablet;
+
+          &:after,
+          &:before {
+            background-color: $menuButtonColorTablet;
+          }
+        }
+
+        // Styles for desktop
+        @include above($desktopBreakpoint) {
+          background-color: $menuButtonColorDesktop;
+
+          &:after,
+          &:before {
+            background-color: $menuButtonColorDesktop;
+          }
+        }
       }
 
       &.is-active {
@@ -38,6 +128,26 @@
           &:before {
             background-color: $menuCloseButtonColor;
           }
+
+          // Styles for tablet
+          @include above($tabletBreakpoint) {
+            background-color: $menuCloseButtonColorTablet;
+
+            &:after,
+            &:before {
+              background-color: $menuCloseButtonColorTablet;
+            }
+          }
+
+          // Styles for desktop
+          @include above($desktopBreakpoint) {
+            background-color: $menuCloseButtonColorDesktop;
+
+            &:after,
+            &:before {
+              background-color: $menuCloseButtonColorDesktop;
+            }
+          }
         }
       }
     }
@@ -46,15 +156,50 @@
 
 .fl-menu-panel,
 .fl-menu .fl-menu-body-swipe {
-  background: $menuBackgroundColor;
+  background-color: $menuBackgroundColor;
 
   .fl-list-default {
     ul {
       font-family: $menuFont;
       font-size: $menuFontSize;
+      font-weight: $menuFontWeight;
 
       li {
         border-bottom: 1px solid rgba($menuTopNavFontColor, 0.2);
+      }
+    }
+  }
+
+  // Styles for tablet
+  @include above($tabletBreakpoint) {
+    background-color: $menuBackgroundColorTablet;
+
+    .fl-list-default {
+      ul {
+        font-family: $menuFontTablet;
+        font-size: $menuFontSizeTablet;
+        font-weight: $menuFontWeightTablet;
+
+        li {
+          border-bottom: 1px solid rgba($menuTopNavFontColorTablet, 0.2);
+        }
+      }
+    }
+  }
+
+  // Styles for desktop
+  @include above($desktopBreakpoint) {
+    background-color: $menuBackgroundColorDesktop;
+
+    .fl-list-default {
+      ul {
+        font-family: $menuFontDesktop;
+        font-size: $menuFontSizeDesktop;
+        font-weight: $menuFontWeightTablet;
+
+        li {
+          border-bottom: 1px solid rgba($menuTopNavFontColorDesktop, 0.2);
+        }
       }
     }
   }
@@ -67,17 +212,61 @@
     ul>li .fa {
       color: $menuFontColor;
     }
+
+    // Styles for tablet
+    @include above($tabletBreakpoint) {
+      color: $menuFontColorTablet;
+
+      ul>li .fa {
+        color: $menuFontColorTablet;
+      }
+    }
+
+    // Styles for desktop
+    @include above($desktopBreakpoint) {
+      color: $menuFontColorDesktop;
+
+      ul>li .fa {
+        color: $menuFontColorDesktop;
+      }
+    }
   }
 }
 
 .fl-app-menu-toolbar {
-  background: $menuBackgroundColor;
+  background-color: $menuBackgroundColor;
 
   .copyright {
     color: $menuFooterFontColor;
 
     a {
       color: $menuFooterFontColor;
+    }
+  }
+
+  // Styles for tablet
+  @include above($tabletBreakpoint) {
+    background-color: $menuBackgroundColorTablet;
+
+    .copyright {
+      color: $menuFooterFontColorTablet;
+
+      a {
+        color: $menuFooterFontColorTablet;
+      }
+    }
+  }
+
+  // Styles for desktop
+  @include above($desktopBreakpoint) {
+    background-color: $menuBackgroundColorDesktop;
+
+    .copyright {
+      color: $menuFooterFontColorDesktop;
+
+      a {
+        color: $menuFooterFontColorDesktop;
+      }
     }
   }
 }
@@ -94,6 +283,16 @@
   .fl-menu-panel {
     &:before {
       border-bottom: 11px solid $menuBackgroundColor;
+
+      // Styles for tablet
+      @include above($tabletBreakpoint) {
+        border-bottom: 11px solid $menuBackgroundColorTablet;
+      }
+
+      // Styles for desktop
+      @include above($desktopBreakpoint) {
+        border-bottom: 11px solid $menuBackgroundColorDesktop;
+      }
     }
   }
 }
@@ -109,10 +308,46 @@
         color: $menuBackButtonColor;
       }
       &.linked {
-        background-color: rgba($menuTopNavFontColor,0.2);
+        background-color: rgba($menuTopNavFontColor, 0.2);
 
         &.active {
           background-color: $menuTopNavFontColor;
+        }
+      }
+    }
+
+    // Styles for tablet
+    @include above($tabletBreakpoint) {
+      background: $menuTopNavBackgroundTablet;
+
+      li {
+        &.fl-menu-arrow {
+          color: $menuBackButtonColorTablet;
+        }
+        &.linked {
+          background-color: rgba($menuTopNavFontColorTablet, 0.2);
+
+          &.active {
+            background-color: $menuTopNavFontColorTablet;
+          }
+        }
+      }
+    }
+
+    // Styles for desktop
+    @include above($desktopBreakpoint) {
+      background: $menuTopNavBackgroundDesktop;
+
+      li {
+        &.fl-menu-arrow {
+          color: $menuBackButtonColorDesktop;
+        }
+        &.linked {
+          background-color: rgba($menuTopNavFontColorDesktop, 0.2);
+
+          &.active {
+            background-color: $menuTopNavFontColorDesktop;
+          }
         }
       }
     }
@@ -122,8 +357,20 @@
 /* Expandable Menu */
 .fl-menu-circle-header {
   .nav-toggle {
-    background: $menuExpButtonColor;
+    background-color: $menuExpButtonColor;
     color: $menuExpButtonIconColor;
+
+    // Styles for tablet
+    @include above($tabletBreakpoint) {
+      background-color: $menuExpButtonColorTablet;
+      color: $menuExpButtonIconColorTablet;
+    }
+
+    // Styles for desktop
+    @include above($desktopBreakpoint) {
+      background-color: $menuExpButtonColorDesktop;
+      color: $menuExpButtonIconColorDesktop;
+    }
 
     .hamburger {
       .hamburger-inner {
@@ -133,12 +380,44 @@
         &:before {
           background-color: $menuExpButtonIconColor;
         }
+
+        // Styles for tablet
+        @include above($tabletBreakpoint) {
+          background-color: $menuExpButtonIconColorTablet;
+
+          &:after,
+          &:before {
+            background-color: $menuExpButtonIconColorTablet;
+          }
+        }
+
+        // Styles for desktop
+        @include above($desktopBreakpoint) {
+          background-color: $menuExpButtonIconColorDesktop;
+
+          &:after,
+          &:before {
+            background-color: $menuExpButtonIconColorDesktop;
+          }
+        }
       }
     }
 
     &.active {
       background: $menuExpButtonColorOpen;
       color: $menuExpButtonIconColorOpen;
+
+      // Styles for tablet
+      @include above($tabletBreakpoint) {
+        background-color: $menuExpButtonColorOpenTablet;
+        color: $menuExpButtonIconColorOpenTablet;
+      }
+
+      // Styles for desktop
+      @include above($desktopBreakpoint) {
+        background-color: $menuExpButtonColorOpenDesktop;
+        color: $menuExpButtonIconColorOpenDesktop;
+      }
 
       .hamburger.is-active {
         .hamburger-inner {
@@ -148,6 +427,26 @@
           &:before {
             background-color: $menuExpButtonIconColorOpen;
           }
+
+          // Styles for tablet
+          @include above($tabletBreakpoint) {
+            background-color: $menuExpButtonIconColorOpenTablet;
+
+            &:after,
+            &:before {
+              background-color: $menuExpButtonIconColorOpenTablet;
+            }
+          }
+
+          // Styles for desktop
+          @include above($desktopBreakpoint) {
+            background-color: $menuExpButtonIconColorOpenDesktop;
+
+            &:after,
+            &:before {
+              background-color: $menuExpButtonIconColorOpenDesktop;
+            }
+          }
         }
       }
     }
@@ -156,10 +455,28 @@
 
 .fl-menu-circle-nav-holder {
   .nav-circle {
-    background: $menuExpButtonColor;
+    background-color: $menuExpButtonColor;
 
     &.active {
-      background: $menuExpBackgroundOpen;
+      background-color: $menuExpBackgroundOpen;
+    }
+
+    // Styles for tablet
+    @include above($tabletBreakpoint) {
+      background-color: $menuExpButtonColorTablet;
+
+      &.active {
+        background-color: $menuExpBackgroundOpenTablet;
+      }
+    }
+
+    // Styles for desktop
+    @include above($desktopBreakpoint) {
+      background-color: $menuExpButtonColorDesktop;
+
+      &.active {
+        background-color: $menuExpBackgroundOpenDesktop;
+      }
     }
   }
 }
@@ -168,14 +485,47 @@
   .nav-list{
     font-family: $menuFont;
     font-size: $menuFontSize;
+    font-weight: $menuFontWeight;
 
     li {
       color: $menuExpFontColor;
+    }
+
+    // Styles for tablet
+    @include above($tabletBreakpoint) {
+      font-family: $menuFontTablet;
+      font-size: $menuFontSizeTablet;
+      font-weight: $menuFontWeightTablet;
+
+      li {
+        color: $menuExpFontColorTablet;
+      }
+    }
+
+    // Styles for desktop
+    @include above($desktopBreakpoint) {
+      font-family: $menuFontDesktop;
+      font-size: $menuFontSizeDesktop;
+      font-weight: $menuFontWeightDesktop;
+
+      li {
+        color: $menuExpFontColorDesktop;
+      }
     }
   }
   .fl-menu-foot {
     a {
       color: $menuExpFooterFontColor;
+
+      // Styles for tablet
+      @include above($tabletBreakpoint) {
+        color: $menuExpFooterFontColorTablet;
+      }
+
+      // Styles for desktop
+      @include above($desktopBreakpoint) {
+        color: $menuExpFooterFontColorDesktop;
+      }
     }
   }
 }
@@ -185,6 +535,21 @@
     ul {
       font-family: $menuFont;
       font-size: $menuFontSize;
+      font-weight: $menuFontWeight;
+
+      // Styles for tablet
+      @include above($tabletBreakpoint) {
+        font-family: $menuFontTablet;
+        font-size: $menuFontSizeTablet;
+        font-weight: $menuFontWeightTablet;
+      }
+
+      // Styles for desktop
+      @include above($desktopBreakpoint) {
+        font-family: $menuFontDesktop;
+        font-size: $menuFontSizeDesktop;
+        font-weight: $menuFontWeightDesktop;
+      }
     }
   }
 }
@@ -207,6 +572,52 @@
 
       .fl-menu-title {
         color: $menuBottomBarActiveFontColor;
+      }
+    }
+  }
+
+  // Styles for tablet
+  @include above($tabletBreakpoint) {
+    color: $menuBottomBarFontColorTablet;
+
+    ul {
+      background-color: $menuBottomBarBackgroundColorTablet;
+    }
+
+    li {
+      &.active {
+        background-color: $menuBottomActiveBackgroundTablet;
+
+        .fl-menu-icon {
+          color: $menuBottomBarActiveFontColorTablet;
+        }
+
+        .fl-menu-title {
+          color: $menuBottomBarActiveFontColorTablet;
+        }
+      }
+    }
+  }
+
+  // Styles for desktop
+  @include above($desktopBreakpoint) {
+    color: $menuBottomBarFontColorDesktop;
+
+    ul {
+      background-color: $menuBottomBarBackgroundColorDesktop;
+    }
+
+    li {
+      &.active {
+        background-color: $menuBottomActiveBackgroundDesktop;
+
+        .fl-menu-icon {
+          color: $menuBottomBarActiveFontColorDesktop;
+        }
+
+        .fl-menu-title {
+          color: $menuBottomBarActiveFontColorDesktop;
+        }
       }
     }
   }

@@ -23,8 +23,11 @@
     } @else {
       background-image: url(#{map-get($configuration, backgroundImage)});
     }
-  } @else {
+  } @else if map-get($configuration, backgroundType) == 'Color' {
     background-image: none;
+    background-color: map-get($configuration, backgroundColor);
+  } @else {
+    background: none;
   }
 
   background-color: map-get($configuration, backgroundColor);
@@ -32,7 +35,9 @@
   background-repeat: map-get($configuration, backgroundRepeat);
   background-position: map-get($configuration, backgroundPosX) map-get($configuration, backgroundPosY);
   color: map-get($configuration, fontColor);
-  font: map-get($configuration, fontWeight) #{map-get($configuration, fontSize)}/#{map-get($configuration, fontLineHeight)} #{map-get($configuration, fontFamily)}, 'Arial, sans-serif';
+  font: map-get($configuration, fontWeight)
+    #{map-get($configuration, fontSize)}/#{map-get($configuration, fontLineHeight)}
+    #{map-get($configuration, fontFamily)}, 'Arial, sans-serif';
 }
 
 @mixin overlay($options: ()) {
@@ -66,35 +71,57 @@
   bottom: map-get($configuration, overlayPositionBottom);
   left: map-get($configuration, overlayPositionLeft);
   background-color: map-get($configuration, overlayColor);
-  padding: map-get($configuration, overlayPaddingTop) map-get($configuration, overlayPaddingRight) map-get($configuration, overlayPaddingBottom) map-get($configuration, overlayPaddingLeft);
+  padding: map-get($configuration, overlayPaddingTop)
+    map-get($configuration, overlayPaddingRight)
+    map-get($configuration, overlayPaddingBottom)
+    map-get($configuration, overlayPaddingLeft);
 
   @if map-get($configuration, overlayShadowStyle) == 'inset' {
-    box-shadow: map-get($configuration, overlayShadowStyle) map-get($configuration, overlayShadowXoffset) map-get($configuration, overlayShadowYoffset) map-get($configuration, overlayShadowBlur) map-get($configuration, overlayShadowSpread) map-get($configuration, overlayShadowColor);
+    box-shadow: map-get($configuration, overlayShadowStyle)
+      map-get($configuration, overlayShadowXoffset)
+      map-get($configuration, overlayShadowYoffset)
+      map-get($configuration, overlayShadowBlur)
+      map-get($configuration, overlayShadowSpread)
+      map-get($configuration, overlayShadowColor);
   }
   @if map-get($configuration, overlayShadowStyle) == 'none' {
     box-shadow: map-get($configuration, overlayShadowStyle);
   }
   @if map-get($configuration, overlayShadowStyle) == 'outset' {
-    box-shadow: map-get($configuration, overlayShadowXoffset) map-get($configuration, overlayShadowYoffset) map-get($configuration, overlayShadowBlur) map-get($configuration, overlayShadowSpread) map-get($configuration, overlayShadowColor);
+    box-shadow: map-get($configuration, overlayShadowXoffset)
+      map-get($configuration, overlayShadowYoffset)
+      map-get($configuration, overlayShadowBlur)
+      map-get($configuration, overlayShadowSpread)
+      map-get($configuration, overlayShadowColor);
   }
 
   @if map-get($configuration, overlayBorderSides) == 'none' {
     border: none;
   }
   @if map-get($configuration, overlayBorderSides) == 'all' {
-    border: map-get($configuration, overlayBorderWidth) map-get($configuration, overlayBorderStyle) map-get($configuration, overlayBorderColor);
+    border: map-get($configuration, overlayBorderWidth)
+      map-get($configuration, overlayBorderStyle)
+      map-get($configuration, overlayBorderColor);
   }
   @if map-get($configuration, overlayBorderSides) == 'top' {
-    border-top: map-get($configuration, overlayBorderWidth) map-get($configuration, overlayBorderStyle) map-get($configuration, overlayBorderColor);
+    border-top: map-get($configuration, overlayBorderWidth)
+      map-get($configuration, overlayBorderStyle)
+      map-get($configuration, overlayBorderColor);
   }
   @if map-get($configuration, overlayBorderSides) == 'right' {
-    border-right: map-get($configuration, overlayBorderWidth) map-get($configuration, overlayBorderStyle) map-get($configuration, overlayBorderColor);
+    border-right: map-get($configuration, overlayBorderWidth)
+      map-get($configuration, overlayBorderStyle)
+      map-get($configuration, overlayBorderColor);
   }
   @if map-get($configuration, overlayBorderSides) == 'bottom' {
-    border-bottom: map-get($configuration, overlayBorderWidth) map-get($configuration, overlayBorderStyle) map-get($configuration, overlayBorderColor);
+    border-bottom: map-get($configuration, overlayBorderWidth)
+      map-get($configuration, overlayBorderStyle)
+      map-get($configuration, overlayBorderColor);
   }
   @if map-get($configuration, overlayBorderSides) == 'left' {
-    border-left: map-get($configuration, overlayBorderWidth) map-get($configuration, overlayBorderStyle) map-get($configuration, overlayBorderColor);
+    border-left: map-get($configuration, overlayBorderWidth)
+      map-get($configuration, overlayBorderStyle)
+      map-get($configuration, overlayBorderColor);
   }
 
   border-radius: map-get($configuration, overlayBorderRadius);
