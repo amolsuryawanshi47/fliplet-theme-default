@@ -6,17 +6,61 @@
 01 - APP LIST
 ******************************/
 
+/* @TODO: RECHECK THE LIST VARIABLES;
+
 /* 01 - APP LIST */
+@mixin appList($options: ()) {
+  $configuration: map-merge((
+    backgroundColor: $appListLoginOverlayColor,
+    textColor: $appListLoginOverlayTextColor
+  ), $options);
+
+  background-color: map-get($configuration, backgroundColor);
+  color: map-get($configuration, textColor);
+}
 
 .admin-overlay {
   .overlayNavbar {
-    background: $appListLoginOverlayNavBar;
-    color: $appListLoginOverlayNavBarTextColor;
+    @include appList((
+      backgroundColor: $appListLoginOverlayNavBar,
+      textColor: $appListLoginOverlayNavBarTextColor
+    ));
+
+    // Styles for tablet
+    @include above($tabletBreakpoint) {
+      @include appList((
+        backgroundColor: $appListLoginOverlayNavBarTablet,
+        textColor: $appListLoginOverlayNavBarTextColorTablet
+      ));
+    }
+
+    // Styles for desktop
+    @include above($desktopBreakpoint) {
+      @include appList((
+        backgroundColor: $appListLoginOverlayNavBarTablet,
+        textColor: $appListLoginOverlayNavBarTextColorTablet
+      ));
+    }
   }
 
   .overlayPanelContent {
-    background: $appListLoginOverlayColor;
-    color: $appListLoginOverlayTextColor;
+    @include appList();
+
+    // Styles for tablet
+    @include above($tabletBreakpoint) {
+      @include appList((
+        backgroundColor: $appListLoginOverlayColorTablet,
+        textColor: $appListLoginOverlayTextColorTablet
+      ));
+    }
+
+    // Styles for desktop
+    @include above($desktopBreakpoint) {
+      @include appList((
+        backgroundColor: $appListLoginOverlayColorDesktop,
+        textColor: $appListLoginOverlayTextColorDesktop
+      ));
+    }
   }
 }
 
@@ -27,11 +71,45 @@
 .app-list {
   .loader {
     border-left-color: $appListLoader;
+
+    // Styles for tablet
+    @include above($tabletBreakpoint) {
+      border-left-color: $appListLoaderTablet;
+    }
+
+    // Styles for desktop
+    @include above($desktopBreakpoint) {
+      border-left-color: $appListLoaderDesktop;
+    }
   }
 
   .section-heading {
     color: $appListHeadingsColor;
-    font-weight: $appListHeadingsWeight;
+    font: $appListHeadingsWeight
+      #{$appListHeadingsSize}/#{$appListHeadingsHeight}
+      $appListHeadingsFontFamily;
+    margin-top: $appListHeadingsMarginTop;
+    margin-bottom: $appListHeadingsMarginBottom;
+
+    // Styles for tablet
+    @include above($tabletBreakpoint) {
+      color: $appListHeadingsColorTablet;
+      font: $appListHeadingsWeightTablet
+        #{$appListHeadingsSizeTablet}/#{$appListHeadingsHeightTablet}
+        $appListHeadingsFontFamilyTablet;
+      margin-top: $appListHeadingsMarginTopTablet;
+      margin-bottom: $appListHeadingsMarginBottomTablet;
+    }
+
+    // Styles for desktop
+    @include above($desktopBreakpoint) {
+      color: $appListHeadingsColorDesktop;
+      font: $appListHeadingsWeightDesktop
+        #{$appListHeadingsSizeDesktop}/#{$appListHeadingsHeightDesktop}
+        $appListHeadingsFontFamilyDesktop;
+      margin-top: $appListHeadingsMarginTopDesktop;
+      margin-bottom: $appListHeadingsMarginBottomDesktop;
+    }
   }
 
   .list {
@@ -48,6 +126,16 @@
               .fa {
                 &.cancel {
                   color: $appListProgressBarColor;
+
+                  // Styles for tablet
+                  @include above($tabletBreakpoint) {
+                    color: $appListProgressBarColorTablet;
+                  }
+
+                  // Styles for desktop
+                  @include above($desktopBreakpoint) {
+                    color: $appListProgressBarColorDesktop;
+                  }
                 }
               }
             }
@@ -57,6 +145,16 @@
               .fa {
                 &.download {
                   color: $appListDownloadIconColor;
+
+                  // Styles for tablet
+                  @include above($tabletBreakpoint) {
+                    color: $appListDownloadIconColorTablet;
+                  }
+
+                  // Styles for desktop
+                  @include above($desktopBreakpoint) {
+                    color: $appListDownloadIconColorDesktop;
+                  }
                 }
               }
             }
@@ -66,6 +164,16 @@
               .fa {
                 &.download {
                   color: $appListPreparingIconColor;
+
+                  // Styles for tablet
+                  @include above($tabletBreakpoint) {
+                    color: $appListPreparingIconColorTablet;
+                  }
+
+                  // Styles for desktop
+                  @include above($desktopBreakpoint) {
+                    color: $appListPreparingIconColorDesktop;
+                  }
                 }
               }
             }
@@ -75,6 +183,16 @@
               .fa {
                 &.completed {
                   color: $appListCompletedIconColor;
+
+                  // Styles for tablet
+                  @include above($tabletBreakpoint) {
+                    color: $appListCompletedIconColorTablet;
+                  }
+
+                  // Styles for desktop
+                  @include above($desktopBreakpoint) {
+                    color: $appListCompletedIconColorDesktop;
+                  }
                 }
               }
             }
@@ -83,6 +201,16 @@
             .icon .fa {
               &.initial {
                 color: $appListInitialIconColor;
+
+                // Styles for tablet
+                @include above($tabletBreakpoint) {
+                  color: $appListInitialIconColorTablet;
+                }
+
+                // Styles for desktop
+                @include above($desktopBreakpoint) {
+                  color: $appListInitialIconColorDesktop;
+                }
               }
             }
           }
@@ -91,10 +219,28 @@
           }
 
           .progress {
-            background-color: darken($listBackgroundColor,5%);
+            background-color: $appListProgressBarBGColor;
 
             .progress-bar-flv {
               background-color: $appListProgressBarColor;
+            }
+
+            // Styles for tablet
+            @include above($tabletBreakpoint) {
+              background-color: $appListProgressBarBGColorTablet;
+
+              .progress-bar-flv {
+                background-color: $appListProgressBarColorTablet;
+              }
+            }
+
+            // Styles for desktop
+            @include above($desktopBreakpoint) {
+              background-color: $appListProgressBarBGColorDesktop;
+
+              .progress-bar-flv {
+                background-color: $appListProgressBarColorDesktop;
+              }
             }
           }
         }
@@ -106,8 +252,28 @@
 #overlay-admin,
 .admin-overlay {
   .closeButton {
-    background-color: $appListCloseButtonColor;
-    color: $appListCloseButtonTextColor;
+    @include appList((
+      backgroundColor: $appListCloseButtonColor,
+      textColor: $appListCloseButtonTextColor
+    ));
     border-top-color: $appListCloseButtonBorderColor;
+
+    // Styles for tablet
+    @include above($tabletBreakpoint) {
+      @include appList((
+        backgroundColor: $appListCloseButtonColorTablet,
+        textColor: $appListCloseButtonTextColorTablet
+      ));
+      border-top-color: $appListCloseButtonBorderColorTablet;
+    }
+
+    // Styles for desktop
+    @include above($desktopBreakpoint) {
+      @include appList((
+        backgroundColor: $appListCloseButtonColorDesktop,
+        textColor: $appListCloseButtonTextColorDesktop
+      ));
+      border-top-color: $appListCloseButtonBorderColorDesktop;
+    }
   }
 }

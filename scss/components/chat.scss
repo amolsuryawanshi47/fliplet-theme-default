@@ -11,12 +11,46 @@
   background-color: $chatBackgroundColor;
   color: $chatTextColor;
 
+  // Styles for tablet
+  @include above($tabletBreakpoint) {
+    background-color: $chatBackgroundColorTablet;
+    color: $chatTextColorTablet;
+  }
+
+  // Styles for desktop
+  @include above($desktopBreakpoint) {
+    background-color: $chatBackgroundColorDesktop;
+    color: $chatTextColorDesktop;
+  }
+
   .top-header {
     background-color: $chatBackgroundColor;
     color: $chatTextColor;
 
+    // Styles for tablet
+    @include above($tabletBreakpoint) {
+      background-color: $chatBackgroundColorTablet;
+      color: $chatTextColorTablet;
+    }
+
+    // Styles for desktop
+    @include above($desktopBreakpoint) {
+      background-color: $chatBackgroundColorDesktop;
+      color: $chatTextColorDesktop;
+    }
+
     .header-title {
       color: $chatTextColor;
+
+      // Styles for tablet
+      @include above($tabletBreakpoint) {
+        color: $chatTextColorTablet;
+      }
+
+      // Styles for desktop
+      @include above($desktopBreakpoint) {
+        color: $chatTextColorDesktop;
+      }
     }
   }
 
@@ -24,39 +58,111 @@
   .message-copied-holder {
     background-color: rgba($chatTextColor, 0.5);
     color: rgba($chatBackgroundColor, 0.7);
+
+    // Styles for tablet
+    @include above($tabletBreakpoint) {
+      background-color: rgba($chatTextColorTablet, 0.5);
+      color: rgba($chatBackgroundColorTablet, 0.7);
+    }
+
+    // Styles for desktop
+    @include above($desktopBreakpoint) {
+      background-color: rgba($chatTextColorDesktop, 0.5);
+      color: rgba($chatBackgroundColorDesktop, 0.7);
+    }
   }
 
   .loading-area,
   .error-area,
   .empty-area {
     color: rgba($chatTextColor, 0.7);
+
+    // Styles for tablet
+    @include above($tabletBreakpoint) {
+      color: rgba($chatTextColorTablet, 0.7);
+    }
+
+    // Styles for desktop
+    @include above($desktopBreakpoint) {
+      color: rgba($chatTextColorDesktop, 0.7);
+    }
   }
 
   .error-area {
     .refresh-chat {
       border: 1px solid rgba($chatTextColor, 0.7);
+
+      // Styles for tablet
+      @include above($tabletBreakpoint) {
+        border: 1px solid rgba($chatTextColorTablet, 0.7);
+      }
+
+      // Styles for desktop
+      @include above($desktopBreakpoint) {
+        border: 1px solid rgba($chatTextColorDesktop, 0.7);
+      }
     }
   }
 
   .chat-users-group span {
     color: rgba($chatTextColor, 0.5);
+
+    // Styles for tablet
+    @include above($tabletBreakpoint) {
+      color: rgba($chatTextColorTablet, 0.5);
+    }
+
+    // Styles for desktop
+    @include above($desktopBreakpoint) {
+      color: rgba($chatTextColorDesktop, 0.5);
+    }
   }
 
   .chat-participants-preview,
   .chat-user-preview {
     color: rgba($chatTextColor, 0.5);
+
+    // Styles for tablet
+    @include above($tabletBreakpoint) {
+      color: rgba($chatTextColorTablet, 0.5);
+    }
+
+    // Styles for desktop
+    @include above($desktopBreakpoint) {
+      color: rgba($chatTextColorDesktop, 0.5);
+    }
   }
 }
 
 .chat-user-info {
   .chat-participants-name {
     color: rgba($chatTextColor, 0.5);
+
+    // Styles for tablet
+    @include above($tabletBreakpoint) {
+      color: rgba($chatTextColorTablet, 0.5);
+    }
+
+    // Styles for desktop
+    @include above($desktopBreakpoint) {
+      color: rgba($chatTextColorDesktop, 0.5);
+    }
   }
 }
 
 .participants-holder {
   .participants-helper {
     color: rgba($chatTextColor, 0.5);
+
+    // Styles for tablet
+    @include above($tabletBreakpoint) {
+      color: rgba($chatTextColorTablet, 0.5);
+    }
+
+    // Styles for desktop
+    @include above($desktopBreakpoint) {
+      color: rgba($chatTextColorDesktop, 0.5);
+    }
   }
 }
 
@@ -71,19 +177,59 @@
 .chat-card-holder,
 .contact-card {
   background-color: $chatBackgroundColor;
+
+  // Styles for tablet
+  @include above($tabletBreakpoint) {
+    background-color: $chatBackgroundColorTablet;
+  }
+
+  // Styles for desktop
+  @include above($desktopBreakpoint) {
+    background-color: $chatBackgroundColorDesktop;
+  }
 }
 
 .chat-card-holder.unread:after {
-  background-color: $chatOwnBubbleBackground;
+  background-color: $highlightColor;
+
+  // Styles for tablet
+  @include above($tabletBreakpoint) {
+    background-color: $highlightColorTablet;
+  }
+
+  // Styles for desktop
+  @include above($desktopBreakpoint) {
+    background-color: $highlightColorDesktop;
+  }
 }
 
 .chat-card {
   .profile-image-holder {
     background-color: rgba($chatTextColor, 0.1);
+
+    // Styles for tablet
+    @include above($tabletBreakpoint) {
+      background-color: rgba($chatTextColorTablet, 0.1);
+    }
+
+    // Styles for desktop
+    @include above($desktopBreakpoint) {
+      background-color: rgba($chatTextColorDesktop, 0.1);
+    }
   }
 
   &.contact-selected .profile-image-holder .fa {
-    color: rgba($chatOwnBubbleTextColor, 0.15);
+    color: rgba($highlightColor, 0.15);
+
+    // Styles for tablet
+    @include above($tabletBreakpoint) {
+      color: rgba($highlightColor, 0.15);
+    }
+
+    // Styles for desktop
+    @include above($desktopBreakpoint) {
+      color: rgba($highlightColor, 0.15);
+    }
   }
 }
 
@@ -94,29 +240,95 @@
     .fa {
       background-color: rgba($chatTextColor, 0.15);
     }
+
+    // Styles for tablet
+    @include above($tabletBreakpoint) {
+      background-color: rgba($chatTextColorTablet, 0.1);
+
+      .fa {
+        background-color: rgba($chatTextColorTablet, 0.15);
+      }
+    }
+
+    // Styles for desktop
+    @include above($desktopBreakpoint) {
+      background-color: rgba($chatTextColorDesktop, 0.1);
+
+      .fa {
+        background-color: rgba($chatTextColorDesktop, 0.15);
+      }
+    }
   }
 }
 
 .tab-group .tab > .control-label {
   border: 1px solid rgba($chatTextColor, 0.3);
   color: rgba($chatTextColor, 0.3);
+
+  // Styles for tablet
+  @include above($tabletBreakpoint) {
+    border: 1px solid rgba($chatTextColorTablet, 0.3);
+    color: rgba($chatTextColorTablet, 0.3);
+  }
+
+  // Styles for desktop
+  @include above($desktopBreakpoint) {
+    border: 1px solid rgba($chatTextColorDesktop, 0.3);
+    color: rgba($chatTextColorDesktop, 0.3);
+  }
 }
 
 .tab-group .tab input:checked + .control-label,
 .tab-group .tab.active .control-label{
-  border-color: $chatOwnBubbleBackground;
-  background: $chatOwnBubbleBackground;
+  border-color: $highlightColor;
+  background: $highlightColor;
   color: $chatOwnBubbleTextColor;
+
+  // Styles for tablet
+  @include above($tabletBreakpoint) {
+    border-color: $highlightColorTablet;
+    background: $highlightColorTablet;
+    color: $chatOwnBubbleTextColorTablet;
+  }
+
+  // Styles for desktop
+  @include above($desktopBreakpoint) {
+    border-color: $highlightColorDesktop;
+    background: $highlightColorDesktop;
+    color: $chatOwnBubbleTextColorDesktop;
+  }
 }
 
 .contact-card {
   &.contact-selected {
-    background-color: $chatOwnBubbleBackground;
+    background-color: $highlightColor;
     color: $chatOwnBubbleTextColor;
+
+    // Styles for tablet
+    @include above($tabletBreakpoint) {
+      background-color: $highlightColorTablet;
+      color: $chatOwnBubbleTextColorTablet;
+    }
+
+    // Styles for desktop
+    @include above($desktopBreakpoint) {
+      background-color: $highlightColorDesktop;
+      color: $chatOwnBubbleTextColorDesktop;
+    }
   }
 
   .contact-user-preview {
     color: rgba($chatTextColor, 0.5);
+
+    // Styles for tablet
+    @include above($tabletBreakpoint) {
+      color: rgba($chatTextColorTablet, 0.5);
+    }
+
+    // Styles for desktop
+    @include above($desktopBreakpoint) {
+      color: rgba($chatTextColorDesktop, 0.5);
+    }
   }
 
   .profile-image-holder {
@@ -126,17 +338,55 @@
       color: rgba($chatTextColor, 0.15);
       background-color: transparent;
     }
+
+    // Styles for tablet
+    @include above($tabletBreakpoint) {
+      background-color: rgba($chatTextColorTablet, 0.1);
+
+      .fa {
+        color: rgba($chatTextColorTablet, 0.15);
+      }
+    }
+
+    // Styles for desktop
+    @include above($desktopBreakpoint) {
+      background-color: rgba($chatTextColorDesktop, 0.1);
+
+      .fa {
+        color: rgba($chatTextColorDesktop, 0.15);
+      }
+    }
   }
 }
 
 .chat-card-holder .icon:hover,
 .contact-card .icon:hover {
   background-color: rgba($chatTextColor, 0.2);
+
+  // Styles for tablet
+  @include above($tabletBreakpoint) {
+    background-color: rgba($chatTextColorTablet, 0.2);
+  }
+
+  // Styles for desktop
+  @include above($desktopBreakpoint) {
+    background-color: rgba($chatTextColorDesktop, 0.2);
+  }
 }
 
 .chat-controls .start-new,
 .contacts-holder-overlay .contacts-back {
-  color: $chatOwnBubbleBackground;
+  color: $highlightColor;
+
+  // Styles for tablet
+  @include above($tabletBreakpoint) {
+    color: $highlightColorTablet;
+  }
+
+  // Styles for desktop
+  @include above($desktopBreakpoint) {
+    color: $highlightColorDesktop;
+  }
 }
 
 .contacts-done-holder .contacts-done,
@@ -144,24 +394,74 @@
   background-color: transparent;
   border: 1px solid rgba($chatTextColor, 0.6);
   color: rgba($chatTextColor, 0.6);
+
+  // Styles for tablet
+  @include above($tabletBreakpoint) {
+    border: 1px solid rgba($chatTextColorTablet, 0.6);
+    color: rgba($chatTextColorTablet, 0.6);
+  }
+
+  // Styles for desktop
+  @include above($desktopBreakpoint) {
+    border: 1px solid rgba($chatTextColorDesktop, 0.6);
+    color: rgba($chatTextColorDesktop, 0.6);
+  }
 }
 
 .contacts-top-header.ready .contacts-done-holder .contacts-done,
 .group-top-header.ready .contacts-done-holder .contacts-create {
-  background-color: $chatOwnBubbleBackground;
-  border: 1px solid $chatOwnBubbleBackground;
+  background-color: $highlightColor;
+  border: 1px solid $highlightColor;
   color: $chatOwnBubbleTextColor;
+
+  // Styles for tablet
+  @include above($tabletBreakpoint) {
+    background-color: $highlightColorTablet;
+    border: 1px solid $highlightColorTablet;
+    color: $chatOwnBubbleTextColorTablet;
+  }
+
+  // Styles for desktop
+  @include above($desktopBreakpoint) {
+    background-color: $highlightColorDesktop;
+    border: 1px solid $highlightColorDesktop;
+    color: $chatOwnBubbleTextColorDesktop;
+  }
 }
 
 .contact-image-wrapper .fa-times {
   color: $chatBackgroundColor;
   background-color: rgba($chatTextColor, 0.7);
   border: 2px solid $chatBackgroundColor;
+
+  // Styles for tablet
+  @include above($tabletBreakpoint) {
+    color: $chatBackgroundColorTablet;
+    background-color: rgba($chatTextColorTablet, 0.7);
+    border: 2px solid $chatBackgroundColorTablet;
+  }
+
+  // Styles for desktop
+  @include above($desktopBreakpoint) {
+    color: $chatBackgroundColorDesktop;
+    background-color: rgba($chatTextColorDesktop, 0.7);
+    border: 2px solid $chatBackgroundColorDesktop;
+  }
 }
 
 .all-users-holder .seperator,
 .participants-bar {
   background-color: lighten($chatTextColor, 75%);
+
+  // Styles for tablet
+  @include above($tabletBreakpoint) {
+    background-color: lighten($chatTextColorTablet, 75%);
+  }
+
+  // Styles for desktop
+  @include above($desktopBreakpoint) {
+    background-color: lighten($chatTextColorDesktop, 75%);
+  }
 }
 
 .group-name-field-holder {
@@ -171,7 +471,29 @@
     color: $chatTextColor;
 
     &:focus {
-      border: 1px solid $chatOwnBubbleBackground;
+      border: 1px solid $highlightColor;
+    }
+
+    // Styles for tablet
+    @include above($tabletBreakpoint) {
+      border: 1px solid lighten($chatTextColorTablet, 60%);
+      background-color: $chatBackgroundColorTablet;
+      color: $chatTextColorTablet;
+
+      &:focus {
+        border: 1px solid $highlightColorTablet;
+      }
+    }
+
+    // Styles for desktop
+    @include above($desktopBreakpoint) {
+      border: 1px solid lighten($chatTextColorDesktop, 60%);
+      background-color: $chatBackgroundColorDesktop;
+      color: $chatTextColorDesktop;
+
+      &:focus {
+        border: 1px solid $highlightColorDesktop;
+      }
     }
   }
 }
@@ -186,6 +508,26 @@
       &:after {
         border-color: transparent transparent transparent $chatOwnBubbleBackground;
       }
+
+      // Styles for tablet
+      @include above($tabletBreakpoint) {
+        background-color: $chatOwnBubbleBackgroundTablet;
+        color: $chatOwnBubbleTextColorTablet;
+
+        &:after {
+          border-color: transparent transparent transparent $chatOwnBubbleBackgroundTablet;
+        }
+      }
+
+      // Styles for desktop
+      @include above($desktopBreakpoint) {
+        background-color: $chatOwnBubbleBackgroundDesktop;
+        color: $chatOwnBubbleTextColorDesktop;
+
+        &:after {
+          border-color: transparent transparent transparent $chatOwnBubbleBackgroundDesktop;
+        }
+      }
     }
   }
 
@@ -198,6 +540,26 @@
       &:after {
         border-color: transparent $chatOthersBubbleBackground transparent transparent;
       }
+
+      // Styles for tablet
+      @include above($tabletBreakpoint) {
+        background-color: $chatOthersBubbleBackgroundTablet;
+        color: $chatOthersBubbleTextColorTablet;
+
+        &:after {
+          border-color: transparent transparent transparent $chatOthersBubbleBackgroundTablet;
+        }
+      }
+
+      // Styles for desktop
+      @include above($desktopBreakpoint) {
+        background-color: $chatOthersBubbleBackgroundDesktop;
+        color: $chatOthersBubbleTextColorDesktop;
+
+        &:after {
+          border-color: transparent transparent transparent $chatOthersBubbleBackgroundDesktop;
+        }
+      }
     }
   }
 
@@ -209,6 +571,24 @@
         &:after {
           border-color: transparent transparent transparent darken($chatOwnBubbleBackground, 10%);
         }
+
+        // Styles for tablet
+        @include above($tabletBreakpoint) {
+          background-color: darken($chatOwnBubbleBackgroundTablet, 10%);
+
+          &:after {
+            border-color: transparent transparent transparent darken($chatOwnBubbleBackgroundTablet, 10%);
+          }
+        }
+
+        // Styles for desktop
+        @include above($desktopBreakpoint) {
+          background-color: darken($chatOwnBubbleBackgroundDesktop, 10%);
+
+          &:after {
+            border-color: transparent transparent transparent darken($chatOwnBubbleBackgroundDesktop, 10%);
+          }
+        }
       }
     }
 
@@ -218,6 +598,24 @@
 
         &:after {
           border-color: transparent transparent transparent darken($chatOthersBubbleBackground, 10%);
+        }
+
+        // Styles for tablet
+        @include above($tabletBreakpoint) {
+          background-color: darken($chatOthersBubbleBackgroundTablet, 10%);
+
+          &:after {
+            border-color: transparent transparent transparent darken($chatOthersBubbleBackgroundTablet, 10%);
+          }
+        }
+
+        // Styles for desktop
+        @include above($desktopBreakpoint) {
+          background-color: darken($chatOthersBubbleBackgroundDesktop, 10%);
+
+          &:after {
+            border-color: transparent transparent transparent darken($chatOthersBubbleBackgroundDesktop, 10%);
+          }
         }
       }
     }
@@ -233,6 +631,16 @@
         &:after {
           border-color: transparent transparent transparent #fff2be;
         }
+
+        // Styles for tablet
+        @include above($tabletBreakpoint) {
+          color: $chatTextColorTablet;
+        }
+
+        // Styles for desktop
+        @include above($desktopBreakpoint) {
+          color: $chatTextColorDesktop;
+        }
       }
     }
   }
@@ -246,17 +654,51 @@
 .error-area,
 .empty-area {
   border-color: rgba($chatTextColor, 0.3);
+
+  // Styles for tablet
+  @include above($tabletBreakpoint) {
+    border-color: rgba($chatTextColorTablet, 0.3);
+  }
+
+  // Styles for desktop
+  @include above($desktopBreakpoint) {
+    border-color: rgba($chatTextColorDesktop, 0.3);
+  }
 }
 
 .chat-input-controls {
   background-color: $chatBackgroundColor;
   border-top: 1px solid rgba($chatTextColor, 0.3);
 
+  // Styles for tablet
+  @include above($tabletBreakpoint) {
+    background-color: $chatBackgroundColorTablet;
+    border-top: 1px solid rgba($chatTextColorTablet, 0.3);
+  }
+
+  // Styles for desktop
+  @include above($desktopBreakpoint) {
+    background-color: $chatBackgroundColorDesktop;
+    border-top: 1px solid rgba($chatTextColorDesktop, 0.3);
+  }
+
   .input-second-row {
     .send-button,
     .send-save-button {
       color: rgba($chatTextColor, 0.3);
       border: 1px solid rgba($chatTextColor, 0.3);
+
+      // Styles for tablet
+      @include above($tabletBreakpoint) {
+        color: rgba($chatTextColorTablet, 0.3);
+        border: 1px solid rgba($chatTextColorTablet, 0.3);
+      }
+
+      // Styles for desktop
+      @include above($desktopBreakpoint) {
+        color: rgba($chatTextColorDesktop, 0.3);
+        border: 1px solid rgba($chatTextColorDesktop, 0.3);
+      }
     }
   }
 
@@ -264,21 +706,55 @@
     .input-second-row {
       .send-button,
       .send-save-button {
-        background-color: $chatOwnBubbleBackground;
-        color: $chatOwnBubbleTextColor;
+        background-color: $highlightColor;
+        color: $highlightColor;
         border: 1px solid $chatOwnBubbleBackground;
+
+        // Styles for tablet
+        @include above($tabletBreakpoint) {
+          background-color: $highlightColorTablet;
+          color: $highlightColorTablet;
+          border: 1px solid $chatOwnBubbleBackgroundTablet;
+        }
+
+        // Styles for desktop
+        @include above($desktopBreakpoint) {
+          background-color: $highlightColorDesktop;
+          color: $highlightColorDesktop;
+          border: 1px solid $chatOwnBubbleBackgroundDesktop;
+        }
       }
     }
   }
 
   .image-preview-holder {
     background-color: rgba($chatBackgroundColor, 0.95);
+
+    // Styles for tablet
+    @include above($tabletBreakpoint) {
+      background-color: rgba($chatBackgroundColorTablet, 0.95);
+    }
+
+    // Styles for desktop
+    @include above($desktopBreakpoint) {
+      background-color: rgba($chatBackgroundColorDesktop, 0.95);
+    }
   }
 }
 
 .section-label-wrapper {
   .search-holder .fa {
     color: $chatOwnBubbleBackground;
+
+    // Styles for tablet
+    @include above($tabletBreakpoint) {
+      color: $chatOwnBubbleBackgroundTablet;
+    }
+
+    // Styles for desktop
+    @include above($desktopBreakpoint) {
+      color: $chatOwnBubbleBackgroundDesktop;
+    }
   }
 
   .search-holder .form-control {
@@ -287,7 +763,29 @@
     border: 1px solid rgba($chatTextColor, 0.3);
 
     &:focus {
-      border: 1px solid $chatOwnBubbleBackground;
+      border: 1px solid $highlightColor;
+    }
+
+    // Styles for tablet
+    @include above($tabletBreakpoint) {
+      background-color: $chatBackgroundColorTablet;
+      color: $chatTextColor;
+      border: 1px solid rgba($chatTextColorTablet, 0.3);
+
+      &:focus {
+        border: 1px solid $highlightColorTablet;
+      }
+    }
+
+    // Styles for desktop
+    @include above($desktopBreakpoint) {
+      background-color: $chatBackgroundColorDesktop;
+      color: $chatTextColor;
+      border: 1px solid rgba($chatTextColorDesktop, 0.3);
+
+      &:focus {
+        border: 1px solid $highlightColorDesktop;
+      }
     }
   }
 }
@@ -295,14 +793,48 @@
 .input-first-row textarea {
   background-color: $chatBackgroundColor;
   color: $chatTextColor;
+
+  // Styles for tablet
+  @include above($tabletBreakpoint) {
+    background-color: $chatBackgroundColorTablet;
+    color: $chatTextColorTablet;
+  }
+
+  // Styles for desktop
+  @include above($desktopBreakpoint) {
+    background-color: $chatBackgroundColorDesktop;
+    color: $chatTextColorDesktop;
+  }
 }
 
 .all-users-holder .seperator,
 .participants-bar {
   background-color: rgba($chatTextColor, 0.2);
+
+  // Styles for tablet
+  @include above($tabletBreakpoint) {
+    background-color: rgba($chatTextColorTablet, 0.2);
+  }
+
+  // Styles for desktop
+  @include above($desktopBreakpoint) {
+    background-color: rgba($chatTextColorDesktop, 0.2);
+  }
 }
 
 .show-more-contacts .btn {
-  border: 1px solid $chatOwnBubbleBackground;
-  color: $chatOwnBubbleBackground;
+  border: 1px solid $highlightColor;
+  color: $highlightColor;
+
+  // Styles for tablet
+  @include above($tabletBreakpoint) {
+    border: 1px solid $highlightColorTablet;
+    color: $highlightColorTablet;
+  }
+
+  // Styles for desktop
+  @include above($desktopBreakpoint) {
+    border: 1px solid $highlightColorDesktop;
+    color: $highlightColorDesktop;
+  }
 }

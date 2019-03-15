@@ -1,6 +1,6 @@
 @mixin links($options: ()) {
   $configuration: map-merge((
-    linkColor: $highlightColor
+    linkColor: $linkColor
   ), $options);
 
   color: map-get($configuration, linkColor);
@@ -15,14 +15,14 @@ a {
   // Styles for tablet
   @include above($tabletBreakpoint) {
     @include links((
-      linkColor: $highlightColorTablet
+      linkColor: $linkColorTablet
     ));
   }
 
   // Styles for desktop
   @include above($desktopBreakpoint) {
     @include links((
-      linkColor: $highlightColorDesktop
+      linkColor: $linkColorDesktop
     ));
   }
 
@@ -30,9 +30,26 @@ a {
   &:focus,
   &:active:hover,
   &:active:focus {
-    color: $linkHoverColor;
-    text-decoration: $linkHoverDecor;
+    @include links((
+      linkColor: $linkHoverColor
+    ));
+
+    text-decoration: none;
     outline: none;
+
+    // Styles for tablet
+    @include above($tabletBreakpoint) {
+      @include links((
+        linkColor: $linkHoverColorTablet
+      ));
+    }
+
+    // Styles for desktop
+    @include above($desktopBreakpoint) {
+      @include links((
+        linkColor: $linkHoverColorDesktop
+      ));
+    }
   }
 }
 
@@ -44,14 +61,14 @@ a {
   // Styles for tablet
   @include above($tabletBreakpoint) {
     @include links((
-      linkColor: $highlightColorTablet
+      linkColor: $linkColorTablet
     ));
   }
 
   // Styles for desktop
   @include above($desktopBreakpoint) {
     @include links((
-      linkColor: $highlightColorDesktop
+      linkColor: $linkColorDesktop
     ));
   }
 
@@ -59,8 +76,25 @@ a {
   &:focus,
   &:active:hover,
   &:active:focus {
-    color: $linkHoverColor;
-    text-decoration: $linkHoverDecor;
+    @include links((
+      linkColor: $linkHoverColor
+    ));
+
+    text-decoration: none;
     outline: none;
+
+    // Styles for tablet
+    @include above($tabletBreakpoint) {
+      @include links((
+        linkColor: $linkHoverColorTablet
+      ));
+    }
+
+    // Styles for desktop
+    @include above($desktopBreakpoint) {
+      @include links((
+        linkColor: $linkHoverColorDesktop
+      ));
+    }
   }
 }
