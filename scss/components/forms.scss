@@ -8,127 +8,472 @@
 03 - SELECT
 ******************************/
 
+// @TODO: Makes sure this variable formInputBorder, formInputBorderFocus, formInputBorderError is replaced by the border mixin
+
 /* 01 - INPUT FIELDS */
 
+@mixin fieldBorder($options: ()) {
+  $configuration: map-merge((
+    borderWidth: $formInputBorderWidth,
+    borderStyle: $formInputBorderStyle,
+    borderColor: $formInputBorderColor,
+    borderDirection: 'all'
+  ), $options);
+
+  @if map-get($configuration, borderDirection) == 'all' {
+    border: map-get($configuration, borderWidth) map-get($configuration, borderStyle) map-get($configuration, borderColor);
+  }
+  @if map-get($configuration, borderDirection) == 'left' {
+    border-left: map-get($configuration, borderWidth) map-get($configuration, borderStyle) map-get($configuration, borderColor);
+  }
+  @if map-get($configuration, borderDirection) == 'right' {
+    border-right: map-get($configuration, borderWidth) map-get($configuration, borderStyle) map-get($configuration, borderColor);
+  }
+  @if map-get($configuration, borderDirection) == 'bottom' {
+    border-bottom: map-get($configuration, borderWidth) map-get($configuration, borderStyle) map-get($configuration, borderColor);
+  }
+}
+
 $spinnerColor: lighten($bodyTextColor, 33%);
+$spinnerColorTablet: lighten($bodyTextColorTablet, 33%);
+$spinnerColorDesktop: lighten($bodyTextColorDesktop, 33%);
+
 
 .form-group {
-
   .control-label {
-
     label {
-        font-weight: $formLabelWeight;
+      font-size: $formLabelSize;
+      font-family: $formLabelFontFam, 'Arial, sans-serif';
+      font-weight: $formLabelWeight;
+
+      // Styles for tablet
+      @include above($tabletBreakpoint) {
+        font-size: $formLabelSizeTablet;
+        font-family: $formLabelFontFamTablet, 'Arial, sans-serif';
+        font-weight: $formLabelWeightTablet;
+      }
+
+      // Styles for desktop
+      @include above($desktopBreakpoint) {
+        font-size: $formLabelSizeDesktop;
+        font-family: $formLabelFontFamDesktop, 'Arial, sans-serif';
+        font-weight: $formLabelWeightDesktop;
+      }
     }
   }
 }
 
 .form-control {
-    border: $formInputBorder;
-    border-radius: $formInputBorderRadius;
+  @include fieldBorder();
+  border-radius: $formInputBorderRadius;
+
+  &.has-error {
+    @include fieldBorder((
+      borderWidth: $formInputBorderErrorWidth,
+      borderStyle: $formInputBorderErrorStyle,
+      borderColor: $formInputBorderErrorColor
+    ));
+    border-radius: $formInputBorderErrorRadius;
+  }
+
+  &:focus {
+    @include fieldBorder((
+      borderWidth: $formInputBorderFocusWidth,
+      borderStyle: $formInputBorderFocusStyle,
+      borderColor: $formInputBorderFocusColor
+    ));
+    border-radius: $formInputBorderFocusRadius;
+  }
+
+  // Styles for tablet
+  @include above($tabletBreakpoint) {
+    @include fieldBorder((
+      borderWidth: $formInputBorderWidthTablet,
+      borderStyle: $formInputBorderStyleTablet,
+      borderColor: $formInputBorderColorTablet
+    ));
+    border-radius: $formInputBorderRadiusTablet;
 
     &.has-error {
-        border: $formInputBorderError;
+      @include fieldBorder((
+        borderWidth: $formInputBorderErrorWidthTablet,
+        borderStyle: $formInputBorderErrorStyleTablet,
+        borderColor: $formInputBorderErrorColorTablet
+      ));
+      border-radius: $formInputBorderErrorRadiusTablet;
     }
 
     &:focus {
-        border: $formInputBorderFocus;
+      @include fieldBorder((
+        borderWidth: $formInputBorderFocusWidthTablet,
+        borderStyle: $formInputBorderFocusStyleTablet,
+        borderColor: $formInputBorderFocusColorTablet
+      ));
+      border-radius: $formInputBorderFocusRadiusTablet;
     }
+  }
+
+  // Styles for desktop
+  @include above($desktopBreakpoint) {
+    @include fieldBorder((
+      borderWidth: $formInputBorderWidthDesktop,
+      borderStyle: $formInputBorderStyleDesktop,
+      borderColor: $formInputBorderColorDesktop
+    ));
+    border-radius: $formInputBorderRadiusDesktop;
+
+    &.has-error {
+      @include fieldBorder((
+        borderWidth: $formInputBorderErrorWidthDesktop,
+        borderStyle: $formInputBorderErrorStyleDesktop,
+        borderColor: $formInputBorderErrorColorDesktop
+      ));
+      border-radius: $formInputBorderErrorRadiusDesktop;
+    }
+
+    &:focus {
+      @include fieldBorder((
+        borderWidth: $formInputBorderFocusWidthDesktop,
+        borderStyle: $formInputBorderFocusStyleDesktop,
+        borderColor: $formInputBorderFocusColorDesktop
+      ));
+      border-radius: $formInputBorderFocusRadiusDesktop;
+    }
+  }
 }
 
 /* 02- CHECKBOX / RADIO */
 
-.radio.radio-icon input[type="radio"] + label > span.check,
-.checkbox.checkbox-icon input[type="checkbox"] + label > span.check {
-  border: $formToggleBorder;
+.radio.radio-icon input[type="radio"]+label>span.check,
+.checkbox.checkbox-icon input[type="checkbox"]+label>span.check {
+  border: 1px solid $formToggleBorderColor;
   background-color: $formToggleBackgroundColor;
+
+  // Styles for tablet
+  @include above($tabletBreakpoint) {
+    border: 1px solid $formToggleBorderColorTablet;
+    background-color: $formToggleBackgroundColorTablet;
+  }
+
+  // Styles for desktop
+  @include above($desktopBreakpoint) {
+    border: 1px solid $formToggleBorderColorDesktop;
+    background-color: $formToggleBackgroundColorDesktop;
+  }
 }
 
-.radio.radio-icon input[type="radio"]:checked + label > span.check,
-.checkbox.checkbox-icon input[type="checkbox"]:checked + label > span.check {
+.radio.radio-icon input[type="radio"]:checked+label>span.check,
+.checkbox.checkbox-icon input[type="checkbox"]:checked+label>span.check {
   background-color: $formToggleActiveBackgroundColor;
+
+  // Styles for tablet
+  @include above($tabletBreakpoint) {
+    background-color: $formToggleActiveBackgroundColorTablet;
+  }
+
+  // Styles for desktop
+  @include above($desktopBreakpoint) {
+    background-color: $formToggleActiveBackgroundColorDesktop;
+  }
 }
 
-.radio.radio-icon input[type="radio"] + label > span.check > i.fa,
-.checkbox.checkbox-icon input[type="checkbox"] + label > span.check > i.fa {
+.radio.radio-icon input[type="radio"]+label>span.check>i.fa,
+.checkbox.checkbox-icon input[type="checkbox"]+label>span.check>i.fa {
   color: $formToggleActiveBackgroundColor;
+
+  // Styles for tablet
+  @include above($tabletBreakpoint) {
+    color: $formToggleActiveBackgroundColorTablet;
+  }
+
+  // Styles for desktop
+  @include above($desktopBreakpoint) {
+    color: $formToggleActiveBackgroundColorDesktop;
+  }
 }
 
-.radio.radio-icon input[type="radio"]:checked + label span.check > i.fa,
-.checkbox.checkbox-icon input[type="checkbox"]:checked + label span.check > i.fa {
+.radio.radio-icon input[type="radio"]:checked+label span.check>i.fa,
+.checkbox.checkbox-icon input[type="checkbox"]:checked+label span.check>i.fa {
   color: $formToggleColor;
+
+  // Styles for tablet
+  @include above($tabletBreakpoint) {
+    color: $formToggleColorTablet;
+  }
+
+  // Styles for desktop
+  @include above($desktopBreakpoint) {
+    color: $formToggleColorDesktop;
+  }
 }
 
 /* CODE FORM */
-.rtgl-ios + .rtgl-btn,
-.tgl-ios + .tgl-btn {
-    background: $formToggleBackgroundColor;
-    border: $formToggleBorder;
+.rtgl-ios+.rtgl-btn,
+.tgl-ios+.tgl-btn {
+  background-color: $formToggleBackgroundColor;
+  border: 1px solid $formToggleBorderColor;
+
+  // Styles for tablet
+  @include above($tabletBreakpoint) {
+    background-color: $formToggleBackgroundColorTablet;
+    border: 1px solid $formToggleBorderColorTablet;
+  }
+
+  // Styles for desktop
+  @include above($desktopBreakpoint) {
+    background-color: $formToggleBackgroundColorDesktop;
+    border: 1px solid $formToggleBorderColorDesktop;
+  }
 }
 
-.rtgl-ios + .rtgl-btn:after,
-.tgl-ios + .tgl-btn:after {
-    background: $formToggleColor;
+.rtgl-ios+.rtgl-btn:after,
+.tgl-ios+.tgl-btn:after {
+  background-color: $formToggleColor;
+
+  // Styles for tablet
+  @include above($tabletBreakpoint) {
+    background-color: $formToggleColorTablet;
+  }
+
+  // Styles for desktop
+  @include above($desktopBreakpoint) {
+    background-color: $formToggleColorDesktop;
+  }
 }
 
-.rtgl-ios:checked + .rtgl-btn,
-.tgl-ios:checked + .tgl-btn {
-    background: $formToggleActiveBackgroundColor;
+.rtgl-ios:checked+.rtgl-btn,
+.tgl-ios:checked+.tgl-btn {
+  background-color: $formToggleActiveBackgroundColor;
+
+  // Styles for tablet
+  @include above($tabletBreakpoint) {
+    background-color: $formToggleActiveBackgroundColorTablet;
+  }
+
+  // Styles for desktop
+  @include above($desktopBreakpoint) {
+    background-color: $formToggleActiveBackgroundColorDesktop;
+  }
 }
 
 /* 03 - SELECT */
 .select-proxy-display {
-  border: $formInputBorder;
+  @include fieldBorder();
   border-radius: $formInputBorderRadius;
   color: $formSelectTextColor;
+
+  // Styles for tablet
+  @include above($tabletBreakpoint) {
+    border-radius: $formInputBorderRadiusTablet;
+    color: $formSelectTextColorTablet;
+  }
+
+  // Styles for desktop
+  @include above($desktopBreakpoint) {
+    border-radius: $formInputBorderRadiusDesktop;
+    color: $formSelectTextColorDesktop;
+  }
 }
 
-.select-proxy-display > .icon {
+.select-proxy-display>.icon {
   background-color: $formSelectArrowBackground;
   color: $formSelectArrow;
   border-top-right-radius: $formInputBorderRadius;
   border-bottom-right-radius: $formInputBorderRadius;
-  border-left: $formInputBorder;
+  @include fieldBorder((
+    borderDirection: 'left'
+  ));
+
+  // Styles for tablet
+  @include above($tabletBreakpoint) {
+    background-color: $formSelectArrowBackgroundTablet;
+    color: $formSelectArrowTablet;
+    border-top-right-radius: $formInputBorderRadiusTablet;
+    border-bottom-right-radius: $formInputBorderRadiusTablet;
+    @include fieldBorder((
+      borderWidth: $formInputBorderWidthTablet,
+      borderStyle: $formInputBorderStyleTablet,
+      borderColor: $formInputBorderColorTablet,
+      borderDirection: 'left'
+    ));
+  }
+
+  // Styles for desktop
+  @include above($desktopBreakpoint) {
+    background-color: $formSelectArrowBackgroundDesktop;
+    color: $formSelectArrowDesktop;
+    border-top-right-radius: $formInputBorderRadiusDesktop;
+    border-bottom-right-radius: $formInputBorderRadiusDesktop;
+    @include fieldBorder((
+      borderWidth: $formInputBorderWidthDesktop,
+      borderStyle: $formInputBorderStyleDesktop,
+      borderColor: $formInputBorderColorDesktop,
+      borderDirection: 'left'
+    ));
+  }
 }
 
 .required-info,
 .required-info-label {
   color: $formRequiredColor;
+
+  // Styles for tablet
+  @include above($tabletBreakpoint) {
+    color: $formRequiredColorTablet;
+  }
+
+  // Styles for desktop
+  @include above($desktopBreakpoint) {
+    color: $formRequiredColorDesktop;
+  }
 }
 
 .input-group-addon {
   color: $bodyTextColor;
+
+  // Styles for tablet
+  @include above($tabletBreakpoint) {
+    color: $bodyTextColorTablet;
+  }
+
+  // Styles for desktop
+  @include above($desktopBreakpoint) {
+    color: $bodyTextColorDesktop;
+  }
 }
 
 .input-group-addon:first-child {
-  border-right: $formInputBorder;
+  @include fieldBorder((
+    borderDirection: 'right'
+  ));
+
+  // Styles for tablet
+  @include above($tabletBreakpoint) {
+    @include fieldBorder((
+      borderWidth: $formInputBorderWidthTablet,
+      borderStyle: $formInputBorderStyleTablet,
+      borderColor: $formInputBorderColorTablet,
+      borderDirection: 'right'
+    ));
+  }
+
+  // Styles for desktop
+  @include above($desktopBreakpoint) {
+    @include fieldBorder((
+      borderWidth: $formInputBorderWidthDesktop,
+      borderStyle: $formInputBorderStyleDesktop,
+      borderColor: $formInputBorderColorDesktop,
+      borderDirection: 'right'
+    ));
+  }
 }
 
 [_type="flStarRating"] .rating-star .fa {
   color: $formStarRating;
+
+  // Styles for tablet
+  @include above($tabletBreakpoint) {
+    color: $formStarRatingTablet;
+  }
+
+  // Styles for desktop
+  @include above($desktopBreakpoint) {
+    color: $formStarRatingDesktop;
+  }
 }
 
 [_type="flStarRating"] .rating-input:checked~.rating-star .fa {
   color: $formStarRatingSelected;
+
+  // Styles for tablet
+  @include above($tabletBreakpoint) {
+    color: $formStarRatingSelectedTablet;
+  }
+
+  // Styles for desktop
+  @include above($desktopBreakpoint) {
+    color: $formStarRatingSelectedDesktop;
+  }
 }
 
 .field-signature canvas {
-  border: $formInputBorder !important;
+  border: $formInputBorderWidth $formInputBorderStyle $formInputBorderColor !important;
   border-top-width: 0 !important;
   border-left-width: 0 !important;
   border-right-width: 0 !important;
+
+  // Styles for tablet
+  @include above($tabletBreakpoint) {
+    border: $formInputBorderWidthTablet $formInputBorderStyleTablet $formInputBorderColorTablet !important;
+  }
+
+  // Styles for desktop
+  @include above($desktopBreakpoint) {
+    border: $formInputBorderWidthDesktop $formInputBorderStyleDesktop $formInputBorderColorDesktop !important;
+  }
 }
 
 .form-group .mce-tinymce,
 .form-group .tinymce-mobile-outer-container:not(.tinymce-mobile-fullscreen-maximized) .tinymce-mobile-editor-socket {
-  border: $formInputBorder;
+  @include fieldBorder();
+
+  // Styles for tablet
+  @include above($tabletBreakpoint) {
+    @include fieldBorder((
+      borderWidth: $formInputBorderWidthTablet,
+      borderStyle: $formInputBorderStyleTablet,
+      borderColor: $formInputBorderColorTablet
+    ));
+  }
+
+  // Styles for desktop
+  @include above($desktopBreakpoint) {
+    @include fieldBorder((
+      borderWidth: $formInputBorderWidthDesktop,
+      borderStyle: $formInputBorderStyleDesktop,
+      borderColor: $formInputBorderColorDesktop
+    ));
+  }
 }
 
 .form-group .mce-top-part::before {
-  border-bottom: $formInputBorder;
+  @include fieldBorder((
+    borderDirection: 'bottom'
+  ));
+
+  // Styles for tablet
+  @include above($tabletBreakpoint) {
+    @include fieldBorder((
+      borderWidth: $formInputBorderWidthTablet,
+      borderStyle: $formInputBorderStyleTablet,
+      borderColor: $formInputBorderColorTablet,
+      borderDirection: 'bottom'
+    ));
+  }
+
+  // Styles for desktop
+  @include above($desktopBreakpoint) {
+    @include fieldBorder((
+      borderWidth: $formInputBorderWidthDesktop,
+      borderStyle: $formInputBorderStyleDesktop,
+      borderColor: $formInputBorderColorDesktop,
+      borderDirection: 'bottom'
+    ));
+  }
 }
 
 .sending-form {
   color: $bodyTextColor;
+
+  // Styles for tablet
+  @include above($tabletBreakpoint) {
+    color: $bodyTextColorTablet;
+  }
+
+  // Styles for desktop
+  @include above($desktopBreakpoint) {
+    color: $bodyTextColorDesktop;
+  }
 }
 
 .fl-form .spinner-overlay {
@@ -136,4 +481,20 @@ $spinnerColor: lighten($bodyTextColor, 33%);
   border-right-color: rgba($spinnerColor, 0.3);
   border-bottom-color: rgba($spinnerColor, 0.3);
   border-left-color: $linkColor;
+
+  // Styles for tablet
+  @include above($tabletBreakpoint) {
+    border-top-color: rgba($spinnerColorTablet, 0.3);
+    border-right-color: rgba($spinnerColorTablet, 0.3);
+    border-bottom-color: rgba($spinnerColorTablet, 0.3);
+    border-left-color: $linkColorTablet;
+  }
+
+  // Styles for desktop
+  @include above($desktopBreakpoint) {
+    border-top-color: rgba($spinnerColorDesktop, 0.3);
+    border-right-color: rgba($spinnerColorDesktop, 0.3);
+    border-bottom-color: rgba($spinnerColorDesktop, 0.3);
+    border-left-color: $linkColorDesktop;
+  }
 }

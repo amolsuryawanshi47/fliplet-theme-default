@@ -11,6 +11,18 @@
 .directory-wrapper {
   background-color: $directoryBackgroundColor;
   color: $directoryTextColor;
+
+  // Styles for tablet
+  @include above($tabletBreakpoint) {
+    background-color: $directoryBackgroundColorTablet;
+    color: $directoryTextColorTablet;
+  }
+
+  // Styles for desktop
+  @include above($desktopBreakpoint) {
+    background-color: $directoryBackgroundColorDesktop;
+    color: $directoryTextColorDesktop;
+  }
 }
 
 .directory-search {
@@ -31,6 +43,16 @@
 
 .directory-list {
   background-color: $directoryBackgroundColor;
+
+  // Styles for tablet
+  @include above($tabletBreakpoint) {
+    background-color: $directoryBackgroundColorTablet;
+  }
+
+  // Styles for desktop
+  @include above($desktopBreakpoint) {
+    background-color: $directoryBackgroundColorDesktop;
+  }
 
   .add-new-entry {
     background-color: $primaryButtonColor;
@@ -112,7 +134,7 @@
 
   .overlayPanelContent {
     background-color: $directoryOverlayContentColor;
-    color: $directoryOverlayContentTextColor;
+    color: $directoryTextColor;
 
     .directory-detail-title {
       color: $directoryOverlayContentTitleColor;
@@ -123,7 +145,6 @@
     .directory-detail-label {
       color: $directoryOverlayContentLabelColor;
       font-family: $directoryOverlayContentLabelFont, Helvetica, Arial, sans-serif;
-      opacity: $directoryOverlayContentLabelOpacity;
       font-size: $directoryOverlayContentLabelFontSize;
     }
 
@@ -143,7 +164,7 @@
 
 .directory-details {
   .directory-details-content {
-    color: $directoryOverlayContentTextColor;
+    color: $directoryTextColor;
 
     .directory-detail-title {
       color: $directoryOverlayContentTitleColor;
@@ -154,7 +175,6 @@
     .directory-detail-label {
       color: $directoryOverlayContentLabelColor;
       font-family: $directoryOverlayContentLabelFont, Helvetica, Arial, sans-serif;
-      opacity: $directoryOverlayContentLabelOpacity;
       font-size: $directoryOverlayContentLabelFontSize;
     }
 
