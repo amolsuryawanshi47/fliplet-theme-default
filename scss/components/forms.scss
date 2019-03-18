@@ -42,12 +42,14 @@ $spinnerColorDesktop: lighten($bodyTextColorDesktop, 33%);
 .form-group {
   .control-label {
     label {
+      color: $formLabelColor;
       font-size: $formLabelSize;
       font-family: $formLabelFontFam, 'Arial, sans-serif';
       font-weight: $formLabelWeight;
 
       // Styles for tablet
       @include above($tabletBreakpoint) {
+        color: $formLabelColorTablet;
         font-size: $formLabelSizeTablet;
         font-family: $formLabelFontFamTablet, 'Arial, sans-serif';
         font-weight: $formLabelWeightTablet;
@@ -55,6 +57,32 @@ $spinnerColorDesktop: lighten($bodyTextColorDesktop, 33%);
 
       // Styles for desktop
       @include above($desktopBreakpoint) {
+        color: $formLabelColorDesktop;
+        font-size: $formLabelSizeDesktop;
+        font-family: $formLabelFontFamDesktop, 'Arial, sans-serif';
+        font-weight: $formLabelWeightDesktop;
+      }
+    }
+  }
+
+  label{
+    &.control-label {
+      color: $formLabelColor;
+      font-size: $formLabelSize;
+      font-family: $formLabelFontFam, 'Arial, sans-serif';
+      font-weight: $formLabelWeight;
+
+      // Styles for tablet
+      @include above($tabletBreakpoint) {
+        color: $formLabelColorTablet;
+        font-size: $formLabelSizeTablet;
+        font-family: $formLabelFontFamTablet, 'Arial, sans-serif';
+        font-weight: $formLabelWeightTablet;
+      }
+
+      // Styles for desktop
+      @include above($desktopBreakpoint) {
+        color: $formLabelColorDesktop;
         font-size: $formLabelSizeDesktop;
         font-family: $formLabelFontFamDesktop, 'Arial, sans-serif';
         font-weight: $formLabelWeightDesktop;
