@@ -1,3 +1,150 @@
+@mixin calculateHeight($options: ()) {
+  $configuration: map-merge((
+    height: $interactiveGraphHeight,
+    menuType: 'none'
+  ), $options);
+
+  @if map-get($configuration, menuType) == 'none' {
+    height: map-get($configuration, height);
+    height: calc(#{map-get($configuration, height)} - (env(safe-area-inset-bottom) + env(safe-area-inset-top))); 
+  }
+  @if map-get($configuration, menuType) == 'top' {
+    height: calc(#{map-get($configuration, height)} - 44px);
+    height: calc(#{map-get($configuration, height)} - (44px + env(safe-area-inset-bottom) + env(safe-area-inset-top))); 
+  }
+  @if map-get($configuration, menuType) == 'bottom' {
+    height: calc(#{map-get($configuration, height)} - 65px);
+    height: calc(#{map-get($configuration, height)} - (65px + env(safe-area-inset-bottom) + env(safe-area-inset-top))); 
+  }
+  @if map-get($configuration, menuType) == 'top-with-notch' {
+    height: calc(#{map-get($configuration, height)} - (44px + 34px)); 
+  }
+  @if map-get($configuration, menuType) == 'bottom-with-notch' {
+    height: calc(#{map-get($configuration, height)} - (65px + 34px)); 
+  }
+}
+
+.interactive-map-component-wrapper {
+  width: $interactiveGraphWidth;
+  margin: $interactiveGraphMarginTop
+    $interactiveGraphMarginRight
+    $interactiveGraphMarginBottom
+    $interactiveGraphMarginLeft;
+  @include calculateHeight();
+
+  // Styles for tablet
+  @include above($tabletBreakpoint) {
+    width: $interactiveGraphWidthTablet;
+    margin: $interactiveGraphMarginTopTablet
+      $interactiveGraphMarginRightTablet
+      $interactiveGraphMarginBottomTablet
+      $interactiveGraphMarginLeftTablet;
+    @include calculateHeight((
+      height: $interactiveGraphHeightTablet
+    ));
+  }
+
+  // Styles for desktop
+  @include above($desktopBreakpoint) {
+    width: $interactiveGraphWidthDesktop;
+    margin: $interactiveGraphMarginTopDesktop
+      $interactiveGraphMarginRightDesktop
+      $interactiveGraphMarginBottomDesktop
+      $interactiveGraphMarginLeftDesktop;
+    @include calculateHeight((
+      height: $interactiveGraphHeightDesktop
+    ));
+  }
+}
+
+body.fl-with-top-menu .interactive-map-component-wrapper {
+  @include calculateHeight((
+    menuType: 'top'
+  ));
+
+  // Styles for tablet
+  @include above($tabletBreakpoint) {
+    @include calculateHeight((
+      height: $interactiveGraphHeightTablet,
+      menuType: 'top'
+    ));
+  }
+
+  // Styles for desktop
+  @include above($desktopBreakpoint) {
+    @include calculateHeight((
+      height: $interactiveGraphHeightDesktop,
+      menuType: 'top'
+    ));
+  }
+}
+
+[data-has-notch] body.fl-with-top-menu .interactive-map-component-wrapper {
+  @include calculateHeight((
+    menuType: 'top-with-notch'
+  ));
+
+  // Styles for tablet
+  @include above($tabletBreakpoint) {
+    @include calculateHeight((
+      height: $interactiveGraphHeightTablet,
+      menuType: 'top-with-notch'
+    ));
+  }
+
+  // Styles for desktop
+  @include above($desktopBreakpoint) {
+    @include calculateHeight((
+      height: $interactiveGraphHeightDesktop,
+      menuType: 'top-with-notch'
+    ));
+  }
+}
+
+body.fl-with-bottom-menu .interactive-map-component-wrapper {
+  @include calculateHeight((
+    menuType: 'bottom'
+  ));
+
+  // Styles for tablet
+  @include above($tabletBreakpoint) {
+    @include calculateHeight((
+      height: $interactiveGraphHeightTablet,
+      menuType: 'bottom'
+    ));
+  }
+
+  // Styles for desktop
+  @include above($desktopBreakpoint) {
+    @include calculateHeight((
+      height: $interactiveGraphHeightDesktop,
+      menuType: 'bottom'
+    ));
+  }
+}
+
+[data-has-notch] body.fl-with-bottom-menu .interactive-map-component-wrapper {
+  @include calculateHeight((
+    menuType: 'bottom-with-notch'
+  ));
+
+  // Styles for tablet
+  @include above($tabletBreakpoint) {
+    @include calculateHeight((
+      height: $interactiveGraphHeightTablet,
+      menuType: 'bottom-with-notch'
+    ));
+  }
+
+  // Styles for desktop
+  @include above($desktopBreakpoint) {
+    @include calculateHeight((
+      height: $interactiveGraphHeightDesktop,
+      menuType: 'bottom-with-notch'
+    ));
+  }
+}
+
 .interactive-map-label-wrapper {
   color: $markerLabelText;
   background-color: $markerLabelBackground;
@@ -5,6 +152,30 @@
   .interactive-map-label-text {
     p {
       color: $markerLabelText;
+    }
+  }
+
+  // Styles for tablet
+  @include above($tabletBreakpoint) {
+    color: $markerLabelTextTablet;
+    background-color: $markerLabelBackgroundTablet;
+
+    .interactive-map-label-text {
+      p {
+        color: $markerLabelTextTablet;
+      }
+    }
+  }
+
+  // Styles for desktop
+  @include above($desktopBreakpoint) {
+    color: $markerLabelTextDesktop;
+    background-color: $markerLabelBackgroundDesktop;
+
+    .interactive-map-label-text {
+      p {
+        color: $markerLabelTextDesktop;
+      }
     }
   }
 }
@@ -18,27 +189,95 @@
       color: $mapLabelText;
     }
   }
+
+  // Styles for tablet
+  @include above($tabletBreakpoint) {
+    color: $mapLabelTextTablet;
+    background-color: $mapLabelBackgroundTablet;
+
+    .maps-button-text {
+      p {
+        color: $mapLabelTextTablet;
+      }
+    }
+  }
+
+  // Styles for desktop
+  @include above($desktopBreakpoint) {
+    color: $mapLabelTextDesktop;
+    background-color: $mapLabelBackgroundDesktop;
+
+    .maps-button-text {
+      p {
+        color: $mapLabelTextDesktop;
+      }
+    }
+  }
 }
 
 .interactive-map-search-icon {
   color: $controlsText;
   background-color: $controlsBackground;
+
+  // Styles for tablet
+  @include above($tabletBreakpoint) {
+    color: $controlsTextTablet;
+    background-color: $controlsBackgroundTablet;
+  }
+
+  // Styles for desktop
+  @include above($desktopBreakpoint) {
+    color: $controlsTextDesktop;
+    background-color: $controlsBackgroundDesktop;
+  }
 }
 
 .interactive-maps-search-overlay,
 .interactive-maps-overlay {
   background-color: $mapSearchOverlayBackground;
   color: $mapSearchOverlayText;
+
+  // Styles for tablet
+  @include above($tabletBreakpoint) {
+    background-color: $mapSearchOverlayBackgroundTablet;
+    color: $mapSearchOverlayTextTablet;
+  }
+
+  // Styles for desktop
+  @include above($desktopBreakpoint) {
+    background-color: $mapSearchOverlayBackgroundTablet;
+    color: $mapSearchOverlayTextTablet;
+  }
 }
 
 .interactive-map-overlay-topbar {
   background-color: $mapSearchOverlayBackground;
+
+  // Styles for tablet
+  @include above($tabletBreakpoint) {
+    background-color: $mapSearchOverlayBackgroundTablet;
+  }
+
+  // Styles for desktop
+  @include above($desktopBreakpoint) {
+    background-color: $mapSearchOverlayBackgroundTablet;
+  }
 }
 
 .interactive-maps-overlay {
   .map-list-item {
     &.active {
       border-left-color: $mapSearchOverlayText;
+
+      // Styles for tablet
+      @include above($tabletBreakpoint) {
+        border-left-color: $mapSearchOverlayTextTablet;
+      }
+
+      // Styles for desktop
+      @include above($desktopBreakpoint) {
+        border-left-color: $mapSearchOverlayTextDesktop;
+      }
     }
   }
 }
@@ -52,5 +291,31 @@
   span {
     background: rgba($mapSearchOverlayText, 0.1);
     color: $mapSearchOverlayText;
+  }
+
+  // Styles for tablet
+  @include above($tabletBreakpoint) {
+    .form-control {
+      background: $mapSearchOverlayBackgroundTablet;
+      border-color: $mapSearchOverlayTextTablet;
+    }
+
+    span {
+      background: rgba($mapSearchOverlayTextTablet, 0.1);
+      color: $mapSearchOverlayTextTablet;
+    }
+  }
+
+  // Styles for desktop
+  @include above($desktopBreakpoint) {
+    .form-control {
+      background: $mapSearchOverlayBackgroundDesktop;
+      border-color: $mapSearchOverlayTextDesktop;
+    }
+
+    span {
+      background: rgba($mapSearchOverlayTextDesktop, 0.1);
+      color: $mapSearchOverlayTextDesktop;
+    }
   }
 }

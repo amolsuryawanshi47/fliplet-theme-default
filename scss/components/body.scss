@@ -1,79 +1,38 @@
 // Body mixin
 @mixin body($options: ()) {
   $configuration: map-merge((
-    backgroundImage: $bodyBackgroundImage,
-    backgroundColor: $bodyBackgroundColor,
+    backgroundColor: $bodyBackground,
     fontColor: $bodyTextColor,
-    fontLineHeight: $bodyLineHeight,
-    fontWeight: $bodyFontWeight,
-    fontFamily: $bodyFontFam,
-    fontSize: $bodyFontSize,
-    backgroundType: $bodyBackgroundType,
-    backgroundSize: $bodyBackgroundSize,
-    backgroundRepeat: $bodyBackgroundRepeat,
-    backgroundPosX: $bodyBackgroundPosX,
-    backgroundPosY: $bodyBackgroundPosY
+    fontFamily: $bodyFontFamily
   ), $options);
 
-  @if map-get($configuration, backgroundType) == 'Image' {
-    @if map-get($configuration, backgroundImage) == 'none' {
-      background-image: map-get($configuration, backgroundImage)
-    } @else {
-      background-image: url(#{map-get($configuration, backgroundImage)});
-    }
-  } @else if map-get($configuration, backgroundType) == 'Color' {
-    background-image: none;
-    background-color: map-get($configuration, backgroundColor);
-  } @else {
-    background: none;
-  }
-
-  background-size: map-get($configuration, backgroundSize);
-  background-repeat: map-get($configuration, backgroundRepeat);
-  background-position: map-get($configuration, backgroundPosX) map-get($configuration, backgroundPosY);
+  background-color: map-get($configuration, backgroundColor);
   color: map-get($configuration, fontColor);
-  font: map-get($configuration, fontWeight)
-    #{map-get($configuration, fontSize)}/#{map-get($configuration, fontLineHeight)}
-    #{map-get($configuration, fontFamily)}, 'Arial, sans-serif';
+  font-family: map-get($configuration, fontFamily), 'Arial, sans-serif';
 }
 
 body {
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: normal;
   // Include styles for default mobile viewport
   @include body();
 
   // Styles for tablet
   @include above($tabletBreakpoint) {
     @include body((
-      backgroundImage: $bodyBackgroundImageTablet,
-      backgroundColor: $bodyBackgroundColorTablet,
+      backgroundColor: $bodyBackgroundTablet,
       fontColor: $bodyTextColorTablet,
-      fontLineHeight: $bodyLineHeightTablet,
-      fontWeight: $bodyFontWeightTablet,
-      fontFamily: $bodyFontFamTablet,
-      fontSize: $bodyFontSizeTablet,
-      backgroundType: $bodyBackgroundTypeTablet,
-      backgroundSize: $bodyBackgroundSizeTablet,
-      backgroundRepeat: $bodyBackgroundRepeatTablet,
-      backgroundPosX: $bodyBackgroundPosXTablet,
-      backgroundPosY: $bodyBackgroundPosYTablet,
+      fontFamily: $bodyFontFamilyTablet
     ));
   }
 
   // Styles for desktop
   @include above($desktopBreakpoint) {
     @include body((
-      backgroundImage: $bodyBackgroundImageDesktop,
-      backgroundColor: $bodyBackgroundColorDesktop,
+      backgroundColor: $bodyBackgroundDesktop,
       fontColor: $bodyTextColorDesktop,
-      fontLineHeight: $bodyLineHeightDesktop,
-      fontWeight: $bodyFontWeightDesktop,
-      fontFamily: $bodyFontFamDesktop,
-      fontSize: $bodyFontSizeDesktop,
-      backgroundType: $bodyBackgroundTypeDesktop,
-      backgroundSize: $bodyBackgroundSizeDesktop,
-      backgroundRepeat: $bodyBackgroundRepeatDesktop,
-      backgroundPosX: $bodyBackgroundPosXDesktop,
-      backgroundPosY: $bodyBackgroundPosYDesktop,
+      fontFamily: $bodyFontFamilyDesktop
     ));
   }
 }
