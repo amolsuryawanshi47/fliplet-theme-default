@@ -18,13 +18,18 @@
   ul > li {
     border-bottom: 1px solid $listSeparatorColor;
     background-color: $listBackgroundColor;
+    padding: $listPaddingTop $listPaddingRight $listPaddingBottom $listPaddingLeft;
 
-    &.linked:active {
-      background-color: $listClickColor;
-    }
+    &.linked {
+      padding-right: calc(#{$listPaddingRight} + 34px);
 
-    &.linked:after {
-      color: $listChevronColor;
+      &:active {
+        background-color: $listClickColor;
+      }
+
+      &:after {
+        color: $listChevronColor;
+      }
     }
 
     .list-title {
@@ -45,15 +50,123 @@
       color: $descriptionColor;
     }
 
-  }
+    // Styles for tablet
+    @include above($tabletBreakpoint) {
+      border-bottom: 1px solid $listSeparatorColorTablet;
+      background-color: $listBackgroundColorTablet;
+      padding: $listPaddingTopTablet $listPaddingRightTablet $listPaddingBottomTablet $listPaddingLeftTablet;
 
+      &.linked {
+        padding-right: calc(#{$listPaddingRightTablet} + 34px);
+
+        &:active {
+          background-color: $listClickColorTablet;
+        }
+
+        &:after {
+          color: $listChevronColorTablet;
+        }
+      }
+
+      .list-title {
+        font-size: $titleSizeTablet;
+        font-weight: $titleWeightTablet;
+        color: $titleColorTablet;
+      }
+
+      .list-image {
+        .fl-list-icon {
+          color: $listIconColorTablet;
+        }
+      }
+
+      p + p {
+        font-size: $descriptionSizeTablet;
+        font-weight: $descriptionWeightTablet;
+        color: $descriptionColorTablet;
+      }
+    }
+
+    // Styles for desktop
+    @include above($desktopBreakpoint) {
+      border-bottom: 1px solid $listSeparatorColorDesktop;
+      background-color: $listBackgroundColorDesktop;
+      padding: $listPaddingTopDesktop $listPaddingRightDesktop $listPaddingBottomDesktop $listPaddingLeftDesktop;
+
+      &.linked {
+        padding-right: calc(#{$listPaddingRightDesktop} + 34px);
+
+        &:active {
+          background-color: $listClickColorDesktop;
+        }
+
+        &:after {
+          color: $listChevronColorDesktop;
+        }
+      }
+
+      .list-title {
+        font-size: $titleSizeDesktop;
+        font-weight: $titleWeightDesktop;
+        color: $titleColorDesktop;
+      }
+
+      .list-image {
+        .fl-list-icon {
+          color: $listIconColorDesktop;
+        }
+      }
+
+      p + p {
+        font-size: $descriptionSizeDesktop;
+        font-weight: $descriptionWeightDesktop;
+        color: $descriptionColorDesktop;
+      }
+    }
+  }
 }
 
 .list.list-thumb-s {
   ul > li {
+    padding: $listPaddingTop $listPaddingRight $listPaddingBottom calc(#{$listPaddingLeft} + 46px);
+
+    &.linked {
+      padding-right: calc(#{$listPaddingRight} + 34px);
+    }
+
     .list-image {
       .fl-list-icon {
         font-size: $listSmallIconSize;
+      }
+    }
+
+    // Styles for tablet
+    @include above($tabletBreakpoint) {
+      padding: $listPaddingTopTablet $listPaddingRightTablet $listPaddingBottomTablet calc(#{$listPaddingLeftTablet} + 46px);
+
+      &.linked {
+        padding-right: calc(#{$listPaddingRightTablet} + 34px);
+      }
+
+      .list-image {
+        .fl-list-icon {
+          font-size: $listSmallIconSizeTablet;
+        }
+      }
+    }
+
+    // Styles for desktop
+    @include above($desktopBreakpoint) {
+      padding: $listPaddingTopDesktop $listPaddingRightDesktop $listPaddingBottomDesktop calc(#{$listPaddingLeftDesktop} + 46px);
+
+      &.linked {
+        padding-right: calc(#{$listPaddingRightDesktop} + 34px);
+      }
+
+      .list-image {
+        .fl-list-icon {
+          font-size: $listSmallIconSizeDesktop;
+        }
       }
     }
   }
@@ -61,9 +174,45 @@
 
 .list.list-thumb-l {
   ul > li {
+    padding: $listPaddingTop $listPaddingRight $listPaddingBottom calc(#{$listPaddingLeft} + 71px);
+
+    &.linked {
+      padding-right: calc(#{$listPaddingRight} + 34px);
+    }
+
     .list-image {
       .fl-list-icon {
         font-size: $listLargeIconSize;
+      }
+    }
+
+    // Styles for tablet
+    @include above($tabletBreakpoint) {
+      padding: $listPaddingTopTablet $listPaddingRightTablet $listPaddingBottomTablet calc(#{$listPaddingLeftTablet} + 71px);
+
+      &.linked {
+        padding-right: calc(#{$listPaddingRightTablet} + 34px);
+      }
+
+      .list-image {
+        .fl-list-icon {
+          font-size: $listLargeIconSizeTablet;
+        }
+      }
+    }
+
+    // Styles for desktop
+    @include above($desktopBreakpoint) {
+      padding: $listPaddingTopDesktop $listPaddingRightDesktop $listPaddingBottomDesktop calc(#{$listPaddingLeftDesktop} + 71px);
+
+      &.linked {
+        padding-right: calc(#{$listPaddingRightDesktop} + 34px);
+      }
+
+      .list-image {
+        .fl-list-icon {
+          font-size: $listLargeIconSizeDesktop;
+        }
       }
     }
   }
@@ -79,7 +228,39 @@ ul.list-save-filter {
 
     &.active {
       background: $listMyListToggleColor;
-      color: listMyListToggleActiveColor;
+      color: $listMyListToggleActiveColor;
+    }
+  }
+
+  // Styles for tablet
+  @include above($tabletBreakpoint) {
+    border: 1px solid $listMyListToggleColorTablet;
+
+    li {
+      border-left: 1px solid $listMyListToggleColorTablet;
+      background: $bodyBackgroundTablet;
+      color: $listMyListToggleColorTablet;
+
+      &.active {
+        background: $listMyListToggleColorTablet;
+        color: $listMyListToggleActiveColorTablet;
+      }
+    }
+  }
+
+  // Styles for desktop
+  @include above($desktopBreakpoint) {
+    border: 1px solid $listMyListToggleColorDesktop;
+
+    li {
+      border-left: 1px solid $listMyListToggleColorDesktop;
+      background: $bodyBackgroundDesktop;
+      color: $listMyListToggleColorDesktop;
+
+      &.active {
+        background: $listMyListToggleColorDesktop;
+        color: $listMyListToggleActiveColorDesktop;
+      }
     }
   }
 }
@@ -97,12 +278,54 @@ ul.list-swipe .swipe-action {
     background: $listMyListSwipeLeftColor;
     color: $listMyListSwipeLeftTextColor;
   }
+
+  // Styles for tablet
+  @include above($tabletBreakpoint) {
+    background: $listMyListSwipeColorTablet;
+    color: $listMyListSwipeTextColorTablet;
+
+    &.swipe-action-right.active{
+      background: $listMyListSwipeRightColorTablet;
+      color: $listMyListSwipeRightTextColorTablet;
+    }
+
+    &.swipe-action-left.active {
+      background: $listMyListSwipeLeftColorTablet;
+      color: $listMyListSwipeLeftTextColorTablet;
+    }
+  }
+
+  // Styles for desktop
+  @include above($desktopBreakpoint) {
+    background: $listMyListSwipeColorDesktop;
+    color: $listMyListSwipeTextColorDesktop;
+
+    &.swipe-action-right.active{
+      background: $listMyListSwipeRightColorDesktop;
+      color: $listMyListSwipeRightTextColorDesktop;
+    }
+
+    &.swipe-action-left.active {
+      background: $listMyListSwipeLeftColorDesktop;
+      color: $listMyListSwipeLeftTextColorDesktop;
+    }
+  }
 }
 
 /* 02 - PDF FILE LIST */
 
 .list-search {
   border-bottom: 2px solid $listSearchBorder;
+
+  // Styles for tablet
+  @include above($tabletBreakpoint) {
+    border-bottom: 2px solid $listSearchBorderTablet;
+  }
+
+  // Styles for desktop
+  @include above($desktopBreakpoint) {
+    border-bottom: 2px solid $listSearchBorderDesktop;
+  }
 }
 
 .btn.btn-link.search-cancel {
@@ -113,6 +336,30 @@ ul.list-swipe .swipe-action {
   &:active:hover,
   &:active:focus {
     color: $linkHoverColor;
+  }
+
+  // Styles for tablet
+  @include above($tabletBreakpoint) {
+    color: $listSearchCancelTablet;
+
+    &:hover,
+    &:focus,
+    &:active:hover,
+    &:active:focus {
+      color: $linkHoverColorDesktop;
+    }
+  }
+
+  // Styles for desktop
+  @include above($desktopBreakpoint) {
+    color: $listSearchCancelDesktop;
+
+    &:hover,
+    &:focus,
+    &:active:hover,
+    &:active:focus {
+      color: $linkHoverColorDesktop;
+    }
   }
 }
 
@@ -141,6 +388,56 @@ ul.list-swipe .swipe-action {
           }
         }
       }
+
+      // Styles for tablet
+      @include above($tabletBreakpoint) {
+        &.line > li {
+          &.feed-item {
+            border-bottom: 1px solid $listSeparatorColorTablet;
+          }
+        }
+
+        &.stripes > li {
+          &.feed-item:nth-child(odd) {
+            background-color: $rssStripesTablet;
+          }
+        }
+
+        & > li {
+          &.feed-item {
+            background-color: $listBackgroundColorTablet;
+
+            &.line {
+              border-left-color: $rssHighlightTablet;
+            }
+          }
+        }
+      }
+
+      // Styles for desktop
+      @include above($desktopBreakpoint) {
+        &.line > li {
+          &.feed-item {
+            border-bottom: 1px solid $listSeparatorColorDesktop;
+          }
+        }
+
+        &.stripes > li {
+          &.feed-item:nth-child(odd) {
+            background-color: $rssStripesDesktop;
+          }
+        }
+
+        & > li {
+          &.feed-item {
+            background-color: $listBackgroundColorDesktop;
+
+            &.line {
+              border-left-color: $rssHighlightDesktop;
+            }
+          }
+        }
+      }
     }
   }
 
@@ -149,6 +446,16 @@ ul.list-swipe .swipe-action {
       p.list-title {
         .circle-icon {
           background-color: $rssHighlight;
+
+          // Styles for tablet
+          @include above($tabletBreakpoint) {
+            background-color: $rssHighlightTablet;
+          }
+
+          // Styles for desktop
+          @include above($desktopBreakpoint) {
+            background-color: $rssHighlightDesktop;
+          }
         }
       }
     }
@@ -167,6 +474,44 @@ ul.list-swipe .swipe-action {
 
     .icon {
       color: $listChevronColor;
+    }
+
+    // Styles for tablet
+    @include above($tabletBreakpoint) {
+      .list-title {
+        color: $titleColorTablet;
+        font-size: $titleSizeTablet;
+        font-weight: $titleWeightTablet;
+      }
+
+      .list-description {
+        color: $descriptionColorTablet;
+        font-size: $descriptionSizeTablet;
+        font-weight: $descriptionWeightTablet;
+      }
+
+      .icon {
+        color: $listChevronColorTablet;
+      }
+    }
+
+    // Styles for desktop
+    @include above($desktopBreakpoint) {
+      .list-title {
+        color: $titleColorDesktop;
+        font-size: $titleSizeDesktop;
+        font-weight: $titleWeightDesktop;
+      }
+
+      .list-description {
+        color: $descriptionColorDesktop;
+        font-size: $descriptionSizeDesktop;
+        font-weight: $descriptionWeightDesktop;
+      }
+
+      .icon {
+        color: $listChevronColorDesktop;
+      }
     }
   }
 }
