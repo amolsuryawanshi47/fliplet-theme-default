@@ -9,20 +9,61 @@
 /* 01 - LOCK */
 
 .passcode-wrapper {
+  .passcode-field {
+    border-bottom: 1px solid $lockInput;
 
-    .passcode-field {
-        border-bottom: $lockInput;
-
-        &:focus {
-            border-bottom: $lockInputFocus;
-        }
+    &:focus {
+      border-bottom: 1px solid $lockInputFocus;
     }
+  }
+
+  // Styles for tablet
+  @include above($tabletBreakpoint) {
+    .passcode-field {
+      border-bottom: 1px solid $lockInputTablet;
+
+      &:focus {
+        border-bottom: 1px solid $lockInputFocusTablet;
+      }
+    }
+  }
+
+  // Styles for desktop
+  @include above($desktopBreakpoint) {
+    .passcode-field {
+      border-bottom: 1px solid $lockInputDesktop;
+
+      &:focus {
+        border-bottom: 1px solid $lockInputFocusDesktop;
+      }
+    }
+  }
 }
 
 .verify-field-wrapper .back-setup {
-    color: $lockChevronColor;
+  color: $lockChevronColor;
+
+  // Styles for tablet
+  @include above($tabletBreakpoint) {
+    color: $lockChevronColorTablet;
+  }
+
+  // Styles for desktop
+  @include above($desktopBreakpoint) {
+    color: $lockChevronColorDesktop;
+  }
 }
 
 .use-touchid {
-    border: $touchIDBorder;
+  border: 1px solid $touchIDBorder;
+
+  // Styles for tablet
+  @include above($tabletBreakpoint) {
+    cborder: 1px solid $touchIDBorderTablet;
+  }
+
+  // Styles for desktop
+  @include above($desktopBreakpoint) {
+    border: 1px solid $touchIDBorderDesktop;
+  }
 }

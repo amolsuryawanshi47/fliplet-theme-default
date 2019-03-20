@@ -43,12 +43,9 @@
     color: $lfdFontColor;
 
     &:after {
-      background-color: $primaryButtonColor;
+      background-color: $highlightColor;
     }
   }
-
-   .small-card-list-detail-name:after
-
 
   .small-card-list-detail-button a {
     color: $lfdFontColor;
@@ -71,6 +68,148 @@
     color: rgba($lfdFontColor, 0.1);
     background-color: rgba($lfdFontColor, 0.04);
   }
+
+  // Styles for tablet
+  @include above($tabletBreakpoint) {
+    .small-card-list-detail-wrapper {
+      background-color: $lfdBackgroundColorTablet;
+    }
+
+    .small-card-search-filter-overlay {
+      .small-card-overlay-header {
+        background-color: $lfdOverlayBackgroundColorTablet;
+      }
+
+      .small-card-overlay-wrapper {
+        background-color: $lfdOverlayBackgroundColorTablet;
+        color: $lfdOverlayFontColorTablet;
+      }
+
+      .hidden-filter-controls-filter {
+        border-color: rgba($lfdOverlayFontColorTablet, 0.8);
+
+        &:hover,
+        &:focus {
+          color: rgba($lfdOverlayFontColorTablet, 0.7);
+        }
+      }
+    }
+
+    .small-card-list-text-wrapper,
+    .small-card-list-detail-content-wrapper {
+      background-color: $lfdBackgroundColorTablet;
+      color: $lfdFontColorTablet;
+    }
+
+    .small-card-list-name,
+    .small-card-list-role,
+    .small-card-list-location,
+    .small-card-list-detail-role,
+    .small-card-list-detail-location {
+      color: $lfdFontColorTablet;
+    }
+
+    .small-card-list-detail-name {
+      color: $lfdFontColorTablet;
+
+      &:after {
+        background-color: $highlightColorTablet;
+      }
+    }
+
+    .small-card-list-detail-button a {
+      color: $lfdFontColorTablet;
+
+      &:hover,
+      &:focus,
+      &:active,
+      &:active:hover,
+      &:active:focus {
+        color: $lfdFontColorTablet;
+      }
+    }
+
+    .small-card-list-detail-close-btn {
+      color: $lfdFontColorTablet;
+      background: rgba($lfdBackgroundColorTablet, 0.5);
+    }
+
+    .small-card-list-detail-image-wrapper {
+      color: rgba($lfdFontColorTablet, 0.1);
+      background-color: rgba($lfdFontColorTablet, 0.04);
+    }
+  }
+
+  // Styles for desktop
+  @include above($desktopBreakpoint) {
+    .small-card-list-detail-wrapper {
+      background-color: $lfdBackgroundColorDesktop;
+    }
+
+    .small-card-search-filter-overlay {
+      .small-card-overlay-header {
+        background-color: $lfdOverlayBackgroundColorDesktop;
+      }
+
+      .small-card-overlay-wrapper {
+        background-color: $lfdOverlayBackgroundColorDesktop;
+        color: $lfdOverlayFontColorDesktop;
+      }
+
+      .hidden-filter-controls-filter {
+        border-color: rgba($lfdOverlayFontColorDesktop, 0.8);
+
+        &:hover,
+        &:focus {
+          color: rgba($lfdOverlayFontColorDesktop, 0.7);
+        }
+      }
+    }
+
+    .small-card-list-text-wrapper,
+    .small-card-list-detail-content-wrapper {
+      background-color: $lfdBackgroundColorDesktop;
+      color: $lfdFontColorDesktop;
+    }
+
+    .small-card-list-name,
+    .small-card-list-role,
+    .small-card-list-location,
+    .small-card-list-detail-role,
+    .small-card-list-detail-location {
+      color: $lfdFontColorDesktop;
+    }
+
+    .small-card-list-detail-name {
+      color: $lfdFontColorDesktop;
+
+      &:after {
+        background-color: $highlightColorDesktop;
+      }
+    }
+
+    .small-card-list-detail-button a {
+      color: $lfdFontColorDesktop;
+
+      &:hover,
+      &:focus,
+      &:active,
+      &:active:hover,
+      &:active:focus {
+        color: $lfdFontColorDesktop;
+      }
+    }
+
+    .small-card-list-detail-close-btn {
+      color: $lfdFontColorDesktop;
+      background: rgba($lfdBackgroundColorDesktop, 0.5);
+    }
+
+    .small-card-list-detail-image-wrapper {
+      color: rgba($lfdFontColorDesktop, 0.1);
+      background-color: rgba($lfdFontColorDesktop, 0.04);
+    }
+  }
 }
 
 .new-small-card-list-container {
@@ -84,7 +223,41 @@
     }
 
     .fa-bookmark {
-      color: $primaryButtonColor;
+      color: $highlightColor;
+    }
+  }
+
+  // Styles for tablet
+  @include above($tabletBreakpoint) {
+    .small-card-list-detail-wrapper.open {
+      background-color: $lfdDetailBackgroundColorTablet;
+    }
+
+    .small-card-bookmark-holder {
+      .fa-bookmark-o {
+        color: rgba($lfdDetailFontColorTablet, 0.2);
+      }
+
+      .fa-bookmark {
+        color: $highlightColorTablet;
+      }
+    }
+  }
+
+  // Styles for desktop
+  @include above($desktopBreakpoint) {
+    .small-card-list-detail-wrapper.open {
+      background-color: $lfdDetailBackgroundColorDesktop;
+    }
+
+    .small-card-bookmark-holder {
+      .fa-bookmark-o {
+        color: rgba($lfdDetailFontColorDesktop, 0.2);
+      }
+
+      .fa-bookmark {
+        color: $highlightColorDesktop;
+      }
     }
   }
 }
@@ -105,7 +278,7 @@
             }
 
             .fa-bookmark {
-              color: $primaryButtonColor;
+              color: $highlightColor;
             }
           }
 
@@ -121,7 +294,7 @@
             color: $lfdDetailFontColor;
 
             &:after {
-              background-color: $primaryButtonColor;
+              background-color: $highlightColor;
             }
           }
 
@@ -154,6 +327,140 @@
       background-color: rgba($lfdDetailBackgroundColor, 0.5);
       color: $lfdDetailFontColor;
     }
+
+    // Styles for tablet
+    @include above($tabletBreakpoint) {
+      .small-card-detail-overlay-panel {
+        background-color: $lfdDetailBackgroundColorTablet;
+
+        .small-card-detail-wrapper {
+          .small-card-list-detail-content-wrapper {
+            background-color: $lfdDetailBackgroundColorTablet;
+            color: $lfdDetailFontColorTablet;
+
+            .small-card-bookmark-holder {
+              .fa-bookmark-o {
+                color: rgba($lfdDetailFontColorTablet, 0.2);
+              }
+
+              .fa-bookmark {
+                color: $highlightColorTablet;
+              }
+            }
+
+            .small-card-list-name,
+            .small-card-list-role,
+            .small-card-list-location,
+            .small-card-list-detail-role,
+            .small-card-list-detail-location {
+              color: $lfdDetailFontColorTablet;
+            }
+
+            .small-card-list-detail-name {
+              color: $lfdDetailFontColorTablet;
+
+              &:after {
+                background-color: $highlightColorTablet;
+              }
+            }
+
+            .small-card-list-detail-button a {
+              color: $lfdDetailFontColorTablet;
+
+              &:hover,
+              &:focus,
+              &:active,
+              &:active:hover,
+              &:active:focus {
+                color: $lfdDetailFontColorTablet;
+              }
+            }
+
+            .small-card-detail-overlay-close {
+              background-color: rgba($lfdDetailBackgroundColorTablet, 0.5);
+              color: $lfdDetailFontColorTablet;
+            }
+          }
+
+          .small-card-list-detail-image-wrapper {
+            color: rgba($lfdDetailFontColorTablet, 0.1);
+            background-color: rgba($lfdDetailFontColorTablet, 0.04);
+          }
+        }
+      }
+
+      .small-card-detail-overlay-close {
+        background-color: rgba($lfdDetailBackgroundColorTablet, 0.5);
+        color: $lfdDetailFontColorTablet;
+      }
+    }
+
+    // Styles for desktop
+    @include above($desktopBreakpoint) {
+      .small-card-detail-overlay-panel {
+        background-color: $lfdDetailBackgroundColorDesktop;
+
+        .small-card-detail-wrapper {
+          .small-card-list-detail-content-wrapper {
+            background-color: $lfdDetailBackgroundColorDesktop;
+            color: $lfdDetailFontColorDesktop;
+
+            .small-card-bookmark-holder {
+              .fa-bookmark-o {
+                color: rgba($lfdDetailFontColorDesktop, 0.2);
+              }
+
+              .fa-bookmark {
+                color: $highlightColorDesktop;
+              }
+            }
+
+            .small-card-list-name,
+            .small-card-list-role,
+            .small-card-list-location,
+            .small-card-list-detail-role,
+            .small-card-list-detail-location {
+              color: $lfdDetailFontColorDesktop;
+            }
+
+            .small-card-list-detail-name {
+              color: $lfdDetailFontColorDesktop;
+
+              &:after {
+                background-color: $highlightColorDesktop;
+              }
+            }
+
+            .small-card-list-detail-button a {
+              color: $lfdDetailFontColorDesktop;
+
+              &:hover,
+              &:focus,
+              &:active,
+              &:active:hover,
+              &:active:focus {
+                color: $lfdDetailFontColorDesktop;
+              }
+            }
+
+            .small-card-detail-overlay-close {
+              background-color: rgba($lfdDetailBackgroundColorDesktop, 0.5);
+              color: $lfdDetailFontColorDesktop;
+            }
+          }
+
+          .small-card-list-detail-image-wrapper {
+            color: rgba($lfdDetailFontColorDesktop, 0.1);
+            background-color: rgba($lfdDetailFontColorDesktop, 0.04);
+          }
+        }
+      }
+
+      .small-card-detail-overlay-close {
+        background-color: rgba($lfdDetailBackgroundColorDesktop, 0.5);
+        color: $lfdDetailFontColorDesktop;
+      }
+    }
   }
 }
 
@@ -178,6 +485,52 @@
       color: rgba($lfdOverlayFontColor, 0.7);
     }
   }
+
+  // Styles for tablet
+  @include above($tabletBreakpoint) {
+    .news-feed-overlay-wrapper,
+    .simple-list-overlay-wrapper {
+      background-color: $lfdOverlayBackgroundColorTablet;
+      color: $lfdOverlayFontColorTablet;
+    }
+
+    .news-feed-overlay-header,
+    .simple-list-overlay-header {
+      background-color: $lfdOverlayBackgroundColorTablet;
+    }
+
+    .hidden-filter-controls-filter {
+      border-color: rgba($lfdOverlayFontColorTablet, 0.8);
+
+      &:hover,
+      &:focus {
+        color: rgba($lfdOverlayFontColorTablet, 0.7);
+      }
+    }
+  }
+
+  // Styles for desktop
+  @include above($desktopBreakpoint) {
+    .news-feed-overlay-wrapper,
+    .simple-list-overlay-wrapper {
+      background-color: $lfdOverlayBackgroundColorDesktop;
+      color: $lfdOverlayFontColorDesktop;
+    }
+
+    .news-feed-overlay-header,
+    .simple-list-overlay-header {
+      background-color: $lfdOverlayBackgroundColorDesktop;
+    }
+
+    .hidden-filter-controls-filter {
+      border-color: rgba($lfdOverlayFontColorDesktop, 0.8);
+
+      &:hover,
+      &:focus {
+        color: rgba($lfdOverlayFontColorDesktop, 0.7);
+      }
+    }
+  }
 }
 
 .new-small-card-list-container,
@@ -190,9 +543,9 @@
   .simple-list-search-filter-overlay {
     .apply-filters,
     .hidden-filter-controls-filter.mixitup-control-active {
-      background-color: $primaryButtonColor;
+      background-color: $highlightColor;
       color: $primaryButtonTextColor;
-      border-color: $primaryButtonColor;
+      border-color: $highlightColor;
     }
   }
 
@@ -216,14 +569,14 @@
 
   .search-holder {
     .fa {
-      color: $primaryButtonColor;
+      color: $highlightColor;
     }
     .form-control {
       background-color: $bodyBackground;
       color: $bodyTextColor;
 
       &:focus {
-        border-color: $primaryButtonColor;
+        border-color: $highlightColor;
       }
     }
     .btn.search-btn {
@@ -244,18 +597,18 @@
 
     .list-search-icon .fa {
       opacity: 1;
-      color: $primaryButtonColor !important;
+      color: $highlightColor !important;
     }
 
     & ~ .list-search-icon .fa {
       opacity: 1;
-      color: $primaryButtonColor !important;
+      color: $highlightColor !important;
     }
   }
 
   .hidden-search-controls .current-query-wrapper {
-    border-color: $primaryButtonColor;
-    background-color: $primaryButtonColor;
+    border-color: $highlightColor;
+    background-color: $highlightColor;
     color: $primaryButtonTextColor;
 
     &:hover,
@@ -277,13 +630,225 @@
     }
 
     &.mixitup-control-active {
-      border-color: $primaryButtonColor;
-      background-color: $primaryButtonColor;
+      border-color: $highlightColor;
+      background-color: $highlightColor;
       color: $primaryButtonTextColor;
 
       &:hover,
       &:focus {
         color: rgba($primaryButtonTextColor, 0.7);
+      }
+    }
+  }
+
+  // Styles for tablet
+  @include above($tabletBreakpoint) {
+    .news-feed-search-filter-overlay,
+    .small-card-search-filter-overlay,
+    .simple-list-search-filter-overlay {
+      .apply-filters,
+      .hidden-filter-controls-filter.mixitup-control-active {
+        background-color: $highlightColorTablet;
+        color: $primaryButtonTextColorTablet;
+        border-color: $highlightColorTablet;
+      }
+    }
+
+    .filter-holder {
+      .panel-default > .panel-heading {
+        color: $lfdOverlayFontColorTablet;
+        background-color: $lfdOverlayBackgroundColorTablet;
+        border-bottom: 1px solid rgba($lfdOverlayFontColorTablet, 0.2);
+      }
+      .panel-group .panel {
+        background-color: lighten($lfdOverlayBackgroundColorTablet, 10%);
+
+        .panel-body {
+          background-color: transparent;
+        }
+      }
+    }
+
+    // The use of !important in this case is to avoid CSS repetion
+    // Some layouts on the LFD component have more specific targets
+
+    .search-holder {
+      .fa {
+        color: $highlightColorTablet;
+      }
+      .form-control {
+        background-color: $bodyBackgroundTablet;
+        color: $bodyTextColorTablet;
+
+        &:focus {
+          border-color: $highlightColorTablet;
+        }
+      }
+      .btn.search-btn {
+        border: none;
+        background-color: rgba($bodyTextColorTablet, 0.1);
+        color: $bodyTextColorTablet;
+
+        &:hover,
+        &:active,
+        &:active:hover {
+          border: none;
+        }
+      }
+
+      .search-feed:focus ~ .btn.search-btn {
+        border: none;
+      }
+
+      .list-search-icon .fa {
+        opacity: 1;
+        color: $highlightColorTablet !important;
+      }
+
+      & ~ .list-search-icon .fa {
+        opacity: 1;
+        color: $highlightColorTablet !important;
+      }
+    }
+
+    .hidden-search-controls .current-query-wrapper {
+      border-color: $highlightColorTablet;
+      background-color: $highlightColorTablet;
+      color: $primaryButtonTextColorTablet;
+
+      &:hover,
+      &:focus {
+        color: rgba($primaryButtonTextColorTablet, 0.7);
+      }
+    }
+
+    .hidden-filter-controls-label {
+      color: rgba($bodyTextColorTablet, 0.5);
+    }
+
+    .hidden-filter-controls-filter {
+      border-color: rgba($bodyTextColorTablet, 0.8);
+
+      &:hover,
+      &:focus {
+        color: rgba($bodyTextColorTablet, 0.7);
+      }
+
+      &.mixitup-control-active {
+        border-color: $highlightColorTablet;
+        background-color: $highlightColorTablet;
+        color: $primaryButtonTextColorTablet;
+
+        &:hover,
+        &:focus {
+          color: rgba($primaryButtonTextColorTablet, 0.7);
+        }
+      }
+    }
+  }
+
+  // Styles for desktop
+  @include above($desktopBreakpoint) {
+    .news-feed-search-filter-overlay,
+    .small-card-search-filter-overlay,
+    .simple-list-search-filter-overlay {
+      .apply-filters,
+      .hidden-filter-controls-filter.mixitup-control-active {
+        background-color: $highlightColorDesktop;
+        color: $primaryButtonTextColorDesktop;
+        border-color: $highlightColorDesktop;
+      }
+    }
+
+    .filter-holder {
+      .panel-default > .panel-heading {
+        color: $lfdOverlayFontColorDesktop;
+        background-color: $lfdOverlayBackgroundColorDesktop;
+        border-bottom: 1px solid rgba($lfdOverlayFontColorDesktop, 0.2);
+      }
+      .panel-group .panel {
+        background-color: lighten($lfdOverlayBackgroundColorDesktop, 10%);
+
+        .panel-body {
+          background-color: transparent;
+        }
+      }
+    }
+
+    // The use of !important in this case is to avoid CSS repetion
+    // Some layouts on the LFD component have more specific targets
+
+    .search-holder {
+      .fa {
+        color: $highlightColorDesktop;
+      }
+      .form-control {
+        background-color: $bodyBackgroundDesktop;
+        color: $bodyTextColorDesktop;
+
+        &:focus {
+          border-color: $highlightColorDesktop;
+        }
+      }
+      .btn.search-btn {
+        border: none;
+        background-color: rgba($bodyTextColorDesktop, 0.1);
+        color: $bodyTextColorDesktop;
+
+        &:hover,
+        &:active,
+        &:active:hover {
+          border: none;
+        }
+      }
+
+      .search-feed:focus ~ .btn.search-btn {
+        border: none;
+      }
+
+      .list-search-icon .fa {
+        opacity: 1;
+        color: $highlightColorDesktop !important;
+      }
+
+      & ~ .list-search-icon .fa {
+        opacity: 1;
+        color: $highlightColorDesktop !important;
+      }
+    }
+
+    .hidden-search-controls .current-query-wrapper {
+      border-color: $highlightColorDesktop;
+      background-color: $highlightColorDesktop;
+      color: $primaryButtonTextColorDesktop;
+
+      &:hover,
+      &:focus {
+        color: rgba($primaryButtonTextColorDesktop, 0.7);
+      }
+    }
+
+    .hidden-filter-controls-label {
+      color: rgba($bodyTextColorDesktop, 0.5);
+    }
+
+    .hidden-filter-controls-filter {
+      border-color: rgba($bodyTextColorDesktop, 0.8);
+
+      &:hover,
+      &:focus {
+        color: rgba($bodyTextColorDesktop, 0.7);
+      }
+
+      &.mixitup-control-active {
+        border-color: $highlightColorDesktop;
+        background-color: $highlightColorDesktop;
+        color: $primaryButtonTextColorDesktop;
+
+        &:hover,
+        &:focus {
+          color: rgba($primaryButtonTextColorDesktop, 0.7);
+        }
       }
     }
   }
@@ -301,7 +866,7 @@
         color: $lfdFontColor;
 
         &:after {
-          background-color: $primaryButtonColor;
+          background-color: $highlightColor;
         }
       }
     }
@@ -326,6 +891,82 @@
       background-color: rgba($lfdFontColor, 0.04);
     }
   }
+
+  // Styles for tablet
+  @include above($tabletBreakpoint) {
+    .slide-over {
+      .news-feed-item-inner-content {
+        background-color: $lfdBackgroundColorTablet;
+        color: $lfdFontColorTablet;
+
+        h2.news-feed-item-title {
+          color: $lfdFontColorTablet;
+
+          &:after {
+            background-color: $highlightColorTablet;
+          }
+        }
+      }
+    }
+
+    .news-feed-list-item {
+      .news-feed-item-close-btn {
+        background-color: rgba($lfdBackgroundColorTablet, 0.5);
+        color: $lfdFontColorTablet;
+      }
+
+      &.open{
+        .news-feed-item-content {
+          background-color: $lfdBackgroundColorTablet;
+        }
+      }
+    }
+
+    .news-feed-item-content {
+      .slide-under {
+        color: rgba($lfdFontColorTablet, 0.1);
+        background-color: rgba($lfdFontColorTablet, 0.04);
+      }
+    }
+  }
+
+  // Styles for desktop
+  @include above($desktopBreakpoint) {
+    .slide-over {
+      .news-feed-item-inner-content {
+        background-color: $lfdBackgroundColorDesktop;
+        color: $lfdFontColorDesktop;
+
+        h2.news-feed-item-title {
+          color: $lfdFontColorDesktop;
+
+          &:after {
+            background-color: $highlightColorDesktop;
+          }
+        }
+      }
+    }
+
+    .news-feed-list-item {
+      .news-feed-item-close-btn {
+        background-color: rgba($lfdBackgroundColorDesktop, 0.5);
+        color: $lfdFontColorDesktop;
+      }
+
+      &.open{
+        .news-feed-item-content {
+          background-color: $lfdBackgroundColorDesktop;
+        }
+      }
+    }
+
+    .news-feed-item-content {
+      .slide-under {
+        color: rgba($lfdFontColorDesktop, 0.1);
+        background-color: rgba($lfdFontColorDesktop, 0.04);
+      }
+    }
+  }
 }
 
 .news-feed-detail-overlay {
@@ -342,7 +983,7 @@
         color: $lfdDetailFontColor;
 
         &:after {
-          background-color: $primaryButtonColor;
+          background-color: $highlightColor;
         }
       }
     }
@@ -355,6 +996,66 @@
     .news-feed-detail-overlay-close {
       background-color: rgba($lfdDetailBackgroundColor, 0.5);
       color: $lfdDetailFontColor;
+    }
+
+    // Styles for tablet
+    @include above($tabletBreakpoint) {
+      .news-feed-detail-overlay-panel {
+        background-color: $lfdDetailBackgroundColorTablet;
+      }
+
+      .news-feed-item-inner-content {
+        background-color: $lfdDetailBackgroundColorTablet;
+        color: $lfdDetailFontColorTablet;
+
+        h2.news-feed-item-title {
+          color: $lfdDetailFontColorTablet;
+
+          &:after {
+            background-color: $highlightColorTablet;
+          }
+        }
+      }
+
+      .news-feed-list-detail-image-wrapper {
+        color: rgba($lfdDetailFontColorTablet, 0.1);
+        background-color: rgba($lfdDetailFontColorTablet, 0.04);
+      }
+
+      .news-feed-detail-overlay-close {
+        background-color: rgba($lfdDetailBackgroundColorTablet, 0.5);
+        color: $lfdDetailFontColorTablet;
+      }
+    }
+
+    // Styles for desktop
+    @include above($desktopBreakpoint) {
+      .news-feed-detail-overlay-panel {
+        background-color: $lfdDetailBackgroundColorDesktop;
+      }
+
+      .news-feed-item-inner-content {
+        background-color: $lfdDetailBackgroundColorDesktop;
+        color: $lfdDetailFontColorDesktop;
+
+        h2.news-feed-item-title {
+          color: $lfdDetailFontColorDesktop;
+
+          &:after {
+            background-color: $highlightColorDesktop;
+          }
+        }
+      }
+
+      .news-feed-list-detail-image-wrapper {
+        color: rgba($lfdDetailFontColorDesktop, 0.1);
+        background-color: rgba($lfdDetailFontColorDesktop, 0.04);
+      }
+
+      .news-feed-detail-overlay-close {
+        background-color: rgba($lfdDetailBackgroundColorDesktop, 0.5);
+        color: $lfdDetailFontColorDesktop;
+      }
     }
   }
 }
@@ -405,8 +1106,8 @@
     &.ready {
       .btn.comment,
       .btn.save {
-        border-color: $primaryButtonColor;
-        background-color: $primaryButtonColor;
+        border-color: $highlightColor;
+        background-color: $highlightColor;
         color: $primaryButtonTextColor;
       }
     }
@@ -432,7 +1133,7 @@
       border-color: rgba($lfdCommentsFontColor,0.1);
 
       > .active > a {
-        background-color: $primaryButtonColor;
+        background-color: $highlightColor;
         color: $primaryButtonTextColor;
       }
     }
@@ -440,6 +1141,170 @@
 
   .active .mention_username{
     color: $primaryButtonTextColor;
+  }
+
+  // Styles for tablet
+  @include above($tabletBreakpoint) {
+    background: $lfdCommentsBackgroundColorTablet;
+
+    .loading-holder {
+      color: rgba($lfdCommentsFontColorTablet, 0.4);
+    }
+
+    .comments-offline {
+      background-color: rgba($lfdCommentsFontColorTablet, 0.4);
+      color: $lfdCommentsFontColorTablet;
+    }
+
+    .news-feed-comment-panel-header,
+    .simple-list-comment-panel-header {
+      background-color: $lfdCommentsBackgroundColorTablet;
+      color: $lfdCommentsFontColorTablet;
+    }
+
+    .news-feed-comment-input-holder,
+    .simple-list-comment-input-holder {
+      background: $lfdCommentsBackgroundColorTablet;
+      border-color: rgba($lfdCommentsFontColorTablet, 0.1);
+
+      .cancel {
+        color: rgba($lfdCommentsFontColorTablet, 0.7);
+
+        &:hover,
+        &:focus,
+        &:active:hover,
+        &:active:focus {
+          color: rgba($lfdCommentsFontColorTablet, 0.7);
+        }
+      }
+
+      .btn.comment,
+      .btn.save {
+        border-color: rgba($lfdCommentsFontColorTablet, 0.3);
+        color: rgba($lfdCommentsFontColorTablet,0.3);
+      }
+
+      &.ready {
+        .btn.comment,
+        .btn.save {
+          border-color: $highlightColorTablet;
+          background-color: $highlightColorTablet;
+          color: $primaryButtonTextColorTablet;
+        }
+      }
+    }
+
+    .top-comment-holder {
+      background-color: $lfdCommentsBackgroundColorTablet;
+    }
+
+    .fl-individual-comment.editing .top-comment-holder {
+      background-color: rgba($lfdCommentsFontColorTablet, 0.08);
+    }
+
+    .fl-comment-thumb {
+      background-color: rgba($lfdCommentsFontColorTablet, 0.04);
+    }
+
+    textarea[data-comment-body] {
+      background-color: transparent;
+      color: $lfdCommentsFontColorTablet;
+
+      ~ .typeahead.dropdown-menu {
+        border-color: rgba($lfdCommentsFontColorTablet,0.1);
+
+        > .active > a {
+          background-color: $highlightColorTablet;
+          color: $primaryButtonTextColorTablet;
+        }
+      }
+    }
+
+    .active .mention_username{
+      color: $primaryButtonTextColorTablet;
+    }
+  }
+
+  // Styles for desktop
+  @include above($desktopBreakpoint) {
+    background: $lfdCommentsBackgroundColorDesktop;
+
+    .loading-holder {
+      color: rgba($lfdCommentsFontColorDesktop, 0.4);
+    }
+
+    .comments-offline {
+      background-color: rgba($lfdCommentsFontColorDesktop, 0.4);
+      color: $lfdCommentsFontColorDesktop;
+    }
+
+    .news-feed-comment-panel-header,
+    .simple-list-comment-panel-header {
+      background-color: $lfdCommentsBackgroundColorDesktop;
+      color: $lfdCommentsFontColorDesktop;
+    }
+
+    .news-feed-comment-input-holder,
+    .simple-list-comment-input-holder {
+      background: $lfdCommentsBackgroundColorDesktop;
+      border-color: rgba($lfdCommentsFontColorDesktop, 0.1);
+
+      .cancel {
+        color: rgba($lfdCommentsFontColorDesktop, 0.7);
+
+        &:hover,
+        &:focus,
+        &:active:hover,
+        &:active:focus {
+          color: rgba($lfdCommentsFontColorDesktop, 0.7);
+        }
+      }
+
+      .btn.comment,
+      .btn.save {
+        border-color: rgba($lfdCommentsFontColorDesktop, 0.3);
+        color: rgba($lfdCommentsFontColorDesktop,0.3);
+      }
+
+      &.ready {
+        .btn.comment,
+        .btn.save {
+          border-color: $highlightColorDesktop;
+          background-color: $highlightColorDesktop;
+          color: $primaryButtonTextColorDesktop;
+        }
+      }
+    }
+
+    .top-comment-holder {
+      background-color: $lfdCommentsBackgroundColorDesktop;
+    }
+
+    .fl-individual-comment.editing .top-comment-holder {
+      background-color: rgba($lfdCommentsFontColorDesktop, 0.08);
+    }
+
+    .fl-comment-thumb {
+      background-color: rgba($lfdCommentsFontColorDesktop, 0.04);
+    }
+
+    textarea[data-comment-body] {
+      background-color: transparent;
+      color: $lfdCommentsFontColorDesktop;
+
+      ~ .typeahead.dropdown-menu {
+        border-color: rgba($lfdCommentsFontColorDesktop,0.1);
+
+        > .active > a {
+          background-color: $highlightColorDesktop;
+          color: $primaryButtonTextColorDesktop;
+        }
+      }
+    }
+
+    .active .mention_username{
+      color: $primaryButtonTextColorDesktop;
+    }
   }
 }
 
@@ -467,7 +1332,7 @@
         color: $lfdDetailFontColor;
 
         &:after {
-          background-color: $primaryButtonColor;
+          background-color: $highlightColor;
         }
       }
 
@@ -487,6 +1352,104 @@
 
           &:after {
             color: rgba($lfdDetailFontColor, 0.5);
+          }
+        }
+      }
+    }
+
+    // Styles for tablet
+    @include above($tabletBreakpoint) {
+      background-color: $lfdDetailBackgroundColorTablet;
+      color: $lfdDetailFontColorTablet;
+
+      .agenda-detail-overlay-close {
+        background-color: rgba($lfdDetailBackgroundColorTablet, 0.5);
+        color: $lfdDetailFontColorTablet;
+      }
+
+      .agenda-item-content-holder {
+        .agenda-item-time {
+          color: $lfdDetailFontColorTablet;
+        }
+
+        .agenda-item-session-location {
+          color: $lfdDetailFontColorTablet;
+        }
+
+        h2.agenda-item-title {
+          color: $lfdDetailFontColorTablet;
+
+          &:after {
+            background-color: $highlightColorTablet;
+          }
+        }
+
+        .agenda-item-bookmark-holder {
+          .fa-bookmark-o {
+            color: rgba($lfdDetailFontColorTablet, 0.2);
+
+            &:after {
+              color: rgba($lfdDetailFontColorTablet, 0.5);
+            }
+          }
+        }
+
+        .bookmark-wrapper {
+          .fa-bookmark-o {
+            color: rgba($lfdDetailFontColorTablet, 0.2);
+
+            &:after {
+              color: rgba($lfdDetailFontColorTablet, 0.5);
+            }
+          }
+        }
+      }
+    }
+
+    // Styles for desktop
+    @include above($desktopBreakpoint) {
+      background-color: $lfdDetailBackgroundColorDesktop;
+      color: $lfdDetailFontColorDesktop;
+
+      .agenda-detail-overlay-close {
+        background-color: rgba($lfdDetailBackgroundColorDesktop, 0.5);
+        color: $lfdDetailFontColorDesktop;
+      }
+
+      .agenda-item-content-holder {
+        .agenda-item-time {
+          color: $lfdDetailFontColorDesktop;
+        }
+
+        .agenda-item-session-location {
+          color: $lfdDetailFontColorDesktop;
+        }
+
+        h2.agenda-item-title {
+          color: $lfdDetailFontColorDesktop;
+
+          &:after {
+            background-color: $highlightColorDesktop;
+          }
+        }
+
+        .agenda-item-bookmark-holder {
+          .fa-bookmark-o {
+            color: rgba($lfdDetailFontColorDesktop, 0.2);
+
+            &:after {
+              color: rgba($lfdDetailFontColorDesktop, 0.5);
+            }
+          }
+        }
+
+        .bookmark-wrapper {
+          .fa-bookmark-o {
+            color: rgba($lfdDetailFontColorDesktop, 0.2);
+
+            &:after {
+              color: rgba($lfdDetailFontColorDesktop, 0.5);
+            }
           }
         }
       }
@@ -514,10 +1477,10 @@
           }
         }
         &.active {
-          color: rgba($primaryButtonColor, 0.5);
+          color: rgba($highlightColor, 0.5);
 
           .day {
-            color: rgba($primaryButtonColor, 1);
+            color: rgba($highlightColor, 1);
           }
         }
       }
@@ -548,7 +1511,7 @@
         .agenda-item-inner-content {
           h2.agenda-item-title {
             &:after {
-              background-color: $primaryButtonColor;
+              background-color: $highlightColor;
             }
           }
         }
@@ -574,7 +1537,7 @@
     }
 
     .fa-bookmark {
-      color: $primaryButtonColor;
+      color: $highlightColor;
     }
   }
 
@@ -594,7 +1557,7 @@
 
       &.mixitup-control-active {
         .fa {
-          color: $primaryButtonColor;
+          color: $highlightColor;
         }
       }
     }
@@ -621,6 +1584,266 @@
   .agenda-list-card-holder.empty + .agenda-item-empty-state {
     color: $lfdDetailFontColor;
   }
+
+  // Styles for tablet
+  @include above($tabletBreakpoint) {
+    .agenda-date-selector {
+      background-color: $lfdAgendaDatesBackgroundColorTablet;
+
+      ul {
+        li {
+          color: rgba($lfdAgendaDatesFontColorTablet, 0.5);
+
+          .day {
+            color: rgba($lfdAgendaDatesFontColorTablet, 0.7);
+          }
+
+          &.placeholder {
+            color: rgba($lfdAgendaDatesFontColorTablet, 0.1);
+
+            .day {
+              color: rgba($lfdAgendaDatesFontColorTablet, 0.1);
+            }
+          }
+          &.active {
+            color: rgba($highlightColorTablet, 0.5);
+
+            .day {
+              color: rgba($highlightColorTablet, 1);
+            }
+          }
+        }
+      }
+    }
+
+    .agenda-list-item {
+      .slide-over {
+        .agenda-item-inner-content {
+          background-color: $lfdBackgroundColorTablet;
+
+          .agenda-item-time {
+            color: $lfdFontColorTablet;
+          }
+
+          .agenda-item-session-location {
+            color: $lfdFontColorTablet;
+          }
+
+          h2.agenda-item-title {
+            color: $lfdFontColorTablet;
+          }
+        }
+      }
+
+      &.open {
+        .slide-over {
+          .agenda-item-inner-content {
+            h2.agenda-item-title {
+              &:after {
+                background-color: $highlightColorTablet;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .agenda-item-bookmark-holder {
+      color: $lfdFontColorTablet;
+
+      .fa-bookmark-o {
+        color: rgba($lfdFontColorTablet, 0.2);
+      }
+    }
+
+    .bookmark-wrapper {
+      .fa-bookmark-o {
+        color: rgba($lfdFontColorTablet, 0.2);
+
+        &:after {
+          color: rgba($lfdFontColorTablet, 0.5);
+        }
+      }
+
+      .fa-bookmark {
+        color: $highlightColorTablet;
+      }
+    }
+
+    .agenda-list-item-content {
+      .slide-over {
+        background-color: $lfdDetailBackgroundColorTablet;
+      }
+    }
+
+    .agenda-list-controls {
+      background-color: $lfdAgendaDatesBackgroundColorTablet;
+
+      .toggle-agenda {
+        .fa {
+          color: $lfdAgendaDatesFontColorTablet;
+        }
+
+        &.mixitup-control-active {
+          .fa {
+            color: $highlightColorTablet;
+          }
+        }
+      }
+
+      .agenda-list-label {
+        color: $lfdAgendaDatesFontColorTablet;
+      }
+    }
+
+    .agenda-list-item {
+      .agenda-item-close-btn {
+        background-color: rgba($lfdDetailBackgroundColorTablet, 0.5);
+        color: $lfdDetailFontColorTablet;
+      }
+    }
+
+    .agenda-state-messages {
+      .loading-holder,
+      .offline-holder {
+        color: $lfdDetailFontColorTablet;
+      }
+    }
+
+    .agenda-list-card-holder.empty + .agenda-item-empty-state {
+      color: $lfdDetailFontColorTablet;
+    }
+  }
+
+  // Styles for desktop
+  @include above($desktopBreakpoint) {
+    .agenda-date-selector {
+      background-color: $lfdAgendaDatesBackgroundColorDesktop;
+
+      ul {
+        li {
+          color: rgba($lfdAgendaDatesFontColorDesktop, 0.5);
+
+          .day {
+            color: rgba($lfdAgendaDatesFontColorDesktop, 0.7);
+          }
+
+          &.placeholder {
+            color: rgba($lfdAgendaDatesFontColorDesktop, 0.1);
+
+            .day {
+              color: rgba($lfdAgendaDatesFontColorDesktop, 0.1);
+            }
+          }
+          &.active {
+            color: rgba($highlightColorDesktop, 0.5);
+
+            .day {
+              color: rgba($highlightColorDesktop, 1);
+            }
+          }
+        }
+      }
+    }
+
+    .agenda-list-item {
+      .slide-over {
+        .agenda-item-inner-content {
+          background-color: $lfdBackgroundColorDesktop;
+
+          .agenda-item-time {
+            color: $lfdFontColorDesktop;
+          }
+
+          .agenda-item-session-location {
+            color: $lfdFontColorDesktop;
+          }
+
+          h2.agenda-item-title {
+            color: $lfdFontColorDesktop;
+          }
+        }
+      }
+
+      &.open {
+        .slide-over {
+          .agenda-item-inner-content {
+            h2.agenda-item-title {
+              &:after {
+                background-color: $highlightColorDesktop;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .agenda-item-bookmark-holder {
+      color: $lfdFontColorDesktop;
+
+      .fa-bookmark-o {
+        color: rgba($lfdFontColorDesktop, 0.2);
+      }
+    }
+
+    .bookmark-wrapper {
+      .fa-bookmark-o {
+        color: rgba($lfdFontColorDesktop, 0.2);
+
+        &:after {
+          color: rgba($lfdFontColorDesktop, 0.5);
+        }
+      }
+
+      .fa-bookmark {
+        color: $highlightColorDesktop;
+      }
+    }
+
+    .agenda-list-item-content {
+      .slide-over {
+        background-color: $lfdDetailBackgroundColorDesktop;
+      }
+    }
+
+    .agenda-list-controls {
+      background-color: $lfdAgendaDatesBackgroundColorDesktop;
+
+      .toggle-agenda {
+        .fa {
+          color: $lfdAgendaDatesFontColorDesktop;
+        }
+
+        &.mixitup-control-active {
+          .fa {
+            color: $highlightColorDesktop;
+          }
+        }
+      }
+
+      .agenda-list-label {
+        color: $lfdAgendaDatesFontColorDesktop;
+      }
+    }
+
+    .agenda-list-item {
+      .agenda-item-close-btn {
+        background-color: rgba($lfdDetailBackgroundColorDesktop, 0.5);
+        color: $lfdDetailFontColorDesktop;
+      }
+    }
+
+    .agenda-state-messages {
+      .loading-holder,
+      .offline-holder {
+        color: $lfdDetailFontColorDesktop;
+      }
+    }
+
+    .agenda-list-card-holder.empty + .agenda-item-empty-state {
+      color: $lfdDetailFontColorDesktop;
+    }
+  }
 }
 
 /* Old Agenda */
@@ -643,10 +1866,70 @@
         }
       }
       &.active {
-        color: rgba($primaryButtonColor, 0.5);
+        color: rgba($highlightColor, 0.5);
 
         .day {
-          color: rgba($primaryButtonColor, 1);
+          color: rgba($highlightColor, 1);
+        }
+      }
+    }
+  }
+
+  // Styles for tablet
+  @include above($tabletBreakpoint) {
+    background-color: $lfdAgendaDatesBackgroundColorTablet;
+
+    ul {
+      li {
+        color: rgba($lfdAgendaDatesFontColorTablet, 0.5);
+
+        .day {
+          color: rgba($lfdAgendaDatesFontColorTablet, 0.7);
+        }
+
+        &.placeholder {
+          color: rgba($lfdAgendaDatesFontColorTablet, 0.1);
+
+          .day {
+            color: rgba($lfdAgendaDatesFontColorTablet, 0.1);
+          }
+        }
+        &.active {
+          color: rgba($highlightColorTablet, 0.5);
+
+          .day {
+            color: rgba($highlightColorTablet, 1);
+          }
+        }
+      }
+    }
+  }
+
+  // Styles for desktop
+  @include above($desktopBreakpoint) {
+    background-color: $lfdAgendaDatesBackgroundColorDesktop;
+
+    ul {
+      li {
+        color: rgba($lfdAgendaDatesFontColorDesktop, 0.5);
+
+        .day {
+          color: rgba($lfdAgendaDatesFontColorDesktop, 0.7);
+        }
+
+        &.placeholder {
+          color: rgba($lfdAgendaDatesFontColorDesktop, 0.1);
+
+          .day {
+            color: rgba($lfdAgendaDatesFontColorDesktop, 0.1);
+          }
+        }
+        &.active {
+          color: rgba($highlightColorDesktop, 0.5);
+
+          .day {
+            color: rgba($highlightColorDesktop, 1);
+          }
         }
       }
     }
@@ -677,7 +1960,73 @@
       .agenda-item-inner-content {
         h2.agenda-item-title {
           &:after {
-            background-color: $primaryButtonColor;
+            background-color: $highlightColor;
+          }
+        }
+      }
+    }
+  }
+
+  // Styles for tablet
+  @include above($tabletBreakpoint) {
+    .slide-over {
+      .agenda-item-inner-content {
+        background-color: $lfdBackgroundColorTablet;
+
+        .agenda-item-time {
+          color: $lfdFontColorTablet;
+        }
+
+        .agenda-item-session-location {
+          color: $lfdFontColorTablet;
+        }
+
+        h2.agenda-item-title {
+          color: $lfdFontColorTablet;
+        }
+      }
+    }
+
+    &.open {
+      .slide-over {
+        .agenda-item-inner-content {
+          h2.agenda-item-title {
+            &:after {
+              background-color: $highlightColorTablet;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // Styles for desktop
+  @include above($desktopBreakpoint) {
+    .slide-over {
+      .agenda-item-inner-content {
+        background-color: $lfdBackgroundColorDesktop;
+
+        .agenda-item-time {
+          color: $lfdFontColorDesktop;
+        }
+
+        .agenda-item-session-location {
+          color: $lfdFontColorDesktop;
+        }
+
+        h2.agenda-item-title {
+          color: $lfdFontColorDesktop;
+        }
+      }
+    }
+
+    &.open {
+      .slide-over {
+        .agenda-item-inner-content {
+          h2.agenda-item-title {
+            &:after {
+              background-color: $highlightColorDesktop;
+            }
           }
         }
       }
@@ -691,6 +2040,24 @@
   .fa-bookmark-o {
     color: rgba($lfdFontColor, 0.2);
   }
+
+  // Styles for tablet
+  @include above($tabletBreakpoint) {
+    color: $lfdFontColorTablet;
+
+    .fa-bookmark-o {
+      color: rgba($lfdFontColorTablet, 0.2);
+    }
+  }
+
+  // Styles for desktop
+  @include above($desktopBreakpoint) {
+    color: $lfdFontColorDesktop;
+
+    .fa-bookmark-o {
+      color: rgba($lfdFontColorDesktop, 0.2);
+    }
+  }
 }
 
 .bookmark-wrapper {
@@ -703,13 +2070,57 @@
   }
 
   .fa-bookmark {
-    color: $primaryButtonColor;
+    color: $highlightColor;
+  }
+
+  // Styles for tablet
+  @include above($tabletBreakpoint) {
+    .fa-bookmark-o {
+      color: rgba($lfdFontColorTablet, 0.2);
+
+      &:after {
+        color: rgba($lfdFontColorTablet, 0.5);
+      }
+    }
+
+    .fa-bookmark {
+      color: $highlightColorTablet;
+    }
+  }
+
+  // Styles for desktop
+  @include above($desktopBreakpoint) {
+    .fa-bookmark-o {
+      color: rgba($lfdFontColorDesktop, 0.2);
+
+      &:after {
+        color: rgba($lfdFontColorDesktop, 0.5);
+      }
+    }
+
+    .fa-bookmark {
+      color: $highlightColorDesktop;
+    }
   }
 }
 
 .agenda-list-item-content {
   .slide-over {
     background-color: $lfdBackgroundColor;
+  }
+
+  // Styles for tablet
+  @include above($tabletBreakpoint) {
+    .slide-over {
+      background-color: $lfdBackgroundColorTablet;
+    }
+  }
+
+  // Styles for desktop
+  @include above($desktopBreakpoint) {
+    .slide-over {
+      background-color: $lfdBackgroundColorDesktop;
+    }
   }
 }
 
@@ -731,12 +2142,70 @@
   .agenda-list-label {
     color: $lfdDetailFontColor;
   }
+
+  // Styles for tablet
+  @include above($tabletBreakpoint) {
+    background-color: $lfdAgendaDatesBackgroundColorTablet;
+
+    .toggle-agenda {
+      .fa {
+        color: $lfdAgendaDatesFontColorTablet;
+      }
+
+      &.mixitup-control-active {
+        .fa {
+          color: $lfdAgendaDatesFontColorTablet;
+        }
+      }
+    }
+
+    .agenda-list-label {
+      color: $lfdDetailFontColorTablet;
+    }
+  }
+
+  // Styles for desktop
+  @include above($desktopBreakpoint) {
+    background-color: $lfdAgendaDatesBackgroundColorDesktop;
+
+    .toggle-agenda {
+      .fa {
+        color: $lfdAgendaDatesFontColorDesktop;
+      }
+
+      &.mixitup-control-active {
+        .fa {
+          color: $lfdAgendaDatesFontColorDesktop;
+        }
+      }
+    }
+
+    .agenda-list-label {
+      color: $lfdDetailFontColorDesktop;
+    }
+  }
 }
 
 .agenda-list-item {
   .agenda-item-close-btn {
     background-color: rgba($lfdDetailBackgroundColor, 0.5);
     color: $lfdDetailFontColor;
+  }
+
+  // Styles for tablet
+  @include above($tabletBreakpoint) {
+    .agenda-item-close-btn {
+      background-color: rgba($lfdDetailBackgroundColorTablet, 0.5);
+      color: $lfdDetailFontColorTablet;
+    }
+  }
+
+  // Styles for desktop
+  @include above($desktopBreakpoint) {
+    .agenda-item-close-btn {
+      background-color: rgba($lfdDetailBackgroundColorDesktop, 0.5);
+      color: $lfdDetailFontColorDesktop;
+    }
   }
 }
 
@@ -745,10 +2214,36 @@
   .offline-holder {
     color: $lfdFontColor;
   }
+
+  // Styles for tablet
+  @include above($tabletBreakpoint) {
+    .loading-holder,
+    .offline-holder {
+      color: $lfdFontColorTablet;
+    }
+  }
+
+  // Styles for desktop
+  @include above($desktopBreakpoint) {
+    .loading-holder,
+    .offline-holder {
+      color: $lfdFontColorDesktop;
+    }
+  }
 }
 
 .agenda-list-card-holder.empty + .agenda-item-empty-state {
   color: $lfdFontColor;
+
+  // Styles for tablet
+  @include above($tabletBreakpoint) {
+    color: $lfdFontColorTablet;
+  }
+
+  // Styles for desktop
+  @include above($desktopBreakpoint) {
+    color: $lfdFontColorDesktop;
+  }
 }
 
 /* SMALL HORIZONTAL CARDS */
@@ -766,7 +2261,7 @@
     color: $lfdFontColor;
 
     &:after {
-      background-color: $primaryButtonColor;
+      background-color: $highlightColor;
     }
   }
 
@@ -802,11 +2297,129 @@
     background-color: rgba($lfdBackgroundColor, 0.5);
     color: $lfdFontColor;
   }
+
+  // Styles for tablet
+  @include above($tabletBreakpoint) {
+    .loading-data {
+      color: $lfdFontColorTablet;
+    }
+
+    .small-h-card-list-detail-content-wrapper {
+      background-color: $lfdBackgroundColorTablet;
+    }
+
+    .small-h-card-list-detail-name {
+      color: $lfdFontColorTablet;
+
+      &:after {
+        background-color: $highlightColorTablet;
+      }
+    }
+
+    .small-h-card-list-detail-role,
+    .small-h-card-list-detail-location {
+      color: $lfdFontColorTablet;
+    }
+
+    .small-h-card-list-detail-button {
+      a {
+        color: $lfdFontColorTablet;
+
+        &:hover,
+        &:focus,
+        &:active,
+        &:active:hover,
+        &:active:focus {
+          color: $lfdFontColorTablet;
+        }
+      }
+    }
+
+    .small-h-card-list-detail-wrapper {
+      background-color: $lfdBackgroundColorTablet;
+    }
+
+    .small-h-card-list-detail-image-wrapper {
+      color: rgba($bodyTextColorTablet, 0.1);
+      background-color: rgba($lfdFontColorTablet, 0.04);
+    }
+
+    .small-h-card-list-detail-close-btn {
+      background-color: rgba($lfdBackgroundColorTablet, 0.5);
+      color: $lfdFontColorTablet;
+    }
+  }
+
+  // Styles for desktop
+  @include above($desktopBreakpoint) {
+    .loading-data {
+      color: $lfdFontColorDesktop;
+    }
+
+    .small-h-card-list-detail-content-wrapper {
+      background-color: $lfdBackgroundColorDesktop;
+    }
+
+    .small-h-card-list-detail-name {
+      color: $lfdFontColorDesktop;
+
+      &:after {
+        background-color: $highlightColorDesktop;
+      }
+    }
+
+    .small-h-card-list-detail-role,
+    .small-h-card-list-detail-location {
+      color: $lfdFontColorDesktop;
+    }
+
+    .small-h-card-list-detail-button {
+      a {
+        color: $lfdFontColorDesktop;
+
+        &:hover,
+        &:focus,
+        &:active,
+        &:active:hover,
+        &:active:focus {
+          color: $lfdFontColorDesktop;
+        }
+      }
+    }
+
+    .small-h-card-list-detail-wrapper {
+      background-color: $lfdBackgroundColorDesktop;
+    }
+
+    .small-h-card-list-detail-image-wrapper {
+      color: rgba($bodyTextColorDesktop, 0.1);
+      background-color: rgba($lfdFontColorDesktop, 0.04);
+    }
+
+    .small-h-card-list-detail-close-btn {
+      background-color: rgba($lfdBackgroundColorDesktop, 0.5);
+      color: $lfdFontColorDesktop;
+    }
+  }
 }
 
 .new-small-h-card-list-container {
   .small-h-card-list-detail-wrapper.open {
     background-color: $lfdDetailBackgroundColor;
+  }
+
+  // Styles for tablet
+  @include above($tabletBreakpoint) {
+    .small-h-card-list-detail-wrapper.open {
+      background-color: $lfdDetailBackgroundColorTablet;
+    }
+  }
+
+  // Styles for desktop
+  @include above($desktopBreakpoint) {
+    .small-h-card-list-detail-wrapper.open {
+      background-color: $lfdDetailBackgroundColorDesktop;
+    }
   }
 }
 
@@ -832,7 +2445,7 @@
             color: $lfdDetailFontColor;
 
             &:after {
-              background-color: $primaryButtonColor;
+              background-color: $highlightColor;
             }
           }
 
@@ -865,12 +2478,138 @@
       background-color: rgba($lfdDetailBackgroundColor, 0.5);
       color: $lfdDetailFontColor;
     }
+
+    // Styles for tablet
+    @include above($tabletBreakpoint) {
+      .small-h-card-detail-overlay-panel {
+        background-color: $lfdDetailBackgroundColorTablet;
+        color: $lfdDetailFontColorTablet;
+
+        .small-h-card-detail-wrapper {
+          .small-h-card-list-detail-content-wrapper {
+            background-color: $lfdDetailBackgroundColorTablet;
+
+            .small-h-card-list-name,
+            .small-h-card-list-role,
+            .small-h-card-list-location,
+            .small-h-card-list-detail-role,
+            .small-h-card-list-detail-location {
+              color: $lfdDetailFontColorTablet;
+            }
+
+            .small-h-card-list-detail-name {
+              color: $lfdDetailFontColorTablet;
+
+              &:after {
+                background-color: $highlightColorTablet;
+              }
+            }
+
+            .small-h-card-list-detail-button a {
+              color: $lfdDetailFontColorTablet;
+
+              &:hover,
+              &:focus,
+              &:active,
+              &:active:hover,
+              &:active:focus {
+                color: $lfdDetailFontColorTablet;
+              }
+            }
+
+            .small-h-card-detail-overlay-close {
+              background-color: rgba($lfdDetailBackgroundColorTablet, 0.5);
+              color: $lfdDetailFontColorTablet;
+            }
+          }
+
+          .small-h-card-list-detail-image-wrapper {
+            color: rgba($lfdDetailFontColorTablet, 0.1);
+            background-color: rgba($lfdDetailFontColorTablet, 0.04);
+          }
+        }
+      }
+
+      .small-h-card-detail-overlay-close {
+        background-color: rgba($lfdDetailBackgroundColorTablet, 0.5);
+        color: $lfdDetailFontColorTablet;
+      }
+    }
+
+    // Styles for desktop
+    @include above($desktopBreakpoint) {
+      .small-h-card-detail-overlay-panel {
+        background-color: $lfdDetailBackgroundColorDesktop;
+        color: $lfdDetailFontColorDesktop;
+
+        .small-h-card-detail-wrapper {
+          .small-h-card-list-detail-content-wrapper {
+            background-color: $lfdDetailBackgroundColorDesktop;
+
+            .small-h-card-list-name,
+            .small-h-card-list-role,
+            .small-h-card-list-location,
+            .small-h-card-list-detail-role,
+            .small-h-card-list-detail-location {
+              color: $lfdDetailFontColorDesktop;
+            }
+
+            .small-h-card-list-detail-name {
+              color: $lfdDetailFontColorDesktop;
+
+              &:after {
+                background-color: $highlightColorDesktop;
+              }
+            }
+
+            .small-h-card-list-detail-button a {
+              color: $lfdDetailFontColorDesktop;
+
+              &:hover,
+              &:focus,
+              &:active,
+              &:active:hover,
+              &:active:focus {
+                color: $lfdDetailFontColorDesktop;
+              }
+            }
+
+            .small-h-card-detail-overlay-close {
+              background-color: rgba($lfdDetailBackgroundColorDesktop, 0.5);
+              color: $lfdDetailFontColorDesktop;
+            }
+          }
+
+          .small-h-card-list-detail-image-wrapper {
+            color: rgba($lfdDetailFontColorDesktop, 0.1);
+            background-color: rgba($lfdDetailFontColorDesktop, 0.04);
+          }
+        }
+      }
+
+      .small-h-card-detail-overlay-close {
+        background-color: rgba($lfdDetailBackgroundColorDesktop, 0.5);
+        color: $lfdDetailFontColorDesktop;
+      }
+    }
   }
 }
 
 .dynamic-list-add-item {
-  background-color: $primaryButtonColor;
+  background-color: $highlightColor;
   color: $primaryButtonTextColor;
+
+  // Styles for tablet
+  @include above($tabletBreakpoint) {
+    background-color: $highlightColorTablet;
+    color: $primaryButtonTextColorTablet;
+  }
+
+  // Styles for desktop
+  @include above($desktopBreakpoint) {
+    background-color: $highlightColorDesktop;
+    color: $primaryButtonTextColorDesktop;
+  }
 }
 
 .btn.dynamic-list-edit-item {
@@ -878,6 +2617,21 @@
   background-color: $lfdDetailBackgroundColor;
   color: rgba($lfdDetailFontColor, 0.5);
   border-radius: 40px;
+
+  @include above($tabletBreakpoint) {
+    border: 1px solid rgba($lfdDetailFontColorTablet, 0.3);
+    background-color: $lfdDetailBackgroundColorTablet;
+    color: rgba($lfdDetailFontColorTablet, 0.5);
+    border-radius: 40px;
+  }
+
+  // Styles for desktop
+  @include above($desktopBreakpoint) {
+    border: 1px solid rgba($lfdDetailFontColorDesktop, 0.3);
+    background-color: $lfdDetailBackgroundColorDesktop;
+    color: rgba($lfdDetailFontColorDesktop, 0.5);
+    border-radius: 40px;
+  }
 }
 
 .btn.dynamic-list-edit-item:hover,
@@ -886,11 +2640,39 @@
   border: 1px solid rgba($lfdDetailFontColor, 0.3);
   background-color: rgba($lfdDetailFontColor, 0.1);
   color: $lfdDetailFontColor;
+
+  // Styles for tablet
+  @include above($tabletBreakpoint) {
+    border: 1px solid rgba($lfdDetailFontColorTablet, 0.3);
+    background-color: rgba($lfdDetailFontColorTablet, 0.1);
+    color: $lfdDetailFontColorTablet;
+  }
+
+  // Styles for desktop
+  @include above($desktopBreakpoint) {
+    border: 1px solid rgba($lfdDetailFontColorDesktop, 0.3);
+    background-color: rgba($lfdDetailFontColorDesktop, 0.1);
+    color: $lfdDetailFontColorDesktop;
+  }
 }
 
 .news-feed-bookmark-holder {
   .fa-bookmark {
-    color: $primaryButtonColor;
+    color: $highlightColor;
+  }
+
+  // Styles for tablet
+  @include above($tabletBreakpoint) {
+    .fa-bookmark {
+      color: $highlightColorTablet;
+    }
+  }
+
+  // Styles for desktop
+  @include above($desktopBreakpoint) {
+    .fa-bookmark {
+      color: $highlightColorDesktop;
+    }
   }
 }
 
@@ -909,10 +2691,58 @@
   .simple-list-item .list-item-subtitle {
     color: $lfdFontColor;
   }
+
+  // Styles for tablet
+  @include above($tabletBreakpoint) {
+    color: $lfdFontColorTablet;
+
+    .list-item-arrow {
+      color: $lfdChevronColorTablet;
+    }
+
+    .simple-list-item {
+      border-bottom: 1px solid $lfdSeparatorColorTablet;
+    }
+
+    .simple-list-item .list-item-description,
+    .simple-list-item .list-item-subtitle {
+      color: $lfdFontColorTablet;
+    }
+  }
+
+  // Styles for desktop
+  @include above($desktopBreakpoint) {
+    color: $lfdFontColorDesktop;
+
+    .list-item-arrow {
+      color: $lfdChevronColorDesktop;
+    }
+
+    .simple-list-item {
+      border-bottom: 1px solid $lfdSeparatorColorDesktop;
+    }
+
+    .simple-list-item .list-item-description,
+    .simple-list-item .list-item-subtitle {
+      color: $lfdFontColorDesktop;
+    }
+  }
 }
 
 .simple-list-detail-overlay-panel .simple-list-detail-overlay-heading,
 .simple-list-detail-overlay .simple-list-detail-overlay-panel {
   background-color: $lfdDetailBackgroundColor;
   color: $lfdDetailFontColor;
+
+  // Styles for tablet
+  @include above($tabletBreakpoint) {
+    background-color: $lfdDetailBackgroundColorTablet;
+    color: $lfdDetailFontColorTablet;
+  }
+
+  // Styles for desktop
+  @include above($desktopBreakpoint) {
+    background-color: $lfdDetailBackgroundColorDesktop;
+    color: $lfdDetailFontColorDesktop;
+  }
 }

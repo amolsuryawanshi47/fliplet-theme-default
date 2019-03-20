@@ -15,17 +15,37 @@ TABLES
     > tr {
       > th,
       > td {
-        padding: $cellPadding;
+        padding: $cellPaddingTop $cellPaddingRight $cellPaddingBottom $cellPaddingLeft;
+
+        // Styles for tablet
+        @include above($tabletBreakpoint) {
+          padding: $cellPaddingTopTablet $cellPaddingRightTablet $cellPaddingBottomTablet $cellPaddingLeftTablet;
+        }
+
+        // Styles for desktop
+        @include above($desktopBreakpoint) {
+          padding: $cellPaddingTopDesktop $cellPaddingRightDesktop $cellPaddingBottomDesktop $cellPaddingLeftDesktop;
+        }
       }
     }
   }
 }
 
 .table-bordered {
-  border: $tableBorder;
+  @include borderOnly((
+    borderSides: $tableBorderSides,
+    borderWidth: $tableBorderWidth,
+    borderStyle: $tableBorderStyle,
+    borderColor: $tableBorder
+  ));
 
   tr {
-    border-top: $rowBorder;
+    @include borderOnly((
+      borderSides: $rowBorderSides,
+      borderWidth: $rowBorderWidth,
+      borderStyle: $rowBorderStyle,
+      borderColor: $rowBorder
+    ));
   }
 
   > thead,
@@ -34,7 +54,82 @@ TABLES
     > tr {
       > th,
       > td {
-        border: $cellBorderTop;
+        @include borderOnly((
+          borderSides: $cellBorderTopSides,
+          borderWidth: $cellBorderTopWidth,
+          borderStyle: $cellBorderTopStyle,
+          borderColor: $cellBorderTop
+        ));
+      }
+    }
+  }
+
+  // Styles for tablet
+  @include above($tabletBreakpoint) {
+    @include borderOnly((
+      borderSides: $tableBorderSidesTablet,
+      borderWidth: $tableBorderWidthTablet,
+      borderStyle: $tableBorderStyleTablet,
+      borderColor: $tableBorderTablet
+    ));
+
+    tr {
+      @include borderOnly((
+        borderSides: $rowBorderSidesTablet,
+        borderWidth: $rowBorderWidthTablet,
+        borderStyle: $rowBorderStyleTablet,
+        borderColor: $rowBorderTablet
+      ));
+    }
+
+    > thead,
+    > tbody,
+    > tfoot {
+      > tr {
+        > th,
+        > td {
+          @include borderOnly((
+            borderSides: $cellBorderTopSidesTablet,
+            borderWidth: $cellBorderTopWidthTablet,
+            borderStyle: $cellBorderTopStyleTablet,
+            borderColor: $cellBorderTopTablet
+          ));
+        }
+      }
+    }
+  }
+
+  // Styles for desktop
+  @include above($desktopBreakpoint) {
+    @include borderOnly((
+      borderSides: $tableBorderSidesDesktop,
+      borderWidth: $tableBorderWidthDesktop,
+      borderStyle: $tableBorderStyleDesktop,
+      borderColor: $tableBorderDesktop
+    ));
+
+    tr {
+      @include borderOnly((
+        borderSides: $rowBorderSidesDesktop,
+        borderWidth: $rowBorderWidthDesktop,
+        borderStyle: $rowBorderStyleDesktop,
+        borderColor: $rowBorderDesktop
+      ));
+    }
+
+    > thead,
+    > tbody,
+    > tfoot {
+      > tr {
+        > th,
+        > td {
+          @include borderOnly((
+            borderSides: $cellBorderTopSidesDesktop,
+            borderWidth: $cellBorderTopWidthDesktop,
+            borderStyle: $cellBorderTopStyleDesktop,
+            borderColor: $cellBorderTopDesktop
+          ));
+        }
       }
     }
   }
@@ -43,10 +138,60 @@ TABLES
 table,
 table.mce-item-table {
 
-  border: $tableBorder;
+  @include borderOnly((
+    borderSides: $tableBorderSides,
+    borderWidth: $tableBorderWidth,
+    borderStyle: $tableBorderStyle,
+    borderColor: $tableBorder
+  ));
+
+  // Styles for tablet
+  @include above($tabletBreakpoint) {
+    @include borderOnly((
+      borderSides: $tableBorderSidesTablet,
+      borderWidth: $tableBorderWidthTablet,
+      borderStyle: $tableBorderStyleTablet,
+      borderColor: $tableBorderTablet
+    ));
+  }
+
+  // Styles for desktop
+  @include above($desktopBreakpoint) {
+    @include borderOnly((
+      borderSides: $tableBorderSidesDesktop,
+      borderWidth: $tableBorderWidthDesktop,
+      borderStyle: $tableBorderStyleDesktop,
+      borderColor: $tableBorderDesktop
+    ));
+  }
 
   tr {
-    border-top: $rowBorder;
+    @include borderOnly((
+      borderSides: $rowBorderSides,
+      borderWidth: $rowBorderWidth,
+      borderStyle: $rowBorderStyle,
+      borderColor: $rowBorder
+    ));
+
+    // Styles for tablet
+    @include above($tabletBreakpoint) {
+      @include borderOnly((
+        borderSides: $rowBorderSidesTablet,
+        borderWidth: $rowBorderWidthTablet,
+        borderStyle: $rowBorderStyleTablet,
+        borderColor: $rowBorderTablet
+      ));
+    }
+
+    // Styles for desktop
+    @include above($desktopBreakpoint) {
+      @include borderOnly((
+        borderSides: $rowBorderSidesDesktop,
+        borderWidth: $rowBorderWidthDesktop,
+        borderStyle: $rowBorderStyleDesktop,
+        borderColor: $rowBorderDesktop
+      ));
+    }
 
     &:first-child {
       border-top: none;
@@ -56,15 +201,70 @@ table.mce-item-table {
   > thead ~ tbody,
   > thead ~ tfoot {
     tr:first-child {
-      border-top: $rowBorder;
+      @include borderOnly((
+        borderSides: $rowBorderSides,
+        borderWidth: $rowBorderWidth,
+        borderStyle: $rowBorderStyle,
+        borderColor: $rowBorder
+      ));
+
+      // Styles for tablet
+      @include above($tabletBreakpoint) {
+        @include borderOnly((
+          borderSides: $rowBorderSidesTablet,
+          borderWidth: $rowBorderWidthTablet,
+          borderStyle: $rowBorderStyleTablet,
+          borderColor: $rowBorderTablet
+        ));
+      }
+
+      // Styles for desktop
+      @include above($desktopBreakpoint) {
+        @include borderOnly((
+          borderSides: $rowBorderSidesDesktop,
+          borderWidth: $rowBorderWidthDesktop,
+          borderStyle: $rowBorderStyleDesktop,
+          borderColor: $rowBorderDesktop
+        ));
+      }
     }
   }
 
   th,
   td,
   caption {
-    padding: $cellPadding;
-    border: $cellBorderTop;
+    padding: $cellPaddingTop $cellPaddingRight $cellPaddingBottom $cellPaddingLeft;
+
+    @include borderOnly((
+      borderSides: $cellBorderTopSides,
+      borderWidth: $cellBorderTopWidth,
+      borderStyle: $cellBorderTopStyle,
+      borderColor: $cellBorderTop
+    ));
+
+    // Styles for tablet
+    @include above($tabletBreakpoint) {
+      padding: $cellPaddingTopTablet $cellPaddingRightTablet $cellPaddingBottomTablet $cellPaddingLeftTablet;
+
+      @include borderOnly((
+        borderSides: $cellBorderTopSidesTablet,
+        borderWidth: $cellBorderTopWidthTablet,
+        borderStyle: $cellBorderTopStyleTablet,
+        borderColor: $cellBorderTopTablet
+      ));
+    }
+
+    // Styles for desktop
+    @include above($desktopBreakpoint) {
+      padding: $cellPaddingTopDesktop $cellPaddingRightDesktop $cellPaddingBottomDesktop $cellPaddingLeftDesktop;
+
+      @include borderOnly((
+        borderSides: $cellBorderTopSidesDesktop,
+        borderWidth: $cellBorderTopWidthDesktop,
+        borderStyle: $cellBorderTopStyleDesktop,
+        borderColor: $cellBorderTopDesktop
+      ));
+    }
   }
 }
 

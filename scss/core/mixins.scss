@@ -9,3 +9,42 @@
     @content;
   }
 }
+
+@mixin borderOnly($options: ()) {
+  $configuration: map-merge((
+    borderSides: '',
+    borderWidth: '',
+    borderStyle: '',
+    borderColor: ''
+  ), $options);
+
+  @if map-get($configuration, borderSides) == 'none' {
+    border: none;
+  }
+  @if map-get($configuration, borderSides) == 'all' {
+    border: map-get($configuration, borderWidth) map-get($configuration, borderStyle) map-get($configuration, borderColor);
+  }
+  @if map-get($configuration, borderSides) == 'top' {
+    border-top: map-get($configuration, borderWidth) map-get($configuration, borderStyle) map-get($configuration, borderColor);
+  }
+  @if map-get($configuration, borderSides) == 'right' {
+    border-right: map-get($configuration, borderWidth) map-get($configuration, borderStyle) map-get($configuration, borderColor);
+  }
+  @if map-get($configuration, borderSides) == 'bottom' {
+    border-bottom: map-get($configuration, borderWidth) map-get($configuration, borderStyle) map-get($configuration, borderColor);
+  }
+  @if map-get($configuration, borderSides) == 'left' {
+    border-left: map-get($configuration, borderWidth) map-get($configuration, borderStyle) map-get($configuration, borderColor);
+  }
+}
+
+@mixin fontOnly($options: ()) {
+  $configuration: map-merge((
+    fontFamily: '',
+    fontSize: '',
+    fontLineHeight: '',
+    fontWeight: ''
+  ), $options);
+
+  font: map-get($configuration, headingWeight) #{map-get($configuration, headingSize)}/#{map-get($configuration, headingLineHeight)} #{map-get($configuration, headingFamily)}, 'Arial, sans-serif';
+}

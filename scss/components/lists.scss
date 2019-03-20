@@ -33,8 +33,12 @@
     }
 
     .list-title {
-      font-size: $titleSize;
-    	font-weight: $titleWeight;
+      @include fontOnly((
+        fontFamily: $titleFont,
+        fontSize: $titleSize,
+        fontLineHeight: 1.5,
+        fontWeight: $titleWeight
+      ));
       color: $titleColor;
     }
 
@@ -45,8 +49,12 @@
     }
 
     p + p {
-      font-size: $descriptionSize;
-    	font-weight: $descriptionWeight;
+      @include fontOnly((
+        fontFamily: $descriptionFont,
+        fontSize: $descriptionSize,
+        fontLineHeight: 1.5,
+        fontWeight: $descriptionWeight
+      ));
       color: $descriptionColor;
     }
 
@@ -69,8 +77,12 @@
       }
 
       .list-title {
-        font-size: $titleSizeTablet;
-        font-weight: $titleWeightTablet;
+        @include fontOnly((
+          fontFamily: $titleFontTablet,
+          fontSize: $titleSizeTablet,
+          fontLineHeight: 1.5,
+          fontWeight: $titleWeightTablet
+        ));
         color: $titleColorTablet;
       }
 
@@ -81,8 +93,12 @@
       }
 
       p + p {
-        font-size: $descriptionSizeTablet;
-        font-weight: $descriptionWeightTablet;
+        @include fontOnly((
+          fontFamily: $descriptionFontTablet,
+          fontSize: $descriptionSizeTablet,
+          fontLineHeight: 1.5,
+          fontWeight: $descriptionWeightTablet
+        ));
         color: $descriptionColorTablet;
       }
     }
@@ -106,8 +122,12 @@
       }
 
       .list-title {
-        font-size: $titleSizeDesktop;
-        font-weight: $titleWeightDesktop;
+        @include fontOnly((
+          fontFamily: $titleFontDesktop,
+          fontSize: $titleSizeDesktop,
+          fontLineHeight: 1.5,
+          fontWeight: $titleWeightDesktop
+        ));
         color: $titleColorDesktop;
       }
 
@@ -118,8 +138,12 @@
       }
 
       p + p {
-        font-size: $descriptionSizeDesktop;
-        font-weight: $descriptionWeightDesktop;
+        @include fontOnly((
+          fontFamily: $descriptionFontDesktop,
+          fontSize: $descriptionSizeDesktop,
+          fontLineHeight: 1.5,
+          fontWeight: $descriptionWeightDesktop
+        ));
         color: $descriptionColorDesktop;
       }
     }
@@ -461,12 +485,22 @@ ul.list-swipe .swipe-action {
     }
 
     .list-title {
+      @include fontOnly((
+        fontFamily: $titleFont,
+        fontSize: $titleSize,
+        fontLineHeight: 1.5,
+        fontWeight: $titleWeight
+      ));
       color: $titleColor;
-      font-size: $titleSize;
-      font-weight: $titleWeight;
     }
 
     .list-description {
+      @include fontOnly((
+        fontFamily: $descriptionFont,
+        fontSize: $descriptionSize,
+        fontLineHeight: 1.5,
+        fontWeight: $descriptionWeight
+      ));
       color: $descriptionColor;
       font-size: $descriptionSize;
       font-weight: $descriptionWeight;
@@ -479,15 +513,23 @@ ul.list-swipe .swipe-action {
     // Styles for tablet
     @include above($tabletBreakpoint) {
       .list-title {
+        @include fontOnly((
+          fontFamily: $titleFontTablet,
+          fontSize: $titleSizeTablet,
+          fontLineHeight: 1.5,
+          fontWeight: $titleWeightTablet
+        ));
         color: $titleColorTablet;
-        font-size: $titleSizeTablet;
-        font-weight: $titleWeightTablet;
       }
 
       .list-description {
+        @include fontOnly((
+          fontFamily: $descriptionFontTablet,
+          fontSize: $descriptionSizeTablet,
+          fontLineHeight: 1.5,
+          fontWeight: $descriptionWeightTablet
+        ));
         color: $descriptionColorTablet;
-        font-size: $descriptionSizeTablet;
-        font-weight: $descriptionWeightTablet;
       }
 
       .icon {
@@ -498,15 +540,23 @@ ul.list-swipe .swipe-action {
     // Styles for desktop
     @include above($desktopBreakpoint) {
       .list-title {
+        @include fontOnly((
+          fontFamily: $titleFontDesktop,
+          fontSize: $titleSizeDesktop,
+          fontLineHeight: 1.5,
+          fontWeight: $titleWeightDesktop
+        ));
         color: $titleColorDesktop;
-        font-size: $titleSizeDesktop;
-        font-weight: $titleWeightDesktop;
       }
 
       .list-description {
+        @include fontOnly((
+          fontFamily: $descriptionFontDesktop,
+          fontSize: $descriptionSizeDesktop,
+          fontLineHeight: 1.5,
+          fontWeight: $descriptionWeightDesktop
+        ));
         color: $descriptionColorDesktop;
-        font-size: $descriptionSizeDesktop;
-        font-weight: $descriptionWeightDesktop;
       }
 
       .icon {

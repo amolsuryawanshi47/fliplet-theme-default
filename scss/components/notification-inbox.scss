@@ -1,12 +1,44 @@
 .notification-badge {
   background-color: $notificationBadgeBackgroundColor;
+
+  // Styles for tablet
+  @include above($tabletBreakpoint) {
+   background-color: $notificationBadgeBackgroundColorTablet;
+  }
+
+  // Styles for desktop
+  @include above($desktopBreakpoint) {
+    background-color: $notificationBadgeBackgroundColorDesktop;
+  }
 }
 
 .fl-widget-instance[data-type="menu"] .notification-badge {
   background-color: $notificationBadgeBackgroundColorInMenu;
   color: $notificationBadgeTextColorInMenu;
+
+  // Styles for tablet
+  @include above($tabletBreakpoint) {
+    background-color: $notificationBadgeBackgroundColorInMenuTablet;
+    color: $notificationBadgeTextColorInMenuTablet;
+  }
+
+  // Styles for desktop
+  @include above($desktopBreakpoint) {
+    background-color: $notificationBadgeBackgroundColorInMenuDesktop;
+    color: $notificationBadgeTextColorInMenuDesktop;
+  }
 }
 
 [data-notification-inbox-1-0-0-id] .notification[data-notification-status="draft"] {
   background-color: $notificationDraftBackgroundColor;
+
+  // Styles for tablet
+  @include above($tabletBreakpoint) {
+    background-color: $notificationDraftBackgroundColorTablet;
+  }
+
+  // Styles for desktop
+  @include above($desktopBreakpoint) {
+    background-color: $notificationDraftBackgroundColorDesktop;
+  }
 }

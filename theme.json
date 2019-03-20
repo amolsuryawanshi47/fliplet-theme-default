@@ -6590,6 +6590,21 @@
             "description": "Title",
             "fields": [
               {
+                "name": "titleFont",
+                "default": "$bodyFontFamily",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "titleFontTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "titleFontDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "font"
+              },
+              {
                 "name": "titleSize",
                 "default": "16px",
                 "property": "px",
@@ -6651,6 +6666,21 @@
           {
             "description": "Description",
             "fields": [
+              {
+                "name": "descriptionFont",
+                "default": "$bodyFontFamily",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "descriptionFontTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "descriptionFontDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "font"
+              },
               {
                 "name": "descriptionSize",
                 "default": "14px",
@@ -7082,7 +7112,6 @@
       },
       {
         "name": "Lists (from data source)",
-        "hide": true,
         "variables": [
           {
             "description": "General",
@@ -7275,13 +7304,7 @@
                 "type": "color"
               }
             ]
-          }
-        ]
-      },
-      {
-        "name": "Simple List - Lists (from data source)",
-        "hide": true,
-        "variables": [
+          },
           {
             "description": "Border",
             "fields": [
@@ -7438,486 +7461,2556 @@
       },
       {
         "name": "Lock",
-        "hide": true,
         "variables": [
           {
-            "name": "lockInput",
-            "description": "Input fields border",
-            "type": "text",
-            "default": "1px solid rgba(0,0,0,0.3)",
-            "hint": "e.g. 1px solid transparent"
-          },
-          {
-            "name": "lockInputFocus",
-            "description": "Input fields border when active",
-            "type": "text",
-            "default": "1px solid #337ab7",
-            "hint": "e.g. 1px solid transparent"
-          },
-          {
-            "name": "lockChevronColor",
-            "description": "Back button color",
-            "type": "color",
-            "default": "#333333"
-          },
-          {
-            "name": "touchIDBorder",
-            "description": "Touch ID button border",
-            "type": "text",
-            "default": "1px solid rgba(0,0,0,0.3)",
-            "hint": "e.g. 1px solid transparent"
+            "description": "General",
+            "fields": [
+              {
+                "name": "lockInput",
+                "default": "rgba(0,0,0,0.3)",
+                "isFullRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "lockInputTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "lockInputDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "label": "Input fields border",
+                "type": "color"
+              },
+              {
+                "name": "lockInputFocus",
+                "default": "$highlightColor",
+                "isFullRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "lockInputFocusTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "lockInputFocusDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "label": "Input fields border when active",
+                "type": "color"
+              },
+              {
+                "name": "lockChevronColor",
+                "default": "$bodyTextColor",
+                "isFullRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "lockChevronColorTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "lockChevronColorDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "label": "Back button",
+                "type": "color"
+              },
+              {
+                "name": "touchIDBorder",
+                "default": "rgba(0,0,0,0.3)",
+                "isFullRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "touchIDBorderTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "touchIDBorderDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "label": "Touch ID button border",
+                "type": "color"
+              }
+            ]
           }
         ]
       },
       {
         "name": "Login and Registration",
-        "hide": true,
         "variables": [
           {
-            "name": "fieldBorder",
-            "description": "Input fields border",
-            "type": "text",
-            "default": "1px solid #e5e5e5",
-            "hint": "e.g. 1px solid transparent"
+            "description": "General",
+            "fields": [
+              {
+                "name": "chevronColor",
+                "default": "$bodyTextColor",
+                "isFullRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "chevronColorTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "chevronColorDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "label": "Back button",
+                "type": "color"
+              },
+              {
+                "name": "chevronSeparator",
+                "default": "$highlightColor",
+                "isFullRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "chevronSeparatorTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "chevronSeparatorDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "label": "Back button",
+                "type": "color"
+              }
+            ]
           },
           {
-            "name": "fieldBorderRadius",
-            "description": "Input fields border radius",
-            "type": "text",
-            "default": "6px",
-            "hint": "e.g. 6px 6px 6px 6px"
-          },
-          {
-            "name": "chevronColor",
-            "description": "Back button color",
-            "type": "color",
-            "default": "#333333"
-          },
-          {
-            "name": "chevronSeparator",
-            "description": "Separator between back button and input text",
-            "type": "text",
-            "default": "1px solid #337ab7",
-            "hint": "e.g. 1px solid transparent"
+            "description": "Fields border",
+            "fields": [
+              {
+                "name": "fieldBorderSides",
+                "default": "bottom",
+                "logic": {
+                  "none": {
+                    "hide": [
+                      "fieldBorderWidth",
+                      "fieldBorderStyle",
+                      "fieldBorder"
+                    ]
+                  },
+                  "all": {
+                    "show": [
+                      "fieldBorderWidth",
+                      "fieldBorderStyle",
+                      "fieldBorder"
+                    ]
+                  },
+                  "top": {
+                    "show": [
+                      "fieldBorderWidth",
+                      "fieldBorderStyle",
+                      "fieldBorder"
+                    ]
+                  },
+                  "right": {
+                    "show": [
+                      "fieldBorderWidth",
+                      "fieldBorderStyle",
+                      "fieldBorder"
+                    ]
+                  },
+                  "bottom": {
+                    "show": [
+                      "fieldBorderWidth",
+                      "fieldBorderStyle",
+                      "fieldBorder"
+                    ]
+                  },
+                  "left": {
+                    "show": [
+                      "fieldBorderWidth",
+                      "fieldBorderStyle",
+                      "fieldBorder"
+                    ]
+                  }
+                },
+                "breakpoints": {
+                  "tablet": {
+                    "name": "fieldBorderSidesTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "fieldBorderSidesDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "select",
+                "properties": {
+                  "all": "All sides",
+                  "top": "Top",
+                  "right": "Right",
+                  "bottom": "Bottom",
+                  "left": "Left",
+                  "none": "None"
+                }
+              },
+              {
+                "name": "fieldBorderWidth",
+                "default": "1px",
+                "property": "px",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "fieldBorderWidthTablet",
+                    "default": "inherit-mobile",
+                    "property": "px"
+                  },
+                  "desktop": {
+                    "name": "fieldBorderWidthDesktop",
+                    "default": "inherit-tablet",
+                    "property": "px"
+                  }
+                },
+                "type": "size",
+                "properties": ["px", "pt", "em", "rem", "%"]
+              },
+              {
+                "name": "fieldBorderStyle",
+                "default": "solid",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "fieldBorderStyleTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "fieldBorderStyleDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "border-style",
+                "properties": [
+                  "none",
+                  "dotted",
+                  "dashed",
+                  "solid",
+                  "double",
+                  "groove",
+                  "ridge",
+                  "inset",
+                  "outset"
+                ]
+              },
+              {
+                "name": "fieldBorder",
+                "default": "#e5e5e5",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "fieldBorderTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "fieldBorderDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "color"
+              },
+              {
+                "name": "fieldBorderRadius",
+                "default": "6px",
+                "property": "px",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "fieldBorderRadiusTablet",
+                    "default": "inherit-mobile",
+                    "property": "px"
+                  },
+                  "desktop": {
+                    "name": "fieldBorderRadiusDesktop",
+                    "default": "inherit-tablet",
+                    "property": "px"
+                  }
+                },
+                "label": "Corner radius",
+                "type": "size",
+                "properties": ["px", "pt", "em", "rem", "%"]
+              }
+            ]
           }
         ]
       },
       {
         "name": "Notification inbox",
-        "hide": true,
         "variables": [
           {
-            "name": "notificationDraftBackgroundColor",
-            "description": "Draft notification background color",
-            "type": "color",
-            "default": "#fcf8e3"
-          },
-          {
-            "name": "notificationBadgeBackgroundColor",
-            "description": "Notification badge color",
-            "type": "color",
-            "default": "#fe5857"
-          },
-          {
-            "name": "notificationBadgeBackgroundColorInMenu",
-            "description": "Menu notification badge color",
-            "type": "color",
-            "default": "#fe5857"
-          },
-          {
-            "name": "notificationBadgeTextColorInMenu",
-            "description": "Menu notification badge text color",
-            "type": "color",
-            "default": "#ffffff"
+            "description": "General",
+            "fields": [
+              {
+                "name": "notificationDraftBackgroundColor",
+                "default": "#fcf8e3",
+                "isFullRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "notificationDraftBackgroundColorTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "notificationDraftBackgroundColorDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "label": "Draft notification background",
+                "type": "color"
+              },
+              {
+                "name": "notificationBadgeBackgroundColor",
+                "default": "#fe5857",
+                "isFullRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "notificationBadgeBackgroundColorTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "notificationBadgeBackgroundColorDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "label": "Notification badge",
+                "type": "color"
+              },
+              {
+                "name": "notificationBadgeBackgroundColorInMenu",
+                "default": "#fe5857",
+                "isFullRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "notificationBadgeBackgroundColorInMenuTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "notificationBadgeBackgroundColorInMenuDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "label": "Menu notification badge",
+                "type": "color"
+              },
+              {
+                "name": "notificationBadgeTextColorInMenu",
+                "default": "#ffffff",
+                "isFullRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "notificationBadgeTextColorInMenuTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "notificationBadgeTextColorInMenuDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "label": "Menu notification badge text",
+                "type": "color"
+              }
+            ]
           }
         ]
       },
       {
         "name": "Onboarding",
-        "hide": true,
         "variables": [
           {
-            "name": "onboardingSlideBackgroundColor",
-            "description": "Slide background color",
-            "type": "color",
-            "default": "#ffffff"
+            "description": "General",
+            "fields": [
+              {
+                "name": "onboardingSlideBackgroundColor",
+                "default": "#ffffff",
+                "isFullRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "onboardingSlideBackgroundColorTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "onboardingSlideBackgroundColorDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "label": "Slide background",
+                "type": "color"
+              },
+              {
+                "name": "onboardingSkipTextColor",
+                "default": "rgba(255, 255, 255, 0.5)",
+                "isFullRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "onboardingSkipTextColorTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "onboardingSkipTextColorDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "label": "Skip link text",
+                "type": "color"
+              },
+              {
+                "name": "onboardingPaginationBulletColor",
+                "default": "rgba(255,255,255,0.4)",
+                "isFullRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "onboardingPaginationBulletColorTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "onboardingPaginationBulletColorDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "label": "Pagination dots",
+                "type": "color"
+              },
+              {
+                "name": "onboardingPaginationBulletColorActive",
+                "default": "$highlightColor",
+                "isFullRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "onboardingPaginationBulletColorActiveTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "onboardingPaginationBulletColorActiveDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "label": "Active pagination dots",
+                "type": "color"
+              },
+              {
+                "name": "onboardingPaginationChevronsBgColor",
+                "default": "#ffffff",
+                "isFullRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "onboardingPaginationChevronsBgColorTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "onboardingPaginationChevronsBgColorDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "label": "Navigation arrows background",
+                "type": "color"
+              },
+              {
+                "name": "onboardingPaginationChevronsColor",
+                "default": "$bodyTextColor",
+                "isFullRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "onboardingPaginationChevronsColorTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "onboardingPaginationChevronsColorDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "label": "Navigation arrows",
+                "type": "color"
+              }
+            ]
           },
           {
-            "name": "onboardingHeadingColor",
-            "description": "Slide heading color",
-            "type": "color",
-            "default": "#337ab7"
+            "description": "Slide headings",
+            "fields": [
+              {
+                "name": "onboardingHeadingFont",
+                "default": "$headingFontFamily",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "onboardingHeadingFontTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "onboardingHeadingFontDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "font"
+              },
+              {
+                "name": "onboardingHeadingSize",
+                "default": "36px",
+                "property": "px",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "onboardingHeadingSizeTablet",
+                    "default": "inherit-mobile",
+                    "property": "px"
+                  },
+                  "desktop": {
+                    "name": "onboardingHeadingSizeDesktop",
+                    "default": "inherit-tablet",
+                    "property": "px"
+                  }
+                },
+                "type": "size",
+                "properties": ["px", "pt", "em", "rem", "%"]
+              },
+              {
+                "name": "onboardingHeadingColor",
+                "default": "$highlightColor",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "onboardingHeadingColorTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "onboardingHeadingColorDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "color"
+              },
+              {
+                "name": "onboardingHeadingHeight",
+                "default": "1.3",
+                "property": "x",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "onboardingHeadingHeightTablet",
+                    "default": "inherit-mobile",
+                    "property": "x"
+                  },
+                  "desktop": {
+                    "name": "onboardingHeadingHeightDesktop",
+                    "default": "inherit-tablet",
+                    "property": "x"
+                  }
+                },
+                "label": "Line height",
+                "type": "size",
+                "properties": ["x", "px", "pt", "em", "rem", "%"]
+              },
+              {
+                "name": "onboardingHeadingWeigth",
+                "default": "bold",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "onboardingHeadingWeigthTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "onboardingHeadingWeigthDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "font-style",
+                "properties": [
+                  "bold",
+                  "lighter",
+                  "italic",
+                  "underline"
+                ]
+              }
+            ]
           },
           {
-            "name": "onboardingHeadingSize",
-            "description": "Slide heading font size",
-            "type": "text",
-            "default": "36px"
+            "description": "Slide text",
+            "fields": [
+              {
+                "name": "onboardingTextFont",
+                "default": "$bodyFontFamily",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "onboardingTextFontTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "onboardingTextFontDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "font"
+              },
+              {
+                "name": "onboardingTextSize",
+                "default": "16px",
+                "property": "px",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "onboardingTextSizeTablet",
+                    "default": "inherit-mobile",
+                    "property": "px"
+                  },
+                  "desktop": {
+                    "name": "onboardingTextSizeDesktop",
+                    "default": "inherit-tablet",
+                    "property": "px"
+                  }
+                },
+                "type": "size",
+                "properties": ["px", "pt", "em", "rem", "%"]
+              },
+              {
+                "name": "onboardingTextColor",
+                "default": "rgba(51, 51, 51, 0.7)",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "onboardingTextColorTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "onboardingTextColorDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "color"
+              },
+              {
+                "name": "onboardingTextHeight",
+                "default": "1.5",
+                "property": "x",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "onboardingTextHeightTablet",
+                    "default": "inherit-mobile",
+                    "property": "x"
+                  },
+                  "desktop": {
+                    "name": "onboardingTextHeightDesktop",
+                    "default": "inherit-tablet",
+                    "property": "x"
+                  }
+                },
+                "label": "Line height",
+                "type": "size",
+                "properties": ["x", "px", "pt", "em", "rem", "%"]
+              },
+              {
+                "name": "onboardingTextWeight",
+                "default": "normal",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "onboardingTextWeightTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "onboardingTextWeightDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "font-style",
+                "properties": [
+                  "bold",
+                  "lighter",
+                  "italic",
+                  "underline"
+                ]
+              }
+            ]
           },
           {
-            "name": "onboardingHeadingWeigth",
-            "description": "Slide heading font weight",
-            "type": "text",
-            "default": "500"
+            "description": "Pagination dots sizes",
+            "fields": [
+              {
+                "name": "onboardingPaginationBulletWidth",
+                "default": "10px",
+                "property": "px",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "onboardingPaginationBulletWidthTablet",
+                    "default": "inherit-mobile",
+                    "property": "px"
+                  },
+                  "desktop": {
+                    "name": "onboardingPaginationBulletWidthDesktop",
+                    "default": "inherit-tablet",
+                    "property": "px"
+                  }
+                },
+                "label": "Width",
+                "type": "size",
+                "properties": ["px", "pt", "em", "rem", "%"]
+              },
+              {
+                "name": "onboardingPaginationBulletHeight",
+                "default": "10px",
+                "property": "px",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "onboardingPaginationBulletHeightTablet",
+                    "default": "inherit-mobile",
+                    "property": "px"
+                  },
+                  "desktop": {
+                    "name": "onboardingPaginationBulletHeightDesktop",
+                    "default": "inherit-tablet",
+                    "property": "px"
+                  }
+                },
+                "label": "Height",
+                "type": "size",
+                "properties": ["px", "pt", "em", "rem", "%"]
+              }
+            ]
           },
           {
-            "name": "onboardingHeadingHeight",
-            "description": "Slide heading line height",
-            "type": "text",
-            "default": "1.3"
-          },
-          {
-            "name": "onboardingTextColor",
-            "description": "Slide text color",
-            "type": "color",
-            "default": "rgba(51, 51, 51, 0.7)"
-          },
-          {
-            "name": "onboardingTextSize",
-            "description": "Slide text font size",
-            "type": "text",
-            "default": "16px"
-          },
-          {
-            "name": "onboardingTextWeight",
-            "description": "Slide text font weight",
-            "type": "text",
-            "default": "normal"
-          },
-          {
-            "name": "onboardingTextHeight",
-            "description": "Slide text line height",
-            "type": "text",
-            "default": "1.5"
-          },
-          {
-            "name": "onboardingSkipTextColor",
-            "description": "Skip link text color",
-            "type": "color",
-            "default": "rgba(255, 255, 255, 0.5)"
-          },
-          {
-            "name": "onboardingPaginationBulletWidth",
-            "description": "Pagination dots width",
-            "type": "text",
-            "default": "10px"
-          },
-          {
-            "name": "onboardingPaginationBulletHeight",
-            "description": "Pagination dots height",
-            "type": "text",
-            "default": "10px"
-          },
-          {
-            "name": "onboardingPaginationBulletColor",
-            "description": "Pagination dots color",
-            "type": "color",
-            "default": "rgba(255,255,255,0.4)"
-          },
-          {
-            "name": "onboardingPaginationBulletBorder",
             "description": "Pagination dots border",
-            "type": "text",
-            "default": "none",
-            "hint": "e.g. 1px solid transparent"
+            "fields": [
+              {
+                "name": "onboardingPaginationBulletBorderSides",
+                "default": "none",
+                "logic": {
+                  "none": {
+                    "hide": [
+                      "onboardingPaginationBulletBorderWidth",
+                      "onboardingPaginationBulletBorderStyle",
+                      "onboardingPaginationBulletBorder"
+                    ]
+                  },
+                  "all": {
+                    "show": [
+                      "onboardingPaginationBulletBorderWidth",
+                      "onboardingPaginationBulletBorderStyle",
+                      "onboardingPaginationBulletBorder"
+                    ]
+                  },
+                  "top": {
+                    "show": [
+                      "onboardingPaginationBulletBorderWidth",
+                      "onboardingPaginationBulletBorderStyle",
+                      "onboardingPaginationBulletBorder"
+                    ]
+                  },
+                  "right": {
+                    "show": [
+                      "onboardingPaginationBulletBorderWidth",
+                      "onboardingPaginationBulletBorderStyle",
+                      "onboardingPaginationBulletBorder"
+                    ]
+                  },
+                  "bottom": {
+                    "show": [
+                      "onboardingPaginationBulletBorderWidth",
+                      "onboardingPaginationBulletBorderStyle",
+                      "onboardingPaginationBulletBorder"
+                    ]
+                  },
+                  "left": {
+                    "show": [
+                      "onboardingPaginationBulletBorderWidth",
+                      "onboardingPaginationBulletBorderStyle",
+                      "onboardingPaginationBulletBorder"
+                    ]
+                  }
+                },
+                "breakpoints": {
+                  "tablet": {
+                    "name": "onboardingPaginationBulletBorderSidesTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "onboardingPaginationBulletBorderSidesDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "select",
+                "properties": {
+                  "all": "All sides",
+                  "top": "Top",
+                  "right": "Right",
+                  "bottom": "Bottom",
+                  "left": "Left",
+                  "none": "None"
+                }
+              },
+              {
+                "name": "onboardingPaginationBulletBorderWidth",
+                "default": "1px",
+                "property": "px",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "onboardingPaginationBulletBorderWidthTablet",
+                    "default": "inherit-mobile",
+                    "property": "px"
+                  },
+                  "desktop": {
+                    "name": "onboardingPaginationBulletBorderWidthDesktop",
+                    "default": "inherit-tablet",
+                    "property": "px"
+                  }
+                },
+                "type": "size",
+                "properties": ["px", "pt", "em", "rem", "%"]
+              },
+              {
+                "name": "onboardingPaginationBulletBorderStyle",
+                "default": "solid",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "onboardingPaginationBulletBorderStyleTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "onboardingPaginationBulletBorderStyleDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "border-style",
+                "properties": [
+                  "none",
+                  "dotted",
+                  "dashed",
+                  "solid",
+                  "double",
+                  "groove",
+                  "ridge",
+                  "inset",
+                  "outset"
+                ]
+              },
+              {
+                "name": "onboardingPaginationBulletBorder",
+                "default": "transparent",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "onboardingPaginationBulletBorderTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "onboardingPaginationBulletBorderDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "color"
+              }
+            ]
           },
           {
-            "name": "onboardingPaginationBulletColorActive",
-            "description": "Pagination active dots color",
-            "type": "color",
-            "default": "#337ab7"
-          },
-          {
-            "name": "onboardingPaginationBulletBorderActive",
-            "description": "Pagination active dots border",
-            "type": "text",
-            "default": "none",
-            "hint": "e.g. 1px solid transparent"
-          },
-          {
-            "name": "onboardingPaginationChevronsBgColor",
-            "description": "Navigation arrows background color",
-            "type": "color",
-            "default": "#ffffff"
-          },
-          {
-            "name": "onboardingPaginationChevronsColor",
-            "description": "Navigation arrows color",
-            "type": "color",
-            "default": "#333333"
+            "description": "Active pagination dots border",
+            "fields": [
+              {
+                "name": "onboardingPaginationBulletBorderActiveSides",
+                "default": "none",
+                "logic": {
+                  "none": {
+                    "hide": [
+                      "onboardingPaginationBulletBorderActiveWidth",
+                      "onboardingPaginationBulletBorderActiveStyle",
+                      "onboardingPaginationBulletBorderActive"
+                    ]
+                  },
+                  "all": {
+                    "show": [
+                      "onboardingPaginationBulletBorderActiveWidth",
+                      "onboardingPaginationBulletBorderActiveStyle",
+                      "onboardingPaginationBulletBorderActive"
+                    ]
+                  },
+                  "top": {
+                    "show": [
+                      "onboardingPaginationBulletBorderActiveWidth",
+                      "onboardingPaginationBulletBorderActiveStyle",
+                      "onboardingPaginationBulletBorderActive"
+                    ]
+                  },
+                  "right": {
+                    "show": [
+                      "onboardingPaginationBulletBorderActiveWidth",
+                      "onboardingPaginationBulletBorderActiveStyle",
+                      "onboardingPaginationBulletBorderActive"
+                    ]
+                  },
+                  "bottom": {
+                    "show": [
+                      "onboardingPaginationBulletBorderActiveWidth",
+                      "onboardingPaginationBulletBorderActiveStyle",
+                      "onboardingPaginationBulletBorderActive"
+                    ]
+                  },
+                  "left": {
+                    "show": [
+                      "onboardingPaginationBulletBorderActiveWidth",
+                      "onboardingPaginationBulletBorderActiveStyle",
+                      "onboardingPaginationBulletBorderActive"
+                    ]
+                  }
+                },
+                "breakpoints": {
+                  "tablet": {
+                    "name": "onboardingPaginationBulletBorderActiveSidesTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "onboardingPaginationBulletBorderActiveSidesDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "select",
+                "properties": {
+                  "all": "All sides",
+                  "top": "Top",
+                  "right": "Right",
+                  "bottom": "Bottom",
+                  "left": "Left",
+                  "none": "None"
+                }
+              },
+              {
+                "name": "onboardingPaginationBulletBorderActiveWidth",
+                "default": "1px",
+                "property": "px",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "onboardingPaginationBulletBorderActiveWidthTablet",
+                    "default": "inherit-mobile",
+                    "property": "px"
+                  },
+                  "desktop": {
+                    "name": "onboardingPaginationBulletBorderActiveWidthDesktop",
+                    "default": "inherit-tablet",
+                    "property": "px"
+                  }
+                },
+                "type": "size",
+                "properties": ["px", "pt", "em", "rem", "%"]
+              },
+              {
+                "name": "onboardingPaginationBulletBorderActiveStyle",
+                "default": "solid",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "onboardingPaginationBulletBorderActiveStyleTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "onboardingPaginationBulletBorderActiveStyleDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "border-style",
+                "properties": [
+                  "none",
+                  "dotted",
+                  "dashed",
+                  "solid",
+                  "double",
+                  "groove",
+                  "ridge",
+                  "inset",
+                  "outset"
+                ]
+              },
+              {
+                "name": "onboardingPaginationBulletBorderActive",
+                "default": "transparent",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "onboardingPaginationBulletBorderActiveTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "onboardingPaginationBulletBorderActiveDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "color"
+              }
+            ]
           }
         ]
       },
       {
         "name": "Panels",
-        "hide": true,
         "variables": [
           {
-            "name": "panelTitleColor",
-            "description": "Title color",
-            "type": "color",
-            "default": "#333333"
+            "description": "General",
+            "fields": [
+              {
+                "name": "panelBackgroundColor",
+                "default": "#ffffff",
+                "isFullRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "panelBackgroundColorTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "panelBackgroundColorDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "label": "Color",
+                "type": "color"
+              }
+            ]
           },
           {
-            "name": "panelTitleSize",
-            "description": "Title font size",
-            "type": "text",
-            "default": "16px"
+            "description": "Title",
+            "fields": [
+              {
+                "name": "panelTitleFont",
+                "default": "$bodyFontFamily",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "panelTitleFontTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "panelTitleFontDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "font"
+              },
+              {
+                "name": "panelTitleSize",
+                "default": "16px",
+                "property": "px",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "panelTitleSizeTablet",
+                    "default": "inherit-mobile",
+                    "property": "px"
+                  },
+                  "desktop": {
+                    "name": "panelTitleSizeDesktop",
+                    "default": "inherit-tablet",
+                    "property": "px"
+                  }
+                },
+                "label": "Size",
+                "type": "size",
+                "properties": ["px", "pt", "em", "rem", "%"]
+              },
+              {
+                "name": "panelTitleColor",
+                "default": "$bodyTextColor",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "panelTitleColorTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "panelTitleColorDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "label": "Color",
+                "type": "color"
+              },
+              {
+                "name": "panelTitleWeight",
+                "default": "bold",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "panelTitleWeightTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "panelTitleWeightDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "font-style",
+                "properties": [
+                  "bold",
+                  "lighter",
+                  "italic",
+                  "underline"
+                ]
+              }
+            ]
           },
           {
-            "name": "panelTitleWeight",
-            "description": "Title font weight",
-            "type": "text",
-            "default": "bold"
+            "description": "Description",
+            "fields": [
+              {
+                "name": "panelDescriptionFont",
+                "default": "$bodyFontFamily",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "panelDescriptionFontTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "panelDescriptionFontDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "font"
+              },
+              {
+                "name": "panelDescriptionSize",
+                "default": "14px",
+                "property": "px",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "panelDescriptionSizeTablet",
+                    "default": "inherit-mobile",
+                    "property": "px"
+                  },
+                  "desktop": {
+                    "name": "panelDescriptionSizeDesktop",
+                    "default": "inherit-tablet",
+                    "property": "px"
+                  }
+                },
+                "label": "Size",
+                "type": "size",
+                "properties": ["px", "pt", "em", "rem", "%"]
+              },
+              {
+                "name": "panelDescriptionColor",
+                "default": "rgba(51,51,51,0.75)",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "panelDescriptionColorTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "panelDescriptionColorDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "label": "Color",
+                "type": "color"
+              },
+              {
+                "name": "panelDescriptionWeight",
+                "default": "normal",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "panelDescriptionWeightTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "panelDescriptionWeightDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "font-style",
+                "properties": [
+                  "bold",
+                  "lighter",
+                  "italic",
+                  "underline"
+                ]
+              }
+            ]
           },
           {
-            "name": "panelDescriptionColor",
-            "description": "Description color",
-            "type": "color",
-            "default": "rgba(51,51,51,0.75)"
-          },
-          {
-            "name": "panelDescriptionSize",
-            "description": "Description font size",
-            "type": "text",
-            "default": "14px"
-          },
-          {
-            "name": "panelDescriptionWeight",
-            "description": "Description font weight",
-            "type": "text",
-            "default": "normal"
-          },
-          {
-            "name": "panelBackgroundColor",
-            "description": "Panel background color",
-            "type": "color",
-            "default": "#ffffff"
-          },
-          {
-            "name": "panelBorder",
-            "description": "Panel border",
-            "type": "text",
-            "default": "1px solid #e0e0e0",
-            "hint": "e.g. 1px solid transparent"
-          },
-          {
-            "name": "panelBorderRadius",
-            "description": "Panel border radius",
-            "type": "text",
-            "default": "6px",
-            "hint": "e.g. 6px 6px 6px 6px"
+            "description": "Border",
+            "fields": [
+              {
+                "name": "panelBorderSides",
+                "default": "none",
+                "logic": {
+                  "none": {
+                    "hide": [
+                      "panelBorderWidth",
+                      "panelBorderStyle",
+                      "panelBorder"
+                    ]
+                  },
+                  "all": {
+                    "show": [
+                      "panelBorderWidth",
+                      "panelBorderStyle",
+                      "panelBorder"
+                    ]
+                  },
+                  "top": {
+                    "show": [
+                      "panelBorderWidth",
+                      "panelBorderStyle",
+                      "panelBorder"
+                    ]
+                  },
+                  "right": {
+                    "show": [
+                      "panelBorderWidth",
+                      "panelBorderStyle",
+                      "panelBorder"
+                    ]
+                  },
+                  "bottom": {
+                    "show": [
+                      "panelBorderWidth",
+                      "panelBorderStyle",
+                      "panelBorder"
+                    ]
+                  },
+                  "left": {
+                    "show": [
+                      "panelBorderWidth",
+                      "panelBorderStyle",
+                      "panelBorder"
+                    ]
+                  }
+                },
+                "breakpoints": {
+                  "tablet": {
+                    "name": "panelBorderSidesTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "panelBorderSidesDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "select",
+                "properties": {
+                  "all": "All sides",
+                  "top": "Top",
+                  "right": "Right",
+                  "bottom": "Bottom",
+                  "left": "Left",
+                  "none": "None"
+                }
+              },
+              {
+                "name": "panelBorderWidth",
+                "default": "1px",
+                "property": "px",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "panelBorderWidthTablet",
+                    "default": "inherit-mobile",
+                    "property": "px"
+                  },
+                  "desktop": {
+                    "name": "panelBorderWidthDesktop",
+                    "default": "inherit-tablet",
+                    "property": "px"
+                  }
+                },
+                "type": "size",
+                "properties": ["px", "pt", "em", "rem", "%"]
+              },
+              {
+                "name": "panelBorderStyle",
+                "default": "solid",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "panelBorderStyleTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "panelBorderStyleDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "border-style",
+                "properties": [
+                  "none",
+                  "dotted",
+                  "dashed",
+                  "solid",
+                  "double",
+                  "groove",
+                  "ridge",
+                  "inset",
+                  "outset"
+                ]
+              },
+              {
+                "name": "panelBorder",
+                "default": "#e0e0e0",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "panelBorderTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "panelBorderDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "color"
+              },
+              {
+                "name": "panelBorderRadius",
+                "default": "6px",
+                "property": "px",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "panelBorderRadiusTablet",
+                    "default": "inherit-mobile",
+                    "property": "px"
+                  },
+                  "desktop": {
+                    "name": "panelBorderRadiusDesktop",
+                    "default": "inherit-tablet",
+                    "property": "px"
+                  }
+                },
+                "label": "Corner radius",
+                "type": "size",
+                "properties": ["px", "pt", "em", "rem", "%"]
+              }
+            ]
           }
         ]
       },
       {
         "name": "Photo Sharing",
-        "hide": true,
         "variables": [
           {
-            "name": "imageContainerBorder",
-            "description": "Photo container border",
-            "type": "text",
-            "default": "1px solid #cccccc",
-            "hint": "e.g. 1px solid transparent"
+            "description": "General",
+            "fields": [
+              {
+                "name": "imageOverlayBackgroundColor",
+                "default": "#ffffff",
+                "isFullRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "imageOverlayBackgroundColorTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "imageOverlayBackgroundColorDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "label": "Overlay background",
+                "type": "color"
+              },
+              {
+                "name": "imageOverlayTextColor",
+                "default": "$bodyTextColor",
+                "isFullRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "imageOverlayTextColorTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "imageOverlayTextColorDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "label": "Overlay text",
+                "type": "color"
+              },
+              {
+                "name": "imageOverlayNavBackgroundColor",
+                "default": "rgba(255, 255, 255, 0.95)",
+                "isFullRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "imageOverlayNavBackgroundColorTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "imageOverlayNavBackgroundColorDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "label": "Overlay top bar background",
+                "type": "color"
+              },
+              {
+                "name": "imageOverlayNavTextColor",
+                "default": "$bodyTextColor",
+                "isFullRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "imageOverlayNavTextColorTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "imageOverlayNavTextColorDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "label": "Overlay top bar text",
+                "type": "color"
+              }
+            ]
           },
           {
-            "name": "imageOverlayBackgroundColor",
-            "description": "Photo upload overlay background color",
-            "type": "color",
-            "default": "#ffffff"
-          },
-          {
-            "name": "imageOverlayTextColor",
-            "description": "Photo upload overlay text color",
-            "type": "color",
-            "default": "#333333"
-          },
-          {
-            "name": "imageOverlayNavBackgroundColor",
-            "description": "Photo upload overlay top bar background color",
-            "type": "color",
-            "default": "rgba(255, 255, 255, 0.95)"
-          },
-          {
-            "name": "imageOverlayNavTextColor",
-            "description": "Photo upload overlay top bar text color",
-            "type": "color",
-            "default": "#333333"
+            "description": "Photo container Border",
+            "fields": [
+              {
+                "name": "imageContainerBorderWidth",
+                "default": "1px",
+                "property": "px",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "imageContainerBorderWidthTablet",
+                    "default": "inherit-mobile",
+                    "property": "px"
+                  },
+                  "desktop": {
+                    "name": "imageContainerBorderWidthDesktop",
+                    "default": "inherit-tablet",
+                    "property": "px"
+                  }
+                },
+                "type": "size",
+                "properties": ["px", "pt", "em", "rem", "%"]
+              },
+              {
+                "name": "imageContainerBorderStyle",
+                "default": "solid",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "imageContainerBorderStyleTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "imageContainerBorderStyleDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "border-style",
+                "properties": [
+                  "none",
+                  "dotted",
+                  "dashed",
+                  "solid",
+                  "double",
+                  "groove",
+                  "ridge",
+                  "inset",
+                  "outset"
+                ]
+              },
+              {
+                "name": "imageContainerBorder",
+                "default": "#cccccc",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "imageContainerBorderTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "imageContainerBorderDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "color"
+              }
+            ]
           }
         ]
       },
       {
         "name": "Push Notifications Overlay",
-        "hide": true,
         "variables": [
           {
-            "name": "pushBackgroundColor",
-            "description": "Overlay background color",
-            "type": "color",
-            "default": "#ffffff"
+            "description": "General",
+            "fields": [
+              {
+                "name": "pushBackgroundColor",
+                "default": "#ffffff",
+                "isFullRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "pushBackgroundColorTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "pushBackgroundColorDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "label": "Overlay background",
+                "type": "color"
+              },
+              {
+                "name": "pushAcceptButton",
+                "default": "$highlightColor",
+                "isFullRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "pushAcceptButtonTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "pushAcceptButtonDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "label": "Accept button text",
+                "type": "color"
+              },
+              {
+                "name": "pushButtonActive",
+                "default": "#e6e6e6",
+                "isFullRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "pushButtonActiveTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "pushButtonActiveDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "label": "Buttons background when clicked",
+                "type": "color"
+              }
+            ]
           },
           {
-            "name": "pushTextColor",
-            "description": "Overlay text color",
-            "type": "color",
-            "default": "#333333"
-          },
-          {
-            "name": "pushTitleSize",
-            "description": "Overlay title font size",
-            "type": "text",
-            "default": "16px"
-          },
-          {
-            "name": "pushTitleWeight",
-            "description": "Overlay title font weight",
-            "type": "text",
-            "default": "600"
-          },
-          {
-            "name": "pushAcceptButton",
-            "description": "Accept button text color",
-            "type": "color",
-            "default": "#337ab7"
-          },
-          {
-            "name": "pushButtonActive",
-            "description": "Buttons background color when tapped",
-            "type": "color",
-            "default": "#e6e6e6"
+            "description": "Font style",
+            "fields": [
+              {
+                "name": "pushTitleSize",
+                "default": "16px",
+                "property": "px",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "pushTitleSizeTablet",
+                    "default": "inherit-mobile",
+                    "property": "px"
+                  },
+                  "desktop": {
+                    "name": "pushTitleSizeDesktop",
+                    "default": "inherit-tablet",
+                    "property": "px"
+                  }
+                },
+                "label": "Size",
+                "type": "size",
+                "properties": ["px", "pt", "em", "rem", "%"]
+              },
+              {
+                "name": "pushTextColor",
+                "default": "$bodyTextColor",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "pushTextColorTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "pushTextColorDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "label": "Color",
+                "type": "color"
+              }
+            ]
           }
         ]
       },
       {
         "name": "Slider",
-        "hide": true,
         "variables": [
           {
-            "name": "sliderHeadingColor",
-            "description": "Slider heading color",
-            "type": "color",
-            "default": "#337ab7"
+            "description": "General",
+            "fields": [
+              {
+                "name": "paginationBulletColor",
+                "default": "rgba(0,0,0,0.1)",
+                "isFullRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "paginationBulletColorTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "paginationBulletColorDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "label": "Pagination dots",
+                "type": "color"
+              },
+              {
+                "name": "paginationBulletColorActive",
+                "default": "$highlightColor",
+                "isFullRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "paginationBulletColorActiveTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "paginationBulletColorActiveDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "label": "Active pagination dots",
+                "type": "color"
+              },
+              {
+                "name": "paginationChevronsColor",
+                "default": "#999999",
+                "isFullRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "paginationChevronsColorTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "paginationChevronsColorDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "label": "Navigation arrows",
+                "type": "color"
+              }
+            ]
           },
           {
-            "name": "sliderHeadingSize",
-            "description": "Slider heading font size",
-            "type": "text",
-            "default": "36px"
+            "description": "Slide headings",
+            "fields": [
+              {
+                "name": "sliderHeadingFont",
+                "default": "$headingFontFamily",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "sliderHeadingFontTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "sliderHeadingFontDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "font"
+              },
+              {
+                "name": "sliderHeadingSize",
+                "default": "36px",
+                "property": "px",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "sliderHeadingSizeTablet",
+                    "default": "inherit-mobile",
+                    "property": "px"
+                  },
+                  "desktop": {
+                    "name": "sliderHeadingSizeDesktop",
+                    "default": "inherit-tablet",
+                    "property": "px"
+                  }
+                },
+                "type": "size",
+                "properties": ["px", "pt", "em", "rem", "%"]
+              },
+              {
+                "name": "sliderHeadingColor",
+                "default": "$highlightColor",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "sliderHeadingColorTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "sliderHeadingColorDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "color"
+              },
+              {
+                "name": "sliderHeadingHeight",
+                "default": "1.3",
+                "property": "x",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "sliderHeadingHeightTablet",
+                    "default": "inherit-mobile",
+                    "property": "x"
+                  },
+                  "desktop": {
+                    "name": "sliderHeadingHeightDesktop",
+                    "default": "inherit-tablet",
+                    "property": "x"
+                  }
+                },
+                "label": "Line height",
+                "type": "size",
+                "properties": ["x", "px", "pt", "em", "rem", "%"]
+              },
+              {
+                "name": "sliderHeadingWeigth",
+                "default": "bold",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "sliderHeadingWeigthTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "sliderHeadingWeigthDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "font-style",
+                "properties": [
+                  "bold",
+                  "lighter",
+                  "italic",
+                  "underline"
+                ]
+              }
+            ]
           },
           {
-            "name": "sliderHeadingWeigth",
-            "description": "Slider heading font weight",
-            "type": "text",
-            "default": "500"
+            "description": "Slide text",
+            "fields": [
+              {
+                "name": "sliderTextFont",
+                "default": "$bodyFontFamily",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "sliderTextFontTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "sliderTextFontDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "font"
+              },
+              {
+                "name": "sliderTextSize",
+                "default": "16px",
+                "property": "px",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "sliderTextSizeTablet",
+                    "default": "inherit-mobile",
+                    "property": "px"
+                  },
+                  "desktop": {
+                    "name": "sliderTextSizeDesktop",
+                    "default": "inherit-tablet",
+                    "property": "px"
+                  }
+                },
+                "type": "size",
+                "properties": ["px", "pt", "em", "rem", "%"]
+              },
+              {
+                "name": "sliderTextColor",
+                "default": "$bodyTextColor",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "sliderTextColorTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "sliderTextColorDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "color"
+              },
+              {
+                "name": "sliderTextHeight",
+                "default": "1.5",
+                "property": "x",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "sliderTextHeightTablet",
+                    "default": "inherit-mobile",
+                    "property": "x"
+                  },
+                  "desktop": {
+                    "name": "sliderTextHeightDesktop",
+                    "default": "inherit-tablet",
+                    "property": "x"
+                  }
+                },
+                "label": "Line height",
+                "type": "size",
+                "properties": ["x", "px", "pt", "em", "rem", "%"]
+              },
+              {
+                "name": "sliderTextWeight",
+                "default": "normal",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "sliderTextWeightTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "sliderTextWeightDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "font-style",
+                "properties": [
+                  "bold",
+                  "lighter",
+                  "italic",
+                  "underline"
+                ]
+              }
+            ]
           },
           {
-            "name": "sliderHeadingHeight",
-            "description": "Slider heading line height",
-            "type": "text",
-            "default": "1.3"
+            "description": "Pagination dots sizes",
+            "fields": [
+              {
+                "name": "paginationBulletWidth",
+                "default": "8px",
+                "property": "px",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "paginationBulletWidthTablet",
+                    "default": "inherit-mobile",
+                    "property": "px"
+                  },
+                  "desktop": {
+                    "name": "paginationBulletWidthDesktop",
+                    "default": "inherit-tablet",
+                    "property": "px"
+                  }
+                },
+                "label": "Width",
+                "type": "size",
+                "properties": ["px", "pt", "em", "rem", "%"]
+              },
+              {
+                "name": "paginationBulletHeight",
+                "default": "8px",
+                "property": "px",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "paginationBulletHeightTablet",
+                    "default": "inherit-mobile",
+                    "property": "px"
+                  },
+                  "desktop": {
+                    "name": "paginationBulletHeightDesktop",
+                    "default": "inherit-tablet",
+                    "property": "px"
+                  }
+                },
+                "label": "Height",
+                "type": "size",
+                "properties": ["px", "pt", "em", "rem", "%"]
+              }
+            ]
           },
           {
-            "name": "sliderTextColor",
-            "description": "Slider text color",
-            "type": "color",
-            "default": "#333333"
-          },
-          {
-            "name": "sliderTextSize",
-            "description": "Slider text font size",
-            "type": "text",
-            "default": "16px"
-          },
-          {
-            "name": "sliderTextWeight",
-            "description": "Slider text font weight",
-            "type": "text",
-            "default": "normal"
-          },
-          {
-            "name": "sliderTextHeight",
-            "description": "Slider text line height",
-            "type": "text",
-            "default": "1.5"
-          },
-          {
-            "name": "paginationBulletWidth",
-            "description": "Pagination dots width",
-            "type": "text",
-            "default": "8px"
-          },
-          {
-            "name": "paginationBulletHeight",
-            "description": "Pagination dots height",
-            "type": "text",
-            "default": "8px"
-          },
-          {
-            "name": "paginationBulletColor",
-            "description": "Pagination dots color",
-            "type": "color",
-            "default": "rgba(0,0,0,0.1)"
-          },
-          {
-            "name": "paginationBulletBorder",
             "description": "Pagination dots border",
-            "type": "text",
-            "default": "none",
-            "hint": "e.g. 1px solid transparent"
+            "fields": [
+              {
+                "name": "paginationBulletBorderSides",
+                "default": "none",
+                "logic": {
+                  "none": {
+                    "hide": [
+                      "paginationBulletBorderWidth",
+                      "paginationBulletBorderStyle",
+                      "paginationBulletBorder"
+                    ]
+                  },
+                  "all": {
+                    "show": [
+                      "paginationBulletBorderWidth",
+                      "paginationBulletBorderStyle",
+                      "paginationBulletBorder"
+                    ]
+                  },
+                  "top": {
+                    "show": [
+                      "paginationBulletBorderWidth",
+                      "paginationBulletBorderStyle",
+                      "paginationBulletBorder"
+                    ]
+                  },
+                  "right": {
+                    "show": [
+                      "paginationBulletBorderWidth",
+                      "paginationBulletBorderStyle",
+                      "paginationBulletBorder"
+                    ]
+                  },
+                  "bottom": {
+                    "show": [
+                      "paginationBulletBorderWidth",
+                      "paginationBulletBorderStyle",
+                      "paginationBulletBorder"
+                    ]
+                  },
+                  "left": {
+                    "show": [
+                      "paginationBulletBorderWidth",
+                      "paginationBulletBorderStyle",
+                      "paginationBulletBorder"
+                    ]
+                  }
+                },
+                "breakpoints": {
+                  "tablet": {
+                    "name": "paginationBulletBorderSidesTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "paginationBulletBorderSidesDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "select",
+                "properties": {
+                  "all": "All sides",
+                  "top": "Top",
+                  "right": "Right",
+                  "bottom": "Bottom",
+                  "left": "Left",
+                  "none": "None"
+                }
+              },
+              {
+                "name": "paginationBulletBorderWidth",
+                "default": "1px",
+                "property": "px",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "paginationBulletBorderWidthTablet",
+                    "default": "inherit-mobile",
+                    "property": "px"
+                  },
+                  "desktop": {
+                    "name": "paginationBulletBorderWidthDesktop",
+                    "default": "inherit-tablet",
+                    "property": "px"
+                  }
+                },
+                "type": "size",
+                "properties": ["px", "pt", "em", "rem", "%"]
+              },
+              {
+                "name": "paginationBulletBorderStyle",
+                "default": "solid",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "paginationBulletBorderStyleTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "paginationBulletBorderStyleDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "border-style",
+                "properties": [
+                  "none",
+                  "dotted",
+                  "dashed",
+                  "solid",
+                  "double",
+                  "groove",
+                  "ridge",
+                  "inset",
+                  "outset"
+                ]
+              },
+              {
+                "name": "paginationBulletBorder",
+                "default": "transparent",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "paginationBulletBorderTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "paginationBulletBorderDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "color"
+              }
+            ]
           },
           {
-            "name": "paginationBulletColorActive",
-            "description": "Pagination active dots color",
-            "type": "color",
-            "default": "#337ab7"
-          },
-          {
-            "name": "paginationBulletBorderActive",
-            "description": "Pagination active dots border",
-            "type": "text",
-            "default": "none",
-            "hint": "e.g. 1px solid transparent"
-          },
-          {
-            "name": "paginationChevronsColor",
-            "description": "Navigation arrows color",
-            "type": "color",
-            "default": "#999999"
+            "description": "Active pagination dots border",
+            "fields": [
+              {
+                "name": "paginationBulletBorderActiveSides",
+                "default": "none",
+                "logic": {
+                  "none": {
+                    "hide": [
+                      "paginationBulletBorderActiveWidth",
+                      "paginationBulletBorderActiveStyle",
+                      "paginationBulletBorderActive"
+                    ]
+                  },
+                  "all": {
+                    "show": [
+                      "paginationBulletBorderActiveWidth",
+                      "paginationBulletBorderActiveStyle",
+                      "paginationBulletBorderActive"
+                    ]
+                  },
+                  "top": {
+                    "show": [
+                      "paginationBulletBorderActiveWidth",
+                      "paginationBulletBorderActiveStyle",
+                      "paginationBulletBorderActive"
+                    ]
+                  },
+                  "right": {
+                    "show": [
+                      "paginationBulletBorderActiveWidth",
+                      "paginationBulletBorderActiveStyle",
+                      "paginationBulletBorderActive"
+                    ]
+                  },
+                  "bottom": {
+                    "show": [
+                      "paginationBulletBorderActiveWidth",
+                      "paginationBulletBorderActiveStyle",
+                      "paginationBulletBorderActive"
+                    ]
+                  },
+                  "left": {
+                    "show": [
+                      "paginationBulletBorderActiveWidth",
+                      "paginationBulletBorderActiveStyle",
+                      "paginationBulletBorderActive"
+                    ]
+                  }
+                },
+                "breakpoints": {
+                  "tablet": {
+                    "name": "paginationBulletBorderActiveSidesTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "paginationBulletBorderActiveSidesDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "select",
+                "properties": {
+                  "all": "All sides",
+                  "top": "Top",
+                  "right": "Right",
+                  "bottom": "Bottom",
+                  "left": "Left",
+                  "none": "None"
+                }
+              },
+              {
+                "name": "paginationBulletBorderActiveWidth",
+                "default": "1px",
+                "property": "px",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "paginationBulletBorderActiveWidthTablet",
+                    "default": "inherit-mobile",
+                    "property": "px"
+                  },
+                  "desktop": {
+                    "name": "paginationBulletBorderActiveWidthDesktop",
+                    "default": "inherit-tablet",
+                    "property": "px"
+                  }
+                },
+                "type": "size",
+                "properties": ["px", "pt", "em", "rem", "%"]
+              },
+              {
+                "name": "paginationBulletBorderActiveStyle",
+                "default": "solid",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "paginationBulletBorderActiveStyleTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "paginationBulletBorderActiveStyleDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "border-style",
+                "properties": [
+                  "none",
+                  "dotted",
+                  "dashed",
+                  "solid",
+                  "double",
+                  "groove",
+                  "ridge",
+                  "inset",
+                  "outset"
+                ]
+              },
+              {
+                "name": "paginationBulletBorderActive",
+                "default": "transparent",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "paginationBulletBorderActiveTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "paginationBulletBorderActiveDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "color"
+              }
+            ]
           }
         ]
       },
       {
         "name": "Tables",
-        "hide": true,
         "variables": [
           {
-            "name": "tableBorder",
-            "description": "Table border",
-            "type": "text",
-            "default": "none",
-            "hint": "e.g. 1px solid #cccccc"
-          },
-          {
-            "name": "rowBorder",
-            "description": "Table row border",
-            "type": "text",
-            "default": "none",
-            "hint": "e.g. 1px solid #cccccc"
-          },
-          {
-            "name": "cellBorderTop",
-            "description": "Table cell border",
-            "type": "text",
-            "default": "1px solid #dddddd",
-            "hint": "e.g. 1px solid #cccccc"
-          },
-          {
-            "name": "cellPadding",
             "description": "Table cell padding",
-            "type": "text",
-            "default": "8px",
-            "hint": "e.g. 5px"
+            "fields": [
+              {
+                "name": "cellPaddingTop",
+                "default": "8px",
+                "property": "px",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "cellPaddingTopTablet",
+                    "default": "inherit-mobile",
+                    "property": "px"
+                  },
+                  "desktop": {
+                    "name": "cellPaddingTopDesktop",
+                    "default": "inherit-tablet",
+                    "property": "px"
+                  }
+                },
+                "type": "size",
+                "label": "Top",
+                "properties": ["px", "pt", "em", "rem", "%"]
+              },
+              {
+                "name": "cellPaddingRight",
+                "default": "8px",
+                "property": "px",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "cellPaddingRightTablet",
+                    "default": "inherit-mobile",
+                    "property": "px"
+                  },
+                  "desktop": {
+                    "name": "cellPaddingRightDesktop",
+                    "default": "inherit-tablet",
+                    "property": "px"
+                  }
+                },
+                "type": "size",
+                "label": "Right",
+                "properties": ["px", "pt", "em", "rem", "%"]
+              },
+              {
+                "name": "cellPaddingBottom",
+                "default": "8px",
+                "property": "px",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "cellPaddingBottomTablet",
+                    "default": "inherit-mobile",
+                    "property": "px"
+                  },
+                  "desktop": {
+                    "name": "cellPaddingBottomDesktop",
+                    "default": "inherit-tablet",
+                    "property": "px"
+                  }
+                },
+                "type": "size",
+                "label": "Bottom",
+                "properties": ["px", "pt", "em", "rem", "%"]
+              },
+              {
+                "name": "cellPaddingLeft",
+                "default": "8px",
+                "property": "px",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "cellPaddingLeftTablet",
+                    "default": "inherit-mobile",
+                    "property": "px"
+                  },
+                  "desktop": {
+                    "name": "cellPaddingLeftDesktop",
+                    "default": "inherit-tablet",
+                    "property": "px"
+                  }
+                },
+                "type": "size",
+                "label": "Left",
+                "properties": ["px", "pt", "em", "rem", "%"]
+              }
+            ]
+          },
+          {
+            "description": "Tablet Border",
+            "fields": [
+              {
+                "name": "tableBorderSides",
+                "default": "none",
+                "logic": {
+                  "none": {
+                    "hide": [
+                      "tableBorderWidth",
+                      "tableBorderStyle",
+                      "tableBorder"
+                    ]
+                  },
+                  "all": {
+                    "show": [
+                      "tableBorderWidth",
+                      "tableBorderStyle",
+                      "tableBorder"
+                    ]
+                  },
+                  "top": {
+                    "show": [
+                      "tableBorderWidth",
+                      "tableBorderStyle",
+                      "tableBorder"
+                    ]
+                  },
+                  "right": {
+                    "show": [
+                      "tableBorderWidth",
+                      "tableBorderStyle",
+                      "tableBorder"
+                    ]
+                  },
+                  "bottom": {
+                    "show": [
+                      "tableBorderWidth",
+                      "tableBorderStyle",
+                      "tableBorder"
+                    ]
+                  },
+                  "left": {
+                    "show": [
+                      "tableBorderWidth",
+                      "tableBorderStyle",
+                      "tableBorder"
+                    ]
+                  }
+                },
+                "breakpoints": {
+                  "tablet": {
+                    "name": "tableBorderSidesTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "tableBorderSidesDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "select",
+                "properties": {
+                  "all": "All sides",
+                  "top": "Top",
+                  "right": "Right",
+                  "bottom": "Bottom",
+                  "left": "Left",
+                  "none": "None"
+                }
+              },
+              {
+                "name": "tableBorderWidth",
+                "default": "1px",
+                "property": "px",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "tableBorderWidthTablet",
+                    "default": "inherit-mobile",
+                    "property": "px"
+                  },
+                  "desktop": {
+                    "name": "tableBorderWidthDesktop",
+                    "default": "inherit-tablet",
+                    "property": "px"
+                  }
+                },
+                "type": "size",
+                "properties": ["px", "pt", "em", "rem", "%"]
+              },
+              {
+                "name": "tableBorderStyle",
+                "default": "solid",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "tableBorderStyleTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "tableBorderStyleDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "border-style",
+                "properties": [
+                  "none",
+                  "dotted",
+                  "dashed",
+                  "solid",
+                  "double",
+                  "groove",
+                  "ridge",
+                  "inset",
+                  "outset"
+                ]
+              },
+              {
+                "name": "tableBorder",
+                "default": "#cccccc",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "tableBorderTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "tableBorderDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "color"
+              }
+            ]
+          },
+          {
+            "description": "Tablet Row Border",
+            "fields": [
+              {
+                "name": "rowBorderSides",
+                "default": "none",
+                "logic": {
+                  "none": {
+                    "hide": [
+                      "rowBorderWidth",
+                      "rowBorderStyle",
+                      "rowBorder"
+                    ]
+                  },
+                  "top": {
+                    "show": [
+                      "rowBorderWidth",
+                      "rowBorderStyle",
+                      "rowBorder"
+                    ]
+                  }
+                },
+                "breakpoints": {
+                  "tablet": {
+                    "name": "rowBorderSidesTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "rowBorderSidesDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "select",
+                "properties": {
+                  "top": "Top",
+                  "none": "None"
+                }
+              },
+              {
+                "name": "rowBorderWidth",
+                "default": "1px",
+                "property": "px",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "rowBorderWidthTablet",
+                    "default": "inherit-mobile",
+                    "property": "px"
+                  },
+                  "desktop": {
+                    "name": "rowBorderWidthDesktop",
+                    "default": "inherit-tablet",
+                    "property": "px"
+                  }
+                },
+                "type": "size",
+                "properties": ["px", "pt", "em", "rem", "%"]
+              },
+              {
+                "name": "rowBorderStyle",
+                "default": "solid",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "rowBorderStyleTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "rowBorderStyleDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "border-style",
+                "properties": [
+                  "none",
+                  "dotted",
+                  "dashed",
+                  "solid",
+                  "double",
+                  "groove",
+                  "ridge",
+                  "inset",
+                  "outset"
+                ]
+              },
+              {
+                "name": "rowBorder",
+                "default": "#cccccc",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "rowBorderTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "rowBorderDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "color"
+              }
+            ]
+          },
+          {
+            "description": "Table Cell Border",
+            "fields": [
+              {
+                "name": "cellBorderTopSides",
+                "default": "none",
+                "logic": {
+                  "none": {
+                    "hide": [
+                      "cellBorderTopWidth",
+                      "cellBorderTopStyle",
+                      "cellBorderTop"
+                    ]
+                  },
+                  "all": {
+                    "show": [
+                      "cellBorderTopWidth",
+                      "cellBorderTopStyle",
+                      "cellBorderTop"
+                    ]
+                  },
+                  "top": {
+                    "show": [
+                      "cellBorderTopWidth",
+                      "cellBorderTopStyle",
+                      "cellBorderTop"
+                    ]
+                  },
+                  "right": {
+                    "show": [
+                      "cellBorderTopWidth",
+                      "cellBorderTopStyle",
+                      "cellBorderTop"
+                    ]
+                  },
+                  "bottom": {
+                    "show": [
+                      "cellBorderTopWidth",
+                      "cellBorderTopStyle",
+                      "cellBorderTop"
+                    ]
+                  },
+                  "left": {
+                    "show": [
+                      "cellBorderTopWidth",
+                      "cellBorderTopStyle",
+                      "cellBorderTop"
+                    ]
+                  }
+                },
+                "breakpoints": {
+                  "tablet": {
+                    "name": "cellBorderTopSidesTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "cellBorderTopSidesDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "select",
+                "properties": {
+                  "all": "All sides",
+                  "top": "Top",
+                  "right": "Right",
+                  "bottom": "Bottom",
+                  "left": "Left",
+                  "none": "None"
+                }
+              },
+              {
+                "name": "cellBorderTopWidth",
+                "default": "1px",
+                "property": "px",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "cellBorderTopWidthTablet",
+                    "default": "inherit-mobile",
+                    "property": "px"
+                  },
+                  "desktop": {
+                    "name": "cellBorderTopWidthDesktop",
+                    "default": "inherit-tablet",
+                    "property": "px"
+                  }
+                },
+                "type": "size",
+                "properties": ["px", "pt", "em", "rem", "%"]
+              },
+              {
+                "name": "cellBorderTopStyle",
+                "default": "solid",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "cellBorderTopStyleTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "cellBorderTopStyleDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "border-style",
+                "properties": [
+                  "none",
+                  "dotted",
+                  "dashed",
+                  "solid",
+                  "double",
+                  "groove",
+                  "ridge",
+                  "inset",
+                  "outset"
+                ]
+              },
+              {
+                "name": "cellBorderTop",
+                "default": "#ddddd",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "cellBorderTopTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "cellBorderTopDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "color"
+              }
+            ]
           }
         ]
       }

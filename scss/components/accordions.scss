@@ -10,21 +10,11 @@
 @mixin accordion($options: ()) {
   $configuration: map-merge((
     headingBackground: $accordionHeadingBg,
-    headingtext: $accordionHeadingText
+    headingText: $accordionHeadingText
   ), $options);
 
   color: map-get($configuration, headingtext);
   background-color: map-get($configuration, headingBackground);
-}
-
-@mixin accordionActive($options: ()) {
-  $configuration: map-merge((
-    headingBackgroundActive: $accordionHeadingBgActive,
-    headingtextActive: $accordionHeadingTextActive
-  ), $options);
-
-  color: map-get($configuration, headingtextActive);
-  background-color: map-get($configuration, headingBackgroundActive);
 }
 
 @mixin accordionChevron($options: ()) {
@@ -33,14 +23,6 @@
   ), $options);
 
   color: map-get($configuration, headingChevron);
-}
-
-@mixin accordionChevronActive($options: ()) {
-  $configuration: map-merge((
-    headingChevronActive: $accordionHeadingChevronActive
-  ), $options);
-
-  color: map-get($configuration, headingChevronActive);
 }
 
 @mixin accordionBorder($options: ()) {
@@ -63,7 +45,7 @@
   @include above($tabletBreakpoint) {
     @include accordion((
       headingBackground: $accordionHeadingBgTablet,
-      headingtext: $accordionHeadingTextTablet
+      headingText: $accordionHeadingTextTablet
     ));
     @include accordionBorder((
       borderWidth: $accordionBorderWidthTablet,
@@ -76,7 +58,7 @@
   @include above($desktopBreakpoint) {
     @include accordion((
       headingBackground: $accordionHeadingBgDesktop,
-      headingtext: $accordionHeadingTextDesktop
+      headingText: $accordionHeadingTextDesktop
     ));
     @include accordionBorder((
       borderWidth: $accordionBorderWidthDesktop,
@@ -159,21 +141,24 @@
     }
 
     > .panel-title {
-      @include accordionActive();
+      @include accordion((
+        headingBackground: $accordionHeadingBgActive,
+        headingText: $accordionHeadingTextActive
+      ));
 
       // Styles for tablet
       @include above($tabletBreakpoint) {
-        @include accordionActive((
-          headingBackgroundActive: $accordionHeadingBgActiveTablet,
-          headingtextActive: $accordionHeadingTextActiveTablet
+        @include accordion((
+          headingBackground: $accordionHeadingBgActiveTablet,
+          headingText: $accordionHeadingTextActiveTablet
         ));
       }
 
       // Styles for desktop
       @include above($desktopBreakpoint) {
-        @include accordionActive((
-          headingBackgroundActive: $accordionHeadingBgActiveDesktop,
-          headingtextActive: $accordionHeadingTextActiveDesktop
+        @include accordion((
+          headingBackground: $accordionHeadingBgActiveDesktop,
+          headingText: $accordionHeadingTextActiveDesktop
         ));
       }
 
@@ -184,7 +169,7 @@
         @include above($tabletBreakpoint) {
           @include accordion((
             headingBackground: $accordionHeadingBgTablet,
-            headingtext: $accordionHeadingTextTablet
+            headingText: $accordionHeadingTextTablet
           ));
         }
 
@@ -192,7 +177,7 @@
         @include above($desktopBreakpoint) {
           @include accordion((
             headingBackground: $accordionHeadingBgDesktop,
-            headingtext: $accordionHeadingTextDesktop
+            headingText: $accordionHeadingTextDesktop
           ));
         }
 
@@ -216,19 +201,21 @@
       }
 
       &:after {
-        @include accordionChevronActive();
+        @include accordionChevron((
+          headingChevron: $accordionHeadingChevronActive
+        ));
 
         // Styles for tablet
         @include above($tabletBreakpoint) {
-          @include accordionChevronActive((
-            headingChevronActive: $accordionHeadingChevronActiveTablet
+          @include accordionChevron((
+            headingChevron: $accordionHeadingChevronActiveTablet
           ));
         }
 
         // Styles for desktop
         @include above($desktopBreakpoint) {
           @include accordionChevron((
-            headingChevronActive: $accordionHeadingChevronActiveDesktop
+            headingChevron: $accordionHeadingChevronActiveDesktop
           ));
         }
       }

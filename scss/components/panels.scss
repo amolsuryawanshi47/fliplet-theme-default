@@ -9,24 +9,123 @@
 /* 01 - PANELS */
 .list-panels {
   .list-desc .list-title {
-    font-size: $panelTitleSize;
-  	font-weight: $panelTitleWeight;
+    @include fontOnly((
+      fontFamily: $panelTitleFont,
+      fontSize: $panelTitleSize,
+      fontLineHeight: 1.5,
+      fontWeight: $panelTitleWeight
+    ));
+
     color: $panelTitleColor;
   }
 
   .list-desc .list-title + p {
-    font-size: $panelDescriptionSize;
-  	font-weight: $panelDescriptionWeight;
+    @include fontOnly((
+      fontFamily: $panelDescriptionFont,
+      fontSize: $panelDescriptionSize,
+      fontLineHeight: 1.5,
+      fontWeight: $panelDescriptionWeight
+    ));
+
     color: $panelDescriptionColor;
   }
 
+  // Styles for tablet
+  @include above($tabletBreakpoint) {
+    .list-desc .list-title {
+      @include fontOnly((
+        fontFamily: $panelTitleFontTablet,
+        fontSize: $panelTitleSizeTablet,
+        fontLineHeight: 1.5,
+        fontWeight: $panelTitleWeightTablet
+      ));
+
+      color: $panelTitleColorTablet;
+    }
+
+    .list-desc .list-title + p {
+      @include fontOnly((
+        fontFamily: $panelDescriptionFontTablet,
+        fontSize: $panelDescriptionSizeTablet,
+        fontLineHeight: 1.5,
+        fontWeight: $panelDescriptionWeightTablet
+      ));
+
+      color: $panelDescriptionColorTablet;
+    }
+  }
+
+  // Styles for desktop
+  @include above($desktopBreakpoint) {
+    .list-desc .list-title {
+      @include fontOnly((
+        fontFamily: $panelTitleFontDesktop,
+        fontSize: $panelTitleSizeDesktop,
+        fontLineHeight: 1.5,
+        fontWeight: $panelTitleWeightDesktop
+      ));
+
+      color: $panelTitleColorDesktop;
+    }
+
+    .list-desc .list-title + p {
+      @include fontOnly((
+        fontFamily: $panelDescriptionFontDesktop,
+        fontSize: $panelDescriptionSizeDesktop,
+        fontLineHeight: 1.5,
+        fontWeight: $panelDescriptionWeightDesktop
+      ));
+
+      color: $panelDescriptionColorDesktop;
+    }
+  }
 }
 
 .list-panels .panels {
-  border: $panelBorder;
+  @include borderOnly((
+    borderSides: $panelBorderSides,
+    borderWidth: $panelBorderWidth,
+    borderStyle: $panelBorderStyle,
+    borderColor: $panelBorder
+  ));
+
   background-color: $panelBackgroundColor;
+
+  // Styles for tablet
+  @include above($tabletBreakpoint) {
+    @include borderOnly((
+      borderSides: $panelBorderSidesTablet,
+      borderWidth: $panelBorderWidthTablet,
+      borderStyle: $panelBorderStyleTablet,
+      borderColor: $panelBorderTablet
+    ));
+
+    background-color: $panelBackgroundColorTablet;
+  }
+
+  // Styles for desktop
+  @include above($desktopBreakpoint) {
+    @include borderOnly((
+      borderSides: $panelBorderSidesDesktop,
+      borderWidth: $panelBorderWidthDesktop,
+      borderStyle: $panelBorderStyleDesktop,
+      borderColor: $panelBorderDesktop
+    ));
+
+    background-color: $panelBackgroundColorDesktop;
+  }
 }
 
 .three-columns .panels {
   border-radius: $panelBorderRadius;
+
+  // Styles for tablet
+  @include above($tabletBreakpoint) {
+    border-radius: $panelBorderRadiusTablet;
+  }
+
+  // Styles for desktop
+  @include above($desktopBreakpoint) {
+    border-radius: $panelBorderRadiusDesktop;
+  }
 }

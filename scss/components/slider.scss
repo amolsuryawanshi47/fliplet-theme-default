@@ -9,35 +9,167 @@
 /* 01 - SLIDER */
 
 .swiper-pagination-bullet {
+  @include borderOnly((
+    borderSides: $paginationBulletBorderSides,
+    borderWidth: $paginationBulletBorderWidth,
+    borderStyle: $paginationBulletBorderStyle,
+    borderColor: $paginationBulletBorder
+  ));
+
   width: $paginationBulletWidth;
   height: $paginationBulletHeight;
-  border: $paginationBulletBorder;
   background: $paginationBulletColor;
+
+  // Styles for tablet
+  @include above($tabletBreakpoint) {
+    @include borderOnly((
+      borderSides: $paginationBulletBorderSidesTablet,
+      borderWidth: $paginationBulletBorderWidthTablet,
+      borderStyle: $paginationBulletBorderStyleTablet,
+      borderColor: $paginationBulletBorderTablet
+    ));
+
+    width: $paginationBulletWidthTablet;
+    height: $paginationBulletHeightTablet;
+    background: $paginationBulletColorTablet;
+  }
+
+  // Styles for desktop
+  @include above($desktopBreakpoint) {
+    @include borderOnly((
+      borderSides: $paginationBulletBorderSidesDesktop,
+      borderWidth: $paginationBulletBorderWidthDesktop,
+      borderStyle: $paginationBulletBorderStyleDesktop,
+      borderColor: $paginationBulletBorderDesktop
+    ));
+
+    width: $paginationBulletWidthDesktop;
+    height: $paginationBulletHeightDesktop;
+    background: $paginationBulletColorDesktop;
+  }
 }
 
 .swiper-pagination-bullet-active {
-  border: $paginationBulletBorderActive;
+  @include borderOnly((
+    borderSides: $paginationBulletBorderActiveSides,
+    borderWidth: $paginationBulletBorderActiveWidth,
+    borderStyle: $paginationBulletBorderActiveStyle,
+    borderColor: $paginationBulletBorderActive
+  ));
+
   background: $paginationBulletColorActive;
+
+  // Styles for tablet
+  @include above($tabletBreakpoint) {
+    @include borderOnly((
+      borderSides: $paginationBulletBorderActiveSidesTablet,
+      borderWidth: $paginationBulletBorderActiveWidthTablet,
+      borderStyle: $paginationBulletBorderActiveStyleTablet,
+      borderColor: $paginationBulletBorderActiveTablet
+    ));
+
+    background: $paginationBulletColorActiveTablet;
+  }
+
+  // Styles for desktop
+  @include above($desktopBreakpoint) {
+    @include borderOnly((
+      borderSides: $paginationBulletBorderActiveSidesDesktop,
+      borderWidth: $paginationBulletBorderActiveWidthDesktop,
+      borderStyle: $paginationBulletBorderActiveStyleDesktop,
+      borderColor: $paginationBulletBorderActiveDesktop
+    ));
+
+    background: $paginationBulletColorActiveDesktop;
+  }
 }
 
 .swiper-button-next,
 .swiper-button-prev {
   color: $paginationChevronsColor;
+
+  // Styles for tablet
+  @include above($tabletBreakpoint) {
+    color: $paginationChevronsColorTablet;
+  }
+
+  // Styles for desktop
+  @include above($desktopBreakpoint) {
+    color: $paginationChevronsColorDesktop;
+  }
 }
 
 .swiper-wrapper {
   p {
+    @include fontOnly((
+      fontFamily: $sliderTextFont,
+      fontSize: $sliderTextSize,
+      fontLineHeight: $sliderTextHeight,
+      fontWeight: $sliderTextWeight
+    ));
+
     color: $sliderTextColor;
-    font-weight: $sliderTextWeight;
-    font-size: $sliderTextSize;
-    line-height: $sliderTextHeight;
   }
 
   h1 {
+    @include fontOnly((
+      fontFamily: $sliderHeadingFont,
+      fontSize: $sliderHeadingSize,
+      fontLineHeight: $sliderHeadingHeight,
+      fontWeight: $sliderHeadingWeigth
+    ));
+
     color: $sliderHeadingColor;
-    font-weight: $sliderHeadingWeigth;
-    font-size: $sliderHeadingSize;
-    line-height: $sliderHeadingHeight;
+  }
+
+  // Styles for tablet
+  @include above($tabletBreakpoint) {
+    p {
+      @include fontOnly((
+        fontFamily: $sliderTextFontTablet,
+        fontSize: $sliderTextSizeTablet,
+        fontLineHeight: $sliderTextHeightTablet,
+        fontWeight: $sliderTextWeightTablet
+      ));
+
+      color: $sliderTextColorTablet;
+    }
+
+    h1 {
+      @include fontOnly((
+        fontFamily: $sliderHeadingFontTablet,
+        fontSize: $sliderHeadingSizeTablet,
+        fontLineHeight: $sliderHeadingHeightTablet,
+        fontWeight: $sliderHeadingWeigthTablet
+      ));
+
+      color: $sliderHeadingColorTablet;
+    }
+  }
+
+  // Styles for desktop
+  @include above($desktopBreakpoint) {
+    p {
+      @include fontOnly((
+        fontFamily: $sliderTextFontDesktop,
+        fontSize: $sliderTextSizeDesktop,
+        fontLineHeight: $sliderTextHeightDesktop,
+        fontWeight: $sliderTextWeightDesktop
+      ));
+
+      color: $sliderTextColorDesktop;
+    }
+
+    h1 {
+      @include fontOnly((
+        fontFamily: $sliderHeadingFontDesktop,
+        fontSize: $sliderHeadingSizeDesktop,
+        fontLineHeight: $sliderHeadingHeightDesktop,
+        fontWeight: $sliderHeadingWeigthDesktop
+      ));
+
+      color: $sliderHeadingColorDesktop;
+    }
   }
 }
 
@@ -45,25 +177,111 @@
   .ob-top-nav {
     .ob-skip {
       color: $onboardingSkipTextColor;
+
+      // Styles for tablet
+      @include above($tabletBreakpoint) {
+        color: $onboardingSkipTextColorTablet;
+      }
+
+      // Styles for desktop
+      @include above($desktopBreakpoint) {
+        color: $onboardingSkipTextColorDesktop;
+      }
     }
   }
 
   .swiper-pagination-bullet {
+    @include borderOnly((
+      borderSides: $onboardingPaginationBulletBorderSides,
+      borderWidth: $onboardingPaginationBulletBorderWidth,
+      borderStyle: $onboardingPaginationBulletBorderStyle,
+      borderColor: $onboardingPaginationBulletBorder
+    ));
+
     width: $onboardingPaginationBulletWidth;
     height: $onboardingPaginationBulletHeight;
-    border: $onboardingPaginationBulletBorder;
     background: $onboardingPaginationBulletColor;
+
+    // Styles for tablet
+    @include above($tabletBreakpoint) {
+      @include borderOnly((
+        borderSides: $onboardingPaginationBulletBorderSidesTablet,
+        borderWidth: $onboardingPaginationBulletBorderWidthTablet,
+        borderStyle: $onboardingPaginationBulletBorderStyleTablet,
+        borderColor: $onboardingPaginationBulletBorderTablet
+      ));
+
+      width: $onboardingPaginationBulletWidthTablet;
+      height: $onboardingPaginationBulletHeightTablet;
+      background: $onboardingPaginationBulletColorTablet;
+    }
+
+    // Styles for desktop
+    @include above($desktopBreakpoint) {
+      @include borderOnly((
+        borderSides: $onboardingPaginationBulletBorderSidesDesktop,
+        borderWidth: $onboardingPaginationBulletBorderWidthDesktop,
+        borderStyle: $onboardingPaginationBulletBorderStyleDesktop,
+        borderColor: $onboardingPaginationBulletBorderDesktop
+      ));
+
+      width: $onboardingPaginationBulletWidthDesktop;
+      height: $onboardingPaginationBulletHeightDesktop;
+      background: $onboardingPaginationBulletColorDesktop;
+    }
   }
 
   .swiper-pagination-bullet-active {
-    border: $onboardingPaginationBulletBorderActive;
+    @include borderOnly((
+      borderSides: $onboardingPaginationBulletBorderActiveSides,
+      borderWidth: $onboardingPaginationBulletBorderActiveWidth,
+      borderStyle: $onboardingPaginationBulletBorderActiveStyle,
+      borderColor: $onboardingPaginationBulletBorderActive
+    ));
+
     background: $onboardingPaginationBulletColorActive;
+
+    // Styles for tablet
+    @include above($tabletBreakpoint) {
+      @include borderOnly((
+        borderSides: $onboardingPaginationBulletBorderActiveSidesTablet,
+        borderWidth: $onboardingPaginationBulletBorderActiveWidthTablet,
+        borderStyle: $onboardingPaginationBulletBorderActiveStyleTablet,
+        borderColor: $onboardingPaginationBulletBorderActiveTablet
+      ));
+
+      background: $onboardingPaginationBulletColorActiveTablet;
+    }
+
+    // Styles for desktop
+    @include above($desktopBreakpoint) {
+      @include borderOnly((
+        borderSides: $onboardingPaginationBulletBorderActiveSidesDesktop,
+        borderWidth: $onboardingPaginationBulletBorderActiveWidthDesktop,
+        borderStyle: $onboardingPaginationBulletBorderActiveStyleDesktop,
+        borderColor: $onboardingPaginationBulletBorderActiveDesktop
+      ));
+
+      background: $onboardingPaginationBulletColorActiveDesktop;
+    }
   }
 
   .swiper-button-next,
   .swiper-button-prev {
     color: $onboardingPaginationChevronsColor;
     background-color: $onboardingPaginationChevronsBgColor;
+
+    // Styles for tablet
+    @include above($tabletBreakpoint) {
+      color: $onboardingPaginationChevronsColorTablet;
+      background-color: $onboardingPaginationChevronsBgColorTablet;
+    }
+
+    // Styles for desktop
+    @include above($desktopBreakpoint) {
+      color: $onboardingPaginationChevronsColorDesktop;
+      background-color: $onboardingPaginationChevronsBgColorDesktop;
+    }
   }
 
   .swiper-wrapper {
@@ -72,17 +290,82 @@
     }
 
     p {
+      @include fontOnly((
+        fontFamily: $onboardingTextFont,
+        fontSize: $onboardingTextSize,
+        fontLineHeight: $onboardingTextHeight,
+        fontWeight: $onboardingTextWeight
+      ));
       color: $onboardingTextColor;
-      font-weight: $onboardingTextWeight;
-      font-size: $onboardingTextSize;
-      line-height: $onboardingTextHeight;
     }
 
     h1 {
+      @include fontOnly((
+        fontFamily: $onboardingHeadingFont,
+        fontSize: $onboardingHeadingSize,
+        fontLineHeight: $onboardingHeadingHeight,
+        fontWeight: $onboardingHeadingWeigth
+      ));
+
       color: $onboardingHeadingColor;
-      font-weight: $onboardingHeadingWeigth;
-      font-size: $onboardingHeadingSize;
-      line-height: $onboardingHeadingHeight;
+    }
+
+    // Styles for tablet
+    @include above($tabletBreakpoint) {
+      .swiper-slide-content {
+        background-color: $onboardingSlideBackgroundColorTablet;
+      }
+
+      p {
+        @include fontOnly((
+          fontFamily: $onboardingTextFontTablet,
+          fontSize: $onboardingHeadingSizeTablet,
+          fontLineHeight: $onboardingHeadingHeightTablet,
+          fontWeight: $onboardingHeadingWeigthTablet
+        ));
+
+        color: $onboardingTextColorTablet;
+      }
+
+      h1 {
+        @include fontOnly((
+          fontFamily: $onboardingHeadingFontTablet,
+          fontSize: $onboardingHeadingSizeTablet,
+          fontLineHeight: $onboardingHeadingHeightTablet,
+          fontWeight: $onboardingHeadingWeigthTablet
+        ));
+
+        color: $onboardingHeadingColorTablet;
+      }
+    }
+
+    // Styles for desktop
+    @include above($desktopBreakpoint) {
+      .swiper-slide-content {
+        background-color: $onboardingSlideBackgroundColorDesktop;
+      }
+
+      p {
+        @include fontOnly((
+          fontFamily: $onboardingTextFontDesktop,
+          fontSize: $onboardingTextSizeDesktop,
+          fontLineHeight: $onboardingTextHeightDesktop,
+          fontWeight: $onboardingTextWeightDesktop
+        ));
+
+        color: $onboardingTextColorDesktop;
+      }
+
+      h1 {
+        @include fontOnly((
+          fontFamily: $onboardingHeadingFontDesktop,
+          fontSize: $onboardingHeadingSizeDesktop,
+          fontLineHeight: $onboardingHeadingHeightDesktop,
+          fontWeight: $onboardingHeadingWeigthDesktop
+        ));
+
+        color: $onboardingHeadingColorDesktop;
+      }
     }
   }
 }
