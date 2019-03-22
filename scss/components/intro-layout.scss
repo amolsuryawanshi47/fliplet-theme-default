@@ -14,7 +14,9 @@
     fontSize: $introBodyFontSize,
     fontColor: $introBodyTextColor,
     fontWeight: $introBodyFontWeight,
-    fontLineHeight: $introBodyLineHeight
+    fontLineHeight: $introBodyLineHeight,
+    fontStyle: $introBodyFontStyle,
+    fontDecoration: $introBodyFontDecoration
   ), $options);
 
   @if map-get($configuration, backgroundType) == 'Image' {
@@ -35,9 +37,12 @@
   background-repeat: map-get($configuration, backgroundRepeat);
   background-position: map-get($configuration, backgroundPosX) map-get($configuration, backgroundPosY);
   color: map-get($configuration, fontColor);
-  font: map-get($configuration, fontWeight)
-    #{map-get($configuration, fontSize)}/#{map-get($configuration, fontLineHeight)}
-    #{map-get($configuration, fontFamily)}, 'Arial, sans-serif';
+  font-family: #{map-get($configuration, fontFamily)}, 'Arial, sans-serif';
+  font-size: map-get($configuration, fontSize);
+  font-weight: map-get($configuration, fontWeight);
+  line-height: map-get($configuration, fontLineHeight);
+  font-style: map-get($configuration, fontStyle);
+  text-decoration: map-get($configuration, fontDecoration);
 }
 
 @mixin overlay($options: ()) {
@@ -148,7 +153,9 @@
       fontSize: $introBodyFontSizeTablet,
       fontColor: $introBodyTextColorTablet,
       fontWeight: $introBodyFontWeightTablet,
-      fontLineHeight: $introBodyLineHeightTablet
+      fontLineHeight: $introBodyLineHeightTablet,
+      fontStyle: $introBodyFontStyleTablet,
+      fontDecoration: $introBodyFontDecorationTablet
     ));
   }
 
@@ -166,7 +173,9 @@
       fontSize: $introBodyFontSizeDesktop,
       fontColor: $introBodyTextColorDesktop,
       fontWeight: $introBodyFontWeightDesktop,
-      fontLineHeight: $introBodyLineHeightDesktop
+      fontLineHeight: $introBodyLineHeightDesktop,
+      fontStyle: $introBodyFontStyleDesktop,
+      fontDecoration: $introBodyFontDecorationDesktop
     ));
   }
 

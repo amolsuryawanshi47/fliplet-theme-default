@@ -160,9 +160,14 @@
 
   .fl-list-default {
     ul {
-      font-family: $menuFont;
-      font-size: $menuFontSize;
-      font-weight: $menuFontWeight;
+      @include fontOnly((
+        fontFamily: $menuFont,
+        fontSize: $menuFontSize,
+        fontLineHeight: 1.5,
+        fontWeight: $menuFontWeight,
+        fontStyle: $menuFontStyle,
+        fontDecoration: $menuFontDecoration
+      ));
 
       li {
         border-bottom: 1px solid rgba($menuTopNavFontColor, 0.2);
@@ -176,9 +181,14 @@
 
     .fl-list-default {
       ul {
-        font-family: $menuFontTablet;
-        font-size: $menuFontSizeTablet;
-        font-weight: $menuFontWeightTablet;
+        @include fontOnly((
+          fontFamily: $menuFontTablet,
+          fontSize: $menuFontSizeTablet,
+          fontLineHeight: 1.5,
+          fontWeight: $menuFontWeightTablet,
+          fontStyle: $menuFontStyleTablet,
+          fontDecoration: $menuFontDecorationTablet
+        ));
 
         li {
           border-bottom: 1px solid rgba($menuTopNavFontColorTablet, 0.2);
@@ -193,9 +203,14 @@
 
     .fl-list-default {
       ul {
-        font-family: $menuFontDesktop;
-        font-size: $menuFontSizeDesktop;
-        font-weight: $menuFontWeightTablet;
+        @include fontOnly((
+          fontFamily: $menuFontDesktop,
+          fontSize: $menuFontSizeDesktop,
+          fontLineHeight: 1.5,
+          fontWeight: $menuFontWeightDesktop,
+          fontStyle: $menuFontStyleDesktop,
+          fontDecoration: $menuFontDecorationDesktop
+        ));
 
         li {
           border-bottom: 1px solid rgba($menuTopNavFontColorDesktop, 0.2);
@@ -483,9 +498,14 @@
 
 .fl-menu-circle-nav-list-holder {
   .nav-list{
-    font-family: $menuFont;
-    font-size: $menuFontSize;
-    font-weight: $menuFontWeight;
+    @include fontOnly((
+      fontFamily: $menuExpFont,
+      fontSize: $menuExpFontSize,
+      fontLineHeight: 1.5,
+      fontWeight: $menuExpFontWeight,
+      fontStyle: $menuExpFontStyle,
+      fontDecoration: $menuExpFontDecoration
+    ));
 
     li {
       color: $menuExpFontColor;
@@ -493,9 +513,14 @@
 
     // Styles for tablet
     @include above($tabletBreakpoint) {
-      font-family: $menuFontTablet;
-      font-size: $menuFontSizeTablet;
-      font-weight: $menuFontWeightTablet;
+      @include fontOnly((
+        fontFamily: $menuExpFontTablet,
+        fontSize: $menuExpFontSizeTablet,
+        fontLineHeight: 1.5,
+        fontWeight: $menuExpFontWeightTablet,
+        fontStyle: $menuExpFontStyleTablet,
+        fontDecoration: $menuExpFontDecorationTablet
+      ));
 
       li {
         color: $menuExpFontColorTablet;
@@ -504,9 +529,14 @@
 
     // Styles for desktop
     @include above($desktopBreakpoint) {
-      font-family: $menuFontDesktop;
-      font-size: $menuFontSizeDesktop;
-      font-weight: $menuFontWeightDesktop;
+      @include fontOnly((
+        fontFamily: $menuExpFontDesktop,
+        fontSize: $menuExpFontSizeDesktop,
+        fontLineHeight: 1.5,
+        fontWeight: $menuExpFontWeightDesktop,
+        fontStyle: $menuExpFontStyleDesktop,
+        fontDecoration: $menuExpFontDecorationDesktop
+      ));
 
       li {
         color: $menuExpFontColorDesktop;
@@ -563,6 +593,17 @@
   }
 
   li {
+    .fl-menu-title {
+      @include fontOnly((
+        fontFamily: $menuBottomFont,
+        fontSize: $menuBottomSize,
+        fontLineHeight: 1.5,
+        fontWeight: $menuBottomWeight,
+        fontStyle: $menuBottomStyle,
+        fontDecoration: $menuBottomDecoration
+      ));
+    }
+
     &.active {
       background-color: $menuBottomActiveBackground;
 
@@ -585,6 +626,17 @@
     }
 
     li {
+      .fl-menu-title {
+        @include fontOnly((
+          fontFamily: $menuBottomFontTablet,
+          fontSize: $menuBottomSizeTablet,
+          fontLineHeight: 1.5,
+          fontWeight: $menuBottomWeightTablet,
+          fontStyle: $menuBottomStyleTablet,
+          fontDecoration: $menuBottomDecorationTablet
+        ));
+      }
+
       &.active {
         background-color: $menuBottomActiveBackgroundTablet;
 
@@ -608,6 +660,17 @@
     }
 
     li {
+      .fl-menu-title {
+        @include fontOnly((
+          fontFamily: $menuBottomFontDesktop,
+          fontSize: $menuBottomSizeDesktop,
+          fontLineHeight: 1.5,
+          fontWeight: $menuBottomWeightDesktop,
+          fontStyle: $menuBottomStyleDesktop,
+          fontDecoration: $menuBottomDecorationDesktop
+        ));
+      }
+
       &.active {
         background-color: $menuBottomActiveBackgroundDesktop;
 

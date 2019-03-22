@@ -43,8 +43,15 @@
     fontFamily: '',
     fontSize: '',
     fontLineHeight: '',
-    fontWeight: ''
+    fontWeight: '',
+    fontStyle: '',
+    fontDecoration: ''
   ), $options);
 
-  font: map-get($configuration, headingWeight) #{map-get($configuration, headingSize)}/#{map-get($configuration, headingLineHeight)} #{map-get($configuration, headingFamily)}, 'Arial, sans-serif';
+  font-family: #{map-get($configuration, fontFamily)}, 'Arial, sans-serif';
+  font-size: map-get($configuration, fontSize);
+  font-weight: map-get($configuration, fontWeight);
+  line-height: map-get($configuration, fontLineHeight);
+  font-style: map-get($configuration, fontStyle);
+  text-decoration: map-get($configuration, fontDecoration);
 }
