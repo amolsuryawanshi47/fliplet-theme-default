@@ -39,20 +39,44 @@
       color: $directorySearchCancelHover;
     }
   }
-}
-
-.directory-list {
-  background-color: $directoryBackgroundColor;
 
   // Styles for tablet
   @include above($tabletBreakpoint) {
-    background-color: $directoryBackgroundColorTablet;
+    background-color: $directorySearchColorTablet;
+
+    input {
+      color: $directorySearchTextColorTablet
+    }
+
+    .btn.btn-link.search-cancel {
+      color: $directorySearchCancelTablet;
+
+      &:hover {
+        color: $directorySearchCancelHoverTablet;
+      }
+    }
   }
 
   // Styles for desktop
   @include above($desktopBreakpoint) {
-    background-color: $directoryBackgroundColorDesktop;
+    background-color: $directorySearchColorDesktop;
+
+    input {
+      color: $directorySearchTextColorDesktop
+    }
+
+    .btn.btn-link.search-cancel {
+      color: $directorySearchCancelDesktop;
+
+      &:hover {
+        color: $directorySearchCancelHoverDesktop;
+      }
+    }
   }
+}
+
+.directory-list {
+  background-color: $directoryBackgroundColor;
 
   .add-new-entry {
     background-color: $primaryButtonColor;
@@ -94,16 +118,103 @@
       color: $directorySeparatorTextColor;
     }
   }
+
+  // Styles for tablet
+  @include above($tabletBreakpoint) {
+    width: $directoryListWidthTablet;
+    background-color: $directoryBackgroundColorTablet;
+
+    .add-new-entry {
+      background-color: $primaryButtonColorTablet;
+      color: $primaryButtonTextColorTablet;
+    }
+
+    .list-default {
+
+      li {
+        border-top: $directoryListBorderColorTablet;
+
+        .list-title {
+          color: $directoryListTitleColorTablet;
+          font-size: $directoryListTitleSizeTablet;
+          font-weight: $directoryListTitleWeightTablet;
+        }
+      }
+
+      ul > li {
+        .list-title + p {
+          color: $directoryListDescColorTablet;
+          font-size: $directoryListDescSizeTablet;
+          font-weight: $directoryListDescWeightTablet;
+        }
+
+        .icon {
+          color: $directoryListChevronColorTablet;
+        }
+      }
+    }
+
+    li {
+      &.divider {
+        background-color: $directorySeparatorColorTablet;
+        color: $directorySeparatorTextColorTablet;
+      }
+    }
+  }
+
+  // Styles for desktop
+  @include above($desktopBreakpoint) {
+    width: $directoryListWidthDesktop;
+    background-color: $directoryBackgroundColorDesktop;
+
+    .add-new-entry {
+      background-color: $primaryButtonColorDesktop;
+      color: $primaryButtonTextColorDesktop;
+    }
+
+    .list-default {
+
+      li {
+        border-top: $directoryListBorderColorDesktop;
+
+        .list-title {
+          color: $directoryListTitleColorDesktop;
+          font-size: $directoryListTitleSizeDesktop;
+          font-weight: $directoryListTitleWeightDesktop;
+        }
+      }
+
+      ul > li {
+        .list-title + p {
+          color: $directoryListDescColorDesktop;
+          font-size: $directoryListDescSizeDesktop;
+          font-weight: $directoryListDescWeightDesktop;
+        }
+
+        .icon {
+          color: $directoryListChevronColorDesktop;
+        }
+      }
+    }
+
+    li {
+      &.divider {
+        background-color: $directorySeparatorColorDesktop;
+        color: $directorySeparatorTextColorDesktop;
+      }
+    }
+  }
 }
 
 .overlayPanel {
-
   .list-default {
     li {
       .list-title {
         color: $directoryListTitleColor;
         font-size: $directoryListTitleSize;
         font-weight: $directoryListTitleWeight;
+        font-style: $directoryListTitleStyle;
+        text-decoration: $directoryListTitleDecoration;
       }
     }
 
@@ -112,6 +223,8 @@
         color: $directoryListDescColor;
         font-size: $directoryListDescSize;
         font-weight: $directoryListDescWeight;
+        font-style: $directoryListDescStyle;
+        text-decoration: $directoryListDescDecoration;
       }
 
       .icon {
@@ -124,14 +237,91 @@
       }
     }
   }
+
+  // Styles for tablet
+  @include above($tabletBreakpoint) {
+    .list-default {
+      li {
+        .list-title {
+          color: $directoryListTitleColorTablet;
+          font-size: $directoryListTitleSizeTablet;
+          font-weight: $directoryListTitleWeightTablet;
+          font-style: $directoryListTitleStyleTablet;
+          text-decoration: $directoryListTitleDecorationTablet;
+        }
+      }
+
+      ul > li {
+        .list-title + p {
+          color: $directoryListDescColorTablet;
+          font-size: $directoryListDescSizeTablet;
+          font-weight: $directoryListDescWeightTablet;
+          font-style: $directoryListDescStyleTablet;
+          text-decoration: $directoryListDescDecorationTablet;
+        }
+
+        .icon {
+          color: $directoryListChevronColorTablet;
+        }
+
+        .list-tags a {
+          color: $directoryListTagsColorTablet;
+          background: $directoryListTagsTextColorTablet;
+        }
+      }
+    }
+  }
+
+  // Styles for desktop
+  @include above($desktopBreakpoint) {
+    .list-default {
+      li {
+        .list-title {
+          color: $directoryListTitleColorDesktop;
+          font-size: $directoryListTitleSizeDesktop;
+          font-weight: $directoryListTitleWeightDesktop;
+          font-style: $directoryListTitleStyleDesktop;
+          text-decoration: $directoryListTitleDecorationDesktop;
+        }
+      }
+
+      ul > li {
+        .list-title + p {
+          color: $directoryListDescColorDesktop;
+          font-size: $directoryListDescSizeDesktop;
+          font-weight: $directoryListDescWeightDesktop;
+          font-style: $directoryListDescStyleDesktop;
+          text-decoration: $directoryListDescDecorationDesktop;
+        }
+
+        .icon {
+          color: $directoryListChevronColorDesktop;
+        }
+
+        .list-tags a {
+          color: $directoryListTagsColorDesktop;
+          background: $directoryListTagsTextColorDesktop;
+        }
+      }
+    }
+  }
 }
 
 .list-index span {
-  color: $linkColor;
+  color: $highlightColor;
+
+  // Styles for tablet
+  @include above($tabletBreakpoint) {
+    color: $highlightColorTablet;
+  }
+
+  // Styles for desktop
+  @include above($desktopBreakpoint) {
+    color: $highlightColorDesktop;
+  }
 }
 
 .overlay-directory {
-
   .overlayPanelContent {
     background-color: $directoryOverlayContentColor;
     color: $directoryTextColor;
@@ -160,6 +350,70 @@
     color: $directoryOverlayNavTextColor;
     border-bottom: $directoryOverlayNavBorderColor;
   }
+
+  // Styles for tablet
+  @include above($tabletBreakpoint) {
+    .overlayPanelContent {
+      background-color: $directoryOverlayContentColorTablet;
+      color: $directoryTextColorTablet;
+
+      .directory-detail-title {
+        color: $directoryOverlayContentTitleColorTablet;
+        font-family: #{$directoryOverlayContentTitleFontTablet}, Helvetica, Arial, sans-serif;
+        font-size: $directoryOverlayContentTitleFontSizeTablet;
+      }
+
+      .directory-detail-label {
+        color: $directoryOverlayContentLabelColorTablet;
+        font-family: #{$directoryOverlayContentLabelFontTablet}, Helvetica, Arial, sans-serif;
+        font-size: $directoryOverlayContentLabelFontSizeTablet;
+      }
+
+      .directory-detail-value {
+        color: $directoryOverlayContentValueColorTablet;
+        font-family: #{$directoryOverlayContentValueFontTablet}, Helvetica, Arial, sans-serif;
+        font-size: $directoryOverlayContentValueFontSizeTablet;
+      }
+    }
+
+    .overlayNavbar {
+      background-color: $directoryOverlayNavColorTablet;
+      color: $directoryOverlayNavTextColorTablet;
+      border-bottom: $directoryOverlayNavBorderColorTablet;
+    }
+  }
+
+  // Styles for desktop
+  @include above($desktopBreakpoint) {
+    .overlayPanelContent {
+      background-color: $directoryOverlayContentColorDesktop;
+      color: $directoryTextColorDesktop;
+
+      .directory-detail-title {
+        color: $directoryOverlayContentTitleColorDesktop;
+        font-family: #{$directoryOverlayContentTitleFontDesktop}, Helvetica, Arial, sans-serif;
+        font-size: $directoryOverlayContentTitleFontSizeDesktop;
+      }
+
+      .directory-detail-label {
+        color: $directoryOverlayContentLabelColorDesktop;
+        font-family: #{$directoryOverlayContentLabelFontDesktop}, Helvetica, Arial, sans-serif;
+        font-size: $directoryOverlayContentLabelFontSizeDesktop;
+      }
+
+      .directory-detail-value {
+        color: $directoryOverlayContentValueColorDesktop;
+        font-family: #{$directoryOverlayContentValueFontDesktop}, Helvetica, Arial, sans-serif;
+        font-size: $directoryOverlayContentValueFontSizeDesktop;
+      }
+    }
+
+    .overlayNavbar {
+      background-color: $directoryOverlayNavColorDesktop;
+      color: $directoryOverlayNavTextColorDesktop;
+      border-bottom: $directoryOverlayNavBorderColorDesktop;
+    }
+  }
 }
 
 .directory-details {
@@ -184,41 +438,141 @@
       font-size: $directoryOverlayContentValueFontSize;
     }
   }
+
+  // Styles for tablet
+  @include above($tabletBreakpoint) {
+    width: $directoryDetailsWidthTablet;
+
+    .directory-details-content {
+      color: $directoryTextColorTablet;
+
+      .directory-detail-title {
+        color: $directoryOverlayContentTitleColorTablet;
+        font-family: #{$directoryOverlayContentTitleFontTablet}, Helvetica, Arial, sans-serif;
+        font-size: $directoryOverlayContentTitleFontSizeTablet;
+      }
+
+      .directory-detail-label {
+        color: $directoryOverlayContentLabelColorTablet;
+        font-family: #{$directoryOverlayContentLabelFontTablet}, Helvetica, Arial, sans-serif;
+        font-size: $directoryOverlayContentLabelFontSizeTablet;
+      }
+
+      .directory-detail-value {
+        color: $directoryOverlayContentValueColorTablet;
+        font-family: #{$directoryOverlayContentValueFontTablet}, Helvetica, Arial, sans-serif;
+        font-size: $directoryOverlayContentValueFontSizeTablet;
+      }
+    }
+  }
+
+  // Styles for desktop
+  @include above($desktopBreakpoint) {
+    width: $directoryDetailsWidthDesktop;
+
+    .directory-details-content {
+      color: $directoryTextColorDesktop;
+
+      .directory-detail-title {
+        color: $directoryOverlayContentTitleColorDesktop;
+        font-family: #{$directoryOverlayContentTitleFontDesktop}, Helvetica, Arial, sans-serif;
+        font-size: $directoryOverlayContentTitleFontSizeDesktop;
+      }
+
+      .directory-detail-label {
+        color: $directoryOverlayContentLabelColorDesktop;
+        font-family: #{$directoryOverlayContentLabelFontDesktop}, Helvetica, Arial, sans-serif;
+        font-size: $directoryOverlayContentLabelFontSizeDesktop;
+      }
+
+      .directory-detail-value {
+        color: $directoryOverlayContentValueColorDesktop;
+        font-family: #{$directoryOverlayContentValueFontDesktop}, Helvetica, Arial, sans-serif;
+        font-size: $directoryOverlayContentValueFontSizeDesktop;
+      }
+    }
+  }
 }
 
-@media screen and (min-width:640px) {
+@include above($tabletBreakpoint) {
   .directory-list .list-default {
 
     ul > li.active {
-      background-color: $directoryActiveListColor;
+      background-color: $directoryActiveListColorTablet;
 
       .list-title {
-        color: $directoryActiveListTitleColor;
-        font-size: $directoryActiveListTitleSize;
-        font-weight: $directoryActiveListTitleWeight;
+        color: $directoryActiveListTitleColorTablet;
+        font-size: $directoryActiveListTitleSizeTablet;
+        font-weight: $directoryActiveListTitleWeightTablet;
+        font-style: $directoryActiveListTitleStyleTablet;
+        text-decoration: $directoryActiveListTitleDecorationTablet;
       }
 
       .list-title + p {
-        color: $directoryActiveListDescColor;
-        font-size: $directoryActiveListDescSize;
-        font-weight: $directoryActiveListDescWeight;
+        color: $directoryActiveListDescColorTablet;
+        font-size: $directoryActiveListDescSizeTablet;
+        font-weight: $directoryActiveListDescWeightTablet;
+        font-style: $directoryActiveListDescStyleTablet;
+        text-decoration: $directoryActiveListDescDecorationTablet;
       }
 
       .icon {
-        color: $directoryActiveListChevronColor;
+        color: $directoryActiveListChevronColorTablet;
       }
 
       .list-tags a {
-        color: $directoryActiveListTagsTextColor;
-        background: $directoryActiveListTagsColor;
+        color: $directoryActiveListTagsTextColorTablet;
+        background: $directoryActiveListTagsColorTablet;
       }
     }
 
     .search-result-header {
-      background-color: $directorySeparatorColor;
+      background-color: $directorySeparatorColorTablet;
 
       h5 {
-        color: $directorySeparatorTextColor;
+        color: $directorySeparatorTextColorTablet;
+      }
+    }
+  }
+}
+
+@include above($desktopBreakpoint) {
+  .directory-list .list-default {
+
+    ul > li.active {
+      background-color: $directoryActiveListColorDesktop;
+
+      .list-title {
+        color: $directoryActiveListTitleColorDesktop;
+        font-size: $directoryActiveListTitleSizeDesktop;
+        font-weight: $directoryActiveListTitleWeightDesktop;
+        font-style: $directoryActiveListTitleStyleDesktop;
+        text-decoration: $directoryActiveListTitleDecorationDesktop;
+      }
+
+      .list-title + p {
+        color: $directoryActiveListDescColorDesktop;
+        font-size: $directoryActiveListDescSizeDesktop;
+        font-weight: $directoryActiveListDescWeightDesktop;
+        font-style: $directoryActiveListDescStyleDesktop;
+        text-decoration: $directoryActiveListDescDecorationDesktop;
+      }
+
+      .icon {
+        color: $directoryActiveListChevronColorDesktop;
+      }
+
+      .list-tags a {
+        color: $directoryActiveListTagsTextColorDesktop;
+        background: $directoryActiveListTagsColorDesktop;
+      }
+    }
+
+    .search-result-header {
+      background-color: $directorySeparatorColorDesktop;
+
+      h5 {
+        color: $directorySeparatorTextColorDesktop;
       }
     }
   }

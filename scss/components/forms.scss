@@ -15,19 +15,25 @@
     borderWidth: $formInputBorderWidth,
     borderStyle: $formInputBorderStyle,
     borderColor: $formInputBorderColor,
-    borderDirection: 'all'
+    borderDirection: $formInputBorderSides
   ), $options);
 
+  @if map-get($configuration, borderDirection) == 'none' {
+    border: none;
+  }
   @if map-get($configuration, borderDirection) == 'all' {
     border: map-get($configuration, borderWidth) map-get($configuration, borderStyle) map-get($configuration, borderColor);
   }
   @if map-get($configuration, borderDirection) == 'left' {
+    border: none;
     border-left: map-get($configuration, borderWidth) map-get($configuration, borderStyle) map-get($configuration, borderColor);
   }
   @if map-get($configuration, borderDirection) == 'right' {
+    border: none;
     border-right: map-get($configuration, borderWidth) map-get($configuration, borderStyle) map-get($configuration, borderColor);
   }
   @if map-get($configuration, borderDirection) == 'bottom' {
+    border: none;
     border-bottom: map-get($configuration, borderWidth) map-get($configuration, borderStyle) map-get($configuration, borderColor);
   }
 }
@@ -92,12 +98,17 @@ $spinnerColorDesktop: lighten($bodyTextColorDesktop, 33%);
 .form-control {
   @include fieldBorder();
   border-radius: $formInputBorderRadius;
+  padding: $formInputPaddingTop
+    $formInputPaddingRight
+    $formInputPaddingBottom
+    $formInputPaddingLeft;
 
   &.has-error {
     @include fieldBorder((
       borderWidth: $formInputBorderErrorWidth,
       borderStyle: $formInputBorderErrorStyle,
-      borderColor: $formInputBorderErrorColor
+      borderColor: $formInputBorderErrorColor,
+      borderDirection: $formInputBorderErrorSides
     ));
     border-radius: $formInputBorderErrorRadius;
   }
@@ -106,7 +117,8 @@ $spinnerColorDesktop: lighten($bodyTextColorDesktop, 33%);
     @include fieldBorder((
       borderWidth: $formInputBorderFocusWidth,
       borderStyle: $formInputBorderFocusStyle,
-      borderColor: $formInputBorderFocusColor
+      borderColor: $formInputBorderFocusColor,
+      borderDirection: $formInputBorderFocusSides
     ));
     border-radius: $formInputBorderFocusRadius;
   }
@@ -116,15 +128,21 @@ $spinnerColorDesktop: lighten($bodyTextColorDesktop, 33%);
     @include fieldBorder((
       borderWidth: $formInputBorderWidthTablet,
       borderStyle: $formInputBorderStyleTablet,
-      borderColor: $formInputBorderColorTablet
+      borderColor: $formInputBorderColorTablet,
+      borderDirection: $formInputBorderSidesTablet
     ));
     border-radius: $formInputBorderRadiusTablet;
+    padding: $formInputPaddingTopTablet
+      $formInputPaddingRightTablet
+      $formInputPaddingBottomTablet
+      $formInputPaddingLeftTablet;
 
     &.has-error {
       @include fieldBorder((
         borderWidth: $formInputBorderErrorWidthTablet,
         borderStyle: $formInputBorderErrorStyleTablet,
-        borderColor: $formInputBorderErrorColorTablet
+        borderColor: $formInputBorderErrorColorTablet,
+        borderDirection: $formInputBorderErrorSidesTablet
       ));
       border-radius: $formInputBorderErrorRadiusTablet;
     }
@@ -133,7 +151,8 @@ $spinnerColorDesktop: lighten($bodyTextColorDesktop, 33%);
       @include fieldBorder((
         borderWidth: $formInputBorderFocusWidthTablet,
         borderStyle: $formInputBorderFocusStyleTablet,
-        borderColor: $formInputBorderFocusColorTablet
+        borderColor: $formInputBorderFocusColorTablet,
+        borderDirection: $formInputBorderFocusSides
       ));
       border-radius: $formInputBorderFocusRadiusTablet;
     }
@@ -144,15 +163,21 @@ $spinnerColorDesktop: lighten($bodyTextColorDesktop, 33%);
     @include fieldBorder((
       borderWidth: $formInputBorderWidthDesktop,
       borderStyle: $formInputBorderStyleDesktop,
-      borderColor: $formInputBorderColorDesktop
+      borderColor: $formInputBorderColorDesktop,
+      borderDirection: $formInputBorderSidesDesktop
     ));
     border-radius: $formInputBorderRadiusDesktop;
+    padding: $formInputPaddingTopDesktop
+      $formInputPaddingRightDesktop
+      $formInputPaddingBottomDesktop
+      $formInputPaddingLeftDesktop;
 
     &.has-error {
       @include fieldBorder((
         borderWidth: $formInputBorderErrorWidthDesktop,
         borderStyle: $formInputBorderErrorStyleDesktop,
-        borderColor: $formInputBorderErrorColorDesktop
+        borderColor: $formInputBorderErrorColorDesktop,
+        borderDirection: $formInputBorderErrorSidesDesktop
       ));
       border-radius: $formInputBorderErrorRadiusDesktop;
     }
@@ -161,7 +186,8 @@ $spinnerColorDesktop: lighten($bodyTextColorDesktop, 33%);
       @include fieldBorder((
         borderWidth: $formInputBorderFocusWidthDesktop,
         borderStyle: $formInputBorderFocusStyleDesktop,
-        borderColor: $formInputBorderFocusColorDesktop
+        borderColor: $formInputBorderFocusColorDesktop,
+        borderDirection: $formInputBorderFocusSides
       ));
       border-radius: $formInputBorderFocusRadiusDesktop;
     }
@@ -287,17 +313,41 @@ $spinnerColorDesktop: lighten($bodyTextColorDesktop, 33%);
   @include fieldBorder();
   border-radius: $formInputBorderRadius;
   color: $formSelectTextColor;
+  padding: $formInputPaddingTop
+    $formInputPaddingRight
+    $formInputPaddingBottom
+    $formInputPaddingLeft;
 
   // Styles for tablet
   @include above($tabletBreakpoint) {
+    @include fieldBorder((
+      borderWidth: $formInputBorderWidthTablet,
+      borderStyle: $formInputBorderStyleTablet,
+      borderColor: $formInputBorderColorTablet,
+      borderDirection: $formInputBorderSidesTablet
+    ));
     border-radius: $formInputBorderRadiusTablet;
     color: $formSelectTextColorTablet;
+    padding: $formInputPaddingTopTablet
+      $formInputPaddingRightTablet
+      $formInputPaddingBottomTablet
+      $formInputPaddingLeftTablet;
   }
 
   // Styles for desktop
   @include above($desktopBreakpoint) {
+    @include fieldBorder((
+      borderWidth: $formInputBorderWidthDesktop,
+      borderStyle: $formInputBorderStyleDesktop,
+      borderColor: $formInputBorderColorDesktop,
+      borderDirection: $formInputBorderSidesDesktop
+    ));
     border-radius: $formInputBorderRadiusDesktop;
     color: $formSelectTextColorDesktop;
+    padding: $formInputPaddingTopDesktop
+      $formInputPaddingRightDesktop
+      $formInputPaddingBottomDesktop
+      $formInputPaddingLeftDesktop;
   }
 }
 
@@ -448,7 +498,8 @@ $spinnerColorDesktop: lighten($bodyTextColorDesktop, 33%);
     @include fieldBorder((
       borderWidth: $formInputBorderWidthTablet,
       borderStyle: $formInputBorderStyleTablet,
-      borderColor: $formInputBorderColorTablet
+      borderColor: $formInputBorderColorTablet,
+      borderDirection: $formInputBorderSidesTablet
     ));
   }
 
@@ -457,7 +508,8 @@ $spinnerColorDesktop: lighten($bodyTextColorDesktop, 33%);
     @include fieldBorder((
       borderWidth: $formInputBorderWidthDesktop,
       borderStyle: $formInputBorderStyleDesktop,
-      borderColor: $formInputBorderColorDesktop
+      borderColor: $formInputBorderColorDesktop,
+      borderDirection: $formInputBorderSidesDesktop
     ));
   }
 }

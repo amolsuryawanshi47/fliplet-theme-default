@@ -8,87 +8,101 @@
 
 /* 01 - PANELS */
 .list-panels {
-  .list-desc .list-title {
-    @include fontOnly((
-      fontFamily: $panelTitleFont,
-      fontSize: $panelTitleSize,
-      fontLineHeight: 1.5,
-      fontWeight: $panelTitleWeight,
-      fontStyle: $panelTitleStyle,
-      fontDecoration: $panelTitleDecoration
-    ));
+  ul > li {
+    .list-desc {
+      padding: $panelPaddingTop $panelPaddingRight $panelPaddingBottom $panelPaddingLeft;
 
-    color: $panelTitleColor;
-  }
+      .list-title {
+        @include fontOnly((
+          fontFamily: $panelTitleFont,
+          fontSize: $panelTitleSize,
+          fontLineHeight: 1.5,
+          fontWeight: $panelTitleWeight,
+          fontStyle: $panelTitleStyle,
+          fontDecoration: $panelTitleDecoration
+        ));
 
-  .list-desc .list-title + p {
-    @include fontOnly((
-      fontFamily: $panelDescriptionFont,
-      fontSize: $panelDescriptionSize,
-      fontLineHeight: 1.5,
-      fontWeight: $panelDescriptionWeight,
-      fontStyle: $panelDescriptionStyle,
-      fontDecoration: $panelDescriptionDecoration
-    ));
+        color: $panelTitleColor;
 
-    color: $panelDescriptionColor;
-  }
+        + p {
+          @include fontOnly((
+            fontFamily: $panelDescriptionFont,
+            fontSize: $panelDescriptionSize,
+            fontLineHeight: 1.5,
+            fontWeight: $panelDescriptionWeight,
+            fontStyle: $panelDescriptionStyle,
+            fontDecoration: $panelDescriptionDecoration
+          ));
 
-  // Styles for tablet
-  @include above($tabletBreakpoint) {
-    .list-desc .list-title {
-      @include fontOnly((
-        fontFamily: $panelTitleFontTablet,
-        fontSize: $panelTitleSizeTablet,
-        fontLineHeight: 1.5,
-        fontWeight: $panelTitleWeightTablet,
-        fontStyle: $panelTitleStyleTablet,
-        fontDecoration: $panelTitleDecorationTablet
-      ));
-
-      color: $panelTitleColorTablet;
+          color: $panelDescriptionColor;
+        }
+      }
     }
 
-    .list-desc .list-title + p {
-      @include fontOnly((
-        fontFamily: $panelDescriptionFontTablet,
-        fontSize: $panelDescriptionSizeTablet,
-        fontLineHeight: 1.5,
-        fontWeight: $panelDescriptionWeightTablet,
-        fontStyle: $panelDescriptionStyleTablet,
-        fontDecoration: $panelDescriptionDecorationTablet
-      ));
+    // Styles for tablet
+    @include above($tabletBreakpoint) {
+      .list-desc {
+        padding: $panelPaddingTopTablet $panelPaddingRightTablet $panelPaddingBottomTablet $panelPaddingLeftTablet;
 
-      color: $panelDescriptionColorTablet;
+        .list-title {
+          @include fontOnly((
+            fontFamily: $panelTitleFontTablet,
+            fontSize: $panelTitleSizeTablet,
+            fontLineHeight: 1.5,
+            fontWeight: $panelTitleWeightTablet,
+            fontStyle: $panelTitleStyleTablet,
+            fontDecoration: $panelTitleDecorationTablet
+          ));
+
+          color: $panelTitleColorTablet;
+
+          + p {
+            @include fontOnly((
+              fontFamily: $panelDescriptionFontTablet,
+              fontSize: $panelDescriptionSizeTablet,
+              fontLineHeight: 1.5,
+              fontWeight: $panelDescriptionWeightTablet,
+              fontStyle: $panelDescriptionStyleTablet,
+              fontDecoration: $panelDescriptionDecorationTablet
+            ));
+
+            color: $panelDescriptionColorTablet;
+          }
+        }
+      }
     }
-  }
 
-  // Styles for desktop
-  @include above($desktopBreakpoint) {
-    .list-desc .list-title {
-      @include fontOnly((
-        fontFamily: $panelTitleFontDesktop,
-        fontSize: $panelTitleSizeDesktop,
-        fontLineHeight: 1.5,
-        fontWeight: $panelTitleWeightDesktop,
-        fontStyle: $panelTitleStyleDesktop,
-        fontDecoration: $panelTitleDecorationDesktop
-      ));
+    // Styles for desktop
+    @include above($desktopBreakpoint) {
+      .list-desc {
+        padding: $panelPaddingTopDesktop $panelPaddingRightDesktop $panelPaddingBottomDesktop $panelPaddingLeftDesktop;
 
-      color: $panelTitleColorDesktop;
-    }
+        .list-title {
+          @include fontOnly((
+            fontFamily: $panelTitleFontDesktop,
+            fontSize: $panelTitleSizeDesktop,
+            fontLineHeight: 1.5,
+            fontWeight: $panelTitleWeightDesktop,
+            fontStyle: $panelTitleStyleDesktop,
+            fontDecoration: $panelTitleDecorationDesktop
+          ));
 
-    .list-desc .list-title + p {
-      @include fontOnly((
-        fontFamily: $panelDescriptionFontDesktop,
-        fontSize: $panelDescriptionSizeDesktop,
-        fontLineHeight: 1.5,
-        fontWeight: $panelDescriptionWeightDesktop,
-        fontStyle: $panelDescriptionStyleDesktop,
-        fontDecoration: $panelDescriptionDecorationDesktop
-      ));
+          color: $panelTitleColorDesktop;
 
-      color: $panelDescriptionColorDesktop;
+          + p {
+            @include fontOnly((
+              fontFamily: $panelDescriptionFontDesktop,
+              fontSize: $panelDescriptionSizeDesktop,
+              fontLineHeight: 1.5,
+              fontWeight: $panelDescriptionWeightDesktop,
+              fontStyle: $panelDescriptionStyleDesktop,
+              fontDecoration: $panelDescriptionDecorationDesktop
+            ));
+
+            color: $panelDescriptionColorDesktop;
+          }
+        }
+      }
     }
   }
 }
@@ -100,8 +114,17 @@
     borderStyle: $panelBorderStyle,
     borderColor: $panelBorder
   ));
-
+  border-radius: $panelBorderRadius;
   background-color: $panelBackgroundColor;
+
+  @include shadowOnly((
+    shadowStyle: $panelShadowStyle,
+    shadowXOffset: $panelShadowXoffset,
+    shadowYOffset: $panelShadowYoffset,
+    shadowBlur: $panelShadowBlur,
+    shadowSpread: $panelShadowSpread,
+    shadowColor: $panelShadowColor
+  ));
 
   // Styles for tablet
   @include above($tabletBreakpoint) {
@@ -111,8 +134,17 @@
       borderStyle: $panelBorderStyleTablet,
       borderColor: $panelBorderTablet
     ));
-
+    border-radius: $panelBorderRadiusTablet;
     background-color: $panelBackgroundColorTablet;
+
+    @include shadowOnly((
+      shadowStyle: $panelShadowStyleTablet,
+      shadowXOffset: $panelShadowXoffsetTablet,
+      shadowYOffset: $panelShadowYoffsetTablet,
+      shadowBlur: $panelShadowBlurTablet,
+      shadowSpread: $panelShadowSpreadTablet,
+      shadowColor: $panelShadowColorTablet
+    ));
   }
 
   // Styles for desktop
@@ -123,8 +155,17 @@
       borderStyle: $panelBorderStyleDesktop,
       borderColor: $panelBorderDesktop
     ));
-
+    border-radius: $panelBorderRadiusDesktop;
     background-color: $panelBackgroundColorDesktop;
+
+    @include shadowOnly((
+      shadowStyle: $panelShadowStyleDesktop,
+      shadowXOffset: $panelShadowXoffsetDesktop,
+      shadowYOffset: $panelShadowYoffsetDesktop,
+      shadowBlur: $panelShadowBlurDesktop,
+      shadowSpread: $panelShadowSpreadDesktop,
+      shadowColor: $panelShadowColorDesktop
+    ));
   }
 }
 

@@ -7,6 +7,22 @@
 ******************************/
 
 /* 01 - SLIDER */
+.onboarding-holder {
+  width: $sliderWidth;
+  margin: $sliderMarginTop $sliderMarginRight $sliderMarginBottom $sliderMarginLeft;
+
+  // Styles for tablet
+  @include above($tabletBreakpoint) {
+    width: $sliderWidthTablet;
+    margin: $sliderMarginTopTablet $sliderMarginRightTablet $sliderMarginBottomTablet $sliderMarginLeftTablet;
+  }
+
+  // Styles for desktop
+  @include above($desktopBreakpoint) {
+    width: $sliderWidthDesktop;
+    margin: $sliderMarginTopDesktop $sliderMarginRightDesktop $sliderMarginBottomDesktop $sliderMarginLeftDesktop;
+  }
+}
 
 .swiper-pagination-bullet {
   @include borderOnly((
@@ -186,6 +202,8 @@
 }
 
 .onboarding-holder.full-screen {
+  width: 100%;
+
   .ob-top-nav {
     .ob-skip {
       color: $onboardingSkipTextColor;

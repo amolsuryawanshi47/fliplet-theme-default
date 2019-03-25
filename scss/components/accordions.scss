@@ -10,11 +10,19 @@
 @mixin accordion($options: ()) {
   $configuration: map-merge((
     headingBackground: $accordionHeadingBg,
-    headingText: $accordionHeadingText
+    headingText: $accordionHeadingText,
+    paddingtop: $accordionHeadingPaddingTop,
+    paddingRight: $accordionHeadingPaddingRight,
+    paddingBottom: $accordionHeadingPaddingBottom,
+    paddingLeft: $accordionHeadingPaddingLeft
   ), $options);
 
   color: map-get($configuration, headingText);
   background-color: map-get($configuration, headingBackground);
+  padding: map-get($configuration, paddingtop)
+    calc(#{map-get($configuration, paddingRight)} + 29px)
+    map-get($configuration, paddingBottom)
+    map-get($configuration, paddingLeft);
 }
 
 @mixin accordionChevron($options: ()) {
@@ -45,7 +53,11 @@
   @include above($tabletBreakpoint) {
     @include accordion((
       headingText: $accordionHeadingTextTablet,
-      headingBackground: $accordionHeadingBgTablet
+      headingBackground: $accordionHeadingBgTablet,
+      paddingtop: $accordionHeadingPaddingTopTablet,
+      paddingRight: $accordionHeadingPaddingRightTablet,
+      paddingBottom: $accordionHeadingPaddingBottomTablet,
+      paddingLeft: $accordionHeadingPaddingLeftTablet
     ));
     @include accordionBorder((
       borderWidth: $accordionBorderWidthTablet,
@@ -58,7 +70,11 @@
   @include above($desktopBreakpoint) {
     @include accordion((
       headingText: $accordionHeadingTextDesktop,
-      headingBackground: $accordionHeadingBgDesktop
+      headingBackground: $accordionHeadingBgDesktop,
+      paddingtop: $accordionHeadingPaddingTopDesktop,
+      paddingRight: $accordionHeadingPaddingRightDesktop,
+      paddingBottom: $accordionHeadingPaddingBottomDesktop,
+      paddingLeft: $accordionHeadingPaddingLeftDesktop
     ));
     @include accordionBorder((
       borderWidth: $accordionBorderWidthDesktop,
@@ -143,14 +159,18 @@
     > .panel-title {
       @include accordion((
         headingText: $accordionHeadingTextActive,
-        headingBackground: $accordionHeadingBgActive
+        headingBackground: $accordionHeadingBgActive,
       ));
 
       // Styles for tablet
       @include above($tabletBreakpoint) {
         @include accordion((
           headingText: $accordionHeadingTextActiveTablet,
-          headingBackground: $accordionHeadingBgActiveTablet
+          headingBackground: $accordionHeadingBgActiveTablet,
+          paddingtop: $accordionHeadingPaddingTopTablet,
+          paddingRight: $accordionHeadingPaddingRightTablet,
+          paddingBottom: $accordionHeadingPaddingBottomTablet,
+          paddingLeft: $accordionHeadingPaddingLeftTablet
         ));
       }
 
@@ -158,7 +178,11 @@
       @include above($desktopBreakpoint) {
         @include accordion((
           headingText: $accordionHeadingTextActiveDesktop,
-          headingBackground: $accordionHeadingBgActiveDesktop
+          headingBackground: $accordionHeadingBgActiveDesktop,
+          paddingtop: $accordionHeadingPaddingTopDesktop,
+          paddingRight: $accordionHeadingPaddingRightDesktop,
+          paddingBottom: $accordionHeadingPaddingBottomDesktop,
+          paddingLeft: $accordionHeadingPaddingLeftDesktop
         ));
       }
 
@@ -169,7 +193,11 @@
         @include above($tabletBreakpoint) {
           @include accordion((
             headingText: $accordionHeadingTextTablet,
-            headingBackground: $accordionHeadingBgTablet
+            headingBackground: $accordionHeadingBgTablet,
+            paddingtop: $accordionHeadingPaddingTopTablet,
+            paddingRight: $accordionHeadingPaddingRightTablet,
+            paddingBottom: $accordionHeadingPaddingBottomTablet,
+            paddingLeft: $accordionHeadingPaddingLeftTablet
           ));
         }
 
@@ -177,7 +205,11 @@
         @include above($desktopBreakpoint) {
           @include accordion((
             headingText: $accordionHeadingTextDesktop,
-            headingBackground: $accordionHeadingBgDesktop
+            headingBackground: $accordionHeadingBgDesktop,
+            paddingtop: $accordionHeadingPaddingTopDesktop,
+            paddingRight: $accordionHeadingPaddingRightDesktop,
+            paddingBottom: $accordionHeadingPaddingBottomDesktop,
+            paddingLeft: $accordionHeadingPaddingLeftDesktop
           ));
         }
 
@@ -223,15 +255,27 @@
 
     .panel-body {
       background-color: $bodyBackground;
+      padding: $accordionContentPaddingTop
+        $accordionContentPaddingRight
+        $accordionContentPaddingBottom
+        $accordionContentPaddingLeft;
 
       // Styles for tablet
       @include above($tabletBreakpoint) {
         background-color: $bodyBackgroundTablet;
+        padding: $accordionContentPaddingTopTablet
+          $accordionContentPaddingRightTablet
+          $accordionContentPaddingBottomTablet
+          $accordionContentPaddingLeftTablet;
       }
 
       // Styles for desktop
       @include above($desktopBreakpoint) {
         background-color: $bodyBackgroundDesktop;
+        padding: $accordionContentPaddingTopDesktop
+          $accordionContentPaddingRightDesktop
+          $accordionContentPaddingBottomDesktop
+          $accordionContentPaddingLeftDesktop;
       }
     }
   }

@@ -10,6 +10,36 @@
   }
 }
 
+@mixin shadowOnly($options: ()) {
+  $configuration: map-merge((
+    shadowStyle: '',
+    shadowXOffset: '',
+    shadowYOffset: '',
+    shadowBlur: '',
+    shadowSpread: '',
+    shadowColor: ''
+  ), $options);
+
+  @if map-get($configuration, shadowStyle) == 'inset' {
+    box-shadow: map-get($configuration, shadowStyle)
+      map-get($configuration, shadowXOffset)
+      map-get($configuration, shadowYOffset)
+      map-get($configuration, shadowBlur)
+      map-get($configuration, shadowSpread)
+      map-get($configuration, shadowColor);
+  }
+  @if map-get($configuration, shadowStyle) == 'none' {
+    box-shadow: map-get($configuration, shadowStyle);
+  }
+  @if map-get($configuration, shadowStyle) == 'outset' {
+    box-shadow: map-get($configuration, shadowXOffset)
+      map-get($configuration, shadowYOffset)
+      map-get($configuration, shadowBlur)
+      map-get($configuration, shadowSpread)
+      map-get($configuration, shadowColor);
+  }
+}
+
 @mixin borderOnly($options: ()) {
   $configuration: map-merge((
     borderSides: '',

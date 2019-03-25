@@ -19,6 +19,18 @@
   color: map-get($configuration, textColor);
 }
 
+[data-app-list-id] {
+  width: $appListWidth;
+
+  @include above($tabletBreakpoint) {
+    width: $appListWidthTablet;
+  }
+
+  @include above($desktopBreakpoint) {
+    width: $appListWidthDesktop;
+  }
+}
+
 .admin-overlay {
   .overlayNavbar {
     @include appList((

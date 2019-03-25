@@ -166,6 +166,18 @@
   }
 }
 
+.chat-area {
+  // Styles for tablet
+  @include above($tabletBreakpoint) {
+    width: $chatConvAreaWidthTablet;
+  }
+
+  // Styles for desktop
+  @include above($desktopBreakpoint) {
+    width: $chatConvAreaWidthDesktop;
+  }
+}
+
 .chat-area,
 .contacts-holder-overlay,
 .group-name-holder,
@@ -663,6 +675,18 @@
   // Styles for desktop
   @include above($desktopBreakpoint) {
     border-color: rgba($chatTextColorDesktop, 0.3);
+  }
+}
+
+.chat-holder .chat-list {
+  // Styles for tablet
+  @include above($tabletBreakpoint) {
+    width: $chatConvListWidthTablet;
+  }
+
+  // Styles for desktop
+  @include above($desktopBreakpoint) {
+    width: $chatConvListWidthDesktop;
   }
 }
 
