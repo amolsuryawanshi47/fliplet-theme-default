@@ -1,17 +1,20 @@
 @import "core/mixins";
 @import "core/variables";
 @import "core/base";
-@import "core/menu";
 @import "components/body";
 @import "components/headings";
 @import "components/intro-layout";
-@import "core/menu";
+@import "components/menu-overlay";
+@import "components/menu-push-in";
+@import "components/menu-slide-in";
+@import "components/menu-swipe";
+@import "components/menu-circle";
+@import "components/menu-bottom-bar";
 @import "components/buttons";
 @import "components/links";
 @import "components/accordions";
 @import "components/app-list";
 @import "components/chat";
-
 @import "components/charts";
 @import "components/directories";
 @import "components/forms";
@@ -31,17 +34,30 @@
 
 /* @import "components/app-analytics"; */
 
-// $widgetInstances: (
-//   535 'panels' (panelTitleSize: 30px),
-//   123 'component' (variable1: value1, variable2: value2)
-// );
-
-// @each $widgetInstance in $widgetInstances {
-//   [data-fl-widget-instance][data-id="#{nth($widgetInstance, 1)}"] {
-//     @if nth($widgetInstance, 2) == 'panels' {
-//       @include panelsTitles(
-//         nth($widgetInstance, 3)
-//       )
-//     }
-//   }
-// }
+@if variable-exists(widgetInstances) {
+  @each $widgetInstance in $widgetInstances {
+    [data-fl-widget-instance][data-id="#{nth($widgetInstance, 1)}"] {
+      @if nth($widgetInstance, 2) == 'lfd' {
+        @include lfd(nth($widgetInstance, 3));
+      }
+      @if nth($widgetInstance, 2) == 'menuOverlay' {
+        @include menuOverlay(nth($widgetInstance, 3));
+      }
+      @if nth($widgetInstance, 2) == 'menuPushIn' {
+        @include menuPushIn(nth($widgetInstance, 3));
+      }
+      @if nth($widgetInstance, 2) == 'menuSlideIn' {
+        @include menuSlideIn(nth($widgetInstance, 3));
+      }
+      @if nth($widgetInstance, 2) == 'menuSwipe' {
+        @include menuSwipe(nth($widgetInstance, 3));
+      }
+      @if nth($widgetInstance, 2) == 'menuCircle' {
+        @include menuCircle(nth($widgetInstance, 3));
+      }
+      @if nth($widgetInstance, 2) == 'menuBottom' {
+        @include menuBottom(nth($widgetInstance, 3));
+      }
+    }
+  }
+}

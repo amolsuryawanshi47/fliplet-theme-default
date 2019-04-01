@@ -7,93 +7,285 @@
 ******************************/
 
 /* 01 - BUTTONS */
-@mixin button($options: ()) {
+@mixin primaryButton($options: ()) {
   $configuration: map-merge((
-    width: $primaryButtonWidth,
-    backgroundColor: $primaryButtonColor,
-    textColor: $primaryButtonTextColor,
-    marginTop: $primaryButtonMarginTop,
-    marginRight: $primaryButtonMarginRight,
-    marginBottom: $primaryButtonMarginBottom,
-    marginLeft: $primaryButtonMarginLeft,
-    paddingTop: $primaryButtonPaddingTop,
-    paddingRight: $primaryButtonPaddingRight,
-    paddingBottom: $primaryButtonPaddingBottom,
-    paddingLeft: $primaryButtonPaddingLeft,
-    borderSides: $primaryButtonBorderSides,
-    borderWidth: $primaryButtonBorderWidth,
-    borderStyle: $primaryButtonBorderStyle,
-    borderColor: $primaryButtonBorderColor,
-    borderRadius: $primaryButtonBorderRadius,
-    shadowStyle: $primaryButtonShadowStyle,
-    shadowXOffset: $primaryButtonShadowXoffset,
-    shadowYOffset: $primaryButtonShadowYoffset,
-    shadowBlur: $primaryButtonShadowBlur,
-    shadowSpread: $primaryButtonShadowSpread,
-    shadowColor: $primaryButtonShadowColor
+    primaryButtonWidth: $primaryButtonWidth,
+    primaryButtonColor: $primaryButtonColor,
+    primaryButtonTextColor: $primaryButtonTextColor,
+    primaryButtonMarginTop: $primaryButtonMarginTop,
+    primaryButtonMarginRight: $primaryButtonMarginRight,
+    primaryButtonMarginBottom: $primaryButtonMarginBottom,
+    primaryButtonMarginLeft: $primaryButtonMarginLeft,
+    primaryButtonPaddingTop: $primaryButtonPaddingTop,
+    primaryButtonPaddingRight: $primaryButtonPaddingRight,
+    primaryButtonPaddingBottom: $primaryButtonPaddingBottom,
+    primaryButtonPaddingLeft: $primaryButtonPaddingLeft,
+    primaryButtonBorderSides: $primaryButtonBorderSides,
+    primaryButtonBorderWidth: $primaryButtonBorderWidth,
+    primaryButtonBorderStyle: $primaryButtonBorderStyle,
+    primaryButtonBorderColor: $primaryButtonBorderColor,
+    primaryButtonBorderRadius: $primaryButtonBorderRadius,
+    primaryButtonShadowStyle: $primaryButtonShadowStyle,
+    primaryButtonShadowXoffset: $primaryButtonShadowXoffset,
+    primaryButtonShadowYoffset: $primaryButtonShadowYoffset,
+    primaryButtonShadowBlur: $primaryButtonShadowBlur,
+    primaryButtonShadowSpread: $primaryButtonShadowSpread,
+    primaryButtonShadowColor: $primaryButtonShadowColor,
+    primaryButtonHoverColor: $primaryButtonHoverColor,
+    primaryButtonHoverTextColor: $primaryButtonHoverTextColor,
+    primaryButtonHoverBorderSides: $primaryButtonHoverBorderSides,
+    primaryButtonHoverBorderWidth: $primaryButtonHoverBorderWidth,
+    primaryButtonHoverBorderStyle: $primaryButtonHoverBorderStyle,
+    primaryButtonHoverBorderColor: $primaryButtonHoverBorderColor,
+    primaryButtonHoverBorderRadius: $primaryButtonHoverBorderRadius,
+    primaryButtonHoverShadowStyle: $primaryButtonHoverShadowStyle,
+    primaryButtonHoverShadowXoffset: $primaryButtonHoverShadowXoffset,
+    primaryButtonHoverShadowYoffset: $primaryButtonHoverShadowYoffset,
+    primaryButtonHoverShadowBlur: $primaryButtonHoverShadowBlur,
+    primaryButtonHoverShadowSpread: $primaryButtonHoverShadowSpread,
+    primaryButtonHoverShadowColor: $primaryButtonHoverShadowColor,
+    primaryButtonWidthTablet: $primaryButtonWidthTablet,
+    primaryButtonColorTablet: $primaryButtonColorTablet,
+    primaryButtonTextColorTablet: $primaryButtonTextColorTablet,
+    primaryButtonMarginTopTablet: $primaryButtonMarginTopTablet,
+    primaryButtonMarginRightTablet: $primaryButtonMarginRightTablet,
+    primaryButtonMarginBottomTablet: $primaryButtonMarginBottomTablet,
+    primaryButtonMarginLeftTablet: $primaryButtonMarginLeftTablet,
+    primaryButtonPaddingTopTablet: $primaryButtonPaddingTopTablet,
+    primaryButtonPaddingRightTablet: $primaryButtonPaddingRightTablet,
+    primaryButtonPaddingBottomTablet: $primaryButtonPaddingBottomTablet,
+    primaryButtonPaddingLeftTablet: $primaryButtonPaddingLeftTablet,
+    primaryButtonBorderSidesTablet: $primaryButtonBorderSidesTablet,
+    primaryButtonBorderWidthTablet: $primaryButtonBorderWidthTablet,
+    primaryButtonBorderStyleTablet: $primaryButtonBorderStyleTablet,
+    primaryButtonBorderColorTablet: $primaryButtonBorderColorTablet,
+    primaryButtonBorderRadiusTablet: $primaryButtonBorderRadiusTablet,
+    primaryButtonShadowStyleTablet: $primaryButtonShadowStyleTablet,
+    primaryButtonShadowXoffsetTablet: $primaryButtonShadowXoffsetTablet,
+    primaryButtonShadowYoffsetTablet: $primaryButtonShadowYoffsetTablet,
+    primaryButtonShadowBlurTablet: $primaryButtonShadowBlurTablet,
+    primaryButtonShadowSpreadTablet: $primaryButtonShadowSpreadTablet,
+    primaryButtonShadowColorTablet: $primaryButtonShadowColorTablet,
+    primaryButtonHoverColorTablet: $primaryButtonHoverColorTablet,
+    primaryButtonHoverTextColorTablet: $primaryButtonHoverTextColorTablet,
+    primaryButtonHoverBorderSidesTablet: $primaryButtonHoverBorderSidesTablet,
+    primaryButtonHoverBorderWidthTablet: $primaryButtonHoverBorderWidthTablet,
+    primaryButtonHoverBorderStyleTablet: $primaryButtonHoverBorderStyleTablet,
+    primaryButtonHoverBorderColorTablet: $primaryButtonHoverBorderColorTablet,
+    primaryButtonHoverBorderRadiusTablet: $primaryButtonHoverBorderRadiusTablet,
+    primaryButtonHoverShadowStyleTablet: $primaryButtonHoverShadowStyleTablet,
+    primaryButtonHoverShadowXoffsetTablet: $primaryButtonHoverShadowXoffsetTablet,
+    primaryButtonHoverShadowYoffsetTablet: $primaryButtonHoverShadowYoffsetTablet,
+    primaryButtonHoverShadowBlurTablet: $primaryButtonHoverShadowBlurTablet,
+    primaryButtonHoverShadowSpreadTablet: $primaryButtonHoverShadowSpreadTablet,
+    primaryButtonHoverShadowColorTablet: $primaryButtonHoverShadowColorTablet,
+    primaryButtonWidthDesktop: $primaryButtonWidthDesktop,
+    primaryButtonColorDesktop: $primaryButtonColorDesktop,
+    primaryButtonTextColorDesktop: $primaryButtonTextColorDesktop,
+    primaryButtonMarginTopDesktop: $primaryButtonMarginTopDesktop,
+    primaryButtonMarginRightDesktop: $primaryButtonMarginRightDesktop,
+    primaryButtonMarginBottomDesktop: $primaryButtonMarginBottomDesktop,
+    primaryButtonMarginLeftDesktop: $primaryButtonMarginLeftDesktop,
+    primaryButtonPaddingTopDesktop: $primaryButtonPaddingTopDesktop,
+    primaryButtonPaddingRightDesktop: $primaryButtonPaddingRightDesktop,
+    primaryButtonPaddingBottomDesktop: $primaryButtonPaddingBottomDesktop,
+    primaryButtonPaddingLeftDesktop: $primaryButtonPaddingLeftDesktop,
+    primaryButtonBorderSidesDesktop: $primaryButtonBorderSidesDesktop,
+    primaryButtonBorderWidthDesktop: $primaryButtonBorderWidthDesktop,
+    primaryButtonBorderStyleDesktop: $primaryButtonBorderStyleDesktop,
+    primaryButtonBorderColorDesktop: $primaryButtonBorderColorDesktop,
+    primaryButtonBorderRadiusDesktop: $primaryButtonBorderRadiusDesktop,
+    primaryButtonShadowStyleDesktop: $primaryButtonShadowStyleDesktop,
+    primaryButtonShadowXoffsetDesktop: $primaryButtonShadowXoffsetDesktop,
+    primaryButtonShadowYoffsetDesktop: $primaryButtonShadowYoffsetDesktop,
+    primaryButtonShadowBlurDesktop: $primaryButtonShadowBlurDesktop,
+    primaryButtonShadowSpreadDesktop: $primaryButtonShadowSpreadDesktop,
+    primaryButtonShadowColorDesktop: $primaryButtonShadowColorDesktop,
+    primaryButtonHoverColorDesktop $primaryButtonHoverColorDesktop,
+    primaryButtonHoverTextColorDesktop $primaryButtonHoverTextColorDesktop,
+    primaryButtonHoverBorderSidesDesktop $primaryButtonHoverBorderSidesDesktop,
+    primaryButtonHoverBorderWidthDesktop $primaryButtonHoverBorderWidthDesktop,
+    primaryButtonHoverBorderStyleDesktop $primaryButtonHoverBorderStyleDesktop,
+    primaryButtonHoverBorderColorDesktop $primaryButtonHoverBorderColorDesktop,
+    primaryButtonHoverBorderRadiusDesktop $primaryButtonHoverBorderRadiusDesktop,
+    primaryButtonHoverShadowStyleDesktop $primaryButtonHoverShadowStyleDesktop,
+    primaryButtonHoverShadowXoffsetDesktop $primaryButtonHoverShadowXoffsetDesktop,
+    primaryButtonHoverShadowYoffsetDesktop $primaryButtonHoverShadowYoffsetDesktop,
+    primaryButtonHoverShadowBlurDesktop $primaryButtonHoverShadowBlurDesktop,
+    primaryButtonHoverShadowSpreadDesktop $primaryButtonHoverShadowSpreadDesktop,
+    primaryButtonHoverShadowColorDesktop $primaryButtonHoverShadowColorDesktop
   ), $options);
 
-  width: map-get($configuration, width);
-  background-color: map-get($configuration, backgroundColor);
-  color: map-get($configuration, textColor);
-  border-radius: map-get($configuration, borderRadius);
-  padding: map-get($configuration, marginTop)
-    map-get($configuration, marginRight)
-    map-get($configuration, marginBottom)
-    map-get($configuration, marginLeft);
-  padding: map-get($configuration, paddingTop)
-    map-get($configuration, paddingRight)
-    map-get($configuration, paddingBottom)
-    map-get($configuration, paddingLeft);
+  .btn {
+    &.btn-primary {
+      width: map-get($configuration, primaryButtonWidth);
+      background-color: map-get($configuration, primaryButtonColor);
+      color: map-get($configuration, primaryButtonTextColor);
+      margin: map-get($configuration, primaryButtonMarginTop)
+        map-get($configuration, primaryButtonMarginRight)
+        map-get($configuration, primaryButtonMarginBottom)
+        map-get($configuration, primaryButtonMarginLeft);
+      padding: map-get($configuration, primaryButtonPaddingTop)
+        map-get($configuration, primaryButtonPaddingRight)
+        map-get($configuration, primaryButtonPaddingBottom)
+        map-get($configuration, primaryButtonPaddingLeft);
+      border-radius: map-get($configuration, primaryButtonBorderRadius);
 
-  // Border
-  @if map-get($configuration, borderSides) == 'none' {
-    border: none;
-  }
-  @if map-get($configuration, borderSides) == 'all' {
-    border: map-get($configuration, borderWidth)
-      map-get($configuration, borderStyle)
-      map-get($configuration, borderColor);
-  }
-  @if map-get($configuration, borderSides) == 'top' {
-    border-top: map-get($configuration, borderWidth)
-      map-get($configuration, borderStyle)
-      map-get($configuration, borderColor);
-  }
-  @if map-get($configuration, borderSides) == 'right' {
-    border-right: map-get($configuration, borderWidth)
-      map-get($configuration, borderStyle)
-      map-get($configuration, borderColor);
-  }
-  @if map-get($configuration, borderSides) == 'bottom' {
-    border-bottom: map-get($configuration, borderWidth)
-      map-get($configuration, borderStyle)
-      map-get($configuration, borderColor);
-  }
-  @if map-get($configuration, borderSides) == 'left' {
-    border-left: map-get($configuration, borderWidth)
-      map-get($configuration, borderStyle)
-      map-get($configuration, borderColor);
-  }
+      @include borderOnly((
+        borderSides: map-get($configuration, primaryButtonBorderSides),
+        borderWidth: map-get($configuration, primaryButtonBorderWidth),
+        borderStyle: map-get($configuration, primaryButtonBorderStyle),
+        borderColor: map-get($configuration, primaryButtonBorderColor)
+      ));
 
-  // Shadow
-  @if map-get($configuration, shadowStyle) == 'inset' {
-    box-shadow: map-get($configuration, shadowStyle)
-      map-get($configuration, shadowXOffset)
-      map-get($configuration, shadowYOffset)
-      map-get($configuration, shadowBlur)
-      map-get($configuration, shadowSpread)
-      map-get($configuration, shadowColor);
-  }
-  @if map-get($configuration, shadowStyle) == 'none' {
-    box-shadow: map-get($configuration, shadowStyle);
-  }
-  @if map-get($configuration, shadowStyle) == 'outset' {
-    box-shadow: map-get($configuration, shadowXOffset)
-      map-get($configuration, shadowYOffset)
-      map-get($configuration, shadowBlur)
-      map-get($configuration, shadowSpread)
-      map-get($configuration, shadowColor);
+      @include shadowOnly((
+        shadowStyle: map-get($configuration, primaryButtonShadowStyle),
+        shadowXOffset: map-get($configuration, primaryButtonShadowXoffset),
+        shadowYOffset: map-get($configuration, primaryButtonShadowYoffset),
+        shadowBlur: map-get($configuration, primaryButtonShadowBlur),
+        shadowSpread: map-get($configuration, primaryButtonShadowSpread),
+        shadowColor: map-get($configuration, primaryButtonShadowColor)
+      ));
+
+      &:focus,
+      &:hover,
+      &:active:focus,
+      &:active:hover {
+        background-color: map-get($configuration, primaryButtonHoverColor);
+        color: map-get($configuration, primaryButtonHoverTextColor);
+        border-radius: map-get($configuration, primaryButtonHoverBorderRadius);
+
+        @include borderOnly((
+          borderSides: map-get($configuration, primaryButtonHoverBorderSides),
+          borderWidth: map-get($configuration, primaryButtonHoverBorderWidth),
+          borderStyle: map-get($configuration, primaryButtonHoverBorderStyle),
+          borderColor: map-get($configuration, primaryButtonHoverBorderColor)
+        ));
+
+        @include shadowOnly((
+          shadowStyle: map-get($configuration, primaryButtonHoverShadowStyle),
+          shadowXOffset: map-get($configuration, primaryButtonHoverShadowXoffset),
+          shadowYOffset: map-get($configuration, primaryButtonHoverShadowYoffset),
+          shadowBlur: map-get($configuration, primaryButtonHoverShadowBlur),
+          shadowSpread: map-get($configuration, primaryButtonHoverShadowSpread),
+          shadowColor: map-get($configuration, primaryButtonHoverShadowColor)
+        ));
+      }
+
+      // Styles for tablet
+      @include above($tabletBreakpoint) {
+        width: map-get($configuration, primaryButtonWidthTablet);
+        background-color: map-get($configuration, primaryButtonColorTablet);
+        color: map-get($configuration, primaryButtonTextColorTablet);
+        margin: map-get($configuration, primaryButtonMarginTopTablet)
+          map-get($configuration, primaryButtonMarginRightTablet)
+          map-get($configuration, primaryButtonMarginBottomTablet)
+          map-get($configuration, primaryButtonMarginLeftTablet);
+        padding: map-get($configuration, primaryButtonPaddingTopTablet)
+          map-get($configuration, primaryButtonPaddingRightTablet)
+          map-get($configuration, primaryButtonPaddingBottomTablet)
+          map-get($configuration, primaryButtonPaddingLeftTablet);
+        border-radius: map-get($configuration, primaryButtonBorderRadiusTablet);
+
+        @include borderOnly((
+          borderSides: map-get($configuration, primaryButtonBorderSidesTablet),
+          borderWidth: map-get($configuration, primaryButtonBorderWidthTablet),
+          borderStyle: map-get($configuration, primaryButtonBorderStyleTablet),
+          borderColor: map-get($configuration, primaryButtonBorderColorTablet)
+        ));
+
+        @include shadowOnly((
+          shadowStyle: map-get($configuration, primaryButtonShadowStyleTablet),
+          shadowXOffset: map-get($configuration, primaryButtonShadowXoffsetTablet),
+          shadowYOffset: map-get($configuration, primaryButtonShadowYoffsetTablet),
+          shadowBlur: map-get($configuration, primaryButtonShadowBlurTablet),
+          shadowSpread: map-get($configuration, primaryButtonShadowSpreadTablet),
+          shadowColor: map-get($configuration, primaryButtonShadowColorTablet)
+        ));
+
+        &:focus,
+        &:hover,
+        &:active:focus,
+        &:active:hover {
+          background-color: map-get($configuration, primaryButtonHoverColorTablet);
+          color: map-get($configuration, primaryButtonHoverTextColorTablet);
+          border-radius: map-get($configuration, primaryButtonHoverBorderRadiusTablet);
+
+          @include borderOnly((
+            borderSides: map-get($configuration, primaryButtonHoverBorderSidesTablet),
+            borderWidth: map-get($configuration, primaryButtonHoverBorderWidthTablet),
+            borderStyle: map-get($configuration, primaryButtonHoverBorderStyleTablet),
+            borderColor: map-get($configuration, primaryButtonHoverBorderColorTablet)
+          ));
+
+          @include shadowOnly((
+            shadowStyle: map-get($configuration, primaryButtonHoverShadowStyleTablet),
+            shadowXOffset: map-get($configuration, primaryButtonHoverShadowXoffsetTablet),
+            shadowYOffset: map-get($configuration, primaryButtonHoverShadowYoffsetTablet),
+            shadowBlur: map-get($configuration, primaryButtonHoverShadowBlurTablet),
+            shadowSpread: map-get($configuration, primaryButtonHoverShadowSpreadTablet),
+            shadowColor: map-get($configuration, primaryButtonHoverShadowColorTablet)
+          ));
+        }
+      }
+
+      // Styles for desktop
+      @include above($desktopBreakpoint) {
+        width: map-get($configuration, primaryButtonWidthDesktop);
+        background-color: map-get($configuration, primaryButtonColorDesktop);
+        color: map-get($configuration, primaryButtonTextColorDesktop);
+        margin: map-get($configuration, primaryButtonMarginTopDesktop)
+          map-get($configuration, primaryButtonMarginRightDesktop)
+          map-get($configuration, primaryButtonMarginBottomDesktop)
+          map-get($configuration, primaryButtonMarginLeftDesktop);
+        padding: map-get($configuration, primaryButtonPaddingTopDesktop)
+          map-get($configuration, primaryButtonPaddingRightDesktop)
+          map-get($configuration, primaryButtonPaddingBottomDesktop)
+          map-get($configuration, primaryButtonPaddingLeftDesktop);
+        border-radius: map-get($configuration, primaryButtonBorderRadiusDesktop);
+
+        @include borderOnly((
+          borderSides: map-get($configuration, primaryButtonBorderSidesDesktop),
+          borderWidth: map-get($configuration, primaryButtonBorderWidthDesktop),
+          borderStyle: map-get($configuration, primaryButtonBorderStyleDesktop),
+          borderColor: map-get($configuration, primaryButtonBorderColorDesktop)
+        ));
+
+        @include shadowOnly((
+          shadowStyle: map-get($configuration, primaryButtonShadowStyleDesktop),
+          shadowXOffset: map-get($configuration, primaryButtonShadowXoffsetDesktop),
+          shadowYOffset: map-get($configuration, primaryButtonShadowYoffsetDesktop),
+          shadowBlur: map-get($configuration, primaryButtonShadowBlurDesktop),
+          shadowSpread: map-get($configuration, primaryButtonShadowSpreadDesktop),
+          shadowColor: map-get($configuration, primaryButtonShadowColorDesktop)
+        ));
+
+        &:focus,
+        &:hover,
+        &:active:focus,
+        &:active:hover {
+          background-color: map-get($configuration, primaryButtonHoverColorDesktop);
+          color: map-get($configuration, primaryButtonHoverTextColorDesktop);
+          border-radius: map-get($configuration, primaryButtonHoverBorderRadiusDesktop);
+
+          @include borderOnly((
+            borderSides: map-get($configuration, primaryButtonHoverBorderSidesDesktop),
+            borderWidth: map-get($configuration, primaryButtonHoverBorderWidthDesktop),
+            borderStyle: map-get($configuration, primaryButtonHoverBorderStyleDesktop),
+            borderColor: map-get($configuration, primaryButtonHoverBorderColorDesktop)
+          ));
+
+          @include shadowOnly((
+            shadowStyle: map-get($configuration, primaryButtonHoverShadowStyleDesktop),
+            shadowXOffset: map-get($configuration, primaryButtonHoverShadowXoffsetDesktop),
+            shadowYOffset: map-get($configuration, primaryButtonHoverShadowYoffsetDesktop),
+            shadowBlur: map-get($configuration, primaryButtonHoverShadowBlurDesktop),
+            shadowSpread: map-get($configuration, primaryButtonHoverShadowSpreadDesktop),
+            shadowColor: map-get($configuration, primaryButtonHoverShadowColorDesktop)
+          ));
+        }
+      }
+    }
   }
 }
 

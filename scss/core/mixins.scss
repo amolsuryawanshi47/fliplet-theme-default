@@ -85,3 +85,39 @@
   font-style: map-get($configuration, fontStyle);
   text-decoration: map-get($configuration, fontDecoration);
 }
+
+@mixin viewportHeader($options: ()) {
+  $configuration: map-merge((
+    headerBackgroundColor: '',
+    headerTextColor: '',
+    headerShadowStyle: '',
+    headerShadowXOffset: '',
+    headerShadowYOffset: '',
+    headerShadowBlur: '',
+    headerShadowSpread: '',
+    headerShadowColor: '',
+    headerBorderSides: '',
+    headerBorderWidth: '',
+    headerBorderStyle: '',
+    headerBorderColor: ''
+  ), $options);
+
+  background-color: map-get($configuration, headerBackgroundColor);
+  color: map-get($configuration, headerTextColor);
+
+  @include shadowOnly((
+    shadowStyle: map-get($configuration, headerShadowStyle),
+    shadowXOffset: map-get($configuration, headerShadowXOffset),
+    shadowYOffset: map-get($configuration, headerShadowYOffset),
+    shadowBlur: map-get($configuration, headerShadowBlur),
+    shadowSpread: map-get($configuration, headerShadowSpread),
+    shadowColor: map-get($configuration, headerShadowColor)
+  ));
+
+  @include borderOnly((
+    borderSides: map-get($configuration, headerBorderSides),
+    borderWidth: map-get($configuration, headerBorderWidth),
+    borderStyle: map-get($configuration, headerBorderStyle),
+    borderColor: map-get($configuration, headerBorderColor)
+  ));
+}

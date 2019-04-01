@@ -1,104 +1,103 @@
-/* SMALL CARDS */
-.new-small-card-list-container,
-.small-card-list-container {
-  .small-card-list-detail-wrapper {
-    background-color: $lfdBackgroundColor;
-  }
+@mixin lfd($options: ()) {
+  $configuration: map-merge((
+    lfdBackgroundColor: $lfdBackgroundColor,
+    lfdBackgroundColorTablet: $lfdBackgroundColorTablet,
+    lfdBackgroundColorDesktop: $lfdBackgroundColorDesktop,
+    lfdFontColor: $lfdFontColor,
+    lfdFontColorTablet: $lfdFontColorTablet,
+    lfdFontColorDesktop: $lfdFontColorDesktop,
+    lfdOverlayBackgroundColor: $lfdOverlayBackgroundColor,
+    lfdOverlayBackgroundColorTablet: $lfdOverlayBackgroundColorTablet,
+    lfdOverlayBackgroundColorDesktop: $lfdOverlayBackgroundColorDesktop,
+    lfdOverlayFontColor: $lfdOverlayFontColor,
+    lfdOverlayFontColorTablet: $lfdOverlayFontColorTablet,
+    lfdOverlayFontColorDesktop: $lfdOverlayFontColorDesktop,
+    lfdDetailBackgroundColor: $lfdDetailBackgroundColor,
+    lfdDetailBackgroundColorTablet: $lfdDetailBackgroundColorTablet,
+    lfdDetailBackgroundColorDesktop: $lfdDetailBackgroundColorDesktop,
+    lfdDetailFontColor: $lfdDetailFontColor,
+    lfdDetailFontColorTablet: $lfdDetailFontColorTablet,
+    lfdDetailFontColorDesktop: $lfdDetailFontColorDesktop,
+    lfdCommentsBackgroundColor: $lfdCommentsBackgroundColor,
+    lfdCommentsBackgroundColorTablet: $lfdCommentsBackgroundColorTablet,
+    lfdCommentsBackgroundColorDesktop: $lfdCommentsBackgroundColorDesktop,
+    lfdCommentsFontColor: $lfdCommentsFontColor,
+    lfdCommentsFontColorTablet: $lfdCommentsFontColorTablet,
+    lfdCommentsFontColorDesktop: $lfdCommentsFontColorDesktop,
+    lfdAgendaDatesBackgroundColor: $lfdAgendaDatesBackgroundColor,
+    lfdAgendaDatesBackgroundColorTablet: $lfdAgendaDatesBackgroundColorTablet,
+    lfdAgendaDatesBackgroundColorDesktop: $lfdAgendaDatesBackgroundColorDesktop,
+    lfdAgendaDatesFontColor: $lfdAgendaDatesFontColor,
+    lfdAgendaDatesFontColorTablet: $lfdAgendaDatesFontColorTablet,
+    lfdAgendaDatesFontColorDesktop: $lfdAgendaDatesFontColorDesktop,
+    lfdChevronColor: $lfdChevronColor,
+    lfdChevronColorTablet: $lfdChevronColorTablet,
+    lfdChevronColorDesktop: $lfdChevronColorDesktop,
+    lfdWidth: $lfdWidth,
+    lfdWidthTablet: $lfdWidthTablet,
+    lfdWidthDesktop: $lfdWidthDesktop,
+    lfdMaxWidth: $lfdMaxWidth,
+    lfdMaxWidthTablet: $lfdMaxWidthTablet,
+    lfdMaxWidthDesktop: $lfdMaxWidthDesktop,
+    lfdMarginTop: $lfdMarginTop,
+    lfdMarginTopTablet: $lfdMarginTopTablet,
+    lfdMarginTopDesktop: $lfdMarginTopDesktop,
+    lfdMarginRight: $lfdMarginRight,
+    lfdMarginRightTablet: $lfdMarginRightTablet,
+    lfdMarginRightDesktop: $lfdMarginRightDesktop,
+    lfdMarginBottom: $lfdMarginBottom,
+    lfdMarginBottomTablet: $lfdMarginBottomTablet,
+    lfdMarginBottomDesktop: $lfdMarginBottomDesktop,
+    lfdMarginLeft: $lfdMarginLeft,
+    lfdMarginLeftTablet: $lfdMarginLeftTablet,
+    lfdMarginLeftDesktop: $lfdMarginLeftDesktop,
+    lfdSeparatorSides: $lfdSeparatorSides,
+    lfdSeparatorSidesTablet: $lfdSeparatorSidesTablet,
+    lfdSeparatorSidesDesktop: $lfdSeparatorSidesDesktop,
+    lfdSeparatorWidth: $lfdSeparatorWidth,
+    lfdSeparatorWidthTablet: $lfdSeparatorWidthTablet,
+    lfdSeparatorWidthDesktop: $lfdSeparatorWidthDesktop,
+    lfdSeparatorStyle: $lfdSeparatorStyle,
+    lfdSeparatorStyleTablet: $lfdSeparatorStyleTablet,
+    lfdSeparatorStyleDesktop: $lfdSeparatorStyleDesktop,
+    lfdSeparatorColor: $lfdSeparatorColor,
+    lfdSeparatorColorTablet: $lfdSeparatorColorTablet,
+    lfdSeparatorColorDesktop: $lfdSeparatorColorDesktop,
+    lfdSeparatorRadius: $lfdSeparatorRadius,
+    lfdSeparatorRadiusTablet: $lfdSeparatorRadiusTablet,
+    lfdSeparatorRadiusDesktop: $lfdSeparatorRadiusDesktop
+  ), $options);
 
-  .small-card-search-filter-overlay {
-    .small-card-overlay-header {
-      background-color: $lfdOverlayBackgroundColor;
-    }
-
-    .small-card-overlay-wrapper {
-      background-color: $lfdOverlayBackgroundColor;
-      color: $lfdOverlayFontColor;
-    }
-
-    .hidden-filter-controls-filter {
-      border-color: rgba($lfdOverlayFontColor, 0.8);
-
-      &:hover,
-      &:focus {
-        color: rgba($lfdOverlayFontColor, 0.7);
-      }
-    }
-  }
-
-  .small-card-list-text-wrapper,
-  .small-card-list-detail-content-wrapper {
-    background-color: $lfdBackgroundColor;
-    color: $lfdFontColor;
-  }
-
-  .small-card-list-name,
-  .small-card-list-role,
-  .small-card-list-location,
-  .small-card-list-detail-role,
-  .small-card-list-detail-location {
-    color: $lfdFontColor;
-  }
-
-  .small-card-list-detail-name {
-    color: $lfdFontColor;
-
-    &:after {
-      background-color: $highlightColor;
-    }
-  }
-
-  .small-card-list-detail-button a {
-    color: $lfdFontColor;
-
-    &:hover,
-    &:focus,
-    &:active,
-    &:active:hover,
-    &:active:focus {
-      color: $lfdFontColor;
-    }
-  }
-
-  .small-card-list-detail-close-btn {
-    color: $lfdFontColor;
-    background: rgba($lfdBackgroundColor, 0.5);
-  }
-
-  .small-card-list-detail-image-wrapper {
-    color: rgba($lfdFontColor, 0.1);
-    background-color: rgba($lfdFontColor, 0.04);
-  }
-
-  // Styles for tablet
-  @include above($tabletBreakpoint) {
+  .new-small-card-list-container,
+  .small-card-list-container {
     .small-card-list-detail-wrapper {
-      background-color: $lfdBackgroundColorTablet;
+      background-color: map-get($configuration, lfdBackgroundColor);
     }
 
     .small-card-search-filter-overlay {
       .small-card-overlay-header {
-        background-color: $lfdOverlayBackgroundColorTablet;
+        background-color: map-get($configuration, lfdOverlayBackgroundColor);
       }
 
       .small-card-overlay-wrapper {
-        background-color: $lfdOverlayBackgroundColorTablet;
-        color: $lfdOverlayFontColorTablet;
+        background-color: map-get($configuration, lfdOverlayBackgroundColor);
+        color: map-get($configuration, lfdOverlayFontColor);
       }
 
       .hidden-filter-controls-filter {
-        border-color: rgba($lfdOverlayFontColorTablet, 0.8);
+        border-color: rgba(map-get($configuration, lfdOverlayFontColor), 0.8);
 
         &:hover,
         &:focus {
-          color: rgba($lfdOverlayFontColorTablet, 0.7);
+          color: rgba(map-get($configuration, lfdOverlayFontColor), 0.7);
         }
       }
     }
 
     .small-card-list-text-wrapper,
     .small-card-list-detail-content-wrapper {
-      background-color: $lfdBackgroundColorTablet;
-      color: $lfdFontColorTablet;
+      background-color: map-get($configuration, lfdBackgroundColor);
+      color: map-get($configuration, lfdFontColor);
     }
 
     .small-card-list-name,
@@ -106,312 +105,249 @@
     .small-card-list-location,
     .small-card-list-detail-role,
     .small-card-list-detail-location {
-      color: $lfdFontColorTablet;
+      color: map-get($configuration, lfdFontColor);
     }
 
     .small-card-list-detail-name {
-      color: $lfdFontColorTablet;
+      color: map-get($configuration, lfdFontColor);
 
       &:after {
-        background-color: $highlightColorTablet;
+        background-color: $highlightColor;
       }
     }
 
     .small-card-list-detail-button a {
-      color: $lfdFontColorTablet;
+      color: map-get($configuration, lfdFontColor);
 
       &:hover,
       &:focus,
       &:active,
       &:active:hover,
       &:active:focus {
-        color: $lfdFontColorTablet;
+        color: map-get($configuration, lfdFontColor);
       }
     }
 
     .small-card-list-detail-close-btn {
-      color: $lfdFontColorTablet;
-      background: rgba($lfdBackgroundColorTablet, 0.5);
+      color: map-get($configuration, lfdFontColor);
+      background: rgba(map-get($configuration, lfdBackgroundColor), 0.5);
     }
 
     .small-card-list-detail-image-wrapper {
-      color: rgba($lfdFontColorTablet, 0.1);
-      background-color: rgba($lfdFontColorTablet, 0.04);
-    }
-  }
-
-  // Styles for desktop
-  @include above($desktopBreakpoint) {
-    .small-card-list-detail-wrapper {
-      background-color: $lfdBackgroundColorDesktop;
-    }
-
-    .small-card-search-filter-overlay {
-      .small-card-overlay-header {
-        background-color: $lfdOverlayBackgroundColorDesktop;
-      }
-
-      .small-card-overlay-wrapper {
-        background-color: $lfdOverlayBackgroundColorDesktop;
-        color: $lfdOverlayFontColorDesktop;
-      }
-
-      .hidden-filter-controls-filter {
-        border-color: rgba($lfdOverlayFontColorDesktop, 0.8);
-
-        &:hover,
-        &:focus {
-          color: rgba($lfdOverlayFontColorDesktop, 0.7);
-        }
-      }
-    }
-
-    .small-card-list-text-wrapper,
-    .small-card-list-detail-content-wrapper {
-      background-color: $lfdBackgroundColorDesktop;
-      color: $lfdFontColorDesktop;
-    }
-
-    .small-card-list-name,
-    .small-card-list-role,
-    .small-card-list-location,
-    .small-card-list-detail-role,
-    .small-card-list-detail-location {
-      color: $lfdFontColorDesktop;
-    }
-
-    .small-card-list-detail-name {
-      color: $lfdFontColorDesktop;
-
-      &:after {
-        background-color: $highlightColorDesktop;
-      }
-    }
-
-    .small-card-list-detail-button a {
-      color: $lfdFontColorDesktop;
-
-      &:hover,
-      &:focus,
-      &:active,
-      &:active:hover,
-      &:active:focus {
-        color: $lfdFontColorDesktop;
-      }
-    }
-
-    .small-card-list-detail-close-btn {
-      color: $lfdFontColorDesktop;
-      background: rgba($lfdBackgroundColorDesktop, 0.5);
-    }
-
-    .small-card-list-detail-image-wrapper {
-      color: rgba($lfdFontColorDesktop, 0.1);
-      background-color: rgba($lfdFontColorDesktop, 0.04);
-    }
-  }
-}
-
-.new-small-card-list-container {
-  .small-card-list-detail-wrapper.open {
-    background-color: $lfdDetailBackgroundColor;
-  }
-
-  .small-card-bookmark-holder {
-    .fa-bookmark-o {
-      color: rgba($lfdDetailFontColor, 0.2);
-    }
-
-    .fa-bookmark {
-      color: $highlightColor;
-    }
-  }
-
-  // Styles for tablet
-  @include above($tabletBreakpoint) {
-    .small-card-list-detail-wrapper.open {
-      background-color: $lfdDetailBackgroundColorTablet;
-    }
-
-    .small-card-bookmark-holder {
-      .fa-bookmark-o {
-        color: rgba($lfdDetailFontColorTablet, 0.2);
-      }
-
-      .fa-bookmark {
-        color: $highlightColorTablet;
-      }
-    }
-  }
-
-  // Styles for desktop
-  @include above($desktopBreakpoint) {
-    .small-card-list-detail-wrapper.open {
-      background-color: $lfdDetailBackgroundColorDesktop;
-    }
-
-    .small-card-bookmark-holder {
-      .fa-bookmark-o {
-        color: rgba($lfdDetailFontColorDesktop, 0.2);
-      }
-
-      .fa-bookmark {
-        color: $highlightColorDesktop;
-      }
-    }
-  }
-}
-
-.small-card-detail-overlay {
-  .small-card-detail-overlay-wrapper {
-    .small-card-detail-overlay-panel {
-      background-color: $lfdDetailBackgroundColor;
-
-      .small-card-detail-wrapper {
-        .small-card-list-detail-content-wrapper {
-          background-color: $lfdDetailBackgroundColor;
-          color: $lfdDetailFontColor;
-
-          .small-card-bookmark-holder {
-            .fa-bookmark-o {
-              color: rgba($lfdDetailFontColor, 0.2);
-            }
-
-            .fa-bookmark {
-              color: $highlightColor;
-            }
-          }
-
-          .small-card-list-name,
-          .small-card-list-role,
-          .small-card-list-location,
-          .small-card-list-detail-role,
-          .small-card-list-detail-location {
-            color: $lfdDetailFontColor;
-          }
-
-          .small-card-list-detail-name {
-            color: $lfdDetailFontColor;
-
-            &:after {
-              background-color: $highlightColor;
-            }
-          }
-
-          .small-card-list-detail-button a {
-            color: $lfdDetailFontColor;
-
-            &:hover,
-            &:focus,
-            &:active,
-            &:active:hover,
-            &:active:focus {
-              color: $lfdDetailFontColor;
-            }
-          }
-
-          .small-card-detail-overlay-close {
-            background-color: rgba($lfdDetailBackgroundColor, 0.5);
-            color: $lfdDetailFontColor;
-          }
-        }
-
-        .small-card-list-detail-image-wrapper {
-          color: rgba($lfdDetailFontColor, 0.1);
-          background-color: rgba($lfdDetailFontColor, 0.04);
-        }
-      }
-    }
-
-    .small-card-detail-overlay-close {
-      background-color: rgba($lfdDetailBackgroundColor, 0.5);
-      color: $lfdDetailFontColor;
+      color: rgba(map-get($configuration, lfdFontColor), 0.1);
+      background-color: rgba(map-get($configuration, lfdFontColor), 0.04);
     }
 
     // Styles for tablet
     @include above($tabletBreakpoint) {
-      .small-card-detail-overlay-panel {
-        background-color: $lfdDetailBackgroundColorTablet;
+      .small-card-list-detail-wrapper {
+        background-color: map-get($configuration, lfdBackgroundColorTablet);
+      }
 
-        .small-card-detail-wrapper {
-          .small-card-list-detail-content-wrapper {
-            background-color: $lfdDetailBackgroundColorTablet;
-            color: $lfdDetailFontColorTablet;
+      .small-card-search-filter-overlay {
+        .small-card-overlay-header {
+          background-color: map-get($configuration, lfdOverlayBackgroundColorTablet);
+        }
 
-            .small-card-bookmark-holder {
-              .fa-bookmark-o {
-                color: rgba($lfdDetailFontColorTablet, 0.2);
-              }
+        .small-card-overlay-wrapper {
+          background-color: map-get($configuration, lfdOverlayBackgroundColorTablet);
+          color: map-get($configuration, lfdOverlayFontColorTablet);
+        }
 
-              .fa-bookmark {
-                color: $highlightColorTablet;
-              }
-            }
+        .hidden-filter-controls-filter {
+          border-color: rgba(map-get($configuration, lfdOverlayFontColorTablet), 0.8);
 
-            .small-card-list-name,
-            .small-card-list-role,
-            .small-card-list-location,
-            .small-card-list-detail-role,
-            .small-card-list-detail-location {
-              color: $lfdDetailFontColorTablet;
-            }
-
-            .small-card-list-detail-name {
-              color: $lfdDetailFontColorTablet;
-
-              &:after {
-                background-color: $highlightColorTablet;
-              }
-            }
-
-            .small-card-list-detail-button a {
-              color: $lfdDetailFontColorTablet;
-
-              &:hover,
-              &:focus,
-              &:active,
-              &:active:hover,
-              &:active:focus {
-                color: $lfdDetailFontColorTablet;
-              }
-            }
-
-            .small-card-detail-overlay-close {
-              background-color: rgba($lfdDetailBackgroundColorTablet, 0.5);
-              color: $lfdDetailFontColorTablet;
-            }
-          }
-
-          .small-card-list-detail-image-wrapper {
-            color: rgba($lfdDetailFontColorTablet, 0.1);
-            background-color: rgba($lfdDetailFontColorTablet, 0.04);
+          &:hover,
+          &:focus {
+            color: rgba(map-get($configuration, lfdOverlayFontColorTablet), 0.7);
           }
         }
       }
 
-      .small-card-detail-overlay-close {
-        background-color: rgba($lfdDetailBackgroundColorTablet, 0.5);
-        color: $lfdDetailFontColorTablet;
+      .small-card-list-text-wrapper,
+      .small-card-list-detail-content-wrapper {
+        background-color: map-get($configuration, lfdBackgroundColorTablet);
+        color: map-get($configuration, lfdFontColorTablet);
+      }
+
+      .small-card-list-name,
+      .small-card-list-role,
+      .small-card-list-location,
+      .small-card-list-detail-role,
+      .small-card-list-detail-location {
+        color: map-get($configuration, lfdFontColorTablet);
+      }
+
+      .small-card-list-detail-name {
+        color: map-get($configuration, lfdFontColorTablet);
+
+        &:after {
+          background-color: $highlightColorTablet;
+        }
+      }
+
+      .small-card-list-detail-button a {
+        color: map-get($configuration, lfdFontColorTablet);
+
+        &:hover,
+        &:focus,
+        &:active,
+        &:active:hover,
+        &:active:focus {
+          color: map-get($configuration, lfdFontColorTablet);
+        }
+      }
+
+      .small-card-list-detail-close-btn {
+        color: map-get($configuration, lfdFontColorTablet);
+        background: rgba(map-get($configuration, lfdBackgroundColorTablet), 0.5);
+      }
+
+      .small-card-list-detail-image-wrapper {
+        color: rgba(map-get($configuration, lfdFontColorTablet), 0.1);
+        background-color: rgba(map-get($configuration, lfdFontColorTablet), 0.04);
       }
     }
 
     // Styles for desktop
     @include above($desktopBreakpoint) {
+      .small-card-list-detail-wrapper {
+        background-color: map-get($configuration, lfdBackgroundColorDesktop);
+      }
+
+      .small-card-search-filter-overlay {
+        .small-card-overlay-header {
+          background-color: map-get($configuration, lfdOverlayBackgroundColorDesktop);
+        }
+
+        .small-card-overlay-wrapper {
+          background-color: map-get($configuration, lfdOverlayBackgroundColorDesktop);
+          color: map-get($configuration, lfdOverlayFontColorDesktop);
+        }
+
+        .hidden-filter-controls-filter {
+          border-color: rgba(map-get($configuration, lfdOverlayFontColorDesktop), 0.8);
+
+          &:hover,
+          &:focus {
+            color: rgba(map-get($configuration, lfdOverlayFontColorDesktop), 0.7);
+          }
+        }
+      }
+
+      .small-card-list-text-wrapper,
+      .small-card-list-detail-content-wrapper {
+        background-color: map-get($configuration, lfdBackgroundColorDesktop);
+        color: map-get($configuration, lfdFontColorDesktop);
+      }
+
+      .small-card-list-name,
+      .small-card-list-role,
+      .small-card-list-location,
+      .small-card-list-detail-role,
+      .small-card-list-detail-location {
+        color: map-get($configuration, lfdFontColorDesktop);
+      }
+
+      .small-card-list-detail-name {
+        color: map-get($configuration, lfdFontColorDesktop);
+
+        &:after {
+          background-color: $highlightColorDesktop;
+        }
+      }
+
+      .small-card-list-detail-button a {
+        color: map-get($configuration, lfdFontColorDesktop);
+
+        &:hover,
+        &:focus,
+        &:active,
+        &:active:hover,
+        &:active:focus {
+          color: map-get($configuration, lfdFontColorDesktop);
+        }
+      }
+
+      .small-card-list-detail-close-btn {
+        color: map-get($configuration, lfdFontColorDesktop);
+        background: rgba(map-get($configuration, lfdBackgroundColorDesktop), 0.5);
+      }
+
+      .small-card-list-detail-image-wrapper {
+        color: rgba(map-get($configuration, lfdFontColorDesktop), 0.1);
+        background-color: rgba(map-get($configuration, lfdFontColorDesktop), 0.04);
+      }
+    }
+  }
+
+  .new-small-card-list-container {
+    .small-card-list-detail-wrapper.open {
+      background-color: map-get($configuration, lfdDetailBackgroundColor);
+    }
+
+    .small-card-bookmark-holder {
+      .fa-bookmark-o {
+        color: rgba(map-get($configuration, lfdDetailFontColor), 0.2);
+      }
+
+      .fa-bookmark {
+        color: $highlightColor;
+      }
+    }
+
+    // Styles for tablet
+    @include above($tabletBreakpoint) {
+      .small-card-list-detail-wrapper.open {
+        background-color: map-get($configuration, lfdDetailBackgroundColorTablet);
+      }
+
+      .small-card-bookmark-holder {
+        .fa-bookmark-o {
+          color: rgba(map-get($configuration, lfdDetailFontColorTablet), 0.2);
+        }
+
+        .fa-bookmark {
+          color: $highlightColorTablet;
+        }
+      }
+    }
+
+    // Styles for desktop
+    @include above($desktopBreakpoint) {
+      .small-card-list-detail-wrapper.open {
+        background-color: map-get($configuration, lfdDetailBackgroundColorDesktop);
+      }
+
+      .small-card-bookmark-holder {
+        .fa-bookmark-o {
+          color: rgba(map-get($configuration, lfdDetailFontColorDesktop), 0.2);
+        }
+
+        .fa-bookmark {
+          color: $highlightColorDesktop;
+        }
+      }
+    }
+  }
+
+  .small-card-detail-overlay {
+    .small-card-detail-overlay-wrapper {
       .small-card-detail-overlay-panel {
-        background-color: $lfdDetailBackgroundColorDesktop;
+        background-color: map-get($configuration, lfdDetailBackgroundColor);
 
         .small-card-detail-wrapper {
           .small-card-list-detail-content-wrapper {
-            background-color: $lfdDetailBackgroundColorDesktop;
-            color: $lfdDetailFontColorDesktop;
+            background-color: map-get($configuration, lfdDetailBackgroundColor);
+            color: map-get($configuration, lfdDetailFontColor);
 
             .small-card-bookmark-holder {
               .fa-bookmark-o {
-                color: rgba($lfdDetailFontColorDesktop, 0.2);
+                color: rgba(map-get($configuration, lfdDetailFontColor), 0.2);
               }
 
               .fa-bookmark {
-                color: $highlightColorDesktop;
+                color: $highlightColor;
               }
             }
 
@@ -420,223 +356,333 @@
             .small-card-list-location,
             .small-card-list-detail-role,
             .small-card-list-detail-location {
-              color: $lfdDetailFontColorDesktop;
+              color: map-get($configuration, lfdDetailFontColor);
             }
 
             .small-card-list-detail-name {
-              color: $lfdDetailFontColorDesktop;
+              color: map-get($configuration, lfdDetailFontColor);
 
               &:after {
-                background-color: $highlightColorDesktop;
+                background-color: $highlightColor;
               }
             }
 
             .small-card-list-detail-button a {
-              color: $lfdDetailFontColorDesktop;
+              color: map-get($configuration, lfdDetailFontColor);
 
               &:hover,
               &:focus,
               &:active,
               &:active:hover,
               &:active:focus {
-                color: $lfdDetailFontColorDesktop;
+                color: map-get($configuration, lfdDetailFontColor);
               }
             }
 
             .small-card-detail-overlay-close {
-              background-color: rgba($lfdDetailBackgroundColorDesktop, 0.5);
-              color: $lfdDetailFontColorDesktop;
+              background-color: rgba(map-get($configuration, lfdDetailBackgroundColor), 0.5);
+              color: map-get($configuration, lfdDetailFontColor);
             }
           }
 
           .small-card-list-detail-image-wrapper {
-            color: rgba($lfdDetailFontColorDesktop, 0.1);
-            background-color: rgba($lfdDetailFontColorDesktop, 0.04);
+            color: rgba(map-get($configuration, lfdDetailFontColor), 0.1);
+            background-color: rgba(map-get($configuration, lfdDetailFontColor), 0.04);
           }
         }
       }
 
       .small-card-detail-overlay-close {
-        background-color: rgba($lfdDetailBackgroundColorDesktop, 0.5);
-        color: $lfdDetailFontColorDesktop;
+        background-color: rgba(map-get($configuration, lfdDetailBackgroundColor), 0.5);
+        color: map-get($configuration, lfdDetailFontColor);
+      }
+
+      // Styles for tablet
+      @include above($tabletBreakpoint) {
+        .small-card-detail-overlay-panel {
+          background-color: map-get($configuration, lfdDetailBackgroundColorTablet);
+
+          .small-card-detail-wrapper {
+            .small-card-list-detail-content-wrapper {
+              background-color: map-get($configuration, lfdDetailBackgroundColorTablet);
+              color: map-get($configuration, lfdDetailFontColorTablet);
+
+              .small-card-bookmark-holder {
+                .fa-bookmark-o {
+                  color: rgba(map-get($configuration, lfdDetailFontColorTablet), 0.2);
+                }
+
+                .fa-bookmark {
+                  color: $highlightColorTablet;
+                }
+              }
+
+              .small-card-list-name,
+              .small-card-list-role,
+              .small-card-list-location,
+              .small-card-list-detail-role,
+              .small-card-list-detail-location {
+                color: map-get($configuration, lfdDetailFontColorTablet);
+              }
+
+              .small-card-list-detail-name {
+                color: map-get($configuration, lfdDetailFontColorTablet);
+
+                &:after {
+                  background-color: $highlightColorTablet;
+                }
+              }
+
+              .small-card-list-detail-button a {
+                color: map-get($configuration, lfdDetailFontColorTablet);
+
+                &:hover,
+                &:focus,
+                &:active,
+                &:active:hover,
+                &:active:focus {
+                  color: map-get($configuration, lfdDetailFontColorTablet);
+                }
+              }
+
+              .small-card-detail-overlay-close {
+                background-color: rgba(map-get($configuration, lfdDetailBackgroundColorTablet), 0.5);
+                color: map-get($configuration, lfdDetailFontColorTablet);
+              }
+            }
+
+            .small-card-list-detail-image-wrapper {
+              color: rgba(map-get($configuration, lfdDetailFontColorTablet), 0.1);
+              background-color: rgba(map-get($configuration, lfdDetailFontColorTablet), 0.04);
+            }
+          }
+        }
+
+        .small-card-detail-overlay-close {
+          background-color: rgba(map-get($configuration, lfdDetailBackgroundColorTablet), 0.5);
+          color: map-get($configuration, lfdDetailFontColorTablet);
+        }
+      }
+
+      // Styles for desktop
+      @include above($desktopBreakpoint) {
+        .small-card-detail-overlay-panel {
+          background-color: map-get($configuration, lfdDetailBackgroundColorDesktop);
+
+          .small-card-detail-wrapper {
+            .small-card-list-detail-content-wrapper {
+              background-color: map-get($configuration, lfdDetailBackgroundColorDesktop);
+              color: map-get($configuration, lfdDetailFontColorDesktop);
+
+              .small-card-bookmark-holder {
+                .fa-bookmark-o {
+                  color: rgba(map-get($configuration, lfdDetailFontColorDesktop), 0.2);
+                }
+
+                .fa-bookmark {
+                  color: $highlightColorDesktop;
+                }
+              }
+
+              .small-card-list-name,
+              .small-card-list-role,
+              .small-card-list-location,
+              .small-card-list-detail-role,
+              .small-card-list-detail-location {
+                color: map-get($configuration, lfdDetailFontColorDesktop);
+              }
+
+              .small-card-list-detail-name {
+                color: map-get($configuration, lfdDetailFontColorDesktop);
+
+                &:after {
+                  background-color: $highlightColorDesktop;
+                }
+              }
+
+              .small-card-list-detail-button a {
+                color: map-get($configuration, lfdDetailFontColorDesktop);
+
+                &:hover,
+                &:focus,
+                &:active,
+                &:active:hover,
+                &:active:focus {
+                  color: map-get($configuration, lfdDetailFontColorDesktop);
+                }
+              }
+
+              .small-card-detail-overlay-close {
+                background-color: rgba(map-get($configuration, lfdDetailBackgroundColorDesktop), 0.5);
+                color: map-get($configuration, lfdDetailFontColorDesktop);
+              }
+            }
+
+            .small-card-list-detail-image-wrapper {
+              color: rgba(map-get($configuration, lfdDetailFontColorDesktop), 0.1);
+              background-color: rgba(map-get($configuration, lfdDetailFontColorDesktop), 0.04);
+            }
+          }
+        }
+
+        .small-card-detail-overlay-close {
+          background-color: rgba(map-get($configuration, lfdDetailBackgroundColorDesktop), 0.5);
+          color: map-get($configuration, lfdDetailFontColorDesktop);
+        }
       }
     }
   }
-}
 
-.new-news-feed-list-container .news-feed-search-filter-overlay,
-.simple-list-search-filter-overlay {
-  .news-feed-overlay-wrapper,
-  .simple-list-overlay-wrapper {
-    background-color: $lfdOverlayBackgroundColor;
-    color: $lfdOverlayFontColor;
-  }
-
-  .news-feed-overlay-header,
-  .simple-list-overlay-header {
-    background-color: $lfdOverlayBackgroundColor;
-  }
-
-  .hidden-filter-controls-filter {
-    border-color: rgba($lfdOverlayFontColor, 0.8);
-
-    &:hover,
-    &:focus {
-      color: rgba($lfdOverlayFontColor, 0.7);
-    }
-  }
-
-  // Styles for tablet
-  @include above($tabletBreakpoint) {
-    .news-feed-overlay-wrapper,
-    .simple-list-overlay-wrapper {
-      background-color: $lfdOverlayBackgroundColorTablet;
-      color: $lfdOverlayFontColorTablet;
-    }
-
-    .news-feed-overlay-header,
-    .simple-list-overlay-header {
-      background-color: $lfdOverlayBackgroundColorTablet;
-    }
-
-    .hidden-filter-controls-filter {
-      border-color: rgba($lfdOverlayFontColorTablet, 0.8);
-
-      &:hover,
-      &:focus {
-        color: rgba($lfdOverlayFontColorTablet, 0.7);
-      }
-    }
-  }
-
-  // Styles for desktop
-  @include above($desktopBreakpoint) {
-    .news-feed-overlay-wrapper,
-    .simple-list-overlay-wrapper {
-      background-color: $lfdOverlayBackgroundColorDesktop;
-      color: $lfdOverlayFontColorDesktop;
-    }
-
-    .news-feed-overlay-header,
-    .simple-list-overlay-header {
-      background-color: $lfdOverlayBackgroundColorDesktop;
-    }
-
-    .hidden-filter-controls-filter {
-      border-color: rgba($lfdOverlayFontColorDesktop, 0.8);
-
-      &:hover,
-      &:focus {
-        color: rgba($lfdOverlayFontColorDesktop, 0.7);
-      }
-    }
-  }
-}
-
-.new-small-card-list-container,
-.small-card-list-container,
-.new-news-feed-list-container,
-.news-feed-list-container,
-.simple-list-container {
-  width: $lfdWidth;
-  max-width: $lfdMaxWidth;
-  margin: $lfdMarginTop
-    $lfdMarginRight
-    $lfdMarginBottom
-    $lfdMarginLeft;
-
-  .news-feed-search-filter-overlay,
-  .small-card-search-filter-overlay,
+  .new-news-feed-list-container .news-feed-search-filter-overlay,
   .simple-list-search-filter-overlay {
-    .apply-filters,
-    .hidden-filter-controls-filter.mixitup-control-active {
-      background-color: $highlightColor;
-      color: $primaryButtonTextColor;
-      border-color: $highlightColor;
+    .news-feed-overlay-wrapper,
+    .simple-list-overlay-wrapper {
+      background-color: map-get($configuration, lfdOverlayBackgroundColor);
+      color: map-get($configuration, lfdOverlayFontColor);
     }
-  }
 
-  .filter-holder {
-    .panel-default > .panel-heading {
-      color: $lfdOverlayFontColor;
-      background-color: $lfdOverlayBackgroundColor;
-      border-bottom: 1px solid rgba($lfdOverlayFontColor, 0.2);
+    .news-feed-overlay-header,
+    .simple-list-overlay-header {
+      background-color: map-get($configuration, lfdOverlayBackgroundColor);
     }
-    .panel-group .panel {
-      background-color: lighten($lfdOverlayBackgroundColor, 10%);
 
-      .panel-body {
-        background-color: transparent;
+    .hidden-filter-controls-filter {
+      border-color: rgba(map-get($configuration, lfdOverlayFontColor), 0.8);
+
+      &:hover,
+      &:focus {
+        color: rgba(map-get($configuration, lfdOverlayFontColor), 0.7);
+      }
+    }
+
+    // Styles for tablet
+    @include above($tabletBreakpoint) {
+      .news-feed-overlay-wrapper,
+      .simple-list-overlay-wrapper {
+        background-color: map-get($configuration, lfdOverlayBackgroundColorTablet);
+        color: map-get($configuration, lfdOverlayFontColorTablet);
+      }
+
+      .news-feed-overlay-header,
+      .simple-list-overlay-header {
+        background-color: map-get($configuration, lfdOverlayBackgroundColorTablet);
+      }
+
+      .hidden-filter-controls-filter {
+        border-color: rgba(map-get($configuration, lfdOverlayFontColorTablet), 0.8);
+
+        &:hover,
+        &:focus {
+          color: rgba(map-get($configuration, lfdOverlayFontColorTablet), 0.7);
+        }
+      }
+    }
+
+    // Styles for desktop
+    @include above($desktopBreakpoint) {
+      .news-feed-overlay-wrapper,
+      .simple-list-overlay-wrapper {
+        background-color: map-get($configuration, lfdOverlayBackgroundColorDesktop);
+        color: map-get($configuration, lfdOverlayFontColorDesktop);
+      }
+
+      .news-feed-overlay-header,
+      .simple-list-overlay-header {
+        background-color: map-get($configuration, lfdOverlayBackgroundColorDesktop);
+      }
+
+      .hidden-filter-controls-filter {
+        border-color: rgba(map-get($configuration, lfdOverlayFontColorDesktop), 0.8);
+
+        &:hover,
+        &:focus {
+          color: rgba(map-get($configuration, lfdOverlayFontColorDesktop), 0.7);
+        }
       }
     }
   }
 
-  // The use of !important in this case is to avoid CSS repetion
-  // Some layouts on the LFD component have more specific targets
+  .new-small-card-list-container,
+  .small-card-list-container,
+  .new-news-feed-list-container,
+  .news-feed-list-container,
+  .simple-list-container {
+    width: map-get($configuration, lfdWidth);
+    max-width: map-get($configuration, lfdMaxWidth);
+    margin: map-get($configuration, lfdMarginTop)
+      map-get($configuration, lfdMarginRight)
+      map-get($configuration, lfdMarginBottom)
+      map-get($configuration, lfdMarginLeft);
 
-  .search-holder {
-    .fa {
-      color: $highlightColor;
-    }
-    .form-control {
-      background-color: $bodyBackground;
-      color: $bodyTextColor;
-
-      &:focus {
+    .news-feed-search-filter-overlay,
+    .small-card-search-filter-overlay,
+    .simple-list-search-filter-overlay {
+      .apply-filters,
+      .hidden-filter-controls-filter.mixitup-control-active {
+        background-color: $highlightColor;
+        color: $primaryButtonTextColor;
         border-color: $highlightColor;
       }
     }
-    .btn.search-btn {
-      border: none;
-      background-color: rgba($bodyTextColor, 0.1);
-      color: $bodyTextColor;
 
-      &:hover,
-      &:active,
-      &:active:hover {
-        border: none;
+    .filter-holder {
+      .panel-default > .panel-heading {
+        color: map-get($configuration, lfdOverlayFontColor);
+        background-color: map-get($configuration, lfdOverlayBackgroundColor);
+        border-bottom: 1px solid rgba(map-get($configuration, lfdOverlayFontColor), 0.2);
+      }
+      .panel-group .panel {
+        background-color: lighten(map-get($configuration, lfdOverlayBackgroundColor), 10%);
+
+        .panel-body {
+          background-color: transparent;
+        }
       }
     }
 
-    .search-feed:focus ~ .btn.search-btn {
-      border: none;
+    // The use of !important in this case is to avoid CSS repetion
+    // Some layouts on the LFD component have more specific targets
+
+    .search-holder {
+      .fa {
+        color: $highlightColor;
+      }
+      .form-control {
+        background-color: $bodyBackground;
+        color: $bodyTextColor;
+
+        &:focus {
+          border-color: $highlightColor;
+        }
+      }
+      .btn.search-btn {
+        border: none;
+        background-color: rgba($bodyTextColor, 0.1);
+        color: $bodyTextColor;
+
+        &:hover,
+        &:active,
+        &:active:hover {
+          border: none;
+        }
+      }
+
+      .search-feed:focus ~ .btn.search-btn {
+        border: none;
+      }
+
+      .list-search-icon .fa {
+        opacity: 1;
+        color: $highlightColor !important;
+      }
+
+      & ~ .list-search-icon .fa {
+        opacity: 1;
+        color: $highlightColor !important;
+      }
     }
 
-    .list-search-icon .fa {
-      opacity: 1;
-      color: $highlightColor !important;
-    }
-
-    & ~ .list-search-icon .fa {
-      opacity: 1;
-      color: $highlightColor !important;
-    }
-  }
-
-  .hidden-search-controls .current-query-wrapper {
-    border-color: $highlightColor;
-    background-color: $highlightColor;
-    color: $primaryButtonTextColor;
-
-    &:hover,
-    &:focus {
-      color: rgba($primaryButtonTextColor, 0.7);
-    }
-  }
-
-  .hidden-filter-controls-label {
-    color: rgba($bodyTextColor, 0.5);
-  }
-
-  .hidden-filter-controls-filter {
-    border-color: rgba($bodyTextColor, 0.8);
-
-    &:hover,
-    &:focus {
-      color: rgba($bodyTextColor, 0.7);
-    }
-
-    &.mixitup-control-active {
+    .hidden-search-controls .current-query-wrapper {
       border-color: $highlightColor;
       background-color: $highlightColor;
       color: $primaryButtonTextColor;
@@ -646,109 +692,109 @@
         color: rgba($primaryButtonTextColor, 0.7);
       }
     }
-  }
-
-  // Styles for tablet
-  @include above($tabletBreakpoint) {
-    width: $lfdWidthTablet;
-    max-width: $lfdMaxWidthTablet;
-    margin: $lfdMarginTopTablet
-      $lfdMarginRightTablet
-      $lfdMarginBottomTablet
-      $lfdMarginLeftTablet;
-
-    .news-feed-search-filter-overlay,
-    .small-card-search-filter-overlay,
-    .simple-list-search-filter-overlay {
-      .apply-filters,
-      .hidden-filter-controls-filter.mixitup-control-active {
-        background-color: $highlightColorTablet;
-        color: $primaryButtonTextColorTablet;
-        border-color: $highlightColorTablet;
-      }
-    }
-
-    .filter-holder {
-      .panel-default > .panel-heading {
-        color: $lfdOverlayFontColorTablet;
-        background-color: $lfdOverlayBackgroundColorTablet;
-        border-bottom: 1px solid rgba($lfdOverlayFontColorTablet, 0.2);
-      }
-      .panel-group .panel {
-        background-color: lighten($lfdOverlayBackgroundColorTablet, 10%);
-
-        .panel-body {
-          background-color: transparent;
-        }
-      }
-    }
-
-    // The use of !important in this case is to avoid CSS repetion
-    // Some layouts on the LFD component have more specific targets
-
-    .search-holder {
-      .fa {
-        color: $highlightColorTablet;
-      }
-      .form-control {
-        background-color: $bodyBackgroundTablet;
-        color: $bodyTextColorTablet;
-
-        &:focus {
-          border-color: $highlightColorTablet;
-        }
-      }
-      .btn.search-btn {
-        border: none;
-        background-color: rgba($bodyTextColorTablet, 0.1);
-        color: $bodyTextColorTablet;
-
-        &:hover,
-        &:active,
-        &:active:hover {
-          border: none;
-        }
-      }
-
-      .search-feed:focus ~ .btn.search-btn {
-        border: none;
-      }
-
-      .list-search-icon .fa {
-        opacity: 1;
-        color: $highlightColorTablet !important;
-      }
-
-      & ~ .list-search-icon .fa {
-        opacity: 1;
-        color: $highlightColorTablet !important;
-      }
-    }
-
-    .hidden-search-controls .current-query-wrapper {
-      border-color: $highlightColorTablet;
-      background-color: $highlightColorTablet;
-      color: $primaryButtonTextColorTablet;
-
-      &:hover,
-      &:focus {
-        color: rgba($primaryButtonTextColorTablet, 0.7);
-      }
-    }
 
     .hidden-filter-controls-label {
-      color: rgba($bodyTextColorTablet, 0.5);
+      color: rgba($bodyTextColor, 0.5);
     }
 
     .hidden-filter-controls-filter {
-      border-color: rgba($bodyTextColorTablet, 0.8);
+      border-color: rgba($bodyTextColor, 0.8);
 
       &:hover,
       &:focus {
-        color: rgba($bodyTextColorTablet, 0.7);
+        color: rgba($bodyTextColor, 0.7);
       }
 
       &.mixitup-control-active {
+        border-color: $highlightColor;
+        background-color: $highlightColor;
+        color: $primaryButtonTextColor;
+
+        &:hover,
+        &:focus {
+          color: rgba($primaryButtonTextColor, 0.7);
+        }
+      }
+    }
+
+    // Styles for tablet
+    @include above($tabletBreakpoint) {
+      width: map-get($configuration, lfdWidthTablet);
+      max-width: map-get($configuration, lfdMaxWidthTablet);
+      margin: map-get($configuration, lfdMarginTopTablet)
+        map-get($configuration, lfdMarginRightTablet)
+        map-get($configuration, lfdMarginBottomTablet)
+        map-get($configuration, lfdMarginLeftTablet);
+
+      .news-feed-search-filter-overlay,
+      .small-card-search-filter-overlay,
+      .simple-list-search-filter-overlay {
+        .apply-filters,
+        .hidden-filter-controls-filter.mixitup-control-active {
+          background-color: $highlightColorTablet;
+          color: $primaryButtonTextColorTablet;
+          border-color: $highlightColorTablet;
+        }
+      }
+
+      .filter-holder {
+        .panel-default > .panel-heading {
+          color: map-get($configuration, lfdOverlayFontColorTablet);
+          background-color: map-get($configuration, lfdOverlayBackgroundColorTablet);
+          border-bottom: 1px solid rgba(map-get($configuration, lfdOverlayFontColorTablet), 0.2);
+        }
+        .panel-group .panel {
+          background-color: lighten(map-get($configuration, lfdOverlayBackgroundColorTablet), 10%);
+
+          .panel-body {
+            background-color: transparent;
+          }
+        }
+      }
+
+      // The use of !important in this case is to avoid CSS repetion
+      // Some layouts on the LFD component have more specific targets
+
+      .search-holder {
+        .fa {
+          color: $highlightColorTablet;
+        }
+        .form-control {
+          background-color: $bodyBackgroundTablet;
+          color: $bodyTextColorTablet;
+
+          &:focus {
+            border-color: $highlightColorTablet;
+          }
+        }
+        .btn.search-btn {
+          border: none;
+          background-color: rgba($bodyTextColorTablet, 0.1);
+          color: $bodyTextColorTablet;
+
+          &:hover,
+          &:active,
+          &:active:hover {
+            border: none;
+          }
+        }
+
+        .search-feed:focus ~ .btn.search-btn {
+          border: none;
+        }
+
+        .list-search-icon .fa {
+          opacity: 1;
+          color: $highlightColorTablet !important;
+        }
+
+        & ~ .list-search-icon .fa {
+          opacity: 1;
+          color: $highlightColorTablet !important;
+        }
+      }
+
+      .hidden-search-controls .current-query-wrapper {
         border-color: $highlightColorTablet;
         background-color: $highlightColorTablet;
         color: $primaryButtonTextColorTablet;
@@ -758,110 +804,110 @@
           color: rgba($primaryButtonTextColorTablet, 0.7);
         }
       }
-    }
-  }
 
-  // Styles for desktop
-  @include above($desktopBreakpoint) {
-    width: $lfdWidthDesktop;
-    max-width: $lfdMaxWidthDesktop;
-    margin: $lfdMarginTopDesktop
-      $lfdMarginRightDesktop
-      $lfdMarginBottomDesktop
-      $lfdMarginLeftDesktop;
-
-    .news-feed-search-filter-overlay,
-    .small-card-search-filter-overlay,
-    .simple-list-search-filter-overlay {
-      .apply-filters,
-      .hidden-filter-controls-filter.mixitup-control-active {
-        background-color: $highlightColorDesktop;
-        color: $primaryButtonTextColorDesktop;
-        border-color: $highlightColorDesktop;
+      .hidden-filter-controls-label {
+        color: rgba($bodyTextColorTablet, 0.5);
       }
-    }
 
-    .filter-holder {
-      .panel-default > .panel-heading {
-        color: $lfdOverlayFontColorDesktop;
-        background-color: $lfdOverlayBackgroundColorDesktop;
-        border-bottom: 1px solid rgba($lfdOverlayFontColorDesktop, 0.2);
-      }
-      .panel-group .panel {
-        background-color: lighten($lfdOverlayBackgroundColorDesktop, 10%);
+      .hidden-filter-controls-filter {
+        border-color: rgba($bodyTextColorTablet, 0.8);
 
-        .panel-body {
-          background-color: transparent;
+        &:hover,
+        &:focus {
+          color: rgba($bodyTextColorTablet, 0.7);
+        }
+
+        &.mixitup-control-active {
+          border-color: $highlightColorTablet;
+          background-color: $highlightColorTablet;
+          color: $primaryButtonTextColorTablet;
+
+          &:hover,
+          &:focus {
+            color: rgba($primaryButtonTextColorTablet, 0.7);
+          }
         }
       }
     }
 
-    // The use of !important in this case is to avoid CSS repetion
-    // Some layouts on the LFD component have more specific targets
+    // Styles for desktop
+    @include above($desktopBreakpoint) {
+      width: map-get($configuration, lfdWidthDesktop);
+      max-width: map-get($configuration, lfdMaxWidthDesktop);
+      margin: map-get($configuration, lfdMarginTopDesktop)
+        map-get($configuration, lfdMarginRightDesktop)
+        map-get($configuration, lfdMarginBottomDesktop)
+        map-get($configuration, lfdMarginLeftDesktop);
 
-    .search-holder {
-      .fa {
-        color: $highlightColorDesktop;
-      }
-      .form-control {
-        background-color: $bodyBackgroundDesktop;
-        color: $bodyTextColorDesktop;
-
-        &:focus {
+      .news-feed-search-filter-overlay,
+      .small-card-search-filter-overlay,
+      .simple-list-search-filter-overlay {
+        .apply-filters,
+        .hidden-filter-controls-filter.mixitup-control-active {
+          background-color: $highlightColorDesktop;
+          color: $primaryButtonTextColorDesktop;
           border-color: $highlightColorDesktop;
         }
       }
-      .btn.search-btn {
-        border: none;
-        background-color: rgba($bodyTextColorDesktop, 0.1);
-        color: $bodyTextColorDesktop;
 
-        &:hover,
-        &:active,
-        &:active:hover {
-          border: none;
+      .filter-holder {
+        .panel-default > .panel-heading {
+          color: map-get($configuration, lfdOverlayFontColorDesktop);
+          background-color: map-get($configuration, lfdOverlayBackgroundColorDesktop);
+          border-bottom: 1px solid rgba(map-get($configuration, lfdOverlayFontColorDesktop), 0.2);
+        }
+        .panel-group .panel {
+          background-color: lighten(map-get($configuration, lfdOverlayBackgroundColorDesktop), 10%);
+
+          .panel-body {
+            background-color: transparent;
+          }
         }
       }
 
-      .search-feed:focus ~ .btn.search-btn {
-        border: none;
+      // The use of !important in this case is to avoid CSS repetion
+      // Some layouts on the LFD component have more specific targets
+
+      .search-holder {
+        .fa {
+          color: $highlightColorDesktop;
+        }
+        .form-control {
+          background-color: $bodyBackgroundDesktop;
+          color: $bodyTextColorDesktop;
+
+          &:focus {
+            border-color: $highlightColorDesktop;
+          }
+        }
+        .btn.search-btn {
+          border: none;
+          background-color: rgba($bodyTextColorDesktop, 0.1);
+          color: $bodyTextColorDesktop;
+
+          &:hover,
+          &:active,
+          &:active:hover {
+            border: none;
+          }
+        }
+
+        .search-feed:focus ~ .btn.search-btn {
+          border: none;
+        }
+
+        .list-search-icon .fa {
+          opacity: 1;
+          color: $highlightColorDesktop !important;
+        }
+
+        & ~ .list-search-icon .fa {
+          opacity: 1;
+          color: $highlightColorDesktop !important;
+        }
       }
 
-      .list-search-icon .fa {
-        opacity: 1;
-        color: $highlightColorDesktop !important;
-      }
-
-      & ~ .list-search-icon .fa {
-        opacity: 1;
-        color: $highlightColorDesktop !important;
-      }
-    }
-
-    .hidden-search-controls .current-query-wrapper {
-      border-color: $highlightColorDesktop;
-      background-color: $highlightColorDesktop;
-      color: $primaryButtonTextColorDesktop;
-
-      &:hover,
-      &:focus {
-        color: rgba($primaryButtonTextColorDesktop, 0.7);
-      }
-    }
-
-    .hidden-filter-controls-label {
-      color: rgba($bodyTextColorDesktop, 0.5);
-    }
-
-    .hidden-filter-controls-filter {
-      border-color: rgba($bodyTextColorDesktop, 0.8);
-
-      &:hover,
-      &:focus {
-        color: rgba($bodyTextColorDesktop, 0.7);
-      }
-
-      &.mixitup-control-active {
+      .hidden-search-controls .current-query-wrapper {
         border-color: $highlightColorDesktop;
         background-color: $highlightColorDesktop;
         color: $primaryButtonTextColorDesktop;
@@ -871,60 +917,46 @@
           color: rgba($primaryButtonTextColorDesktop, 0.7);
         }
       }
-    }
-  }
-}
 
-/* NEWS FEED */
-.new-news-feed-list-container,
-.news-feed-list-container {
-  .slide-over {
-    .news-feed-item-inner-content {
-      background-color: $lfdBackgroundColor;
-      color: $lfdFontColor;
+      .hidden-filter-controls-label {
+        color: rgba($bodyTextColorDesktop, 0.5);
+      }
 
-      h2.news-feed-item-title {
-        color: $lfdFontColor;
+      .hidden-filter-controls-filter {
+        border-color: rgba($bodyTextColorDesktop, 0.8);
 
-        &:after {
-          background-color: $highlightColor;
+        &:hover,
+        &:focus {
+          color: rgba($bodyTextColorDesktop, 0.7);
+        }
+
+        &.mixitup-control-active {
+          border-color: $highlightColorDesktop;
+          background-color: $highlightColorDesktop;
+          color: $primaryButtonTextColorDesktop;
+
+          &:hover,
+          &:focus {
+            color: rgba($primaryButtonTextColorDesktop, 0.7);
+          }
         }
       }
     }
   }
 
-  .news-feed-list-item {
-    .news-feed-item-close-btn {
-      background-color: rgba($lfdBackgroundColor, 0.5);
-      color: $lfdFontColor;
-    }
-
-    &.open{
-      .news-feed-item-content {
-        background-color: $lfdBackgroundColor;
-      }
-    }
-  }
-
-  .news-feed-item-content {
-    .slide-under {
-      color: rgba($lfdFontColor, 0.1);
-      background-color: rgba($lfdFontColor, 0.04);
-    }
-  }
-
-  // Styles for tablet
-  @include above($tabletBreakpoint) {
+  /* NEWS FEED */
+  .new-news-feed-list-container,
+  .news-feed-list-container {
     .slide-over {
       .news-feed-item-inner-content {
-        background-color: $lfdBackgroundColorTablet;
-        color: $lfdFontColorTablet;
+        background-color: map-get($configuration, lfdBackgroundColor);
+        color: map-get($configuration, lfdFontColor);
 
         h2.news-feed-item-title {
-          color: $lfdFontColorTablet;
+          color: map-get($configuration, lfdFontColor);
 
           &:after {
-            background-color: $highlightColorTablet;
+            background-color: $highlightColor;
           }
         }
       }
@@ -932,569 +964,995 @@
 
     .news-feed-list-item {
       .news-feed-item-close-btn {
-        background-color: rgba($lfdBackgroundColorTablet, 0.5);
-        color: $lfdFontColorTablet;
+        background-color: rgba(map-get($configuration, lfdBackgroundColor), 0.5);
+        color: map-get($configuration, lfdFontColor);
       }
 
       &.open{
         .news-feed-item-content {
-          background-color: $lfdBackgroundColorTablet;
+          background-color: map-get($configuration, lfdBackgroundColor);
         }
       }
     }
 
     .news-feed-item-content {
       .slide-under {
-        color: rgba($lfdFontColorTablet, 0.1);
-        background-color: rgba($lfdFontColorTablet, 0.04);
+        color: rgba(map-get($configuration, lfdFontColor), 0.1);
+        background-color: rgba(map-get($configuration, lfdFontColor), 0.04);
       }
-    }
-  }
-
-  // Styles for desktop
-  @include above($desktopBreakpoint) {
-    .slide-over {
-      .news-feed-item-inner-content {
-        background-color: $lfdBackgroundColorDesktop;
-        color: $lfdFontColorDesktop;
-
-        h2.news-feed-item-title {
-          color: $lfdFontColorDesktop;
-
-          &:after {
-            background-color: $highlightColorDesktop;
-          }
-        }
-      }
-    }
-
-    .news-feed-list-item {
-      .news-feed-item-close-btn {
-        background-color: rgba($lfdBackgroundColorDesktop, 0.5);
-        color: $lfdFontColorDesktop;
-      }
-
-      &.open{
-        .news-feed-item-content {
-          background-color: $lfdBackgroundColorDesktop;
-        }
-      }
-    }
-
-    .news-feed-item-content {
-      .slide-under {
-        color: rgba($lfdFontColorDesktop, 0.1);
-        background-color: rgba($lfdFontColorDesktop, 0.04);
-      }
-    }
-  }
-}
-
-.news-feed-detail-overlay {
-  .news-feed-detail-overlay-wrapper {
-    .news-feed-detail-overlay-panel {
-      background-color: $lfdDetailBackgroundColor;
-    }
-
-    .news-feed-item-inner-content {
-      background-color: $lfdDetailBackgroundColor;
-      color: $lfdDetailFontColor;
-
-      h2.news-feed-item-title {
-        color: $lfdDetailFontColor;
-
-        &:after {
-          background-color: $highlightColor;
-        }
-      }
-    }
-
-    .news-feed-list-detail-image-wrapper {
-      color: rgba($lfdDetailFontColor, 0.1);
-      background-color: rgba($lfdDetailFontColor, 0.04);
-    }
-
-    .news-feed-detail-overlay-close {
-      background-color: rgba($lfdDetailBackgroundColor, 0.5);
-      color: $lfdDetailFontColor;
     }
 
     // Styles for tablet
     @include above($tabletBreakpoint) {
-      .news-feed-detail-overlay-panel {
-        background-color: $lfdDetailBackgroundColorTablet;
-      }
+      .slide-over {
+        .news-feed-item-inner-content {
+          background-color: map-get($configuration, lfdBackgroundColorTablet);
+          color: map-get($configuration, lfdFontColorTablet);
 
-      .news-feed-item-inner-content {
-        background-color: $lfdDetailBackgroundColorTablet;
-        color: $lfdDetailFontColorTablet;
+          h2.news-feed-item-title {
+            color: map-get($configuration, lfdFontColorTablet);
 
-        h2.news-feed-item-title {
-          color: $lfdDetailFontColorTablet;
-
-          &:after {
-            background-color: $highlightColorTablet;
+            &:after {
+              background-color: $highlightColorTablet;
+            }
           }
         }
       }
 
-      .news-feed-list-detail-image-wrapper {
-        color: rgba($lfdDetailFontColorTablet, 0.1);
-        background-color: rgba($lfdDetailFontColorTablet, 0.04);
+      .news-feed-list-item {
+        .news-feed-item-close-btn {
+          background-color: rgba(map-get($configuration, lfdBackgroundColorTablet), 0.5);
+          color: map-get($configuration, lfdFontColorTablet);
+        }
+
+        &.open{
+          .news-feed-item-content {
+            background-color: map-get($configuration, lfdBackgroundColorTablet);
+          }
+        }
       }
 
-      .news-feed-detail-overlay-close {
-        background-color: rgba($lfdDetailBackgroundColorTablet, 0.5);
-        color: $lfdDetailFontColorTablet;
+      .news-feed-item-content {
+        .slide-under {
+          color: rgba(map-get($configuration, lfdFontColorTablet), 0.1);
+          background-color: rgba(map-get($configuration, lfdFontColorTablet), 0.04);
+        }
       }
     }
 
     // Styles for desktop
     @include above($desktopBreakpoint) {
+      .slide-over {
+        .news-feed-item-inner-content {
+          background-color: map-get($configuration, lfdBackgroundColorDesktop);
+          color: map-get($configuration, lfdFontColorDesktop);
+
+          h2.news-feed-item-title {
+            color: map-get($configuration, lfdFontColorDesktop);
+
+            &:after {
+              background-color: $highlightColorDesktop;
+            }
+          }
+        }
+      }
+
+      .news-feed-list-item {
+        .news-feed-item-close-btn {
+          background-color: rgba(map-get($configuration, lfdBackgroundColorDesktop), 0.5);
+          color: map-get($configuration, lfdFontColorDesktop);
+        }
+
+        &.open{
+          .news-feed-item-content {
+            background-color: map-get($configuration, lfdBackgroundColorDesktop);
+          }
+        }
+      }
+
+      .news-feed-item-content {
+        .slide-under {
+          color: rgba(map-get($configuration, lfdFontColorDesktop), 0.1);
+          background-color: rgba(map-get($configuration, lfdFontColorDesktop), 0.04);
+        }
+      }
+    }
+  }
+
+  .news-feed-detail-overlay {
+    .news-feed-detail-overlay-wrapper {
       .news-feed-detail-overlay-panel {
-        background-color: $lfdDetailBackgroundColorDesktop;
+        background-color: map-get($configuration, lfdDetailBackgroundColor);
       }
 
       .news-feed-item-inner-content {
-        background-color: $lfdDetailBackgroundColorDesktop;
-        color: $lfdDetailFontColorDesktop;
+        background-color: map-get($configuration, lfdDetailBackgroundColor);
+        color: map-get($configuration, lfdDetailFontColor);
 
         h2.news-feed-item-title {
-          color: $lfdDetailFontColorDesktop;
+          color: map-get($configuration, lfdDetailFontColor);
 
           &:after {
-            background-color: $highlightColorDesktop;
+            background-color: $highlightColor;
           }
         }
       }
 
       .news-feed-list-detail-image-wrapper {
-        color: rgba($lfdDetailFontColorDesktop, 0.1);
-        background-color: rgba($lfdDetailFontColorDesktop, 0.04);
+        color: rgba(map-get($configuration, lfdDetailFontColor), 0.1);
+        background-color: rgba(map-get($configuration, lfdDetailFontColor), 0.04);
       }
 
       .news-feed-detail-overlay-close {
-        background-color: rgba($lfdDetailBackgroundColorDesktop, 0.5);
-        color: $lfdDetailFontColorDesktop;
+        background-color: rgba(map-get($configuration, lfdDetailBackgroundColor), 0.5);
+        color: map-get($configuration, lfdDetailFontColor);
       }
-    }
-  }
-}
 
-/* COMMENTS */
-.news-feed-comment-panel,
-.new-news-feed-comment-panel,
-.simple-list-comment-panel {
-  background: $lfdCommentsBackgroundColor;
+      // Styles for tablet
+      @include above($tabletBreakpoint) {
+        .news-feed-detail-overlay-panel {
+          background-color: map-get($configuration, lfdDetailBackgroundColorTablet);
+        }
 
-  .loading-holder {
-    color: rgba($lfdCommentsFontColor, 0.4);
-  }
+        .news-feed-item-inner-content {
+          background-color: map-get($configuration, lfdDetailBackgroundColorTablet);
+          color: map-get($configuration, lfdDetailFontColorTablet);
 
-  .comments-offline {
-    background-color: rgba($lfdCommentsFontColor, 0.4);
-    color: $lfdCommentsFontColor;
-  }
+          h2.news-feed-item-title {
+            color: map-get($configuration, lfdDetailFontColorTablet);
 
-  .news-feed-comment-panel-header,
-  .simple-list-comment-panel-header {
-    background-color: $lfdCommentsBackgroundColor;
-    color: $lfdCommentsFontColor;
-  }
+            &:after {
+              background-color: $highlightColorTablet;
+            }
+          }
+        }
 
-  .news-feed-comment-input-holder,
-  .simple-list-comment-input-holder {
-    background: $lfdCommentsBackgroundColor;
-    border-color: rgba($lfdCommentsFontColor, 0.1);
+        .news-feed-list-detail-image-wrapper {
+          color: rgba(map-get($configuration, lfdDetailFontColorTablet), 0.1);
+          background-color: rgba(map-get($configuration, lfdDetailFontColorTablet), 0.04);
+        }
 
-    .cancel {
-      color: rgba($lfdCommentsFontColor, 0.7);
-
-      &:hover,
-      &:focus,
-      &:active:hover,
-      &:active:focus {
-        color: rgba($lfdCommentsFontColor, 0.7);
+        .news-feed-detail-overlay-close {
+          background-color: rgba(map-get($configuration, lfdDetailBackgroundColorTablet), 0.5);
+          color: map-get($configuration, lfdDetailFontColorTablet);
+        }
       }
-    }
 
-    .btn.comment,
-    .btn.save {
-      border-color: rgba($lfdCommentsFontColor, 0.3);
-      color: rgba($lfdCommentsFontColor,0.3);
-    }
+      // Styles for desktop
+      @include above($desktopBreakpoint) {
+        .news-feed-detail-overlay-panel {
+          background-color: map-get($configuration, lfdDetailBackgroundColorDesktop);
+        }
 
-    &.ready {
-      .btn.comment,
-      .btn.save {
-        border-color: $highlightColor;
-        background-color: $highlightColor;
-        color: $primaryButtonTextColor;
-      }
-    }
-  }
+        .news-feed-item-inner-content {
+          background-color: map-get($configuration, lfdDetailBackgroundColorDesktop);
+          color: map-get($configuration, lfdDetailFontColorDesktop);
 
-  .top-comment-holder {
-    background-color: $lfdCommentsBackgroundColor;
-  }
+          h2.news-feed-item-title {
+            color: map-get($configuration, lfdDetailFontColorDesktop);
 
-  .fl-individual-comment.editing .top-comment-holder {
-    background-color: rgba($lfdCommentsFontColor, 0.08);
-  }
+            &:after {
+              background-color: $highlightColorDesktop;
+            }
+          }
+        }
 
-  .fl-comment-thumb {
-    background-color: rgba($lfdCommentsFontColor, 0.04);
-  }
+        .news-feed-list-detail-image-wrapper {
+          color: rgba(map-get($configuration, lfdDetailFontColorDesktop), 0.1);
+          background-color: rgba(map-get($configuration, lfdDetailFontColorDesktop), 0.04);
+        }
 
-  textarea[data-comment-body] {
-    background-color: transparent;
-    color: $lfdCommentsFontColor;
-
-    ~ .typeahead.dropdown-menu {
-      border-color: rgba($lfdCommentsFontColor,0.1);
-
-      > .active > a {
-        background-color: $highlightColor;
-        color: $primaryButtonTextColor;
+        .news-feed-detail-overlay-close {
+          background-color: rgba(map-get($configuration, lfdDetailBackgroundColorDesktop), 0.5);
+          color: map-get($configuration, lfdDetailFontColorDesktop);
+        }
       }
     }
   }
 
-  .active .mention_username{
-    color: $primaryButtonTextColor;
-  }
-
-  // Styles for tablet
-  @include above($tabletBreakpoint) {
-    background: $lfdCommentsBackgroundColorTablet;
+  /* COMMENTS */
+  .news-feed-comment-panel,
+  .new-news-feed-comment-panel,
+  .simple-list-comment-panel {
+    background: map-get($configuration, lfdCommentsBackgroundColor);
 
     .loading-holder {
-      color: rgba($lfdCommentsFontColorTablet, 0.4);
+      color: rgba(map-get($configuration, lfdCommentsFontColor), 0.4);
     }
 
     .comments-offline {
-      background-color: rgba($lfdCommentsFontColorTablet, 0.4);
-      color: $lfdCommentsFontColorTablet;
+      background-color: rgba(map-get($configuration, lfdCommentsFontColor), 0.4);
+      color: map-get($configuration, lfdCommentsFontColor);
     }
 
     .news-feed-comment-panel-header,
     .simple-list-comment-panel-header {
-      background-color: $lfdCommentsBackgroundColorTablet;
-      color: $lfdCommentsFontColorTablet;
+      background-color: map-get($configuration, lfdCommentsBackgroundColor);
+      color: map-get($configuration, lfdCommentsFontColor);
     }
 
     .news-feed-comment-input-holder,
     .simple-list-comment-input-holder {
-      background: $lfdCommentsBackgroundColorTablet;
-      border-color: rgba($lfdCommentsFontColorTablet, 0.1);
+      background: map-get($configuration, lfdCommentsBackgroundColor);
+      border-color: rgba(map-get($configuration, lfdCommentsFontColor), 0.1);
 
       .cancel {
-        color: rgba($lfdCommentsFontColorTablet, 0.7);
+        color: rgba(map-get($configuration, lfdCommentsFontColor), 0.7);
 
         &:hover,
         &:focus,
         &:active:hover,
         &:active:focus {
-          color: rgba($lfdCommentsFontColorTablet, 0.7);
+          color: rgba(map-get($configuration, lfdCommentsFontColor), 0.7);
         }
       }
 
       .btn.comment,
       .btn.save {
-        border-color: rgba($lfdCommentsFontColorTablet, 0.3);
-        color: rgba($lfdCommentsFontColorTablet,0.3);
+        border-color: rgba(map-get($configuration, lfdCommentsFontColor), 0.3);
+        color: rgba(map-get($configuration, lfdCommentsFontColor),0.3);
       }
 
       &.ready {
         .btn.comment,
         .btn.save {
-          border-color: $highlightColorTablet;
-          background-color: $highlightColorTablet;
-          color: $primaryButtonTextColorTablet;
+          border-color: $highlightColor;
+          background-color: $highlightColor;
+          color: $primaryButtonTextColor;
         }
       }
     }
 
     .top-comment-holder {
-      background-color: $lfdCommentsBackgroundColorTablet;
+      background-color: map-get($configuration, lfdCommentsBackgroundColor);
     }
 
     .fl-individual-comment.editing .top-comment-holder {
-      background-color: rgba($lfdCommentsFontColorTablet, 0.08);
+      background-color: rgba(map-get($configuration, lfdCommentsFontColor), 0.08);
     }
 
     .fl-comment-thumb {
-      background-color: rgba($lfdCommentsFontColorTablet, 0.04);
+      background-color: rgba(map-get($configuration, lfdCommentsFontColor), 0.04);
     }
 
     textarea[data-comment-body] {
       background-color: transparent;
-      color: $lfdCommentsFontColorTablet;
+      color: map-get($configuration, lfdCommentsFontColor);
 
       ~ .typeahead.dropdown-menu {
-        border-color: rgba($lfdCommentsFontColorTablet,0.1);
+        border-color: rgba(map-get($configuration, lfdCommentsFontColor),0.1);
 
         > .active > a {
-          background-color: $highlightColorTablet;
-          color: $primaryButtonTextColorTablet;
+          background-color: $highlightColor;
+          color: $primaryButtonTextColor;
         }
       }
     }
 
     .active .mention_username{
-      color: $primaryButtonTextColorTablet;
-    }
-  }
-
-  // Styles for desktop
-  @include above($desktopBreakpoint) {
-    background: $lfdCommentsBackgroundColorDesktop;
-
-    .loading-holder {
-      color: rgba($lfdCommentsFontColorDesktop, 0.4);
+      color: $primaryButtonTextColor;
     }
 
-    .comments-offline {
-      background-color: rgba($lfdCommentsFontColorDesktop, 0.4);
-      color: $lfdCommentsFontColorDesktop;
-    }
+    // Styles for tablet
+    @include above($tabletBreakpoint) {
+      background: map-get($configuration, lfdCommentsBackgroundColorTablet);
 
-    .news-feed-comment-panel-header,
-    .simple-list-comment-panel-header {
-      background-color: $lfdCommentsBackgroundColorDesktop;
-      color: $lfdCommentsFontColorDesktop;
-    }
+      .loading-holder {
+        color: rgba(map-get($configuration, lfdCommentsFontColorTablet), 0.4);
+      }
 
-    .news-feed-comment-input-holder,
-    .simple-list-comment-input-holder {
-      background: $lfdCommentsBackgroundColorDesktop;
-      border-color: rgba($lfdCommentsFontColorDesktop, 0.1);
+      .comments-offline {
+        background-color: rgba(map-get($configuration, lfdCommentsFontColorTablet), 0.4);
+        color: map-get($configuration, lfdCommentsFontColorTablet);
+      }
 
-      .cancel {
-        color: rgba($lfdCommentsFontColorDesktop, 0.7);
+      .news-feed-comment-panel-header,
+      .simple-list-comment-panel-header {
+        background-color: map-get($configuration, lfdCommentsBackgroundColorTablet);
+        color: map-get($configuration, lfdCommentsFontColorTablet);
+      }
 
-        &:hover,
-        &:focus,
-        &:active:hover,
-        &:active:focus {
-          color: rgba($lfdCommentsFontColorDesktop, 0.7);
+      .news-feed-comment-input-holder,
+      .simple-list-comment-input-holder {
+        background: map-get($configuration, lfdCommentsBackgroundColorTablet);
+        border-color: rgba(map-get($configuration, lfdCommentsFontColorTablet), 0.1);
+
+        .cancel {
+          color: rgba(map-get($configuration, lfdCommentsFontColorTablet), 0.7);
+
+          &:hover,
+          &:focus,
+          &:active:hover,
+          &:active:focus {
+            color: rgba(map-get($configuration, lfdCommentsFontColorTablet), 0.7);
+          }
         }
-      }
 
-      .btn.comment,
-      .btn.save {
-        border-color: rgba($lfdCommentsFontColorDesktop, 0.3);
-        color: rgba($lfdCommentsFontColorDesktop,0.3);
-      }
-
-      &.ready {
         .btn.comment,
         .btn.save {
-          border-color: $highlightColorDesktop;
-          background-color: $highlightColorDesktop;
-          color: $primaryButtonTextColorDesktop;
+          border-color: rgba(map-get($configuration, lfdCommentsFontColorTablet), 0.3);
+          color: rgba(map-get($configuration, lfdCommentsFontColorTablet),0.3);
         }
+
+        &.ready {
+          .btn.comment,
+          .btn.save {
+            border-color: $highlightColorTablet;
+            background-color: $highlightColorTablet;
+            color: $primaryButtonTextColorTablet;
+          }
+        }
+      }
+
+      .top-comment-holder {
+        background-color: map-get($configuration, lfdCommentsBackgroundColorTablet);
+      }
+
+      .fl-individual-comment.editing .top-comment-holder {
+        background-color: rgba(map-get($configuration, lfdCommentsFontColorTablet), 0.08);
+      }
+
+      .fl-comment-thumb {
+        background-color: rgba(map-get($configuration, lfdCommentsFontColorTablet), 0.04);
+      }
+
+      textarea[data-comment-body] {
+        background-color: transparent;
+        color: map-get($configuration, lfdCommentsFontColorTablet);
+
+        ~ .typeahead.dropdown-menu {
+          border-color: rgba(map-get($configuration, lfdCommentsFontColorTablet),0.1);
+
+          > .active > a {
+            background-color: $highlightColorTablet;
+            color: $primaryButtonTextColorTablet;
+          }
+        }
+      }
+
+      .active .mention_username{
+        color: $primaryButtonTextColorTablet;
       }
     }
 
-    .top-comment-holder {
-      background-color: $lfdCommentsBackgroundColorDesktop;
-    }
+    // Styles for desktop
+    @include above($desktopBreakpoint) {
+      background: map-get($configuration, lfdCommentsBackgroundColorDesktop);
 
-    .fl-individual-comment.editing .top-comment-holder {
-      background-color: rgba($lfdCommentsFontColorDesktop, 0.08);
-    }
+      .loading-holder {
+        color: rgba(map-get($configuration, lfdCommentsFontColorDesktop), 0.4);
+      }
 
-    .fl-comment-thumb {
-      background-color: rgba($lfdCommentsFontColorDesktop, 0.04);
-    }
+      .comments-offline {
+        background-color: rgba(map-get($configuration, lfdCommentsFontColorDesktop), 0.4);
+        color: map-get($configuration, lfdCommentsFontColorDesktop);
+      }
 
-    textarea[data-comment-body] {
-      background-color: transparent;
-      color: $lfdCommentsFontColorDesktop;
+      .news-feed-comment-panel-header,
+      .simple-list-comment-panel-header {
+        background-color: map-get($configuration, lfdCommentsBackgroundColorDesktop);
+        color: map-get($configuration, lfdCommentsFontColorDesktop);
+      }
 
-      ~ .typeahead.dropdown-menu {
-        border-color: rgba($lfdCommentsFontColorDesktop,0.1);
+      .news-feed-comment-input-holder,
+      .simple-list-comment-input-holder {
+        background: map-get($configuration, lfdCommentsBackgroundColorDesktop);
+        border-color: rgba(map-get($configuration, lfdCommentsFontColorDesktop), 0.1);
 
-        > .active > a {
-          background-color: $highlightColorDesktop;
-          color: $primaryButtonTextColorDesktop;
+        .cancel {
+          color: rgba(map-get($configuration, lfdCommentsFontColorDesktop), 0.7);
+
+          &:hover,
+          &:focus,
+          &:active:hover,
+          &:active:focus {
+            color: rgba(map-get($configuration, lfdCommentsFontColorDesktop), 0.7);
+          }
+        }
+
+        .btn.comment,
+        .btn.save {
+          border-color: rgba(map-get($configuration, lfdCommentsFontColorDesktop), 0.3);
+          color: rgba(map-get($configuration, lfdCommentsFontColorDesktop),0.3);
+        }
+
+        &.ready {
+          .btn.comment,
+          .btn.save {
+            border-color: $highlightColorDesktop;
+            background-color: $highlightColorDesktop;
+            color: $primaryButtonTextColorDesktop;
+          }
         }
       }
-    }
 
-    .active .mention_username{
-      color: $primaryButtonTextColorDesktop;
+      .top-comment-holder {
+        background-color: map-get($configuration, lfdCommentsBackgroundColorDesktop);
+      }
+
+      .fl-individual-comment.editing .top-comment-holder {
+        background-color: rgba(map-get($configuration, lfdCommentsFontColorDesktop), 0.08);
+      }
+
+      .fl-comment-thumb {
+        background-color: rgba(map-get($configuration, lfdCommentsFontColorDesktop), 0.04);
+      }
+
+      textarea[data-comment-body] {
+        background-color: transparent;
+        color: map-get($configuration, lfdCommentsFontColorDesktop);
+
+        ~ .typeahead.dropdown-menu {
+          border-color: rgba(map-get($configuration, lfdCommentsFontColorDesktop),0.1);
+
+          > .active > a {
+            background-color: $highlightColorDesktop;
+            color: $primaryButtonTextColorDesktop;
+          }
+        }
+      }
+
+      .active .mention_username{
+        color: $primaryButtonTextColorDesktop;
+      }
     }
   }
-}
 
-/* AGENDA */
-.agenda-detail-overlay {
-  .agenda-detail-overlay-panel {
-    background-color: $lfdDetailBackgroundColor;
-    color: $lfdDetailFontColor;
+  /* AGENDA */
+  .agenda-detail-overlay {
+    .agenda-detail-overlay-panel {
+      background-color: map-get($configuration, lfdDetailBackgroundColor);
+      color: map-get($configuration, lfdDetailFontColor);
 
-    .agenda-detail-overlay-close {
-      background-color: rgba($lfdDetailBackgroundColor, 0.5);
-      color: $lfdDetailFontColor;
+      .agenda-detail-overlay-close {
+        background-color: rgba(map-get($configuration, lfdDetailBackgroundColor), 0.5);
+        color: map-get($configuration, lfdDetailFontColor);
+      }
+
+      .agenda-item-content-holder {
+        .agenda-item-time {
+          color: map-get($configuration, lfdDetailFontColor);
+        }
+
+        .agenda-item-session-location {
+          color: map-get($configuration, lfdDetailFontColor);
+        }
+
+        h2.agenda-item-title {
+          color: map-get($configuration, lfdDetailFontColor);
+
+          &:after {
+            background-color: $highlightColor;
+          }
+        }
+
+        .agenda-item-bookmark-holder {
+          .fa-bookmark-o {
+            color: rgba(map-get($configuration, lfdDetailFontColor), 0.2);
+
+            &:after {
+              color: rgba(map-get($configuration, lfdDetailFontColor), 0.5);
+            }
+          }
+        }
+
+        .bookmark-wrapper {
+          .fa-bookmark-o {
+            color: rgba(map-get($configuration, lfdDetailFontColor), 0.2);
+
+            &:after {
+              color: rgba(map-get($configuration, lfdDetailFontColor), 0.5);
+            }
+          }
+        }
+      }
+
+      // Styles for tablet
+      @include above($tabletBreakpoint) {
+        background-color: map-get($configuration, lfdDetailBackgroundColorTablet);
+        color: map-get($configuration, lfdDetailFontColorTablet);
+
+        .agenda-detail-overlay-close {
+          background-color: rgba(map-get($configuration, lfdDetailBackgroundColorTablet), 0.5);
+          color: map-get($configuration, lfdDetailFontColorTablet);
+        }
+
+        .agenda-item-content-holder {
+          .agenda-item-time {
+            color: map-get($configuration, lfdDetailFontColorTablet);
+          }
+
+          .agenda-item-session-location {
+            color: map-get($configuration, lfdDetailFontColorTablet);
+          }
+
+          h2.agenda-item-title {
+            color: map-get($configuration, lfdDetailFontColorTablet);
+
+            &:after {
+              background-color: $highlightColorTablet;
+            }
+          }
+
+          .agenda-item-bookmark-holder {
+            .fa-bookmark-o {
+              color: rgba(map-get($configuration, lfdDetailFontColorTablet), 0.2);
+
+              &:after {
+                color: rgba(map-get($configuration, lfdDetailFontColorTablet), 0.5);
+              }
+            }
+          }
+
+          .bookmark-wrapper {
+            .fa-bookmark-o {
+              color: rgba(map-get($configuration, lfdDetailFontColorTablet), 0.2);
+
+              &:after {
+                color: rgba(map-get($configuration, lfdDetailFontColorTablet), 0.5);
+              }
+            }
+          }
+        }
+      }
+
+      // Styles for desktop
+      @include above($desktopBreakpoint) {
+        background-color: map-get($configuration, lfdDetailBackgroundColorDesktop);
+        color: map-get($configuration, lfdDetailFontColorDesktop);
+
+        .agenda-detail-overlay-close {
+          background-color: rgba(map-get($configuration, lfdDetailBackgroundColorDesktop), 0.5);
+          color: map-get($configuration, lfdDetailFontColorDesktop);
+        }
+
+        .agenda-item-content-holder {
+          .agenda-item-time {
+            color: map-get($configuration, lfdDetailFontColorDesktop);
+          }
+
+          .agenda-item-session-location {
+            color: map-get($configuration, lfdDetailFontColorDesktop);
+          }
+
+          h2.agenda-item-title {
+            color: map-get($configuration, lfdDetailFontColorDesktop);
+
+            &:after {
+              background-color: $highlightColorDesktop;
+            }
+          }
+
+          .agenda-item-bookmark-holder {
+            .fa-bookmark-o {
+              color: rgba(map-get($configuration, lfdDetailFontColorDesktop), 0.2);
+
+              &:after {
+                color: rgba(map-get($configuration, lfdDetailFontColorDesktop), 0.5);
+              }
+            }
+          }
+
+          .bookmark-wrapper {
+            .fa-bookmark-o {
+              color: rgba(map-get($configuration, lfdDetailFontColorDesktop), 0.2);
+
+              &:after {
+                color: rgba(map-get($configuration, lfdDetailFontColorDesktop), 0.5);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .new-agenda-list-container {
+    .agenda-date-selector {
+      background-color: map-get($configuration, lfdAgendaDatesBackgroundColor);
+
+      ul {
+        li {
+          color: rgba(map-get($configuration, lfdAgendaDatesFontColor), 0.5);
+
+          .day {
+            color: rgba(map-get($configuration, lfdAgendaDatesFontColor), 0.7);
+          }
+
+          &.placeholder {
+            color: rgba(map-get($configuration, lfdAgendaDatesFontColor), 0.1);
+
+            .day {
+              color: rgba(map-get($configuration, lfdAgendaDatesFontColor), 0.1);
+            }
+          }
+          &.active {
+            color: rgba($highlightColor, 0.5);
+
+            .day {
+              color: rgba($highlightColor, 1);
+            }
+          }
+        }
+      }
     }
 
-    .agenda-item-content-holder {
-      .agenda-item-time {
-        color: $lfdDetailFontColor;
+    .agenda-list-item {
+      .slide-over {
+        .agenda-item-inner-content {
+          background-color: map-get($configuration, lfdBackgroundColor);
+
+          .agenda-item-time {
+            color: map-get($configuration, lfdFontColor);
+          }
+
+          .agenda-item-session-location {
+            color: map-get($configuration, lfdFontColor);
+          }
+
+          h2.agenda-item-title {
+            color: map-get($configuration, lfdFontColor);
+          }
+        }
       }
 
-      .agenda-item-session-location {
-        color: $lfdDetailFontColor;
+      &.open {
+        .slide-over {
+          .agenda-item-inner-content {
+            h2.agenda-item-title {
+              &:after {
+                background-color: $highlightColor;
+              }
+            }
+          }
+        }
       }
+    }
 
-      h2.agenda-item-title {
-        color: $lfdDetailFontColor;
+    .agenda-item-bookmark-holder {
+      color: map-get($configuration, lfdFontColor);
+
+      .fa-bookmark-o {
+        color: rgba(map-get($configuration, lfdFontColor), 0.2);
+      }
+    }
+
+    .bookmark-wrapper {
+      .fa-bookmark-o {
+        color: rgba(map-get($configuration, lfdFontColor), 0.2);
 
         &:after {
-          background-color: $highlightColor;
+          color: rgba(map-get($configuration, lfdFontColor), 0.5);
+        }
+      }
+
+      .fa-bookmark {
+        color: $highlightColor;
+      }
+    }
+
+    .agenda-list-item-content {
+      .slide-over {
+        background-color: map-get($configuration, lfdDetailBackgroundColor);
+      }
+    }
+
+    .agenda-list-controls {
+      background-color: map-get($configuration, lfdAgendaDatesBackgroundColor);
+
+      .toggle-agenda {
+        .fa {
+          color: map-get($configuration, lfdAgendaDatesFontColor);
+        }
+
+        &.mixitup-control-active {
+          .fa {
+            color: $highlightColor;
+          }
+        }
+      }
+
+      .agenda-list-label {
+        color: map-get($configuration, lfdAgendaDatesFontColor);
+      }
+    }
+
+    .agenda-list-item {
+      .agenda-item-close-btn {
+        background-color: rgba(map-get($configuration, lfdDetailBackgroundColor), 0.5);
+        color: map-get($configuration, lfdDetailFontColor);
+      }
+    }
+
+    .agenda-state-messages {
+      .loading-holder,
+      .offline-holder {
+        color: map-get($configuration, lfdDetailFontColor);
+      }
+    }
+
+    .agenda-list-card-holder.empty + .agenda-item-empty-state {
+      color: map-get($configuration, lfdDetailFontColor);
+    }
+
+    // Styles for tablet
+    @include above($tabletBreakpoint) {
+      .agenda-date-selector {
+        background-color: map-get($configuration, lfdAgendaDatesBackgroundColorTablet);
+
+        ul {
+          li {
+            color: rgba(map-get($configuration, lfdAgendaDatesFontColorTablet), 0.5);
+
+            .day {
+              color: rgba(map-get($configuration, lfdAgendaDatesFontColorTablet), 0.7);
+            }
+
+            &.placeholder {
+              color: rgba(map-get($configuration, lfdAgendaDatesFontColorTablet), 0.1);
+
+              .day {
+                color: rgba(map-get($configuration, lfdAgendaDatesFontColorTablet), 0.1);
+              }
+            }
+            &.active {
+              color: rgba($highlightColorTablet, 0.5);
+
+              .day {
+                color: rgba($highlightColorTablet, 1);
+              }
+            }
+          }
+        }
+      }
+
+      .agenda-list-item {
+        .slide-over {
+          .agenda-item-inner-content {
+            background-color: map-get($configuration, lfdBackgroundColorTablet);
+
+            .agenda-item-time {
+              color: map-get($configuration, lfdFontColorTablet);
+            }
+
+            .agenda-item-session-location {
+              color: map-get($configuration, lfdFontColorTablet);
+            }
+
+            h2.agenda-item-title {
+              color: map-get($configuration, lfdFontColorTablet);
+            }
+          }
+        }
+
+        &.open {
+          .slide-over {
+            .agenda-item-inner-content {
+              h2.agenda-item-title {
+                &:after {
+                  background-color: $highlightColorTablet;
+                }
+              }
+            }
+          }
         }
       }
 
       .agenda-item-bookmark-holder {
-        .fa-bookmark-o {
-          color: rgba($lfdDetailFontColor, 0.2);
+        color: map-get($configuration, lfdFontColorTablet);
 
-          &:after {
-            color: rgba($lfdDetailFontColor, 0.5);
-          }
+        .fa-bookmark-o {
+          color: rgba(map-get($configuration, lfdFontColorTablet), 0.2);
         }
       }
 
       .bookmark-wrapper {
         .fa-bookmark-o {
-          color: rgba($lfdDetailFontColor, 0.2);
+          color: rgba(map-get($configuration, lfdFontColorTablet), 0.2);
 
           &:after {
-            color: rgba($lfdDetailFontColor, 0.5);
-          }
-        }
-      }
-    }
-
-    // Styles for tablet
-    @include above($tabletBreakpoint) {
-      background-color: $lfdDetailBackgroundColorTablet;
-      color: $lfdDetailFontColorTablet;
-
-      .agenda-detail-overlay-close {
-        background-color: rgba($lfdDetailBackgroundColorTablet, 0.5);
-        color: $lfdDetailFontColorTablet;
-      }
-
-      .agenda-item-content-holder {
-        .agenda-item-time {
-          color: $lfdDetailFontColorTablet;
-        }
-
-        .agenda-item-session-location {
-          color: $lfdDetailFontColorTablet;
-        }
-
-        h2.agenda-item-title {
-          color: $lfdDetailFontColorTablet;
-
-          &:after {
-            background-color: $highlightColorTablet;
+            color: rgba(map-get($configuration, lfdFontColorTablet), 0.5);
           }
         }
 
-        .agenda-item-bookmark-holder {
-          .fa-bookmark-o {
-            color: rgba($lfdDetailFontColorTablet, 0.2);
+        .fa-bookmark {
+          color: $highlightColorTablet;
+        }
+      }
 
-            &:after {
-              color: rgba($lfdDetailFontColorTablet, 0.5);
+      .agenda-list-item-content {
+        .slide-over {
+          background-color: map-get($configuration, lfdDetailBackgroundColorTablet);
+        }
+      }
+
+      .agenda-list-controls {
+        background-color: map-get($configuration, lfdAgendaDatesBackgroundColorTablet);
+
+        .toggle-agenda {
+          .fa {
+            color: map-get($configuration, lfdAgendaDatesFontColorTablet);
+          }
+
+          &.mixitup-control-active {
+            .fa {
+              color: $highlightColorTablet;
             }
           }
         }
 
-        .bookmark-wrapper {
-          .fa-bookmark-o {
-            color: rgba($lfdDetailFontColorTablet, 0.2);
-
-            &:after {
-              color: rgba($lfdDetailFontColorTablet, 0.5);
-            }
-          }
+        .agenda-list-label {
+          color: map-get($configuration, lfdAgendaDatesFontColorTablet);
         }
+      }
+
+      .agenda-list-item {
+        .agenda-item-close-btn {
+          background-color: rgba(map-get($configuration, lfdDetailBackgroundColorTablet), 0.5);
+          color: map-get($configuration, lfdDetailFontColorTablet);
+        }
+      }
+
+      .agenda-state-messages {
+        .loading-holder,
+        .offline-holder {
+          color: map-get($configuration, lfdDetailFontColorTablet);
+        }
+      }
+
+      .agenda-list-card-holder.empty + .agenda-item-empty-state {
+        color: map-get($configuration, lfdDetailFontColorTablet);
       }
     }
 
     // Styles for desktop
     @include above($desktopBreakpoint) {
-      background-color: $lfdDetailBackgroundColorDesktop;
-      color: $lfdDetailFontColorDesktop;
+      .agenda-date-selector {
+        background-color: map-get($configuration, lfdAgendaDatesBackgroundColorDesktop);
 
-      .agenda-detail-overlay-close {
-        background-color: rgba($lfdDetailBackgroundColorDesktop, 0.5);
-        color: $lfdDetailFontColorDesktop;
+        ul {
+          li {
+            color: rgba(map-get($configuration, lfdAgendaDatesFontColorDesktop), 0.5);
+
+            .day {
+              color: rgba(map-get($configuration, lfdAgendaDatesFontColorDesktop), 0.7);
+            }
+
+            &.placeholder {
+              color: rgba(map-get($configuration, lfdAgendaDatesFontColorDesktop), 0.1);
+
+              .day {
+                color: rgba(map-get($configuration, lfdAgendaDatesFontColorDesktop), 0.1);
+              }
+            }
+            &.active {
+              color: rgba($highlightColorDesktop, 0.5);
+
+              .day {
+                color: rgba($highlightColorDesktop, 1);
+              }
+            }
+          }
+        }
       }
 
-      .agenda-item-content-holder {
-        .agenda-item-time {
-          color: $lfdDetailFontColorDesktop;
+      .agenda-list-item {
+        .slide-over {
+          .agenda-item-inner-content {
+            background-color: map-get($configuration, lfdBackgroundColorDesktop);
+
+            .agenda-item-time {
+              color: map-get($configuration, lfdFontColorDesktop);
+            }
+
+            .agenda-item-session-location {
+              color: map-get($configuration, lfdFontColorDesktop);
+            }
+
+            h2.agenda-item-title {
+              color: map-get($configuration, lfdFontColorDesktop);
+            }
+          }
         }
 
-        .agenda-item-session-location {
-          color: $lfdDetailFontColorDesktop;
+        &.open {
+          .slide-over {
+            .agenda-item-inner-content {
+              h2.agenda-item-title {
+                &:after {
+                  background-color: $highlightColorDesktop;
+                }
+              }
+            }
+          }
         }
+      }
 
-        h2.agenda-item-title {
-          color: $lfdDetailFontColorDesktop;
+      .agenda-item-bookmark-holder {
+        color: map-get($configuration, lfdFontColorDesktop);
+
+        .fa-bookmark-o {
+          color: rgba(map-get($configuration, lfdFontColorDesktop), 0.2);
+        }
+      }
+
+      .bookmark-wrapper {
+        .fa-bookmark-o {
+          color: rgba(map-get($configuration, lfdFontColorDesktop), 0.2);
 
           &:after {
-            background-color: $highlightColorDesktop;
+            color: rgba(map-get($configuration, lfdFontColorDesktop), 0.5);
           }
         }
 
-        .agenda-item-bookmark-holder {
-          .fa-bookmark-o {
-            color: rgba($lfdDetailFontColorDesktop, 0.2);
+        .fa-bookmark {
+          color: $highlightColorDesktop;
+        }
+      }
 
-            &:after {
-              color: rgba($lfdDetailFontColorDesktop, 0.5);
+      .agenda-list-item-content {
+        .slide-over {
+          background-color: map-get($configuration, lfdDetailBackgroundColorDesktop);
+        }
+      }
+
+      .agenda-list-controls {
+        background-color: map-get($configuration, lfdAgendaDatesBackgroundColorDesktop);
+
+        .toggle-agenda {
+          .fa {
+            color: map-get($configuration, lfdAgendaDatesFontColorDesktop);
+          }
+
+          &.mixitup-control-active {
+            .fa {
+              color: $highlightColorDesktop;
             }
           }
         }
 
-        .bookmark-wrapper {
-          .fa-bookmark-o {
-            color: rgba($lfdDetailFontColorDesktop, 0.2);
-
-            &:after {
-              color: rgba($lfdDetailFontColorDesktop, 0.5);
-            }
-          }
+        .agenda-list-label {
+          color: map-get($configuration, lfdAgendaDatesFontColorDesktop);
         }
+      }
+
+      .agenda-list-item {
+        .agenda-item-close-btn {
+          background-color: rgba(map-get($configuration, lfdDetailBackgroundColorDesktop), 0.5);
+          color: map-get($configuration, lfdDetailFontColorDesktop);
+        }
+      }
+
+      .agenda-state-messages {
+        .loading-holder,
+        .offline-holder {
+          color: map-get($configuration, lfdDetailFontColorDesktop);
+        }
+      }
+
+      .agenda-list-card-holder.empty + .agenda-item-empty-state {
+        color: map-get($configuration, lfdDetailFontColorDesktop);
       }
     }
   }
-}
 
-.new-agenda-list-container {
+  /* Old Agenda */
   .agenda-date-selector {
-    background-color: $lfdAgendaDatesBackgroundColor;
+    background-color: map-get($configuration, lfdAgendaDatesBackgroundColor);
 
     ul {
       li {
-        color: rgba($lfdAgendaDatesFontColor, 0.5);
+        color: rgba(map-get($configuration, lfdAgendaDatesFontColor), 0.5);
 
         .day {
-          color: rgba($lfdAgendaDatesFontColor, 0.7);
+          color: rgba(map-get($configuration, lfdAgendaDatesFontColor), 0.7);
         }
 
         &.placeholder {
-          color: rgba($lfdAgendaDatesFontColor, 0.1);
+          color: rgba(map-get($configuration, lfdAgendaDatesFontColor), 0.1);
 
           .day {
-            color: rgba($lfdAgendaDatesFontColor, 0.1);
+            color: rgba(map-get($configuration, lfdAgendaDatesFontColor), 0.1);
           }
         }
         &.active {
@@ -1506,124 +1964,24 @@
         }
       }
     }
-  }
 
-  .agenda-list-item {
-    .slide-over {
-      .agenda-item-inner-content {
-        background-color: $lfdBackgroundColor;
-
-        .agenda-item-time {
-          color: $lfdFontColor;
-        }
-
-        .agenda-item-session-location {
-          color: $lfdFontColor;
-        }
-
-        h2.agenda-item-title {
-          color: $lfdFontColor;
-        }
-      }
-    }
-
-    &.open {
-      .slide-over {
-        .agenda-item-inner-content {
-          h2.agenda-item-title {
-            &:after {
-              background-color: $highlightColor;
-            }
-          }
-        }
-      }
-    }
-  }
-
-  .agenda-item-bookmark-holder {
-    color: $lfdFontColor;
-
-    .fa-bookmark-o {
-      color: rgba($lfdFontColor, 0.2);
-    }
-  }
-
-  .bookmark-wrapper {
-    .fa-bookmark-o {
-      color: rgba($lfdFontColor, 0.2);
-
-      &:after {
-        color: rgba($lfdFontColor, 0.5);
-      }
-    }
-
-    .fa-bookmark {
-      color: $highlightColor;
-    }
-  }
-
-  .agenda-list-item-content {
-    .slide-over {
-      background-color: $lfdDetailBackgroundColor;
-    }
-  }
-
-  .agenda-list-controls {
-    background-color: $lfdAgendaDatesBackgroundColor;
-
-    .toggle-agenda {
-      .fa {
-        color: $lfdAgendaDatesFontColor;
-      }
-
-      &.mixitup-control-active {
-        .fa {
-          color: $highlightColor;
-        }
-      }
-    }
-
-    .agenda-list-label {
-      color: $lfdAgendaDatesFontColor;
-    }
-  }
-
-  .agenda-list-item {
-    .agenda-item-close-btn {
-      background-color: rgba($lfdDetailBackgroundColor, 0.5);
-      color: $lfdDetailFontColor;
-    }
-  }
-
-  .agenda-state-messages {
-    .loading-holder,
-    .offline-holder {
-      color: $lfdDetailFontColor;
-    }
-  }
-
-  .agenda-list-card-holder.empty + .agenda-item-empty-state {
-    color: $lfdDetailFontColor;
-  }
-
-  // Styles for tablet
-  @include above($tabletBreakpoint) {
-    .agenda-date-selector {
-      background-color: $lfdAgendaDatesBackgroundColorTablet;
+    // Styles for tablet
+    @include above($tabletBreakpoint) {
+      background-color: map-get($configuration, lfdAgendaDatesBackgroundColorTablet);
 
       ul {
         li {
-          color: rgba($lfdAgendaDatesFontColorTablet, 0.5);
+          color: rgba(map-get($configuration, lfdAgendaDatesFontColorTablet), 0.5);
 
           .day {
-            color: rgba($lfdAgendaDatesFontColorTablet, 0.7);
+            color: rgba(map-get($configuration, lfdAgendaDatesFontColorTablet), 0.7);
           }
 
           &.placeholder {
-            color: rgba($lfdAgendaDatesFontColorTablet, 0.1);
+            color: rgba(map-get($configuration, lfdAgendaDatesFontColorTablet), 0.1);
 
             .day {
-              color: rgba($lfdAgendaDatesFontColorTablet, 0.1);
+              color: rgba(map-get($configuration, lfdAgendaDatesFontColorTablet), 0.1);
             }
           }
           &.active {
@@ -1637,123 +1995,23 @@
       }
     }
 
-    .agenda-list-item {
-      .slide-over {
-        .agenda-item-inner-content {
-          background-color: $lfdBackgroundColorTablet;
-
-          .agenda-item-time {
-            color: $lfdFontColorTablet;
-          }
-
-          .agenda-item-session-location {
-            color: $lfdFontColorTablet;
-          }
-
-          h2.agenda-item-title {
-            color: $lfdFontColorTablet;
-          }
-        }
-      }
-
-      &.open {
-        .slide-over {
-          .agenda-item-inner-content {
-            h2.agenda-item-title {
-              &:after {
-                background-color: $highlightColorTablet;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    .agenda-item-bookmark-holder {
-      color: $lfdFontColorTablet;
-
-      .fa-bookmark-o {
-        color: rgba($lfdFontColorTablet, 0.2);
-      }
-    }
-
-    .bookmark-wrapper {
-      .fa-bookmark-o {
-        color: rgba($lfdFontColorTablet, 0.2);
-
-        &:after {
-          color: rgba($lfdFontColorTablet, 0.5);
-        }
-      }
-
-      .fa-bookmark {
-        color: $highlightColorTablet;
-      }
-    }
-
-    .agenda-list-item-content {
-      .slide-over {
-        background-color: $lfdDetailBackgroundColorTablet;
-      }
-    }
-
-    .agenda-list-controls {
-      background-color: $lfdAgendaDatesBackgroundColorTablet;
-
-      .toggle-agenda {
-        .fa {
-          color: $lfdAgendaDatesFontColorTablet;
-        }
-
-        &.mixitup-control-active {
-          .fa {
-            color: $highlightColorTablet;
-          }
-        }
-      }
-
-      .agenda-list-label {
-        color: $lfdAgendaDatesFontColorTablet;
-      }
-    }
-
-    .agenda-list-item {
-      .agenda-item-close-btn {
-        background-color: rgba($lfdDetailBackgroundColorTablet, 0.5);
-        color: $lfdDetailFontColorTablet;
-      }
-    }
-
-    .agenda-state-messages {
-      .loading-holder,
-      .offline-holder {
-        color: $lfdDetailFontColorTablet;
-      }
-    }
-
-    .agenda-list-card-holder.empty + .agenda-item-empty-state {
-      color: $lfdDetailFontColorTablet;
-    }
-  }
-
-  // Styles for desktop
-  @include above($desktopBreakpoint) {
-    .agenda-date-selector {
-      background-color: $lfdAgendaDatesBackgroundColorDesktop;
+    // Styles for desktop
+    @include above($desktopBreakpoint) {
+      background-color: map-get($configuration, lfdAgendaDatesBackgroundColorDesktop);
 
       ul {
         li {
-          color: rgba($lfdAgendaDatesFontColorDesktop, 0.5);
+          color: rgba(map-get($configuration, lfdAgendaDatesFontColorDesktop), 0.5);
 
           .day {
-            color: rgba($lfdAgendaDatesFontColorDesktop, 0.7);
+            color: rgba(map-get($configuration, lfdAgendaDatesFontColorDesktop), 0.7);
           }
 
           &.placeholder {
-            color: rgba($lfdAgendaDatesFontColorDesktop, 0.1);
+            color: rgba(map-get($configuration, lfdAgendaDatesFontColorDesktop), 0.1);
 
             .day {
-              color: rgba($lfdAgendaDatesFontColorDesktop, 0.1);
+              color: rgba(map-get($configuration, lfdAgendaDatesFontColorDesktop), 0.1);
             }
           }
           &.active {
@@ -1766,22 +2024,88 @@
         }
       }
     }
+  }
 
-    .agenda-list-item {
+  .agenda-list-item {
+    .slide-over {
+      .agenda-item-inner-content {
+        background-color: map-get($configuration, lfdBackgroundColor);
+
+        .agenda-item-time {
+          color: map-get($configuration, lfdFontColor);
+        }
+
+        .agenda-item-session-location {
+          color: map-get($configuration, lfdFontColor);
+        }
+
+        h2.agenda-item-title {
+          color: map-get($configuration, lfdFontColor);
+        }
+      }
+    }
+
+    &.open {
       .slide-over {
         .agenda-item-inner-content {
-          background-color: $lfdBackgroundColorDesktop;
+          h2.agenda-item-title {
+            &:after {
+              background-color: $highlightColor;
+            }
+          }
+        }
+      }
+    }
+
+    // Styles for tablet
+    @include above($tabletBreakpoint) {
+      .slide-over {
+        .agenda-item-inner-content {
+          background-color: map-get($configuration, lfdBackgroundColorTablet);
 
           .agenda-item-time {
-            color: $lfdFontColorDesktop;
+            color: map-get($configuration, lfdFontColorTablet);
           }
 
           .agenda-item-session-location {
-            color: $lfdFontColorDesktop;
+            color: map-get($configuration, lfdFontColorTablet);
           }
 
           h2.agenda-item-title {
-            color: $lfdFontColorDesktop;
+            color: map-get($configuration, lfdFontColorTablet);
+          }
+        }
+      }
+
+      &.open {
+        .slide-over {
+          .agenda-item-inner-content {
+            h2.agenda-item-title {
+              &:after {
+                background-color: $highlightColorTablet;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    // Styles for desktop
+    @include above($desktopBreakpoint) {
+      .slide-over {
+        .agenda-item-inner-content {
+          background-color: map-get($configuration, lfdBackgroundColorDesktop);
+
+          .agenda-item-time {
+            color: map-get($configuration, lfdFontColorDesktop);
+          }
+
+          .agenda-item-session-location {
+            color: map-get($configuration, lfdFontColorDesktop);
+          }
+
+          h2.agenda-item-title {
+            color: map-get($configuration, lfdFontColorDesktop);
           }
         }
       }
@@ -1798,21 +2122,69 @@
         }
       }
     }
+  }
 
-    .agenda-item-bookmark-holder {
-      color: $lfdFontColorDesktop;
+  .agenda-item-bookmark-holder {
+    color: map-get($configuration, lfdFontColor);
+
+    .fa-bookmark-o {
+      color: rgba(map-get($configuration, lfdFontColor), 0.2);
+    }
+
+    // Styles for tablet
+    @include above($tabletBreakpoint) {
+      color: map-get($configuration, lfdFontColorTablet);
 
       .fa-bookmark-o {
-        color: rgba($lfdFontColorDesktop, 0.2);
+        color: rgba(map-get($configuration, lfdFontColorTablet), 0.2);
       }
     }
 
-    .bookmark-wrapper {
+    // Styles for desktop
+    @include above($desktopBreakpoint) {
+      color: map-get($configuration, lfdFontColorDesktop);
+
       .fa-bookmark-o {
-        color: rgba($lfdFontColorDesktop, 0.2);
+        color: rgba(map-get($configuration, lfdFontColorDesktop), 0.2);
+      }
+    }
+  }
+
+  .bookmark-wrapper {
+    .fa-bookmark-o {
+      color: rgba(map-get($configuration, lfdFontColor), 0.2);
+
+      &:after {
+        color: rgba(map-get($configuration, lfdFontColor), 0.5);
+      }
+    }
+
+    .fa-bookmark {
+      color: $highlightColor;
+    }
+
+    // Styles for tablet
+    @include above($tabletBreakpoint) {
+      .fa-bookmark-o {
+        color: rgba(map-get($configuration, lfdFontColorTablet), 0.2);
 
         &:after {
-          color: rgba($lfdFontColorDesktop, 0.5);
+          color: rgba(map-get($configuration, lfdFontColorTablet), 0.5);
+        }
+      }
+
+      .fa-bookmark {
+        color: $highlightColorTablet;
+      }
+    }
+
+    // Styles for desktop
+    @include above($desktopBreakpoint) {
+      .fa-bookmark-o {
+        color: rgba(map-get($configuration, lfdFontColorDesktop), 0.2);
+
+        &:after {
+          color: rgba(map-get($configuration, lfdFontColorDesktop), 0.5);
         }
       }
 
@@ -1820,950 +2192,650 @@
         color: $highlightColorDesktop;
       }
     }
-
-    .agenda-list-item-content {
-      .slide-over {
-        background-color: $lfdDetailBackgroundColorDesktop;
-      }
-    }
-
-    .agenda-list-controls {
-      background-color: $lfdAgendaDatesBackgroundColorDesktop;
-
-      .toggle-agenda {
-        .fa {
-          color: $lfdAgendaDatesFontColorDesktop;
-        }
-
-        &.mixitup-control-active {
-          .fa {
-            color: $highlightColorDesktop;
-          }
-        }
-      }
-
-      .agenda-list-label {
-        color: $lfdAgendaDatesFontColorDesktop;
-      }
-    }
-
-    .agenda-list-item {
-      .agenda-item-close-btn {
-        background-color: rgba($lfdDetailBackgroundColorDesktop, 0.5);
-        color: $lfdDetailFontColorDesktop;
-      }
-    }
-
-    .agenda-state-messages {
-      .loading-holder,
-      .offline-holder {
-        color: $lfdDetailFontColorDesktop;
-      }
-    }
-
-    .agenda-list-card-holder.empty + .agenda-item-empty-state {
-      color: $lfdDetailFontColorDesktop;
-    }
-  }
-}
-
-/* Old Agenda */
-.agenda-date-selector {
-  background-color: $lfdAgendaDatesBackgroundColor;
-
-  ul {
-    li {
-      color: rgba($lfdAgendaDatesFontColor, 0.5);
-
-      .day {
-        color: rgba($lfdAgendaDatesFontColor, 0.7);
-      }
-
-      &.placeholder {
-        color: rgba($lfdAgendaDatesFontColor, 0.1);
-
-        .day {
-          color: rgba($lfdAgendaDatesFontColor, 0.1);
-        }
-      }
-      &.active {
-        color: rgba($highlightColor, 0.5);
-
-        .day {
-          color: rgba($highlightColor, 1);
-        }
-      }
-    }
   }
 
-  // Styles for tablet
-  @include above($tabletBreakpoint) {
-    background-color: $lfdAgendaDatesBackgroundColorTablet;
-
-    ul {
-      li {
-        color: rgba($lfdAgendaDatesFontColorTablet, 0.5);
-
-        .day {
-          color: rgba($lfdAgendaDatesFontColorTablet, 0.7);
-        }
-
-        &.placeholder {
-          color: rgba($lfdAgendaDatesFontColorTablet, 0.1);
-
-          .day {
-            color: rgba($lfdAgendaDatesFontColorTablet, 0.1);
-          }
-        }
-        &.active {
-          color: rgba($highlightColorTablet, 0.5);
-
-          .day {
-            color: rgba($highlightColorTablet, 1);
-          }
-        }
-      }
-    }
-  }
-
-  // Styles for desktop
-  @include above($desktopBreakpoint) {
-    background-color: $lfdAgendaDatesBackgroundColorDesktop;
-
-    ul {
-      li {
-        color: rgba($lfdAgendaDatesFontColorDesktop, 0.5);
-
-        .day {
-          color: rgba($lfdAgendaDatesFontColorDesktop, 0.7);
-        }
-
-        &.placeholder {
-          color: rgba($lfdAgendaDatesFontColorDesktop, 0.1);
-
-          .day {
-            color: rgba($lfdAgendaDatesFontColorDesktop, 0.1);
-          }
-        }
-        &.active {
-          color: rgba($highlightColorDesktop, 0.5);
-
-          .day {
-            color: rgba($highlightColorDesktop, 1);
-          }
-        }
-      }
-    }
-  }
-}
-
-.agenda-list-item {
-  .slide-over {
-    .agenda-item-inner-content {
-      background-color: $lfdBackgroundColor;
-
-      .agenda-item-time {
-        color: $lfdFontColor;
-      }
-
-      .agenda-item-session-location {
-        color: $lfdFontColor;
-      }
-
-      h2.agenda-item-title {
-        color: $lfdFontColor;
-      }
-    }
-  }
-
-  &.open {
+  .agenda-list-item-content {
     .slide-over {
-      .agenda-item-inner-content {
-        h2.agenda-item-title {
-          &:after {
-            background-color: $highlightColor;
-          }
-        }
-      }
-    }
-  }
-
-  // Styles for tablet
-  @include above($tabletBreakpoint) {
-    .slide-over {
-      .agenda-item-inner-content {
-        background-color: $lfdBackgroundColorTablet;
-
-        .agenda-item-time {
-          color: $lfdFontColorTablet;
-        }
-
-        .agenda-item-session-location {
-          color: $lfdFontColorTablet;
-        }
-
-        h2.agenda-item-title {
-          color: $lfdFontColorTablet;
-        }
-      }
-    }
-
-    &.open {
-      .slide-over {
-        .agenda-item-inner-content {
-          h2.agenda-item-title {
-            &:after {
-              background-color: $highlightColorTablet;
-            }
-          }
-        }
-      }
-    }
-  }
-
-  // Styles for desktop
-  @include above($desktopBreakpoint) {
-    .slide-over {
-      .agenda-item-inner-content {
-        background-color: $lfdBackgroundColorDesktop;
-
-        .agenda-item-time {
-          color: $lfdFontColorDesktop;
-        }
-
-        .agenda-item-session-location {
-          color: $lfdFontColorDesktop;
-        }
-
-        h2.agenda-item-title {
-          color: $lfdFontColorDesktop;
-        }
-      }
-    }
-
-    &.open {
-      .slide-over {
-        .agenda-item-inner-content {
-          h2.agenda-item-title {
-            &:after {
-              background-color: $highlightColorDesktop;
-            }
-          }
-        }
-      }
-    }
-  }
-}
-
-.agenda-item-bookmark-holder {
-  color: $lfdFontColor;
-
-  .fa-bookmark-o {
-    color: rgba($lfdFontColor, 0.2);
-  }
-
-  // Styles for tablet
-  @include above($tabletBreakpoint) {
-    color: $lfdFontColorTablet;
-
-    .fa-bookmark-o {
-      color: rgba($lfdFontColorTablet, 0.2);
-    }
-  }
-
-  // Styles for desktop
-  @include above($desktopBreakpoint) {
-    color: $lfdFontColorDesktop;
-
-    .fa-bookmark-o {
-      color: rgba($lfdFontColorDesktop, 0.2);
-    }
-  }
-}
-
-.bookmark-wrapper {
-  .fa-bookmark-o {
-    color: rgba($lfdFontColor, 0.2);
-
-    &:after {
-      color: rgba($lfdFontColor, 0.5);
-    }
-  }
-
-  .fa-bookmark {
-    color: $highlightColor;
-  }
-
-  // Styles for tablet
-  @include above($tabletBreakpoint) {
-    .fa-bookmark-o {
-      color: rgba($lfdFontColorTablet, 0.2);
-
-      &:after {
-        color: rgba($lfdFontColorTablet, 0.5);
-      }
-    }
-
-    .fa-bookmark {
-      color: $highlightColorTablet;
-    }
-  }
-
-  // Styles for desktop
-  @include above($desktopBreakpoint) {
-    .fa-bookmark-o {
-      color: rgba($lfdFontColorDesktop, 0.2);
-
-      &:after {
-        color: rgba($lfdFontColorDesktop, 0.5);
-      }
-    }
-
-    .fa-bookmark {
-      color: $highlightColorDesktop;
-    }
-  }
-}
-
-.agenda-list-item-content {
-  .slide-over {
-    background-color: $lfdBackgroundColor;
-  }
-
-  // Styles for tablet
-  @include above($tabletBreakpoint) {
-    .slide-over {
-      background-color: $lfdBackgroundColorTablet;
-    }
-  }
-
-  // Styles for desktop
-  @include above($desktopBreakpoint) {
-    .slide-over {
-      background-color: $lfdBackgroundColorDesktop;
-    }
-  }
-}
-
-.agenda-list-controls {
-  background-color: $lfdAgendaDatesBackgroundColor;
-
-  .toggle-agenda {
-    .fa {
-      color: $lfdAgendaDatesFontColor;
-    }
-
-    &.mixitup-control-active {
-      .fa {
-        color: $lfdAgendaDatesFontColor;
-      }
-    }
-  }
-
-  .agenda-list-label {
-    color: $lfdDetailFontColor;
-  }
-
-  // Styles for tablet
-  @include above($tabletBreakpoint) {
-    background-color: $lfdAgendaDatesBackgroundColorTablet;
-
-    .toggle-agenda {
-      .fa {
-        color: $lfdAgendaDatesFontColorTablet;
-      }
-
-      &.mixitup-control-active {
-        .fa {
-          color: $lfdAgendaDatesFontColorTablet;
-        }
-      }
-    }
-
-    .agenda-list-label {
-      color: $lfdDetailFontColorTablet;
-    }
-  }
-
-  // Styles for desktop
-  @include above($desktopBreakpoint) {
-    background-color: $lfdAgendaDatesBackgroundColorDesktop;
-
-    .toggle-agenda {
-      .fa {
-        color: $lfdAgendaDatesFontColorDesktop;
-      }
-
-      &.mixitup-control-active {
-        .fa {
-          color: $lfdAgendaDatesFontColorDesktop;
-        }
-      }
-    }
-
-    .agenda-list-label {
-      color: $lfdDetailFontColorDesktop;
-    }
-  }
-}
-
-.agenda-list-item {
-  .agenda-item-close-btn {
-    background-color: rgba($lfdDetailBackgroundColor, 0.5);
-    color: $lfdDetailFontColor;
-  }
-
-  // Styles for tablet
-  @include above($tabletBreakpoint) {
-    .agenda-item-close-btn {
-      background-color: rgba($lfdDetailBackgroundColorTablet, 0.5);
-      color: $lfdDetailFontColorTablet;
-    }
-  }
-
-  // Styles for desktop
-  @include above($desktopBreakpoint) {
-    .agenda-item-close-btn {
-      background-color: rgba($lfdDetailBackgroundColorDesktop, 0.5);
-      color: $lfdDetailFontColorDesktop;
-    }
-  }
-}
-
-.agenda-state-messages {
-  .loading-holder,
-  .offline-holder {
-    color: $lfdFontColor;
-  }
-
-  // Styles for tablet
-  @include above($tabletBreakpoint) {
-    .loading-holder,
-    .offline-holder {
-      color: $lfdFontColorTablet;
-    }
-  }
-
-  // Styles for desktop
-  @include above($desktopBreakpoint) {
-    .loading-holder,
-    .offline-holder {
-      color: $lfdFontColorDesktop;
-    }
-  }
-}
-
-.agenda-list-card-holder.empty + .agenda-item-empty-state {
-  color: $lfdFontColor;
-
-  // Styles for tablet
-  @include above($tabletBreakpoint) {
-    color: $lfdFontColorTablet;
-  }
-
-  // Styles for desktop
-  @include above($desktopBreakpoint) {
-    color: $lfdFontColorDesktop;
-  }
-}
-
-/* SMALL HORIZONTAL CARDS */
-.new-small-h-card-list-container,
-.small-h-card-list-container {
-  .loading-data {
-    color: $lfdFontColor;
-  }
-
-  .small-h-card-list-detail-content-wrapper {
-    background-color: $lfdBackgroundColor;
-  }
-
-  .small-h-card-list-detail-name {
-    color: $lfdFontColor;
-
-    &:after {
-      background-color: $highlightColor;
-    }
-  }
-
-  .small-h-card-list-detail-role,
-  .small-h-card-list-detail-location {
-    color: $lfdFontColor;
-  }
-
-  .small-h-card-list-detail-button {
-    a {
-      color: $lfdFontColor;
-
-      &:hover,
-      &:focus,
-      &:active,
-      &:active:hover,
-      &:active:focus {
-        color: $lfdFontColor;
-      }
-    }
-  }
-
-  .small-h-card-list-detail-wrapper {
-    background-color: $lfdBackgroundColor;
-  }
-
-  .small-h-card-list-detail-image-wrapper {
-    color: rgba($bodyTextColor, 0.1);
-    background-color: rgba($lfdFontColor, 0.04);
-  }
-
-  .small-h-card-list-detail-close-btn {
-    background-color: rgba($lfdBackgroundColor, 0.5);
-    color: $lfdFontColor;
-  }
-
-  // Styles for tablet
-  @include above($tabletBreakpoint) {
-    .loading-data {
-      color: $lfdFontColorTablet;
-    }
-
-    .small-h-card-list-detail-content-wrapper {
-      background-color: $lfdBackgroundColorTablet;
-    }
-
-    .small-h-card-list-detail-name {
-      color: $lfdFontColorTablet;
-
-      &:after {
-        background-color: $highlightColorTablet;
-      }
-    }
-
-    .small-h-card-list-detail-role,
-    .small-h-card-list-detail-location {
-      color: $lfdFontColorTablet;
-    }
-
-    .small-h-card-list-detail-button {
-      a {
-        color: $lfdFontColorTablet;
-
-        &:hover,
-        &:focus,
-        &:active,
-        &:active:hover,
-        &:active:focus {
-          color: $lfdFontColorTablet;
-        }
-      }
-    }
-
-    .small-h-card-list-detail-wrapper {
-      background-color: $lfdBackgroundColorTablet;
-    }
-
-    .small-h-card-list-detail-image-wrapper {
-      color: rgba($bodyTextColorTablet, 0.1);
-      background-color: rgba($lfdFontColorTablet, 0.04);
-    }
-
-    .small-h-card-list-detail-close-btn {
-      background-color: rgba($lfdBackgroundColorTablet, 0.5);
-      color: $lfdFontColorTablet;
-    }
-  }
-
-  // Styles for desktop
-  @include above($desktopBreakpoint) {
-    .loading-data {
-      color: $lfdFontColorDesktop;
-    }
-
-    .small-h-card-list-detail-content-wrapper {
-      background-color: $lfdBackgroundColorDesktop;
-    }
-
-    .small-h-card-list-detail-name {
-      color: $lfdFontColorDesktop;
-
-      &:after {
-        background-color: $highlightColorDesktop;
-      }
-    }
-
-    .small-h-card-list-detail-role,
-    .small-h-card-list-detail-location {
-      color: $lfdFontColorDesktop;
-    }
-
-    .small-h-card-list-detail-button {
-      a {
-        color: $lfdFontColorDesktop;
-
-        &:hover,
-        &:focus,
-        &:active,
-        &:active:hover,
-        &:active:focus {
-          color: $lfdFontColorDesktop;
-        }
-      }
-    }
-
-    .small-h-card-list-detail-wrapper {
-      background-color: $lfdBackgroundColorDesktop;
-    }
-
-    .small-h-card-list-detail-image-wrapper {
-      color: rgba($bodyTextColorDesktop, 0.1);
-      background-color: rgba($lfdFontColorDesktop, 0.04);
-    }
-
-    .small-h-card-list-detail-close-btn {
-      background-color: rgba($lfdBackgroundColorDesktop, 0.5);
-      color: $lfdFontColorDesktop;
-    }
-  }
-}
-
-.new-small-h-card-list-container {
-  .small-h-card-list-detail-wrapper.open {
-    background-color: $lfdDetailBackgroundColor;
-  }
-
-  // Styles for tablet
-  @include above($tabletBreakpoint) {
-    .small-h-card-list-detail-wrapper.open {
-      background-color: $lfdDetailBackgroundColorTablet;
-    }
-  }
-
-  // Styles for desktop
-  @include above($desktopBreakpoint) {
-    .small-h-card-list-detail-wrapper.open {
-      background-color: $lfdDetailBackgroundColorDesktop;
-    }
-  }
-}
-
-.small-h-card-detail-overlay {
-  .small-h-card-detail-overlay-wrapper {
-    .small-h-card-detail-overlay-panel {
-      background-color: $lfdDetailBackgroundColor;
-      color: $lfdDetailFontColor;
-
-      .small-h-card-detail-wrapper {
-        .small-h-card-list-detail-content-wrapper {
-          background-color: $lfdDetailBackgroundColor;
-
-          .small-h-card-list-name,
-          .small-h-card-list-role,
-          .small-h-card-list-location,
-          .small-h-card-list-detail-role,
-          .small-h-card-list-detail-location {
-            color: $lfdDetailFontColor;
-          }
-
-          .small-h-card-list-detail-name {
-            color: $lfdDetailFontColor;
-
-            &:after {
-              background-color: $highlightColor;
-            }
-          }
-
-          .small-h-card-list-detail-button a {
-            color: $lfdDetailFontColor;
-
-            &:hover,
-            &:focus,
-            &:active,
-            &:active:hover,
-            &:active:focus {
-              color: $lfdDetailFontColor;
-            }
-          }
-
-          .small-h-card-detail-overlay-close {
-            background-color: rgba($lfdDetailBackgroundColor, 0.5);
-            color: $lfdDetailFontColor;
-          }
-        }
-
-        .small-h-card-list-detail-image-wrapper {
-          color: rgba($lfdDetailFontColor, 0.1);
-          background-color: rgba($lfdDetailFontColor, 0.04);
-        }
-      }
-    }
-
-    .small-h-card-detail-overlay-close {
-      background-color: rgba($lfdDetailBackgroundColor, 0.5);
-      color: $lfdDetailFontColor;
+      background-color: map-get($configuration, lfdBackgroundColor);
     }
 
     // Styles for tablet
     @include above($tabletBreakpoint) {
-      .small-h-card-detail-overlay-panel {
-        background-color: $lfdDetailBackgroundColorTablet;
-        color: $lfdDetailFontColorTablet;
-
-        .small-h-card-detail-wrapper {
-          .small-h-card-list-detail-content-wrapper {
-            background-color: $lfdDetailBackgroundColorTablet;
-
-            .small-h-card-list-name,
-            .small-h-card-list-role,
-            .small-h-card-list-location,
-            .small-h-card-list-detail-role,
-            .small-h-card-list-detail-location {
-              color: $lfdDetailFontColorTablet;
-            }
-
-            .small-h-card-list-detail-name {
-              color: $lfdDetailFontColorTablet;
-
-              &:after {
-                background-color: $highlightColorTablet;
-              }
-            }
-
-            .small-h-card-list-detail-button a {
-              color: $lfdDetailFontColorTablet;
-
-              &:hover,
-              &:focus,
-              &:active,
-              &:active:hover,
-              &:active:focus {
-                color: $lfdDetailFontColorTablet;
-              }
-            }
-
-            .small-h-card-detail-overlay-close {
-              background-color: rgba($lfdDetailBackgroundColorTablet, 0.5);
-              color: $lfdDetailFontColorTablet;
-            }
-          }
-
-          .small-h-card-list-detail-image-wrapper {
-            color: rgba($lfdDetailFontColorTablet, 0.1);
-            background-color: rgba($lfdDetailFontColorTablet, 0.04);
-          }
-        }
-      }
-
-      .small-h-card-detail-overlay-close {
-        background-color: rgba($lfdDetailBackgroundColorTablet, 0.5);
-        color: $lfdDetailFontColorTablet;
+      .slide-over {
+        background-color: map-get($configuration, lfdBackgroundColorTablet);
       }
     }
 
     // Styles for desktop
     @include above($desktopBreakpoint) {
+      .slide-over {
+        background-color: map-get($configuration, lfdBackgroundColorDesktop);
+      }
+    }
+  }
+
+  .agenda-list-controls {
+    background-color: map-get($configuration, lfdAgendaDatesBackgroundColor);
+
+    .toggle-agenda {
+      .fa {
+        color: map-get($configuration, lfdAgendaDatesFontColor);
+      }
+
+      &.mixitup-control-active {
+        .fa {
+          color: map-get($configuration, lfdAgendaDatesFontColor);
+        }
+      }
+    }
+
+    .agenda-list-label {
+      color: map-get($configuration, lfdDetailFontColor);
+    }
+
+    // Styles for tablet
+    @include above($tabletBreakpoint) {
+      background-color: map-get($configuration, lfdAgendaDatesBackgroundColorTablet);
+
+      .toggle-agenda {
+        .fa {
+          color: map-get($configuration, lfdAgendaDatesFontColorTablet);
+        }
+
+        &.mixitup-control-active {
+          .fa {
+            color: map-get($configuration, lfdAgendaDatesFontColorTablet);
+          }
+        }
+      }
+
+      .agenda-list-label {
+        color: map-get($configuration, lfdDetailFontColorTablet);
+      }
+    }
+
+    // Styles for desktop
+    @include above($desktopBreakpoint) {
+      background-color: map-get($configuration, lfdAgendaDatesBackgroundColorDesktop);
+
+      .toggle-agenda {
+        .fa {
+          color: map-get($configuration, lfdAgendaDatesFontColorDesktop);
+        }
+
+        &.mixitup-control-active {
+          .fa {
+            color: map-get($configuration, lfdAgendaDatesFontColorDesktop);
+          }
+        }
+      }
+
+      .agenda-list-label {
+        color: map-get($configuration, lfdDetailFontColorDesktop);
+      }
+    }
+  }
+
+  .agenda-list-item {
+    .agenda-item-close-btn {
+      background-color: rgba(map-get($configuration, lfdDetailBackgroundColor), 0.5);
+      color: map-get($configuration, lfdDetailFontColor);
+    }
+
+    // Styles for tablet
+    @include above($tabletBreakpoint) {
+      .agenda-item-close-btn {
+        background-color: rgba(map-get($configuration, lfdDetailBackgroundColorTablet), 0.5);
+        color: map-get($configuration, lfdDetailFontColorTablet);
+      }
+    }
+
+    // Styles for desktop
+    @include above($desktopBreakpoint) {
+      .agenda-item-close-btn {
+        background-color: rgba(map-get($configuration, lfdDetailBackgroundColorDesktop), 0.5);
+        color: map-get($configuration, lfdDetailFontColorDesktop);
+      }
+    }
+  }
+
+  .agenda-state-messages {
+    .loading-holder,
+    .offline-holder {
+      color: map-get($configuration, lfdFontColor);
+    }
+
+    // Styles for tablet
+    @include above($tabletBreakpoint) {
+      .loading-holder,
+      .offline-holder {
+        color: map-get($configuration, lfdFontColorTablet);
+      }
+    }
+
+    // Styles for desktop
+    @include above($desktopBreakpoint) {
+      .loading-holder,
+      .offline-holder {
+        color: map-get($configuration, lfdFontColorDesktop);
+      }
+    }
+  }
+
+  .agenda-list-card-holder.empty + .agenda-item-empty-state {
+    color: map-get($configuration, lfdFontColor);
+
+    // Styles for tablet
+    @include above($tabletBreakpoint) {
+      color: map-get($configuration, lfdFontColorTablet);
+    }
+
+    // Styles for desktop
+    @include above($desktopBreakpoint) {
+      color: map-get($configuration, lfdFontColorDesktop);
+    }
+  }
+
+  /* SMALL HORIZONTAL CARDS */
+  .new-small-h-card-list-container,
+  .small-h-card-list-container {
+    .loading-data {
+      color: map-get($configuration, lfdFontColor);
+    }
+
+    .small-h-card-list-detail-content-wrapper {
+      background-color: map-get($configuration, lfdBackgroundColor);
+    }
+
+    .small-h-card-list-detail-name {
+      color: map-get($configuration, lfdFontColor);
+
+      &:after {
+        background-color: $highlightColor;
+      }
+    }
+
+    .small-h-card-list-detail-role,
+    .small-h-card-list-detail-location {
+      color: map-get($configuration, lfdFontColor);
+    }
+
+    .small-h-card-list-detail-button {
+      a {
+        color: map-get($configuration, lfdFontColor);
+
+        &:hover,
+        &:focus,
+        &:active,
+        &:active:hover,
+        &:active:focus {
+          color: map-get($configuration, lfdFontColor);
+        }
+      }
+    }
+
+    .small-h-card-list-detail-wrapper {
+      background-color: map-get($configuration, lfdBackgroundColor);
+    }
+
+    .small-h-card-list-detail-image-wrapper {
+      color: rgba($bodyTextColor, 0.1);
+      background-color: rgba(map-get($configuration, lfdFontColor), 0.04);
+    }
+
+    .small-h-card-list-detail-close-btn {
+      background-color: rgba(map-get($configuration, lfdBackgroundColor), 0.5);
+      color: map-get($configuration, lfdFontColor);
+    }
+
+    // Styles for tablet
+    @include above($tabletBreakpoint) {
+      .loading-data {
+        color: map-get($configuration, lfdFontColorTablet);
+      }
+
+      .small-h-card-list-detail-content-wrapper {
+        background-color: map-get($configuration, lfdBackgroundColorTablet);
+      }
+
+      .small-h-card-list-detail-name {
+        color: map-get($configuration, lfdFontColorTablet);
+
+        &:after {
+          background-color: $highlightColorTablet;
+        }
+      }
+
+      .small-h-card-list-detail-role,
+      .small-h-card-list-detail-location {
+        color: map-get($configuration, lfdFontColorTablet);
+      }
+
+      .small-h-card-list-detail-button {
+        a {
+          color: map-get($configuration, lfdFontColorTablet);
+
+          &:hover,
+          &:focus,
+          &:active,
+          &:active:hover,
+          &:active:focus {
+            color: map-get($configuration, lfdFontColorTablet);
+          }
+        }
+      }
+
+      .small-h-card-list-detail-wrapper {
+        background-color: map-get($configuration, lfdBackgroundColorTablet);
+      }
+
+      .small-h-card-list-detail-image-wrapper {
+        color: rgba($bodyTextColorTablet, 0.1);
+        background-color: rgba(map-get($configuration, lfdFontColorTablet), 0.04);
+      }
+
+      .small-h-card-list-detail-close-btn {
+        background-color: rgba(map-get($configuration, lfdBackgroundColorTablet), 0.5);
+        color: map-get($configuration, lfdFontColorTablet);
+      }
+    }
+
+    // Styles for desktop
+    @include above($desktopBreakpoint) {
+      .loading-data {
+        color: map-get($configuration, lfdFontColorDesktop);
+      }
+
+      .small-h-card-list-detail-content-wrapper {
+        background-color: map-get($configuration, lfdBackgroundColorDesktop);
+      }
+
+      .small-h-card-list-detail-name {
+        color: map-get($configuration, lfdFontColorDesktop);
+
+        &:after {
+          background-color: $highlightColorDesktop;
+        }
+      }
+
+      .small-h-card-list-detail-role,
+      .small-h-card-list-detail-location {
+        color: map-get($configuration, lfdFontColorDesktop);
+      }
+
+      .small-h-card-list-detail-button {
+        a {
+          color: map-get($configuration, lfdFontColorDesktop);
+
+          &:hover,
+          &:focus,
+          &:active,
+          &:active:hover,
+          &:active:focus {
+            color: map-get($configuration, lfdFontColorDesktop);
+          }
+        }
+      }
+
+      .small-h-card-list-detail-wrapper {
+        background-color: map-get($configuration, lfdBackgroundColorDesktop);
+      }
+
+      .small-h-card-list-detail-image-wrapper {
+        color: rgba($bodyTextColorDesktop, 0.1);
+        background-color: rgba(map-get($configuration, lfdFontColorDesktop), 0.04);
+      }
+
+      .small-h-card-list-detail-close-btn {
+        background-color: rgba(map-get($configuration, lfdBackgroundColorDesktop), 0.5);
+        color: map-get($configuration, lfdFontColorDesktop);
+      }
+    }
+  }
+
+  .new-small-h-card-list-container {
+    .small-h-card-list-detail-wrapper.open {
+      background-color: map-get($configuration, lfdDetailBackgroundColor);
+    }
+
+    // Styles for tablet
+    @include above($tabletBreakpoint) {
+      .small-h-card-list-detail-wrapper.open {
+        background-color: map-get($configuration, lfdDetailBackgroundColorTablet);
+      }
+    }
+
+    // Styles for desktop
+    @include above($desktopBreakpoint) {
+      .small-h-card-list-detail-wrapper.open {
+        background-color: map-get($configuration, lfdDetailBackgroundColorDesktop);
+      }
+    }
+  }
+
+  .small-h-card-detail-overlay {
+    .small-h-card-detail-overlay-wrapper {
       .small-h-card-detail-overlay-panel {
-        background-color: $lfdDetailBackgroundColorDesktop;
-        color: $lfdDetailFontColorDesktop;
+        background-color: map-get($configuration, lfdDetailBackgroundColor);
+        color: map-get($configuration, lfdDetailFontColor);
 
         .small-h-card-detail-wrapper {
           .small-h-card-list-detail-content-wrapper {
-            background-color: $lfdDetailBackgroundColorDesktop;
+            background-color: map-get($configuration, lfdDetailBackgroundColor);
 
             .small-h-card-list-name,
             .small-h-card-list-role,
             .small-h-card-list-location,
             .small-h-card-list-detail-role,
             .small-h-card-list-detail-location {
-              color: $lfdDetailFontColorDesktop;
+              color: map-get($configuration, lfdDetailFontColor);
             }
 
             .small-h-card-list-detail-name {
-              color: $lfdDetailFontColorDesktop;
+              color: map-get($configuration, lfdDetailFontColor);
 
               &:after {
-                background-color: $highlightColorDesktop;
+                background-color: $highlightColor;
               }
             }
 
             .small-h-card-list-detail-button a {
-              color: $lfdDetailFontColorDesktop;
+              color: map-get($configuration, lfdDetailFontColor);
 
               &:hover,
               &:focus,
               &:active,
               &:active:hover,
               &:active:focus {
-                color: $lfdDetailFontColorDesktop;
+                color: map-get($configuration, lfdDetailFontColor);
               }
             }
 
             .small-h-card-detail-overlay-close {
-              background-color: rgba($lfdDetailBackgroundColorDesktop, 0.5);
-              color: $lfdDetailFontColorDesktop;
+              background-color: rgba(map-get($configuration, lfdDetailBackgroundColor), 0.5);
+              color: map-get($configuration, lfdDetailFontColor);
             }
           }
 
           .small-h-card-list-detail-image-wrapper {
-            color: rgba($lfdDetailFontColorDesktop, 0.1);
-            background-color: rgba($lfdDetailFontColorDesktop, 0.04);
+            color: rgba(map-get($configuration, lfdDetailFontColor), 0.1);
+            background-color: rgba(map-get($configuration, lfdDetailFontColor), 0.04);
           }
         }
       }
 
       .small-h-card-detail-overlay-close {
-        background-color: rgba($lfdDetailBackgroundColorDesktop, 0.5);
-        color: $lfdDetailFontColorDesktop;
+        background-color: rgba(map-get($configuration, lfdDetailBackgroundColor), 0.5);
+        color: map-get($configuration, lfdDetailFontColor);
+      }
+
+      // Styles for tablet
+      @include above($tabletBreakpoint) {
+        .small-h-card-detail-overlay-panel {
+          background-color: map-get($configuration, lfdDetailBackgroundColorTablet);
+          color: map-get($configuration, lfdDetailFontColorTablet);
+
+          .small-h-card-detail-wrapper {
+            .small-h-card-list-detail-content-wrapper {
+              background-color: map-get($configuration, lfdDetailBackgroundColorTablet);
+
+              .small-h-card-list-name,
+              .small-h-card-list-role,
+              .small-h-card-list-location,
+              .small-h-card-list-detail-role,
+              .small-h-card-list-detail-location {
+                color: map-get($configuration, lfdDetailFontColorTablet);
+              }
+
+              .small-h-card-list-detail-name {
+                color: map-get($configuration, lfdDetailFontColorTablet);
+
+                &:after {
+                  background-color: $highlightColorTablet;
+                }
+              }
+
+              .small-h-card-list-detail-button a {
+                color: map-get($configuration, lfdDetailFontColorTablet);
+
+                &:hover,
+                &:focus,
+                &:active,
+                &:active:hover,
+                &:active:focus {
+                  color: map-get($configuration, lfdDetailFontColorTablet);
+                }
+              }
+
+              .small-h-card-detail-overlay-close {
+                background-color: rgba(map-get($configuration, lfdDetailBackgroundColorTablet), 0.5);
+                color: map-get($configuration, lfdDetailFontColorTablet);
+              }
+            }
+
+            .small-h-card-list-detail-image-wrapper {
+              color: rgba(map-get($configuration, lfdDetailFontColorTablet), 0.1);
+              background-color: rgba(map-get($configuration, lfdDetailFontColorTablet), 0.04);
+            }
+          }
+        }
+
+        .small-h-card-detail-overlay-close {
+          background-color: rgba(map-get($configuration, lfdDetailBackgroundColorTablet), 0.5);
+          color: map-get($configuration, lfdDetailFontColorTablet);
+        }
+      }
+
+      // Styles for desktop
+      @include above($desktopBreakpoint) {
+        .small-h-card-detail-overlay-panel {
+          background-color: map-get($configuration, lfdDetailBackgroundColorDesktop);
+          color: map-get($configuration, lfdDetailFontColorDesktop);
+
+          .small-h-card-detail-wrapper {
+            .small-h-card-list-detail-content-wrapper {
+              background-color: map-get($configuration, lfdDetailBackgroundColorDesktop);
+
+              .small-h-card-list-name,
+              .small-h-card-list-role,
+              .small-h-card-list-location,
+              .small-h-card-list-detail-role,
+              .small-h-card-list-detail-location {
+                color: map-get($configuration, lfdDetailFontColorDesktop);
+              }
+
+              .small-h-card-list-detail-name {
+                color: map-get($configuration, lfdDetailFontColorDesktop);
+
+                &:after {
+                  background-color: $highlightColorDesktop;
+                }
+              }
+
+              .small-h-card-list-detail-button a {
+                color: map-get($configuration, lfdDetailFontColorDesktop);
+
+                &:hover,
+                &:focus,
+                &:active,
+                &:active:hover,
+                &:active:focus {
+                  color: map-get($configuration, lfdDetailFontColorDesktop);
+                }
+              }
+
+              .small-h-card-detail-overlay-close {
+                background-color: rgba(map-get($configuration, lfdDetailBackgroundColorDesktop), 0.5);
+                color: map-get($configuration, lfdDetailFontColorDesktop);
+              }
+            }
+
+            .small-h-card-list-detail-image-wrapper {
+              color: rgba(map-get($configuration, lfdDetailFontColorDesktop), 0.1);
+              background-color: rgba(map-get($configuration, lfdDetailFontColorDesktop), 0.04);
+            }
+          }
+        }
+
+        .small-h-card-detail-overlay-close {
+          background-color: rgba(map-get($configuration, lfdDetailBackgroundColorDesktop), 0.5);
+          color: map-get($configuration, lfdDetailFontColorDesktop);
+        }
       }
     }
   }
-}
 
-.dynamic-list-add-item {
-  background-color: $highlightColor;
-  color: $primaryButtonTextColor;
+  .dynamic-list-add-item {
+    background-color: $highlightColor;
+    color: $primaryButtonTextColor;
 
-  // Styles for tablet
-  @include above($tabletBreakpoint) {
-    background-color: $highlightColorTablet;
-    color: $primaryButtonTextColorTablet;
-  }
+    // Styles for tablet
+    @include above($tabletBreakpoint) {
+      background-color: $highlightColorTablet;
+      color: $primaryButtonTextColorTablet;
+    }
 
-  // Styles for desktop
-  @include above($desktopBreakpoint) {
-    background-color: $highlightColorDesktop;
-    color: $primaryButtonTextColorDesktop;
-  }
-}
-
-.btn.dynamic-list-edit-item {
-  border: 1px solid rgba($lfdDetailFontColor, 0.3);
-  background-color: $lfdDetailBackgroundColor;
-  color: rgba($lfdDetailFontColor, 0.5);
-  border-radius: 40px;
-
-  @include above($tabletBreakpoint) {
-    border: 1px solid rgba($lfdDetailFontColorTablet, 0.3);
-    background-color: $lfdDetailBackgroundColorTablet;
-    color: rgba($lfdDetailFontColorTablet, 0.5);
-    border-radius: 40px;
-  }
-
-  // Styles for desktop
-  @include above($desktopBreakpoint) {
-    border: 1px solid rgba($lfdDetailFontColorDesktop, 0.3);
-    background-color: $lfdDetailBackgroundColorDesktop;
-    color: rgba($lfdDetailFontColorDesktop, 0.5);
-    border-radius: 40px;
-  }
-}
-
-.btn.dynamic-list-edit-item:hover,
-.btn.dynamic-list-edit-item:active,
-.btn.dynamic-list-edit-item:active:focus {
-  border: 1px solid rgba($lfdDetailFontColor, 0.3);
-  background-color: rgba($lfdDetailFontColor, 0.1);
-  color: $lfdDetailFontColor;
-
-  // Styles for tablet
-  @include above($tabletBreakpoint) {
-    border: 1px solid rgba($lfdDetailFontColorTablet, 0.3);
-    background-color: rgba($lfdDetailFontColorTablet, 0.1);
-    color: $lfdDetailFontColorTablet;
-  }
-
-  // Styles for desktop
-  @include above($desktopBreakpoint) {
-    border: 1px solid rgba($lfdDetailFontColorDesktop, 0.3);
-    background-color: rgba($lfdDetailFontColorDesktop, 0.1);
-    color: $lfdDetailFontColorDesktop;
-  }
-}
-
-.news-feed-bookmark-holder {
-  .fa-bookmark {
-    color: $highlightColor;
-  }
-
-  // Styles for tablet
-  @include above($tabletBreakpoint) {
-    .fa-bookmark {
-      color: $highlightColorTablet;
+    // Styles for desktop
+    @include above($desktopBreakpoint) {
+      background-color: $highlightColorDesktop;
+      color: $primaryButtonTextColorDesktop;
     }
   }
 
-  // Styles for desktop
-  @include above($desktopBreakpoint) {
-    .fa-bookmark {
-      color: $highlightColorDesktop;
+  .btn.dynamic-list-edit-item {
+    border: 1px solid rgba(map-get($configuration, lfdDetailFontColor), 0.3);
+    background-color: map-get($configuration, lfdDetailBackgroundColor);
+    color: rgba(map-get($configuration, lfdDetailFontColor), 0.5);
+    border-radius: 40px;
+
+    @include above($tabletBreakpoint) {
+      border: 1px solid rgba(map-get($configuration, lfdDetailFontColorTablet), 0.3);
+      background-color: map-get($configuration, lfdDetailBackgroundColorTablet);
+      color: rgba(map-get($configuration, lfdDetailFontColorTablet), 0.5);
+      border-radius: 40px;
+    }
+
+    // Styles for desktop
+    @include above($desktopBreakpoint) {
+      border: 1px solid rgba(map-get($configuration, lfdDetailFontColorDesktop), 0.3);
+      background-color: map-get($configuration, lfdDetailBackgroundColorDesktop);
+      color: rgba(map-get($configuration, lfdDetailFontColorDesktop), 0.5);
+      border-radius: 40px;
     }
   }
-}
 
-.simple-list-container {
-  color: $lfdFontColor;
+  .btn.dynamic-list-edit-item:hover,
+  .btn.dynamic-list-edit-item:active,
+  .btn.dynamic-list-edit-item:active:focus {
+    border: 1px solid rgba(map-get($configuration, lfdDetailFontColor), 0.3);
+    background-color: rgba(map-get($configuration, lfdDetailFontColor), 0.1);
+    color: map-get($configuration, lfdDetailFontColor);
 
-  .list-item-arrow {
-    color: $lfdChevronColor;
+    // Styles for tablet
+    @include above($tabletBreakpoint) {
+      border: 1px solid rgba(map-get($configuration, lfdDetailFontColorTablet), 0.3);
+      background-color: rgba(map-get($configuration, lfdDetailFontColorTablet), 0.1);
+      color: map-get($configuration, lfdDetailFontColorTablet);
+    }
+
+    // Styles for desktop
+    @include above($desktopBreakpoint) {
+      border: 1px solid rgba(map-get($configuration, lfdDetailFontColorDesktop), 0.3);
+      background-color: rgba(map-get($configuration, lfdDetailFontColorDesktop), 0.1);
+      color: map-get($configuration, lfdDetailFontColorDesktop);
+    }
   }
 
-  .simple-list-item {
-    border-bottom: 1px solid $lfdSeparatorColor;
+  .news-feed-bookmark-holder {
+    .fa-bookmark {
+      color: $highlightColor;
+    }
+
+    // Styles for tablet
+    @include above($tabletBreakpoint) {
+      .fa-bookmark {
+        color: $highlightColorTablet;
+      }
+    }
+
+    // Styles for desktop
+    @include above($desktopBreakpoint) {
+      .fa-bookmark {
+        color: $highlightColorDesktop;
+      }
+    }
   }
 
-  .simple-list-item .list-item-description,
-  .simple-list-item .list-item-subtitle {
-    color: $lfdFontColor;
-  }
-
-  // Styles for tablet
-  @include above($tabletBreakpoint) {
-    color: $lfdFontColorTablet;
+  .simple-list-container {
+    color: map-get($configuration, lfdFontColor);
 
     .list-item-arrow {
-      color: $lfdChevronColorTablet;
+      color: map-get($configuration, lfdChevronColor);
     }
 
     .simple-list-item {
-      border-bottom: 1px solid $lfdSeparatorColorTablet;
+      border-bottom: 1px solid $lfdSeparatorColor;
     }
 
     .simple-list-item .list-item-description,
     .simple-list-item .list-item-subtitle {
-      color: $lfdFontColorTablet;
+      color: map-get($configuration, lfdFontColor);
+    }
+
+    // Styles for tablet
+    @include above($tabletBreakpoint) {
+      color: map-get($configuration, lfdFontColorTablet);
+
+      .list-item-arrow {
+        color: map-get($configuration, lfdChevronColorTablet);
+      }
+
+      .simple-list-item {
+        border-bottom: 1px solid $lfdSeparatorColorTablet;
+      }
+
+      .simple-list-item .list-item-description,
+      .simple-list-item .list-item-subtitle {
+        color: map-get($configuration, lfdFontColorTablet);
+      }
+    }
+
+    // Styles for desktop
+    @include above($desktopBreakpoint) {
+      color: map-get($configuration, lfdFontColorDesktop);
+
+      .list-item-arrow {
+        color: map-get($configuration, lfdChevronColorDesktop);
+      }
+
+      .simple-list-item {
+        border-bottom: 1px solid $lfdSeparatorColorDesktop;
+      }
+
+      .simple-list-item .list-item-description,
+      .simple-list-item .list-item-subtitle {
+        color: map-get($configuration, lfdFontColorDesktop);
+      }
     }
   }
 
-  // Styles for desktop
-  @include above($desktopBreakpoint) {
-    color: $lfdFontColorDesktop;
+  .simple-list-detail-overlay-panel .simple-list-detail-overlay-heading,
+  .simple-list-detail-overlay .simple-list-detail-overlay-panel {
+    background-color: map-get($configuration, lfdDetailBackgroundColor);
+    color: map-get($configuration, lfdDetailFontColor);
 
-    .list-item-arrow {
-      color: $lfdChevronColorDesktop;
+    // Styles for tablet
+    @include above($tabletBreakpoint) {
+      background-color: map-get($configuration, lfdDetailBackgroundColorTablet);
+      color: map-get($configuration, lfdDetailFontColorTablet);
     }
 
-    .simple-list-item {
-      border-bottom: 1px solid $lfdSeparatorColorDesktop;
-    }
-
-    .simple-list-item .list-item-description,
-    .simple-list-item .list-item-subtitle {
-      color: $lfdFontColorDesktop;
+    // Styles for desktop
+    @include above($desktopBreakpoint) {
+      background-color: map-get($configuration, lfdDetailBackgroundColorDesktop);
+      color: map-get($configuration, lfdDetailFontColorDesktop);
     }
   }
 }
 
-.simple-list-detail-overlay-panel .simple-list-detail-overlay-heading,
-.simple-list-detail-overlay .simple-list-detail-overlay-panel {
-  background-color: $lfdDetailBackgroundColor;
-  color: $lfdDetailFontColor;
-
-  // Styles for tablet
-  @include above($tabletBreakpoint) {
-    background-color: $lfdDetailBackgroundColorTablet;
-    color: $lfdDetailFontColorTablet;
-  }
-
-  // Styles for desktop
-  @include above($desktopBreakpoint) {
-    background-color: $lfdDetailBackgroundColorDesktop;
-    color: $lfdDetailFontColorDesktop;
-  }
-}
+@include lfd();

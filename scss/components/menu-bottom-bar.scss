@@ -1,0 +1,133 @@
+@mixin menuBottom($options: ()) {
+  $configuration: map-merge((
+    menuBottomFont: $menuBottomFont,
+    menuBottomSize: $menuBottomSize,
+    menuBottomWeight: $menuBottomWeight,
+    menuBottomStyle: $menuBottomStyle,
+    menuBottomDecoration: $menuBottomDecoration,
+    menuBottomBarBackgroundColor: $menuBottomBarBackgroundColor,
+    menuBottomBarFontColor: $menuBottomBarFontColor,
+    menuBottomActiveBackground: $menuBottomActiveBackground,
+    menuBottomBarActiveFontColor: $menuBottomBarActiveFontColor,
+    menuBottomFontTablet: $menuBottomFontTablet,
+    menuBottomSizeTablet: $menuBottomSizeTablet,
+    menuBottomWeightTablet: $menuBottomWeightTablet,
+    menuBottomStyleTablet: $menuBottomStyleTablet,
+    menuBottomDecorationTablet: $menuBottomDecorationTablet,
+    menuBottomBarBackgroundColorTablet: $menuBottomBarBackgroundColorTablet,
+    menuBottomBarFontColorTablet: $menuBottomBarFontColorTablet,
+    menuBottomActiveBackgroundTablet: $menuBottomActiveBackgroundTablet,
+    menuBottomBarActiveFontColorTablet: $menuBottomBarActiveFontColorTablet,
+    menuBottomFontDesktop: $menuBottomFontDesktop,
+    menuBottomSizeDesktop: $menuBottomSizeDesktop,
+    menuBottomWeightDesktop: $menuBottomWeightDesktop,
+    menuBottomStyleDesktop: $menuBottomStyleDesktop,
+    menuBottomDecorationDesktop: $menuBottomDecorationDesktop,
+    menuBottomBarBackgroundColorDesktop: $menuBottomBarBackgroundColorDesktop,
+    menuBottomBarFontColorDesktop: $menuBottomBarFontColorDesktop,
+    menuBottomActiveBackgroundDesktop: $menuBottomActiveBackgroundDesktop,
+    menuBottomBarActiveFontColorDesktop: $menuBottomBarActiveFontColorDesktop
+  ), $options);
+
+  .fl-bottom-bar-menu-holder {
+    color: map-get($configuration, menuBottomBarFontColor);
+
+    ul {
+      background-color: map-get($configuration, menuBottomBarBackgroundColor);
+    }
+
+    li {
+      .fl-menu-title {
+        @include fontOnly((
+          fontFamily: map-get($configuration, menuBottomFont),
+          fontSize: map-get($configuration, menuBottomSize),
+          fontLineHeight: 1.5,
+          fontWeight: map-get($configuration, menuBottomWeight),
+          fontStyle: map-get($configuration, menuBottomStyle),
+          fontDecoration: map-get($configuration, menuBottomDecoration)
+        ));
+      }
+
+      &.active {
+        background-color: map-get($configuration, menuBottomActiveBackground);
+
+        .fl-menu-icon {
+          color: map-get($configuration, menuBottomBarActiveFontColor);
+        }
+
+        .fl-menu-title {
+          color: map-get($configuration, menuBottomBarActiveFontColor);
+        }
+      }
+    }
+
+    // Styles for tablet
+    @include above($tabletBreakpoint) {
+      color: map-get($configuration, menuBottomBarFontColorTablet);
+
+      ul {
+        background-color: map-get($configuration, menuBottomBarBackgroundColorTablet);
+      }
+
+      li {
+        .fl-menu-title {
+          @include fontOnly((
+            fontFamily: map-get($configuration, menuBottomFontTablet),
+            fontSize: map-get($configuration, menuBottomSizeTablet),
+            fontLineHeight: 1.5,
+            fontWeight: map-get($configuration, menuBottomWeightTablet),
+            fontStyle: map-get($configuration, menuBottomStyleTablet),
+            fontDecoration: map-get($configuration, menuBottomDecorationTablet)
+          ));
+        }
+
+        &.active {
+          background-color: map-get($configuration, menuBottomActiveBackgroundTablet);
+
+          .fl-menu-icon {
+            color: map-get($configuration, menuBottomBarActiveFontColorTablet);
+          }
+
+          .fl-menu-title {
+            color: map-get($configuration, menuBottomBarActiveFontColorTablet);
+          }
+        }
+      }
+    }
+
+    // Styles for desktop
+    @include above($desktopBreakpoint) {
+      color: map-get($configuration, menuBottomBarFontColorDesktop);
+
+      ul {
+        background-color: map-get($configuration, menuBottomBarBackgroundColorDesktop);
+      }
+
+      li {
+        .fl-menu-title {
+          @include fontOnly((
+            fontFamily: map-get($configuration, menuBottomFontDesktop),
+            fontSize: map-get($configuration, menuBottomSizeDesktop),
+            fontLineHeight: 1.5,
+            fontWeight: map-get($configuration, menuBottomWeightDesktop),
+            fontStyle: map-get($configuration, menuBottomStyleDesktop),
+            fontDecoration: map-get($configuration, menuBottomDecorationDesktop)
+          ));
+        }
+
+        &.active {
+          background-color: map-get($configuration, menuBottomActiveBackgroundDesktop);
+
+          .fl-menu-icon {
+            color: map-get($configuration, menuBottomBarActiveFontColorDesktop);
+          }
+
+          .fl-menu-title {
+            color: map-get($configuration, menuBottomBarActiveFontColorDesktop);
+          }
+        }
+      }
+    }
+  }
+}
+@include menuBottom();
