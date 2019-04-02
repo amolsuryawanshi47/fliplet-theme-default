@@ -1,284 +1,275 @@
-/*****************************/
-/*** FLIPLET DEFAULT THEME ***/
-/********* CONTENTS **********/
-/*****************************/
-/*****************************
-01 - ACCORDIONS
-******************************/
-
-/* 01 - ACCORDIONS */
 @mixin accordion($options: ()) {
   $configuration: map-merge((
-    headingBackground: $accordionHeadingBg,
-    headingText: $accordionHeadingText,
-    paddingtop: $accordionHeadingPaddingTop,
-    paddingRight: $accordionHeadingPaddingRight,
-    paddingBottom: $accordionHeadingPaddingBottom,
-    paddingLeft: $accordionHeadingPaddingLeft
+    accordionHeadingBg: $accordionHeadingBg,
+    accordionHeadingBgActive: $accordionHeadingBgActive,
+    accordionHeadingText: $accordionHeadingText,
+    accordionHeadingTextActive: $accordionHeadingTextActive,
+    accordionHeadingChevron: $accordionHeadingChevron,
+    accordionHeadingChevronActive: $accordionHeadingChevronActive,
+    accordionHeadingPaddingTop: $accordionHeadingPaddingTop,
+    accordionHeadingPaddingRight: $accordionHeadingPaddingRight,
+    accordionHeadingPaddingBottom: $accordionHeadingPaddingBottom,
+    accordionHeadingPaddingLeft: $accordionHeadingPaddingLeft,
+    accordionContentPaddingTop: $accordionContentPaddingTop,
+    accordionContentPaddingRight: $accordionContentPaddingRight,
+    accordionContentPaddingBottom: $accordionContentPaddingBottom,
+    accordionContentPaddingLeft: $accordionContentPaddingLeft,
+    accordionBorderWidth: $accordionBorderWidth,
+    accordionBorderStyle: $accordionBorderStyle,
+    accordionBorderColor: $accordionBorderColor,
+    accordionHeadingBgTablet: $accordionHeadingBgTablet,
+    accordionHeadingBgActiveTablet: $accordionHeadingBgActiveTablet,
+    accordionHeadingTextTablet: $accordionHeadingTextTablet,
+    accordionHeadingTextActiveTablet: $accordionHeadingTextActiveTablet,
+    accordionHeadingChevronTablet: $accordionHeadingChevronTablet,
+    accordionHeadingChevronActiveTablet: $accordionHeadingChevronActiveTablet,
+    accordionHeadingPaddingTopTablet: $accordionHeadingPaddingTopTablet,
+    accordionHeadingPaddingRightTablet: $accordionHeadingPaddingRightTablet,
+    accordionHeadingPaddingBottomTablet: $accordionHeadingPaddingBottomTablet,
+    accordionHeadingPaddingLeftTablet: $accordionHeadingPaddingLeftTablet,
+    accordionContentPaddingTopTablet: $accordionContentPaddingTopTablet,
+    accordionContentPaddingRightTablet: $accordionContentPaddingRightTablet,
+    accordionContentPaddingBottomTablet: $accordionContentPaddingBottomTablet,
+    accordionContentPaddingLeftTablet: $accordionContentPaddingLeftTablet,
+    accordionBorderWidthTablet: $accordionBorderWidthTablet,
+    accordionBorderStyleTablet: $accordionBorderStyleTablet,
+    accordionBorderColorTablet: $accordionBorderColorTablet,
+    accordionHeadingBgDesktop: $accordionHeadingBgDesktop,
+    accordionHeadingBgActiveDesktop: $accordionHeadingBgActiveDesktop,
+    accordionHeadingTextDesktop: $accordionHeadingTextDesktop,
+    accordionHeadingTextActiveDesktop: $accordionHeadingTextActiveDesktop,
+    accordionHeadingChevronDesktop: $accordionHeadingChevronDesktop,
+    accordionHeadingChevronActiveDesktop: $accordionHeadingChevronActiveDesktop,
+    accordionHeadingPaddingTopDesktop: $accordionHeadingPaddingTopDesktop,
+    accordionHeadingPaddingRightDesktop: $accordionHeadingPaddingRightDesktop,
+    accordionHeadingPaddingBottomDesktop: $accordionHeadingPaddingBottomDesktop,
+    accordionHeadingPaddingLeftDesktop: $accordionHeadingPaddingLeftDesktop,
+    accordionContentPaddingTopDesktop: $accordionContentPaddingTopDesktop,
+    accordionContentPaddingRightDesktop: $accordionContentPaddingRightDesktop,
+    accordionContentPaddingBottomDesktop: $accordionContentPaddingBottomDesktop,
+    accordionContentPaddingLeftDesktop: $accordionContentPaddingLeftDesktop,
+    accordionBorderWidthDesktop: $accordionBorderWidthDesktop,
+    accordionBorderStyleDesktop: $accordionBorderStyleDesktop,
+    accordionBorderColorDesktop: $accordionBorderColorDesktop
   ), $options);
 
-  color: map-get($configuration, headingText);
-  background-color: map-get($configuration, headingBackground);
-  padding: map-get($configuration, paddingtop)
-    calc(#{map-get($configuration, paddingRight)} + 29px)
-    map-get($configuration, paddingBottom)
-    map-get($configuration, paddingLeft);
-}
-
-@mixin accordionChevron($options: ()) {
-  $configuration: map-merge((
-    headingChevron: $accordionHeadingChevron
-  ), $options);
-
-  color: map-get($configuration, headingChevron);
-}
-
-@mixin accordionBorder($options: ()) {
-  $configuration: map-merge((
-    borderWidth: $accordionBorderWidth,
-    borderStyle: $accordionBorderStyle,
-    borderColor: $accordionBorderColor
-  ), $options);
-
-  border: map-get($configuration, borderWidth)
-    map-get($configuration, borderStyle)
-    map-get($configuration, borderColor);
-}
-
-.collapse-start {
-  @include accordion();
-  @include accordionBorder();
-
-  // Styles for tablet
-  @include above($tabletBreakpoint) {
-    @include accordion((
-      headingText: $accordionHeadingTextTablet,
-      headingBackground: $accordionHeadingBgTablet,
-      paddingtop: $accordionHeadingPaddingTopTablet,
-      paddingRight: $accordionHeadingPaddingRightTablet,
-      paddingBottom: $accordionHeadingPaddingBottomTablet,
-      paddingLeft: $accordionHeadingPaddingLeftTablet
-    ));
-    @include accordionBorder((
-      borderWidth: $accordionBorderWidthTablet,
-      borderStyle: $accordionBorderStyleTablet,
-      borderColor: $accordionBorderColorTablet
-    ));
-  }
-
-  // Styles for desktop
-  @include above($desktopBreakpoint) {
-    @include accordion((
-      headingText: $accordionHeadingTextDesktop,
-      headingBackground: $accordionHeadingBgDesktop,
-      paddingtop: $accordionHeadingPaddingTopDesktop,
-      paddingRight: $accordionHeadingPaddingRightDesktop,
-      paddingBottom: $accordionHeadingPaddingBottomDesktop,
-      paddingLeft: $accordionHeadingPaddingLeftDesktop
-    ));
-    @include accordionBorder((
-      borderWidth: $accordionBorderWidthDesktop,
-      borderStyle: $accordionBorderStyleDesktop,
-      borderColor: $accordionBorderColorDesktop
-    ));
-  }
-}
-
-.collapse-start:after {
-  @include accordionChevron();
-
-  // Styles for tablet
-  @include above($tabletBreakpoint) {
-    @include accordionChevron((
-      headingChevron: $accordionHeadingChevronTablet
-    ));
-  }
-
-  // Styles for desktop
-  @include above($desktopBreakpoint) {
-    @include accordionChevron((
-      headingChevron: $accordionHeadingChevronDesktop
-    ));
-  }
-}
-
-.collapse-end {
-  color: $bodyTextColor;
-  background-color: $bodyBackground;
-
-  @include accordionBorder();
-
-  // Styles for tablet
-  @include above($tabletBreakpoint) {
-    color: $bodyTextColorTablet;
-    background-color: $bodyBackgroundTablet;
-
-    @include accordionBorder((
-      borderWidth: $accordionBorderWidthTablet,
-      borderStyle: $accordionBorderStyleTablet,
-      borderColor: $accordionBorderColorTablet
-    ));
-  }
-
-  // Styles for desktop
-  @include above($desktopBreakpoint) {
-    color: $bodyTextColorDesktop;
-    background-color: $bodyBackgroundDesktop;
-
-    @include accordionBorder((
-      borderWidth: $accordionBorderWidthDesktop,
-      borderStyle: $accordionBorderStyleDesktop,
-      borderColor: $accordionBorderColorDesktop
-    ));
-  }
-}
-
-.panel-group {
-  .panel {
-    background-color: transparent;
-    @include accordionBorder();
+  .collapse-start {
+    color: map-get($configuration, accordionHeadingText);
+    background-color: map-get($configuration, accordionHeadingBg);
+    padding: map-get($configuration, accordionHeadingPaddingTop)
+      calc(#{map-get($configuration, accordionHeadingPaddingRight)} + 29px)
+      map-get($configuration, accordionHeadingPaddingBottom)
+      map-get($configuration, accordionHeadingPaddingLeft);
+    border: map-get($configuration, accordionBorderWidth)
+      map-get($configuration, accordionBorderStyle)
+      map-get($configuration, accordionBorderColor);
 
     // Styles for tablet
     @include above($tabletBreakpoint) {
-      @include accordionBorder((
-        borderWidth: $accordionBorderWidthTablet,
-        borderStyle: $accordionBorderStyleTablet,
-        borderColor: $accordionBorderColorTablet
-      ));
+      color: map-get($configuration, accordionHeadingTextTablet);
+      background-color: map-get($configuration, accordionHeadingBgTablet);
+      padding: map-get($configuration, accordionHeadingPaddingTopTablet)
+        calc(#{map-get($configuration, accordionHeadingPaddingRightTablet)} + 29px)
+        map-get($configuration, accordionHeadingPaddingBottomTablet)
+        map-get($configuration, accordionHeadingPaddingLeftTablet);
+      border: map-get($configuration, accordionBorderWidthTablet)
+        map-get($configuration, accordionBorderStyleTablet)
+        map-get($configuration, accordionBorderColorTablet);
     }
 
     // Styles for desktop
     @include above($desktopBreakpoint) {
-      @include accordionBorder((
-        borderWidth: $accordionBorderWidthDesktop,
-        borderStyle: $accordionBorderStyleDesktop,
-        borderColor: $accordionBorderColorDesktop
-      ));
+      color: map-get($configuration, accordionHeadingTextDesktop);
+      background-color: map-get($configuration, accordionHeadingBgDesktop);
+      padding: map-get($configuration, accordionHeadingPaddingTopDesktop)
+        calc(#{map-get($configuration, accordionHeadingPaddingRightDesktop)} + 29px)
+        map-get($configuration, accordionHeadingPaddingBottomDesktop)
+        map-get($configuration, accordionHeadingPaddingLeftDesktop);
+      border: map-get($configuration, accordionBorderWidthDesktop)
+        map-get($configuration, accordionBorderStyleDesktop)
+        map-get($configuration, accordionBorderColorDesktop);
     }
 
-    > .panel-title {
-      @include accordion((
-        headingText: $accordionHeadingTextActive,
-        headingBackground: $accordionHeadingBgActive,
-      ));
+    &:after {
+      color: map-get($configuration, accordionHeadingChevron);
 
       // Styles for tablet
       @include above($tabletBreakpoint) {
-        @include accordion((
-          headingText: $accordionHeadingTextActiveTablet,
-          headingBackground: $accordionHeadingBgActiveTablet,
-          paddingtop: $accordionHeadingPaddingTopTablet,
-          paddingRight: $accordionHeadingPaddingRightTablet,
-          paddingBottom: $accordionHeadingPaddingBottomTablet,
-          paddingLeft: $accordionHeadingPaddingLeftTablet
-        ));
+        color: map-get($configuration, accordionHeadingChevronTablet);
       }
 
       // Styles for desktop
       @include above($desktopBreakpoint) {
-        @include accordion((
-          headingText: $accordionHeadingTextActiveDesktop,
-          headingBackground: $accordionHeadingBgActiveDesktop,
-          paddingtop: $accordionHeadingPaddingTopDesktop,
-          paddingRight: $accordionHeadingPaddingRightDesktop,
-          paddingBottom: $accordionHeadingPaddingBottomDesktop,
-          paddingLeft: $accordionHeadingPaddingLeftDesktop
-        ));
+        color: map-get($configuration, accordionHeadingChevronDesktop);
+      }
+    }
+  }
+
+  .collapse-end {
+    color: $bodyTextColor;
+    background-color: $bodyBackground;
+
+    border: map-get($configuration, accordionBorderWidth)
+      map-get($configuration, accordionBorderStyle)
+      map-get($configuration, accordionBorderColor);
+
+    // Styles for tablet
+    @include above($tabletBreakpoint) {
+      color: $bodyTextColorTablet;
+      background-color: $bodyBackgroundTablet;
+
+      border: map-get($configuration, accordionBorderWidthTablet)
+        map-get($configuration, accordionBorderStyleTablet)
+        map-get($configuration, accordionBorderColorTablet);
+    }
+
+    // Styles for desktop
+    @include above($desktopBreakpoint) {
+      color: $bodyTextColorDesktop;
+      background-color: $bodyBackgroundDesktop;
+
+      border: map-get($configuration, accordionBorderWidthDesktop)
+        map-get($configuration, accordionBorderStyleDesktop)
+        map-get($configuration, accordionBorderColorDesktop);
+    }
+  }
+
+  .panel-group {
+    .panel {
+      background-color: transparent;
+      border: map-get($configuration, accordionBorderWidth)
+        map-get($configuration, accordionBorderStyle)
+        map-get($configuration, accordionBorderColor);
+
+      // Styles for tablet
+      @include above($tabletBreakpoint) {
+        border: map-get($configuration, accordionBorderWidthTablet)
+          map-get($configuration, accordionBorderStyleTablet)
+          map-get($configuration, accordionBorderColorTablet);
       }
 
-      &.collapsed {
-        @include accordion();
+      // Styles for desktop
+      @include above($desktopBreakpoint) {
+        border: map-get($configuration, accordionBorderWidthDesktop)
+          map-get($configuration, accordionBorderStyleDesktop)
+          map-get($configuration, accordionBorderColorDesktop);
+      }
+
+      > .panel-title {
+        color: map-get($configuration, accordionHeadingTextActive);
+        background-color: map-get($configuration, accordionHeadingBgActive);
+        padding: map-get($configuration, accordionHeadingPaddingTop)
+          calc(#{map-get($configuration, accordionHeadingPaddingRight)} + 29px)
+          map-get($configuration, accordionHeadingPaddingBottom)
+          map-get($configuration, accordionHeadingPaddingLeft);
 
         // Styles for tablet
         @include above($tabletBreakpoint) {
-          @include accordion((
-            headingText: $accordionHeadingTextTablet,
-            headingBackground: $accordionHeadingBgTablet,
-            paddingtop: $accordionHeadingPaddingTopTablet,
-            paddingRight: $accordionHeadingPaddingRightTablet,
-            paddingBottom: $accordionHeadingPaddingBottomTablet,
-            paddingLeft: $accordionHeadingPaddingLeftTablet
-          ));
+          color: map-get($configuration, accordionHeadingTextActiveTablet);
+          background-color: map-get($configuration, accordionHeadingBgActiveTablet);
+          padding: map-get($configuration, accordionHeadingPaddingTopTablet)
+            calc(#{map-get($configuration, accordionHeadingPaddingRightTablet)} + 29px)
+            map-get($configuration, accordionHeadingPaddingBottomTablet)
+            map-get($configuration, accordionHeadingPaddingLeftTablet);
         }
 
         // Styles for desktop
         @include above($desktopBreakpoint) {
-          @include accordion((
-            headingText: $accordionHeadingTextDesktop,
-            headingBackground: $accordionHeadingBgDesktop,
-            paddingtop: $accordionHeadingPaddingTopDesktop,
-            paddingRight: $accordionHeadingPaddingRightDesktop,
-            paddingBottom: $accordionHeadingPaddingBottomDesktop,
-            paddingLeft: $accordionHeadingPaddingLeftDesktop
-          ));
+          color: map-get($configuration, accordionHeadingTextActiveDesktop);
+          background-color: map-get($configuration, accordionHeadingBgActiveDesktop);
+          padding: map-get($configuration, accordionHeadingPaddingTopDesktop)
+            calc(#{map-get($configuration, accordionHeadingPaddingRightDesktop)} + 29px)
+            map-get($configuration, accordionHeadingPaddingBottomDesktop)
+            map-get($configuration, accordionHeadingPaddingLeftDesktop);
         }
 
-        &:after {
-          @include accordionChevron();
+        &.collapsed {
+          color: map-get($configuration, accordionHeadingText);
+          background-color: map-get($configuration, accordionHeadingBg);
+          padding: map-get($configuration, accordionHeadingPaddingTop)
+            calc(#{map-get($configuration, accordionHeadingPaddingRight)} + 29px)
+            map-get($configuration, accordionHeadingPaddingBottom)
+            map-get($configuration, accordionHeadingPaddingLeft);
 
           // Styles for tablet
           @include above($tabletBreakpoint) {
-            @include accordionChevron((
-              headingChevron: $accordionHeadingChevronTablet
-            ));
+            color: map-get($configuration, accordionHeadingTextTablet);
+            background-color: map-get($configuration, accordionHeadingBgTablet);
+            padding: map-get($configuration, accordionHeadingPaddingTopTablet)
+              calc(#{map-get($configuration, accordionHeadingPaddingRightTablet)} + 29px)
+              map-get($configuration, accordionHeadingPaddingBottomTablet)
+              map-get($configuration, accordionHeadingPaddingLeftTablet);
           }
 
           // Styles for desktop
           @include above($desktopBreakpoint) {
-            @include accordionChevron((
-              headingChevron: $accordionHeadingChevronDesktop
-            ));
+            color: map-get($configuration, accordionHeadingTextDesktop);
+            background-color: map-get($configuration, accordionHeadingBgDesktop);
+            padding: map-get($configuration, accordionHeadingPaddingTopDesktop)
+              calc(#{map-get($configuration, accordionHeadingPaddingRightDesktop)} + 29px)
+              map-get($configuration, accordionHeadingPaddingBottomDesktop)
+              map-get($configuration, accordionHeadingPaddingLeftDesktop);
+          }
+
+          &:after {
+            color: map-get($configuration, accordionHeadingChevron);
+
+            // Styles for tablet
+            @include above($tabletBreakpoint) {
+              color: map-get($configuration, accordionHeadingChevronTablet);
+            }
+
+            // Styles for desktop
+            @include above($desktopBreakpoint) {
+              color: map-get($configuration, accordionHeadingChevronDesktop);
+            }
+          }
+        }
+
+        &:after {
+          color: map-get($configuration, accordionHeadingChevronActive);
+
+          // Styles for tablet
+          @include above($tabletBreakpoint) {
+            color: map-get($configuration, accordionHeadingChevronActiveTablet);
+          }
+
+          // Styles for desktop
+          @include above($desktopBreakpoint) {
+            color: map-get($configuration, accordionHeadingChevronActiveDesktop);
           }
         }
       }
 
-      &:after {
-        @include accordionChevron((
-          headingChevron: $accordionHeadingChevronActive
-        ));
+      .panel-body {
+        background-color: $bodyBackground;
+        padding: map-get($configuration, accordionContentPaddingTop)
+          calc(#{map-get($configuration, accordionContentPaddingRight)} + 29px)
+          map-get($configuration, accordionContentPaddingBottom)
+          map-get($configuration, accordionContentPaddingLeft);
 
         // Styles for tablet
         @include above($tabletBreakpoint) {
-          @include accordionChevron((
-            headingChevron: $accordionHeadingChevronActiveTablet
-          ));
+          background-color: $bodyBackgroundTablet;
+          padding: map-get($configuration, accordionContentPaddingTopTablet)
+            calc(#{map-get($configuration, accordionContentPaddingRightTablet)} + 29px)
+            map-get($configuration, accordionContentPaddingBottomTablet)
+            map-get($configuration, accordionContentPaddingLeftTablet);
         }
 
         // Styles for desktop
         @include above($desktopBreakpoint) {
-          @include accordionChevron((
-            headingChevron: $accordionHeadingChevronActiveDesktop
-          ));
+          background-color: $bodyBackgroundDesktop;
+          padding: map-get($configuration, accordionContentPaddingTopDesktop)
+            calc(#{map-get($configuration, accordionContentPaddingRightDesktop)} + 29px)
+            map-get($configuration, accordionContentPaddingBottomDesktop)
+            map-get($configuration, accordionContentPaddingLeftDesktop);
         }
-      }
-    }
-
-    .panel-body {
-      background-color: $bodyBackground;
-      padding: $accordionContentPaddingTop
-        $accordionContentPaddingRight
-        $accordionContentPaddingBottom
-        $accordionContentPaddingLeft;
-
-      // Styles for tablet
-      @include above($tabletBreakpoint) {
-        background-color: $bodyBackgroundTablet;
-        padding: $accordionContentPaddingTopTablet
-          $accordionContentPaddingRightTablet
-          $accordionContentPaddingBottomTablet
-          $accordionContentPaddingLeftTablet;
-      }
-
-      // Styles for desktop
-      @include above($desktopBreakpoint) {
-        background-color: $bodyBackgroundDesktop;
-        padding: $accordionContentPaddingTopDesktop
-          $accordionContentPaddingRightDesktop
-          $accordionContentPaddingBottomDesktop
-          $accordionContentPaddingLeftDesktop;
       }
     }
   }
 }
+
+@include accordion();
 
 

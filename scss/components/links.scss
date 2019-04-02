@@ -1,100 +1,82 @@
-@mixin links($options: ()) {
+@mixin inlineLink($options: ()) {
   $configuration: map-merge((
-    linkColor: $linkColor
+    linkColor: $linkColor,
+    linkHoverColor: $linkHoverColor,
+    linkColorTablet: $linkColorTablet,
+    linkHoverColorTablet: $linkHoverColorTablet,
+    linkColorDesktop: $linkColorDesktop,
+    linkHoverColorDesktop: $linkHoverColorDesktop
   ), $options);
 
-  color: map-get($configuration, linkColor);
-}
-
-
-a {
-  text-decoration: none;
-
-  @include links();
-
-  // Styles for tablet
-  @include above($tabletBreakpoint) {
-    @include links((
-      linkColor: $linkColorTablet
-    ));
-  }
-
-  // Styles for desktop
-  @include above($desktopBreakpoint) {
-    @include links((
-      linkColor: $linkColorDesktop
-    ));
-  }
-
-  &:hover,
-  &:focus,
-  &:active:hover,
-  &:active:focus {
-    @include links((
-      linkColor: $linkHoverColor
-    ));
-
+  a {
     text-decoration: none;
-    outline: none;
+
+   color: map-get($configuration, linkColor);
 
     // Styles for tablet
     @include above($tabletBreakpoint) {
-      @include links((
-        linkColor: $linkHoverColorTablet
-      ));
+      color: map-get($configuration, linkColorTablet);
     }
 
     // Styles for desktop
     @include above($desktopBreakpoint) {
-      @include links((
-        linkColor: $linkHoverColorDesktop
-      ));
+      color: map-get($configuration, linkColorDesktop);
+    }
+
+    &:hover,
+    &:focus,
+    &:active:hover,
+    &:active:focus {
+      color: map-get($configuration, linkHoverColor);
+      text-decoration: none;
+      outline: none;
+
+      // Styles for tablet
+      @include above($tabletBreakpoint) {
+        color: map-get($configuration, linkHoverColorTablet);
+      }
+
+      // Styles for desktop
+      @include above($desktopBreakpoint) {
+        color: map-get($configuration, linkHoverColorDesktop);
+      }
     }
   }
-}
 
-.btn.btn-link {
-  text-decoration: none;
-
-  @include links();
-
-  // Styles for tablet
-  @include above($tabletBreakpoint) {
-    @include links((
-      linkColor: $linkColorTablet
-    ));
-  }
-
-  // Styles for desktop
-  @include above($desktopBreakpoint) {
-    @include links((
-      linkColor: $linkColorDesktop
-    ));
-  }
-
-  &:hover,
-  &:focus,
-  &:active:hover,
-  &:active:focus {
-    @include links((
-      linkColor: $linkHoverColor
-    ));
-
+  .btn.btn-link {
     text-decoration: none;
-    outline: none;
+
+    color: map-get($configuration, linkColor);
 
     // Styles for tablet
     @include above($tabletBreakpoint) {
-      @include links((
-        linkColor: $linkHoverColorTablet
-      ));
+      color: map-get($configuration, linkColorTablet);
     }
 
     // Styles for desktop
     @include above($desktopBreakpoint) {
-      @include links((
-        linkColor: $linkHoverColorDesktop
-      ));
+      color: map-get($configuration, linkColorDesktop);
+    }
+
+    &:hover,
+    &:focus,
+    &:active:hover,
+    &:active:focus {
+      color: map-get($configuration, linkHoverColor);
+      text-decoration: none;
+      outline: none;
+
+      // Styles for tablet
+      @include above($tabletBreakpoint) {
+        color: map-get($configuration, linkHoverColorTablet);
+      }
+
+      // Styles for desktop
+      @include above($desktopBreakpoint) {
+        color: map-get($configuration, linkHoverColorDesktop);
+      }
     }
   }
 }
+
+@include inlineLink();
