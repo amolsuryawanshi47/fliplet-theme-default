@@ -1,579 +1,735 @@
-/*****************************/
-/*** FLIPLET DEFAULT THEME ***/
-/********* CONTENTS **********/
-/*****************************/
-/*****************************
-01 - DATA DIRECTORIES
-******************************/
+@mixin directories($options: ()) {
+  $configuration: map-merge((
+    directoryListWidth: $directoryListWidth,
+    directoryDetailsWidth: $directoryDetailsWidth,
+    directoryBackgroundColor: $directoryBackgroundColor,
+    directoryTextColor: $directoryTextColor,
+    directoryActiveListColor: $directoryActiveListColor,
+    directoryListBorderWidth: $directoryListBorderWidth,
+    directoryListBorderStyle: $directoryListBorderStyle,
+    directoryListBorderColor: $directoryListBorderColor,
+    directoryListTitleSize: $directoryListTitleSize,
+    directoryListTitleColor: $directoryListTitleColor,
+    directoryListTitleWeight: $directoryListTitleWeight,
+    directoryListTitleStyle: $directoryListTitleStyle,
+    directoryListTitleDecoration: $directoryListTitleDecoration,
+    directoryListDescSize: $directoryListDescSize,
+    directoryListDescColor: $directoryListDescColor,
+    directoryListDescWeight: $directoryListDescWeight,
+    directoryListDescStyle: $directoryListDescStyle,
+    directoryListDescDecoration: $directoryListDescDecoration,
+    directoryActiveListTitleSize: $directoryActiveListTitleSize,
+    directoryActiveListTitleColor: $directoryActiveListTitleColor,
+    directoryActiveListTitleWeight: $directoryActiveListTitleWeight,
+    directoryActiveListTitleStyle: $directoryActiveListTitleStyle,
+    directoryActiveListTitleDecoration: $directoryActiveListTitleDecoration,
+    directoryActiveListDescSize: $directoryActiveListDescSize,
+    directoryActiveListDescColor: $directoryActiveListDescColor,
+    directoryActiveListDescWeight: $directoryActiveListDescWeight,
+    directoryActiveListDescStyle: $directoryActiveListDescStyle,
+    directoryActiveListDescDecoration: $directoryActiveListDescDecoration,
+    directoryListTagsColor: $directoryListTagsColor,
+    directoryListTagsTextColor: $directoryListTagsTextColor,
+    directoryActiveListTagsColor: $directoryActiveListTagsColor,
+    directoryActiveListTagsTextColor: $directoryActiveListTagsTextColor,
+    directoryListChevronColor: $directoryListChevronColor,
+    directoryActiveListChevronColor: $directoryActiveListChevronColor,
+    directorySeparatorColor: $directorySeparatorColor,
+    directorySeparatorTextColor: $directorySeparatorTextColor,
+    directorySearchColor: $directorySearchColor,
+    directorySearchTextColor: $directorySearchTextColor,
+    directorySearchCancel: $directorySearchCancel,
+    directorySearchCancelHover: $directorySearchCancelHover,
+    directoryOverlayContentColor: $directoryOverlayContentColor,
+    directoryOverlayNavColor: $directoryOverlayNavColor,
+    directoryOverlayNavTextColor: $directoryOverlayNavTextColor,
+    directoryOverlayNavBorderColor: $directoryOverlayNavBorderColor,
+    directoryOverlayContentTitleFont: $directoryOverlayContentTitleFont,
+    directoryOverlayContentTitleFontSize: $directoryOverlayContentTitleFontSize,
+    directoryOverlayContentTitleColor: $directoryOverlayContentTitleColor,
+    directoryOverlayContentLabelFont: $directoryOverlayContentLabelFont,
+    directoryOverlayContentLabelFontSize: $directoryOverlayContentLabelFontSize,
+    directoryOverlayContentLabelColor: $directoryOverlayContentLabelColor,
+    directoryOverlayContentValueFont: $directoryOverlayContentValueFont,
+    directoryOverlayContentValueFontSize: $directoryOverlayContentValueFontSize,
+    directoryOverlayContentValueColor: $directoryOverlayContentValueColor,
+    directoryListWidthTablet: $directoryListWidthTablet,
+    directoryDetailsWidthTablet: $directoryDetailsWidthTablet,
+    directoryBackgroundColorTablet: $directoryBackgroundColorTablet,
+    directoryTextColorTablet: $directoryTextColorTablet,
+    directoryActiveListColorTablet: $directoryActiveListColorTablet,
+    directoryListBorderWidthTablet: $directoryListBorderWidthTablet,
+    directoryListBorderStyleTablet: $directoryListBorderStyleTablet,
+    directoryListBorderColorTablet: $directoryListBorderColorTablet,
+    directoryListTitleSizeTablet: $directoryListTitleSizeTablet,
+    directoryListTitleColorTablet: $directoryListTitleColorTablet,
+    directoryListTitleWeightTablet: $directoryListTitleWeightTablet,
+    directoryListTitleStyleTablet: $directoryListTitleStyleTablet,
+    directoryListTitleDecorationTablet: $directoryListTitleDecorationTablet,
+    directoryListDescSizeTablet: $directoryListDescSizeTablet,
+    directoryListDescColorTablet: $directoryListDescColorTablet,
+    directoryListDescWeightTablet: $directoryListDescWeightTablet,
+    directoryListDescStyleTablet: $directoryListDescStyleTablet,
+    directoryListDescDecorationTablet: $directoryListDescDecorationTablet,
+    directoryActiveListTitleSizeTablet: $directoryActiveListTitleSizeTablet,
+    directoryActiveListTitleColorTablet: $directoryActiveListTitleColorTablet,
+    directoryActiveListTitleWeightTablet: $directoryActiveListTitleWeightTablet,
+    directoryActiveListTitleStyleTablet: $directoryActiveListTitleStyleTablet,
+    directoryActiveListTitleDecorationTablet: $directoryActiveListTitleDecorationTablet,
+    directoryActiveListDescSizeTablet: $directoryActiveListDescSizeTablet,
+    directoryActiveListDescColorTablet: $directoryActiveListDescColorTablet,
+    directoryActiveListDescWeightTablet: $directoryActiveListDescWeightTablet,
+    directoryActiveListDescStyleTablet: $directoryActiveListDescStyleTablet,
+    directoryActiveListDescDecorationTablet: $directoryActiveListDescDecorationTablet,
+    directoryListTagsColorTablet: $directoryListTagsColorTablet,
+    directoryListTagsTextColorTablet: $directoryListTagsTextColorTablet,
+    directoryActiveListTagsColorTablet: $directoryActiveListTagsColorTablet,
+    directoryActiveListTagsTextColorTablet: $directoryActiveListTagsTextColorTablet,
+    directoryListChevronColorTablet: $directoryListChevronColorTablet,
+    directoryActiveListChevronColorTablet: $directoryActiveListChevronColorTablet,
+    directorySeparatorColorTablet: $directorySeparatorColorTablet,
+    directorySeparatorTextColorTablet: $directorySeparatorTextColorTablet,
+    directorySearchColorTablet: $directorySearchColorTablet,
+    directorySearchTextColorTablet: $directorySearchTextColorTablet,
+    directorySearchCancelTablet: $directorySearchCancelTablet,
+    directorySearchCancelHoverTablet: $directorySearchCancelHoverTablet,
+    directoryOverlayContentColorTablet: $directoryOverlayContentColorTablet,
+    directoryOverlayNavColorTablet: $directoryOverlayNavColorTablet,
+    directoryOverlayNavTextColorTablet: $directoryOverlayNavTextColorTablet,
+    directoryOverlayNavBorderColorTablet: $directoryOverlayNavBorderColorTablet,
+    directoryOverlayContentTitleFontTablet: $directoryOverlayContentTitleFontTablet,
+    directoryOverlayContentTitleFontSizeTablet: $directoryOverlayContentTitleFontSizeTablet,
+    directoryOverlayContentTitleColorTablet: $directoryOverlayContentTitleColorTablet,
+    directoryOverlayContentLabelFontTablet: $directoryOverlayContentLabelFontTablet,
+    directoryOverlayContentLabelFontSizeTablet: $directoryOverlayContentLabelFontSizeTablet,
+    directoryOverlayContentLabelColorTablet: $directoryOverlayContentLabelColorTablet,
+    directoryOverlayContentValueFontTablet: $directoryOverlayContentValueFontTablet,
+    directoryOverlayContentValueFontSizeTablet: $directoryOverlayContentValueFontSizeTablet,
+    directoryOverlayContentValueColorTablet: $directoryOverlayContentValueColorTablet,
+    directoryListWidthDesktop: $directoryListWidthDesktop,
+    directoryDetailsWidthDesktop: $directoryDetailsWidthDesktop,
+    directoryBackgroundColorDesktop: $directoryBackgroundColorDesktop,
+    directoryTextColorDesktop: $directoryTextColorDesktop,
+    directoryActiveListColorDesktop: $directoryActiveListColorDesktop,
+    directoryListBorderWidthDesktop: $directoryListBorderWidthDesktop,
+    directoryListBorderStyleDesktop: $directoryListBorderStyleDesktop,
+    directoryListBorderColorDesktop: $directoryListBorderColorDesktop,
+    directoryListTitleSizeDesktop: $directoryListTitleSizeDesktop,
+    directoryListTitleColorDesktop: $directoryListTitleColorDesktop,
+    directoryListTitleWeightDesktop: $directoryListTitleWeightDesktop,
+    directoryListTitleStyleDesktop: $directoryListTitleStyleDesktop,
+    directoryListTitleDecorationDesktop: $directoryListTitleDecorationDesktop,
+    directoryListDescSizeDesktop: $directoryListDescSizeDesktop,
+    directoryListDescColorDesktop: $directoryListDescColorDesktop,
+    directoryListDescWeightDesktop: $directoryListDescWeightDesktop,
+    directoryListDescStyleDesktop: $directoryListDescStyleDesktop,
+    directoryListDescDecorationDesktop: $directoryListDescDecorationDesktop,
+    directoryActiveListTitleSizeDesktop: $directoryActiveListTitleSizeDesktop,
+    directoryActiveListTitleColorDesktop: $directoryActiveListTitleColorDesktop,
+    directoryActiveListTitleWeightDesktop: $directoryActiveListTitleWeightDesktop,
+    directoryActiveListTitleStyleDesktop: $directoryActiveListTitleStyleDesktop,
+    directoryActiveListTitleDecorationDesktop: $directoryActiveListTitleDecorationDesktop,
+    directoryActiveListDescSizeDesktop: $directoryActiveListDescSizeDesktop,
+    directoryActiveListDescColorDesktop: $directoryActiveListDescColorDesktop,
+    directoryActiveListDescWeightDesktop: $directoryActiveListDescWeightDesktop,
+    directoryActiveListDescStyleDesktop: $directoryActiveListDescStyleDesktop,
+    directoryActiveListDescDecorationDesktop: $directoryActiveListDescDecorationDesktop,
+    directoryListTagsColorDesktop: $directoryListTagsColorDesktop,
+    directoryListTagsTextColorDesktop: $directoryListTagsTextColorDesktop,
+    directoryActiveListTagsColorDesktop: $directoryActiveListTagsColorDesktop,
+    directoryActiveListTagsTextColorDesktop: $directoryActiveListTagsTextColorDesktop,
+    directoryListChevronColorDesktop: $directoryListChevronColorDesktop,
+    directoryActiveListChevronColorDesktop: $directoryActiveListChevronColorDesktop,
+    directorySeparatorColorDesktop: $directorySeparatorColorDesktop,
+    directorySeparatorTextColorDesktop: $directorySeparatorTextColorDesktop,
+    directorySearchColorDesktop: $directorySearchColorDesktop,
+    directorySearchTextColorDesktop: $directorySearchTextColorDesktop,
+    directorySearchCancelDesktop: $directorySearchCancelDesktop,
+    directorySearchCancelHoverDesktop: $directorySearchCancelHoverDesktop,
+    directoryOverlayContentColorDesktop: $directoryOverlayContentColorDesktop,
+    directoryOverlayNavColorDesktop: $directoryOverlayNavColorDesktop,
+    directoryOverlayNavTextColorDesktop: $directoryOverlayNavTextColorDesktop,
+    directoryOverlayNavBorderColorDesktop: $directoryOverlayNavBorderColorDesktop,
+    directoryOverlayContentTitleFontDesktop: $directoryOverlayContentTitleFontDesktop,
+    directoryOverlayContentTitleFontSizeDesktop: $directoryOverlayContentTitleFontSizeDesktop,
+    directoryOverlayContentTitleColorDesktop: $directoryOverlayContentTitleColorDesktop,
+    directoryOverlayContentLabelFontDesktop: $directoryOverlayContentLabelFontDesktop,
+    directoryOverlayContentLabelFontSizeDesktop: $directoryOverlayContentLabelFontSizeDesktop,
+    directoryOverlayContentLabelColorDesktop: $directoryOverlayContentLabelColorDesktop,
+    directoryOverlayContentValueFontDesktop: $directoryOverlayContentValueFontDesktop,
+    directoryOverlayContentValueFontSizeDesktop: $directoryOverlayContentValueFontSizeDesktop,
+    directoryOverlayContentValueColorDesktop: $directoryOverlayContentValueColorDesktop
+  ), $options);
 
-/* 01 - DATA DIRECTORIES */
+  .directory-wrapper {
+    background-color: map-get($configuration, directoryBackgroundColor);
+    color: map-get($configuration, directoryTextColor);
 
-.directory-wrapper {
-  background-color: $directoryBackgroundColor;
-  color: $directoryTextColor;
+    // Styles for tablet
+    @include above($tabletBreakpoint) {
+      background-color: map-get($configuration, directoryBackgroundColorTablet);
+      color: map-get($configuration, directoryTextColorTablet);
+    }
 
-  // Styles for tablet
-  @include above($tabletBreakpoint) {
-    background-color: $directoryBackgroundColorTablet;
-    color: $directoryTextColorTablet;
-  }
-
-  // Styles for desktop
-  @include above($desktopBreakpoint) {
-    background-color: $directoryBackgroundColorDesktop;
-    color: $directoryTextColorDesktop;
-  }
-}
-
-.directory-search {
-  background-color: $directorySearchColor;
-
-  input {
-    color: $directorySearchTextColor
-  }
-
-  .btn.btn-link.search-cancel {
-    color: $directorySearchCancel;
-
-    &:hover {
-      color: $directorySearchCancelHover;
+    // Styles for desktop
+    @include above($desktopBreakpoint) {
+      background-color: map-get($configuration, directoryBackgroundColorDesktop);
+      color: map-get($configuration, directoryTextColorDesktop);
     }
   }
 
-  // Styles for tablet
-  @include above($tabletBreakpoint) {
-    background-color: $directorySearchColorTablet;
+  .directory-search {
+    background-color: map-get($configuration, directorySearchColor);
 
     input {
-      color: $directorySearchTextColorTablet
+      color: map-get($configuration, directorySearchTextColor);
     }
 
     .btn.btn-link.search-cancel {
-      color: $directorySearchCancelTablet;
+      color: map-get($configuration, directorySearchCancel);
 
       &:hover {
-        color: $directorySearchCancelHoverTablet;
+        color: map-get($configuration, directorySearchCancelHover);
+      }
+    }
+
+    // Styles for tablet
+    @include above($tabletBreakpoint) {
+      background-color: map-get($configuration, directorySearchColorTablet);
+
+      input {
+        color: map-get($configuration, directorySearchTextColorTablet);
+      }
+
+      .btn.btn-link.search-cancel {
+        color: map-get($configuration, directorySearchCancelTablet);
+
+        &:hover {
+          color: map-get($configuration, directorySearchCancelHoverTablet);
+        }
+      }
+    }
+
+    // Styles for desktop
+    @include above($desktopBreakpoint) {
+      background-color: map-get($configuration, directorySearchColorDesktop);
+
+      input {
+        color: map-get($configuration, directorySearchTextColorDesktop);
+      }
+
+      .btn.btn-link.search-cancel {
+        color: map-get($configuration, directorySearchCancelDesktop);
+
+        &:hover {
+          color: map-get($configuration, directorySearchCancelHoverDesktop);
+        }
       }
     }
   }
 
-  // Styles for desktop
-  @include above($desktopBreakpoint) {
-    background-color: $directorySearchColorDesktop;
-
-    input {
-      color: $directorySearchTextColorDesktop
-    }
-
-    .btn.btn-link.search-cancel {
-      color: $directorySearchCancelDesktop;
-
-      &:hover {
-        color: $directorySearchCancelHoverDesktop;
-      }
-    }
-  }
-}
-
-.directory-list {
-  background-color: $directoryBackgroundColor;
-
-  .add-new-entry {
-    background-color: $primaryButtonColor;
-    color: $primaryButtonTextColor;
-  }
-
-  .list-default {
-
-    li {
-      border-top: $directoryListBorderColor;
-
-      &:first-child {
-        border-top: none;
-      }
-
-      .list-title {
-        color: $directoryListTitleColor;
-        font-size: $directoryListTitleSize;
-        font-weight: $directoryListTitleWeight;
-      }
-    }
-
-    ul > li {
-      .list-title + p {
-        color: $directoryListDescColor;
-        font-size: $directoryListDescSize;
-        font-weight: $directoryListDescWeight;
-      }
-
-      .icon {
-        color: $directoryListChevronColor;
-      }
-    }
-  }
-
-  li {
-    &.divider {
-      background-color: $directorySeparatorColor;
-      color: $directorySeparatorTextColor;
-    }
-  }
-
-  // Styles for tablet
-  @include above($tabletBreakpoint) {
-    width: $directoryListWidthTablet;
-    background-color: $directoryBackgroundColorTablet;
+  .directory-list {
+    background-color: map-get($configuration, directoryBackgroundColor);
 
     .add-new-entry {
-      background-color: $primaryButtonColorTablet;
-      color: $primaryButtonTextColorTablet;
+      background-color: map-get($configuration, primaryButtonColor);
+      color: map-get($configuration, primaryButtonTextColor);
     }
 
     .list-default {
 
       li {
-        border-top: $directoryListBorderColorTablet;
+        border-top: map-get($configuration, directoryListBorderColor);
+
+        &:first-child {
+          border-top: none;
+        }
 
         .list-title {
-          color: $directoryListTitleColorTablet;
-          font-size: $directoryListTitleSizeTablet;
-          font-weight: $directoryListTitleWeightTablet;
+          color: map-get($configuration, directoryListTitleColor);
+          font-size: map-get($configuration, directoryListTitleSize);
+          font-weight: map-get($configuration, directoryListTitleWeight);
         }
       }
 
       ul > li {
         .list-title + p {
-          color: $directoryListDescColorTablet;
-          font-size: $directoryListDescSizeTablet;
-          font-weight: $directoryListDescWeightTablet;
+          color: map-get($configuration, directoryListDescColor);
+          font-size: map-get($configuration, directoryListDescSize);
+          font-weight: map-get($configuration, directoryListDescWeight);
         }
 
         .icon {
-          color: $directoryListChevronColorTablet;
+          color: map-get($configuration, directoryListChevronColor);
         }
       }
     }
 
     li {
       &.divider {
-        background-color: $directorySeparatorColorTablet;
-        color: $directorySeparatorTextColorTablet;
+        background-color: map-get($configuration, directorySeparatorColor);
+        color: map-get($configuration, directorySeparatorTextColor);
+      }
+    }
+
+    // Styles for tablet
+    @include above($tabletBreakpoint) {
+      width: map-get($configuration, directoryListWidthTablet);
+      background-color: map-get($configuration, directoryBackgroundColorTablet);
+
+      .add-new-entry {
+        background-color: map-get($configuration, primaryButtonColorTablet);
+        color: map-get($configuration, primaryButtonTextColorTablet);
+      }
+
+      .list-default {
+
+        li {
+          border-top: map-get($configuration, directoryListBorderColorTablet);
+
+          .list-title {
+            color: map-get($configuration, directoryListTitleColorTablet);
+            font-size: map-get($configuration, directoryListTitleSizeTablet);
+            font-weight: map-get($configuration, directoryListTitleWeightTablet);
+          }
+        }
+
+        ul > li {
+          .list-title + p {
+            color: map-get($configuration, directoryListDescColorTablet);
+            font-size: map-get($configuration, directoryListDescSizeTablet);
+            font-weight: map-get($configuration, directoryListDescWeightTablet);
+          }
+
+          .icon {
+            color: map-get($configuration, directoryListChevronColorTablet);
+          }
+        }
+      }
+
+      li {
+        &.divider {
+          background-color: map-get($configuration, directorySeparatorColorTablet);
+          color: map-get($configuration, directorySeparatorTextColorTablet);
+        }
+      }
+    }
+
+    // Styles for desktop
+    @include above($desktopBreakpoint) {
+      width: map-get($configuration, directoryListWidthDesktop);
+      background-color: map-get($configuration, directoryBackgroundColorDesktop);
+
+      .add-new-entry {
+        background-color: map-get($configuration, primaryButtonColorDesktop);
+        color: map-get($configuration, primaryButtonTextColorDesktop);
+      }
+
+      .list-default {
+
+        li {
+          border-top: map-get($configuration, directoryListBorderColorDesktop);
+
+          .list-title {
+            color: map-get($configuration, directoryListTitleColorDesktop);
+            font-size: map-get($configuration, directoryListTitleSizeDesktop);
+            font-weight: map-get($configuration, directoryListTitleWeightDesktop);
+          }
+        }
+
+        ul > li {
+          .list-title + p {
+            color: map-get($configuration, directoryListDescColorDesktop);
+            font-size: map-get($configuration, directoryListDescSizeDesktop);
+            font-weight: map-get($configuration, directoryListDescWeightDesktop);
+          }
+
+          .icon {
+            color: map-get($configuration, directoryListChevronColorDesktop);
+          }
+        }
+      }
+
+      li {
+        &.divider {
+          background-color: map-get($configuration, directorySeparatorColorDesktop);
+          color: map-get($configuration, directorySeparatorTextColorDesktop);
+        }
       }
     }
   }
 
-  // Styles for desktop
-  @include above($desktopBreakpoint) {
-    width: $directoryListWidthDesktop;
-    background-color: $directoryBackgroundColorDesktop;
-
-    .add-new-entry {
-      background-color: $primaryButtonColorDesktop;
-      color: $primaryButtonTextColorDesktop;
-    }
-
+  .overlayPanel {
     .list-default {
-
       li {
-        border-top: $directoryListBorderColorDesktop;
-
         .list-title {
-          color: $directoryListTitleColorDesktop;
-          font-size: $directoryListTitleSizeDesktop;
-          font-weight: $directoryListTitleWeightDesktop;
+          color: map-get($configuration, directoryListTitleColor);
+          font-size: map-get($configuration, directoryListTitleSize);
+          font-weight: map-get($configuration, directoryListTitleWeight);
+          font-style: map-get($configuration, directoryListTitleStyle);
+          text-decoration: map-get($configuration, directoryListTitleDecoration);
         }
       }
 
       ul > li {
         .list-title + p {
-          color: $directoryListDescColorDesktop;
-          font-size: $directoryListDescSizeDesktop;
-          font-weight: $directoryListDescWeightDesktop;
+          color: map-get($configuration, directoryListDescColor);
+          font-size: map-get($configuration, directoryListDescSize);
+          font-weight: map-get($configuration, directoryListDescWeight);
+          font-style: map-get($configuration, directoryListDescStyle);
+          text-decoration: map-get($configuration, directoryListDescDecoration);
         }
 
         .icon {
-          color: $directoryListChevronColorDesktop;
-        }
-      }
-    }
-
-    li {
-      &.divider {
-        background-color: $directorySeparatorColorDesktop;
-        color: $directorySeparatorTextColorDesktop;
-      }
-    }
-  }
-}
-
-.overlayPanel {
-  .list-default {
-    li {
-      .list-title {
-        color: $directoryListTitleColor;
-        font-size: $directoryListTitleSize;
-        font-weight: $directoryListTitleWeight;
-        font-style: $directoryListTitleStyle;
-        text-decoration: $directoryListTitleDecoration;
-      }
-    }
-
-    ul > li {
-      .list-title + p {
-        color: $directoryListDescColor;
-        font-size: $directoryListDescSize;
-        font-weight: $directoryListDescWeight;
-        font-style: $directoryListDescStyle;
-        text-decoration: $directoryListDescDecoration;
-      }
-
-      .icon {
-        color: $directoryListChevronColor;
-      }
-
-      .list-tags a {
-        color: $directoryListTagsColor;
-        background: $directoryListTagsTextColor;
-      }
-    }
-  }
-
-  // Styles for tablet
-  @include above($tabletBreakpoint) {
-    .list-default {
-      li {
-        .list-title {
-          color: $directoryListTitleColorTablet;
-          font-size: $directoryListTitleSizeTablet;
-          font-weight: $directoryListTitleWeightTablet;
-          font-style: $directoryListTitleStyleTablet;
-          text-decoration: $directoryListTitleDecorationTablet;
-        }
-      }
-
-      ul > li {
-        .list-title + p {
-          color: $directoryListDescColorTablet;
-          font-size: $directoryListDescSizeTablet;
-          font-weight: $directoryListDescWeightTablet;
-          font-style: $directoryListDescStyleTablet;
-          text-decoration: $directoryListDescDecorationTablet;
-        }
-
-        .icon {
-          color: $directoryListChevronColorTablet;
+          color: map-get($configuration, directoryListChevronColor);
         }
 
         .list-tags a {
-          color: $directoryListTagsColorTablet;
-          background: $directoryListTagsTextColorTablet;
+          color: map-get($configuration, directoryListTagsColor);
+          background: map-get($configuration, directoryListTagsTextColor);
+        }
+      }
+    }
+
+    // Styles for tablet
+    @include above($tabletBreakpoint) {
+      .list-default {
+        li {
+          .list-title {
+            color: map-get($configuration, directoryListTitleColorTablet);
+            font-size: map-get($configuration, directoryListTitleSizeTablet);
+            font-weight: map-get($configuration, directoryListTitleWeightTablet);
+            font-style: map-get($configuration, directoryListTitleStyleTablet);
+            text-decoration: map-get($configuration, directoryListTitleDecorationTablet);
+          }
+        }
+
+        ul > li {
+          .list-title + p {
+            color: map-get($configuration, directoryListDescColorTablet);
+            font-size: map-get($configuration, directoryListDescSizeTablet);
+            font-weight: map-get($configuration, directoryListDescWeightTablet);
+            font-style: map-get($configuration, directoryListDescStyleTablet);
+            text-decoration: map-get($configuration, directoryListDescDecorationTablet);
+          }
+
+          .icon {
+            color: map-get($configuration, directoryListChevronColorTablet);
+          }
+
+          .list-tags a {
+            color: map-get($configuration, directoryListTagsColorTablet);
+            background: map-get($configuration, directoryListTagsTextColorTablet);
+          }
+        }
+      }
+    }
+
+    // Styles for desktop
+    @include above($desktopBreakpoint) {
+      .list-default {
+        li {
+          .list-title {
+            color: map-get($configuration, directoryListTitleColorDesktop);
+            font-size: map-get($configuration, directoryListTitleSizeDesktop);
+            font-weight: map-get($configuration, directoryListTitleWeightDesktop);
+            font-style: map-get($configuration, directoryListTitleStyleDesktop);
+            text-decoration: map-get($configuration, directoryListTitleDecorationDesktop);
+          }
+        }
+
+        ul > li {
+          .list-title + p {
+            color: map-get($configuration, directoryListDescColorDesktop);
+            font-size: map-get($configuration, directoryListDescSizeDesktop);
+            font-weight: map-get($configuration, directoryListDescWeightDesktop);
+            font-style: map-get($configuration, directoryListDescStyleDesktop);
+            text-decoration: map-get($configuration, directoryListDescDecorationDesktop);
+          }
+
+          .icon {
+            color: map-get($configuration, directoryListChevronColorDesktop);
+          }
+
+          .list-tags a {
+            color: map-get($configuration, directoryListTagsColorDesktop);
+            background: map-get($configuration, directoryListTagsTextColorDesktop);
+          }
         }
       }
     }
   }
 
-  // Styles for desktop
-  @include above($desktopBreakpoint) {
-    .list-default {
-      li {
-        .list-title {
-          color: $directoryListTitleColorDesktop;
-          font-size: $directoryListTitleSizeDesktop;
-          font-weight: $directoryListTitleWeightDesktop;
-          font-style: $directoryListTitleStyleDesktop;
-          text-decoration: $directoryListTitleDecorationDesktop;
-        }
-      }
+  .list-index span {
+    color: map-get($configuration, highlightColor);
 
-      ul > li {
-        .list-title + p {
-          color: $directoryListDescColorDesktop;
-          font-size: $directoryListDescSizeDesktop;
-          font-weight: $directoryListDescWeightDesktop;
-          font-style: $directoryListDescStyleDesktop;
-          text-decoration: $directoryListDescDecorationDesktop;
-        }
-
-        .icon {
-          color: $directoryListChevronColorDesktop;
-        }
-
-        .list-tags a {
-          color: $directoryListTagsColorDesktop;
-          background: $directoryListTagsTextColorDesktop;
-        }
-      }
-    }
-  }
-}
-
-.list-index span {
-  color: $highlightColor;
-
-  // Styles for tablet
-  @include above($tabletBreakpoint) {
-    color: $highlightColorTablet;
-  }
-
-  // Styles for desktop
-  @include above($desktopBreakpoint) {
-    color: $highlightColorDesktop;
-  }
-}
-
-.overlay-directory {
-  .overlayPanelContent {
-    background-color: $directoryOverlayContentColor;
-    color: $directoryTextColor;
-
-    .directory-detail-title {
-      color: $directoryOverlayContentTitleColor;
-      font-family: $directoryOverlayContentTitleFont, Helvetica, Arial, sans-serif;
-      font-size: $directoryOverlayContentTitleFontSize;
+    // Styles for tablet
+    @include above($tabletBreakpoint) {
+      color: map-get($configuration, highlightColorTablet);
     }
 
-    .directory-detail-label {
-      color: $directoryOverlayContentLabelColor;
-      font-family: $directoryOverlayContentLabelFont, Helvetica, Arial, sans-serif;
-      font-size: $directoryOverlayContentLabelFontSize;
-    }
-
-    .directory-detail-value {
-      color: $directoryOverlayContentValueColor;
-      font-family: $directoryOverlayContentValueFont, Helvetica, Arial, sans-serif;
-      font-size: $directoryOverlayContentValueFontSize;
+    // Styles for desktop
+    @include above($desktopBreakpoint) {
+      color: map-get($configuration, highlightColorDesktop);
     }
   }
 
-  .overlayNavbar {
-    background-color: $directoryOverlayNavColor;
-    color: $directoryOverlayNavTextColor;
-    border-bottom: $directoryOverlayNavBorderColor;
-  }
-
-  // Styles for tablet
-  @include above($tabletBreakpoint) {
+  .overlay-directory {
     .overlayPanelContent {
-      background-color: $directoryOverlayContentColorTablet;
-      color: $directoryTextColorTablet;
+      background-color: map-get($configuration, directoryOverlayContentColor);
+      color: map-get($configuration, directoryTextColor);
 
       .directory-detail-title {
-        color: $directoryOverlayContentTitleColorTablet;
-        font-family: #{$directoryOverlayContentTitleFontTablet}, Helvetica, Arial, sans-serif;
-        font-size: $directoryOverlayContentTitleFontSizeTablet;
+        color: map-get($configuration, directoryOverlayContentTitleColor);
+        font-family: #{map-get($configuration, directoryOverlayContentTitleFont)}, Helvetica, Arial, sans-serif;
+        font-size: map-get($configuration, directoryOverlayContentTitleFontSize);
       }
 
       .directory-detail-label {
-        color: $directoryOverlayContentLabelColorTablet;
-        font-family: #{$directoryOverlayContentLabelFontTablet}, Helvetica, Arial, sans-serif;
-        font-size: $directoryOverlayContentLabelFontSizeTablet;
+        color: map-get($configuration, directoryOverlayContentLabelColor);
+        font-family: #{map-get($configuration, directoryOverlayContentLabelFont)}, Helvetica, Arial, sans-serif;
+        font-size: map-get($configuration, directoryOverlayContentLabelFontSize);
       }
 
       .directory-detail-value {
-        color: $directoryOverlayContentValueColorTablet;
-        font-family: #{$directoryOverlayContentValueFontTablet}, Helvetica, Arial, sans-serif;
-        font-size: $directoryOverlayContentValueFontSizeTablet;
+        color: map-get($configuration, directoryOverlayContentValueColor);
+        font-family: #{map-get($configuration, directoryOverlayContentValueFont)}, Helvetica, Arial, sans-serif;
+        font-size: map-get($configuration, directoryOverlayContentValueFontSize);
       }
     }
 
     .overlayNavbar {
-      background-color: $directoryOverlayNavColorTablet;
-      color: $directoryOverlayNavTextColorTablet;
-      border-bottom: $directoryOverlayNavBorderColorTablet;
+      background-color: map-get($configuration, directoryOverlayNavColor);
+      color: map-get($configuration, directoryOverlayNavTextColor);
+      border-bottom: map-get($configuration, directoryOverlayNavBorderColor);
+    }
+
+    // Styles for tablet
+    @include above($tabletBreakpoint) {
+      .overlayPanelContent {
+        background-color: map-get($configuration, directoryOverlayContentColorTablet);
+        color: map-get($configuration, directoryTextColorTablet);
+
+        .directory-detail-title {
+          color: map-get($configuration, directoryOverlayContentTitleColorTablet);
+          font-family: #{map-get($configuration, directoryOverlayContentTitleFontTablet)}, Helvetica, Arial, sans-serif;
+          font-size: map-get($configuration, directoryOverlayContentTitleFontSizeTablet);
+        }
+
+        .directory-detail-label {
+          color: map-get($configuration, directoryOverlayContentLabelColorTablet);
+          font-family: #{map-get($configuration, directoryOverlayContentLabelFontTablet)}, Helvetica, Arial, sans-serif;
+          font-size: map-get($configuration, directoryOverlayContentLabelFontSizeTablet);
+        }
+
+        .directory-detail-value {
+          color: map-get($configuration, directoryOverlayContentValueColorTablet);
+          font-family: #{map-get($configuration, directoryOverlayContentValueFontTablet)}, Helvetica, Arial, sans-serif;
+          font-size: map-get($configuration, directoryOverlayContentValueFontSizeTablet);
+        }
+      }
+
+      .overlayNavbar {
+        background-color: map-get($configuration, directoryOverlayNavColorTablet);
+        color: map-get($configuration, directoryOverlayNavTextColorTablet);
+        border-bottom: map-get($configuration, directoryOverlayNavBorderColorTablet);
+      }
+    }
+
+    // Styles for desktop
+    @include above($desktopBreakpoint) {
+      .overlayPanelContent {
+        background-color: map-get($configuration, directoryOverlayContentColorDesktop);
+        color: map-get($configuration, directoryTextColorDesktop);
+
+        .directory-detail-title {
+          color: map-get($configuration, directoryOverlayContentTitleColorDesktop);
+          font-family: #{map-get($configuration, directoryOverlayContentTitleFontDesktop)}, Helvetica, Arial, sans-serif;
+          font-size: map-get($configuration, directoryOverlayContentTitleFontSizeDesktop);
+        }
+
+        .directory-detail-label {
+          color: map-get($configuration, directoryOverlayContentLabelColorDesktop);
+          font-family: #{map-get($configuration, directoryOverlayContentLabelFontDesktop)}, Helvetica, Arial, sans-serif;
+          font-size: map-get($configuration, directoryOverlayContentLabelFontSizeDesktop);
+        }
+
+        .directory-detail-value {
+          color: map-get($configuration, directoryOverlayContentValueColorDesktop);
+          font-family: #{map-get($configuration, directoryOverlayContentValueFontDesktop)}, Helvetica, Arial, sans-serif;
+          font-size: map-get($configuration, directoryOverlayContentValueFontSizeDesktop);
+        }
+      }
+
+      .overlayNavbar {
+        background-color: map-get($configuration, directoryOverlayNavColorDesktop);
+        color: map-get($configuration, directoryOverlayNavTextColorDesktop);
+        border-bottom: map-get($configuration, directoryOverlayNavBorderColorDesktop);
+      }
     }
   }
 
-  // Styles for desktop
-  @include above($desktopBreakpoint) {
-    .overlayPanelContent {
-      background-color: $directoryOverlayContentColorDesktop;
-      color: $directoryTextColorDesktop;
+  .directory-details {
+    .directory-details-content {
+      color: map-get($configuration, directoryTextColor);
 
       .directory-detail-title {
-        color: $directoryOverlayContentTitleColorDesktop;
-        font-family: #{$directoryOverlayContentTitleFontDesktop}, Helvetica, Arial, sans-serif;
-        font-size: $directoryOverlayContentTitleFontSizeDesktop;
+        color: map-get($configuration, directoryOverlayContentTitleColor);
+        font-family: #{map-get($configuration, directoryOverlayContentTitleFont)}, Helvetica, Arial, sans-serif;
+        font-size: map-get($configuration, directoryOverlayContentTitleFontSize);
       }
 
       .directory-detail-label {
-        color: $directoryOverlayContentLabelColorDesktop;
-        font-family: #{$directoryOverlayContentLabelFontDesktop}, Helvetica, Arial, sans-serif;
-        font-size: $directoryOverlayContentLabelFontSizeDesktop;
+        color: map-get($configuration, directoryOverlayContentLabelColor);
+        font-family: #{map-get($configuration, directoryOverlayContentLabelFont)}, Helvetica, Arial, sans-serif;
+        font-size: map-get($configuration, directoryOverlayContentLabelFontSize);
       }
 
       .directory-detail-value {
-        color: $directoryOverlayContentValueColorDesktop;
-        font-family: #{$directoryOverlayContentValueFontDesktop}, Helvetica, Arial, sans-serif;
-        font-size: $directoryOverlayContentValueFontSizeDesktop;
+        color: map-get($configuration, directoryOverlayContentValueColor);
+        font-family: #{map-get($configuration, directoryOverlayContentValueFont)}, Helvetica, Arial, sans-serif;
+        font-size: map-get($configuration, directoryOverlayContentValueFontSize);
       }
     }
 
-    .overlayNavbar {
-      background-color: $directoryOverlayNavColorDesktop;
-      color: $directoryOverlayNavTextColorDesktop;
-      border-bottom: $directoryOverlayNavBorderColorDesktop;
+    // Styles for tablet
+    @include above($tabletBreakpoint) {
+      width: map-get($configuration, directoryDetailsWidthTablet);
+
+      .directory-details-content {
+        color: map-get($configuration, directoryTextColorTablet);
+
+        .directory-detail-title {
+          color: map-get($configuration, directoryOverlayContentTitleColorTablet);
+          font-family: #{map-get($configuration, directoryOverlayContentTitleFontTablet)}, Helvetica, Arial, sans-serif;
+          font-size: map-get($configuration, directoryOverlayContentTitleFontSizeTablet);
+        }
+
+        .directory-detail-label {
+          color: map-get($configuration, directoryOverlayContentLabelColorTablet);
+          font-family: #{map-get($configuration, directoryOverlayContentLabelFontTablet)}, Helvetica, Arial, sans-serif;
+          font-size: map-get($configuration, directoryOverlayContentLabelFontSizeTablet);
+        }
+
+        .directory-detail-value {
+          color: map-get($configuration, directoryOverlayContentValueColorTablet);
+          font-family: #{map-get($configuration, directoryOverlayContentValueFontTablet)}, Helvetica, Arial, sans-serif;
+          font-size: map-get($configuration, directoryOverlayContentValueFontSizeTablet);
+        }
+      }
+    }
+
+    // Styles for desktop
+    @include above($desktopBreakpoint) {
+      width: map-get($configuration, directoryDetailsWidthDesktop);
+
+      .directory-details-content {
+        color: map-get($configuration, directoryTextColorDesktop);
+
+        .directory-detail-title {
+          color: map-get($configuration, directoryOverlayContentTitleColorDesktop);
+          font-family: #{map-get($configuration, directoryOverlayContentTitleFontDesktop)}, Helvetica, Arial, sans-serif;
+          font-size: map-get($configuration, directoryOverlayContentTitleFontSizeDesktop);
+        }
+
+        .directory-detail-label {
+          color: map-get($configuration, directoryOverlayContentLabelColorDesktop);
+          font-family: #{map-get($configuration, directoryOverlayContentLabelFontDesktop)}, Helvetica, Arial, sans-serif;
+          font-size: map-get($configuration, directoryOverlayContentLabelFontSizeDesktop);
+        }
+
+        .directory-detail-value {
+          color: map-get($configuration, directoryOverlayContentValueColorDesktop);
+          font-family: #{map-get($configuration, directoryOverlayContentValueFontDesktop)}, Helvetica, Arial, sans-serif;
+          font-size: map-get($configuration, directoryOverlayContentValueFontSizeDesktop);
+        }
+      }
     }
   }
-}
 
-.directory-details {
-  .directory-details-content {
-    color: $directoryTextColor;
-
-    .directory-detail-title {
-      color: $directoryOverlayContentTitleColor;
-      font-family: $directoryOverlayContentTitleFont, Helvetica, Arial, sans-serif;
-      font-size: $directoryOverlayContentTitleFontSize;
-    }
-
-    .directory-detail-label {
-      color: $directoryOverlayContentLabelColor;
-      font-family: $directoryOverlayContentLabelFont, Helvetica, Arial, sans-serif;
-      font-size: $directoryOverlayContentLabelFontSize;
-    }
-
-    .directory-detail-value {
-      color: $directoryOverlayContentValueColor;
-      font-family: $directoryOverlayContentValueFont, Helvetica, Arial, sans-serif;
-      font-size: $directoryOverlayContentValueFontSize;
-    }
-  }
-
-  // Styles for tablet
   @include above($tabletBreakpoint) {
-    width: $directoryDetailsWidthTablet;
+    .directory-list .list-default {
 
-    .directory-details-content {
-      color: $directoryTextColorTablet;
+      ul > li.active {
+        background-color: map-get($configuration, directoryActiveListColorTablet);
 
-      .directory-detail-title {
-        color: $directoryOverlayContentTitleColorTablet;
-        font-family: #{$directoryOverlayContentTitleFontTablet}, Helvetica, Arial, sans-serif;
-        font-size: $directoryOverlayContentTitleFontSizeTablet;
+        .list-title {
+          color: map-get($configuration, directoryActiveListTitleColorTablet);
+          font-size: map-get($configuration, directoryActiveListTitleSizeTablet);
+          font-weight: map-get($configuration, directoryActiveListTitleWeightTablet);
+          font-style: map-get($configuration, directoryActiveListTitleStyleTablet);
+          text-decoration: map-get($configuration, directoryActiveListTitleDecorationTablet);
+        }
+
+        .list-title + p {
+          color: map-get($configuration, directoryActiveListDescColorTablet);
+          font-size: map-get($configuration, directoryActiveListDescSizeTablet);
+          font-weight: map-get($configuration, directoryActiveListDescWeightTablet);
+          font-style: map-get($configuration, directoryActiveListDescStyleTablet);
+          text-decoration: map-get($configuration, directoryActiveListDescDecorationTablet);
+        }
+
+        .icon {
+          color: map-get($configuration, directoryActiveListChevronColorTablet);
+        }
+
+        .list-tags a {
+          color: map-get($configuration, directoryActiveListTagsTextColorTablet);
+          background: map-get($configuration, directoryActiveListTagsColorTablet);
+        }
       }
 
-      .directory-detail-label {
-        color: $directoryOverlayContentLabelColorTablet;
-        font-family: #{$directoryOverlayContentLabelFontTablet}, Helvetica, Arial, sans-serif;
-        font-size: $directoryOverlayContentLabelFontSizeTablet;
-      }
+      .search-result-header {
+        background-color: map-get($configuration, directorySeparatorColorTablet);
 
-      .directory-detail-value {
-        color: $directoryOverlayContentValueColorTablet;
-        font-family: #{$directoryOverlayContentValueFontTablet}, Helvetica, Arial, sans-serif;
-        font-size: $directoryOverlayContentValueFontSizeTablet;
+        h5 {
+          color: map-get($configuration, directorySeparatorTextColorTablet);
+        }
       }
     }
   }
 
-  // Styles for desktop
   @include above($desktopBreakpoint) {
-    width: $directoryDetailsWidthDesktop;
+    .directory-list .list-default {
 
-    .directory-details-content {
-      color: $directoryTextColorDesktop;
+      ul > li.active {
+        background-color: map-get($configuration, directoryActiveListColorDesktop);
 
-      .directory-detail-title {
-        color: $directoryOverlayContentTitleColorDesktop;
-        font-family: #{$directoryOverlayContentTitleFontDesktop}, Helvetica, Arial, sans-serif;
-        font-size: $directoryOverlayContentTitleFontSizeDesktop;
+        .list-title {
+          color: map-get($configuration, directoryActiveListTitleColorDesktop);
+          font-size: map-get($configuration, directoryActiveListTitleSizeDesktop);
+          font-weight: map-get($configuration, directoryActiveListTitleWeightDesktop);
+          font-style: map-get($configuration, directoryActiveListTitleStyleDesktop);
+          text-decoration: map-get($configuration, directoryActiveListTitleDecorationDesktop);
+        }
+
+        .list-title + p {
+          color: map-get($configuration, directoryActiveListDescColorDesktop);
+          font-size: map-get($configuration, directoryActiveListDescSizeDesktop);
+          font-weight: map-get($configuration, directoryActiveListDescWeightDesktop);
+          font-style: map-get($configuration, directoryActiveListDescStyleDesktop);
+          text-decoration: map-get($configuration, directoryActiveListDescDecorationDesktop);
+        }
+
+        .icon {
+          color: map-get($configuration, directoryActiveListChevronColorDesktop);
+        }
+
+        .list-tags a {
+          color: map-get($configuration, directoryActiveListTagsTextColorDesktop);
+          background: map-get($configuration, directoryActiveListTagsColorDesktop);
+        }
       }
 
-      .directory-detail-label {
-        color: $directoryOverlayContentLabelColorDesktop;
-        font-family: #{$directoryOverlayContentLabelFontDesktop}, Helvetica, Arial, sans-serif;
-        font-size: $directoryOverlayContentLabelFontSizeDesktop;
-      }
+      .search-result-header {
+        background-color: map-get($configuration, directorySeparatorColorDesktop);
 
-      .directory-detail-value {
-        color: $directoryOverlayContentValueColorDesktop;
-        font-family: #{$directoryOverlayContentValueFontDesktop}, Helvetica, Arial, sans-serif;
-        font-size: $directoryOverlayContentValueFontSizeDesktop;
-      }
-    }
-  }
-}
-
-@include above($tabletBreakpoint) {
-  .directory-list .list-default {
-
-    ul > li.active {
-      background-color: $directoryActiveListColorTablet;
-
-      .list-title {
-        color: $directoryActiveListTitleColorTablet;
-        font-size: $directoryActiveListTitleSizeTablet;
-        font-weight: $directoryActiveListTitleWeightTablet;
-        font-style: $directoryActiveListTitleStyleTablet;
-        text-decoration: $directoryActiveListTitleDecorationTablet;
-      }
-
-      .list-title + p {
-        color: $directoryActiveListDescColorTablet;
-        font-size: $directoryActiveListDescSizeTablet;
-        font-weight: $directoryActiveListDescWeightTablet;
-        font-style: $directoryActiveListDescStyleTablet;
-        text-decoration: $directoryActiveListDescDecorationTablet;
-      }
-
-      .icon {
-        color: $directoryActiveListChevronColorTablet;
-      }
-
-      .list-tags a {
-        color: $directoryActiveListTagsTextColorTablet;
-        background: $directoryActiveListTagsColorTablet;
-      }
-    }
-
-    .search-result-header {
-      background-color: $directorySeparatorColorTablet;
-
-      h5 {
-        color: $directorySeparatorTextColorTablet;
+        h5 {
+          color: map-get($configuration, directorySeparatorTextColorDesktop);
+        }
       }
     }
   }
 }
 
-@include above($desktopBreakpoint) {
-  .directory-list .list-default {
-
-    ul > li.active {
-      background-color: $directoryActiveListColorDesktop;
-
-      .list-title {
-        color: $directoryActiveListTitleColorDesktop;
-        font-size: $directoryActiveListTitleSizeDesktop;
-        font-weight: $directoryActiveListTitleWeightDesktop;
-        font-style: $directoryActiveListTitleStyleDesktop;
-        text-decoration: $directoryActiveListTitleDecorationDesktop;
-      }
-
-      .list-title + p {
-        color: $directoryActiveListDescColorDesktop;
-        font-size: $directoryActiveListDescSizeDesktop;
-        font-weight: $directoryActiveListDescWeightDesktop;
-        font-style: $directoryActiveListDescStyleDesktop;
-        text-decoration: $directoryActiveListDescDecorationDesktop;
-      }
-
-      .icon {
-        color: $directoryActiveListChevronColorDesktop;
-      }
-
-      .list-tags a {
-        color: $directoryActiveListTagsTextColorDesktop;
-        background: $directoryActiveListTagsColorDesktop;
-      }
-    }
-
-    .search-result-header {
-      background-color: $directorySeparatorColorDesktop;
-
-      h5 {
-        color: $directorySeparatorTextColorDesktop;
-      }
-    }
-  }
-}
+@include directories();
