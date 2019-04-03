@@ -20,6 +20,9 @@
 @import "components/forms";
 @import "components/interactive-graphics";
 @import "components/lists";
+@import "components/list-small";
+@import "components/list-large";
+@import "components/rss";
 @import "components/lists-data-source";
 @import "components/lock";
 @import "components/login-registration";
@@ -37,9 +40,6 @@
 @if variable-exists(widgetInstances) {
   @each $widgetInstance in $widgetInstances {
     [data-fl-widget-instance][data-id="#{nth($widgetInstance, 1)}"] {
-      @if nth($widgetInstance, 2) == 'lfd' {
-        @include lfd(nth($widgetInstance, 3));
-      }
       @if nth($widgetInstance, 2) == 'menuOverlay' {
         @include menuOverlay(nth($widgetInstance, 3));
       }
@@ -75,6 +75,84 @@
       }
       @if nth($widgetInstance, 2) == 'chat' {
         @include chat(nth($widgetInstance, 3));
+      }
+      @if nth($widgetInstance, 2) == 'formBuilder' {
+        @include formBuilder(nth($widgetInstance, 3));
+      }
+      @if nth($widgetInstance, 2) == 'interactiveGraphics' {
+        @include interactiveGraphics(nth($widgetInstance, 3));
+      }
+      @if nth($widgetInstance, 2) == 'list' {
+        @include list(nth($widgetInstance, 3));
+      }
+      @if nth($widgetInstance, 2) == 'listSmallThumbs' {
+        @include listSmallThumbs(nth($widgetInstance, 3));
+      }
+      @if nth($widgetInstance, 2) == 'listLargeThumbs' {
+        @include listLargeThumbs(nth($widgetInstance, 3));
+      }
+      @if nth($widgetInstance, 2) == 'rss' {
+        @include rss(nth($widgetInstance, 3));
+      }
+      @if nth($widgetInstance, 2) == 'lfd' {
+        @include lfd(nth($widgetInstance, 3));
+      }
+      @if nth($widgetInstance, 2) == 'lock' {
+        @include lock(nth($widgetInstance, 3));
+      }
+      @if nth($widgetInstance, 2) == 'notificationBox' {
+        @include notificationBox(nth($widgetInstance, 3));
+      }
+      @if nth($widgetInstance, 2) == 'slider' {
+        @include slider(nth($widgetInstance, 3));
+      }
+      @if nth($widgetInstance, 2) == 'onboarding' {
+        @include onboarding(nth($widgetInstance, 3));
+      }
+      @if nth($widgetInstance, 2) == 'panels' {
+        @include panels(nth($widgetInstance, 3));
+      }
+      @if nth($widgetInstance, 2) == 'grid' {
+        @include grid(nth($widgetInstance, 3));
+      }
+      @if nth($widgetInstance, 2) == 'photoSharing' {
+        @include photoSharing(nth($widgetInstance, 3));
+      }
+      @if nth($widgetInstance, 2) == 'login' {
+        @include loginRegistration(nth($widgetInstance, 3));
+      }
+      @if nth($widgetInstance, 2) == 'loginDataSource' {
+        @include loginRegistration(nth($widgetInstance, 3));
+      }
+      @if nth($widgetInstance, 2) == 'loginSaml' {
+        @include loginRegistration(nth($widgetInstance, 3));
+      }
+      @if nth($widgetInstance, 2) == 'emailVerification' {
+        @include loginRegistration(nth($widgetInstance, 3));
+      }
+      @if nth($widgetInstance, 2) == 'smsVerification' {
+        @include loginRegistration(nth($widgetInstance, 3));
+      }
+      @if nth($widgetInstance, 2) == 'chartBar' {
+        @include charts(nth($widgetInstance, 3));
+      }
+      @if nth($widgetInstance, 2) == 'chartColumn' {
+        @include charts(nth($widgetInstance, 3));
+      }
+      @if nth($widgetInstance, 2) == 'charScatter' {
+        @include charts(nth($widgetInstance, 3));
+      }
+      @if nth($widgetInstance, 2) == 'chartLine' {
+        @include charts(nth($widgetInstance, 3));
+      }
+      @if nth($widgetInstance, 2) == 'chartDonut' {
+        @include charts(nth($widgetInstance, 3));
+      }
+      @if nth($widgetInstance, 2) == 'image' {
+        @include images(nth($widgetInstance, 3));
+      }
+      @if nth($widgetInstance, 2) == 'imageGallery' {
+        @include imageGallery(nth($widgetInstance, 3));
       }
     }
   }

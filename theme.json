@@ -7434,6 +7434,8 @@
       },
       {
         "name": "Charts",
+        "packages": ["com.fliplet.chart.bar", "com.fliplet.chart.column", "com.fliplet.chart.pie",
+          "com.fliplet.chart.scatter", "com.fliplet.chart.line", "com.fliplet.chart.donut"],
         "variables": [
           {
             "description": "Colors",
@@ -8637,6 +8639,7 @@
       },
       {
         "name": "Forms",
+        "packages": ["com.fliplet.form-builder"],
         "variables": [
           {
             "description": "Field label",
@@ -9491,7 +9494,734 @@
         ]
       },
       {
+        "name": "Grid",
+        "packages": ["com.fliplet.metro"],
+        "variables": [
+          {
+            "description": "General",
+            "fields": [
+              {
+                "name": "gridTextBackgroundColor",
+                "default": "rgba(0, 0, 0, 0.45)",
+                "isFullRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "gridTextBackgroundColorTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "gridTextBackgroundColorDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "label": "Text area background",
+                "type": "color"
+              },
+              {
+                "name": "gridBorderRadius",
+                "default": "6px",
+                "property": "px",
+                "isFullRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "gridBorderRadiusTablet",
+                    "default": "inherit-mobile",
+                    "property": "px"
+                  },
+                  "desktop": {
+                    "name": "gridBorderRadiusDesktop",
+                    "default": "inherit-tablet",
+                    "property": "px"
+                  }
+                },
+                "label": "Corner radius",
+                "type": "size",
+                "properties": ["px", "pt", "em", "rem", "%"]
+              }
+            ]
+          },
+          {
+            "description": "Title",
+            "fields": [
+              {
+                "name": "gridTitleFont",
+                "default": "$bodyFontFamily",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "gridTitleFontTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "gridTitleFontDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "font"
+              },
+              {
+                "name": "gridTitleSize",
+                "default": "16px",
+                "property": "px",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "gridTitleSizeTablet",
+                    "default": "inherit-mobile",
+                    "property": "px"
+                  },
+                  "desktop": {
+                    "name": "gridTitleSizeDesktop",
+                    "default": "inherit-tablet",
+                    "property": "px"
+                  }
+                },
+                "type": "size",
+                "properties": ["px", "pt", "em", "rem", "%"]
+              },
+              {
+                "name": "gridTitleColor",
+                "default": "$bodyTextColor",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "gridTitleColorTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "gridTitleColorDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "color"
+              },
+              {
+                "name": "gridTitleWeight",
+                "default": "bold",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "gridTitleWeightTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "gridTitleWeightDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "font-style",
+                "properties": [
+                  "bold",
+                  "lighter"
+                ]
+              },
+              {
+                "name": "gridTitleStyle",
+                "default": "normal",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "gridTitleStyleTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "gridTitleStyleDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "font-style",
+                "properties": [
+                  "italic"
+                ]
+              },
+              {
+                "name": "gridTitleDecoration",
+                "default": "none",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "gridTitleDecorationTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "gridTitleDecorationDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "font-style",
+                "subType": "decoration",
+                "properties": [
+                  "underline"
+                ]
+              }
+            ]
+          },
+          {
+            "description": "Description",
+            "fields": [
+              {
+                "name": "gridDescriptionFont",
+                "default": "$bodyFontFamily",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "gridDescriptionFontTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "gridDescriptionFontDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "font"
+              },
+              {
+                "name": "gridDescriptionSize",
+                "default": "14px",
+                "property": "px",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "gridDescriptionSizeTablet",
+                    "default": "inherit-mobile",
+                    "property": "px"
+                  },
+                  "desktop": {
+                    "name": "gridDescriptionSizeDesktop",
+                    "default": "inherit-tablet",
+                    "property": "px"
+                  }
+                },
+                "type": "size",
+                "properties": ["px", "pt", "em", "rem", "%"]
+              },
+              {
+                "name": "gridDescriptionColor",
+                "default": "rgba(51,51,51,0.75)",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "gridDescriptionColorTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "gridDescriptionColorDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "color"
+              },
+              {
+                "name": "gridDescriptionWeight",
+                "default": "normal",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "gridDescriptionWeightTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "gridDescriptionWeightDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "font-style",
+                "properties": [
+                  "bold",
+                  "lighter"
+                ]
+              },
+              {
+                "name": "gridDescriptionStyle",
+                "default": "normal",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "gridDescriptionStyleTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "gridDescriptionStyleDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "font-style",
+                "properties": [
+                  "italic"
+                ]
+              },
+              {
+                "name": "gridDescriptionDecoration",
+                "default": "none",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "gridDescriptionDecorationTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "gridDescriptionDecorationDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "font-style",
+                "subType": "decoration",
+                "properties": [
+                  "underline"
+                ]
+              }
+            ]
+          },
+          {
+            "description": "Padding",
+            "fields": [
+              {
+                "name": "gridPaddingTop",
+                "default": "30px",
+                "property": "px",
+                "isHalfRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "gridPaddingTopTablet",
+                    "default": "inherit-mobile",
+                    "property": "px"
+                  },
+                  "desktop": {
+                    "name": "gridPaddingTopDesktop",
+                    "default": "inherit-tablet",
+                    "property": "px"
+                  }
+                },
+                "type": "size",
+                "label": "Top",
+                "properties": ["px", "pt", "em", "rem", "%"]
+              },
+              {
+                "name": "gridPaddingRight",
+                "default": "20px",
+                "property": "px",
+                "isHalfRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "gridPaddingRightTablet",
+                    "default": "inherit-mobile",
+                    "property": "px"
+                  },
+                  "desktop": {
+                    "name": "gridPaddingRightDesktop",
+                    "default": "inherit-tablet",
+                    "property": "px"
+                  }
+                },
+                "type": "size",
+                "label": "Right",
+                "properties": ["px", "pt", "em", "rem", "%"]
+              },
+              {
+                "name": "gridPaddingBottom",
+                "default": "30px",
+                "property": "px",
+                "isHalfRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "gridPaddingBottomTablet",
+                    "default": "inherit-mobile",
+                    "property": "px"
+                  },
+                  "desktop": {
+                    "name": "gridPaddingBottomDesktop",
+                    "default": "inherit-tablet",
+                    "property": "px"
+                  }
+                },
+                "type": "size",
+                "label": "Bottom",
+                "properties": ["px", "pt", "em", "rem", "%"]
+              },
+              {
+                "name": "gridPaddingLeft",
+                "default": "20px",
+                "property": "px",
+                "isHalfRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "gridPaddingLeftTablet",
+                    "default": "inherit-mobile",
+                    "property": "px"
+                  },
+                  "desktop": {
+                    "name": "gridPaddingLeftDesktop",
+                    "default": "inherit-tablet",
+                    "property": "px"
+                  }
+                },
+                "type": "size",
+                "label": "Left",
+                "properties": ["px", "pt", "em", "rem", "%"]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Images",
+        "packages": ["com.fliplet.image"],
+        "variables": [
+          {
+            "description": "Margin",
+            "fields": [
+              {
+                "name": "imageMarginTop",
+                "default": "0px",
+                "property": "px",
+                "isHalfRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "imageMarginTopTablet",
+                    "default": "0px",
+                    "property": "px"
+                  },
+                  "desktop": {
+                    "name": "imageMarginTopDesktop",
+                    "default": "0px",
+                    "property": "px"
+                  }
+                },
+                "type": "size",
+                "label": "Top",
+                "properties": ["px", "pt", "em", "rem", "%"]
+              },
+              {
+                "name": "imageMarginRight",
+                "default": "0px",
+                "property": "px",
+                "isHalfRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "imageMarginRightTablet",
+                    "default": "0px",
+                    "property": "px"
+                  },
+                  "desktop": {
+                    "name": "imageMarginRightDesktop",
+                    "default": "0px",
+                    "property": "px"
+                  }
+                },
+                "type": "size",
+                "label": "Right",
+                "properties": ["px", "pt", "em", "rem", "%"]
+              },
+              {
+                "name": "imageMarginBottom",
+                "default": "0px",
+                "property": "px",
+                "isHalfRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "imageMarginBottomTablet",
+                    "default": "0px",
+                    "property": "px"
+                  },
+                  "desktop": {
+                    "name": "imageMarginBottomDesktop",
+                    "default": "0px",
+                    "property": "px"
+                  }
+                },
+                "type": "size",
+                "label": "Bottom",
+                "properties": ["px", "pt", "em", "rem", "%"]
+              },
+              {
+                "name": "imageMarginLeft",
+                "default": "0px",
+                "property": "px",
+                "isHalfRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "imageMarginLeftTablet",
+                    "default": "0px",
+                    "property": "px"
+                  },
+                  "desktop": {
+                    "name": "imageMarginLeftDesktop",
+                    "default": "0px",
+                    "property": "px"
+                  }
+                },
+                "type": "size",
+                "label": "Left",
+                "properties": ["px", "pt", "em", "rem", "%"]
+              }
+            ]
+          },
+          {
+            "description": "Padding",
+            "fields": [
+              {
+                "name": "imagePaddingTop",
+                "default": "0px",
+                "property": "px",
+                "isHalfRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "imagePaddingTopTablet",
+                    "default": "0px",
+                    "property": "px"
+                  },
+                  "desktop": {
+                    "name": "imagePaddingTopDesktop",
+                    "default": "0px",
+                    "property": "px"
+                  }
+                },
+                "type": "size",
+                "label": "Top",
+                "properties": ["px", "pt", "em", "rem", "%"]
+              },
+              {
+                "name": "imagePaddingRight",
+                "default": "0px",
+                "property": "px",
+                "isHalfRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "imagePaddingRightTablet",
+                    "default": "0px",
+                    "property": "px"
+                  },
+                  "desktop": {
+                    "name": "imagePaddingRightDesktop",
+                    "default": "0px",
+                    "property": "px"
+                  }
+                },
+                "type": "size",
+                "label": "Right",
+                "properties": ["px", "pt", "em", "rem", "%"]
+              },
+              {
+                "name": "imagePaddingBottom",
+                "default": "0px",
+                "property": "px",
+                "isHalfRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "imagePaddingBottomTablet",
+                    "default": "0px",
+                    "property": "px"
+                  },
+                  "desktop": {
+                    "name": "imagePaddingBottomDesktop",
+                    "default": "0px",
+                    "property": "px"
+                  }
+                },
+                "type": "size",
+                "label": "Bottom",
+                "properties": ["px", "pt", "em", "rem", "%"]
+              },
+              {
+                "name": "imagePaddingLeft",
+                "default": "0px",
+                "property": "px",
+                "isHalfRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "imagePaddingLeftTablet",
+                    "default": "0px",
+                    "property": "px"
+                  },
+                  "desktop": {
+                    "name": "imagePaddingLeftDesktop",
+                    "default": "0px",
+                    "property": "px"
+                  }
+                },
+                "type": "size",
+                "label": "Left",
+                "properties": ["px", "pt", "em", "rem", "%"]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Image gallery",
+        "packages": ["masonry-image-gallery"],
+        "variables": [
+          {
+            "description": "Margin",
+            "fields": [
+              {
+                "name": "galleryMarginTop",
+                "default": "0px",
+                "property": "px",
+                "isHalfRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "galleryMarginTopTablet",
+                    "default": "0px",
+                    "property": "px"
+                  },
+                  "desktop": {
+                    "name": "galleryMarginTopDesktop",
+                    "default": "0px",
+                    "property": "px"
+                  }
+                },
+                "type": "size",
+                "label": "Top",
+                "properties": ["px", "pt", "em", "rem", "%"]
+              },
+              {
+                "name": "galleryMarginRight",
+                "default": "0px",
+                "property": "px",
+                "isHalfRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "galleryMarginRightTablet",
+                    "default": "0px",
+                    "property": "px"
+                  },
+                  "desktop": {
+                    "name": "galleryMarginRightDesktop",
+                    "default": "0px",
+                    "property": "px"
+                  }
+                },
+                "type": "size",
+                "label": "Right",
+                "properties": ["px", "pt", "em", "rem", "%"]
+              },
+              {
+                "name": "galleryMarginBottom",
+                "default": "0px",
+                "property": "px",
+                "isHalfRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "galleryMarginBottomTablet",
+                    "default": "0px",
+                    "property": "px"
+                  },
+                  "desktop": {
+                    "name": "galleryMarginBottomDesktop",
+                    "default": "0px",
+                    "property": "px"
+                  }
+                },
+                "type": "size",
+                "label": "Bottom",
+                "properties": ["px", "pt", "em", "rem", "%"]
+              },
+              {
+                "name": "galleryMarginLeft",
+                "default": "0px",
+                "property": "px",
+                "isHalfRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "galleryMarginLeftTablet",
+                    "default": "0px",
+                    "property": "px"
+                  },
+                  "desktop": {
+                    "name": "galleryMarginLeftDesktop",
+                    "default": "0px",
+                    "property": "px"
+                  }
+                },
+                "type": "size",
+                "label": "Left",
+                "properties": ["px", "pt", "em", "rem", "%"]
+              }
+            ]
+          },
+          {
+            "description": "Padding",
+            "fields": [
+              {
+                "name": "galleryPaddingTop",
+                "default": "0px",
+                "property": "px",
+                "isHalfRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "galleryPaddingTopTablet",
+                    "default": "0px",
+                    "property": "px"
+                  },
+                  "desktop": {
+                    "name": "galleryPaddingTopDesktop",
+                    "default": "0px",
+                    "property": "px"
+                  }
+                },
+                "type": "size",
+                "label": "Top",
+                "properties": ["px", "pt", "em", "rem", "%"]
+              },
+              {
+                "name": "galleryPaddingRight",
+                "default": "0px",
+                "property": "px",
+                "isHalfRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "galleryPaddingRightTablet",
+                    "default": "0px",
+                    "property": "px"
+                  },
+                  "desktop": {
+                    "name": "galleryPaddingRightDesktop",
+                    "default": "0px",
+                    "property": "px"
+                  }
+                },
+                "type": "size",
+                "label": "Right",
+                "properties": ["px", "pt", "em", "rem", "%"]
+              },
+              {
+                "name": "galleryPaddingBottom",
+                "default": "0px",
+                "property": "px",
+                "isHalfRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "galleryPaddingBottomTablet",
+                    "default": "0px",
+                    "property": "px"
+                  },
+                  "desktop": {
+                    "name": "galleryPaddingBottomDesktop",
+                    "default": "0px",
+                    "property": "px"
+                  }
+                },
+                "type": "size",
+                "label": "Bottom",
+                "properties": ["px", "pt", "em", "rem", "%"]
+              },
+              {
+                "name": "galleryPaddingLeft",
+                "default": "0px",
+                "property": "px",
+                "isHalfRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "galleryPaddingLeftTablet",
+                    "default": "0px",
+                    "property": "px"
+                  },
+                  "desktop": {
+                    "name": "galleryPaddingLeftDesktop",
+                    "default": "0px",
+                    "property": "px"
+                  }
+                },
+                "type": "size",
+                "label": "Left",
+                "properties": ["px", "pt", "em", "rem", "%"]
+              }
+            ]
+          }
+        ]
+      },
+      {
         "name": "Interactive graphics",
+        "packages": ["com.fliplet.interactive-map"],
         "variables": [
           {
             "description": "Size",
@@ -9792,7 +10522,8 @@
         ]
       },
       {
-        "name": "Lists",
+        "name": "List (no images)",
+        "packages": ["com.fliplet.simple-list"],
         "variables": [
           {
             "description": "General",
@@ -10088,70 +10819,6 @@
             ]
           },
           {
-            "description": "Icons",
-            "fields": [
-              {
-                "name": "listSmallIconSize",
-                "default": "30px",
-                "property": "px",
-                "isFullRow": true,
-                "breakpoints": {
-                  "tablet": {
-                    "name": "listSmallIconSizeTablet",
-                    "default": "inherit-mobile",
-                    "property": "px"
-                  },
-                  "desktop": {
-                    "name": "listSmallIconSizeDesktop",
-                    "default": "inherit-tablet",
-                    "property": "px"
-                  }
-                },
-                "label": "Small thumbnails icon size",
-                "type": "size",
-                "properties": ["px", "pt", "em", "rem", "%"]
-              },
-              {
-                "name": "listLargeIconSize",
-                "default": "50px",
-                "property": "px",
-                "isFullRow": true,
-                "breakpoints": {
-                  "tablet": {
-                    "name": "listLargeIconSizeTablet",
-                    "default": "inherit-mobile",
-                    "property": "px"
-                  },
-                  "desktop": {
-                    "name": "listLargeIconSizeDesktop",
-                    "default": "inherit-tablet",
-                    "property": "px"
-                  }
-                },
-                "label": "Large thumbnails icon size",
-                "type": "size",
-                "properties": ["px", "pt", "em", "rem", "%"]
-              },
-              {
-                "name": "listIconColor",
-                "default": "#ffffff",
-                "isFullRow": true,
-                "breakpoints": {
-                  "tablet": {
-                    "name": "listIconColorTablet",
-                    "default": "inherit-mobile"
-                  },
-                  "desktop": {
-                    "name": "listIconColorDesktop",
-                    "default": "inherit-tablet"
-                  }
-                },
-                "label": "Color",
-                "type": "color"
-              }
-            ]
-          },
-          {
             "description": "Padding",
             "fields": [
               {
@@ -10380,81 +11047,1147 @@
                 "type": "color"
               }
             ]
-          },
+          }
+        ]
+      },
+      {
+        "name": "List (small thumbnails)",
+        "packages": ["com.fliplet.list-small-thumbs"],
+        "variables": [
           {
-            "description": "PDF file lsit search",
+            "description": "General",
             "fields": [
               {
-                "name": "listSearchBorder",
-                "default": "$highlightColor",
+                "name": "listSmallBackgroundColor",
+                "default": "$listBackgroundColor",
                 "isFullRow": true,
                 "breakpoints": {
                   "tablet": {
-                    "name": "listSearchBorderTablet",
+                    "name": "listSmallBackgroundColorTablet",
                     "default": "inherit-mobile"
                   },
                   "desktop": {
-                    "name": "listSearchBorderDesktop",
+                    "name": "listSmallBackgroundColorDesktop",
                     "default": "inherit-tablet"
                   }
                 },
-                "label": "Border",
+                "label": "Background",
                 "type": "color"
               },
               {
-                "name": "listSearchCancel",
-                "default": "$bodyTextColor",
+                "name": "listSmallClickColor",
+                "default": "$listClickColor",
                 "isFullRow": true,
                 "breakpoints": {
                   "tablet": {
-                    "name": "listSearchCancelTablet",
+                    "name": "listSmallClickColorTablet",
                     "default": "inherit-mobile"
                   },
                   "desktop": {
-                    "name": "listSearchCancelDesktop",
+                    "name": "listSmallClickColorDesktop",
                     "default": "inherit-tablet"
                   }
                 },
-                "label": "Cancel button",
+                "label": "Background when clicked",
+                "type": "color"
+              },
+              {
+                "name": "listSmallSeparatorColor",
+                "default": "$listSeparatorColor",
+                "isFullRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "listSmallSeparatorColorTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "listSmallSeparatorColorDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "label": "Separator line",
+                "type": "color"
+              },
+              {
+                "name": "listSmallChevronColor",
+                "default": "$listChevronColor",
+                "isFullRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "listSmallChevronColorTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "listSmallChevronColorDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "label": "Arrow color",
                 "type": "color"
               }
             ]
           },
           {
-            "description": "RSS",
+            "description": "Title",
             "fields": [
               {
-                "name": "rssHighlight",
-                "default": "$highlightColor",
-                "isFullRow": true,
+                "name": "listSmallTitleFont",
+                "default": "$titleFont",
                 "breakpoints": {
                   "tablet": {
-                    "name": "rssHighlightTablet",
+                    "name": "listSmallTitleFontTablet",
                     "default": "inherit-mobile"
                   },
                   "desktop": {
-                    "name": "rssHighlightDesktop",
+                    "name": "listSmallTitleFontDesktop",
                     "default": "inherit-tablet"
                   }
                 },
-                "label": "Unread highlight",
+                "type": "font"
+              },
+              {
+                "name": "listSmallTitleSize",
+                "default": "$titleSize",
+                "property": "px",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "listSmallTitleSizeTablet",
+                    "default": "inherit-mobile",
+                    "property": "px"
+                  },
+                  "desktop": {
+                    "name": "listSmallTitleSizeDesktop",
+                    "default": "inherit-tablet",
+                    "property": "px"
+                  }
+                },
+                "type": "size",
+                "properties": ["px", "pt", "em", "rem", "%"]
+              },
+              {
+                "name": "listSmallTitleColor",
+                "default": "$titleColor",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "listSmallTitleColorTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "listSmallTitleColorDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
                 "type": "color"
               },
               {
-                "name": "rssStripes",
-                "default": "rgba(216, 216, 216, 0.2)",
-                "isFullRow": true,
+                "name": "listSmallTitleWeight",
+                "default": "$titleWeight",
                 "breakpoints": {
                   "tablet": {
-                    "name": "rssStripesTablet",
+                    "name": "listSmallTitleWeightTablet",
                     "default": "inherit-mobile"
                   },
                   "desktop": {
-                    "name": "rssStripesDesktop",
+                    "name": "listSmallTitleWeightDesktop",
                     "default": "inherit-tablet"
                   }
                 },
-                "label": "RSS striped background",
+                "type": "font-style",
+                "properties": [
+                  "bold",
+                  "lighter"
+                ]
+              },
+              {
+                "name": "listSmallTitleStyle",
+                "default": "titleStyle",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "listSmallTitleStyleTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "listSmallTitleStyleDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "font-style",
+                "properties": [
+                  "italic"
+                ]
+              },
+              {
+                "name": "listSmallTitleDecoration",
+                "default": "titleDecoration",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "listSmallTitleDecorationTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "listSmallTitleDecorationDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "font-style",
+                "subType": "decoration",
+                "properties": [
+                  "underline"
+                ]
+              }
+            ]
+          },
+          {
+            "description": "Description",
+            "fields": [
+              {
+                "name": "listSmallDescriptionFont",
+                "default": "$descriptionFont",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "listSmallDescriptionFontTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "listSmallDescriptionFontDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "font"
+              },
+              {
+                "name": "listSmallDescriptionSize",
+                "default": "$descriptionSize",
+                "property": "px",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "listSmallDescriptionSizeTablet",
+                    "default": "inherit-mobile",
+                    "property": "px"
+                  },
+                  "desktop": {
+                    "name": "listSmallDescriptionSizeDesktop",
+                    "default": "inherit-tablet",
+                    "property": "px"
+                  }
+                },
+                "type": "size",
+                "properties": ["px", "pt", "em", "rem", "%"]
+              },
+              {
+                "name": "listSmallDescriptionColor",
+                "default": "$descriptionColor",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "listSmallDescriptionColorTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "listSmallDescriptionColorDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "color"
+              },
+              {
+                "name": "listSmallDescriptionWeight",
+                "default": "$descriptionWeight",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "listSmallDescriptionWeightTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "listSmallDescriptionWeightDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "font-style",
+                "properties": [
+                  "bold",
+                  "lighter"
+                ]
+              },
+              {
+                "name": "listSmallDescriptionStyle",
+                "default": "$descriptionStyle",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "listSmallDescriptionStyleTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "listSmallDescriptionStyleDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "font-style",
+                "properties": [
+                  "italic"
+                ]
+              },
+              {
+                "name": "listSmallDescriptionDecoration",
+                "default": "$descriptionDecoration",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "listSmallDescriptionDecorationTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "listSmallDescriptionDecorationDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "font-style",
+                "subType": "decoration",
+                "properties": [
+                  "underline"
+                ]
+              }
+            ]
+          },
+          {
+            "description": "Icons",
+            "fields": [
+              {
+                "name": "listSmallIconSize",
+                "default": "30px",
+                "property": "px",
+                "isFullRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "listSmallIconSizeTablet",
+                    "default": "inherit-mobile",
+                    "property": "px"
+                  },
+                  "desktop": {
+                    "name": "listSmallIconSizeDesktop",
+                    "default": "inherit-tablet",
+                    "property": "px"
+                  }
+                },
+                "label": "Small thumbnails icon size",
+                "type": "size",
+                "properties": ["px", "pt", "em", "rem", "%"]
+              },
+              {
+                "name": "listSmallIconColor",
+                "default": "#ffffff",
+                "isFullRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "listSmallIconColorTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "listSmallIconColorDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "label": "Color",
+                "type": "color"
+              }
+            ]
+          },
+          {
+            "description": "Padding",
+            "fields": [
+              {
+                "name": "listSmallPaddingTop",
+                "default": "$listPaddingTop",
+                "property": "px",
+                "isHalfRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "listSmallPaddingTopTablet",
+                    "default": "inherit-mobile",
+                    "property": "px"
+                  },
+                  "desktop": {
+                    "name": "listSmallPaddingTopDesktop",
+                    "default": "inherit-tablet",
+                    "property": "px"
+                  }
+                },
+                "type": "size",
+                "label": "Top",
+                "properties": ["px", "pt", "em", "rem", "%"]
+              },
+              {
+                "name": "listSmallPaddingRight",
+                "default": "$listPaddingRight",
+                "property": "px",
+                "isHalfRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "listSmallPaddingRightTablet",
+                    "default": "inherit-mobile",
+                    "property": "px"
+                  },
+                  "desktop": {
+                    "name": "listSmallPaddingRightDesktop",
+                    "default": "inherit-tablet",
+                    "property": "px"
+                  }
+                },
+                "type": "size",
+                "label": "Right",
+                "properties": ["px", "pt", "em", "rem", "%"]
+              },
+              {
+                "name": "listSmallPaddingBottom",
+                "default": "$listPaddingBottom",
+                "property": "px",
+                "isHalfRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "listSmallPaddingBottomTablet",
+                    "default": "inherit-mobile",
+                    "property": "px"
+                  },
+                  "desktop": {
+                    "name": "listSmallPaddingBottomDesktop",
+                    "default": "inherit-tablet",
+                    "property": "px"
+                  }
+                },
+                "type": "size",
+                "label": "Bottom",
+                "properties": ["px", "pt", "em", "rem", "%"]
+              },
+              {
+                "name": "listSmallPaddingLeft",
+                "default": "listPaddingLeft",
+                "property": "px",
+                "isHalfRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "listSmallPaddingLeftTablet",
+                    "default": "inherit-mobile",
+                    "property": "px"
+                  },
+                  "desktop": {
+                    "name": "listSmallPaddingLeftDesktop",
+                    "default": "inherit-tablet",
+                    "property": "px"
+                  }
+                },
+                "type": "size",
+                "label": "Left",
+                "properties": ["px", "pt", "em", "rem", "%"]
+              }
+            ]
+          },
+          {
+            "description": "My list",
+            "fields": [
+              {
+                "name": "listSmallMyListToggleColor",
+                "default": "$listMyListToggleColor",
+                "isFullRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "listSmallMyListToggleColorTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "listSmallMyListToggleColorDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "label": "My List toggle buttons",
+                "type": "color"
+              },
+              {
+                "name": "listSmallMyListToggleActiveColor",
+                "default": "$listMyListToggleActiveColor",
+                "isFullRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "listSmallMyListToggleActiveColorTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "listSmallMyListToggleActiveColorDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "label": "My List selected button text",
+                "type": "color"
+              },
+              {
+                "name": "listSmallMyListSwipeColor",
+                "default": "$listMyListSwipeColor",
+                "isFullRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "listSmallMyListSwipeColorTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "listSmallMyListSwipeColorDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "label": "List swipe default background",
+                "type": "color"
+              },
+              {
+                "name": "listSmallMyListSwipeTextColor",
+                "default": "$listMyListSwipeTextColor",
+                "isFullRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "listSmallMyListSwipeTextColorTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "listSmallMyListSwipeTextColorDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "label": "List swipe default text",
+                "type": "color"
+              },
+              {
+                "name": "listSmallMyListSwipeRightColor",
+                "default": "$listMyListSwipeRightColor",
+                "isFullRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "listSmallMyListSwipeRightColorTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "listSmallMyListSwipeRightColorDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "label": "List swipe right background",
+                "type": "color"
+              },
+              {
+                "name": "listSmallMyListSwipeRightTextColor",
+                "default": "$listMyListSwipeRightTextColor",
+                "isFullRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "listSmallMyListSwipeRightTextColorTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "listSmallMyListSwipeRightTextColorDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "label": "List swipe right text",
+                "type": "color"
+              },
+              {
+                "name": "listSmallMyListSwipeLeftColor",
+                "default": "$listMyListSwipeLeftColor",
+                "isFullRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "listSmallMyListSwipeLeftColorTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "listSmallMyListSwipeLeftColorDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "label": "List swipe left background",
+                "type": "color"
+              },
+              {
+                "name": "listSmallMyListSwipeLeftTextColor",
+                "default": "$listMyListSwipeLeftTextColor",
+                "isFullRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "listSmallMyListSwipeLeftTextColorTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "listSmallMyListSwipeLeftTextColorDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "label": "List swipe left text",
+                "type": "color"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "List (large thumbnails)",
+        "packages": ["com.fliplet.list-large-thumbs"],
+        "variables": [
+          {
+            "description": "General",
+            "fields": [
+              {
+                "name": "listLargeBackgroundColor",
+                "default": "$listBackgroundColor",
+                "isFullRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "listLargeBackgroundColorTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "listLargeBackgroundColorDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "label": "Background",
+                "type": "color"
+              },
+              {
+                "name": "listLargeClickColor",
+                "default": "$listClickColor",
+                "isFullRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "listLargeClickColorTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "listLargeClickColorDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "label": "Background when clicked",
+                "type": "color"
+              },
+              {
+                "name": "listLargeSeparatorColor",
+                "default": "$listSeparatorColor",
+                "isFullRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "listLargeSeparatorColorTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "listLargeSeparatorColorDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "label": "Separator line",
+                "type": "color"
+              },
+              {
+                "name": "listLargeChevronColor",
+                "default": "$listChevronColor",
+                "isFullRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "listLargeChevronColorTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "listLargeChevronColorDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "label": "Arrow color",
+                "type": "color"
+              }
+            ]
+          },
+          {
+            "description": "Title",
+            "fields": [
+              {
+                "name": "listLargeTitleFont",
+                "default": "$titleFont",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "listLargeTitleFontTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "listLargeTitleFontDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "font"
+              },
+              {
+                "name": "listLargeTitleSize",
+                "default": "$titleSize",
+                "property": "px",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "listLargeTitleSizeTablet",
+                    "default": "inherit-mobile",
+                    "property": "px"
+                  },
+                  "desktop": {
+                    "name": "listLargeTitleSizeDesktop",
+                    "default": "inherit-tablet",
+                    "property": "px"
+                  }
+                },
+                "type": "size",
+                "properties": ["px", "pt", "em", "rem", "%"]
+              },
+              {
+                "name": "listLargeTitleColor",
+                "default": "$titleColor",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "listLargeTitleColorTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "listLargeTitleColorDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "color"
+              },
+              {
+                "name": "listLargeTitleWeight",
+                "default": "$titleWeight",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "listLargeTitleWeightTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "listLargeTitleWeightDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "font-style",
+                "properties": [
+                  "bold",
+                  "lighter"
+                ]
+              },
+              {
+                "name": "listLargeTitleStyle",
+                "default": "titleStyle",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "listLargeTitleStyleTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "listLargeTitleStyleDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "font-style",
+                "properties": [
+                  "italic"
+                ]
+              },
+              {
+                "name": "listLargeTitleDecoration",
+                "default": "titleDecoration",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "listLargeTitleDecorationTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "listLargeTitleDecorationDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "font-style",
+                "subType": "decoration",
+                "properties": [
+                  "underline"
+                ]
+              }
+            ]
+          },
+          {
+            "description": "Description",
+            "fields": [
+              {
+                "name": "listLargeDescriptionFont",
+                "default": "$descriptionFont",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "listLargeDescriptionFontTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "listLargeDescriptionFontDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "font"
+              },
+              {
+                "name": "listLargeDescriptionSize",
+                "default": "$descriptionSize",
+                "property": "px",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "listLargeDescriptionSizeTablet",
+                    "default": "inherit-mobile",
+                    "property": "px"
+                  },
+                  "desktop": {
+                    "name": "listLargeDescriptionSizeDesktop",
+                    "default": "inherit-tablet",
+                    "property": "px"
+                  }
+                },
+                "type": "size",
+                "properties": ["px", "pt", "em", "rem", "%"]
+              },
+              {
+                "name": "listLargeDescriptionColor",
+                "default": "$descriptionColor",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "listLargeDescriptionColorTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "listLargeDescriptionColorDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "color"
+              },
+              {
+                "name": "listLargeDescriptionWeight",
+                "default": "$descriptionWeight",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "listLargeDescriptionWeightTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "listLargeDescriptionWeightDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "font-style",
+                "properties": [
+                  "bold",
+                  "lighter"
+                ]
+              },
+              {
+                "name": "listLargeDescriptionStyle",
+                "default": "$descriptionStyle",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "listLargeDescriptionStyleTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "listLargeDescriptionStyleDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "font-style",
+                "properties": [
+                  "italic"
+                ]
+              },
+              {
+                "name": "listLargeDescriptionDecoration",
+                "default": "$descriptionDecoration",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "listLargeDescriptionDecorationTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "listLargeDescriptionDecorationDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "font-style",
+                "subType": "decoration",
+                "properties": [
+                  "underline"
+                ]
+              }
+            ]
+          },
+          {
+            "description": "Icons",
+            "fields": [
+              {
+                "name": "listLargeIconSize",
+                "default": "50px",
+                "property": "px",
+                "isFullRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "listLargeIconSizeTablet",
+                    "default": "inherit-mobile",
+                    "property": "px"
+                  },
+                  "desktop": {
+                    "name": "listLargeIconSizeDesktop",
+                    "default": "inherit-tablet",
+                    "property": "px"
+                  }
+                },
+                "label": "Large thumbnails icon size",
+                "type": "size",
+                "properties": ["px", "pt", "em", "rem", "%"]
+              },
+              {
+                "name": "listLargeIconColor",
+                "default": "#ffffff",
+                "isFullRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "listLargeIconColorTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "listLargeIconColorDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "label": "Color",
+                "type": "color"
+              }
+            ]
+          },
+          {
+            "description": "Padding",
+            "fields": [
+              {
+                "name": "listLargePaddingTop",
+                "default": "$listPaddingTop",
+                "property": "px",
+                "isHalfRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "listLargePaddingTopTablet",
+                    "default": "inherit-mobile",
+                    "property": "px"
+                  },
+                  "desktop": {
+                    "name": "listLargePaddingTopDesktop",
+                    "default": "inherit-tablet",
+                    "property": "px"
+                  }
+                },
+                "type": "size",
+                "label": "Top",
+                "properties": ["px", "pt", "em", "rem", "%"]
+              },
+              {
+                "name": "listLargePaddingRight",
+                "default": "$listPaddingRight",
+                "property": "px",
+                "isHalfRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "listLargePaddingRightTablet",
+                    "default": "inherit-mobile",
+                    "property": "px"
+                  },
+                  "desktop": {
+                    "name": "listLargePaddingRightDesktop",
+                    "default": "inherit-tablet",
+                    "property": "px"
+                  }
+                },
+                "type": "size",
+                "label": "Right",
+                "properties": ["px", "pt", "em", "rem", "%"]
+              },
+              {
+                "name": "listLargePaddingBottom",
+                "default": "$listPaddingBottom",
+                "property": "px",
+                "isHalfRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "listLargePaddingBottomTablet",
+                    "default": "inherit-mobile",
+                    "property": "px"
+                  },
+                  "desktop": {
+                    "name": "listLargePaddingBottomDesktop",
+                    "default": "inherit-tablet",
+                    "property": "px"
+                  }
+                },
+                "type": "size",
+                "label": "Bottom",
+                "properties": ["px", "pt", "em", "rem", "%"]
+              },
+              {
+                "name": "listLargePaddingLeft",
+                "default": "listPaddingLeft",
+                "property": "px",
+                "isHalfRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "listLargePaddingLeftTablet",
+                    "default": "inherit-mobile",
+                    "property": "px"
+                  },
+                  "desktop": {
+                    "name": "listLargePaddingLeftDesktop",
+                    "default": "inherit-tablet",
+                    "property": "px"
+                  }
+                },
+                "type": "size",
+                "label": "Left",
+                "properties": ["px", "pt", "em", "rem", "%"]
+              }
+            ]
+          },
+          {
+            "description": "My list",
+            "fields": [
+              {
+                "name": "listLargeMyListToggleColor",
+                "default": "$listMyListToggleColor",
+                "isFullRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "listLargeMyListToggleColorTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "listLargeMyListToggleColorDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "label": "My List toggle buttons",
+                "type": "color"
+              },
+              {
+                "name": "listLargeMyListToggleActiveColor",
+                "default": "$listMyListToggleActiveColor",
+                "isFullRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "listLargeMyListToggleActiveColorTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "listLargeMyListToggleActiveColorDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "label": "My List selected button text",
+                "type": "color"
+              },
+              {
+                "name": "listLargeMyListSwipeColor",
+                "default": "$listMyListSwipeColor",
+                "isFullRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "listLargeMyListSwipeColorTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "listLargeMyListSwipeColorDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "label": "List swipe default background",
+                "type": "color"
+              },
+              {
+                "name": "listLargeMyListSwipeTextColor",
+                "default": "$listMyListSwipeTextColor",
+                "isFullRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "listLargeMyListSwipeTextColorTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "listLargeMyListSwipeTextColorDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "label": "List swipe default text",
+                "type": "color"
+              },
+              {
+                "name": "listLargeMyListSwipeRightColor",
+                "default": "$listMyListSwipeRightColor",
+                "isFullRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "listLargeMyListSwipeRightColorTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "listLargeMyListSwipeRightColorDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "label": "List swipe right background",
+                "type": "color"
+              },
+              {
+                "name": "listLargeMyListSwipeRightTextColor",
+                "default": "$listMyListSwipeRightTextColor",
+                "isFullRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "listLargeMyListSwipeRightTextColorTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "listLargeMyListSwipeRightTextColorDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "label": "List swipe right text",
+                "type": "color"
+              },
+              {
+                "name": "listLargeMyListSwipeLeftColor",
+                "default": "$listMyListSwipeLeftColor",
+                "isFullRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "listLargeMyListSwipeLeftColorTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "listLargeMyListSwipeLeftColorDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "label": "List swipe left background",
+                "type": "color"
+              },
+              {
+                "name": "listLargeMyListSwipeLeftTextColor",
+                "default": "$listMyListSwipeLeftTextColor",
+                "isFullRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "listLargeMyListSwipeLeftTextColorTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "listLargeMyListSwipeLeftTextColorDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "label": "List swipe left text",
                 "type": "color"
               }
             ]
@@ -10949,6 +12682,7 @@
       },
       {
         "name": "Lock",
+        "packages": ["com.fliplet.lock"],
         "variables": [
           {
             "description": "General",
@@ -11027,6 +12761,8 @@
       },
       {
         "name": "Login and Registration",
+        "packages": ["com.fliplet.login", "com.fliplet.login-data-source",
+          "com.fliplet.login.saml2", "com.fliplet.email-validation", "com.fliplet.sms-verfication"],
         "variables": [
           {
             "description": "General",
@@ -11223,6 +12959,7 @@
       },
       {
         "name": "Notification inbox",
+        "packages": ["com.fliplet.notificationinbox"],
         "variables": [
           {
             "description": "General",
@@ -11301,6 +13038,7 @@
       },
       {
         "name": "Onboarding",
+        "packages": ["com.fliplet.onboarding"],
         "variables": [
           {
             "description": "General",
@@ -11984,6 +13722,7 @@
       },
       {
         "name": "Panels",
+        "packages": ["com.fliplet.panels"],
         "variables": [
           {
             "description": "General",
@@ -12621,6 +14360,7 @@
       },
       {
         "name": "Photo Sharing",
+        "packages": ["com.fliplet.photo-sharing"],
         "variables": [
           {
             "description": "General",
@@ -12865,7 +14605,324 @@
         ]
       },
       {
+        "name": "RSS Feed",
+        "packages": ["com.fliplet.rss"],
+        "variables": [
+          {
+            "description": "General",
+            "fields": [
+              {
+                "name": "rssBackgroundColor",
+                "default": "$listBackgroundColor",
+                "isFullRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "rssBackgroundColorTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "rssBackgroundColorDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "label": "Background",
+                "type": "color"
+              },
+              {
+                "name": "rssHighlight",
+                "default": "$highlightColor",
+                "isFullRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "rssHighlightTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "rssHighlightDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "label": "Unread highlight",
+                "type": "color"
+              },
+              {
+                "name": "rssStripes",
+                "default": "rgba(216, 216, 216, 0.2)",
+                "isFullRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "rssStripesTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "rssStripesDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "label": "RSS striped background",
+                "type": "color"
+              },
+              {
+                "name": "rssSeparatorColor",
+                "default": "$listSeparatorColor",
+                "isFullRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "rssSeparatorColorTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "rssSeparatorColorDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "label": "Separator line",
+                "type": "color"
+              },
+              {
+                "name": "rssChevronColor",
+                "default": "$listChevronColor",
+                "isFullRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "rssChevronColorTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "rssChevronColorDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "label": "Arrow color",
+                "type": "color"
+              }
+            ]
+          },
+          {
+            "description": "Title",
+            "fields": [
+              {
+                "name": "rssTitleFont",
+                "default": "$titleFont",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "rssTitleFontTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "rssTitleFontDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "font"
+              },
+              {
+                "name": "rssTitleSize",
+                "default": "$titleSize",
+                "property": "px",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "rssTitleSizeTablet",
+                    "default": "inherit-mobile",
+                    "property": "px"
+                  },
+                  "desktop": {
+                    "name": "rssTitleSizeDesktop",
+                    "default": "inherit-tablet",
+                    "property": "px"
+                  }
+                },
+                "type": "size",
+                "properties": ["px", "pt", "em", "rem", "%"]
+              },
+              {
+                "name": "rssTitleColor",
+                "default": "$titleColor",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "rssTitleColorTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "rssTitleColorDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "color"
+              },
+              {
+                "name": "rssTitleWeight",
+                "default": "$titleWeight",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "rssTitleWeightTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "rssTitleWeightDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "font-style",
+                "properties": [
+                  "bold",
+                  "lighter"
+                ]
+              },
+              {
+                "name": "rssTitleStyle",
+                "default": "titleStyle",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "rssTitleStyleTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "rssTitleStyleDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "font-style",
+                "properties": [
+                  "italic"
+                ]
+              },
+              {
+                "name": "rssTitleDecoration",
+                "default": "titleDecoration",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "rssTitleDecorationTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "rssTitleDecorationDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "font-style",
+                "subType": "decoration",
+                "properties": [
+                  "underline"
+                ]
+              }
+            ]
+          },
+          {
+            "description": "Description",
+            "fields": [
+              {
+                "name": "rssDescriptionFont",
+                "default": "$descriptionFont",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "rssDescriptionFontTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "rssDescriptionFontDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "font"
+              },
+              {
+                "name": "rssDescriptionSize",
+                "default": "$descriptionSize",
+                "property": "px",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "rssDescriptionSizeTablet",
+                    "default": "inherit-mobile",
+                    "property": "px"
+                  },
+                  "desktop": {
+                    "name": "rssDescriptionSizeDesktop",
+                    "default": "inherit-tablet",
+                    "property": "px"
+                  }
+                },
+                "type": "size",
+                "properties": ["px", "pt", "em", "rem", "%"]
+              },
+              {
+                "name": "rssDescriptionColor",
+                "default": "$descriptionColor",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "rssDescriptionColorTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "rssDescriptionColorDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "color"
+              },
+              {
+                "name": "rssDescriptionWeight",
+                "default": "$descriptionWeight",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "rssDescriptionWeightTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "rssDescriptionWeightDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "font-style",
+                "properties": [
+                  "bold",
+                  "lighter"
+                ]
+              },
+              {
+                "name": "rssDescriptionStyle",
+                "default": "$descriptionStyle",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "rssDescriptionStyleTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "rssDescriptionStyleDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "font-style",
+                "properties": [
+                  "italic"
+                ]
+              },
+              {
+                "name": "rssDescriptionDecoration",
+                "default": "$descriptionDecoration",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "rssDescriptionDecorationTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "rssDescriptionDecorationDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "font-style",
+                "subType": "decoration",
+                "properties": [
+                  "underline"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
         "name": "Slider",
+        "packages": ["com.fliplet.slider"],
         "variables": [
           {
             "description": "General",

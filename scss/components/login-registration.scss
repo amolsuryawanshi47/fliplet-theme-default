@@ -1,58 +1,76 @@
-/*****************************/
-/*** FLIPLET DEFAULT THEME ***/
-/********* CONTENTS **********/
-/*****************************/
-/*****************************
-01 - LOGIN & REGISTRATION
-******************************/
+@mixin loginRegistration($options: ()) {
+  $configuration: map-merge((
+    chevronColor: $chevronColor,
+    chevronSeparator: $chevronSeparator,
+    fieldBorderSides: $fieldBorderSides,
+    fieldBorderWidth: $fieldBorderWidth,
+    fieldBorderStyle: $fieldBorderStyle,
+    fieldBorder: $fieldBorder,
+    fieldBorderRadius: $fieldBorderRadius,
+    chevronColorTablet: $chevronColorTablet,
+    chevronSeparatorTablet: $chevronSeparatorTablet,
+    fieldBorderSidesTablet: $fieldBorderSidesTablet,
+    fieldBorderWidthTablet: $fieldBorderWidthTablet,
+    fieldBorderStyleTablet: $fieldBorderStyleTablet,
+    fieldBorderTablet: $fieldBorderTablet,
+    fieldBorderRadiusTablet: $fieldBorderRadiusTablet,
+    chevronColorDesktop: $chevronColorDesktop,
+    chevronSeparatorDesktop: $chevronSeparatorDesktop,
+    fieldBorderSidesDesktop: $fieldBorderSidesDesktop,
+    fieldBorderWidthDesktop: $fieldBorderWidthDesktop,
+    fieldBorderStyleDesktop: $fieldBorderStyleDesktop,
+    fieldBorderDesktop: $fieldBorderDesktop,
+    fieldBorderRadiusDesktop: $fieldBorderRadiusDesktop
+  ), $options);
 
-/* 01 - LOGIN & REGISTRATION */
-
-.state input.form-control {
-  @include borderOnly((
-    borderSides: $fieldBorderSides,
-    borderWidth: $fieldBorderWidth,
-    borderStyle: $fieldBorderStyle,
-    borderColor: $fieldBorder
-  ));
-  border-radius: $fieldBorderRadius;
-
-  // Styles for tablet
-  @include above($tabletBreakpoint) {
+  .state input.form-control {
     @include borderOnly((
-      borderSides: $fieldBorderSidesTablet,
-      borderWidth: $fieldBorderWidthTablet,
-      borderStyle: $fieldBorderStyleTablet,
-      borderColor: $fieldBorderTablet
+      borderSides: map-get($configuration, fieldBorderSides),
+      borderWidth: map-get($configuration, fieldBorderWidth),
+      borderStyle: map-get($configuration, fieldBorderStyle),
+      borderColor: map-get($configuration, fieldBorder)
     ));
-    border-radius: $fieldBorderRadiusTablet;
+    border-radius: map-get($configuration, fieldBorderRadius);
+
+    // Styles for tablet
+    @include above($tabletBreakpoint) {
+      @include borderOnly((
+        borderSides: map-get($configuration, fieldBorderSidesTablet),
+        borderWidth: map-get($configuration, fieldBorderWidthTablet),
+        borderStyle: map-get($configuration, fieldBorderStyleTablet),
+        borderColor: map-get($configuration, fieldBorderTablet)
+      ));
+      border-radius: map-get($configuration, fieldBorderRadiusTablet);
+    }
+
+    // Styles for desktop
+    @include above($desktopBreakpoint) {
+      @include borderOnly((
+        borderSides: map-get($configuration, fieldBorderSidesDesktop),
+        borderWidth: map-get($configuration, fieldBorderWidthDesktop),
+        borderStyle: map-get($configuration, fieldBorderStyleDesktop),
+        borderColor: map-get($configuration, fieldBorderDesktop)
+      ));
+      border-radius: map-get($configuration, fieldBorderRadiusDesktop);
+    }
   }
 
-  // Styles for desktop
-  @include above($desktopBreakpoint) {
-    @include borderOnly((
-      borderSides: $fieldBorderSidesDesktop,
-      borderWidth: $fieldBorderWidthDesktop,
-      borderStyle: $fieldBorderStyleDesktop,
-      borderColor: $fieldBorderDesktop
-    ));
-    border-radius: $fieldBorderRadiusDesktop;
+  .state .back {
+    border-right: 1px solid map-get($configuration, chevronSeparator);
+    color: map-get($configuration, chevronColor);
+
+    // Styles for tablet
+    @include above($tabletBreakpoint) {
+      border-right: 1px solid map-get($configuration, chevronSeparatorTablet);
+      color: map-get($configuration, chevronColorTablet);
+    }
+
+    // Styles for desktop
+    @include above($desktopBreakpoint) {
+      border-right: 1px solid map-get($configuration, chevronSeparatorDesktop);
+      color: map-get($configuration, chevronColorDesktop);
+    }
   }
 }
 
-.state .back {
-  border-right: 1px solid $chevronSeparator;
-  color: $chevronColor;
-
-  // Styles for tablet
-  @include above($tabletBreakpoint) {
-    border-right: 1px solid $chevronSeparatorTablet;
-    color: $chevronColorTablet;
-  }
-
-  // Styles for desktop
-  @include above($desktopBreakpoint) {
-    border-right: 1px solid $chevronSeparatorDesktop;
-    color: $chevronColorDesktop;
-  }
-}
+@include loginRegistration();

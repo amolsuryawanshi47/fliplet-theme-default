@@ -1,0 +1,131 @@
+@mixin images($options: ()) {
+  $configuration: map-merge((
+    imageMarginTop: $imageMarginTop,
+    imageMarginRight: $imageMarginRight,
+    imageMarginBottom: $imageMarginBottom,
+    imageMarginLeft: $imageMarginLeft,
+    imagePaddingTop: $imagePaddingTop,
+    imagePaddingRight: $imagePaddingRight,
+    imagePaddingBottom: $imagePaddingBottom,
+    imagePaddingLeft: $imagePaddingLeft,
+    imageMarginTopTablet: $imageMarginTopTablet,
+    imageMarginRightTablet: $imageMarginRightTablet,
+    imageMarginBottomTablet: $imageMarginBottomTablet,
+    imageMarginLeftTablet: $imageMarginLeftTablet,
+    imagePaddingTopTablet: $imagePaddingTopTablet,
+    imagePaddingRightTablet: $imagePaddingRightTablet,
+    imagePaddingBottomTablet: $imagePaddingBottomTablet,
+    imagePaddingLeftTablet: $imagePaddingLeftTablet,
+    imageMarginTopDesktop: $imageMarginTopDesktop,
+    imageMarginRightDesktop: $imageMarginRightDesktop,
+    imageMarginBottomDesktop: $imageMarginBottomDesktop,
+    imageMarginLeftDesktop: $imageMarginLeftDesktop,
+    imagePaddingTopDesktop: $imagePaddingTopDesktop,
+    imagePaddingRightDesktop: $imagePaddingRightDesktop,
+    imagePaddingBottomDesktop: $imagePaddingBottomDesktop,
+    imagePaddingLeftDesktop: $imagePaddingLeftDesktop
+  ), $options);
+
+  [data-image-id] {
+    margin: map-get($configuration, imageMarginTop)
+      map-get($configuration, imageMarginRight)
+      map-get($configuration, imageMarginBottom)
+      map-get($configuration, imageMarginLeft);
+    padding: map-get($configuration, imagePaddingTop)
+      map-get($configuration, imagePaddingRight)
+      map-get($configuration, imagePaddingBottom)
+      map-get($configuration, imagePaddingLeft);
+
+    // Styles for tablet
+    @include above($tabletBreakpoint) {
+      margin: map-get($configuration, imageMarginTopTablet)
+        map-get($configuration, imageMarginRightTablet)
+        map-get($configuration, imageMarginBottomTablet)
+        map-get($configuration, imageMarginLeftTablet);
+      padding: map-get($configuration, imagePaddingTopTablet)
+        map-get($configuration, imagePaddingRightTablet)
+        map-get($configuration, imagePaddingBottomTablet)
+        map-get($configuration, imagePaddingLeftTablet);
+    }
+
+    // Styles for desktop
+    @include above($desktopBreakpoint) {
+      margin: map-get($configuration, imageMarginTopDesktop)
+        map-get($configuration, imageMarginRightDesktop)
+        map-get($configuration, imageMarginBottomDesktop)
+        map-get($configuration, imageMarginLeftDesktop);
+      padding: map-get($configuration, imagePaddingTopDesktop)
+        map-get($configuration, imagePaddingRightDesktop)
+        map-get($configuration, imagePaddingBottomDesktop)
+        map-get($configuration, imagePaddingLeftDesktop);
+    }
+  }
+}
+
+@include images();
+
+@mixin imageGallery($options: ()) {
+  $configuration: map-merge((
+    galleryMarginTop: $galleryMarginTop,
+    galleryMarginRight: $galleryMarginRight,
+    galleryMarginBottom: $galleryMarginBottom,
+    galleryMarginLeft: $galleryMarginLeft,
+    galleryPaddingTop: $galleryPaddingTop,
+    galleryPaddingRight: $galleryPaddingRight,
+    galleryPaddingBottom: $galleryPaddingBottom,
+    galleryPaddingLeft: $galleryPaddingLeft,
+    galleryMarginTopTablet: $galleryMarginTopTablet,
+    galleryMarginRightTablet: $galleryMarginRightTablet,
+    galleryMarginBottomTablet: $galleryMarginBottomTablet,
+    galleryMarginLeftTablet: $galleryMarginLeftTablet,
+    galleryPaddingTopTablet: $galleryPaddingTopTablet,
+    galleryPaddingRightTablet: $galleryPaddingRightTablet,
+    galleryPaddingBottomTablet: $galleryPaddingBottomTablet,
+    galleryPaddingLeftTablet: $galleryPaddingLeftTablet,
+    galleryMarginTopDesktop: $galleryMarginTopDesktop,
+    galleryMarginRightDesktop: $galleryMarginRightDesktop,
+    galleryMarginBottomDesktop: $galleryMarginBottomDesktop,
+    galleryMarginLeftDesktop: $galleryMarginLeftDesktop,
+    galleryPaddingTopDesktop: $galleryPaddingTopDesktop,
+    galleryPaddingRightDesktop: $galleryPaddingRightDesktop,
+    galleryPaddingBottomDesktop: $galleryPaddingBottomDesktop,
+    galleryPaddingLeftDesktop: $galleryPaddingLeftDesktop
+  ), $options);
+
+  .image-gallery {
+    margin: map-get($configuration, galleryMarginTop)
+      map-get($configuration, galleryMarginRight)
+      map-get($configuration, galleryMarginBottom)
+      map-get($configuration, galleryMarginLeft);
+    padding: map-get($configuration, galleryPaddingTop)
+      map-get($configuration, galleryPaddingRight)
+      map-get($configuration, galleryPaddingBottom)
+      map-get($configuration, galleryPaddingLeft);
+
+    // Styles for tablet
+    @include above($tabletBreakpoint) {
+      margin: map-get($configuration, galleryMarginTopTablet)
+        map-get($configuration, galleryMarginRightTablet)
+        map-get($configuration, galleryMarginBottomTablet)
+        map-get($configuration, galleryMarginLeftTablet);
+      padding: map-get($configuration, galleryPaddingTopTablet)
+        map-get($configuration, galleryPaddingRightTablet)
+        map-get($configuration, galleryPaddingBottomTablet)
+        map-get($configuration, galleryPaddingLeftTablet);
+    }
+
+    // Styles for desktop
+    @include above($desktopBreakpoint) {
+      margin: map-get($configuration, galleryMarginTopDesktop)
+        map-get($configuration, galleryMarginRightDesktop)
+        map-get($configuration, galleryMarginBottomDesktop)
+        map-get($configuration, galleryMarginLeftDesktop);
+      padding: map-get($configuration, galleryPaddingTopDesktop)
+        map-get($configuration, galleryPaddingRightDesktop)
+        map-get($configuration, galleryPaddingBottomDesktop)
+        map-get($configuration, galleryPaddingLeftDesktop);
+    }
+  }
+}
+
+@include imageGallery();

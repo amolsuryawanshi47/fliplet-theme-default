@@ -1,16 +1,45 @@
-.notification-badge {
-  background-color: $notificationBadgeBackgroundColor;
+@mixin notificationBox($options: ()) {
+  $configuration: map-merge((
+    notificationBadgeBackgroundColor: $notificationBadgeBackgroundColor,
+    notificationDraftBackgroundColor: $notificationDraftBackgroundColor,
 
-  // Styles for tablet
-  @include above($tabletBreakpoint) {
-   background-color: $notificationBadgeBackgroundColorTablet;
+    notificationBadgeBackgroundColorTablet: $notificationBadgeBackgroundColorTablet,
+    notificationDraftBackgroundColorTablet: $notificationDraftBackgroundColorTablet,
+
+    notificationBadgeBackgroundColorDesktop: $notificationBadgeBackgroundColorDesktop,
+    notificationDraftBackgroundColorDesktop: $notificationDraftBackgroundColorDesktop,
+  ), $options);
+
+  .notification-badge {
+    background-color: map-get($configuration, notificationBadgeBackgroundColor);
+
+    // Styles for tablet
+    @include above($tabletBreakpoint) {
+     background-color: map-get($configuration, notificationBadgeBackgroundColorTablet);
+    }
+
+    // Styles for desktop
+    @include above($desktopBreakpoint) {
+      background-color: map-get($configuration, notificationBadgeBackgroundColorDesktop);
+    }
   }
 
-  // Styles for desktop
-  @include above($desktopBreakpoint) {
-    background-color: $notificationBadgeBackgroundColorDesktop;
+  [data-notification-inbox-1-0-0-id] .notification[data-notification-status="draft"] {
+    background-color: map-get($configuration, notificationDraftBackgroundColor);
+
+    // Styles for tablet
+    @include above($tabletBreakpoint) {
+      background-color: map-get($configuration, notificationDraftBackgroundColorTablet);
+    }
+
+    // Styles for desktop
+    @include above($desktopBreakpoint) {
+      background-color: map-get($configuration, notificationDraftBackgroundColorDesktop);
+    }
   }
 }
+
+@include notificationBox();
 
 .fl-widget-instance[data-type="menu"] .notification-badge {
   background-color: $notificationBadgeBackgroundColorInMenu;
@@ -26,19 +55,5 @@
   @include above($desktopBreakpoint) {
     background-color: $notificationBadgeBackgroundColorInMenuDesktop;
     color: $notificationBadgeTextColorInMenuDesktop;
-  }
-}
-
-[data-notification-inbox-1-0-0-id] .notification[data-notification-status="draft"] {
-  background-color: $notificationDraftBackgroundColor;
-
-  // Styles for tablet
-  @include above($tabletBreakpoint) {
-    background-color: $notificationDraftBackgroundColorTablet;
-  }
-
-  // Styles for desktop
-  @include above($desktopBreakpoint) {
-    background-color: $notificationDraftBackgroundColorDesktop;
   }
 }
