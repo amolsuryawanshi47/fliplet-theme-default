@@ -8,6 +8,17 @@
     imagePaddingRight: $imagePaddingRight,
     imagePaddingBottom: $imagePaddingBottom,
     imagePaddingLeft: $imagePaddingLeft,
+    imageBorderSides: $imageBorderSides,
+    imageBorderWidth: $imageBorderWidth,
+    imageBorderStyle: $imageBorderStyle,
+    imageBorderColor: $imageBorderColor,
+    imageBorderRadius: $imageBorderRadius,
+    imageShadowStyle: $imageShadowStyle,
+    imageShadowXoffset: $imageShadowXoffset,
+    imageShadowYoffset: $imageShadowYoffset,
+    imageShadowBlur: $imageShadowBlur,
+    imageShadowSpread: $imageShadowSpread,
+    imageShadowColor: $imageShadowColor,
     imageMarginTopTablet: $imageMarginTopTablet,
     imageMarginRightTablet: $imageMarginRightTablet,
     imageMarginBottomTablet: $imageMarginBottomTablet,
@@ -16,6 +27,17 @@
     imagePaddingRightTablet: $imagePaddingRightTablet,
     imagePaddingBottomTablet: $imagePaddingBottomTablet,
     imagePaddingLeftTablet: $imagePaddingLeftTablet,
+    imageBorderSidesTablet: $imageBorderSidesTablet,
+    imageBorderWidthTablet: $imageBorderWidthTablet,
+    imageBorderStyleTablet: $imageBorderStyleTablet,
+    imageBorderColorTablet: $imageBorderColorTablet,
+    imageBorderRadiusTablet: $imageBorderRadiusTablet,
+    imageShadowStyleTablet: $imageShadowStyleTablet,
+    imageShadowXoffsetTablet: $imageShadowXoffsetTablet,
+    imageShadowYoffsetTablet: $imageShadowYoffsetTablet,
+    imageShadowBlurTablet: $imageShadowBlurTablet,
+    imageShadowSpreadTablet: $imageShadowSpreadTablet,
+    imageShadowColorTablet: $imageShadowColorTablet,
     imageMarginTopDesktop: $imageMarginTopDesktop,
     imageMarginRightDesktop: $imageMarginRightDesktop,
     imageMarginBottomDesktop: $imageMarginBottomDesktop,
@@ -23,7 +45,18 @@
     imagePaddingTopDesktop: $imagePaddingTopDesktop,
     imagePaddingRightDesktop: $imagePaddingRightDesktop,
     imagePaddingBottomDesktop: $imagePaddingBottomDesktop,
-    imagePaddingLeftDesktop: $imagePaddingLeftDesktop
+    imagePaddingLeftDesktop: $imagePaddingLeftDesktop,
+    imageBorderSidesDesktop: $imageBorderSidesDesktop,
+    imageBorderWidthDesktop: $imageBorderWidthDesktop,
+    imageBorderStyleDesktop: $imageBorderStyleDesktop,
+    imageBorderColorDesktop: $imageBorderColorDesktop,
+    imageBorderRadiusDesktop: $imageBorderRadiusDesktop,
+    imageShadowStyleDesktop: $imageShadowStyleDesktop,
+    imageShadowXoffsetDesktop: $imageShadowXoffsetDesktop,
+    imageShadowYoffsetDesktop: $imageShadowYoffsetDesktop,
+    imageShadowBlurDesktop: $imageShadowBlurDesktop,
+    imageShadowSpreadDesktop: $imageShadowSpreadDesktop,
+    imageShadowColorDesktop: $imageShadowColorDesktop
   ), $options);
 
   [data-image-id] {
@@ -36,6 +69,23 @@
       map-get($configuration, imagePaddingBottom)
       map-get($configuration, imagePaddingLeft);
 
+    @include borderOnly((
+      borderSides: map-get($configuration, imageBorderSides),
+      borderWidth: map-get($configuration, imageBorderWidth),
+      borderStyle: map-get($configuration, imageBorderStyle),
+      borderColor: map-get($configuration, imageBorderColor)
+    ));
+    border-radius: map-get($configuration, imageBorderRadius);
+
+    @include shadowOnly((
+      shadowStyle: map-get($configuration, imageShadowStyle),
+      shadowXOffset: map-get($configuration, imageShadowXoffset),
+      shadowYOffset: map-get($configuration, imageShadowYoffset),
+      shadowBlur: map-get($configuration, imageShadowBlur),
+      shadowSpread: map-get($configuration, imageShadowSpread),
+      shadowColor: map-get($configuration, imageShadowColor)
+    ));
+
     // Styles for tablet
     @include above($tabletBreakpoint) {
       margin: map-get($configuration, imageMarginTopTablet)
@@ -46,6 +96,23 @@
         map-get($configuration, imagePaddingRightTablet)
         map-get($configuration, imagePaddingBottomTablet)
         map-get($configuration, imagePaddingLeftTablet);
+
+      @include borderOnly((
+        borderSides: map-get($configuration, imageBorderSidesTablet),
+        borderWidth: map-get($configuration, imageBorderWidthTablet),
+        borderStyle: map-get($configuration, imageBorderStyleTablet),
+        borderColor: map-get($configuration, imageBorderColorTablet)
+      ));
+      border-radius: map-get($configuration, imageBorderRadiusTablet);
+
+      @include shadowOnly((
+        shadowStyle: map-get($configuration, imageShadowStyleTablet),
+        shadowXOffset: map-get($configuration, imageShadowXoffsetTablet),
+        shadowYOffset: map-get($configuration, imageShadowYoffsetTablet),
+        shadowBlur: map-get($configuration, imageShadowBlurTablet),
+        shadowSpread: map-get($configuration, imageShadowSpreadTablet),
+        shadowColor: map-get($configuration, imageShadowColorTablet)
+      ));
     }
 
     // Styles for desktop
@@ -58,6 +125,23 @@
         map-get($configuration, imagePaddingRightDesktop)
         map-get($configuration, imagePaddingBottomDesktop)
         map-get($configuration, imagePaddingLeftDesktop);
+
+      @include borderOnly((
+        borderSides: map-get($configuration, imageBorderSidesDesktop),
+        borderWidth: map-get($configuration, imageBorderWidthDesktop),
+        borderStyle: map-get($configuration, imageBorderStyleDesktop),
+        borderColor: map-get($configuration, imageBorderColorDesktop)
+      ));
+      border-radius: map-get($configuration, imageBorderRadiusDesktop);
+
+      @include shadowOnly((
+        shadowStyle: map-get($configuration, imageShadowStyleDesktop),
+        shadowXOffset: map-get($configuration, imageShadowXoffsetDesktop),
+        shadowYOffset: map-get($configuration, imageShadowYoffsetDesktop),
+        shadowBlur: map-get($configuration, imageShadowBlurDesktop),
+        shadowSpread: map-get($configuration, imageShadowSpreadDesktop),
+        shadowColor: map-get($configuration, imageShadowColorDesktop)
+      ));
     }
   }
 }
