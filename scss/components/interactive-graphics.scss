@@ -28,6 +28,10 @@
   $configuration: map-merge((
     interactiveGraphWidth: $interactiveGraphWidth,
     interactiveGraphHeight: $interactiveGraphHeight,
+    interactiveGraphMinWidth: $interactiveGraphMinWidth,
+    interactiveGraphMaxWidth: $interactiveGraphMaxWidth,
+    interactiveGraphMinHeight: $interactiveGraphMinHeight,
+    interactiveGraphMaxHeight: $interactiveGraphMaxHeight,
     interactiveGraphMarginTop: $interactiveGraphMarginTop,
     interactiveGraphMarginRight: $interactiveGraphMarginRight,
     interactiveGraphMarginBottom: $interactiveGraphMarginBottom,
@@ -42,6 +46,10 @@
     mapSearchOverlayText: $mapSearchOverlayText,
     interactiveGraphWidthTablet: $interactiveGraphWidthTablet,
     interactiveGraphHeightTablet: $interactiveGraphHeightTablet,
+    interactiveGraphMinWidthTablet: $interactiveGraphMinWidthTablet,
+    interactiveGraphMaxWidthTablet: $interactiveGraphMaxWidthTablet,
+    interactiveGraphMinHeightTablet: $interactiveGraphMinHeightTablet,
+    interactiveGraphMaxHeightTablet: $interactiveGraphMaxHeightTablet,
     interactiveGraphMarginTopTablet: $interactiveGraphMarginTopTablet,
     interactiveGraphMarginRightTablet: $interactiveGraphMarginRightTablet,
     interactiveGraphMarginBottomTablet: $interactiveGraphMarginBottomTablet,
@@ -54,6 +62,10 @@
     controlsTextTablet: $controlsTextTablet,
     mapSearchOverlayBackgroundTablet: $mapSearchOverlayBackgroundTablet,
     mapSearchOverlayTextTablet: $mapSearchOverlayTextTablet,
+    interactiveGraphMinWidthDesktop: $interactiveGraphMinWidthDesktop,
+    interactiveGraphMaxWidthDesktop: $interactiveGraphMaxWidthDesktop,
+    interactiveGraphMinHeightDesktop: $interactiveGraphMinHeightDesktop,
+    interactiveGraphMaxHeightDesktop: $interactiveGraphMaxHeightDesktop,
     interactiveGraphWidthDesktop: $interactiveGraphWidthDesktop,
     interactiveGraphHeightDesktop: $interactiveGraphHeightDesktop,
     interactiveGraphMarginTopDesktop: $interactiveGraphMarginTopDesktop,
@@ -72,6 +84,8 @@
 
   .interactive-map-component-wrapper {
     width: map-get($configuration, interactiveGraphWidth);
+    min-width: map-get($configuration, interactiveGraphMinWidth);
+    max-width: map-get($configuration, interactiveGraphMaxWidth);
     margin: map-get($configuration, interactiveGraphMarginTop)
       map-get($configuration, interactiveGraphMarginRight)
       map-get($configuration, interactiveGraphMarginBottom)
@@ -79,10 +93,14 @@
     @include calculateHeight((
       height: map-get($configuration, interactiveGraphHeight)
     ));
+    min-height: map-get($configuration, interactiveGraphMinHeight);
+    max-height: map-get($configuration, interactiveGraphMaxHeight);
 
     // Styles for tablet
     @include above($tabletBreakpoint) {
       width: map-get($configuration, interactiveGraphWidthTablet);
+      min-width: map-get($configuration, interactiveGraphMinWidthTablet);
+      max-width: map-get($configuration, interactiveGraphMaxWidthTablet);
       margin: map-get($configuration, interactiveGraphMarginTopTablet)
         map-get($configuration, interactiveGraphMarginRightTablet)
         map-get($configuration, interactiveGraphMarginBottomTablet)
@@ -90,11 +108,15 @@
       @include calculateHeight((
         height: map-get($configuration, interactiveGraphHeightTablet)
       ));
+      min-height: map-get($configuration, interactiveGraphMinHeightTablet);
+      max-height: map-get($configuration, interactiveGraphMaxHeightTablet);
     }
 
     // Styles for desktop
     @include above($desktopBreakpoint) {
-      width: map-get($configuration, interactiveGraphWidth)Desktop;
+      width: map-get($configuration, interactiveGraphWidthDesktop);
+      min-width: map-get($configuration, interactiveGraphMinWidthDesktop);
+      max-width: map-get($configuration, interactiveGraphMaxWidthDesktop);
       margin: map-get($configuration, interactiveGraphMarginTopDesktop)
         map-get($configuration, interactiveGraphMarginRightDesktop)
         map-get($configuration, interactiveGraphMarginBottomDesktop)
@@ -102,6 +124,8 @@
       @include calculateHeight((
         height: map-get($configuration, interactiveGraphHeightDesktop)
       ));
+      min-height: map-get($configuration, interactiveGraphMinHeightDesktop);
+      max-height: map-get($configuration, interactiveGraphMaxHeightDesktop);
     }
   }
 

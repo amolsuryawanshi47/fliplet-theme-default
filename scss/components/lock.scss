@@ -1,13 +1,46 @@
 @mixin lock($options: ()) {
   $configuration: map-merge((
+    lockWidth: $lockWidth,
+    lockMinWidth: $lockMinWidth,
+    lockMaxWidth: $lockMaxWidth,
+    lockMarginTop: $lockMarginTop,
+    lockMarginRight: $lockMarginRight,
+    lockMarginBottom: $lockMarginBottom,
+    lockMarginLeft: $lockMarginLeft,
+    lockPaddingTop: $lockPaddingTop,
+    lockPaddingRight: $lockPaddingRight,
+    lockPaddingBottom: $lockPaddingBottom,
+    lockPaddingLeft: $lockPaddingLeft,
     lockInput: $lockInput,
     lockInputFocus: $lockInputFocus,
     lockChevronColor: $lockChevronColor,
     touchIDBorder: $touchIDBorder,
+    lockWidthTablet: $lockWidthTablet,
+    lockMinWidthTablet: $lockMinWidthTablet,
+    lockMaxWidthTablet: $lockMaxWidthTablet,
+    lockMarginTopTablet: $lockMarginTopTablet,
+    lockMarginRightTablet: $lockMarginRightTablet,
+    lockMarginBottomTablet: $lockMarginBottomTablet,
+    lockMarginLeftTablet: $lockMarginLeftTablet,
+    lockPaddingTopTablet: $lockPaddingTopTablet,
+    lockPaddingRightTablet: $lockPaddingRightTablet,
+    lockPaddingBottomTablet: $lockPaddingBottomTablet,
+    lockPaddingLeftTablet: $lockPaddingLeftTablet,
     lockInputTablet: $lockInputTablet,
     lockInputFocusTablet: $lockInputFocusTablet,
     lockChevronColorTablet: $lockChevronColorTablet,
     touchIDBorderTablet: $touchIDBorderTablet,
+    lockWidthDesktop: $lockWidthDesktop,
+    lockMinWidthDesktop: $lockMinWidthDesktop,
+    lockMaxWidthDesktop: $lockMaxWidthDesktop,
+    lockMarginTopDesktop: $lockMarginTopDesktop,
+    lockMarginRightDesktop: $lockMarginRightDesktop,
+    lockMarginBottomDesktop: $lockMarginBottomDesktop,
+    lockMarginLeftDesktop: $lockMarginLeftDesktop,
+    lockPaddingTopDesktop: $lockPaddingTopDesktop,
+    lockPaddingRightDesktop: $lockPaddingRightDesktop,
+    lockPaddingBottomDesktop: $lockPaddingBottomDesktop,
+    lockPaddingLeftDesktop: $lockPaddingLeftDesktop,
     lockInputDesktop: $lockInputDesktop,
     lockInputFocusDesktop: $lockInputFocusDesktop,
     lockChevronColorDesktop: $lockChevronColorDesktop,
@@ -15,6 +48,18 @@
   ), $options);
 
   .passcode-wrapper {
+    width: map-get($configuration, lockWidth);
+    min-width: map-get($configuration, lockMinWidth);
+    max-width: map-get($configuration, lockMaxWidth);
+    margin: map-get($configuration, lockMarginTop)
+      map-get($configuration, lockMarginRight)
+      map-get($configuration, lockMarginBottom)
+      map-get($configuration, lockMarginLeft);
+    padding: map-get($configuration, lockPaddingTop)
+      map-get($configuration, lockPaddingRight)
+      map-get($configuration, lockPaddingBottom)
+      map-get($configuration, lockPaddingLeft);
+
     .passcode-field {
       border-bottom: 1px solid map-get($configuration, lockInput);
 
@@ -25,6 +70,18 @@
 
     // Styles for tablet
     @include above($tabletBreakpoint) {
+      width: map-get($configuration, lockWidthTablet);
+      min-width: map-get($configuration, lockMinWidthTablet);
+      max-width: map-get($configuration, lockMaxWidthTablet);
+      margin: map-get($configuration, lockMarginTopTablet)
+        map-get($configuration, lockMarginRightTablet)
+        map-get($configuration, lockMarginBottomTablet)
+        map-get($configuration, lockMarginLeftTablet);
+      padding: map-get($configuration, lockPaddingTopTablet)
+        map-get($configuration, lockPaddingRightTablet)
+        map-get($configuration, lockPaddingBottomTablet)
+        map-get($configuration, lockPaddingLeftTablet);
+
       .passcode-field {
         border-bottom: 1px solid map-get($configuration, lockInputTablet);
 
@@ -36,6 +93,18 @@
 
     // Styles for desktop
     @include above($desktopBreakpoint) {
+      width: map-get($configuration, lockWidthDesktop);
+      min-width: map-get($configuration, lockMinWidthDesktop);
+      max-width: map-get($configuration, lockMaxWidthDesktop);
+      margin: map-get($configuration, lockMarginTopDesktop)
+        map-get($configuration, lockMarginRightDesktop)
+        map-get($configuration, lockMarginBottomDesktop)
+        map-get($configuration, lockMarginLeftDesktop);
+      padding: map-get($configuration, lockPaddingTopDesktop)
+        map-get($configuration, lockPaddingRightDesktop)
+        map-get($configuration, lockPaddingBottomDesktop)
+        map-get($configuration, lockPaddingLeftDesktop);
+
       .passcode-field {
         border-bottom: 1px solid map-get($configuration, lockInputDesktop);
 

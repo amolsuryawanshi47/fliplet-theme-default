@@ -1,5 +1,19 @@
 @mixin formBuilder($options: ()) {
   $configuration: map-merge((
+    formWidth: $formWidth,
+    formMinWidth: $formMinWidth,
+    formMaxWidth: $formMaxWidth,
+    formHeight: $formHeight,
+    formMinHeight: $formMinHeight,
+    formMaxHeight: $formMaxHeight,
+    formMarginTop: $formMarginTop,
+    formMarginRight: $formMarginRight,
+    formMarginBottom: $formMarginBottom,
+    formMarginLeft: $formMarginLeft,
+    formPaddingTop: $formPaddingTop,
+    formPaddingRight: $formPaddingRight,
+    formPaddingBottom: $formPaddingBottom,
+    formPaddingLeft: $formPaddingLeft,
     formLabelFontFam: $formLabelFontFam,
     formLabelSize: $formLabelSize,
     formLabelColor: $formLabelColor,
@@ -35,6 +49,20 @@
     formStarRating: $formStarRating,
     formStarRatingSelected: $formStarRatingSelected,
     formRequiredColor: $formRequiredColor,
+    formWidthTablet: $formWidthTablet,
+    formMinWidthTablet: $formMinWidthTablet,
+    formMaxWidthTablet: $formMaxWidthTablet,
+    formHeightTablet: $formHeightTablet,
+    formMinHeightTablet: $formMinHeightTablet,
+    formMaxHeightTablet: $formMaxHeightTablet,
+    formMarginTopTablet: $formMarginTopTablet,
+    formMarginRightTablet: $formMarginRightTablet,
+    formMarginBottomTablet: $formMarginBottomTablet,
+    formMarginLeftTablet: $formMarginLeftTablet,
+    formPaddingTopTablet: $formPaddingTopTablet,
+    formPaddingRightTablet: $formPaddingRightTablet,
+    formPaddingBottomTablet: $formPaddingBottomTablet,
+    formPaddingLeftTablet: $formPaddingLeftTablet,
     formLabelFontFamTablet: $formLabelFontFamTablet,
     formLabelSizeTablet: $formLabelSizeTablet,
     formLabelColorTablet: $formLabelColorTablet,
@@ -70,6 +98,20 @@
     formStarRatingTablet: $formStarRatingTablet,
     formStarRatingSelectedTablet: $formStarRatingSelectedTablet,
     formRequiredColorTablet: $formRequiredColorTablet,
+    formWidthDesktop: $formWidthDesktop,
+    formMinWidthDesktop: $formMinWidthDesktop,
+    formMaxWidthDesktop: $formMaxWidthDesktop,
+    formHeightDesktop: $formHeightDesktop,
+    formMinHeightDesktop: $formMinHeightDesktop,
+    formMaxHeightDesktop: $formMaxHeightDesktop,
+    formMarginTopDesktop: $formMarginTopDesktop,
+    formMarginRightDesktop: $formMarginRightDesktop,
+    formMarginBottomDesktop: $formMarginBottomDesktop,
+    formMarginLeftDesktop: $formMarginLeftDesktop,
+    formPaddingTopDesktop: $formPaddingTopDesktop,
+    formPaddingRightDesktop: $formPaddingRightDesktop,
+    formPaddingBottomDesktop: $formPaddingBottomDesktop,
+    formPaddingLeftDesktop: $formPaddingLeftDesktop,
     formLabelFontFamDesktop: $formLabelFontFamDesktop,
     formLabelSizeDesktop: $formLabelSizeDesktop,
     formLabelColorDesktop: $formLabelColorDesktop,
@@ -110,6 +152,58 @@
   $spinnerColor: lighten($bodyTextColor, 33%);
   $spinnerColorTablet: lighten($bodyTextColorTablet, 33%);
   $spinnerColorDesktop: lighten($bodyTextColorDesktop, 33%);
+
+  [data-form-builder-id] form {
+    width: map-get($configuration, formWidth);
+    min-width: map-get($configuration, formMinWidth);
+    max-width: map-get($configuration, formMaxWidth);
+    height: map-get($configuration, formHeight);
+    min-height: map-get($configuration, formMinHeight);
+    max-height: map-get($configuration, formMaxHeight);
+    margin: map-get($configuration, formMarginTop)
+      map-get($configuration, formMarginRight)
+      map-get($configuration, formMarginBottom)
+      map-get($configuration, formMarginLeft);
+    padding: map-get($configuration, formPaddingTop)
+      map-get($configuration, formPaddingRight)
+      map-get($configuration, formPaddingBottom)
+      map-get($configuration, formPaddingLeft);
+    overflow: auto;
+
+    @include above($tabletBreakpoint) {
+      width: map-get($configuration, formWidthTablet);
+      min-width: map-get($configuration, formMinWidthTablet);
+      max-width: map-get($configuration, formMaxWidthTablet);
+      height: map-get($configuration, formHeightTablet);
+      min-height: map-get($configuration, formMinHeightTablet);
+      max-height: map-get($configuration, formMaxHeightTablet);
+      margin: map-get($configuration, formMarginTopTablet)
+        map-get($configuration, formMarginRightTablet)
+        map-get($configuration, formMarginBottomTablet)
+        map-get($configuration, formMarginLeftTablet);
+      padding: map-get($configuration, formPaddingTopTablet)
+        map-get($configuration, formPaddingRightTablet)
+        map-get($configuration, formPaddingBottomTablet)
+        map-get($configuration, formPaddingLeftTablet);
+    }
+
+    @include above($desktopBreakpoint) {
+      width: map-get($configuration, formWidthDesktop);
+      min-width: map-get($configuration, formMinWidthDesktop);
+      max-width: map-get($configuration, formMaxWidthDesktop);
+      height: map-get($configuration, formHeightDesktop);
+      min-height: map-get($configuration, formMinHeightDesktop);
+      max-height: map-get($configuration, formMaxHeightDesktop);
+      margin: map-get($configuration, formMarginTopDesktop)
+        map-get($configuration, formMarginRightDesktop)
+        map-get($configuration, formMarginBottomDesktop)
+        map-get($configuration, formMarginLeftDesktop);
+      padding: map-get($configuration, formPaddingTopDesktop)
+        map-get($configuration, formPaddingRightDesktop)
+        map-get($configuration, formPaddingBottomDesktop)
+        map-get($configuration, formPaddingLeftDesktop);
+    }
+  }
 
   .form-group {
     .control-label {

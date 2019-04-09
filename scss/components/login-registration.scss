@@ -1,5 +1,16 @@
 @mixin loginRegistration($options: ()) {
   $configuration: map-merge((
+    loginWidth: $loginWidth,
+    loginMinWidth: $loginMinWidth,
+    loginMaxWidth: $loginMaxWidth,
+    loginMarginTop: $loginMarginTop,
+    loginMarginRight: $loginMarginRight,
+    loginMarginBottom: $loginMarginBottom,
+    loginMarginLeft: $loginMarginLeft,
+    loginPaddingTop: $loginPaddingTop,
+    loginPaddingRight: $loginPaddingRight,
+    loginPaddingBottom: $loginPaddingBottom,
+    loginPaddingLeft: $loginPaddingLeft,
     chevronColor: $chevronColor,
     chevronSeparator: $chevronSeparator,
     fieldBorderSides: $fieldBorderSides,
@@ -7,6 +18,17 @@
     fieldBorderStyle: $fieldBorderStyle,
     fieldBorder: $fieldBorder,
     fieldBorderRadius: $fieldBorderRadius,
+    loginWidthTablet: $loginWidthTablet,
+    loginMinWidthTablet: $loginMinWidthTablet,
+    loginMaxWidthTablet: $loginMaxWidthTablet,
+    loginMarginTopTablet: $loginMarginTopTablet,
+    loginMarginRightTablet: $loginMarginRightTablet,
+    loginMarginBottomTablet: $loginMarginBottomTablet,
+    loginMarginLeftTablet: $loginMarginLeftTablet,
+    loginPaddingTopTablet: $loginPaddingTopTablet,
+    loginPaddingRightTablet: $loginPaddingRightTablet,
+    loginPaddingBottomTablet: $loginPaddingBottomTablet,
+    loginPaddingLeftTablet: $loginPaddingLeftTablet,
     chevronColorTablet: $chevronColorTablet,
     chevronSeparatorTablet: $chevronSeparatorTablet,
     fieldBorderSidesTablet: $fieldBorderSidesTablet,
@@ -14,6 +36,17 @@
     fieldBorderStyleTablet: $fieldBorderStyleTablet,
     fieldBorderTablet: $fieldBorderTablet,
     fieldBorderRadiusTablet: $fieldBorderRadiusTablet,
+    loginWidthDesktop: $loginWidthDesktop,
+    loginMinWidthDesktop: $loginMinWidthDesktop,
+    loginMaxWidthDesktop: $loginMaxWidthDesktop,
+    loginMarginTopDesktop: $loginMarginTopDesktop,
+    loginMarginRightDesktop: $loginMarginRightDesktop,
+    loginMarginBottomDesktop: $loginMarginBottomDesktop,
+    loginMarginLeftDesktop: $loginMarginLeftDesktop,
+    loginPaddingTopDesktop: $loginPaddingTopDesktop,
+    loginPaddingRightDesktop: $loginPaddingRightDesktop,
+    loginPaddingBottomDesktop: $loginPaddingBottomDesktop,
+    loginPaddingLeftDesktop: $loginPaddingLeftDesktop,
     chevronColorDesktop: $chevronColorDesktop,
     chevronSeparatorDesktop: $chevronSeparatorDesktop,
     fieldBorderSidesDesktop: $fieldBorderSidesDesktop,
@@ -22,6 +55,54 @@
     fieldBorderDesktop: $fieldBorderDesktop,
     fieldBorderRadiusDesktop: $fieldBorderRadiusDesktop
   ), $options);
+
+  .sso-login,
+  [data-login-ds-id],
+  [data-login-id],
+  .fl-sms-verification,
+  .fl-email-verification {
+    width: map-get($configuration, loginWidth);
+    min-width: map-get($configuration, loginMinWidth);
+    max-width: map-get($configuration, loginMaxWidth);
+    margin: map-get($configuration, loginMarginTop)
+      map-get($configuration, loginMarginRight)
+      map-get($configuration, loginMarginBottom)
+      map-get($configuration, loginMarginLeft);
+    padding: map-get($configuration, loginPaddingTop)
+      map-get($configuration, loginPaddingRight)
+      map-get($configuration, loginPaddingBottom)
+      map-get($configuration, loginPaddingLeft);
+
+    // Styles for tablet
+    @include above($tabletBreakpoint) {
+      width: map-get($configuration, loginWidthTablet);
+      min-width: map-get($configuration, loginMinWidthTablet);
+      max-width: map-get($configuration, loginMaxWidthTablet);
+      margin: map-get($configuration, loginMarginTopTablet)
+        map-get($configuration, loginMarginRightTablet)
+        map-get($configuration, loginMarginBottomTablet)
+        map-get($configuration, loginMarginLeftTablet);
+      padding: map-get($configuration, loginPaddingTopTablet)
+        map-get($configuration, loginPaddingRightTablet)
+        map-get($configuration, loginPaddingBottomTablet)
+        map-get($configuration, loginPaddingLeftTablet);
+    }
+
+    // Styles for desktop
+    @include above($desktopBreakpoint) {
+      width: map-get($configuration, loginWidthDesktop);
+      min-width: map-get($configuration, loginMinWidthDesktop);
+      max-width: map-get($configuration, loginMaxWidthDesktop);
+      margin: map-get($configuration, loginMarginTopDesktop)
+        map-get($configuration, loginMarginRightDesktop)
+        map-get($configuration, loginMarginBottomDesktop)
+        map-get($configuration, loginMarginLeftDesktop);
+      padding: map-get($configuration, loginPaddingTopDesktop)
+        map-get($configuration, loginPaddingRightDesktop)
+        map-get($configuration, loginPaddingBottomDesktop)
+        map-get($configuration, loginPaddingLeftDesktop);
+    }
+  }
 
   .state input.form-control {
     @include borderOnly((

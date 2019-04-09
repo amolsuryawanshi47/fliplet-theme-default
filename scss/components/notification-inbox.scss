@@ -1,11 +1,42 @@
 @mixin notificationBox($options: ()) {
   $configuration: map-merge((
+    notificationWidth: $notificationWidth,
+    notificationMinWidth: $notificationMinWidth,
+    notificationMaxWidth: $notificationMaxWidth,
+    notificationMarginTop: $notificationMarginTop,
+    notificationMarginRight: $notificationMarginRight,
+    notificationMarginBottom: $notificationMarginBottom,
+    notificationMarginLeft: $notificationMarginLeft,
+    notificationPaddingTop: $notificationPaddingTop,
+    notificationPaddingRight: $notificationPaddingRight,
+    notificationPaddingBottom: $notificationPaddingBottom,
+    notificationPaddingLeft: $notificationPaddingLeft,
     notificationBadgeBackgroundColor: $notificationBadgeBackgroundColor,
     notificationDraftBackgroundColor: $notificationDraftBackgroundColor,
-
+    notificationWidthTablet: $notificationWidthTablet,
+    notificationMinWidthTablet: $notificationMinWidthTablet,
+    notificationMaxWidthTablet: $notificationMaxWidthTablet,
+    notificationMarginTopTablet: $notificationMarginTopTablet,
+    notificationMarginRightTablet: $notificationMarginRightTablet,
+    notificationMarginBottomTablet: $notificationMarginBottomTablet,
+    notificationMarginLeftTablet: $notificationMarginLeftTablet,
+    notificationPaddingTopTablet: $notificationPaddingTopTablet,
+    notificationPaddingRightTablet: $notificationPaddingRightTablet,
+    notificationPaddingBottomTablet: $notificationPaddingBottomTablet,
+    notificationPaddingLeftTablet: $notificationPaddingLeftTablet,
     notificationBadgeBackgroundColorTablet: $notificationBadgeBackgroundColorTablet,
     notificationDraftBackgroundColorTablet: $notificationDraftBackgroundColorTablet,
-
+    notificationWidthDesktop: $notificationWidthDesktop,
+    notificationMinWidthDesktop: $notificationMinWidthDesktop,
+    notificationMaxWidthDesktop: $notificationMaxWidthDesktop,
+    notificationMarginTopDesktop: $notificationMarginTopDesktop,
+    notificationMarginRightDesktop: $notificationMarginRightDesktop,
+    notificationMarginBottomDesktop: $notificationMarginBottomDesktop,
+    notificationMarginLeftDesktop: $notificationMarginLeftDesktop,
+    notificationPaddingTopDesktop: $notificationPaddingTopDesktop,
+    notificationPaddingRightDesktop: $notificationPaddingRightDesktop,
+    notificationPaddingBottomDesktop: $notificationPaddingBottomDesktop,
+    notificationPaddingLeftDesktop: $notificationPaddingLeftDesktop,
     notificationBadgeBackgroundColorDesktop: $notificationBadgeBackgroundColorDesktop,
     notificationDraftBackgroundColorDesktop: $notificationDraftBackgroundColorDesktop,
   ), $options);
@@ -24,17 +55,65 @@
     }
   }
 
-  [data-notification-inbox-1-0-0-id] .notification[data-notification-status="draft"] {
-    background-color: map-get($configuration, notificationDraftBackgroundColor);
+  .notifications-holder {
+    width: map-get($configuration, notificationWidth);
+    min-width: map-get($configuration, notificationMinWidth);
+    max-width: map-get($configuration, notificationMaxWidth);
+    margin: map-get($configuration, notificationMarginTop)
+      map-get($configuration, notificationMarginRight)
+      map-get($configuration, notificationMarginBottom)
+      map-get($configuration, notificationMarginLeft);
+    padding: map-get($configuration, notificationPaddingTop)
+      map-get($configuration, notificationPaddingRight)
+      map-get($configuration, notificationPaddingBottom)
+      map-get($configuration, notificationPaddingLeft);
+
+    .notification[data-notification-status="draft"] {
+      background-color: map-get($configuration, notificationDraftBackgroundColor);
+    }
 
     // Styles for tablet
     @include above($tabletBreakpoint) {
-      background-color: map-get($configuration, notificationDraftBackgroundColorTablet);
+      width: map-get($configuration, notificationWidthTablet);
+      min-width: map-get($configuration, notificationMinWidthTablet);
+      max-width: map-get($configuration, notificationMaxWidthTablet);
+      height: map-get($configuration, notificationHeightTablet);
+      min-height: map-get($configuration, notificationMinHeightTablet);
+      max-height: map-get($configuration, notificationMaxHeightTablet);
+      margin: map-get($configuration, notificationMarginTopTablet)
+        map-get($configuration, notificationMarginRightTablet)
+        map-get($configuration, notificationMarginBottomTablet)
+        map-get($configuration, notificationMarginLeftTablet);
+      padding: map-get($configuration, notificationPaddingTopTablet)
+        map-get($configuration, notificationPaddingRightTablet)
+        map-get($configuration, notificationPaddingBottomTablet)
+        map-get($configuration, notificationPaddingLeftTablet);
+
+      .notification[data-notification-status="draft"] {
+        background-color: map-get($configuration, notificationDraftBackgroundColorTablet);
+      }
     }
 
     // Styles for desktop
     @include above($desktopBreakpoint) {
-      background-color: map-get($configuration, notificationDraftBackgroundColorDesktop);
+      width: map-get($configuration, notificationWidthDesktop);
+      min-width: map-get($configuration, notificationMinWidthDesktop);
+      max-width: map-get($configuration, notificationMaxWidthDesktop);
+      height: map-get($configuration, notificationHeightDesktop);
+      min-height: map-get($configuration, notificationMinHeightDesktop);
+      max-height: map-get($configuration, notificationMaxHeightDesktop);
+      margin: map-get($configuration, notificationMarginTopDesktop)
+        map-get($configuration, notificationMarginRightDesktop)
+        map-get($configuration, notificationMarginBottomDesktop)
+        map-get($configuration, notificationMarginLeftDesktop);
+      padding: map-get($configuration, notificationPaddingTopDesktop)
+        map-get($configuration, notificationPaddingRightDesktop)
+        map-get($configuration, notificationPaddingBottomDesktop)
+        map-get($configuration, notificationPaddingLeftDesktop);
+
+      .notification[data-notification-status="draft"] {
+        background-color: map-get($configuration, notificationDraftBackgroundColorDesktop);
+      }
     }
   }
 }

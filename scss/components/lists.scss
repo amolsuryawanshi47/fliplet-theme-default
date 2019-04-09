@@ -1,5 +1,19 @@
 @mixin list($options: ()) {
   $configuration: map-merge((
+    listWidth: $listWidth,
+    listHeight: $listHeight,
+    listMinWidth: $listMinWidth,
+    listMaxWidth: $listMaxWidth,
+    listMinHeight: $listMinHeight,
+    listMaxHeight: $listMaxHeight,
+    listMarginTop: $listMarginTop,
+    listMarginRight: $listMarginRight,
+    listMarginBottom: $listMarginBottom,
+    listMarginLeft: $listMarginLeft,
+    listPaddingTop: $listPaddingTop,
+    listPaddingRight: $listPaddingRight,
+    listPaddingBottom: $listPaddingBottom,
+    listPaddingLeft: $listPaddingLeft,
     listBackgroundColor: $listBackgroundColor,
     listClickColor: $listClickColor,
     listSeparatorColor: $listSeparatorColor,
@@ -16,10 +30,10 @@
     descriptionWeight: $descriptionWeight,
     descriptionStyle: $descriptionStyle,
     descriptionDecoration: $descriptionDecoration,
-    listPaddingTop: $listPaddingTop,
-    listPaddingRight: $listPaddingRight,
-    listPaddingBottom: $listPaddingBottom,
-    listPaddingLeft: $listPaddingLeft,
+    listItemPaddingTop: $listItemPaddingTop,
+    listItemPaddingRight: $listItemPaddingRight,
+    listItemPaddingBottom: $listItemPaddingBottom,
+    listItemPaddingLeft: $listItemPaddingLeft,
     listMyListToggleColor: $listMyListToggleColor,
     listMyListToggleActiveColor: $listMyListToggleActiveColor,
     listMyListSwipeColor: $listMyListSwipeColor,
@@ -28,6 +42,20 @@
     listMyListSwipeRightTextColor: $listMyListSwipeRightTextColor,
     listMyListSwipeLeftColor: $listMyListSwipeLeftColor,
     listMyListSwipeLeftTextColor: $listMyListSwipeLeftTextColor,
+    listWidthTablet: $listWidthTablet,
+    listHeightTablet: $listHeightTablet,
+    listMinWidthTablet: $listMinWidthTablet,
+    listMaxWidthTablet: $listMaxWidthTablet,
+    listMinHeightTablet: $listMinHeightTablet,
+    listMaxHeightTablet: $listMaxHeightTablet,
+    listMarginTopTablet: $listMarginTopTablet,
+    listMarginRightTablet: $listMarginRightTablet,
+    listMarginBottomTablet: $listMarginBottomTablet,
+    listMarginLeftTablet: $listMarginLeftTablet,
+    listPaddingTopTablet: $listPaddingTopTablet,
+    listPaddingRightTablet: $listPaddingRightTablet,
+    listPaddingBottomTablet: $listPaddingBottomTablet,
+    listPaddingLeftTablet: $listPaddingLeftTablet,
     listBackgroundColorTablet: $listBackgroundColorTablet,
     listClickColorTablet: $listClickColorTablet,
     listSeparatorColorTablet: $listSeparatorColorTablet,
@@ -44,10 +72,10 @@
     descriptionWeightTablet: $descriptionWeightTablet,
     descriptionStyleTablet: $descriptionStyleTablet,
     descriptionDecorationTablet: $descriptionDecorationTablet,
-    listPaddingTopTablet: $listPaddingTopTablet,
-    listPaddingRightTablet: $listPaddingRightTablet,
-    listPaddingBottomTablet: $listPaddingBottomTablet,
-    listPaddingLeftTablet: $listPaddingLeftTablet,
+    listItemPaddingTopTablet: $listItemPaddingTopTablet,
+    listItemPaddingRightTablet: $listItemPaddingRightTablet,
+    listItemPaddingBottomTablet: $listItemPaddingBottomTablet,
+    listItemPaddingLeftTablet: $listItemPaddingLeftTablet,
     listMyListToggleColorTablet: $listMyListToggleColorTablet,
     listMyListToggleActiveColorTablet: $listMyListToggleActiveColorTablet,
     listMyListSwipeColorTablet: $listMyListSwipeColorTablet,
@@ -56,6 +84,20 @@
     listMyListSwipeRightTextColorTablet: $listMyListSwipeRightTextColorTablet,
     listMyListSwipeLeftColorTablet: $listMyListSwipeLeftColorTablet,
     listMyListSwipeLeftTextColorTablet: $listMyListSwipeLeftTextColorTablet,
+    listWidthDesktop: $listWidthDesktop,
+    listHeightDesktop: $listHeightDesktop,
+    listMinWidthDesktop: $listMinWidthDesktop,
+    listMaxWidthDesktop: $listMaxWidthDesktop,
+    listMinHeightDesktop: $listMinHeightDesktop,
+    listMaxHeightDesktop: $listMaxHeightDesktop,
+    listMarginTopDesktop: $listMarginTopDesktop,
+    listMarginRightDesktop: $listMarginRightDesktop,
+    listMarginBottomDesktop: $listMarginBottomDesktop,
+    listMarginLeftDesktop: $listMarginLeftDesktop,
+    listPaddingTopDesktop: $listPaddingTopDesktop,
+    listPaddingRightDesktop: $listPaddingRightDesktop,
+    listPaddingBottomDesktop: $listPaddingBottomDesktop,
+    listPaddingLeftDesktop: $listPaddingLeftDesktop,
     listBackgroundColorDesktop: $listBackgroundColorDesktop,
     listClickColorDesktop: $listClickColorDesktop,
     listSeparatorColorDesktop: $listSeparatorColorDesktop,
@@ -72,10 +114,10 @@
     descriptionWeightDesktop: $descriptionWeightDesktop,
     descriptionStyleDesktop: $descriptionStyleDesktop,
     descriptionDecorationDesktop: $descriptionDecorationDesktop,
-    listPaddingTopDesktop: $listPaddingTopDesktop,
-    listPaddingRightDesktop: $listPaddingRightDesktop,
-    listPaddingBottomDesktop: $listPaddingBottomDesktop,
-    listPaddingLeftDesktop: $listPaddingLeftDesktop,
+    listItemPaddingTopDesktop: $listItemPaddingTopDesktop,
+    listItemPaddingRightDesktop: $listItemPaddingRightDesktop,
+    listItemPaddingBottomDesktop: $listItemPaddingBottomDesktop,
+    listItemPaddingLeftDesktop: $listItemPaddingLeftDesktop,
     listMyListToggleColorDesktop: $listMyListToggleColorDesktop,
     listMyListToggleActiveColorDesktop: $listMyListToggleActiveColorDesktop,
     listMyListSwipeColorDesktop: $listMyListSwipeColorDesktop,
@@ -87,16 +129,68 @@
   ), $options);
 
   .list.list-default {
+    width: map-get($configuration, listWidth);
+    min-width: map-get($configuration, listMinWidth);
+    max-width: map-get($configuration, listMaxWidth);
+    height: map-get($configuration, listHeight);
+    min-height: map-get($configuration, listMinHeight);
+    max-height: map-get($configuration, listMaxHeight);
+    margin: map-get($configuration, listMarginTop)
+      map-get($configuration, listMarginRight)
+      map-get($configuration, listMarginBottom)
+      map-get($configuration, listMarginLeft);
+    padding: map-get($configuration, listPaddingTop)
+      map-get($configuration, listPaddingRight)
+      map-get($configuration, listPaddingBottom)
+      map-get($configuration, listPaddingLeft);
+    overflow: auto;
+
+    // Styles for tablet
+    @include above($tabletBreakpoint) {
+      width: map-get($configuration, listWidthTablet);
+      min-width: map-get($configuration, listMinWidthTablet);
+      max-width: map-get($configuration, listMaxWidthTablet);
+      height: map-get($configuration, listHeightTablet);
+      min-height: map-get($configuration, listMinHeightTablet);
+      max-height: map-get($configuration, listMaxHeightTablet);
+      margin: map-get($configuration, listMarginTopTablet)
+        map-get($configuration, listMarginRightTablet)
+        map-get($configuration, listMarginBottomTablet)
+        map-get($configuration, listMarginLeftTablet);
+      padding: map-get($configuration, listPaddingTopTablet)
+        map-get($configuration, listPaddingRightTablet)
+        map-get($configuration, listPaddingBottomTablet)
+        map-get($configuration, listPaddingLeftTablet);
+    }
+
+    // Styles for desktop
+    @include above($desktopBreakpoint) {
+      width: map-get($configuration, listWidthDesktop);
+      min-width: map-get($configuration, listMinWidthDesktop);
+      max-width: map-get($configuration, listMaxWidthDesktop);
+      height: map-get($configuration, listHeightDesktop);
+      min-height: map-get($configuration, listMinHeightDesktop);
+      max-height: map-get($configuration, listMaxHeightDesktop);
+      margin: map-get($configuration, listMarginTopDesktop)
+        map-get($configuration, listMarginRightDesktop)
+        map-get($configuration, listMarginBottomDesktop)
+        map-get($configuration, listMarginLeftDesktop);
+      padding: map-get($configuration, listPaddingTopDesktop)
+        map-get($configuration, listPaddingRightDesktop)
+        map-get($configuration, listPaddingBottomDesktop)
+        map-get($configuration, listPaddingLeftDesktop);
+    }
+
     ul > li {
       border-bottom: 1px solid map-get($configuration, listSeparatorColor);
       background-color: map-get($configuration, listBackgroundColor);
-      padding: map-get($configuration, listPaddingTop)
-        map-get($configuration, listPaddingRight)
-        map-get($configuration, listPaddingBottom)
-        map-get($configuration, listPaddingLeft);
+      padding: map-get($configuration, listItemPaddingTop)
+        map-get($configuration, listItemPaddingRight)
+        map-get($configuration, listItemPaddingBottom)
+        map-get($configuration, listItemPaddingLeft);
 
       &.linked {
-        padding-right: calc(#{map-get($configuration, listPaddingRight)} + 34px);
+        padding-right: calc(#{map-get($configuration, listItemPaddingRight)} + 34px);
 
         &:active {
           background-color: map-get($configuration, listClickColor);
@@ -135,13 +229,13 @@
       @include above($tabletBreakpoint) {
         border-bottom: 1px solid map-get($configuration, listSeparatorColorTablet);
         background-color: map-get($configuration, listBackgroundColorTablet);
-        padding: map-get($configuration, listPaddingTopTablet)
-          map-get($configuration, listPaddingRightTablet)
-          map-get($configuration, listPaddingBottomTablet)
-          map-get($configuration, listPaddingLeftTablet);
+        padding: map-get($configuration, listItemPaddingTopTablet)
+          map-get($configuration, listItemPaddingRightTablet)
+          map-get($configuration, listItemPaddingBottomTablet)
+          map-get($configuration, listItemPaddingLeftTablet);
 
         &.linked {
-          padding-right: calc(#{map-get($configuration, listPaddingRightTablet)} + 34px);
+          padding-right: calc(#{map-get($configuration, listItemPaddingRightTablet)} + 34px);
 
           &:active {
             background-color: map-get($configuration, listClickColorTablet);
@@ -181,13 +275,13 @@
       @include above($desktopBreakpoint) {
         border-bottom: 1px solid map-get($configuration, listSeparatorColorDesktop);
         background-color: map-get($configuration, listBackgroundColorDesktop);
-        padding: map-get($configuration, listPaddingTopDesktop)
-          map-get($configuration, listPaddingRightDesktop)
-          map-get($configuration, listPaddingBottomDesktop)
-          map-get($configuration, listPaddingLeftDesktop);
+        padding: map-get($configuration, listItemPaddingTopDesktop)
+          map-get($configuration, listItemPaddingRightDesktop)
+          map-get($configuration, listItemPaddingBottomDesktop)
+          map-get($configuration, listItemPaddingLeftDesktop);
 
         &.linked {
-          padding-right: calc(#{map-get($configuration, listPaddingRightDesktop)} + 34px);
+          padding-right: calc(#{map-get($configuration, listItemPaddingRightDesktop)} + 34px);
 
           &:active {
             background-color: map-get($configuration, listClickColorDesktop);

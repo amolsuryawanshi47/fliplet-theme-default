@@ -304,6 +304,7 @@
                 },
                 "label": "Margin top",
                 "type": "size",
+                "allowNegative": true,
                 "properties": ["px", "pt", "em", "rem", "%", "auto"]
               },
               {
@@ -324,6 +325,7 @@
                 },
                 "label": "Margin bottom",
                 "type": "size",
+                "allowNegative": true,
                 "properties": ["px", "pt", "em", "rem", "%", "auto"]
               }
             ]
@@ -474,6 +476,7 @@
                 },
                 "label": "Margin top",
                 "type": "size",
+                "allowNegative": true,
                 "properties": ["px", "pt", "em", "rem", "%", "auto"]
               },
               {
@@ -494,6 +497,7 @@
                 },
                 "label": "Margin bottom",
                 "type": "size",
+                "allowNegative": true,
                 "properties": ["px", "pt", "em", "rem", "%", "auto"]
               }
             ]
@@ -644,6 +648,7 @@
                 },
                 "label": "Margin top",
                 "type": "size",
+                "allowNegative": true,
                 "properties": ["px", "pt", "em", "rem", "%", "auto"]
               },
               {
@@ -664,6 +669,7 @@
                 },
                 "label": "Margin bottom",
                 "type": "size",
+                "allowNegative": true,
                 "properties": ["px", "pt", "em", "rem", "%", "auto"]
               }
             ]
@@ -814,6 +820,7 @@
                 },
                 "label": "Margin top",
                 "type": "size",
+                "allowNegative": true,
                 "properties": ["px", "pt", "em", "rem", "%", "auto"]
               },
               {
@@ -834,6 +841,7 @@
                 },
                 "label": "Margin bottom",
                 "type": "size",
+                "allowNegative": true,
                 "properties": ["px", "pt", "em", "rem", "%", "auto"]
               }
             ]
@@ -984,6 +992,7 @@
                 },
                 "label": "Margin top",
                 "type": "size",
+                "allowNegative": true,
                 "properties": ["px", "pt", "em", "rem", "%", "auto"]
               },
               {
@@ -1004,6 +1013,7 @@
                 },
                 "label": "Margin bottom",
                 "type": "size",
+                "allowNegative": true,
                 "properties": ["px", "pt", "em", "rem", "%", "auto"]
               }
             ]
@@ -1154,6 +1164,7 @@
                 },
                 "label": "Margin top",
                 "type": "size",
+                "allowNegative": true,
                 "properties": ["px", "pt", "em", "rem", "%", "auto"]
               },
               {
@@ -1174,6 +1185,7 @@
                 },
                 "label": "Margin bottom",
                 "type": "size",
+                "allowNegative": true,
                 "properties": ["px", "pt", "em", "rem", "%", "auto"]
               }
             ]
@@ -6532,7 +6544,300 @@
         "packages": ["com.fliplet.accordionstart", "com.fliplet.accordionend"],
         "variables": [
           {
-            "description": "Headings",
+            "description": "Size",
+            "fields": [
+              {
+                "name": "accordionWidth",
+                "default": "100%",
+                "property": "%",
+                "isHalfRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "accordionWidthTablet",
+                    "default": "inherit-mobile",
+                    "property": "%"
+                  },
+                  "desktop": {
+                    "name": "accordionWidthDesktop",
+                    "default": "inherit-tablet",
+                    "property": "%"
+                  }
+                },
+                "type": "size",
+                "label": "Width",
+                "properties": ["px", "pt", "em", "rem", "%", "auto"]
+              },
+              {
+                "name": "accordionMinWidth",
+                "default": "auto",
+                "property": "auto",
+                "isHalfRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "accordionMinWidthTablet",
+                    "default": "inherit-mobile",
+                    "property": "auto"
+                  },
+                  "desktop": {
+                    "name": "accordionMinWidthDesktop",
+                    "default": "inherit-tablet",
+                    "property": "auto"
+                  }
+                },
+                "type": "size",
+                "label": "Min width",
+                "properties": ["px", "pt", "em", "rem", "%", "auto"]
+              },
+              {
+                "name": "accordionMaxWidth",
+                "default": "none",
+                "property": "none",
+                "isHalfRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "accordionMaxWidthTablet",
+                    "default": "inherit-mobile",
+                    "property": "none"
+                  },
+                  "desktop": {
+                    "name": "accordionMaxWidthDesktop",
+                    "default": "inherit-tablet",
+                    "property": "none"
+                  }
+                },
+                "type": "size",
+                "label": "Max width",
+                "properties": ["px", "pt", "em", "rem", "%", "none"]
+              }
+            ]
+          },
+          {
+            "description": "Margin",
+            "fields": [
+              {
+                "name": "accordionMarginAlign",
+                "default": "center",
+                "isFullRow": true,
+                "logic": {
+                  "left": {
+                    "accordionMarginTop": "0px",
+                    "accordionMarginRight": "auto",
+                    "accordionMarginBottom": "0px",
+                    "accordionMarginLeft": "0px"
+                  },
+                  "center": {
+                    "accordionMarginTop": "0px",
+                    "accordionMarginRight": "auto",
+                    "accordionMarginBottom": "0px",
+                    "accordionMarginLeft": "auto"
+                  },
+                  "right": {
+                    "accordionMarginTop": "0px",
+                    "accordionMarginRight": "0px",
+                    "accordionMarginBottom": "0px",
+                    "accordionMarginLeft": "auto"
+                  },
+                  "custom": [
+                    "accordionMarginTop",
+                    "accordionMarginRight",
+                    "accordionMarginBottom",
+                    "accordionMarginLeft"
+                  ]
+                },
+                "breakpoints": {
+                  "tablet": {
+                    "name": "accordionMarginAlignTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "accordionMarginAlignDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "margin-align",
+                "properties": ["left", "center", "right", "custom"]
+              },
+              {
+                "name": "accordionMarginTop",
+                "default": "0px",
+                "property": "px",
+                "isHalfRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "accordionMarginTopTablet",
+                    "default": "inherit-mobile",
+                    "property": "px"
+                  },
+                  "desktop": {
+                    "name": "accordionMarginTopDesktop",
+                    "default": "inherit-tablet",
+                    "property": "px"
+                  }
+                },
+                "type": "size",
+                "label": "Top",
+                "allowNegative": true,
+                "properties": ["px", "pt", "em", "rem", "%", "auto"]
+              },
+              {
+                "name": "accordionMarginRight",
+                "default": "0px",
+                "property": "px",
+                "isHalfRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "accordionMarginRightTablet",
+                    "default": "inherit-mobile",
+                    "property": "px"
+                  },
+                  "desktop": {
+                    "name": "accordionMarginRightDesktop",
+                    "default": "inherit-tablet",
+                    "property": "px"
+                  }
+                },
+                "type": "size",
+                "label": "Right",
+                "allowNegative": true,
+                "properties": ["px", "pt", "em", "rem", "%", "auto"]
+              },
+              {
+                "name": "accordionMarginBottom",
+                "default": "0px",
+                "property": "px",
+                "isHalfRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "accordionMarginBottomTablet",
+                    "default": "inherit-mobile",
+                    "property": "px"
+                  },
+                  "desktop": {
+                    "name": "accordionMarginBottomDesktop",
+                    "default": "inherit-tablet",
+                    "property": "px"
+                  }
+                },
+                "type": "size",
+                "label": "Bottom",
+                "allowNegative": true,
+                "properties": ["px", "pt", "em", "rem", "%", "auto"]
+              },
+              {
+                "name": "accordionMarginLeft",
+                "default": "0px",
+                "property": "px",
+                "isHalfRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "accordionMarginLeftTablet",
+                    "default": "inherit-mobile",
+                    "property": "px"
+                  },
+                  "desktop": {
+                    "name": "accordionMarginLeftDesktop",
+                    "default": "inherit-tablet",
+                    "property": "px"
+                  }
+                },
+                "type": "size",
+                "label": "Left",
+                "allowNegative": true,
+                "properties": ["px", "pt", "em", "rem", "%", "auto"]
+              }
+            ]
+          },
+          {
+            "description": "Padding",
+            "fields": [
+              {
+                "name": "accordionPaddingTop",
+                "default": "0px",
+                "property": "px",
+                "isHalfRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "accordionPaddingTopTablet",
+                    "default": "inherit-mobile",
+                    "property": "px"
+                  },
+                  "desktop": {
+                    "name": "accordionPaddingTopDesktop",
+                    "default": "inherit-tablet",
+                    "property": "px"
+                  }
+                },
+                "type": "size",
+                "label": "Top",
+                "properties": ["px", "pt", "em", "rem", "%", "auto"]
+              },
+              {
+                "name": "accordionPaddingRight",
+                "default": "0px",
+                "property": "px",
+                "isHalfRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "accordionPaddingRightTablet",
+                    "default": "inherit-mobile",
+                    "property": "px"
+                  },
+                  "desktop": {
+                    "name": "accordionPaddingRightDesktop",
+                    "default": "inherit-tablet",
+                    "property": "px"
+                  }
+                },
+                "type": "size",
+                "label": "Right",
+                "properties": ["px", "pt", "em", "rem", "%", "auto"]
+              },
+              {
+                "name": "accordionPaddingBottom",
+                "default": "0px",
+                "property": "px",
+                "isHalfRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "accordionPaddingBottomTablet",
+                    "default": "inherit-mobile",
+                    "property": "px"
+                  },
+                  "desktop": {
+                    "name": "accordionPaddingBottomDesktop",
+                    "default": "inherit-tablet",
+                    "property": "px"
+                  }
+                },
+                "type": "size",
+                "label": "Bottom",
+                "properties": ["px", "pt", "em", "rem", "%", "auto"]
+              },
+              {
+                "name": "accordionPaddingLeft",
+                "default": "0px",
+                "property": "px",
+                "isHalfRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "accordionPaddingLeftTablet",
+                    "default": "inherit-mobile",
+                    "property": "px"
+                  },
+                  "desktop": {
+                    "name": "accordionPaddingLeftDesktop",
+                    "default": "inherit-tablet",
+                    "property": "px"
+                  }
+                },
+                "type": "size",
+                "label": "Left",
+                "properties": ["px", "pt", "em", "rem", "%", "auto"]
+              }
+            ]
+          },
+          {
+            "description": "Heading",
             "fields": [
               {
                 "name": "accordionHeadingBg",
@@ -6888,12 +7193,13 @@
         "packages": ["app-list"],
         "variables": [
           {
-            "description": "Size",
+            "description": "Sizes",
             "fields": [
               {
                 "name": "appListWidth",
                 "default": "100%",
                 "property": "%",
+                "isHalfRow": true,
                 "breakpoints": {
                   "tablet": {
                     "name": "appListWidthTablet",
@@ -6908,7 +7214,337 @@
                 },
                 "type": "size",
                 "label": "Width",
-                "properties": ["px", "pt", "em", "rem", "%"]
+                "properties": ["px", "pt", "em", "rem", "%", "auto"]
+              },
+              {
+                "name": "appListHeight",
+                "default": "auto",
+                "property": "auto",
+                "isHalfRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "appListHeightTablet",
+                    "default": "inherit-mobile",
+                    "property": "auto"
+                  },
+                  "desktop": {
+                    "name": "appListHeightDesktop",
+                    "default": "inherit-tablet",
+                    "property": "auto"
+                  }
+                },
+                "type": "size",
+                "label": "Height",
+                "properties": ["px", "pt", "em", "rem", "%", "auto"]
+              },
+              {
+                "name": "appListMinWidth",
+                "default": "auto",
+                "property": "auto",
+                "isHalfRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "appListMinWidthTablet",
+                    "default": "inherit-mobile",
+                    "property": "auto"
+                  },
+                  "desktop": {
+                    "name": "appListMinWidthDesktop",
+                    "default": "inherit-tablet",
+                    "property": "auto"
+                  }
+                },
+                "type": "size",
+                "label": "Min width",
+                "properties": ["px", "pt", "em", "rem", "%", "auto"]
+              },
+              {
+                "name": "appListMaxWidth",
+                "default": "none",
+                "property": "none",
+                "isHalfRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "appListMaxWidthTablet",
+                    "default": "inherit-mobile",
+                    "property": "none"
+                  },
+                  "desktop": {
+                    "name": "appListMaxWidthDesktop",
+                    "default": "inherit-tablet",
+                    "property": "none"
+                  }
+                },
+                "type": "size",
+                "label": "Max width",
+                "properties": ["px", "pt", "em", "rem", "%", "none"]
+              },
+              {
+                "name": "appListMinHeight",
+                "default": "auto",
+                "property": "auto",
+                "isHalfRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "appListMinHeightTablet",
+                    "default": "inherit-mobile",
+                    "property": "auto"
+                  },
+                  "desktop": {
+                    "name": "appListMinHeightDesktop",
+                    "default": "inherit-tablet",
+                    "property": "auto"
+                  }
+                },
+                "type": "size",
+                "label": "Min height",
+                "properties": ["px", "pt", "em", "rem", "%", "auto"]
+              },
+              {
+                "name": "appListMaxHeight",
+                "default": "none",
+                "property": "none",
+                "isHalfRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "appListMaxHeightTablet",
+                    "default": "inherit-mobile",
+                    "property": "none"
+                  },
+                  "desktop": {
+                    "name": "appListMaxHeightDesktop",
+                    "default": "inherit-tablet",
+                    "property": "none"
+                  }
+                },
+                "type": "size",
+                "label": "Max height",
+                "properties": ["px", "pt", "em", "rem", "%", "none"]
+              }
+            ]
+          },
+          {
+            "description": "Margin",
+            "fields": [
+              {
+                "name": "appListMarginAlign",
+                "default": "center",
+                "isFullRow": true,
+                "logic": {
+                  "left": {
+                    "appListMarginTop": "0px",
+                    "appListMarginRight": "auto",
+                    "appListMarginBottom": "0px",
+                    "appListMarginLeft": "0px"
+                  },
+                  "center": {
+                    "appListMarginTop": "0px",
+                    "appListMarginRight": "auto",
+                    "appListMarginBottom": "0px",
+                    "appListMarginLeft": "auto"
+                  },
+                  "right": {
+                    "appListMarginTop": "0px",
+                    "appListMarginRight": "0px",
+                    "appListMarginBottom": "0px",
+                    "appListMarginLeft": "auto"
+                  },
+                  "custom": [
+                    "appListMarginTop",
+                    "appListMarginRight",
+                    "appListMarginBottom",
+                    "appListMarginLeft"
+                  ]
+                },
+                "breakpoints": {
+                  "tablet": {
+                    "name": "appListMarginAlignTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "appListMarginAlignDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "margin-align",
+                "properties": ["left", "center", "right", "custom"]
+              },
+              {
+                "name": "appListMarginTop",
+                "default": "0px",
+                "property": "px",
+                "isHalfRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "appListMarginTopTablet",
+                    "default": "inherit-mobile",
+                    "property": "px"
+                  },
+                  "desktop": {
+                    "name": "appListMarginTopDesktop",
+                    "default": "inherit-tablet",
+                    "property": "px"
+                  }
+                },
+                "type": "size",
+                "label": "Top",
+                "allowNegative": true,
+                "properties": ["px", "pt", "em", "rem", "%", "auto"]
+              },
+              {
+                "name": "appListMarginRight",
+                "default": "0px",
+                "property": "px",
+                "isHalfRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "appListMarginRightTablet",
+                    "default": "inherit-mobile",
+                    "property": "px"
+                  },
+                  "desktop": {
+                    "name": "appListMarginRightDesktop",
+                    "default": "inherit-tablet",
+                    "property": "px"
+                  }
+                },
+                "type": "size",
+                "label": "Right",
+                "allowNegative": true,
+                "properties": ["px", "pt", "em", "rem", "%", "auto"]
+              },
+              {
+                "name": "appListMarginBottom",
+                "default": "0px",
+                "property": "px",
+                "isHalfRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "appListMarginBottomTablet",
+                    "default": "inherit-mobile",
+                    "property": "px"
+                  },
+                  "desktop": {
+                    "name": "appListMarginBottomDesktop",
+                    "default": "inherit-tablet",
+                    "property": "px"
+                  }
+                },
+                "type": "size",
+                "label": "Bottom",
+                "allowNegative": true,
+                "properties": ["px", "pt", "em", "rem", "%", "auto"]
+              },
+              {
+                "name": "appListMarginLeft",
+                "default": "0px",
+                "property": "px",
+                "isHalfRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "appListMarginLeftTablet",
+                    "default": "inherit-mobile",
+                    "property": "px"
+                  },
+                  "desktop": {
+                    "name": "appListMarginLeftDesktop",
+                    "default": "inherit-tablet",
+                    "property": "px"
+                  }
+                },
+                "type": "size",
+                "label": "Left",
+                "allowNegative": true,
+                "properties": ["px", "pt", "em", "rem", "%", "auto"]
+              }
+            ]
+          },
+          {
+            "description": "Padding",
+            "fields": [
+              {
+                "name": "appListPaddingTop",
+                "default": "0px",
+                "property": "px",
+                "isHalfRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "appListPaddingTopTablet",
+                    "default": "inherit-mobile",
+                    "property": "px"
+                  },
+                  "desktop": {
+                    "name": "appListPaddingTopDesktop",
+                    "default": "inherit-tablet",
+                    "property": "px"
+                  }
+                },
+                "type": "size",
+                "label": "Top",
+                "properties": ["px", "pt", "em", "rem", "%", "auto"]
+              },
+              {
+                "name": "appListPaddingRight",
+                "default": "0px",
+                "property": "px",
+                "isHalfRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "appListPaddingRightTablet",
+                    "default": "inherit-mobile",
+                    "property": "px"
+                  },
+                  "desktop": {
+                    "name": "appListPaddingRightDesktop",
+                    "default": "inherit-tablet",
+                    "property": "px"
+                  }
+                },
+                "type": "size",
+                "label": "Right",
+                "properties": ["px", "pt", "em", "rem", "%", "auto"]
+              },
+              {
+                "name": "appListPaddingBottom",
+                "default": "0px",
+                "property": "px",
+                "isHalfRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "appListPaddingBottomTablet",
+                    "default": "inherit-mobile",
+                    "property": "px"
+                  },
+                  "desktop": {
+                    "name": "appListPaddingBottomDesktop",
+                    "default": "inherit-tablet",
+                    "property": "px"
+                  }
+                },
+                "type": "size",
+                "label": "Bottom",
+                "properties": ["px", "pt", "em", "rem", "%", "auto"]
+              },
+              {
+                "name": "appListPaddingLeft",
+                "default": "0px",
+                "property": "px",
+                "isHalfRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "appListPaddingLeftTablet",
+                    "default": "inherit-mobile",
+                    "property": "px"
+                  },
+                  "desktop": {
+                    "name": "appListPaddingLeftDesktop",
+                    "default": "inherit-tablet",
+                    "property": "px"
+                  }
+                },
+                "type": "size",
+                "label": "Left",
+                "properties": ["px", "pt", "em", "rem", "%", "auto"]
               }
             ]
           },
@@ -7058,6 +7694,7 @@
                 },
                 "label": "Margin top",
                 "type": "size",
+                "allowNegative": true,
                 "properties": ["px", "pt", "em", "rem", "%", "auto"]
               },
               {
@@ -7078,6 +7715,7 @@
                 },
                 "label": "Margin bottom",
                 "type": "size",
+                "allowNegative": true,
                 "properties": ["px", "pt", "em", "rem", "%", "auto"]
               }
             ]
@@ -7523,6 +8161,362 @@
         "packages": ["com.fliplet.chart.bar", "com.fliplet.chart.column", "com.fliplet.chart.pie",
           "com.fliplet.chart.scatter", "com.fliplet.chart.line", "com.fliplet.chart.donut"],
         "variables": [
+          {
+            "description": "Sizes",
+            "fields": [
+              {
+                "name": "chartWidth",
+                "default": "100%",
+                "property": "%",
+                "isHalfRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "chartWidthTablet",
+                    "default": "inherit-mobile",
+                    "property": "%"
+                  },
+                  "desktop": {
+                    "name": "chartWidthDesktop",
+                    "default": "inherit-tablet",
+                    "property": "%"
+                  }
+                },
+                "type": "size",
+                "label": "Width",
+                "properties": ["px", "pt", "em", "rem", "%", "auto"]
+              },
+              {
+                "name": "chartHeight",
+                "default": "400px",
+                "property": "px",
+                "isHalfRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "chartHeightTablet",
+                    "default": "500px",
+                    "property": "px"
+                  },
+                  "desktop": {
+                    "name": "chartHeightDesktop",
+                    "default": "inherit-tablet",
+                    "property": "px"
+                  }
+                },
+                "type": "size",
+                "label": "Height",
+                "properties": ["px", "pt", "em", "rem", "%", "auto"]
+              },
+              {
+                "name": "chartMinWidth",
+                "default": "auto",
+                "property": "auto",
+                "isHalfRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "chartMinWidthTablet",
+                    "default": "inherit-mobile",
+                    "property": "auto"
+                  },
+                  "desktop": {
+                    "name": "chartMinWidthDesktop",
+                    "default": "inherit-tablet",
+                    "property": "auto"
+                  }
+                },
+                "type": "size",
+                "label": "Min width",
+                "properties": ["px", "pt", "em", "rem", "%", "auto"]
+              },
+              {
+                "name": "chartMaxWidth",
+                "default": "none",
+                "property": "none",
+                "isHalfRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "chartMaxWidthTablet",
+                    "default": "inherit-mobile",
+                    "property": "none"
+                  },
+                  "desktop": {
+                    "name": "chartMaxWidthDesktop",
+                    "default": "inherit-tablet",
+                    "property": "none"
+                  }
+                },
+                "type": "size",
+                "label": "Max width",
+                "properties": ["px", "pt", "em", "rem", "%", "none"]
+              },
+              {
+                "name": "chartMinHeight",
+                "default": "auto",
+                "property": "auto",
+                "isHalfRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "chartMinHeightTablet",
+                    "default": "inherit-mobile",
+                    "property": "auto"
+                  },
+                  "desktop": {
+                    "name": "chartMinHeightDesktop",
+                    "default": "inherit-tablet",
+                    "property": "auto"
+                  }
+                },
+                "type": "size",
+                "label": "Min height",
+                "properties": ["px", "pt", "em", "rem", "%", "auto"]
+              },
+              {
+                "name": "chartMaxHeight",
+                "default": "none",
+                "property": "none",
+                "isHalfRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "chartMaxHeightTablet",
+                    "default": "inherit-mobile",
+                    "property": "none"
+                  },
+                  "desktop": {
+                    "name": "chartMaxHeightDesktop",
+                    "default": "inherit-tablet",
+                    "property": "none"
+                  }
+                },
+                "type": "size",
+                "label": "Max height",
+                "properties": ["px", "pt", "em", "rem", "%", "none"]
+              }
+            ]
+          },
+          {
+            "description": "Margin",
+            "fields": [
+              {
+                "name": "chartMarginAlign",
+                "default": "center",
+                "isFullRow": true,
+                "logic": {
+                  "left": {
+                    "chartMarginTop": "0px",
+                    "chartMarginRight": "auto",
+                    "chartMarginBottom": "0px",
+                    "chartMarginLeft": "0px"
+                  },
+                  "center": {
+                    "chartMarginTop": "0px",
+                    "chartMarginRight": "auto",
+                    "chartMarginBottom": "0px",
+                    "chartMarginLeft": "auto"
+                  },
+                  "right": {
+                    "chartMarginTop": "0px",
+                    "chartMarginRight": "0px",
+                    "chartMarginBottom": "0px",
+                    "chartMarginLeft": "auto"
+                  },
+                  "custom": [
+                    "chartMarginTop",
+                    "chartMarginRight",
+                    "chartMarginBottom",
+                    "chartMarginLeft"
+                  ]
+                },
+                "breakpoints": {
+                  "tablet": {
+                    "name": "chartMarginAlignTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "chartMarginAlignDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "margin-align",
+                "properties": ["left", "center", "right", "custom"]
+              },
+              {
+                "name": "chartMarginTop",
+                "default": "0px",
+                "property": "px",
+                "isHalfRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "chartMarginTopTablet",
+                    "default": "inherit-mobile",
+                    "property": "px"
+                  },
+                  "desktop": {
+                    "name": "chartMarginTopDesktop",
+                    "default": "inherit-tablet",
+                    "property": "px"
+                  }
+                },
+                "type": "size",
+                "label": "Top",
+                "allowNegative": true,
+                "properties": ["px", "pt", "em", "rem", "%", "auto"]
+              },
+              {
+                "name": "chartMarginRight",
+                "default": "auto",
+                "property": "auto",
+                "isHalfRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "chartMarginRightTablet",
+                    "default": "inherit-mobile",
+                    "property": "auto"
+                  },
+                  "desktop": {
+                    "name": "chartMarginRightDesktop",
+                    "default": "inherit-tablet",
+                    "property": "auto"
+                  }
+                },
+                "type": "size",
+                "label": "Right",
+                "allowNegative": true,
+                "properties": ["px", "pt", "em", "rem", "%", "auto"]
+              },
+              {
+                "name": "chartMarginBottom",
+                "default": "0px",
+                "property": "px",
+                "isHalfRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "chartMarginBottomTablet",
+                    "default": "inherit-mobile",
+                    "property": "px"
+                  },
+                  "desktop": {
+                    "name": "chartMarginBottomDesktop",
+                    "default": "inherit-tablet",
+                    "property": "px"
+                  }
+                },
+                "type": "size",
+                "label": "Bottom",
+                "allowNegative": true,
+                "properties": ["px", "pt", "em", "rem", "%", "auto"]
+              },
+              {
+                "name": "chartMarginLeft",
+                "default": "auto",
+                "property": "auto",
+                "isHalfRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "chartMarginLeftTablet",
+                    "default": "inherit-mobile",
+                    "property": "auto"
+                  },
+                  "desktop": {
+                    "name": "chartMarginLeftDesktop",
+                    "default": "inherit-tablet",
+                    "property": "auto"
+                  }
+                },
+                "type": "size",
+                "label": "Left",
+                "allowNegative": true,
+                "properties": ["px", "pt", "em", "rem", "%", "auto"]
+              }
+            ]
+          },
+          {
+            "description": "Padding",
+            "fields": [
+              {
+                "name": "chartPaddingTop",
+                "default": "0px",
+                "property": "px",
+                "isHalfRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "chartPaddingTopTablet",
+                    "default": "inherit-mobile",
+                    "property": "px"
+                  },
+                  "desktop": {
+                    "name": "chartPaddingTopDesktop",
+                    "default": "inherit-tablet",
+                    "property": "px"
+                  }
+                },
+                "type": "size",
+                "label": "Top",
+                "properties": ["px", "pt", "em", "rem", "%", "auto"]
+              },
+              {
+                "name": "chartPaddingRight",
+                "default": "0px",
+                "property": "px",
+                "isHalfRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "chartPaddingRightTablet",
+                    "default": "inherit-mobile",
+                    "property": "px"
+                  },
+                  "desktop": {
+                    "name": "chartPaddingRightDesktop",
+                    "default": "inherit-tablet",
+                    "property": "px"
+                  }
+                },
+                "type": "size",
+                "label": "Right",
+                "properties": ["px", "pt", "em", "rem", "%", "auto"]
+              },
+              {
+                "name": "chartPaddingBottom",
+                "default": "0px",
+                "property": "px",
+                "isHalfRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "chartPaddingBottomTablet",
+                    "default": "inherit-mobile",
+                    "property": "px"
+                  },
+                  "desktop": {
+                    "name": "chartPaddingBottomDesktop",
+                    "default": "inherit-tablet",
+                    "property": "px"
+                  }
+                },
+                "type": "size",
+                "label": "Bottom",
+                "properties": ["px", "pt", "em", "rem", "%", "auto"]
+              },
+              {
+                "name": "chartPaddingLeft",
+                "default": "0px",
+                "property": "px",
+                "isHalfRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "chartPaddingLeftTablet",
+                    "default": "inherit-mobile",
+                    "property": "px"
+                  },
+                  "desktop": {
+                    "name": "chartPaddingLeftDesktop",
+                    "default": "inherit-tablet",
+                    "property": "px"
+                  }
+                },
+                "type": "size",
+                "label": "Left",
+                "properties": ["px", "pt", "em", "rem", "%", "auto"]
+              }
+            ]
+          },
           {
             "description": "Colors",
             "fields": [
@@ -8720,6 +9714,362 @@
         "packages": ["com.fliplet.form-builder"],
         "variables": [
           {
+            "description": "Sizes",
+            "fields": [
+              {
+                "name": "formWidth",
+                "default": "100%",
+                "property": "%",
+                "isHalfRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "formWidthTablet",
+                    "default": "inherit-mobile",
+                    "property": "%"
+                  },
+                  "desktop": {
+                    "name": "formWidthDesktop",
+                    "default": "inherit-tablet",
+                    "property": "%"
+                  }
+                },
+                "type": "size",
+                "label": "Width",
+                "properties": ["px", "pt", "em", "rem", "%", "auto"]
+              },
+              {
+                "name": "formHeight",
+                "default": "auto",
+                "property": "auto",
+                "isHalfRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "formHeightTablet",
+                    "default": "inherit-mobile",
+                    "property": "auto"
+                  },
+                  "desktop": {
+                    "name": "formHeightDesktop",
+                    "default": "inherit-tablet",
+                    "property": "auto"
+                  }
+                },
+                "type": "size",
+                "label": "Height",
+                "properties": ["px", "pt", "em", "rem", "%", "auto"]
+              },
+              {
+                "name": "formMinWidth",
+                "default": "auto",
+                "property": "auto",
+                "isHalfRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "formMinWidthTablet",
+                    "default": "inherit-mobile",
+                    "property": "auto"
+                  },
+                  "desktop": {
+                    "name": "formMinWidthDesktop",
+                    "default": "inherit-tablet",
+                    "property": "auto"
+                  }
+                },
+                "type": "size",
+                "label": "Min width",
+                "properties": ["px", "pt", "em", "rem", "%", "auto"]
+              },
+              {
+                "name": "formMaxWidth",
+                "default": "none",
+                "property": "none",
+                "isHalfRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "formMaxWidthTablet",
+                    "default": "inherit-mobile",
+                    "property": "none"
+                  },
+                  "desktop": {
+                    "name": "formMaxWidthDesktop",
+                    "default": "inherit-tablet",
+                    "property": "none"
+                  }
+                },
+                "type": "size",
+                "label": "Max width",
+                "properties": ["px", "pt", "em", "rem", "%", "none"]
+              },
+              {
+                "name": "formMinHeight",
+                "default": "auto",
+                "property": "auto",
+                "isHalfRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "formMinHeightTablet",
+                    "default": "inherit-mobile",
+                    "property": "auto"
+                  },
+                  "desktop": {
+                    "name": "formMinHeightDesktop",
+                    "default": "inherit-tablet",
+                    "property": "auto"
+                  }
+                },
+                "type": "size",
+                "label": "Min height",
+                "properties": ["px", "pt", "em", "rem", "%", "auto"]
+              },
+              {
+                "name": "formMaxHeight",
+                "default": "none",
+                "property": "none",
+                "isHalfRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "formMaxHeightTablet",
+                    "default": "inherit-mobile",
+                    "property": "none"
+                  },
+                  "desktop": {
+                    "name": "formMaxHeightDesktop",
+                    "default": "inherit-tablet",
+                    "property": "none"
+                  }
+                },
+                "type": "size",
+                "label": "Max height",
+                "properties": ["px", "pt", "em", "rem", "%", "none"]
+              }
+            ]
+          },
+          {
+            "description": "Margin",
+            "fields": [
+              {
+                "name": "formMarginAlign",
+                "default": "center",
+                "isFullRow": true,
+                "logic": {
+                  "left": {
+                    "formMarginTop": "0px",
+                    "formMarginRight": "auto",
+                    "formMarginBottom": "0px",
+                    "formMarginLeft": "0px"
+                  },
+                  "center": {
+                    "formMarginTop": "0px",
+                    "formMarginRight": "auto",
+                    "formMarginBottom": "0px",
+                    "formMarginLeft": "auto"
+                  },
+                  "right": {
+                    "formMarginTop": "0px",
+                    "formMarginRight": "0px",
+                    "formMarginBottom": "0px",
+                    "formMarginLeft": "auto"
+                  },
+                  "custom": [
+                    "formMarginTop",
+                    "formMarginRight",
+                    "formMarginBottom",
+                    "formMarginLeft"
+                  ]
+                },
+                "breakpoints": {
+                  "tablet": {
+                    "name": "formMarginAlignTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "formMarginAlignDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "margin-align",
+                "properties": ["left", "center", "right", "custom"]
+              },
+              {
+                "name": "formMarginTop",
+                "default": "0px",
+                "property": "px",
+                "isHalfRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "formMarginTopTablet",
+                    "default": "inherit-mobile",
+                    "property": "px"
+                  },
+                  "desktop": {
+                    "name": "formMarginTopDesktop",
+                    "default": "inherit-tablet",
+                    "property": "px"
+                  }
+                },
+                "type": "size",
+                "label": "Top",
+                "allowNegative": true,
+                "properties": ["px", "pt", "em", "rem", "%", "auto"]
+              },
+              {
+                "name": "formMarginRight",
+                "default": "auto",
+                "property": "auto",
+                "isHalfRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "formMarginRightTablet",
+                    "default": "inherit-mobile",
+                    "property": "auto"
+                  },
+                  "desktop": {
+                    "name": "formMarginRightDesktop",
+                    "default": "inherit-tablet",
+                    "property": "auto"
+                  }
+                },
+                "type": "size",
+                "label": "Right",
+                "allowNegative": true,
+                "properties": ["px", "pt", "em", "rem", "%", "auto"]
+              },
+              {
+                "name": "formMarginBottom",
+                "default": "0px",
+                "property": "px",
+                "isHalfRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "formMarginBottomTablet",
+                    "default": "inherit-mobile",
+                    "property": "px"
+                  },
+                  "desktop": {
+                    "name": "formMarginBottomDesktop",
+                    "default": "inherit-tablet",
+                    "property": "px"
+                  }
+                },
+                "type": "size",
+                "label": "Bottom",
+                "allowNegative": true,
+                "properties": ["px", "pt", "em", "rem", "%", "auto"]
+              },
+              {
+                "name": "formMarginLeft",
+                "default": "auto",
+                "property": "auto",
+                "isHalfRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "formMarginLeftTablet",
+                    "default": "inherit-mobile",
+                    "property": "auto"
+                  },
+                  "desktop": {
+                    "name": "formMarginLeftDesktop",
+                    "default": "inherit-tablet",
+                    "property": "auto"
+                  }
+                },
+                "type": "size",
+                "label": "Left",
+                "allowNegative": true,
+                "properties": ["px", "pt", "em", "rem", "%", "auto"]
+              }
+            ]
+          },
+          {
+            "description": "Padding",
+            "fields": [
+              {
+                "name": "formPaddingTop",
+                "default": "0px",
+                "property": "px",
+                "isHalfRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "formPaddingTopTablet",
+                    "default": "inherit-mobile",
+                    "property": "px"
+                  },
+                  "desktop": {
+                    "name": "formPaddingTopDesktop",
+                    "default": "inherit-tablet",
+                    "property": "px"
+                  }
+                },
+                "type": "size",
+                "label": "Top",
+                "properties": ["px", "pt", "em", "rem", "%", "auto"]
+              },
+              {
+                "name": "formPaddingRight",
+                "default": "0px",
+                "property": "px",
+                "isHalfRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "formPaddingRightTablet",
+                    "default": "inherit-mobile",
+                    "property": "px"
+                  },
+                  "desktop": {
+                    "name": "formPaddingRightDesktop",
+                    "default": "inherit-tablet",
+                    "property": "px"
+                  }
+                },
+                "type": "size",
+                "label": "Right",
+                "properties": ["px", "pt", "em", "rem", "%", "auto"]
+              },
+              {
+                "name": "formPaddingBottom",
+                "default": "0px",
+                "property": "px",
+                "isHalfRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "formPaddingBottomTablet",
+                    "default": "inherit-mobile",
+                    "property": "px"
+                  },
+                  "desktop": {
+                    "name": "formPaddingBottomDesktop",
+                    "default": "inherit-tablet",
+                    "property": "px"
+                  }
+                },
+                "type": "size",
+                "label": "Bottom",
+                "properties": ["px", "pt", "em", "rem", "%", "auto"]
+              },
+              {
+                "name": "formPaddingLeft",
+                "default": "0px",
+                "property": "px",
+                "isHalfRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "formPaddingLeftTablet",
+                    "default": "inherit-mobile",
+                    "property": "px"
+                  },
+                  "desktop": {
+                    "name": "formPaddingLeftDesktop",
+                    "default": "inherit-tablet",
+                    "property": "px"
+                  }
+                },
+                "type": "size",
+                "label": "Left",
+                "properties": ["px", "pt", "em", "rem", "%", "auto"]
+              }
+            ]
+          },
+          {
             "description": "Field label",
             "fields": [
               {
@@ -9576,7 +10926,300 @@
         "packages": ["com.fliplet.metro"],
         "variables": [
           {
-            "description": "General",
+            "description": "Sizes",
+            "fields": [
+              {
+                "name": "gridWidth",
+                "default": "100%",
+                "property": "%",
+                "isHalfRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "gridWidthTablet",
+                    "default": "inherit-mobile",
+                    "property": "%"
+                  },
+                  "desktop": {
+                    "name": "gridWidthDesktop",
+                    "default": "inherit-tablet",
+                    "property": "%"
+                  }
+                },
+                "type": "size",
+                "label": "Width",
+                "properties": ["px", "pt", "em", "rem", "%", "auto"]
+              },
+              {
+                "name": "gridMinWidth",
+                "default": "auto",
+                "property": "auto",
+                "isHalfRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "gridMinWidthTablet",
+                    "default": "inherit-mobile",
+                    "property": "auto"
+                  },
+                  "desktop": {
+                    "name": "gridMinWidthDesktop",
+                    "default": "inherit-tablet",
+                    "property": "auto"
+                  }
+                },
+                "type": "size",
+                "label": "Min width",
+                "properties": ["px", "pt", "em", "rem", "%", "auto"]
+              },
+              {
+                "name": "gridMaxWidth",
+                "default": "none",
+                "property": "none",
+                "isHalfRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "gridMaxWidthTablet",
+                    "default": "inherit-mobile",
+                    "property": "none"
+                  },
+                  "desktop": {
+                    "name": "gridMaxWidthDesktop",
+                    "default": "inherit-tablet",
+                    "property": "none"
+                  }
+                },
+                "type": "size",
+                "label": "Max width",
+                "properties": ["px", "pt", "em", "rem", "%", "none"]
+              }
+            ]
+          },
+          {
+            "description": "Margin",
+            "fields": [
+              {
+                "name": "gridMarginAlign",
+                "default": "center",
+                "isFullRow": true,
+                "logic": {
+                  "left": {
+                    "gridMarginTop": "0px",
+                    "gridMarginRight": "auto",
+                    "gridMarginBottom": "0px",
+                    "gridMarginLeft": "0px"
+                  },
+                  "center": {
+                    "gridMarginTop": "0px",
+                    "gridMarginRight": "auto",
+                    "gridMarginBottom": "0px",
+                    "gridMarginLeft": "auto"
+                  },
+                  "right": {
+                    "gridMarginTop": "0px",
+                    "gridMarginRight": "0px",
+                    "gridMarginBottom": "0px",
+                    "gridMarginLeft": "auto"
+                  },
+                  "custom": [
+                    "gridMarginTop",
+                    "gridMarginRight",
+                    "gridMarginBottom",
+                    "gridMarginLeft"
+                  ]
+                },
+                "breakpoints": {
+                  "tablet": {
+                    "name": "gridMarginAlignTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "gridMarginAlignDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "margin-align",
+                "properties": ["left", "center", "right", "custom"]
+              },
+              {
+                "name": "gridMarginTop",
+                "default": "0px",
+                "property": "px",
+                "isHalfRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "gridMarginTopTablet",
+                    "default": "inherit-mobile",
+                    "property": "px"
+                  },
+                  "desktop": {
+                    "name": "gridMarginTopDesktop",
+                    "default": "inherit-tablet",
+                    "property": "px"
+                  }
+                },
+                "type": "size",
+                "label": "Top",
+                "allowNegative": true,
+                "properties": ["px", "pt", "em", "rem", "%", "auto"]
+              },
+              {
+                "name": "gridMarginRight",
+                "default": "auto",
+                "property": "auto",
+                "isHalfRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "gridMarginRightTablet",
+                    "default": "inherit-mobile",
+                    "property": "auto"
+                  },
+                  "desktop": {
+                    "name": "gridMarginRightDesktop",
+                    "default": "inherit-tablet",
+                    "property": "auto"
+                  }
+                },
+                "type": "size",
+                "label": "Right",
+                "allowNegative": true,
+                "properties": ["px", "pt", "em", "rem", "%", "auto"]
+              },
+              {
+                "name": "gridMarginBottom",
+                "default": "0px",
+                "property": "px",
+                "isHalfRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "gridMarginBottomTablet",
+                    "default": "inherit-mobile",
+                    "property": "px"
+                  },
+                  "desktop": {
+                    "name": "gridMarginBottomDesktop",
+                    "default": "inherit-tablet",
+                    "property": "px"
+                  }
+                },
+                "type": "size",
+                "label": "Bottom",
+                "allowNegative": true,
+                "properties": ["px", "pt", "em", "rem", "%", "auto"]
+              },
+              {
+                "name": "gridMarginLeft",
+                "default": "auto",
+                "property": "auto",
+                "isHalfRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "gridMarginLeftTablet",
+                    "default": "inherit-mobile",
+                    "property": "auto"
+                  },
+                  "desktop": {
+                    "name": "gridMarginLeftDesktop",
+                    "default": "inherit-tablet",
+                    "property": "auto"
+                  }
+                },
+                "type": "size",
+                "label": "Left",
+                "allowNegative": true,
+                "properties": ["px", "pt", "em", "rem", "%", "auto"]
+              }
+            ]
+          },
+          {
+            "description": "Padding",
+            "fields": [
+              {
+                "name": "gridHolderPaddingTop",
+                "default": "0px",
+                "property": "px",
+                "isHalfRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "gridHolderPaddingTopTablet",
+                    "default": "inherit-mobile",
+                    "property": "px"
+                  },
+                  "desktop": {
+                    "name": "gridHolderPaddingTopDesktop",
+                    "default": "inherit-tablet",
+                    "property": "px"
+                  }
+                },
+                "type": "size",
+                "label": "Top",
+                "properties": ["px", "pt", "em", "rem", "%", "auto"]
+              },
+              {
+                "name": "gridHolderPaddingRight",
+                "default": "0px",
+                "property": "px",
+                "isHalfRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "gridHolderPaddingRightTablet",
+                    "default": "inherit-mobile",
+                    "property": "px"
+                  },
+                  "desktop": {
+                    "name": "gridHolderPaddingRightDesktop",
+                    "default": "inherit-tablet",
+                    "property": "px"
+                  }
+                },
+                "type": "size",
+                "label": "Right",
+                "properties": ["px", "pt", "em", "rem", "%", "auto"]
+              },
+              {
+                "name": "gridHolderPaddingBottom",
+                "default": "0px",
+                "property": "px",
+                "isHalfRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "gridHolderPaddingBottomTablet",
+                    "default": "inherit-mobile",
+                    "property": "px"
+                  },
+                  "desktop": {
+                    "name": "gridHolderPaddingBottomDesktop",
+                    "default": "inherit-tablet",
+                    "property": "px"
+                  }
+                },
+                "type": "size",
+                "label": "Bottom",
+                "properties": ["px", "pt", "em", "rem", "%", "auto"]
+              },
+              {
+                "name": "gridHolderPaddingLeft",
+                "default": "0px",
+                "property": "px",
+                "isHalfRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "gridHolderPaddingLeftTablet",
+                    "default": "inherit-mobile",
+                    "property": "px"
+                  },
+                  "desktop": {
+                    "name": "gridHolderPaddingLeftDesktop",
+                    "default": "inherit-tablet",
+                    "property": "px"
+                  }
+                },
+                "type": "size",
+                "label": "Left",
+                "properties": ["px", "pt", "em", "rem", "%", "auto"]
+              }
+            ]
+          },
+          {
+            "description": "Tile",
             "fields": [
               {
                 "name": "gridTextBackgroundColor",
@@ -9839,7 +11482,7 @@
             ]
           },
           {
-            "description": "Padding",
+            "description": "Text area padding",
             "fields": [
               {
                 "name": "gridPaddingTop",
@@ -9934,8 +11577,206 @@
         "packages": ["com.fliplet.image"],
         "variables": [
           {
+            "description": "Display",
+            "fields": [
+              {
+                "name": "imageDisplay",
+                "default": "inline-block",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "imageDisplayTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "imageDisplayDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "select",
+                "properties": {
+                  "inline-block": "Inline",
+                  "block": "Block"
+                }
+              }
+            ]
+          },
+          {
+            "description": "Sizes",
+            "fields": [
+              {
+                "name": "imageWidth",
+                "default": "auto",
+                "property": "auto",
+                "isHalfRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "imageWidthTablet",
+                    "default": "inherit-mobile",
+                    "property": "auto"
+                  },
+                  "desktop": {
+                    "name": "imageWidthDesktop",
+                    "default": "inherit-tablet",
+                    "property": "auto"
+                  }
+                },
+                "type": "size",
+                "label": "Width",
+                "properties": ["px", "pt", "em", "rem", "%", "auto"]
+              },
+              {
+                "name": "imageHeight",
+                "default": "auto",
+                "property": "auto",
+                "isHalfRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "imageHeightTablet",
+                    "default": "inherit-mobile",
+                    "property": "auto"
+                  },
+                  "desktop": {
+                    "name": "imageHeightDesktop",
+                    "default": "inherit-tablet",
+                    "property": "auto"
+                  }
+                },
+                "type": "size",
+                "label": "Height",
+                "properties": ["px", "pt", "em", "rem", "%", "auto"]
+              },
+              {
+                "name": "imageMinWidth",
+                "default": "auto",
+                "property": "auto",
+                "isHalfRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "imageMinWidthTablet",
+                    "default": "inherit-mobile",
+                    "property": "auto"
+                  },
+                  "desktop": {
+                    "name": "imageMinWidthDesktop",
+                    "default": "inherit-tablet",
+                    "property": "auto"
+                  }
+                },
+                "type": "size",
+                "label": "Min width",
+                "properties": ["px", "pt", "em", "rem", "%", "auto"]
+              },
+              {
+                "name": "imageMaxWidth",
+                "default": "100%",
+                "property": "%",
+                "isHalfRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "imageMaxWidthTablet",
+                    "default": "inherit-mobile",
+                    "property": "%"
+                  },
+                  "desktop": {
+                    "name": "imageMaxWidthDesktop",
+                    "default": "inherit-tablet",
+                    "property": "%"
+                  }
+                },
+                "type": "size",
+                "label": "Max width",
+                "properties": ["px", "pt", "em", "rem", "%", "none"]
+              },
+              {
+                "name": "imageMinHeight",
+                "default": "auto",
+                "property": "auto",
+                "isHalfRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "imageMinHeightTablet",
+                    "default": "inherit-mobile",
+                    "property": "auto"
+                  },
+                  "desktop": {
+                    "name": "imageMinHeightDesktop",
+                    "default": "inherit-tablet",
+                    "property": "auto"
+                  }
+                },
+                "type": "size",
+                "label": "Min height",
+                "properties": ["px", "pt", "em", "rem", "%", "auto"]
+              },
+              {
+                "name": "imageMaxHeight",
+                "default": "none",
+                "property": "none",
+                "isHalfRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "imageMaxHeightTablet",
+                    "default": "inherit-mobile",
+                    "property": "none"
+                  },
+                  "desktop": {
+                    "name": "imageMaxHeightDesktop",
+                    "default": "inherit-tablet",
+                    "property": "none"
+                  }
+                },
+                "type": "size",
+                "label": "Max height",
+                "properties": ["px", "pt", "em", "rem", "%", "none"]
+              }
+            ]
+          },
+          {
             "description": "Margin",
             "fields": [
+              {
+                "name": "imageMarginAlign",
+                "default": "custom",
+                "isFullRow": true,
+                "logic": {
+                  "left": {
+                    "imageMarginTop": "0px",
+                    "imageMarginRight": "auto",
+                    "imageMarginBottom": "0px",
+                    "imageMarginLeft": "0px"
+                  },
+                  "center": {
+                    "imageMarginTop": "0px",
+                    "imageMarginRight": "auto",
+                    "imageMarginBottom": "0px",
+                    "imageMarginLeft": "auto"
+                  },
+                  "right": {
+                    "imageMarginTop": "0px",
+                    "imageMarginRight": "0px",
+                    "imageMarginBottom": "0px",
+                    "imageMarginLeft": "auto"
+                  },
+                  "custom": [
+                    "imageMarginTop",
+                    "imageMarginRight",
+                    "imageMarginBottom",
+                    "imageMarginLeft"
+                  ]
+                },
+                "breakpoints": {
+                  "tablet": {
+                    "name": "imageMarginAlignTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "imageMarginAlignDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "margin-align",
+                "properties": ["left", "center", "right", "custom"]
+              },
               {
                 "name": "imageMarginTop",
                 "default": "0px",
@@ -9944,17 +11785,18 @@
                 "breakpoints": {
                   "tablet": {
                     "name": "imageMarginTopTablet",
-                    "default": "0px",
+                    "default": "inherit-mobile",
                     "property": "px"
                   },
                   "desktop": {
                     "name": "imageMarginTopDesktop",
-                    "default": "0px",
+                    "default": "inherit-tablet",
                     "property": "px"
                   }
                 },
                 "type": "size",
                 "label": "Top",
+                "allowNegative": true,
                 "properties": ["px", "pt", "em", "rem", "%", "auto"]
               },
               {
@@ -9965,17 +11807,18 @@
                 "breakpoints": {
                   "tablet": {
                     "name": "imageMarginRightTablet",
-                    "default": "0px",
+                    "default": "inherit-mobile",
                     "property": "px"
                   },
                   "desktop": {
                     "name": "imageMarginRightDesktop",
-                    "default": "0px",
+                    "default": "inherit-tablet",
                     "property": "px"
                   }
                 },
                 "type": "size",
                 "label": "Right",
+                "allowNegative": true,
                 "properties": ["px", "pt", "em", "rem", "%", "auto"]
               },
               {
@@ -9986,17 +11829,18 @@
                 "breakpoints": {
                   "tablet": {
                     "name": "imageMarginBottomTablet",
-                    "default": "0px",
+                    "default": "inherit-mobile",
                     "property": "px"
                   },
                   "desktop": {
                     "name": "imageMarginBottomDesktop",
-                    "default": "0px",
+                    "default": "inherit-tablet",
                     "property": "px"
                   }
                 },
                 "type": "size",
                 "label": "Bottom",
+                "allowNegative": true,
                 "properties": ["px", "pt", "em", "rem", "%", "auto"]
               },
               {
@@ -10007,17 +11851,18 @@
                 "breakpoints": {
                   "tablet": {
                     "name": "imageMarginLeftTablet",
-                    "default": "0px",
+                    "default": "inherit-mobile",
                     "property": "px"
                   },
                   "desktop": {
                     "name": "imageMarginLeftDesktop",
-                    "default": "0px",
+                    "default": "inherit-tablet",
                     "property": "px"
                   }
                 },
                 "type": "size",
                 "label": "Left",
+                "allowNegative": true,
                 "properties": ["px", "pt", "em", "rem", "%", "auto"]
               }
             ]
@@ -10033,12 +11878,12 @@
                 "breakpoints": {
                   "tablet": {
                     "name": "imagePaddingTopTablet",
-                    "default": "0px",
+                    "default": "inherit-mobile",
                     "property": "px"
                   },
                   "desktop": {
                     "name": "imagePaddingTopDesktop",
-                    "default": "0px",
+                    "default": "inherit-tablet",
                     "property": "px"
                   }
                 },
@@ -10054,12 +11899,12 @@
                 "breakpoints": {
                   "tablet": {
                     "name": "imagePaddingRightTablet",
-                    "default": "0px",
+                    "default": "inherit-mobile",
                     "property": "px"
                   },
                   "desktop": {
                     "name": "imagePaddingRightDesktop",
-                    "default": "0px",
+                    "default": "inherit-tablet",
                     "property": "px"
                   }
                 },
@@ -10075,12 +11920,12 @@
                 "breakpoints": {
                   "tablet": {
                     "name": "imagePaddingBottomTablet",
-                    "default": "0px",
+                    "default": "inherit-mobile",
                     "property": "px"
                   },
                   "desktop": {
                     "name": "imagePaddingBottomDesktop",
-                    "default": "0px",
+                    "default": "inherit-tablet",
                     "property": "px"
                   }
                 },
@@ -10096,12 +11941,12 @@
                 "breakpoints": {
                   "tablet": {
                     "name": "imagePaddingLeftTablet",
-                    "default": "0px",
+                    "default": "inherit-mobile",
                     "property": "px"
                   },
                   "desktop": {
                     "name": "imagePaddingLeftDesktop",
-                    "default": "0px",
+                    "default": "inherit-tablet",
                     "property": "px"
                   }
                 },
@@ -10419,6 +12264,137 @@
         "packages": ["masonry-image-gallery"],
         "variables": [
           {
+            "description": "Sizes",
+            "fields": [
+              {
+                "name": "galleryWidth",
+                "default": "100%",
+                "property": "%",
+                "isHalfRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "galleryWidthTablet",
+                    "default": "inherit-mobile",
+                    "property": "%"
+                  },
+                  "desktop": {
+                    "name": "galleryWidthDesktop",
+                    "default": "inherit-tablet",
+                    "property": "%"
+                  }
+                },
+                "type": "size",
+                "label": "Width",
+                "properties": ["px", "pt", "em", "rem", "%", "auto"]
+              },
+              {
+                "name": "galleryHeight",
+                "default": "auto",
+                "property": "auto",
+                "isHalfRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "galleryHeightTablet",
+                    "default": "inherit-mobile",
+                    "property": "auto"
+                  },
+                  "desktop": {
+                    "name": "galleryHeightDesktop",
+                    "default": "inherit-tablet",
+                    "property": "auto"
+                  }
+                },
+                "type": "size",
+                "label": "Height",
+                "properties": ["px", "pt", "em", "rem", "%", "auto"]
+              },
+              {
+                "name": "galleryMinWidth",
+                "default": "auto",
+                "property": "auto",
+                "isHalfRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "galleryMinWidthTablet",
+                    "default": "inherit-mobile",
+                    "property": "auto"
+                  },
+                  "desktop": {
+                    "name": "galleryMinWidthDesktop",
+                    "default": "inherit-tablet",
+                    "property": "auto"
+                  }
+                },
+                "type": "size",
+                "label": "Min width",
+                "properties": ["px", "pt", "em", "rem", "%", "auto"]
+              },
+              {
+                "name": "galleryMaxWidth",
+                "default": "none",
+                "property": "none",
+                "isHalfRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "galleryMaxWidthTablet",
+                    "default": "inherit-mobile",
+                    "property": "none"
+                  },
+                  "desktop": {
+                    "name": "galleryMaxWidthDesktop",
+                    "default": "inherit-tablet",
+                    "property": "none"
+                  }
+                },
+                "type": "size",
+                "label": "Max width",
+                "properties": ["px", "pt", "em", "rem", "%", "none"]
+              },
+              {
+                "name": "galleryMinHeight",
+                "default": "auto",
+                "property": "auto",
+                "isHalfRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "galleryMinHeightTablet",
+                    "default": "inherit-mobile",
+                    "property": "auto"
+                  },
+                  "desktop": {
+                    "name": "galleryMinHeightDesktop",
+                    "default": "inherit-tablet",
+                    "property": "auto"
+                  }
+                },
+                "type": "size",
+                "label": "Min height",
+                "properties": ["px", "pt", "em", "rem", "%", "auto"]
+              },
+              {
+                "name": "galleryMaxHeight",
+                "default": "none",
+                "property": "none",
+                "isHalfRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "galleryMaxHeightTablet",
+                    "default": "inherit-mobile",
+                    "property": "none"
+                  },
+                  "desktop": {
+                    "name": "galleryMaxHeightDesktop",
+                    "default": "inherit-tablet",
+                    "property": "none"
+                  }
+                },
+                "type": "size",
+                "label": "Max height",
+                "properties": ["px", "pt", "em", "rem", "%", "none"]
+              }
+            ]
+          },
+          {
             "description": "Margin",
             "fields": [
               {
@@ -10472,17 +12448,18 @@
                 "breakpoints": {
                   "tablet": {
                     "name": "galleryMarginTopTablet",
-                    "default": "0px",
+                    "default": "inherit-mobile",
                     "property": "px"
                   },
                   "desktop": {
                     "name": "galleryMarginTopDesktop",
-                    "default": "0px",
+                    "default": "inherit-tablet",
                     "property": "px"
                   }
                 },
                 "type": "size",
                 "label": "Top",
+                "allowNegative": true,
                 "properties": ["px", "pt", "em", "rem", "%", "auto"]
               },
               {
@@ -10493,17 +12470,18 @@
                 "breakpoints": {
                   "tablet": {
                     "name": "galleryMarginRightTablet",
-                    "default": "0px",
+                    "default": "inherit-mobile",
                     "property": "px"
                   },
                   "desktop": {
                     "name": "galleryMarginRightDesktop",
-                    "default": "0px",
+                    "default": "inherit-tablet",
                     "property": "px"
                   }
                 },
                 "type": "size",
                 "label": "Right",
+                "allowNegative": true,
                 "properties": ["px", "pt", "em", "rem", "%", "auto"]
               },
               {
@@ -10514,17 +12492,18 @@
                 "breakpoints": {
                   "tablet": {
                     "name": "galleryMarginBottomTablet",
-                    "default": "0px",
+                    "default": "inherit-mobile",
                     "property": "px"
                   },
                   "desktop": {
                     "name": "galleryMarginBottomDesktop",
-                    "default": "0px",
+                    "default": "inherit-tablet",
                     "property": "px"
                   }
                 },
                 "type": "size",
                 "label": "Bottom",
+                "allowNegative": true,
                 "properties": ["px", "pt", "em", "rem", "%", "auto"]
               },
               {
@@ -10535,17 +12514,18 @@
                 "breakpoints": {
                   "tablet": {
                     "name": "galleryMarginLeftTablet",
-                    "default": "0px",
+                    "default": "inherit-mobile",
                     "property": "px"
                   },
                   "desktop": {
                     "name": "galleryMarginLeftDesktop",
-                    "default": "0px",
+                    "default": "inherit-tablet",
                     "property": "px"
                   }
                 },
                 "type": "size",
                 "label": "Left",
+                "allowNegative": true,
                 "properties": ["px", "pt", "em", "rem", "%", "auto"]
               }
             ]
@@ -10561,12 +12541,12 @@
                 "breakpoints": {
                   "tablet": {
                     "name": "galleryPaddingTopTablet",
-                    "default": "0px",
+                    "default": "inherit-mobile",
                     "property": "px"
                   },
                   "desktop": {
                     "name": "galleryPaddingTopDesktop",
-                    "default": "0px",
+                    "default": "inherit-tablet",
                     "property": "px"
                   }
                 },
@@ -10582,12 +12562,12 @@
                 "breakpoints": {
                   "tablet": {
                     "name": "galleryPaddingRightTablet",
-                    "default": "0px",
+                    "default": "inherit-mobile",
                     "property": "px"
                   },
                   "desktop": {
                     "name": "galleryPaddingRightDesktop",
-                    "default": "0px",
+                    "default": "inherit-tablet",
                     "property": "px"
                   }
                 },
@@ -10603,12 +12583,12 @@
                 "breakpoints": {
                   "tablet": {
                     "name": "galleryPaddingBottomTablet",
-                    "default": "0px",
+                    "default": "inherit-mobile",
                     "property": "px"
                   },
                   "desktop": {
                     "name": "galleryPaddingBottomDesktop",
-                    "default": "0px",
+                    "default": "inherit-tablet",
                     "property": "px"
                   }
                 },
@@ -10624,12 +12604,12 @@
                 "breakpoints": {
                   "tablet": {
                     "name": "galleryPaddingLeftTablet",
-                    "default": "0px",
+                    "default": "inherit-mobile",
                     "property": "px"
                   },
                   "desktop": {
                     "name": "galleryPaddingLeftDesktop",
-                    "default": "0px",
+                    "default": "inherit-tablet",
                     "property": "px"
                   }
                 },
@@ -10646,7 +12626,7 @@
         "packages": ["com.fliplet.interactive-map"],
         "variables": [
           {
-            "description": "Size",
+            "description": "Sizes",
             "fields": [
               {
                 "name": "interactiveGraphWidth",
@@ -10689,6 +12669,90 @@
                 "label": "Height",
                 "type": "size",
                 "properties": ["px", "pt", "em", "rem", "%", "vw", "vh", "auto"]
+              },
+              {
+                "name": "interactiveGraphMinWidth",
+                "default": "auto",
+                "property": "auto",
+                "isHalfRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "interactiveGraphMinWidthTablet",
+                    "default": "inherit-mobile",
+                    "property": "auto"
+                  },
+                  "desktop": {
+                    "name": "interactiveGraphMinWidthDesktop",
+                    "default": "inherit-tablet",
+                    "property": "auto"
+                  }
+                },
+                "type": "size",
+                "label": "Min width",
+                "properties": ["px", "pt", "em", "rem", "%", "auto"]
+              },
+              {
+                "name": "interactiveGraphMaxWidth",
+                "default": "none",
+                "property": "none",
+                "isHalfRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "interactiveGraphMaxWidthTablet",
+                    "default": "inherit-mobile",
+                    "property": "none"
+                  },
+                  "desktop": {
+                    "name": "interactiveGraphMaxWidthDesktop",
+                    "default": "inherit-tablet",
+                    "property": "none"
+                  }
+                },
+                "type": "size",
+                "label": "Max width",
+                "properties": ["px", "pt", "em", "rem", "%", "none"]
+              },
+              {
+                "name": "interactiveGraphMinHeight",
+                "default": "auto",
+                "property": "auto",
+                "isHalfRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "interactiveGraphMinHeightTablet",
+                    "default": "inherit-mobile",
+                    "property": "auto"
+                  },
+                  "desktop": {
+                    "name": "interactiveGraphMinHeightDesktop",
+                    "default": "inherit-tablet",
+                    "property": "auto"
+                  }
+                },
+                "type": "size",
+                "label": "Min height",
+                "properties": ["px", "pt", "em", "rem", "%", "auto"]
+              },
+              {
+                "name": "interactiveGraphMaxHeight",
+                "default": "none",
+                "property": "none",
+                "isHalfRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "interactiveGraphMaxHeightTablet",
+                    "default": "inherit-mobile",
+                    "property": "none"
+                  },
+                  "desktop": {
+                    "name": "interactiveGraphMaxHeightDesktop",
+                    "default": "inherit-tablet",
+                    "property": "none"
+                  }
+                },
+                "type": "size",
+                "label": "Max height",
+                "properties": ["px", "pt", "em", "rem", "%", "none"]
               }
             ]
           },
@@ -10991,7 +13055,363 @@
         "packages": ["com.fliplet.simple-list"],
         "variables": [
           {
-            "description": "General",
+            "description": "Sizes",
+            "fields": [
+              {
+                "name": "listWidth",
+                "default": "100%",
+                "property": "%",
+                "isHalfRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "listWidthTablet",
+                    "default": "inherit-mobile",
+                    "property": "%"
+                  },
+                  "desktop": {
+                    "name": "listWidthDesktop",
+                    "default": "inherit-tablet",
+                    "property": "%"
+                  }
+                },
+                "type": "size",
+                "label": "Width",
+                "properties": ["px", "pt", "em", "rem", "%", "auto"]
+              },
+              {
+                "name": "listHeight",
+                "default": "auto",
+                "property": "auto",
+                "isHalfRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "listHeightTablet",
+                    "default": "inherit-mobile",
+                    "property": "auto"
+                  },
+                  "desktop": {
+                    "name": "listHeightDesktop",
+                    "default": "inherit-tablet",
+                    "property": "auto"
+                  }
+                },
+                "type": "size",
+                "label": "Height",
+                "properties": ["px", "pt", "em", "rem", "%", "auto"]
+              },
+              {
+                "name": "listMinWidth",
+                "default": "auto",
+                "property": "auto",
+                "isHalfRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "listMinWidthTablet",
+                    "default": "inherit-mobile",
+                    "property": "auto"
+                  },
+                  "desktop": {
+                    "name": "listMinWidthDesktop",
+                    "default": "inherit-tablet",
+                    "property": "auto"
+                  }
+                },
+                "type": "size",
+                "label": "Min width",
+                "properties": ["px", "pt", "em", "rem", "%", "auto"]
+              },
+              {
+                "name": "listMaxWidth",
+                "default": "none",
+                "property": "none",
+                "isHalfRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "listMaxWidthTablet",
+                    "default": "inherit-mobile",
+                    "property": "none"
+                  },
+                  "desktop": {
+                    "name": "listMaxWidthDesktop",
+                    "default": "inherit-tablet",
+                    "property": "none"
+                  }
+                },
+                "type": "size",
+                "label": "Max width",
+                "properties": ["px", "pt", "em", "rem", "%", "none"]
+              },
+              {
+                "name": "listMinHeight",
+                "default": "auto",
+                "property": "auto",
+                "isHalfRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "listMinHeightTablet",
+                    "default": "inherit-mobile",
+                    "property": "auto"
+                  },
+                  "desktop": {
+                    "name": "listMinHeightDesktop",
+                    "default": "inherit-tablet",
+                    "property": "auto"
+                  }
+                },
+                "type": "size",
+                "label": "Min height",
+                "properties": ["px", "pt", "em", "rem", "%", "auto"]
+              },
+              {
+                "name": "listMaxHeight",
+                "default": "none",
+                "property": "none",
+                "isHalfRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "listMaxHeightTablet",
+                    "default": "inherit-mobile",
+                    "property": "none"
+                  },
+                  "desktop": {
+                    "name": "listMaxHeightDesktop",
+                    "default": "inherit-tablet",
+                    "property": "none"
+                  }
+                },
+                "type": "size",
+                "label": "Max height",
+                "properties": ["px", "pt", "em", "rem", "%", "none"]
+              }
+            ]
+          },
+          {
+            "description": "Margin",
+            "fields": [
+              {
+                "name": "listMarginAlign",
+                "default": "center",
+                "isFullRow": true,
+                "logic": {
+                  "left": {
+                    "listMarginTop": "0px",
+                    "listMarginRight": "auto",
+                    "listMarginBottom": "0px",
+                    "listMarginLeft": "0px"
+                  },
+                  "center": {
+                    "listMarginTop": "0px",
+                    "listMarginRight": "auto",
+                    "listMarginBottom": "0px",
+                    "listMarginLeft": "auto"
+                  },
+                  "right": {
+                    "listMarginTop": "0px",
+                    "listMarginRight": "0px",
+                    "listMarginBottom": "0px",
+                    "listMarginLeft": "auto"
+                  },
+                  "custom": [
+                    "listMarginTop",
+                    "listMarginRight",
+                    "listMarginBottom",
+                    "listMarginLeft"
+                  ]
+                },
+                "breakpoints": {
+                  "tablet": {
+                    "name": "listMarginAlignTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "listMarginAlignDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "margin-align",
+                "properties": ["left", "center", "right", "custom"]
+              },
+              {
+                "name": "listMarginTop",
+                "default": "0px",
+                "property": "px",
+                "isHalfRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "listMarginTopTablet",
+                    "default": "inherit-mobile",
+                    "property": "px"
+                  },
+                  "desktop": {
+                    "name": "listMarginTopDesktop",
+                    "default": "inherit-tablet",
+                    "property": "px"
+                  }
+                },
+                "type": "size",
+                "label": "Top",
+                "allowNegative": true,
+                "properties": ["px", "pt", "em", "rem", "%", "auto"]
+              },
+              {
+                "name": "listMarginRight",
+                "default": "auto",
+                "property": "auto",
+                "isHalfRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "listMarginRightTablet",
+                    "default": "inherit-mobile",
+                    "property": "auto"
+                  },
+                  "desktop": {
+                    "name": "listMarginRightDesktop",
+                    "default": "inherit-tablet",
+                    "property": "auto"
+                  }
+                },
+                "type": "size",
+                "label": "Right",
+                "allowNegative": true,
+                "properties": ["px", "pt", "em", "rem", "%", "auto"]
+              },
+              {
+                "name": "listMarginBottom",
+                "default": "0px",
+                "property": "px",
+                "isHalfRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "listMarginBottomTablet",
+                    "default": "inherit-mobile",
+                    "property": "px"
+                  },
+                  "desktop": {
+                    "name": "listMarginBottomDesktop",
+                    "default": "inherit-tablet",
+                    "property": "px"
+                  }
+                },
+                "type": "size",
+                "label": "Bottom",
+                "allowNegative": true,
+                "properties": ["px", "pt", "em", "rem", "%", "auto"]
+              },
+              {
+                "name": "listMarginLeft",
+                "default": "auto",
+                "property": "auto",
+                "isHalfRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "listMarginLeftTablet",
+                    "default": "inherit-mobile",
+                    "property": "auto"
+                  },
+                  "desktop": {
+                    "name": "listMarginLeftDesktop",
+                    "default": "inherit-tablet",
+                    "property": "auto"
+                  }
+                },
+                "type": "size",
+                "label": "Left",
+                "allowNegative": true,
+                "properties": ["px", "pt", "em", "rem", "%", "auto"]
+              }
+            ]
+          },
+          {
+            "description": "Padding",
+            "fields": [
+              {
+                "name": "listPaddingTop",
+                "default": "0px",
+                "property": "px",
+                "isHalfRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "listPaddingTopTablet",
+                    "default": "inherit-mobile",
+                    "property": "px"
+                  },
+                  "desktop": {
+                    "name": "listPaddingTopDesktop",
+                    "default": "inherit-tablet",
+                    "property": "px"
+                  }
+                },
+                "type": "size",
+                "label": "Top",
+                "properties": ["px", "pt", "em", "rem", "%", "auto"]
+              },
+              {
+                "name": "listPaddingRight",
+                "default": "0px",
+                "property": "px",
+                "isHalfRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "listPaddingRightTablet",
+                    "default": "inherit-mobile",
+                    "property": "px"
+                  },
+                  "desktop": {
+                    "name": "listPaddingRightDesktop",
+                    "default": "inherit-tablet",
+                    "property": "px"
+                  }
+                },
+                "type": "size",
+                "label": "Right",
+                "properties": ["px", "pt", "em", "rem", "%", "auto"]
+              },
+              {
+                "name": "listPaddingBottom",
+                "default": "0px",
+                "property": "px",
+                "isHalfRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "listPaddingBottomTablet",
+                    "default": "inherit-mobile",
+                    "property": "px"
+                  },
+                  "desktop": {
+                    "name": "listPaddingBottomDesktop",
+                    "default": "inherit-tablet",
+                    "property": "px"
+                  }
+                },
+                "type": "size",
+                "label": "Bottom",
+                "properties": ["px", "pt", "em", "rem", "%", "auto"]
+              },
+              {
+                "name": "listPaddingLeft",
+                "default": "0px",
+                "property": "px",
+                "isHalfRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "listPaddingLeftTablet",
+                    "default": "inherit-mobile",
+                    "property": "px"
+                  },
+                  "desktop": {
+                    "name": "listPaddingLeftDesktop",
+                    "default": "inherit-tablet",
+                    "property": "px"
+                  }
+                },
+                "type": "size",
+                "label": "Left",
+                "properties": ["px", "pt", "em", "rem", "%", "auto"]
+              }
+            ]
+          },
+          {
+            "description": "Colors",
             "fields": [
               {
                 "name": "listBackgroundColor",
@@ -11284,21 +13704,21 @@
             ]
           },
           {
-            "description": "Padding",
+            "description": "List item padding",
             "fields": [
               {
-                "name": "listPaddingTop",
+                "name": "listItemPaddingTop",
                 "default": "10px",
                 "property": "px",
                 "isHalfRow": true,
                 "breakpoints": {
                   "tablet": {
-                    "name": "listPaddingTopTablet",
+                    "name": "listItemPaddingTopTablet",
                     "default": "inherit-mobile",
                     "property": "px"
                   },
                   "desktop": {
-                    "name": "listPaddingTopDesktop",
+                    "name": "listItemPaddingTopDesktop",
                     "default": "inherit-tablet",
                     "property": "px"
                   }
@@ -11308,18 +13728,18 @@
                 "properties": ["px", "pt", "em", "rem", "%"]
               },
               {
-                "name": "listPaddingRight",
+                "name": "listItemPaddingRight",
                 "default": "10px",
                 "property": "px",
                 "isHalfRow": true,
                 "breakpoints": {
                   "tablet": {
-                    "name": "listPaddingRightTablet",
+                    "name": "listItemPaddingRightTablet",
                     "default": "inherit-mobile",
                     "property": "px"
                   },
                   "desktop": {
-                    "name": "listPaddingRightDesktop",
+                    "name": "listItemPaddingRightDesktop",
                     "default": "inherit-tablet",
                     "property": "px"
                   }
@@ -11329,18 +13749,18 @@
                 "properties": ["px", "pt", "em", "rem", "%"]
               },
               {
-                "name": "listPaddingBottom",
+                "name": "listItemPaddingBottom",
                 "default": "10px",
                 "property": "px",
                 "isHalfRow": true,
                 "breakpoints": {
                   "tablet": {
-                    "name": "listPaddingBottomTablet",
+                    "name": "listItemPaddingBottomTablet",
                     "default": "inherit-mobile",
                     "property": "px"
                   },
                   "desktop": {
-                    "name": "listPaddingBottomDesktop",
+                    "name": "listItemPaddingBottomDesktop",
                     "default": "inherit-tablet",
                     "property": "px"
                   }
@@ -11350,18 +13770,18 @@
                 "properties": ["px", "pt", "em", "rem", "%"]
               },
               {
-                "name": "listPaddingLeft",
+                "name": "listItemPaddingLeft",
                 "default": "10px",
                 "property": "px",
                 "isHalfRow": true,
                 "breakpoints": {
                   "tablet": {
-                    "name": "listPaddingLeftTablet",
+                    "name": "listItemPaddingLeftTablet",
                     "default": "inherit-mobile",
                     "property": "px"
                   },
                   "desktop": {
-                    "name": "listPaddingLeftDesktop",
+                    "name": "listItemPaddingLeftDesktop",
                     "default": "inherit-tablet",
                     "property": "px"
                   }
@@ -11520,7 +13940,363 @@
         "packages": ["com.fliplet.list-small-thumbs"],
         "variables": [
           {
-            "description": "General",
+            "description": "Sizes",
+            "fields": [
+              {
+                "name": "listSmallWidth",
+                "default": "100%",
+                "property": "%",
+                "isHalfRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "listSmallWidthTablet",
+                    "default": "inherit-mobile",
+                    "property": "%"
+                  },
+                  "desktop": {
+                    "name": "listSmallWidthDesktop",
+                    "default": "inherit-tablet",
+                    "property": "%"
+                  }
+                },
+                "type": "size",
+                "label": "Width",
+                "properties": ["px", "pt", "em", "rem", "%", "auto"]
+              },
+              {
+                "name": "listSmallHeight",
+                "default": "auto",
+                "property": "auto",
+                "isHalfRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "listSmallHeightTablet",
+                    "default": "inherit-mobile",
+                    "property": "auto"
+                  },
+                  "desktop": {
+                    "name": "listSmallHeightDesktop",
+                    "default": "inherit-tablet",
+                    "property": "auto"
+                  }
+                },
+                "type": "size",
+                "label": "Height",
+                "properties": ["px", "pt", "em", "rem", "%", "auto"]
+              },
+              {
+                "name": "listSmallMinWidth",
+                "default": "auto",
+                "property": "auto",
+                "isHalfRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "listSmallMinWidthTablet",
+                    "default": "inherit-mobile",
+                    "property": "auto"
+                  },
+                  "desktop": {
+                    "name": "listSmallMinWidthDesktop",
+                    "default": "inherit-tablet",
+                    "property": "auto"
+                  }
+                },
+                "type": "size",
+                "label": "Min width",
+                "properties": ["px", "pt", "em", "rem", "%", "auto"]
+              },
+              {
+                "name": "listSmallMaxWidth",
+                "default": "none",
+                "property": "none",
+                "isHalfRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "listSmallMaxWidthTablet",
+                    "default": "inherit-mobile",
+                    "property": "none"
+                  },
+                  "desktop": {
+                    "name": "listSmallMaxWidthDesktop",
+                    "default": "inherit-tablet",
+                    "property": "none"
+                  }
+                },
+                "type": "size",
+                "label": "Max width",
+                "properties": ["px", "pt", "em", "rem", "%", "none"]
+              },
+              {
+                "name": "listSmallMinHeight",
+                "default": "auto",
+                "property": "auto",
+                "isHalfRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "listSmallMinHeightTablet",
+                    "default": "inherit-mobile",
+                    "property": "auto"
+                  },
+                  "desktop": {
+                    "name": "listSmallMinHeightDesktop",
+                    "default": "inherit-tablet",
+                    "property": "auto"
+                  }
+                },
+                "type": "size",
+                "label": "Min height",
+                "properties": ["px", "pt", "em", "rem", "%", "auto"]
+              },
+              {
+                "name": "listSmallMaxHeight",
+                "default": "none",
+                "property": "none",
+                "isHalfRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "listSmallMaxHeightTablet",
+                    "default": "inherit-mobile",
+                    "property": "none"
+                  },
+                  "desktop": {
+                    "name": "listSmallMaxHeightDesktop",
+                    "default": "inherit-tablet",
+                    "property": "none"
+                  }
+                },
+                "type": "size",
+                "label": "Max height",
+                "properties": ["px", "pt", "em", "rem", "%", "none"]
+              }
+            ]
+          },
+          {
+            "description": "Margin",
+            "fields": [
+              {
+                "name": "listSmallMarginAlign",
+                "default": "center",
+                "isFullRow": true,
+                "logic": {
+                  "left": {
+                    "listSmallMarginTop": "0px",
+                    "listSmallMarginRight": "auto",
+                    "listSmallMarginBottom": "0px",
+                    "listSmallMarginLeft": "0px"
+                  },
+                  "center": {
+                    "listSmallMarginTop": "0px",
+                    "listSmallMarginRight": "auto",
+                    "listSmallMarginBottom": "0px",
+                    "listSmallMarginLeft": "auto"
+                  },
+                  "right": {
+                    "listSmallMarginTop": "0px",
+                    "listSmallMarginRight": "0px",
+                    "listSmallMarginBottom": "0px",
+                    "listSmallMarginLeft": "auto"
+                  },
+                  "custom": [
+                    "listSmallMarginTop",
+                    "listSmallMarginRight",
+                    "listSmallMarginBottom",
+                    "listSmallMarginLeft"
+                  ]
+                },
+                "breakpoints": {
+                  "tablet": {
+                    "name": "listSmallMarginAlignTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "listSmallMarginAlignDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "margin-align",
+                "properties": ["left", "center", "right", "custom"]
+              },
+              {
+                "name": "listSmallMarginTop",
+                "default": "0px",
+                "property": "px",
+                "isHalfRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "listSmallMarginTopTablet",
+                    "default": "inherit-mobile",
+                    "property": "px"
+                  },
+                  "desktop": {
+                    "name": "listSmallMarginTopDesktop",
+                    "default": "inherit-tablet",
+                    "property": "px"
+                  }
+                },
+                "type": "size",
+                "label": "Top",
+                "allowNegative": true,
+                "properties": ["px", "pt", "em", "rem", "%", "auto"]
+              },
+              {
+                "name": "listSmallMarginRight",
+                "default": "auto",
+                "property": "auto",
+                "isHalfRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "listSmallMarginRightTablet",
+                    "default": "inherit-mobile",
+                    "property": "auto"
+                  },
+                  "desktop": {
+                    "name": "listSmallMarginRightDesktop",
+                    "default": "inherit-tablet",
+                    "property": "auto"
+                  }
+                },
+                "type": "size",
+                "label": "Right",
+                "allowNegative": true,
+                "properties": ["px", "pt", "em", "rem", "%", "auto"]
+              },
+              {
+                "name": "listSmallMarginBottom",
+                "default": "0px",
+                "property": "px",
+                "isHalfRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "listSmallMarginBottomTablet",
+                    "default": "inherit-mobile",
+                    "property": "px"
+                  },
+                  "desktop": {
+                    "name": "listSmallMarginBottomDesktop",
+                    "default": "inherit-tablet",
+                    "property": "px"
+                  }
+                },
+                "type": "size",
+                "label": "Bottom",
+                "allowNegative": true,
+                "properties": ["px", "pt", "em", "rem", "%", "auto"]
+              },
+              {
+                "name": "listSmallMarginLeft",
+                "default": "auto",
+                "property": "auto",
+                "isHalfRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "listSmallMarginLeftTablet",
+                    "default": "inherit-mobile",
+                    "property": "auto"
+                  },
+                  "desktop": {
+                    "name": "listSmallMarginLeftDesktop",
+                    "default": "inherit-tablet",
+                    "property": "auto"
+                  }
+                },
+                "type": "size",
+                "label": "Left",
+                "allowNegative": true,
+                "properties": ["px", "pt", "em", "rem", "%", "auto"]
+              }
+            ]
+          },
+          {
+            "description": "Padding",
+            "fields": [
+              {
+                "name": "listSmallPaddingTop",
+                "default": "0px",
+                "property": "px",
+                "isHalfRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "listSmallPaddingTopTablet",
+                    "default": "inherit-mobile",
+                    "property": "px"
+                  },
+                  "desktop": {
+                    "name": "listSmallPaddingTopDesktop",
+                    "default": "inherit-tablet",
+                    "property": "px"
+                  }
+                },
+                "type": "size",
+                "label": "Top",
+                "properties": ["px", "pt", "em", "rem", "%", "auto"]
+              },
+              {
+                "name": "listSmallPaddingRight",
+                "default": "0px",
+                "property": "px",
+                "isHalfRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "listSmallPaddingRightTablet",
+                    "default": "inherit-mobile",
+                    "property": "px"
+                  },
+                  "desktop": {
+                    "name": "listSmallPaddingRightDesktop",
+                    "default": "inherit-tablet",
+                    "property": "px"
+                  }
+                },
+                "type": "size",
+                "label": "Right",
+                "properties": ["px", "pt", "em", "rem", "%", "auto"]
+              },
+              {
+                "name": "listSmallPaddingBottom",
+                "default": "0px",
+                "property": "px",
+                "isHalfRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "listSmallPaddingBottomTablet",
+                    "default": "inherit-mobile",
+                    "property": "px"
+                  },
+                  "desktop": {
+                    "name": "listSmallPaddingBottomDesktop",
+                    "default": "inherit-tablet",
+                    "property": "px"
+                  }
+                },
+                "type": "size",
+                "label": "Bottom",
+                "properties": ["px", "pt", "em", "rem", "%", "auto"]
+              },
+              {
+                "name": "listSmallPaddingLeft",
+                "default": "0px",
+                "property": "px",
+                "isHalfRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "listSmallPaddingLeftTablet",
+                    "default": "inherit-mobile",
+                    "property": "px"
+                  },
+                  "desktop": {
+                    "name": "listSmallPaddingLeftDesktop",
+                    "default": "inherit-tablet",
+                    "property": "px"
+                  }
+                },
+                "type": "size",
+                "label": "Left",
+                "properties": ["px", "pt", "em", "rem", "%", "auto"]
+              }
+            ]
+          },
+          {
+            "description": "Colors",
             "fields": [
               {
                 "name": "listSmallBackgroundColor",
@@ -11856,21 +14632,21 @@
             ]
           },
           {
-            "description": "Padding",
+            "description": "List item padding",
             "fields": [
               {
-                "name": "listSmallPaddingTop",
-                "default": "$listPaddingTop",
+                "name": "listSmallItemPaddingTop",
+                "default": "$listItemPaddingTop",
                 "property": "px",
                 "isHalfRow": true,
                 "breakpoints": {
                   "tablet": {
-                    "name": "listSmallPaddingTopTablet",
+                    "name": "listSmallItemPaddingTopTablet",
                     "default": "inherit-mobile",
                     "property": "px"
                   },
                   "desktop": {
-                    "name": "listSmallPaddingTopDesktop",
+                    "name": "listSmallItemPaddingTopDesktop",
                     "default": "inherit-tablet",
                     "property": "px"
                   }
@@ -11880,18 +14656,18 @@
                 "properties": ["px", "pt", "em", "rem", "%"]
               },
               {
-                "name": "listSmallPaddingRight",
-                "default": "$listPaddingRight",
+                "name": "listSmallItemPaddingRight",
+                "default": "$listItemPaddingRight",
                 "property": "px",
                 "isHalfRow": true,
                 "breakpoints": {
                   "tablet": {
-                    "name": "listSmallPaddingRightTablet",
+                    "name": "listSmallItemPaddingRightTablet",
                     "default": "inherit-mobile",
                     "property": "px"
                   },
                   "desktop": {
-                    "name": "listSmallPaddingRightDesktop",
+                    "name": "listSmallItemPaddingRightDesktop",
                     "default": "inherit-tablet",
                     "property": "px"
                   }
@@ -11901,18 +14677,18 @@
                 "properties": ["px", "pt", "em", "rem", "%"]
               },
               {
-                "name": "listSmallPaddingBottom",
-                "default": "$listPaddingBottom",
+                "name": "listSmallItemPaddingBottom",
+                "default": "$listItemPaddingBottom",
                 "property": "px",
                 "isHalfRow": true,
                 "breakpoints": {
                   "tablet": {
-                    "name": "listSmallPaddingBottomTablet",
+                    "name": "listSmallItemPaddingBottomTablet",
                     "default": "inherit-mobile",
                     "property": "px"
                   },
                   "desktop": {
-                    "name": "listSmallPaddingBottomDesktop",
+                    "name": "listSmallItemPaddingBottomDesktop",
                     "default": "inherit-tablet",
                     "property": "px"
                   }
@@ -11922,18 +14698,18 @@
                 "properties": ["px", "pt", "em", "rem", "%"]
               },
               {
-                "name": "listSmallPaddingLeft",
-                "default": "listPaddingLeft",
+                "name": "listSmallItemPaddingLeft",
+                "default": "listItemPaddingLeft",
                 "property": "px",
                 "isHalfRow": true,
                 "breakpoints": {
                   "tablet": {
-                    "name": "listSmallPaddingLeftTablet",
+                    "name": "listSmallItemPaddingLeftTablet",
                     "default": "inherit-mobile",
                     "property": "px"
                   },
                   "desktop": {
-                    "name": "listSmallPaddingLeftDesktop",
+                    "name": "listSmallItemPaddingLeftDesktop",
                     "default": "inherit-tablet",
                     "property": "px"
                   }
@@ -12092,7 +14868,363 @@
         "packages": ["com.fliplet.list-large-thumbs"],
         "variables": [
           {
-            "description": "General",
+            "description": "Sizes",
+            "fields": [
+              {
+                "name": "listLargeWidth",
+                "default": "100%",
+                "property": "%",
+                "isHalfRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "listLargeWidthTablet",
+                    "default": "inherit-mobile",
+                    "property": "%"
+                  },
+                  "desktop": {
+                    "name": "listLargeWidthDesktop",
+                    "default": "inherit-tablet",
+                    "property": "%"
+                  }
+                },
+                "type": "size",
+                "label": "Width",
+                "properties": ["px", "pt", "em", "rem", "%", "auto"]
+              },
+              {
+                "name": "listLargeHeight",
+                "default": "auto",
+                "property": "auto",
+                "isHalfRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "listLargeHeightTablet",
+                    "default": "inherit-mobile",
+                    "property": "auto"
+                  },
+                  "desktop": {
+                    "name": "listLargeHeightDesktop",
+                    "default": "inherit-tablet",
+                    "property": "auto"
+                  }
+                },
+                "type": "size",
+                "label": "Height",
+                "properties": ["px", "pt", "em", "rem", "%", "auto"]
+              },
+              {
+                "name": "listLargeMinWidth",
+                "default": "auto",
+                "property": "auto",
+                "isHalfRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "listLargeMinWidthTablet",
+                    "default": "inherit-mobile",
+                    "property": "auto"
+                  },
+                  "desktop": {
+                    "name": "listLargeMinWidthDesktop",
+                    "default": "inherit-tablet",
+                    "property": "auto"
+                  }
+                },
+                "type": "size",
+                "label": "Min width",
+                "properties": ["px", "pt", "em", "rem", "%", "auto"]
+              },
+              {
+                "name": "listLargeMaxWidth",
+                "default": "none",
+                "property": "none",
+                "isHalfRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "listLargeMaxWidthTablet",
+                    "default": "inherit-mobile",
+                    "property": "none"
+                  },
+                  "desktop": {
+                    "name": "listLargeMaxWidthDesktop",
+                    "default": "inherit-tablet",
+                    "property": "none"
+                  }
+                },
+                "type": "size",
+                "label": "Max width",
+                "properties": ["px", "pt", "em", "rem", "%", "none"]
+              },
+              {
+                "name": "listLargeMinHeight",
+                "default": "auto",
+                "property": "auto",
+                "isHalfRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "listLargeMinHeightTablet",
+                    "default": "inherit-mobile",
+                    "property": "auto"
+                  },
+                  "desktop": {
+                    "name": "listLargeMinHeightDesktop",
+                    "default": "inherit-tablet",
+                    "property": "auto"
+                  }
+                },
+                "type": "size",
+                "label": "Min height",
+                "properties": ["px", "pt", "em", "rem", "%", "auto"]
+              },
+              {
+                "name": "listLargeMaxHeight",
+                "default": "none",
+                "property": "none",
+                "isHalfRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "listLargeMaxHeightTablet",
+                    "default": "inherit-mobile",
+                    "property": "none"
+                  },
+                  "desktop": {
+                    "name": "listLargeMaxHeightDesktop",
+                    "default": "inherit-tablet",
+                    "property": "none"
+                  }
+                },
+                "type": "size",
+                "label": "Max height",
+                "properties": ["px", "pt", "em", "rem", "%", "none"]
+              }
+            ]
+          },
+          {
+            "description": "Margin",
+            "fields": [
+              {
+                "name": "listLargeMarginAlign",
+                "default": "center",
+                "isFullRow": true,
+                "logic": {
+                  "left": {
+                    "listLargeMarginTop": "0px",
+                    "listLargeMarginRight": "auto",
+                    "listLargeMarginBottom": "0px",
+                    "listLargeMarginLeft": "0px"
+                  },
+                  "center": {
+                    "listLargeMarginTop": "0px",
+                    "listLargeMarginRight": "auto",
+                    "listLargeMarginBottom": "0px",
+                    "listLargeMarginLeft": "auto"
+                  },
+                  "right": {
+                    "listLargeMarginTop": "0px",
+                    "listLargeMarginRight": "0px",
+                    "listLargeMarginBottom": "0px",
+                    "listLargeMarginLeft": "auto"
+                  },
+                  "custom": [
+                    "listLargeMarginTop",
+                    "listLargeMarginRight",
+                    "listLargeMarginBottom",
+                    "listLargeMarginLeft"
+                  ]
+                },
+                "breakpoints": {
+                  "tablet": {
+                    "name": "listLargeMarginAlignTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "listLargeMarginAlignDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "margin-align",
+                "properties": ["left", "center", "right", "custom"]
+              },
+              {
+                "name": "listLargeMarginTop",
+                "default": "0px",
+                "property": "px",
+                "isHalfRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "listLargeMarginTopTablet",
+                    "default": "inherit-mobile",
+                    "property": "px"
+                  },
+                  "desktop": {
+                    "name": "listLargeMarginTopDesktop",
+                    "default": "inherit-tablet",
+                    "property": "px"
+                  }
+                },
+                "type": "size",
+                "label": "Top",
+                "allowNegative": true,
+                "properties": ["px", "pt", "em", "rem", "%", "auto"]
+              },
+              {
+                "name": "listLargeMarginRight",
+                "default": "auto",
+                "property": "auto",
+                "isHalfRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "listLargeMarginRightTablet",
+                    "default": "inherit-mobile",
+                    "property": "auto"
+                  },
+                  "desktop": {
+                    "name": "listLargeMarginRightDesktop",
+                    "default": "inherit-tablet",
+                    "property": "auto"
+                  }
+                },
+                "type": "size",
+                "label": "Right",
+                "allowNegative": true,
+                "properties": ["px", "pt", "em", "rem", "%", "auto"]
+              },
+              {
+                "name": "listLargeMarginBottom",
+                "default": "0px",
+                "property": "px",
+                "isHalfRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "listLargeMarginBottomTablet",
+                    "default": "inherit-mobile",
+                    "property": "px"
+                  },
+                  "desktop": {
+                    "name": "listLargeMarginBottomDesktop",
+                    "default": "inherit-tablet",
+                    "property": "px"
+                  }
+                },
+                "type": "size",
+                "label": "Bottom",
+                "allowNegative": true,
+                "properties": ["px", "pt", "em", "rem", "%", "auto"]
+              },
+              {
+                "name": "listLargeMarginLeft",
+                "default": "auto",
+                "property": "auto",
+                "isHalfRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "listLargeMarginLeftTablet",
+                    "default": "inherit-mobile",
+                    "property": "auto"
+                  },
+                  "desktop": {
+                    "name": "listLargeMarginLeftDesktop",
+                    "default": "inherit-tablet",
+                    "property": "auto"
+                  }
+                },
+                "type": "size",
+                "label": "Left",
+                "allowNegative": true,
+                "properties": ["px", "pt", "em", "rem", "%", "auto"]
+              }
+            ]
+          },
+          {
+            "description": "Padding",
+            "fields": [
+              {
+                "name": "listLargePaddingTop",
+                "default": "0px",
+                "property": "px",
+                "isHalfRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "listLargePaddingTopTablet",
+                    "default": "inherit-mobile",
+                    "property": "px"
+                  },
+                  "desktop": {
+                    "name": "listLargePaddingTopDesktop",
+                    "default": "inherit-tablet",
+                    "property": "px"
+                  }
+                },
+                "type": "size",
+                "label": "Top",
+                "properties": ["px", "pt", "em", "rem", "%", "auto"]
+              },
+              {
+                "name": "listLargePaddingRight",
+                "default": "0px",
+                "property": "px",
+                "isHalfRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "listLargePaddingRightTablet",
+                    "default": "inherit-mobile",
+                    "property": "px"
+                  },
+                  "desktop": {
+                    "name": "listLargePaddingRightDesktop",
+                    "default": "inherit-tablet",
+                    "property": "px"
+                  }
+                },
+                "type": "size",
+                "label": "Right",
+                "properties": ["px", "pt", "em", "rem", "%", "auto"]
+              },
+              {
+                "name": "listLargePaddingBottom",
+                "default": "0px",
+                "property": "px",
+                "isHalfRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "listLargePaddingBottomTablet",
+                    "default": "inherit-mobile",
+                    "property": "px"
+                  },
+                  "desktop": {
+                    "name": "listLargePaddingBottomDesktop",
+                    "default": "inherit-tablet",
+                    "property": "px"
+                  }
+                },
+                "type": "size",
+                "label": "Bottom",
+                "properties": ["px", "pt", "em", "rem", "%", "auto"]
+              },
+              {
+                "name": "listLargePaddingLeft",
+                "default": "0px",
+                "property": "px",
+                "isHalfRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "listLargePaddingLeftTablet",
+                    "default": "inherit-mobile",
+                    "property": "px"
+                  },
+                  "desktop": {
+                    "name": "listLargePaddingLeftDesktop",
+                    "default": "inherit-tablet",
+                    "property": "px"
+                  }
+                },
+                "type": "size",
+                "label": "Left",
+                "properties": ["px", "pt", "em", "rem", "%", "auto"]
+              }
+            ]
+          },
+          {
+            "description": "Colors",
             "fields": [
               {
                 "name": "listLargeBackgroundColor",
@@ -12428,21 +15560,21 @@
             ]
           },
           {
-            "description": "Padding",
+            "description": "List item padding",
             "fields": [
               {
-                "name": "listLargePaddingTop",
+                "name": "listLargeItemPaddingTop",
                 "default": "$listPaddingTop",
                 "property": "px",
                 "isHalfRow": true,
                 "breakpoints": {
                   "tablet": {
-                    "name": "listLargePaddingTopTablet",
+                    "name": "listLargeItemPaddingTopTablet",
                     "default": "inherit-mobile",
                     "property": "px"
                   },
                   "desktop": {
-                    "name": "listLargePaddingTopDesktop",
+                    "name": "listLargeItemPaddingTopDesktop",
                     "default": "inherit-tablet",
                     "property": "px"
                   }
@@ -12452,18 +15584,18 @@
                 "properties": ["px", "pt", "em", "rem", "%"]
               },
               {
-                "name": "listLargePaddingRight",
+                "name": "listLargeItemPaddingRight",
                 "default": "$listPaddingRight",
                 "property": "px",
                 "isHalfRow": true,
                 "breakpoints": {
                   "tablet": {
-                    "name": "listLargePaddingRightTablet",
+                    "name": "listLargeItemPaddingRightTablet",
                     "default": "inherit-mobile",
                     "property": "px"
                   },
                   "desktop": {
-                    "name": "listLargePaddingRightDesktop",
+                    "name": "listLargeItemPaddingRightDesktop",
                     "default": "inherit-tablet",
                     "property": "px"
                   }
@@ -12473,18 +15605,18 @@
                 "properties": ["px", "pt", "em", "rem", "%"]
               },
               {
-                "name": "listLargePaddingBottom",
+                "name": "listLargeItemPaddingBottom",
                 "default": "$listPaddingBottom",
                 "property": "px",
                 "isHalfRow": true,
                 "breakpoints": {
                   "tablet": {
-                    "name": "listLargePaddingBottomTablet",
+                    "name": "listLargeItemPaddingBottomTablet",
                     "default": "inherit-mobile",
                     "property": "px"
                   },
                   "desktop": {
-                    "name": "listLargePaddingBottomDesktop",
+                    "name": "listLargeItemPaddingBottomDesktop",
                     "default": "inherit-tablet",
                     "property": "px"
                   }
@@ -12494,18 +15626,18 @@
                 "properties": ["px", "pt", "em", "rem", "%"]
               },
               {
-                "name": "listLargePaddingLeft",
+                "name": "listLargeItemPaddingLeft",
                 "default": "listPaddingLeft",
                 "property": "px",
                 "isHalfRow": true,
                 "breakpoints": {
                   "tablet": {
-                    "name": "listLargePaddingLeftTablet",
+                    "name": "listLargeItemPaddingLeftTablet",
                     "default": "inherit-mobile",
                     "property": "px"
                   },
                   "desktop": {
-                    "name": "listLargePaddingLeftDesktop",
+                    "name": "listLargeItemPaddingLeftDesktop",
                     "default": "inherit-tablet",
                     "property": "px"
                   }
@@ -12664,7 +15796,190 @@
         "packages": ["com.fliplet.dynamic-lists"],
         "variables": [
           {
-            "description": "General",
+            "description": "Sizes",
+            "fields": [
+              {
+                "name": "lfdWidth",
+                "default": "100%",
+                "property": "%",
+                "isFullRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "lfdWidthTablet",
+                    "default": "inherit-mobile",
+                    "property": "%"
+                  },
+                  "desktop": {
+                    "name": "lfdWidthDesktop",
+                    "default": "inherit-tablet",
+                    "property": "%"
+                  }
+                },
+                "type": "size",
+                "label": "Width",
+                "properties": ["px", "pt", "em", "rem", "%", "auto"]
+              },
+              {
+                "name": "lfdMaxWidth",
+                "default": "600px",
+                "property": "px",
+                "isFullRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "lfdMaxWidthTablet",
+                    "default": "inherit-mobile",
+                    "property": "px"
+                  },
+                  "desktop": {
+                    "name": "lfdMaxWidthDesktop",
+                    "default": "inherit-tablet",
+                    "property": "px"
+                  }
+                },
+                "type": "size",
+                "label": "Max width",
+                "properties": ["px", "pt", "em", "rem", "%", "auto"]
+              }
+            ]
+          },
+          {
+            "description": "Margin",
+            "fields": [
+              {
+                "name": "lfdMarginAlign",
+                "default": "center",
+                "isFullRow": true,
+                "logic": {
+                  "left": {
+                    "lfdMarginTop": "0px",
+                    "lfdMarginRight": "auto",
+                    "lfdMarginBottom": "0px",
+                    "lfdMarginLeft": "0px"
+                  },
+                  "center": {
+                    "lfdMarginTop": "0px",
+                    "lfdMarginRight": "auto",
+                    "lfdMarginBottom": "0px",
+                    "lfdMarginLeft": "auto"
+                  },
+                  "right": {
+                    "lfdMarginTop": "0px",
+                    "lfdMarginRight": "0px",
+                    "lfdMarginBottom": "0px",
+                    "lfdMarginLeft": "auto"
+                  },
+                  "custom": [
+                    "lfdMarginTop",
+                    "lfdMarginRight",
+                    "lfdMarginBottom",
+                    "lfdMarginLeft"
+                  ]
+                },
+                "breakpoints": {
+                  "tablet": {
+                    "name": "lfdMarginAlignTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "lfdMarginAlignDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "margin-align",
+                "properties": ["left", "center", "right", "custom"]
+              },
+              {
+                "name": "lfdMarginTop",
+                "default": "0",
+                "property": "px",
+                "isHalfRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "lfdMarginTopTablet",
+                    "default": "inherit-mobile",
+                    "property": "px"
+                  },
+                  "desktop": {
+                    "name": "lfdMarginTopDesktop",
+                    "default": "inherit-tablet",
+                    "property": "px"
+                  }
+                },
+                "type": "size",
+                "label": "Top",
+                "allowNegative": true,
+                "properties": ["px", "pt", "em", "rem", "%", "auto"]
+              },
+              {
+                "name": "lfdMarginRight",
+                "default": "auto",
+                "property": "auto",
+                "isHalfRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "lfdMarginRightTablet",
+                    "default": "inherit-mobile",
+                    "property": "auto"
+                  },
+                  "desktop": {
+                    "name": "lfdMarginRightDesktop",
+                    "default": "inherit-tablet",
+                    "property": "auto"
+                  }
+                },
+                "type": "size",
+                "label": "Right",
+                "allowNegative": true,
+                "properties": ["px", "pt", "em", "rem", "%", "auto"]
+              },
+              {
+                "name": "lfdMarginBottom",
+                "default": "0px",
+                "property": "px",
+                "isHalfRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "lfdMarginBottomTablet",
+                    "default": "inherit-mobile",
+                    "property": "px"
+                  },
+                  "desktop": {
+                    "name": "lfdMarginBottomDesktop",
+                    "default": "inherit-tablet",
+                    "property": "px"
+                  }
+                },
+                "type": "size",
+                "label": "Bottom",
+                "allowNegative": true,
+                "properties": ["px", "pt", "em", "rem", "%", "auto"]
+              },
+              {
+                "name": "lfdMarginLeft",
+                "default": "auto",
+                "property": "auto",
+                "isHalfRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "lfdMarginLeftTablet",
+                    "default": "inherit-mobile",
+                    "property": "auto"
+                  },
+                  "desktop": {
+                    "name": "lfdMarginLeftDesktop",
+                    "default": "inherit-tablet",
+                    "property": "auto"
+                  }
+                },
+                "type": "size",
+                "label": "Left",
+                "allowNegative": true,
+                "properties": ["px", "pt", "em", "rem", "%", "auto"]
+              }
+            ]
+          },
+          {
+            "description": "Colors",
             "fields": [
               {
                 "name": "lfdBackgroundColor",
@@ -12856,185 +16171,6 @@
             ]
           },
           {
-            "description": "Sizes",
-            "fields": [
-              {
-                "name": "lfdWidth",
-                "default": "100%",
-                "property": "%",
-                "isFullRow": true,
-                "breakpoints": {
-                  "tablet": {
-                    "name": "lfdWidthTablet",
-                    "default": "inherit-mobile",
-                    "property": "%"
-                  },
-                  "desktop": {
-                    "name": "lfdWidthDesktop",
-                    "default": "inherit-tablet",
-                    "property": "%"
-                  }
-                },
-                "type": "size",
-                "label": "Width",
-                "properties": ["px", "pt", "em", "rem", "%", "auto"]
-              },
-              {
-                "name": "lfdMaxWidth",
-                "default": "600px",
-                "property": "px",
-                "isFullRow": true,
-                "breakpoints": {
-                  "tablet": {
-                    "name": "lfdMaxWidthTablet",
-                    "default": "inherit-mobile",
-                    "property": "px"
-                  },
-                  "desktop": {
-                    "name": "lfdMaxWidthDesktop",
-                    "default": "inherit-tablet",
-                    "property": "px"
-                  }
-                },
-                "type": "size",
-                "label": "Max width",
-                "properties": ["px", "pt", "em", "rem", "%", "auto"]
-              }
-            ]
-          },
-          {
-            "description": "Margin",
-            "fields": [
-              {
-                "name": "lfdMarginAlign",
-                "default": "center",
-                "isFullRow": true,
-                "logic": {
-                  "left": {
-                    "lfdMarginTop": "0px",
-                    "lfdMarginRight": "auto",
-                    "lfdMarginBottom": "0px",
-                    "lfdMarginLeft": "0px"
-                  },
-                  "center": {
-                    "lfdMarginTop": "0px",
-                    "lfdMarginRight": "auto",
-                    "lfdMarginBottom": "0px",
-                    "lfdMarginLeft": "auto"
-                  },
-                  "right": {
-                    "lfdMarginTop": "0px",
-                    "lfdMarginRight": "0px",
-                    "lfdMarginBottom": "0px",
-                    "lfdMarginLeft": "auto"
-                  },
-                  "custom": [
-                    "lfdMarginTop",
-                    "lfdMarginRight",
-                    "lfdMarginBottom",
-                    "lfdMarginLeft"
-                  ]
-                },
-                "breakpoints": {
-                  "tablet": {
-                    "name": "lfdMarginAlignTablet",
-                    "default": "inherit-mobile"
-                  },
-                  "desktop": {
-                    "name": "lfdMarginAlignDesktop",
-                    "default": "inherit-tablet"
-                  }
-                },
-                "type": "margin-align",
-                "properties": ["left", "center", "right", "custom"]
-              },
-              {
-                "name": "lfdMarginTop",
-                "default": "0",
-                "property": "px",
-                "isHalfRow": true,
-                "breakpoints": {
-                  "tablet": {
-                    "name": "lfdMarginTopTablet",
-                    "default": "inherit-mobile",
-                    "property": "px"
-                  },
-                  "desktop": {
-                    "name": "lfdMarginTopDesktop",
-                    "default": "inherit-tablet",
-                    "property": "px"
-                  }
-                },
-                "type": "size",
-                "label": "Top",
-                "properties": ["px", "pt", "em", "rem", "%", "auto"]
-              },
-              {
-                "name": "lfdMarginRight",
-                "default": "auto",
-                "property": "auto",
-                "isHalfRow": true,
-                "breakpoints": {
-                  "tablet": {
-                    "name": "lfdMarginRightTablet",
-                    "default": "inherit-mobile",
-                    "property": "auto"
-                  },
-                  "desktop": {
-                    "name": "lfdMarginRightDesktop",
-                    "default": "inherit-tablet",
-                    "property": "auto"
-                  }
-                },
-                "type": "size",
-                "label": "Right",
-                "properties": ["px", "pt", "em", "rem", "%", "auto"]
-              },
-              {
-                "name": "lfdMarginBottom",
-                "default": "0px",
-                "property": "px",
-                "isHalfRow": true,
-                "breakpoints": {
-                  "tablet": {
-                    "name": "lfdMarginBottomTablet",
-                    "default": "inherit-mobile",
-                    "property": "px"
-                  },
-                  "desktop": {
-                    "name": "lfdMarginBottomDesktop",
-                    "default": "inherit-tablet",
-                    "property": "px"
-                  }
-                },
-                "type": "size",
-                "label": "Bottom",
-                "properties": ["px", "pt", "em", "rem", "%", "auto"]
-              },
-              {
-                "name": "lfdMarginLeft",
-                "default": "auto",
-                "property": "auto",
-                "isHalfRow": true,
-                "breakpoints": {
-                  "tablet": {
-                    "name": "lfdMarginLeftTablet",
-                    "default": "inherit-mobile",
-                    "property": "auto"
-                  },
-                  "desktop": {
-                    "name": "lfdMarginLeftDesktop",
-                    "default": "inherit-tablet",
-                    "property": "auto"
-                  }
-                },
-                "type": "size",
-                "label": "Left",
-                "properties": ["px", "pt", "em", "rem", "%", "auto"]
-              }
-            ]
-          },
-          {
             "description": "Border",
             "fields": [
               {
@@ -13193,7 +16329,300 @@
         "packages": ["com.fliplet.lock"],
         "variables": [
           {
-            "description": "General",
+            "description": "Sizes",
+            "fields": [
+              {
+                "name": "lockWidth",
+                "default": "100%",
+                "property": "%",
+                "isHalfRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "lockWidthTablet",
+                    "default": "inherit-mobile",
+                    "property": "%"
+                  },
+                  "desktop": {
+                    "name": "lockWidthDesktop",
+                    "default": "inherit-tablet",
+                    "property": "%"
+                  }
+                },
+                "type": "size",
+                "label": "Width",
+                "properties": ["px", "pt", "em", "rem", "%", "auto"]
+              },
+              {
+                "name": "lockMinWidth",
+                "default": "auto",
+                "property": "auto",
+                "isHalfRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "lockMinWidthTablet",
+                    "default": "inherit-mobile",
+                    "property": "auto"
+                  },
+                  "desktop": {
+                    "name": "lockMinWidthDesktop",
+                    "default": "inherit-tablet",
+                    "property": "auto"
+                  }
+                },
+                "type": "size",
+                "label": "Min width",
+                "properties": ["px", "pt", "em", "rem", "%", "auto"]
+              },
+              {
+                "name": "lockMaxWidth",
+                "default": "none",
+                "property": "none",
+                "isHalfRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "lockMaxWidthTablet",
+                    "default": "inherit-mobile",
+                    "property": "none"
+                  },
+                  "desktop": {
+                    "name": "lockMaxWidthDesktop",
+                    "default": "inherit-tablet",
+                    "property": "none"
+                  }
+                },
+                "type": "size",
+                "label": "Max width",
+                "properties": ["px", "pt", "em", "rem", "%", "none"]
+              }
+            ]
+          },
+          {
+            "description": "Margin",
+            "fields": [
+              {
+                "name": "lockMarginAlign",
+                "default": "center",
+                "isFullRow": true,
+                "logic": {
+                  "left": {
+                    "lockMarginTop": "0px",
+                    "lockMarginRight": "auto",
+                    "lockMarginBottom": "0px",
+                    "lockMarginLeft": "0px"
+                  },
+                  "center": {
+                    "lockMarginTop": "0px",
+                    "lockMarginRight": "auto",
+                    "lockMarginBottom": "0px",
+                    "lockMarginLeft": "auto"
+                  },
+                  "right": {
+                    "lockMarginTop": "0px",
+                    "lockMarginRight": "0px",
+                    "lockMarginBottom": "0px",
+                    "lockMarginLeft": "auto"
+                  },
+                  "custom": [
+                    "lockMarginTop",
+                    "lockMarginRight",
+                    "lockMarginBottom",
+                    "lockMarginLeft"
+                  ]
+                },
+                "breakpoints": {
+                  "tablet": {
+                    "name": "lockMarginAlignTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "lockMarginAlignDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "margin-align",
+                "properties": ["left", "center", "right", "custom"]
+              },
+              {
+                "name": "lockMarginTop",
+                "default": "0px",
+                "property": "px",
+                "isHalfRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "lockMarginTopTablet",
+                    "default": "inherit-mobile",
+                    "property": "px"
+                  },
+                  "desktop": {
+                    "name": "lockMarginTopDesktop",
+                    "default": "inherit-tablet",
+                    "property": "px"
+                  }
+                },
+                "type": "size",
+                "label": "Top",
+                "allowNegative": true,
+                "properties": ["px", "pt", "em", "rem", "%", "auto"]
+              },
+              {
+                "name": "lockMarginRight",
+                "default": "auto",
+                "property": "auto",
+                "isHalfRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "lockMarginRightTablet",
+                    "default": "inherit-mobile",
+                    "property": "auto"
+                  },
+                  "desktop": {
+                    "name": "lockMarginRightDesktop",
+                    "default": "inherit-tablet",
+                    "property": "auto"
+                  }
+                },
+                "type": "size",
+                "label": "Right",
+                "allowNegative": true,
+                "properties": ["px", "pt", "em", "rem", "%", "auto"]
+              },
+              {
+                "name": "lockMarginBottom",
+                "default": "0px",
+                "property": "px",
+                "isHalfRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "lockMarginBottomTablet",
+                    "default": "inherit-mobile",
+                    "property": "px"
+                  },
+                  "desktop": {
+                    "name": "lockMarginBottomDesktop",
+                    "default": "inherit-tablet",
+                    "property": "px"
+                  }
+                },
+                "type": "size",
+                "label": "Bottom",
+                "allowNegative": true,
+                "properties": ["px", "pt", "em", "rem", "%", "auto"]
+              },
+              {
+                "name": "lockMarginLeft",
+                "default": "auto",
+                "property": "auto",
+                "isHalfRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "lockMarginLeftTablet",
+                    "default": "inherit-mobile",
+                    "property": "auto"
+                  },
+                  "desktop": {
+                    "name": "lockMarginLeftDesktop",
+                    "default": "inherit-tablet",
+                    "property": "auto"
+                  }
+                },
+                "type": "size",
+                "label": "Left",
+                "allowNegative": true,
+                "properties": ["px", "pt", "em", "rem", "%", "auto"]
+              }
+            ]
+          },
+          {
+            "description": "Padding",
+            "fields": [
+              {
+                "name": "lockPaddingTop",
+                "default": "0px",
+                "property": "px",
+                "isHalfRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "lockPaddingTopTablet",
+                    "default": "inherit-mobile",
+                    "property": "px"
+                  },
+                  "desktop": {
+                    "name": "lockPaddingTopDesktop",
+                    "default": "inherit-tablet",
+                    "property": "px"
+                  }
+                },
+                "type": "size",
+                "label": "Top",
+                "properties": ["px", "pt", "em", "rem", "%", "auto"]
+              },
+              {
+                "name": "lockPaddingRight",
+                "default": "0px",
+                "property": "px",
+                "isHalfRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "lockPaddingRightTablet",
+                    "default": "inherit-mobile",
+                    "property": "px"
+                  },
+                  "desktop": {
+                    "name": "lockPaddingRightDesktop",
+                    "default": "inherit-tablet",
+                    "property": "px"
+                  }
+                },
+                "type": "size",
+                "label": "Right",
+                "properties": ["px", "pt", "em", "rem", "%", "auto"]
+              },
+              {
+                "name": "lockPaddingBottom",
+                "default": "0px",
+                "property": "px",
+                "isHalfRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "lockPaddingBottomTablet",
+                    "default": "inherit-mobile",
+                    "property": "px"
+                  },
+                  "desktop": {
+                    "name": "lockPaddingBottomDesktop",
+                    "default": "inherit-tablet",
+                    "property": "px"
+                  }
+                },
+                "type": "size",
+                "label": "Bottom",
+                "properties": ["px", "pt", "em", "rem", "%", "auto"]
+              },
+              {
+                "name": "lockPaddingLeft",
+                "default": "0px",
+                "property": "px",
+                "isHalfRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "lockPaddingLeftTablet",
+                    "default": "inherit-mobile",
+                    "property": "px"
+                  },
+                  "desktop": {
+                    "name": "lockPaddingLeftDesktop",
+                    "default": "inherit-tablet",
+                    "property": "px"
+                  }
+                },
+                "type": "size",
+                "label": "Left",
+                "properties": ["px", "pt", "em", "rem", "%", "auto"]
+              }
+            ]
+          },
+          {
+            "description": "Colors",
             "fields": [
               {
                 "name": "lockInput",
@@ -13273,7 +16702,300 @@
           "com.fliplet.login.saml2", "com.fliplet.email-validation", "com.fliplet.sms-verfication"],
         "variables": [
           {
-            "description": "General",
+            "description": "Sizes",
+            "fields": [
+              {
+                "name": "loginWidth",
+                "default": "100%",
+                "property": "%",
+                "isHalfRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "loginWidthTablet",
+                    "default": "inherit-mobile",
+                    "property": "%"
+                  },
+                  "desktop": {
+                    "name": "loginWidthDesktop",
+                    "default": "inherit-tablet",
+                    "property": "%"
+                  }
+                },
+                "type": "size",
+                "label": "Width",
+                "properties": ["px", "pt", "em", "rem", "%", "auto"]
+              },
+              {
+                "name": "loginMinWidth",
+                "default": "auto",
+                "property": "auto",
+                "isHalfRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "loginMinWidthTablet",
+                    "default": "inherit-mobile",
+                    "property": "auto"
+                  },
+                  "desktop": {
+                    "name": "loginMinWidthDesktop",
+                    "default": "inherit-tablet",
+                    "property": "auto"
+                  }
+                },
+                "type": "size",
+                "label": "Min width",
+                "properties": ["px", "pt", "em", "rem", "%", "auto"]
+              },
+              {
+                "name": "loginMaxWidth",
+                "default": "none",
+                "property": "none",
+                "isHalfRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "loginMaxWidthTablet",
+                    "default": "inherit-mobile",
+                    "property": "none"
+                  },
+                  "desktop": {
+                    "name": "loginMaxWidthDesktop",
+                    "default": "inherit-tablet",
+                    "property": "none"
+                  }
+                },
+                "type": "size",
+                "label": "Max width",
+                "properties": ["px", "pt", "em", "rem", "%", "none"]
+              }
+            ]
+          },
+          {
+            "description": "Margin",
+            "fields": [
+              {
+                "name": "loginMarginAlign",
+                "default": "center",
+                "isFullRow": true,
+                "logic": {
+                  "left": {
+                    "loginMarginTop": "0px",
+                    "loginMarginRight": "auto",
+                    "loginMarginBottom": "0px",
+                    "loginMarginLeft": "0px"
+                  },
+                  "center": {
+                    "loginMarginTop": "0px",
+                    "loginMarginRight": "auto",
+                    "loginMarginBottom": "0px",
+                    "loginMarginLeft": "auto"
+                  },
+                  "right": {
+                    "loginMarginTop": "0px",
+                    "loginMarginRight": "0px",
+                    "loginMarginBottom": "0px",
+                    "loginMarginLeft": "auto"
+                  },
+                  "custom": [
+                    "loginMarginTop",
+                    "loginMarginRight",
+                    "loginMarginBottom",
+                    "loginMarginLeft"
+                  ]
+                },
+                "breakpoints": {
+                  "tablet": {
+                    "name": "loginMarginAlignTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "loginMarginAlignDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "margin-align",
+                "properties": ["left", "center", "right", "custom"]
+              },
+              {
+                "name": "loginMarginTop",
+                "default": "0px",
+                "property": "px",
+                "isHalfRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "loginMarginTopTablet",
+                    "default": "inherit-mobile",
+                    "property": "px"
+                  },
+                  "desktop": {
+                    "name": "loginMarginTopDesktop",
+                    "default": "inherit-tablet",
+                    "property": "px"
+                  }
+                },
+                "type": "size",
+                "label": "Top",
+                "allowNegative": true,
+                "properties": ["px", "pt", "em", "rem", "%", "auto"]
+              },
+              {
+                "name": "loginMarginRight",
+                "default": "auto",
+                "property": "auto",
+                "isHalfRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "loginMarginRightTablet",
+                    "default": "inherit-mobile",
+                    "property": "auto"
+                  },
+                  "desktop": {
+                    "name": "loginMarginRightDesktop",
+                    "default": "inherit-tablet",
+                    "property": "auto"
+                  }
+                },
+                "type": "size",
+                "label": "Right",
+                "allowNegative": true,
+                "properties": ["px", "pt", "em", "rem", "%", "auto"]
+              },
+              {
+                "name": "loginMarginBottom",
+                "default": "0px",
+                "property": "px",
+                "isHalfRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "loginMarginBottomTablet",
+                    "default": "inherit-mobile",
+                    "property": "px"
+                  },
+                  "desktop": {
+                    "name": "loginMarginBottomDesktop",
+                    "default": "inherit-tablet",
+                    "property": "px"
+                  }
+                },
+                "type": "size",
+                "label": "Bottom",
+                "allowNegative": true,
+                "properties": ["px", "pt", "em", "rem", "%", "auto"]
+              },
+              {
+                "name": "loginMarginLeft",
+                "default": "auto",
+                "property": "auto",
+                "isHalfRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "loginMarginLeftTablet",
+                    "default": "inherit-mobile",
+                    "property": "auto"
+                  },
+                  "desktop": {
+                    "name": "loginMarginLeftDesktop",
+                    "default": "inherit-tablet",
+                    "property": "auto"
+                  }
+                },
+                "type": "size",
+                "label": "Left",
+                "allowNegative": true,
+                "properties": ["px", "pt", "em", "rem", "%", "auto"]
+              }
+            ]
+          },
+          {
+            "description": "Padding",
+            "fields": [
+              {
+                "name": "loginPaddingTop",
+                "default": "0px",
+                "property": "px",
+                "isHalfRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "loginPaddingTopTablet",
+                    "default": "inherit-mobile",
+                    "property": "px"
+                  },
+                  "desktop": {
+                    "name": "loginPaddingTopDesktop",
+                    "default": "inherit-tablet",
+                    "property": "px"
+                  }
+                },
+                "type": "size",
+                "label": "Top",
+                "properties": ["px", "pt", "em", "rem", "%", "auto"]
+              },
+              {
+                "name": "loginPaddingRight",
+                "default": "0px",
+                "property": "px",
+                "isHalfRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "loginPaddingRightTablet",
+                    "default": "inherit-mobile",
+                    "property": "px"
+                  },
+                  "desktop": {
+                    "name": "loginPaddingRightDesktop",
+                    "default": "inherit-tablet",
+                    "property": "px"
+                  }
+                },
+                "type": "size",
+                "label": "Right",
+                "properties": ["px", "pt", "em", "rem", "%", "auto"]
+              },
+              {
+                "name": "loginPaddingBottom",
+                "default": "0px",
+                "property": "px",
+                "isHalfRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "loginPaddingBottomTablet",
+                    "default": "inherit-mobile",
+                    "property": "px"
+                  },
+                  "desktop": {
+                    "name": "loginPaddingBottomDesktop",
+                    "default": "inherit-tablet",
+                    "property": "px"
+                  }
+                },
+                "type": "size",
+                "label": "Bottom",
+                "properties": ["px", "pt", "em", "rem", "%", "auto"]
+              },
+              {
+                "name": "loginPaddingLeft",
+                "default": "0px",
+                "property": "px",
+                "isHalfRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "loginPaddingLeftTablet",
+                    "default": "inherit-mobile",
+                    "property": "px"
+                  },
+                  "desktop": {
+                    "name": "loginPaddingLeftDesktop",
+                    "default": "inherit-tablet",
+                    "property": "px"
+                  }
+                },
+                "type": "size",
+                "label": "Left",
+                "properties": ["px", "pt", "em", "rem", "%", "auto"]
+              }
+            ]
+          },
+          {
+            "description": "Colors",
             "fields": [
               {
                 "name": "chevronColor",
@@ -13470,7 +17192,300 @@
         "packages": ["com.fliplet.notificationinbox"],
         "variables": [
           {
-            "description": "General",
+            "description": "Sizes",
+            "fields": [
+              {
+                "name": "notificationWidth",
+                "default": "100%",
+                "property": "%",
+                "isHalfRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "notificationWidthTablet",
+                    "default": "inherit-mobile",
+                    "property": "%"
+                  },
+                  "desktop": {
+                    "name": "notificationWidthDesktop",
+                    "default": "inherit-tablet",
+                    "property": "%"
+                  }
+                },
+                "type": "size",
+                "label": "Width",
+                "properties": ["px", "pt", "em", "rem", "%", "auto"]
+              },
+              {
+                "name": "notificationMinWidth",
+                "default": "auto",
+                "property": "auto",
+                "isHalfRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "notificationMinWidthTablet",
+                    "default": "inherit-mobile",
+                    "property": "auto"
+                  },
+                  "desktop": {
+                    "name": "notificationMinWidthDesktop",
+                    "default": "inherit-tablet",
+                    "property": "auto"
+                  }
+                },
+                "type": "size",
+                "label": "Min width",
+                "properties": ["px", "pt", "em", "rem", "%", "auto"]
+              },
+              {
+                "name": "notificationMaxWidth",
+                "default": "none",
+                "property": "none",
+                "isHalfRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "notificationMaxWidthTablet",
+                    "default": "inherit-mobile",
+                    "property": "none"
+                  },
+                  "desktop": {
+                    "name": "notificationMaxWidthDesktop",
+                    "default": "inherit-tablet",
+                    "property": "none"
+                  }
+                },
+                "type": "size",
+                "label": "Max width",
+                "properties": ["px", "pt", "em", "rem", "%", "none"]
+              }
+            ]
+          },
+          {
+            "description": "Margin",
+            "fields": [
+              {
+                "name": "notificationMarginAlign",
+                "default": "center",
+                "isFullRow": true,
+                "logic": {
+                  "left": {
+                    "notificationMarginTop": "0px",
+                    "notificationMarginRight": "auto",
+                    "notificationMarginBottom": "0px",
+                    "notificationMarginLeft": "0px"
+                  },
+                  "center": {
+                    "notificationMarginTop": "0px",
+                    "notificationMarginRight": "auto",
+                    "notificationMarginBottom": "0px",
+                    "notificationMarginLeft": "auto"
+                  },
+                  "right": {
+                    "notificationMarginTop": "0px",
+                    "notificationMarginRight": "0px",
+                    "notificationMarginBottom": "0px",
+                    "notificationMarginLeft": "auto"
+                  },
+                  "custom": [
+                    "notificationMarginTop",
+                    "notificationMarginRight",
+                    "notificationMarginBottom",
+                    "notificationMarginLeft"
+                  ]
+                },
+                "breakpoints": {
+                  "tablet": {
+                    "name": "notificationMarginAlignTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "notificationMarginAlignDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "margin-align",
+                "properties": ["left", "center", "right", "custom"]
+              },
+              {
+                "name": "notificationMarginTop",
+                "default": "0px",
+                "property": "px",
+                "isHalfRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "notificationMarginTopTablet",
+                    "default": "inherit-mobile",
+                    "property": "px"
+                  },
+                  "desktop": {
+                    "name": "notificationMarginTopDesktop",
+                    "default": "inherit-tablet",
+                    "property": "px"
+                  }
+                },
+                "type": "size",
+                "label": "Top",
+                "allowNegative": true,
+                "properties": ["px", "pt", "em", "rem", "%", "auto"]
+              },
+              {
+                "name": "notificationMarginRight",
+                "default": "auto",
+                "property": "auto",
+                "isHalfRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "notificationMarginRightTablet",
+                    "default": "inherit-mobile",
+                    "property": "auto"
+                  },
+                  "desktop": {
+                    "name": "notificationMarginRightDesktop",
+                    "default": "inherit-tablet",
+                    "property": "auto"
+                  }
+                },
+                "type": "size",
+                "label": "Right",
+                "allowNegative": true,
+                "properties": ["px", "pt", "em", "rem", "%", "auto"]
+              },
+              {
+                "name": "notificationMarginBottom",
+                "default": "0px",
+                "property": "px",
+                "isHalfRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "notificationMarginBottomTablet",
+                    "default": "inherit-mobile",
+                    "property": "px"
+                  },
+                  "desktop": {
+                    "name": "notificationMarginBottomDesktop",
+                    "default": "inherit-tablet",
+                    "property": "px"
+                  }
+                },
+                "type": "size",
+                "label": "Bottom",
+                "allowNegative": true,
+                "properties": ["px", "pt", "em", "rem", "%", "auto"]
+              },
+              {
+                "name": "notificationMarginLeft",
+                "default": "auto",
+                "property": "auto",
+                "isHalfRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "notificationMarginLeftTablet",
+                    "default": "inherit-mobile",
+                    "property": "auto"
+                  },
+                  "desktop": {
+                    "name": "notificationMarginLeftDesktop",
+                    "default": "inherit-tablet",
+                    "property": "auto"
+                  }
+                },
+                "type": "size",
+                "label": "Left",
+                "allowNegative": true,
+                "properties": ["px", "pt", "em", "rem", "%", "auto"]
+              }
+            ]
+          },
+          {
+            "description": "Padding",
+            "fields": [
+              {
+                "name": "notificationPaddingTop",
+                "default": "20px",
+                "property": "px",
+                "isHalfRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "notificationPaddingTopTablet",
+                    "default": "inherit-mobile",
+                    "property": "px"
+                  },
+                  "desktop": {
+                    "name": "notificationPaddingTopDesktop",
+                    "default": "inherit-tablet",
+                    "property": "px"
+                  }
+                },
+                "type": "size",
+                "label": "Top",
+                "properties": ["px", "pt", "em", "rem", "%", "auto"]
+              },
+              {
+                "name": "notificationPaddingRight",
+                "default": "0px",
+                "property": "px",
+                "isHalfRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "notificationPaddingRightTablet",
+                    "default": "inherit-mobile",
+                    "property": "px"
+                  },
+                  "desktop": {
+                    "name": "notificationPaddingRightDesktop",
+                    "default": "inherit-tablet",
+                    "property": "px"
+                  }
+                },
+                "type": "size",
+                "label": "Right",
+                "properties": ["px", "pt", "em", "rem", "%", "auto"]
+              },
+              {
+                "name": "notificationPaddingBottom",
+                "default": "0px",
+                "property": "px",
+                "isHalfRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "notificationPaddingBottomTablet",
+                    "default": "inherit-mobile",
+                    "property": "px"
+                  },
+                  "desktop": {
+                    "name": "notificationPaddingBottomDesktop",
+                    "default": "inherit-tablet",
+                    "property": "px"
+                  }
+                },
+                "type": "size",
+                "label": "Bottom",
+                "properties": ["px", "pt", "em", "rem", "%", "auto"]
+              },
+              {
+                "name": "notificationPaddingLeft",
+                "default": "0px",
+                "property": "px",
+                "isHalfRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "notificationPaddingLeftTablet",
+                    "default": "inherit-mobile",
+                    "property": "px"
+                  },
+                  "desktop": {
+                    "name": "notificationPaddingLeftDesktop",
+                    "default": "inherit-tablet",
+                    "property": "px"
+                  }
+                },
+                "type": "size",
+                "label": "Left",
+                "properties": ["px", "pt", "em", "rem", "%", "auto"]
+              }
+            ]
+          },
+          {
+            "description": "Colors",
             "fields": [
               {
                 "name": "notificationDraftBackgroundColor",

@@ -1,5 +1,16 @@
 @mixin accordion($options: ()) {
   $configuration: map-merge((
+    accordionWidth: $accordionWidth,
+    accordionMinWidth: $accordionMinWidth,
+    accordionMaxWidth: $accordionMaxWidth,
+    accordionMarginTop: $accordionMarginTop,
+    accordionMarginRight: $accordionMarginRight,
+    accordionMarginBottom: $accordionMarginBottom,
+    accordionMarginLeft: $accordionMarginLeft,
+    accordionPaddingTop: $accordionPaddingTop,
+    accordionPaddingRight: $accordionPaddingRight,
+    accordionPaddingBottom: $accordionPaddingBottom,
+    accordionPaddingLeft: $accordionPaddingLeft,
     accordionHeadingBg: $accordionHeadingBg,
     accordionHeadingBgActive: $accordionHeadingBgActive,
     accordionHeadingText: $accordionHeadingText,
@@ -17,6 +28,17 @@
     accordionBorderWidth: $accordionBorderWidth,
     accordionBorderStyle: $accordionBorderStyle,
     accordionBorderColor: $accordionBorderColor,
+    accordionWidthTablet: $accordionWidthTablet,
+    accordionMinWidthTablet: $accordionMinWidthTablet,
+    accordionMaxWidthTablet: $accordionMaxWidthTablet,
+    accordionMarginTopTablet: $accordionMarginTopTablet,
+    accordionMarginRightTablet: $accordionMarginRightTablet,
+    accordionMarginBottomTablet: $accordionMarginBottomTablet,
+    accordionMarginLeftTablet: $accordionMarginLeftTablet,
+    accordionPaddingTopTablet: $accordionPaddingTopTablet,
+    accordionPaddingRightTablet: $accordionPaddingRightTablet,
+    accordionPaddingBottomTablet: $accordionPaddingBottomTablet,
+    accordionPaddingLeftTablet: $accordionPaddingLeftTablet,
     accordionHeadingBgTablet: $accordionHeadingBgTablet,
     accordionHeadingBgActiveTablet: $accordionHeadingBgActiveTablet,
     accordionHeadingTextTablet: $accordionHeadingTextTablet,
@@ -34,6 +56,17 @@
     accordionBorderWidthTablet: $accordionBorderWidthTablet,
     accordionBorderStyleTablet: $accordionBorderStyleTablet,
     accordionBorderColorTablet: $accordionBorderColorTablet,
+    accordionWidthDesktop: $accordionWidthDesktop,
+    accordionMinWidthDesktop: $accordionMinWidthDesktop,
+    accordionMaxWidthDesktop: $accordionMaxWidthDesktop,
+    accordionMarginTopDesktop: $accordionMarginTopDesktop,
+    accordionMarginRightDesktop: $accordionMarginRightDesktop,
+    accordionMarginBottomDesktop: $accordionMarginBottomDesktop,
+    accordionMarginLeftDesktop: $accordionMarginLeftDesktop,
+    accordionPaddingTopDesktop: $accordionPaddingTopDesktop,
+    accordionPaddingRightDesktop: $accordionPaddingRightDesktop,
+    accordionPaddingBottomDesktop: $accordionPaddingBottomDesktop,
+    accordionPaddingLeftDesktop: $accordionPaddingLeftDesktop,
     accordionHeadingBgDesktop: $accordionHeadingBgDesktop,
     accordionHeadingBgActiveDesktop: $accordionHeadingBgActiveDesktop,
     accordionHeadingTextDesktop: $accordionHeadingTextDesktop,
@@ -135,6 +168,46 @@
   }
 
   .panel-group {
+    width: map-get($configuration, accordionWidth);
+    min-width: map-get($configuration, accordionMinWidth);
+    max-width: map-get($configuration, accordionMaxWidth);
+    margin: map-get($configuration, accordionMarginTop)
+      map-get($configuration, accordionMarginRight)
+      map-get($configuration, accordionMarginBottom)
+      map-get($configuration, accordionMarginLeft);
+    padding: map-get($configuration, accordionPaddingTop)
+      map-get($configuration, accordionPaddingRight)
+      map-get($configuration, accordionPaddingBottom)
+      map-get($configuration, accordionPaddingLeft);
+
+    @include above($tabletBreakpoint) {
+      width: map-get($configuration, accordionWidthTablet);
+      min-width: map-get($configuration, accordionMinWidthTablet);
+      max-width: map-get($configuration, accordionMaxWidthTablet);
+      margin: map-get($configuration, accordionMarginTopTablet)
+        map-get($configuration, accordionMarginRightTablet)
+        map-get($configuration, accordionMarginBottomTablet)
+        map-get($configuration, accordionMarginLeftTablet);
+      padding: map-get($configuration, accordionPaddingTopTablet)
+        map-get($configuration, accordionPaddingRightTablet)
+        map-get($configuration, accordionPaddingBottomTablet)
+        map-get($configuration, accordionPaddingLeftTablet);
+    }
+
+    @include above($desktopBreakpoint) {
+      width: map-get($configuration, accordionWidthDesktop);
+      min-width: map-get($configuration, accordionMinWidthDesktop);
+      max-width: map-get($configuration, accordionMaxWidthDesktop);
+      margin: map-get($configuration, accordionMarginTopDesktop)
+        map-get($configuration, accordionMarginRightDesktop)
+        map-get($configuration, accordionMarginBottomDesktop)
+        map-get($configuration, accordionMarginLeftDesktop);
+      padding: map-get($configuration, accordionPaddingTopDesktop)
+        map-get($configuration, accordionPaddingRightDesktop)
+        map-get($configuration, accordionPaddingBottomDesktop)
+        map-get($configuration, accordionPaddingLeftDesktop);
+    }
+
     .panel {
       background-color: transparent;
       border: map-get($configuration, accordionBorderWidth)

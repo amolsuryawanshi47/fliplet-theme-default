@@ -1,5 +1,19 @@
 @mixin listSmallThumbs($options: ()) {
   $configuration: map-merge((
+    listSmallWidth: $listSmallWidth,
+    listSmallHeight: $listSmallHeight,
+    listSmallMinWidth: $listSmallMinWidth,
+    listSmallMaxWidth: $listSmallMaxWidth,
+    listSmallMinHeight: $listSmallMinHeight,
+    listSmallMaxHeight: $listSmallMaxHeight,
+    listSmallMarginTop: $listSmallMarginTop,
+    listSmallMarginRight: $listSmallMarginRight,
+    listSmallMarginBottom: $listSmallMarginBottom,
+    listSmallMarginLeft: $listSmallMarginLeft,
+    listSmallPaddingTop: $listSmallPaddingTop,
+    listSmallPaddingRight: $listSmallPaddingRight,
+    listSmallPaddingBottom: $listSmallPaddingBottom,
+    listSmallPaddingLeft: $listSmallPaddingLeft,
     listSmallBackgroundColor: $listSmallBackgroundColor,
     listSmallClickColor: $listSmallClickColor,
     listSmallSeparatorColor: $listSmallSeparatorColor,
@@ -18,10 +32,10 @@
     listSmallDescriptionDecoration: $listSmallDescriptionDecoration,
     listSmallIconSize: $listSmallIconSize,
     listSmallIconColor: $listSmallIconColor,
-    listSmallPaddingTop: $listSmallPaddingTop,
-    listSmallPaddingRight: $listSmallPaddingRight,
-    listSmallPaddingBottom: $listSmallPaddingBottom,
-    listSmallPaddingLeft: $listSmallPaddingLeft,
+    listSmallItemPaddingTop: $listSmallItemPaddingTop,
+    listSmallItemPaddingRight: $listSmallItemPaddingRight,
+    listSmallItemPaddingBottom: $listSmallItemPaddingBottom,
+    listSmallItemPaddingLeft: $listSmallItemPaddingLeft,
     listSmallMyListToggleColor: $listSmallMyListToggleColor,
     listSmallMyListToggleActiveColor: $listSmallMyListToggleActiveColor,
     listSmallMyListSwipeColor: $listSmallMyListSwipeColor,
@@ -30,6 +44,20 @@
     listSmallMyListSwipeRightTextColor: $listSmallMyListSwipeRightTextColor,
     listSmallMyListSwipeLeftColor: $listSmallMyListSwipeLeftColor,
     listSmallMyListSwipeLeftTextColor: $listSmallMyListSwipeLeftTextColor,
+    listSmallWidthTablet: $listSmallWidthTablet,
+    listSmallHeightTablet: $listSmallHeightTablet,
+    listSmallMinWidthTablet: $listSmallMinWidthTablet,
+    listSmallMaxWidthTablet: $listSmallMaxWidthTablet,
+    listSmallMinHeightTablet: $listSmallMinHeightTablet,
+    listSmallMaxHeightTablet: $listSmallMaxHeightTablet,
+    listSmallMarginTopTablet: $listSmallMarginTopTablet,
+    listSmallMarginRightTablet: $listSmallMarginRightTablet,
+    listSmallMarginBottomTablet: $listSmallMarginBottomTablet,
+    listSmallMarginLeftTablet: $listSmallMarginLeftTablet,
+    listSmallPaddingTopTablet: $listSmallPaddingTopTablet,
+    listSmallPaddingRightTablet: $listSmallPaddingRightTablet,
+    listSmallPaddingBottomTablet: $listSmallPaddingBottomTablet,
+    listSmallPaddingLeftTablet: $listSmallPaddingLeftTablet,
     listSmallBackgroundColorTablet: $listSmallBackgroundColorTablet,
     listSmallClickColorTablet: $listSmallClickColorTablet,
     listSmallSeparatorColorTablet: $listSmallSeparatorColorTablet,
@@ -48,10 +76,10 @@
     listSmallDescriptionDecorationTablet: $listSmallDescriptionDecorationTablet,
     listSmallIconSizeTablet: $listSmallIconSizeTablet,
     listSmallIconColorTablet: $listSmallIconColorTablet,
-    listSmallPaddingTopTablet: $listSmallPaddingTopTablet,
-    listSmallPaddingRightTablet: $listSmallPaddingRightTablet,
-    listSmallPaddingBottomTablet: $listSmallPaddingBottomTablet,
-    listSmallPaddingLeftTablet: $listSmallPaddingLeftTablet,
+    listSmallItemPaddingTopTablet: $listSmallItemPaddingTopTablet,
+    listSmallItemPaddingRightTablet: $listSmallItemPaddingRightTablet,
+    listSmallItemPaddingBottomTablet: $listSmallItemPaddingBottomTablet,
+    listSmallItemPaddingLeftTablet: $listSmallItemPaddingLeftTablet,
     listSmallMyListToggleColorTablet: $listSmallMyListToggleColorTablet,
     listSmallMyListToggleActiveColorTablet: $listSmallMyListToggleActiveColorTablet,
     listSmallMyListSwipeColorTablet: $listSmallMyListSwipeColorTablet,
@@ -60,6 +88,20 @@
     listSmallMyListSwipeRightTextColorTablet: $listSmallMyListSwipeRightTextColorTablet,
     listSmallMyListSwipeLeftColorTablet: $listSmallMyListSwipeLeftColorTablet,
     listSmallMyListSwipeLeftTextColorTablet: $listSmallMyListSwipeLeftTextColorTablet,
+    listSmallWidthDesktop: $listSmallWidthDesktop,
+    listSmallHeightDesktop: $listSmallHeightDesktop,
+    listSmallMinWidthDesktop: $listSmallMinWidthDesktop,
+    listSmallMaxWidthDesktop: $listSmallMaxWidthDesktop,
+    listSmallMinHeightDesktop: $listSmallMinHeightDesktop,
+    listSmallMaxHeightDesktop: $listSmallMaxHeightDesktop,
+    listSmallMarginTopDesktop: $listSmallMarginTopDesktop,
+    listSmallMarginRightDesktop: $listSmallMarginRightDesktop,
+    listSmallMarginBottomDesktop: $listSmallMarginBottomDesktop,
+    listSmallMarginLeftDesktop: $listSmallMarginLeftDesktop,
+    listSmallPaddingTopDesktop: $listSmallPaddingTopDesktop,
+    listSmallPaddingRightDesktop: $listSmallPaddingRightDesktop,
+    listSmallPaddingBottomDesktop: $listSmallPaddingBottomDesktop,
+    listSmallPaddingLeftDesktop: $listSmallPaddingLeftDesktop,
     listSmallBackgroundColorDesktop: $listSmallBackgroundColorDesktop,
     listSmallClickColorDesktop: $listSmallClickColorDesktop,
     listSmallSeparatorColorDesktop: $listSmallSeparatorColorDesktop,
@@ -78,10 +120,10 @@
     listSmallDescriptionDecorationDesktop: $listSmallDescriptionDecorationDesktop,
     listSmallIconSizeDesktop: $listSmallIconSizeDesktop,
     listSmallIconColorDesktop: $listSmallIconColorDesktop,
-    listSmallPaddingTopDesktop: $listSmallPaddingTopDesktop,
-    listSmallPaddingRightDesktop: $listSmallPaddingRightDesktop,
-    listSmallPaddingBottomDesktop: $listSmallPaddingBottomDesktop,
-    listSmallPaddingLeftDesktop: $listSmallPaddingLeftDesktop,
+    listSmallItemPaddingTopDesktop: $listSmallItemPaddingTopDesktop,
+    listSmallItemPaddingRightDesktop: $listSmallItemPaddingRightDesktop,
+    listSmallItemPaddingBottomDesktop: $listSmallItemPaddingBottomDesktop,
+    listSmallItemPaddingLeftDesktop: $listSmallItemPaddingLeftDesktop,
     listSmallMyListToggleColorDesktop: $listSmallMyListToggleColorDesktop,
     listSmallMyListToggleActiveColorDesktop: $listSmallMyListToggleActiveColorDesktop,
     listSmallMyListSwipeColorDesktop: $listSmallMyListSwipeColorDesktop,
@@ -93,16 +135,68 @@
   ), $options);
 
   .list.list-thumb-s {
+    width: map-get($configuration, listSmallWidth);
+    min-width: map-get($configuration, listSmallMinWidth);
+    max-width: map-get($configuration, listSmallMaxWidth);
+    height: map-get($configuration, listSmallHeight);
+    min-height: map-get($configuration, listSmallMinHeight);
+    max-height: map-get($configuration, listSmallMaxHeight);
+    margin: map-get($configuration, listSmallMarginTop)
+      map-get($configuration, listSmallMarginRight)
+      map-get($configuration, listSmallMarginBottom)
+      map-get($configuration, listSmallMarginLeft);
+    padding: map-get($configuration, listSmallPaddingTop)
+      map-get($configuration, listSmallPaddingRight)
+      map-get($configuration, listSmallPaddingBottom)
+      map-get($configuration, listSmallPaddingLeft);
+    overflow: auto;
+
+    // Styles for tablet
+    @include above($tabletBreakpoint) {
+      width: map-get($configuration, listSmallWidthTablet);
+      min-width: map-get($configuration, listSmallMinWidthTablet);
+      max-width: map-get($configuration, listSmallMaxWidthTablet);
+      height: map-get($configuration, listSmallHeightTablet);
+      min-height: map-get($configuration, listSmallMinHeightTablet);
+      max-height: map-get($configuration, listSmallMaxHeightTablet);
+      margin: map-get($configuration, listSmallMarginTopTablet)
+        map-get($configuration, listSmallMarginRightTablet)
+        map-get($configuration, listSmallMarginBottomTablet)
+        map-get($configuration, listSmallMarginLeftTablet);
+      padding: map-get($configuration, listSmallPaddingTopTablet)
+        map-get($configuration, listSmallPaddingRightTablet)
+        map-get($configuration, listSmallPaddingBottomTablet)
+        map-get($configuration, listSmallPaddingLeftTablet);
+    }
+
+    // Styles for desktop
+    @include above($desktopBreakpoint) {
+      width: map-get($configuration, listSmallWidthDesktop);
+      min-width: map-get($configuration, listSmallMinWidthDesktop);
+      max-width: map-get($configuration, listSmallMaxWidthDesktop);
+      height: map-get($configuration, listSmallHeightDesktop);
+      min-height: map-get($configuration, listSmallMinHeightDesktop);
+      max-height: map-get($configuration, listSmallMaxHeightDesktop);
+      margin: map-get($configuration, listSmallMarginTopDesktop)
+        map-get($configuration, listSmallMarginRightDesktop)
+        map-get($configuration, listSmallMarginBottomDesktop)
+        map-get($configuration, listSmallMarginLeftDesktop);
+      padding: map-get($configuration, listSmallPaddingTopDesktop)
+        map-get($configuration, listSmallPaddingRightDesktop)
+        map-get($configuration, listSmallPaddingBottomDesktop)
+        map-get($configuration, listSmallPaddingLeftDesktop);
+    }
+
     ul > li {
       border-bottom: 1px solid map-get($configuration, listSmallSeparatorColor);
       background-color: map-get($configuration, listSmallBackgroundColor);
-      padding: map-get($configuration, listSmallPaddingTop)
-        map-get($configuration, listSmallPaddingRight)
-        map-get($configuration, listSmallPaddingBottom)
-        calc(#{map-get($configuration, listSmallPaddingLeft)} + 46px);
+      padding: map-get($configuration, listSmallItemPaddingTop)
+        map-get($configuration, listSmallItemPaddingRight)
+        map-get($configuration, listSmallItemPaddingBottom)
+        calc(#{map-get($configuration, listSmallItemPaddingLeft)} + 46px);
 
       &.linked {
-        padding-right: calc(#{map-get($configuration, listSmallPaddingRight)} + 34px);
+        padding-right: calc(#{map-get($configuration, listSmallItemPaddingRight)} + 34px);
 
         &:active {
           background-color: map-get($configuration, listSmallClickColor);
@@ -148,13 +242,13 @@
       @include above($tabletBreakpoint) {
         border-bottom: 1px solid map-get($configuration, listSmallSeparatorColorTablet);
         background-color: map-get($configuration, listSmallBackgroundColorTablet);
-        padding: map-get($configuration, listSmallPaddingTopTablet)
-          map-get($configuration, listSmallPaddingRightTablet)
-          map-get($configuration, listSmallPaddingBottomTablet)
-          calc(#{map-get($configuration, listSmallPaddingLeftTablet)} + 46px);
+        padding: map-get($configuration, listSmallItemPaddingTopTablet)
+          map-get($configuration, listSmallItemPaddingRightTablet)
+          map-get($configuration, listSmallItemPaddingBottomTablet)
+          calc(#{map-get($configuration, listSmallItemPaddingLeftTablet)} + 46px);
 
         &.linked {
-          padding-right: calc(#{map-get($configuration, listSmallPaddingRightTablet)} + 34px);
+          padding-right: calc(#{map-get($configuration, listSmallItemPaddingRightTablet)} + 34px);
 
           &:active {
             background-color: map-get($configuration, listSmallClickColorTablet);
@@ -201,13 +295,13 @@
       @include above($desktopBreakpoint) {
         border-bottom: 1px solid map-get($configuration, listSmallSeparatorColorDesktop);
         background-color: map-get($configuration, listSmallBackgroundColorDesktop);
-        padding: map-get($configuration, listSmallPaddingTopDesktop)
-          map-get($configuration, listSmallPaddingRightDesktop)
-          map-get($configuration, listSmallPaddingBottomDesktop)
-          calc(#{map-get($configuration, listSmallPaddingLeftDesktop)} + 46px);
+        padding: map-get($configuration, listSmallItemPaddingTopDesktop)
+          map-get($configuration, listSmallItemPaddingRightDesktop)
+          map-get($configuration, listSmallItemPaddingBottomDesktop)
+          calc(#{map-get($configuration, listSmallItemPaddingLeftDesktop)} + 46px);
 
         &.linked {
-          padding-right: calc(#{map-get($configuration, listSmallPaddingRightDesktop)} + 34px);
+          padding-right: calc(#{map-get($configuration, listSmallItemPaddingRightDesktop)} + 34px);
 
           &:active {
             background-color: map-get($configuration, listSmallClickColorDesktop);

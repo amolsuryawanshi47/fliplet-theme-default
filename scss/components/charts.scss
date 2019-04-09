@@ -1,5 +1,47 @@
 @mixin charts($options: ()) {
   $configuration: map-merge((
+    chartWidth: $chartWidth,
+    chartHeight: $chartHeight,
+    chartMinWidth: $chartMinWidth,
+    chartMaxWidth: $chartMaxWidth,
+    chartMinHeight: $chartMinHeight,
+    chartMaxHeight: $chartMaxHeight,
+    chartMarginTop: $chartMarginTop,
+    chartMarginRight: $chartMarginRight,
+    chartMarginBottom: $chartMarginBottom,
+    chartMarginLeft: $chartMarginLeft,
+    chartPaddingTop: $chartPaddingTop,
+    chartPaddingRight: $chartPaddingRight,
+    chartPaddingBottom: $chartPaddingBottom,
+    chartPaddingLeft: $chartPaddingLeft,
+    chartWidthTablet: $chartWidthTablet,
+    chartHeightTablet: $chartHeightTablet,
+    chartMinWidthTablet: $chartMinWidthTablet,
+    chartMaxWidthTablet: $chartMaxWidthTablet,
+    chartMinHeightTablet: $chartMinHeightTablet,
+    chartMaxHeightTablet: $chartMaxHeightTablet,
+    chartMarginTopTablet: $chartMarginTopTablet,
+    chartMarginRightTablet: $chartMarginRightTablet,
+    chartMarginBottomTablet: $chartMarginBottomTablet,
+    chartMarginLeftTablet: $chartMarginLeftTablet,
+    chartPaddingTopTablet: $chartPaddingTopTablet,
+    chartPaddingRightTablet: $chartPaddingRightTablet,
+    chartPaddingBottomTablet: $chartPaddingBottomTablet,
+    chartPaddingLeftTablet: $chartPaddingLeftTablet,
+    chartWidthDesktop: $chartWidthDesktop,
+    chartHeightDesktop: $chartHeightDesktop,
+    chartMinWidthDesktop: $chartMinWidthDesktop,
+    chartMaxWidthDesktop: $chartMaxWidthDesktop,
+    chartMinHeightDesktop: $chartMinHeightDesktop,
+    chartMaxHeightDesktop: $chartMaxHeightDesktop,
+    chartMarginTopDesktop: $chartMarginTopDesktop,
+    chartMarginRightDesktop: $chartMarginRightDesktop,
+    chartMarginBottomDesktop: $chartMarginBottomDesktop,
+    chartMarginLeftDesktop: $chartMarginLeftDesktop,
+    chartPaddingTopDesktop: $chartPaddingTopDesktop,
+    chartPaddingRightDesktop: $chartPaddingRightDesktop,
+    chartPaddingBottomDesktop: $chartPaddingBottomDesktop,
+    chartPaddingLeftDesktop: $chartPaddingLeftDesktop,
     chartColor1: $chartColor1,
     chartColor2: $chartColor2,
     chartColor3: $chartColor3,
@@ -32,35 +74,70 @@
     chartColor10Desktop: $chartColor10Desktop
   ), $options);
 
-  $chartColor2: map-get($configuration, chartColor2);
-  $chartColor3: map-get($configuration, chartColor3);
-  $chartColor4: map-get($configuration, chartColor4);
-  $chartColor5: map-get($configuration, chartColor5);
-  $chartColor6: map-get($configuration, chartColor6);
-  $chartColor7: map-get($configuration, chartColor7);
-  $chartColor8: map-get($configuration, chartColor8);
-  $chartColor9: map-get($configuration, chartColor9);
-  $chartColor10: map-get($configuration, chartColor10);
-  $chartColor1Tablet: map-get($configuration, chartColor1Tablet);
-  $chartColor2Tablet: map-get($configuration, chartColor2Tablet);
-  $chartColor3Tablet: map-get($configuration, chartColor3Tablet);
-  $chartColor4Tablet: map-get($configuration, chartColor4Tablet);
-  $chartColor5Tablet: map-get($configuration, chartColor5Tablet);
-  $chartColor6Tablet: map-get($configuration, chartColor6Tablet);
-  $chartColor7Tablet: map-get($configuration, chartColor7Tablet);
-  $chartColor8Tablet: map-get($configuration, chartColor8Tablet);
-  $chartColor9Tablet: map-get($configuration, chartColor9Tablet);
-  $chartColor10Tablet: map-get($configuration, chartColor10Tablet);
-  $chartColor1Desktop: map-get($configuration, chartColor1Desktop);
-  $chartColor2Desktop: map-get($configuration, chartColor2Desktop);
-  $chartColor3Desktop: map-get($configuration, chartColor3Desktop);
-  $chartColor4Desktop: map-get($configuration, chartColor4Desktop);
-  $chartColor5Desktop: map-get($configuration, chartColor5Desktop);
-  $chartColor6Desktop: map-get($configuration, chartColor6Desktop);
-  $chartColor7Desktop: map-get($configuration, chartColor7Desktop);
-  $chartColor8Desktop: map-get($configuration, chartColor8Desktop);
-  $chartColor9Desktop: map-get($configuration, chartColor9Desktop);
-  $chartColor10Desktop: map-get($configuration, chartColor10Desktop);
+  .chart-column-wrapper,
+  .chart-bar-wrapper,
+  .chart-donut-wrapper,
+  .chart-line-wrapper,
+  .chart-pie-wrapper,
+  .chart-scatter-wrapper {
+    width: map-get($configuration, chartWidth);
+    min-width: map-get($configuration, chartMinWidth);
+    max-width: map-get($configuration, chartMaxWidth);
+    margin: map-get($configuration, chartMarginTop)
+      map-get($configuration, chartMarginRight)
+      map-get($configuration, chartMarginBottom)
+      map-get($configuration, chartMarginLeft);
+    padding: map-get($configuration, chartPaddingTop)
+      map-get($configuration, chartPaddingRight)
+      map-get($configuration, chartPaddingBottom)
+      map-get($configuration, chartPaddingLeft);
+
+    .chart-container {
+      height: map-get($configuration, chartHeight);
+      min-height: map-get($configuration, chartMinHeight);
+      max-height: map-get($configuration, chartMaxHeight);
+    }
+
+    @include above($tabletBreakpoint) {
+      width: map-get($configuration, chartWidthTablet);
+      min-width: map-get($configuration, chartMinWidthTablet);
+      max-width: map-get($configuration, chartMaxWidthTablet);
+      margin: map-get($configuration, chartMarginTopTablet)
+        map-get($configuration, chartMarginRightTablet)
+        map-get($configuration, chartMarginBottomTablet)
+        map-get($configuration, chartMarginLeftTablet);
+      padding: map-get($configuration, chartPaddingTopTablet)
+        map-get($configuration, chartPaddingRightTablet)
+        map-get($configuration, chartPaddingBottomTablet)
+        map-get($configuration, chartPaddingLeftTablet);
+
+      .chart-container {
+        height: map-get($configuration, chartHeightTablet);
+        min-height: map-get($configuration, chartMinHeightTablet);
+        max-height: map-get($configuration, chartMaxHeightTablet);
+      }
+    }
+
+    @include above($desktopBreakpoint) {
+      width: map-get($configuration, chartWidthDesktop);
+      min-width: map-get($configuration, chartMinWidthDesktop);
+      max-width: map-get($configuration, chartMaxWidthDesktop);
+      margin: map-get($configuration, chartMarginTopDesktop)
+        map-get($configuration, chartMarginRightDesktop)
+        map-get($configuration, chartMarginBottomDesktop)
+        map-get($configuration, chartMarginLeftDesktop);
+      padding: map-get($configuration, chartPaddingTopDesktop)
+        map-get($configuration, chartPaddingRightDesktop)
+        map-get($configuration, chartPaddingBottomDesktop)
+        map-get($configuration, chartPaddingLeftDesktop);
+
+      .chart-container {
+        height: map-get($configuration, chartHeightDesktop);
+        min-height: map-get($configuration, chartMinHeightDesktop);
+        max-height: map-get($configuration, chartMaxHeightDesktop);
+      }
+    }
+  }
 }
 
 .highcharts-background {
