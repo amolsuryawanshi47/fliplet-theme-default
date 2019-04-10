@@ -471,7 +471,8 @@
         }
       }
 
-      .agenda-item-bookmark-holder {
+      .agenda-item-bookmark-holder,
+      .bookmark-wrapper {
         .fa-bookmark-o {
           color: rgba($lfdDetailFontColor, 0.2);
 
@@ -479,11 +480,9 @@
             color: rgba($lfdDetailFontColor, 0.5);
           }
         }
-      }
 
-      .bookmark-wrapper {
-        .fa-bookmark-o {
-          color: rgba($lfdDetailFontColor, 0.2);
+        .fa-bookmark {
+          color: $primaryButtonColor;
 
           &:after {
             color: rgba($lfdDetailFontColor, 0.5);
@@ -888,9 +887,11 @@
   color: $lfdDetailFontColor;
 }
 
-.news-feed-bookmark-holder {
-  .fa-bookmark {
-    color: $primaryButtonColor;
+.new-news-feed-list-container, .news-feed-detail-overlay {
+  .news-feed-bookmark-holder {
+    .fa-bookmark {
+      color: $primaryButtonColor;
+    }
   }
 }
 
@@ -915,4 +916,10 @@
 .simple-list-detail-overlay .simple-list-detail-overlay-panel {
   background-color: $lfdDetailBackgroundColor;
   color: $lfdDetailFontColor;
+}
+
+.simple-list-container, .simple-list-detail-overlay {
+  .simple-list-bookmark-wrapper .fa-bookmark {
+    color: $primaryButtonColor;
+  }
 }
