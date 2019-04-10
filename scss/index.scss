@@ -35,6 +35,7 @@
 @import "modules/slide-over";
 @import "components/about-overlay";
 @import "components/image-fullscreen";
+@import "components/video";
 
 /* @import "components/app-analytics"; */
 
@@ -160,6 +161,12 @@
       }
       @if nth($widgetInstance, 2) == 'advancedDirectory' {
         @include directories(nth($widgetInstance, 3));
+      }
+      @if nth($widgetInstance, 2) == 'offlineVideo' {
+        @include video(nth($widgetInstance, 3));
+      }
+      @if nth($widgetInstance, 2) == 'onlineVideo' {
+        @include video(nth($widgetInstance, 3));
       }
     }
   }

@@ -22458,6 +22458,606 @@
             ]
           }
         ]
+      },
+      {
+        "name": "Videos",
+        "packages": ["com.fliplet.online-offline", "com.fliplet.online-video"],
+        "variables": [
+          {
+            "description": "Sizes",
+            "fields": [
+              {
+                "name": "videoWidth",
+                "default": "100%",
+                "property": "%",
+                "isHalfRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "videoWidthTablet",
+                    "default": "inherit-mobile",
+                    "property": "%"
+                  },
+                  "desktop": {
+                    "name": "videoWidthDesktop",
+                    "default": "inherit-tablet",
+                    "property": "%"
+                  }
+                },
+                "type": "size",
+                "label": "Width",
+                "properties": ["px", "pt", "em", "rem", "%", "auto"]
+              },
+              {
+                "name": "videoMinWidth",
+                "default": "auto",
+                "property": "auto",
+                "isHalfRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "videoMinWidthTablet",
+                    "default": "inherit-mobile",
+                    "property": "auto"
+                  },
+                  "desktop": {
+                    "name": "videoMinWidthDesktop",
+                    "default": "inherit-tablet",
+                    "property": "auto"
+                  }
+                },
+                "type": "size",
+                "label": "Min width",
+                "properties": ["px", "pt", "em", "rem", "%", "auto"]
+              },
+              {
+                "name": "videoMaxWidth",
+                "default": "none",
+                "property": "none",
+                "isHalfRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "videoMaxWidthTablet",
+                    "default": "inherit-mobile",
+                    "property": "none"
+                  },
+                  "desktop": {
+                    "name": "videoMaxWidthDesktop",
+                    "default": "inherit-tablet",
+                    "property": "none"
+                  }
+                },
+                "type": "size",
+                "label": "Max width",
+                "properties": ["px", "pt", "em", "rem", "%", "none"]
+              }
+            ]
+          },
+          {
+            "description": "Margin",
+            "fields": [
+              {
+                "name": "videoMarginAlign",
+                "default": "center",
+                "isFullRow": true,
+                "logic": {
+                  "left": {
+                    "videoMarginTop": "0px",
+                    "videoMarginRight": "auto",
+                    "videoMarginBottom": "0px",
+                    "videoMarginLeft": "0px"
+                  },
+                  "center": {
+                    "videoMarginTop": "0px",
+                    "videoMarginRight": "auto",
+                    "videoMarginBottom": "0px",
+                    "videoMarginLeft": "auto"
+                  },
+                  "right": {
+                    "videoMarginTop": "0px",
+                    "videoMarginRight": "0px",
+                    "videoMarginBottom": "0px",
+                    "videoMarginLeft": "auto"
+                  },
+                  "custom": [
+                    "videoMarginTop",
+                    "videoMarginRight",
+                    "videoMarginBottom",
+                    "videoMarginLeft"
+                  ]
+                },
+                "breakpoints": {
+                  "tablet": {
+                    "name": "videoMarginAlignTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "videoMarginAlignDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "margin-align",
+                "properties": ["left", "center", "right", "custom"]
+              },
+              {
+                "name": "videoMarginTop",
+                "default": "0px",
+                "property": "px",
+                "isHalfRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "videoMarginTopTablet",
+                    "default": "inherit-mobile",
+                    "property": "px"
+                  },
+                  "desktop": {
+                    "name": "videoMarginTopDesktop",
+                    "default": "inherit-tablet",
+                    "property": "px"
+                  }
+                },
+                "type": "size",
+                "label": "Top",
+                "allowNegative": true,
+                "properties": ["px", "pt", "em", "rem", "%", "auto"]
+              },
+              {
+                "name": "videoMarginRight",
+                "default": "auto",
+                "property": "auto",
+                "isHalfRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "videoMarginRightTablet",
+                    "default": "inherit-mobile",
+                    "property": "auto"
+                  },
+                  "desktop": {
+                    "name": "videoMarginRightDesktop",
+                    "default": "inherit-tablet",
+                    "property": "auto"
+                  }
+                },
+                "type": "size",
+                "label": "Right",
+                "allowNegative": true,
+                "properties": ["px", "pt", "em", "rem", "%", "auto"]
+              },
+              {
+                "name": "videoMarginBottom",
+                "default": "0px",
+                "property": "px",
+                "isHalfRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "videoMarginBottomTablet",
+                    "default": "inherit-mobile",
+                    "property": "px"
+                  },
+                  "desktop": {
+                    "name": "videoMarginBottomDesktop",
+                    "default": "inherit-tablet",
+                    "property": "px"
+                  }
+                },
+                "type": "size",
+                "label": "Bottom",
+                "allowNegative": true,
+                "properties": ["px", "pt", "em", "rem", "%", "auto"]
+              },
+              {
+                "name": "videoMarginLeft",
+                "default": "auto",
+                "property": "auto",
+                "isHalfRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "videoMarginLeftTablet",
+                    "default": "inherit-mobile",
+                    "property": "auto"
+                  },
+                  "desktop": {
+                    "name": "videoMarginLeftDesktop",
+                    "default": "inherit-tablet",
+                    "property": "auto"
+                  }
+                },
+                "type": "size",
+                "label": "Left",
+                "allowNegative": true,
+                "properties": ["px", "pt", "em", "rem", "%", "auto"]
+              }
+            ]
+          },
+          {
+            "description": "Padding",
+            "fields": [
+              {
+                "name": "videoPaddingTop",
+                "default": "0px",
+                "property": "px",
+                "isHalfRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "videoPaddingTopTablet",
+                    "default": "inherit-mobile",
+                    "property": "px"
+                  },
+                  "desktop": {
+                    "name": "videoPaddingTopDesktop",
+                    "default": "inherit-tablet",
+                    "property": "px"
+                  }
+                },
+                "type": "size",
+                "label": "Top",
+                "properties": ["px", "pt", "em", "rem", "%"]
+              },
+              {
+                "name": "videoPaddingRight",
+                "default": "0px",
+                "property": "px",
+                "isHalfRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "videoPaddingRightTablet",
+                    "default": "inherit-mobile",
+                    "property": "px"
+                  },
+                  "desktop": {
+                    "name": "videoPaddingRightDesktop",
+                    "default": "inherit-tablet",
+                    "property": "px"
+                  }
+                },
+                "type": "size",
+                "label": "Right",
+                "properties": ["px", "pt", "em", "rem", "%"]
+              },
+              {
+                "name": "videoPaddingBottom",
+                "default": "0px",
+                "property": "px",
+                "isHalfRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "videoPaddingBottomTablet",
+                    "default": "inherit-mobile",
+                    "property": "px"
+                  },
+                  "desktop": {
+                    "name": "videoPaddingBottomDesktop",
+                    "default": "inherit-tablet",
+                    "property": "px"
+                  }
+                },
+                "type": "size",
+                "label": "Bottom",
+                "properties": ["px", "pt", "em", "rem", "%"]
+              },
+              {
+                "name": "videoPaddingLeft",
+                "default": "0px",
+                "property": "px",
+                "isHalfRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "videoPaddingLeftTablet",
+                    "default": "inherit-mobile",
+                    "property": "px"
+                  },
+                  "desktop": {
+                    "name": "videoPaddingLeftDesktop",
+                    "default": "inherit-tablet",
+                    "property": "px"
+                  }
+                },
+                "type": "size",
+                "label": "Left",
+                "properties": ["px", "pt", "em", "rem", "%"]
+              }
+            ]
+          },
+          {
+            "description": "Border",
+            "fields": [
+              {
+                "name": "videoBorderSides",
+                "default": "none",
+                "logic": {
+                  "none": {
+                    "hide": [
+                      "videoBorderWidth",
+                      "videoBorderStyle",
+                      "videoBorderColor"
+                    ]
+                  },
+                  "all": {
+                    "show": [
+                      "videoBorderWidth",
+                      "videoBorderStyle",
+                      "videoBorderColor"
+                    ]
+                  },
+                  "top": {
+                    "show": [
+                      "videoBorderWidth",
+                      "videoBorderStyle",
+                      "videoBorderColor"
+                    ]
+                  },
+                  "right": {
+                    "show": [
+                      "videoBorderWidth",
+                      "videoBorderStyle",
+                      "videoBorderColor"
+                    ]
+                  },
+                  "bottom": {
+                    "show": [
+                      "videoBorderWidth",
+                      "videoBorderStyle",
+                      "videoBorderColor"
+                    ]
+                  },
+                  "left": {
+                    "show": [
+                      "videoBorderWidth",
+                      "videoBorderStyle",
+                      "videoBorderColor"
+                    ]
+                  }
+                },
+                "breakpoints": {
+                  "tablet": {
+                    "name": "videoBorderSidesTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "videoBorderSidesDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "select",
+                "properties": {
+                  "all": "All sides",
+                  "top": "Top",
+                  "right": "Right",
+                  "bottom": "Bottom",
+                  "left": "Left",
+                  "none": "None"
+                }
+              },
+              {
+                "name": "videoBorderWidth",
+                "default": "1px",
+                "property": "px",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "videoBorderWidthTablet",
+                    "default": "inherit-mobile",
+                    "property": "px"
+                  },
+                  "desktop": {
+                    "name": "videoBorderWidthDesktop",
+                    "default": "inherit-tablet",
+                    "property": "px"
+                  }
+                },
+                "type": "size",
+                "properties": ["px", "pt", "em", "rem", "%"]
+              },
+              {
+                "name": "videoBorderStyle",
+                "default": "solid",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "videoBorderStyleTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "videoBorderStyleDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "border-style",
+                "properties": [
+                  "none",
+                  "dotted",
+                  "dashed",
+                  "solid",
+                  "double",
+                  "groove",
+                  "ridge",
+                  "inset",
+                  "outset"
+                ]
+              },
+              {
+                "name": "videoBorderColor",
+                "default": "$highlightColor",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "videoBorderColorTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "videoBorderColorDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "color"
+              },
+              {
+                "name": "videoBorderRadius",
+                "default": "4px",
+                "property": "px",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "videoBorderRadiusTablet",
+                    "default": "inherit-mobile",
+                    "property": "px"
+                  },
+                  "desktop": {
+                    "name": "videoBorderRadiusDesktop",
+                    "default": "inherit-tablet",
+                    "property": "px"
+                  }
+                },
+                "label": "Corner radius",
+                "type": "size",
+                "properties": ["px", "pt", "em", "rem", "%"]
+              }
+            ]
+          },
+          {
+            "description": "Shadow",
+            "fields": [
+              {
+                "name": "videoShadowStyle",
+                "default": "none",
+                "logic": {
+                  "none": {
+                    "hide": [
+                      "videoShadowXoffset",
+                      "videoShadowYoffset",
+                      "videoShadowBlur",
+                      "videoShadowSpread",
+                      "videoShadowColor"
+                    ]
+                  },
+                  "outset": {
+                    "show": [
+                      "videoShadowXoffset",
+                      "videoShadowYoffset",
+                      "videoShadowBlur",
+                      "videoShadowSpread",
+                      "videoShadowColor"
+                    ]
+                  },
+                  "inset": {
+                    "show": [
+                      "videoShadowXoffset",
+                      "videoShadowYoffset",
+                      "videoShadowBlur",
+                      "videoShadowSpread",
+                      "videoShadowColor"
+                    ]
+                  }
+                },
+                "breakpoints": {
+                  "tablet": {
+                    "name": "videoShadowStyleTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "videoShadowStyleDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "select",
+                "properties": {
+                  "none": "None",
+                  "outset": "Outwards",
+                  "inset": "Inset"
+                }
+              },
+              {
+                "name": "videoShadowXoffset",
+                "default": "0px",
+                "property": "px",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "videoShadowXoffsetTablet",
+                    "default": "inherit-mobile",
+                    "property": "px"
+                  },
+                  "desktop": {
+                    "name": "videoShadowXoffsetDesktop",
+                    "default": "inherit-tablet",
+                    "property": "px"
+                  }
+                },
+                "label": "X offset",
+                "type": "size",
+                "properties": ["px", "pt", "em", "rem", "%"]
+              },
+              {
+                "name": "videoShadowYoffset",
+                "default": "10px",
+                "property": "px",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "videoShadowYoffsetTablet",
+                    "default": "inherit-mobile",
+                    "property": "px"
+                  },
+                  "desktop": {
+                    "name": "videoShadowYoffsetDesktop",
+                    "default": "inherit-tablet",
+                    "property": "px"
+                  }
+                },
+                "label": "Y offset",
+                "type": "size",
+                "properties": ["px", "pt", "em", "rem", "%"]
+              },
+              {
+                "name": "videoShadowBlur",
+                "default": "20px",
+                "property": "px",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "videoShadowBlurTablet",
+                    "default": "inherit-mobile",
+                    "property": "px"
+                  },
+                  "desktop": {
+                    "name": "videoShadowBlurDesktop",
+                    "default": "inherit-tablet",
+                    "property": "px"
+                  }
+                },
+                "label": "Blur",
+                "type": "size",
+                "properties": ["px", "pt", "em", "rem", "%"]
+              },
+              {
+                "name": "videoShadowSpread",
+                "default": "0px",
+                "property": "px",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "videoShadowSpreadTablet",
+                    "default": "inherit-mobile",
+                    "property": "px"
+                  },
+                  "desktop": {
+                    "name": "videoShadowSpreadDesktop",
+                    "default": "inherit-tablet",
+                    "property": "px"
+                  }
+                },
+                "label": "Spread",
+                "type": "size",
+                "properties": ["px", "pt", "em", "rem", "%"]
+              },
+              {
+                "name": "videoShadowColor",
+                "default": "rgba(0, 0, 0, 0.2)",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "videoShadowColorTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "videoShadowColorDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "color"
+              }
+            ]
+          }
+        ]
       }
     ]
   }
