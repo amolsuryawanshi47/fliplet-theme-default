@@ -1,5 +1,19 @@
 @mixin rss($options: ()) {
   $configuration: map-merge((
+    rssWidth: $rssWidth,
+    rssHeight: $rssHeight,
+    rssMinWidth: $rssMinWidth,
+    rssMaxWidth: $rssMaxWidth,
+    rssMinHeight: $rssMinHeight,
+    rssMaxHeight: $rssMaxHeight,
+    rssMarginTop: $rssMarginTop,
+    rssMarginRight: $rssMarginRight,
+    rssMarginBottom: $rssMarginBottom,
+    rssMarginLeft: $rssMarginLeft,
+    rssPaddingTop: $rssPaddingTop,
+    rssPaddingRight: $rssPaddingRight,
+    rssPaddingBottom: $rssPaddingBottom,
+    rssPaddingLeft: $rssPaddingLeft,
     rssBackgroundColor: $rssBackgroundColor,
     rssHighlight: $rssHighlight,
     rssStripes: $rssStripes,
@@ -17,6 +31,20 @@
     rssDescriptionWeight: $rssDescriptionWeight,
     rssDescriptionStyle: $rssDescriptionStyle,
     rssDescriptionDecoration: $rssDescriptionDecoration,
+    rssWidthTablet: $rssWidthTablet,
+    rssHeightTablet: $rssHeightTablet,
+    rssMinWidthTablet: $rssMinWidthTablet,
+    rssMaxWidthTablet: $rssMaxWidthTablet,
+    rssMinHeightTablet: $rssMinHeightTablet,
+    rssMaxHeightTablet: $rssMaxHeightTablet,
+    rssMarginTopTablet: $rssMarginTopTablet,
+    rssMarginRightTablet: $rssMarginRightTablet,
+    rssMarginBottomTablet: $rssMarginBottomTablet,
+    rssMarginLeftTablet: $rssMarginLeftTablet,
+    rssPaddingTopTablet: $rssPaddingTopTablet,
+    rssPaddingRightTablet: $rssPaddingRightTablet,
+    rssPaddingBottomTablet: $rssPaddingBottomTablet,
+    rssPaddingLeftTablet: $rssPaddingLeftTablet,
     rssBackgroundColorTablet: $rssBackgroundColorTablet,
     rssHighlightTablet: $rssHighlightTablet,
     rssStripesTablet: $rssStripesTablet,
@@ -34,6 +62,20 @@
     rssDescriptionWeightTablet: $rssDescriptionWeightTablet,
     rssDescriptionStyleTablet: $rssDescriptionStyleTablet,
     rssDescriptionDecorationTablet: $rssDescriptionDecorationTablet,
+    rssWidthDesktop: $rssWidthDesktop,
+    rssHeightDesktop: $rssHeightDesktop,
+    rssMinWidthDesktop: $rssMinWidthDesktop,
+    rssMaxWidthDesktop: $rssMaxWidthDesktop,
+    rssMinHeightDesktop: $rssMinHeightDesktop,
+    rssMaxHeightDesktop: $rssMaxHeightDesktop,
+    rssMarginTopDesktop: $rssMarginTopDesktop,
+    rssMarginRightDesktop: $rssMarginRightDesktop,
+    rssMarginBottomDesktop: $rssMarginBottomDesktop,
+    rssMarginLeftDesktop: $rssMarginLeftDesktop,
+    rssPaddingTopDesktop: $rssPaddingTopDesktop,
+    rssPaddingRightDesktop: $rssPaddingRightDesktop,
+    rssPaddingBottomDesktop: $rssPaddingBottomDesktop,
+    rssPaddingLeftDesktop: $rssPaddingLeftDesktop,
     rssBackgroundColorDesktop: $rssBackgroundColorDesktop,
     rssHighlightDesktop: $rssHighlightDesktop,
     rssStripesDesktop: $rssStripesDesktop,
@@ -52,6 +94,60 @@
     rssDescriptionStyleDesktop: $rssDescriptionStyleDesktop,
     rssDescriptionDecorationDesktop: $rssDescriptionDecorationDesktop,
   ), $options);
+
+  .rss-holder {
+    width: map-get($configuration, rssWidth);
+    min-width: map-get($configuration, rssMinWidth);
+    max-width: map-get($configuration, rssMaxWidth);
+    height: map-get($configuration, rssHeight);
+    min-height: map-get($configuration, rssMinHeight);
+    max-height: map-get($configuration, rssMaxHeight);
+    margin: map-get($configuration, rssMarginTop)
+      map-get($configuration, rssMarginRight)
+      map-get($configuration, rssMarginBottom)
+      map-get($configuration, rssMarginLeft);
+    padding: map-get($configuration, rssPaddingTop)
+      map-get($configuration, rssPaddingRight)
+      map-get($configuration, rssPaddingBottom)
+      map-get($configuration, rssPaddingLeft);
+    overflow: auto;
+
+    // Styles for tablet
+    @include above($tabletBreakpoint) {
+      width: map-get($configuration, rssWidthTablet);
+      min-width: map-get($configuration, rssMinWidthTablet);
+      max-width: map-get($configuration, rssMaxWidthTablet);
+      height: map-get($configuration, rssHeightTablet);
+      min-height: map-get($configuration, rssMinHeightTablet);
+      max-height: map-get($configuration, rssMaxHeightTablet);
+      margin: map-get($configuration, rssMarginTopTablet)
+        map-get($configuration, rssMarginRightTablet)
+        map-get($configuration, rssMarginBottomTablet)
+        map-get($configuration, rssMarginLeftTablet);
+      padding: map-get($configuration, rssPaddingTopTablet)
+        map-get($configuration, rssPaddingRightTablet)
+        map-get($configuration, rssPaddingBottomTablet)
+        map-get($configuration, rssPaddingLeftTablet);
+    }
+
+    // Styles for desktop
+    @include above($desktopBreakpoint) {
+      width: map-get($configuration, rssWidthDesktop);
+      min-width: map-get($configuration, rssMinWidthDesktop);
+      max-width: map-get($configuration, rssMaxWidthDesktop);
+      height: map-get($configuration, rssHeightDesktop);
+      min-height: map-get($configuration, rssMinHeightDesktop);
+      max-height: map-get($configuration, rssMaxHeightDesktop);
+      margin: map-get($configuration, rssMarginTopDesktop)
+        map-get($configuration, rssMarginRightDesktop)
+        map-get($configuration, rssMarginBottomDesktop)
+        map-get($configuration, rssMarginLeftDesktop);
+      padding: map-get($configuration, rssPaddingTopDesktop)
+        map-get($configuration, rssPaddingRightDesktop)
+        map-get($configuration, rssPaddingBottomDesktop)
+        map-get($configuration, rssPaddingLeftDesktop);
+    }
+  }
 
   .feed {
     ul {

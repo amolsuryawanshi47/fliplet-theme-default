@@ -1,5 +1,19 @@
 @mixin photoSharing($options: ()) {
   $configuration: map-merge((
+    photoSharingWidth: $photoSharingWidth,
+    photoSharingHeight: $photoSharingHeight,
+    photoSharingMinWidth: $photoSharingMinWidth,
+    photoSharingMaxWidth: $photoSharingMaxWidth,
+    photoSharingMinHeight: $photoSharingMinHeight,
+    photoSharingMaxHeight: $photoSharingMaxHeight,
+    photoSharingMarginTop: $photoSharingMarginTop,
+    photoSharingMarginRight: $photoSharingMarginRight,
+    photoSharingMarginBottom: $photoSharingMarginBottom,
+    photoSharingMarginLeft: $photoSharingMarginLeft,
+    photoSharingPaddingTop: $photoSharingPaddingTop,
+    photoSharingPaddingRight: $photoSharingPaddingRight,
+    photoSharingPaddingBottom: $photoSharingPaddingBottom,
+    photoSharingPaddingLeft: $photoSharingPaddingLeft,
     imageOverlayBackgroundColor: $imageOverlayBackgroundColor,
     imageOverlayTextColor: $imageOverlayTextColor,
     imageOverlayNavBackgroundColor: $imageOverlayNavBackgroundColor,
@@ -7,6 +21,20 @@
     imageContainerBorderWidth: $imageContainerBorderWidth,
     imageContainerBorderStyle: $imageContainerBorderStyle,
     imageContainerBorder: $imageContainerBorder,
+    photoSharingWidthTablet: $photoSharingWidthTablet,
+    photoSharingHeightTablet: $photoSharingHeightTablet,
+    photoSharingMinWidthTablet: $photoSharingMinWidthTablet,
+    photoSharingMaxWidthTablet: $photoSharingMaxWidthTablet,
+    photoSharingMinHeightTablet: $photoSharingMinHeightTablet,
+    photoSharingMaxHeightTablet: $photoSharingMaxHeightTablet,
+    photoSharingMarginTopTablet: $photoSharingMarginTopTablet,
+    photoSharingMarginRightTablet: $photoSharingMarginRightTablet,
+    photoSharingMarginBottomTablet: $photoSharingMarginBottomTablet,
+    photoSharingMarginLeftTablet: $photoSharingMarginLeftTablet,
+    photoSharingPaddingTopTablet: $photoSharingPaddingTopTablet,
+    photoSharingPaddingRightTablet: $photoSharingPaddingRightTablet,
+    photoSharingPaddingBottomTablet: $photoSharingPaddingBottomTablet,
+    photoSharingPaddingLeftTablet: $photoSharingPaddingLeftTablet,
     imageOverlayBackgroundColorTablet: $imageOverlayBackgroundColorTablet,
     imageOverlayTextColorTablet: $imageOverlayTextColorTablet,
     imageOverlayNavBackgroundColorTablet: $imageOverlayNavBackgroundColorTablet,
@@ -14,6 +42,20 @@
     imageContainerBorderWidthTablet: $imageContainerBorderWidthTablet,
     imageContainerBorderStyleTablet: $imageContainerBorderStyleTablet,
     imageContainerBorderTablet: $imageContainerBorderTablet,
+    photoSharingWidthDesktop: $photoSharingWidthDesktop,
+    photoSharingHeightDesktop: $photoSharingHeightDesktop,
+    photoSharingMinWidthDesktop: $photoSharingMinWidthDesktop,
+    photoSharingMaxWidthDesktop: $photoSharingMaxWidthDesktop,
+    photoSharingMinHeightDesktop: $photoSharingMinHeightDesktop,
+    photoSharingMaxHeightDesktop: $photoSharingMaxHeightDesktop,
+    photoSharingMarginTopDesktop: $photoSharingMarginTopDesktop,
+    photoSharingMarginRightDesktop: $photoSharingMarginRightDesktop,
+    photoSharingMarginBottomDesktop: $photoSharingMarginBottomDesktop,
+    photoSharingMarginLeftDesktop: $photoSharingMarginLeftDesktop,
+    photoSharingPaddingTopDesktop: $photoSharingPaddingTopDesktop,
+    photoSharingPaddingRightDesktop: $photoSharingPaddingRightDesktop,
+    photoSharingPaddingBottomDesktop: $photoSharingPaddingBottomDesktop,
+    photoSharingPaddingLeftDesktop: $photoSharingPaddingLeftDesktop,
     imageOverlayBackgroundColorDesktop: $imageOverlayBackgroundColorDesktop,
     imageOverlayTextColorDesktop: $imageOverlayTextColorDesktop,
     imageOverlayNavBackgroundColorDesktop: $imageOverlayNavBackgroundColorDesktop,
@@ -24,6 +66,58 @@
   ), $options);
 
   .photo-feed-parent-holder {
+    width: map-get($configuration, photoSharingWidth);
+    min-width: map-get($configuration, photoSharingMinWidth);
+    max-width: map-get($configuration, photoSharingMaxWidth);
+    height: map-get($configuration, photoSharingHeight);
+    min-height: map-get($configuration, photoSharingMinHeight);
+    max-height: map-get($configuration, photoSharingMaxHeight);
+    margin: map-get($configuration, photoSharingMarginTop)
+      map-get($configuration, photoSharingMarginRight)
+      map-get($configuration, photoSharingMarginBottom)
+      map-get($configuration, photoSharingMarginLeft);
+    padding: map-get($configuration, photoSharingPaddingTop)
+      map-get($configuration, photoSharingPaddingRight)
+      map-get($configuration, photoSharingPaddingBottom)
+      map-get($configuration, photoSharingPaddingLeft);
+    overflow: auto;
+
+    // Styles for tablet
+    @include above($tabletBreakpoint) {
+      width: map-get($configuration, photoSharingWidthTablet);
+      min-width: map-get($configuration, photoSharingMinWidthTablet);
+      max-width: map-get($configuration, photoSharingMaxWidthTablet);
+      height: map-get($configuration, photoSharingHeightTablet);
+      min-height: map-get($configuration, photoSharingMinHeightTablet);
+      max-height: map-get($configuration, photoSharingMaxHeightTablet);
+      margin: map-get($configuration, photoSharingMarginTopTablet)
+        map-get($configuration, photoSharingMarginRightTablet)
+        map-get($configuration, photoSharingMarginBottomTablet)
+        map-get($configuration, photoSharingMarginLeftTablet);
+      padding: map-get($configuration, photoSharingPaddingTopTablet)
+        map-get($configuration, photoSharingPaddingRightTablet)
+        map-get($configuration, photoSharingPaddingBottomTablet)
+        map-get($configuration, photoSharingPaddingLeftTablet);
+    }
+
+    // Styles for desktop
+    @include above($desktopBreakpoint) {
+      width: map-get($configuration, photoSharingWidthDesktop);
+      min-width: map-get($configuration, photoSharingMinWidthDesktop);
+      max-width: map-get($configuration, photoSharingMaxWidthDesktop);
+      height: map-get($configuration, photoSharingHeightDesktop);
+      min-height: map-get($configuration, photoSharingMinHeightDesktop);
+      max-height: map-get($configuration, photoSharingMaxHeightDesktop);
+      margin: map-get($configuration, photoSharingMarginTopDesktop)
+        map-get($configuration, photoSharingMarginRightDesktop)
+        map-get($configuration, photoSharingMarginBottomDesktop)
+        map-get($configuration, photoSharingMarginLeftDesktop);
+      padding: map-get($configuration, photoSharingPaddingTopDesktop)
+        map-get($configuration, photoSharingPaddingRightDesktop)
+        map-get($configuration, photoSharingPaddingBottomDesktop)
+        map-get($configuration, photoSharingPaddingLeftDesktop);
+    }
+
     .btn.refresh {
       color: $highlightColor;
       background-color: transparent;
