@@ -31,6 +31,10 @@
     sliderTextStyle: $sliderTextStyle,
     sliderTextDecoration: $sliderTextDecoration,
     sliderTextHeight: $sliderTextHeight,
+    slidePaddingTop: $slidePaddingTop,
+    slidePaddingRight: $slidePaddingRight,
+    slidePaddingBottom: $slidePaddingBottom,
+    slidePaddingLeft: $slidePaddingLeft,
     paginationBulletWidth: $paginationBulletWidth,
     paginationBulletHeight: $paginationBulletHeight,
     paginationBulletBorderSides: $paginationBulletBorderSides,
@@ -72,6 +76,10 @@
     sliderTextStyleTablet: $sliderTextStyleTablet,
     sliderTextDecorationTablet: $sliderTextDecorationTablet,
     sliderTextHeightTablet: $sliderTextHeightTablet,
+    slidePaddingTopTablet: $slidePaddingTopTablet,
+    slidePaddingRightTablet: $slidePaddingRightTablet,
+    slidePaddingBottomTablet: $slidePaddingBottomTablet,
+    slidePaddingLeftTablet: $slidePaddingLeftTablet,
     paginationBulletWidthTablet: $paginationBulletWidthTablet,
     paginationBulletHeightTablet: $paginationBulletHeightTablet,
     paginationBulletBorderSidesTablet: $paginationBulletBorderSidesTablet,
@@ -113,6 +121,10 @@
     sliderTextStyleDesktop: $sliderTextStyleDesktop,
     sliderTextDecorationDesktop: $sliderTextDecorationDesktop,
     sliderTextHeightDesktop: $sliderTextHeightDesktop,
+    slidePaddingTopDesktop: $slidePaddingTopDesktop,
+    slidePaddingRightDesktop: $slidePaddingRightDesktop,
+    slidePaddingBottomDesktop: $slidePaddingBottomDesktop,
+    slidePaddingLeftDesktop: $slidePaddingLeftDesktop,
     paginationBulletWidthDesktop: $paginationBulletWidthDesktop,
     paginationBulletHeightDesktop: $paginationBulletHeightDesktop,
     paginationBulletBorderSidesDesktop: $paginationBulletBorderSidesDesktop,
@@ -271,6 +283,13 @@
   }
 
   .swiper-wrapper {
+    .swiper-slide {
+      padding: map-get($configuration, slidePaddingTop)
+        map-get($configuration, slidePaddingRight)
+        map-get($configuration, slidePaddingBottom)
+        map-get($configuration, slidePaddingLeft);
+    }
+
     p {
       @include fontOnly((
         fontFamily: map-get($configuration, sliderTextFont),
@@ -299,6 +318,13 @@
 
     // Styles for tablet
     @include above($tabletBreakpoint) {
+      .swiper-slide {
+        padding: map-get($configuration, slidePaddingTopTablet)
+          map-get($configuration, slidePaddingRightTablet)
+          map-get($configuration, slidePaddingBottomTablet)
+          map-get($configuration, slidePaddingLeftTablet);
+      }
+
       p {
         @include fontOnly((
           fontFamily: map-get($configuration, sliderTextFontTablet),
@@ -328,6 +354,13 @@
 
     // Styles for desktop
     @include above($desktopBreakpoint) {
+      .swiper-slide {
+        padding: map-get($configuration, slidePaddingTopDesktop)
+          map-get($configuration, slidePaddingRightDesktop)
+          map-get($configuration, slidePaddingBottomDesktop)
+          map-get($configuration, slidePaddingLeftDesktop);
+      }
+
       p {
         @include fontOnly((
           fontFamily: map-get($configuration, sliderTextFontDesktop),
@@ -381,6 +414,10 @@
     onboardingTextStyle: $onboardingTextStyle,
     onboardingTextDecoration: $onboardingTextDecoration,
     onboardingTextHeight: $onboardingTextHeight,
+    onboardingSlidePaddingTop: $onboardingSlidePaddingTop,
+    onboardingSlidePaddingRight: $onboardingSlidePaddingRight,
+    onboardingSlidePaddingBottom: $onboardingSlidePaddingBottom,
+    onboardingSlidePaddingLeft: $onboardingSlidePaddingLeft,
     onboardingPaginationBulletWidth: $onboardingPaginationBulletWidth,
     onboardingPaginationBulletHeight: $onboardingPaginationBulletHeight,
     onboardingPaginationBulletBorderSides: $onboardingPaginationBulletBorderSides,
@@ -411,6 +448,10 @@
     onboardingTextStyleTablet: $onboardingTextStyleTablet,
     onboardingTextDecorationTablet: $onboardingTextDecorationTablet,
     onboardingTextHeightTablet: $onboardingTextHeightTablet,
+    onboardingSlidePaddingTopTablet: $onboardingSlidePaddingTopTablet,
+    onboardingSlidePaddingRightTablet: $onboardingSlidePaddingRightTablet,
+    onboardingSlidePaddingBottomTablet: $onboardingSlidePaddingBottomTablet,
+    onboardingSlidePaddingLeftTablet: $onboardingSlidePaddingLeftTablet,
     onboardingPaginationBulletWidthTablet: $onboardingPaginationBulletWidthTablet,
     onboardingPaginationBulletHeightTablet: $onboardingPaginationBulletHeightTablet,
     onboardingPaginationBulletBorderSidesTablet: $onboardingPaginationBulletBorderSidesTablet,
@@ -441,6 +482,10 @@
     onboardingTextStyleDesktop: $onboardingTextStyleDesktop,
     onboardingTextDecorationDesktop: $onboardingTextDecorationDesktop,
     onboardingTextHeightDesktop: $onboardingTextHeightDesktop,
+    onboardingSlidePaddingTopDesktop: $onboardingSlidePaddingTopDesktop,
+    onboardingSlidePaddingRightDesktop: $onboardingSlidePaddingRightDesktop,
+    onboardingSlidePaddingBottomDesktop: $onboardingSlidePaddingBottomDesktop,
+    onboardingSlidePaddingLeftDesktop: $onboardingSlidePaddingLeftDesktop,
     onboardingPaginationBulletWidthDesktop: $onboardingPaginationBulletWidthDesktop,
     onboardingPaginationBulletHeightDesktop: $onboardingPaginationBulletHeightDesktop,
     onboardingPaginationBulletBorderSidesDesktop: $onboardingPaginationBulletBorderSidesDesktop,
@@ -576,6 +621,10 @@
     .swiper-wrapper {
       .swiper-slide-content {
         background-color: map-get($configuration, onboardingSlideBackgroundColor);
+        padding: map-get($configuration, onboardingSlidePaddingTop)
+          map-get($configuration, onboardingSlidePaddingRight)
+          map-get($configuration, onboardingSlidePaddingBottom)
+          map-get($configuration, onboardingSlidePaddingLeft);
       }
 
       p {
@@ -607,6 +656,10 @@
       @include above($tabletBreakpoint) {
         .swiper-slide-content {
           background-color: map-get($configuration, onboardingSlideBackgroundColorTablet);
+          padding: map-get($configuration, onboardingSlidePaddingTopTablet)
+            map-get($configuration, onboardingSlidePaddingRightTablet)
+            map-get($configuration, onboardingSlidePaddingBottomTablet)
+            map-get($configuration, onboardingSlidePaddingLeftTablet);
         }
 
         p {
@@ -640,6 +693,10 @@
       @include above($desktopBreakpoint) {
         .swiper-slide-content {
           background-color: map-get($configuration, onboardingSlideBackgroundColorDesktop);
+          padding: map-get($configuration, onboardingSlidePaddingTopDesktop)
+            map-get($configuration, onboardingSlidePaddingRightDesktop)
+            map-get($configuration, onboardingSlidePaddingBottomDesktop)
+            map-get($configuration, onboardingSlidePaddingLeftDesktop);
         }
 
         p {
