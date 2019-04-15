@@ -1,4 +1,4 @@
-@mixin appList($options: ()) {
+@mixin appList($options: (), $widgetInstanceId: '') {
   $configuration: map-merge((
     appListWidth: $appListWidth,
     appListMinWidth: $appListMinWidth,
@@ -113,7 +113,12 @@
     appListLoaderDesktop: $appListLoaderDesktop
   ), $options);
 
-  [data-app-list-id] {
+  $instanceSelector: '[data-fl-widget-instance]';
+  @if $widgetInstanceId != '' {
+    $instanceSelector: '#{$instanceSelector}[data-id="#{$widgetInstanceId}"]';
+  }
+
+  #{$instanceSelector} {
     width: map-get($configuration, appListWidth);
     min-width: map-get($configuration, appListMinWidth);
     max-width: map-get($configuration, appListMaxWidth);
@@ -163,229 +168,229 @@
         map-get($configuration, appListPaddingBottomDesktop)
         map-get($configuration, appListPaddingLeftDesktop);
     }
-  }
 
-  .admin-overlay {
-    .overlayNavbar {
-      background-color: map-get($configuration, appListLoginOverlayNavBar);
-      color: map-get($configuration, appListLoginOverlayNavBarTextColor);
+    .admin-overlay {
+      .overlayNavbar {
+        background-color: map-get($configuration, appListLoginOverlayNavBar);
+        color: map-get($configuration, appListLoginOverlayNavBarTextColor);
 
-      // Styles for tablet
-      @include above($tabletBreakpoint) {
-        background-color: map-get($configuration, appListLoginOverlayNavBarTablet);
-        color: map-get($configuration, appListLoginOverlayNavBarTextColorTablet);
+        // Styles for tablet
+        @include above($tabletBreakpoint) {
+          background-color: map-get($configuration, appListLoginOverlayNavBarTablet);
+          color: map-get($configuration, appListLoginOverlayNavBarTextColorTablet);
+        }
+
+        // Styles for desktop
+        @include above($desktopBreakpoint) {
+          background-color: map-get($configuration, appListLoginOverlayNavBarDesktop);
+          color: map-get($configuration, appListLoginOverlayNavBarTextColorDesktop);
+        }
       }
 
-      // Styles for desktop
-      @include above($desktopBreakpoint) {
-        background-color: map-get($configuration, appListLoginOverlayNavBarDesktop);
-        color: map-get($configuration, appListLoginOverlayNavBarTextColorDesktop);
-      }
-    }
+      .overlayPanelContent {
+        background-color: map-get($configuration, appListLoginOverlayColor);
+        color: map-get($configuration, appListLoginOverlayTextColor);
 
-    .overlayPanelContent {
-      background-color: map-get($configuration, appListLoginOverlayColor);
-      color: map-get($configuration, appListLoginOverlayTextColor);
+        // Styles for tablet
+        @include above($tabletBreakpoint) {
+          background-color: map-get($configuration, appListLoginOverlayColorTablet);
+          color: map-get($configuration, appListLoginOverlayTextColorTablet);
+        }
 
-      // Styles for tablet
-      @include above($tabletBreakpoint) {
-        background-color: map-get($configuration, appListLoginOverlayColorTablet);
-        color: map-get($configuration, appListLoginOverlayTextColorTablet);
-      }
-
-      // Styles for desktop
-      @include above($desktopBreakpoint) {
-        background-color: map-get($configuration, appListLoginOverlayColorDesktop);
-        color: map-get($configuration, appListLoginOverlayTextColorDesktop);
-      }
-    }
-  }
-
-  .helper.app-offline-notification {
-    border: 1px solid $bodyTextColor;
-  }
-
-  .app-list {
-    .loader {
-      border-left-color: map-get($configuration, appListLoader);
-
-      // Styles for tablet
-      @include above($tabletBreakpoint) {
-        border-left-color: map-get($configuration, appListLoaderTablet);
-      }
-
-      // Styles for desktop
-      @include above($desktopBreakpoint) {
-        border-left-color: map-get($configuration, appListLoaderDesktop);
+        // Styles for desktop
+        @include above($desktopBreakpoint) {
+          background-color: map-get($configuration, appListLoginOverlayColorDesktop);
+          color: map-get($configuration, appListLoginOverlayTextColorDesktop);
+        }
       }
     }
 
-    .section-heading {
-      color: map-get($configuration, appListHeadingsColor);
-      font-family: #{map-get($configuration, appListHeadingsFontFamily)}, 'Arial, sans-serif';
-      font-size: map-get($configuration, appListHeadingsSize);
-      font-weight: map-get($configuration, appListHeadingsWeight);
-      line-height: map-get($configuration, appListHeadingsHeight);
-      font-style: map-get($configuration, appListHeadingsStyle);
-      text-decoration: map-get($configuration, appListHeadingsDecoration);
-      margin-top: map-get($configuration, appListHeadingsMarginTop);
-      margin-bottom: map-get($configuration, appListHeadingsMarginBottom);
-
-      // Styles for tablet
-      @include above($tabletBreakpoint) {
-        color: map-get($configuration, appListHeadingsColorTablet);
-        font-family: #{map-get($configuration, appListHeadingsFontFamilyTablet)}, 'Arial, sans-serif';
-        font-size: map-get($configuration, appListHeadingsSizeTablet);
-        font-weight: map-get($configuration, appListHeadingsWeightTablet);
-        line-height: map-get($configuration, appListHeadingsHeightTablet);
-        font-style: map-get($configuration, appListHeadingsStyleTablet);
-        text-decoration: map-get($configuration, appListHeadingsDecorationTablet);
-        margin-top: map-get($configuration, appListHeadingsMarginTopTablet);
-        margin-bottom: map-get($configuration, appListHeadingsMarginBottomTablet);
-      }
-
-      // Styles for desktop
-      @include above($desktopBreakpoint) {
-        color: map-get($configuration, appListHeadingsColorDesktop);
-        font-family: #{map-get($configuration, appListHeadingsFontFamilyDesktop)}, 'Arial, sans-serif';
-        font-size: map-get($configuration, appListHeadingsSizeDesktop);
-        font-weight: map-get($configuration, appListHeadingsWeightDesktop);
-        line-height: map-get($configuration, appListHeadingsHeightDesktop);
-        font-style: map-get($configuration, appListHeadingsStyleDesktop);
-        text-decoration: map-get($configuration, appListHeadingsDecorationDesktop);
-        margin-top: map-get($configuration, appListHeadingsMarginTopDesktop);
-        margin-bottom: map-get($configuration, appListHeadingsMarginBottomDesktop);
-      }
+    .helper.app-offline-notification {
+      border: 1px solid $bodyTextColor;
     }
 
-    .list {
-      &.list-default {
-        ul {
-          & > li {
-            &.linked {
-              &:active {
-                background-color: map-get($configuration, listBackgroundColor);
+    .app-list {
+      .loader {
+        border-left-color: map-get($configuration, appListLoader);
+
+        // Styles for tablet
+        @include above($tabletBreakpoint) {
+          border-left-color: map-get($configuration, appListLoaderTablet);
+        }
+
+        // Styles for desktop
+        @include above($desktopBreakpoint) {
+          border-left-color: map-get($configuration, appListLoaderDesktop);
+        }
+      }
+
+      .section-heading {
+        color: map-get($configuration, appListHeadingsColor);
+        font-family: #{map-get($configuration, appListHeadingsFontFamily)}, 'Arial, sans-serif';
+        font-size: map-get($configuration, appListHeadingsSize);
+        font-weight: map-get($configuration, appListHeadingsWeight);
+        line-height: map-get($configuration, appListHeadingsHeight);
+        font-style: map-get($configuration, appListHeadingsStyle);
+        text-decoration: map-get($configuration, appListHeadingsDecoration);
+        margin-top: map-get($configuration, appListHeadingsMarginTop);
+        margin-bottom: map-get($configuration, appListHeadingsMarginBottom);
+
+        // Styles for tablet
+        @include above($tabletBreakpoint) {
+          color: map-get($configuration, appListHeadingsColorTablet);
+          font-family: #{map-get($configuration, appListHeadingsFontFamilyTablet)}, 'Arial, sans-serif';
+          font-size: map-get($configuration, appListHeadingsSizeTablet);
+          font-weight: map-get($configuration, appListHeadingsWeightTablet);
+          line-height: map-get($configuration, appListHeadingsHeightTablet);
+          font-style: map-get($configuration, appListHeadingsStyleTablet);
+          text-decoration: map-get($configuration, appListHeadingsDecorationTablet);
+          margin-top: map-get($configuration, appListHeadingsMarginTopTablet);
+          margin-bottom: map-get($configuration, appListHeadingsMarginBottomTablet);
+        }
+
+        // Styles for desktop
+        @include above($desktopBreakpoint) {
+          color: map-get($configuration, appListHeadingsColorDesktop);
+          font-family: #{map-get($configuration, appListHeadingsFontFamilyDesktop)}, 'Arial, sans-serif';
+          font-size: map-get($configuration, appListHeadingsSizeDesktop);
+          font-weight: map-get($configuration, appListHeadingsWeightDesktop);
+          line-height: map-get($configuration, appListHeadingsHeightDesktop);
+          font-style: map-get($configuration, appListHeadingsStyleDesktop);
+          text-decoration: map-get($configuration, appListHeadingsDecorationDesktop);
+          margin-top: map-get($configuration, appListHeadingsMarginTopDesktop);
+          margin-bottom: map-get($configuration, appListHeadingsMarginBottomDesktop);
+        }
+      }
+
+      .list {
+        &.list-default {
+          ul {
+            & > li {
+              &.linked {
+                &:active {
+                  background-color: map-get($configuration, listBackgroundColor);
+                }
               }
-            }
-            &.cancel {
-              .icon {
-                .fa {
-                  &.cancel {
-                    color: map-get($configuration, appListProgressBarColor);
+              &.cancel {
+                .icon {
+                  .fa {
+                    &.cancel {
+                      color: map-get($configuration, appListProgressBarColor);
 
-                    // Styles for tablet
-                    @include above($tabletBreakpoint) {
-                      color: map-get($configuration, appListProgressBarColorTablet);
-                    }
+                      // Styles for tablet
+                      @include above($tabletBreakpoint) {
+                        color: map-get($configuration, appListProgressBarColorTablet);
+                      }
 
-                    // Styles for desktop
-                    @include above($desktopBreakpoint) {
-                      color: map-get($configuration, appListProgressBarColorDesktop);
+                      // Styles for desktop
+                      @include above($desktopBreakpoint) {
+                        color: map-get($configuration, appListProgressBarColorDesktop);
+                      }
                     }
                   }
                 }
               }
-            }
-            &.download {
-              .icon {
-                .fa {
-                  &.download {
-                    color: map-get($configuration, appListDownloadIconColor);
+              &.download {
+                .icon {
+                  .fa {
+                    &.download {
+                      color: map-get($configuration, appListDownloadIconColor);
 
-                    // Styles for tablet
-                    @include above($tabletBreakpoint) {
-                      color: map-get($configuration, appListDownloadIconColorTablet);
-                    }
+                      // Styles for tablet
+                      @include above($tabletBreakpoint) {
+                        color: map-get($configuration, appListDownloadIconColorTablet);
+                      }
 
-                    // Styles for desktop
-                    @include above($desktopBreakpoint) {
-                      color: map-get($configuration, appListDownloadIconColorDesktop);
-                    }
-                  }
-                }
-              }
-            }
-            &.preparing {
-              .icon {
-                .fa {
-                  &.download {
-                    color: map-get($configuration, appListPreparingIconColor);
-
-                    // Styles for tablet
-                    @include above($tabletBreakpoint) {
-                      color: map-get($configuration, appListPreparingIconColorTablet);
-                    }
-
-                    // Styles for desktop
-                    @include above($desktopBreakpoint) {
-                      color: map-get($configuration, appListPreparingIconColorDesktop);
+                      // Styles for desktop
+                      @include above($desktopBreakpoint) {
+                        color: map-get($configuration, appListDownloadIconColorDesktop);
+                      }
                     }
                   }
                 }
               }
-            }
-            &.completed {
-              .icon {
-                .fa {
-                  &.completed {
-                    color: map-get($configuration, appListCompletedIconColor);
+              &.preparing {
+                .icon {
+                  .fa {
+                    &.download {
+                      color: map-get($configuration, appListPreparingIconColor);
 
-                    // Styles for tablet
-                    @include above($tabletBreakpoint) {
-                      color: map-get($configuration, appListCompletedIconColorTablet);
-                    }
+                      // Styles for tablet
+                      @include above($tabletBreakpoint) {
+                        color: map-get($configuration, appListPreparingIconColorTablet);
+                      }
 
-                    // Styles for desktop
-                    @include above($desktopBreakpoint) {
-                      color: map-get($configuration, appListCompletedIconColorDesktop);
+                      // Styles for desktop
+                      @include above($desktopBreakpoint) {
+                        color: map-get($configuration, appListPreparingIconColorDesktop);
+                      }
                     }
                   }
                 }
               }
-            }
-            &.initial {
+              &.completed {
+                .icon {
+                  .fa {
+                    &.completed {
+                      color: map-get($configuration, appListCompletedIconColor);
+
+                      // Styles for tablet
+                      @include above($tabletBreakpoint) {
+                        color: map-get($configuration, appListCompletedIconColorTablet);
+                      }
+
+                      // Styles for desktop
+                      @include above($desktopBreakpoint) {
+                        color: map-get($configuration, appListCompletedIconColorDesktop);
+                      }
+                    }
+                  }
+                }
+              }
+              &.initial {
+                .icon .fa {
+                  &.initial {
+                    color: map-get($configuration, appListInitialIconColor);
+
+                    // Styles for tablet
+                    @include above($tabletBreakpoint) {
+                      color: map-get($configuration, appListInitialIconColorTablet);
+                    }
+
+                    // Styles for desktop
+                    @include above($desktopBreakpoint) {
+                      color: map-get($configuration, appListInitialIconColorDesktop);
+                    }
+                  }
+                }
+              }
               .icon .fa {
-                &.initial {
-                  color: map-get($configuration, appListInitialIconColor);
-
-                  // Styles for tablet
-                  @include above($tabletBreakpoint) {
-                    color: map-get($configuration, appListInitialIconColorTablet);
-                  }
-
-                  // Styles for desktop
-                  @include above($desktopBreakpoint) {
-                    color: map-get($configuration, appListInitialIconColorDesktop);
-                  }
-                }
-              }
-            }
-            .icon .fa {
-              color: map-get($configuration, listChevronColor);
-            }
-
-            .progress {
-              background-color: map-get($configuration, appListProgressBarBGColor);
-
-              .progress-bar-flv {
-                background-color: map-get($configuration, appListProgressBarColor);
+                color: map-get($configuration, listChevronColor);
               }
 
-              // Styles for tablet
-              @include above($tabletBreakpoint) {
-                background-color: map-get($configuration, appListProgressBarBGColorTablet);
+              .progress {
+                background-color: map-get($configuration, appListProgressBarBGColor);
 
                 .progress-bar-flv {
-                  background-color: map-get($configuration, appListProgressBarColorTablet);
+                  background-color: map-get($configuration, appListProgressBarColor);
                 }
-              }
 
-              // Styles for desktop
-              @include above($desktopBreakpoint) {
-                background-color: map-get($configuration, appListProgressBarBGColorDesktop);
+                // Styles for tablet
+                @include above($tabletBreakpoint) {
+                  background-color: map-get($configuration, appListProgressBarBGColorTablet);
 
-                .progress-bar-flv {
-                  background-color: map-get($configuration, appListProgressBarColorDesktop);
+                  .progress-bar-flv {
+                    background-color: map-get($configuration, appListProgressBarColorTablet);
+                  }
+                }
+
+                // Styles for desktop
+                @include above($desktopBreakpoint) {
+                  background-color: map-get($configuration, appListProgressBarBGColorDesktop);
+
+                  .progress-bar-flv {
+                    background-color: map-get($configuration, appListProgressBarColorDesktop);
+                  }
                 }
               }
             }
@@ -393,27 +398,27 @@
         }
       }
     }
-  }
 
-  #overlay-admin,
-  .admin-overlay {
-    .closeButton {
-      background-color: map-get($configuration, appListCloseButtonColor);
-      color: map-get($configuration, appListCloseButtonTextColor);
-      border-top-color: map-get($configuration, appListCloseButtonBorderColor);
+    #overlay-admin,
+    .admin-overlay {
+      .closeButton {
+        background-color: map-get($configuration, appListCloseButtonColor);
+        color: map-get($configuration, appListCloseButtonTextColor);
+        border-top-color: map-get($configuration, appListCloseButtonBorderColor);
 
-      // Styles for tablet
-      @include above($tabletBreakpoint) {
-        background-color: map-get($configuration, appListCloseButtonColorTablet);
-        color: map-get($configuration, appListCloseButtonTextColorTablet);
-        border-top-color: map-get($configuration, appListCloseButtonBorderColorTablet);
-      }
+        // Styles for tablet
+        @include above($tabletBreakpoint) {
+          background-color: map-get($configuration, appListCloseButtonColorTablet);
+          color: map-get($configuration, appListCloseButtonTextColorTablet);
+          border-top-color: map-get($configuration, appListCloseButtonBorderColorTablet);
+        }
 
-      // Styles for desktop
-      @include above($desktopBreakpoint) {
-        background-color: map-get($configuration, appListCloseButtonColorDesktop);
-        color: map-get($configuration, appListCloseButtonTextColorDesktop);
-        border-top-color: map-get($configuration, appListCloseButtonBorderColorDesktop);
+        // Styles for desktop
+        @include above($desktopBreakpoint) {
+          background-color: map-get($configuration, appListCloseButtonColorDesktop);
+          color: map-get($configuration, appListCloseButtonTextColorDesktop);
+          border-top-color: map-get($configuration, appListCloseButtonBorderColorDesktop);
+        }
       }
     }
   }

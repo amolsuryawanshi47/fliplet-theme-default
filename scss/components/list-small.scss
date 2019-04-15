@@ -1,4 +1,4 @@
-@mixin listSmallThumbs($options: ()) {
+@mixin listSmallThumbs($options: (), $widgetInstanceId: '') {
   $configuration: map-merge((
     listSmallWidth: $listSmallWidth,
     listSmallHeight: $listSmallHeight,
@@ -134,7 +134,12 @@
     listSmallMyListSwipeLeftTextColorDesktop: $listSmallMyListSwipeLeftTextColorDesktop
   ), $options);
 
-  .list.list-thumb-s {
+  $instanceSelector: '[data-fl-widget-instance]';
+  @if $widgetInstanceId != '' {
+    $instanceSelector: '#{$instanceSelector}[data-id="#{$widgetInstanceId}"]';
+  }
+
+  #{$instanceSelector} {
     width: map-get($configuration, listSmallWidth);
     min-width: map-get($configuration, listSmallMinWidth);
     max-width: map-get($configuration, listSmallMaxWidth);
@@ -187,254 +192,256 @@
         map-get($configuration, listSmallPaddingLeftDesktop);
     }
 
-    ul > li {
-      border-bottom: 1px solid map-get($configuration, listSmallSeparatorColor);
-      background-color: map-get($configuration, listSmallBackgroundColor);
-      padding: map-get($configuration, listSmallItemPaddingTop)
-        map-get($configuration, listSmallItemPaddingRight)
-        map-get($configuration, listSmallItemPaddingBottom)
-        calc(#{map-get($configuration, listSmallItemPaddingLeft)} + 46px);
-
-      &.linked {
-        padding-right: calc(#{map-get($configuration, listSmallItemPaddingRight)} + 34px);
-
-        &:active {
-          background-color: map-get($configuration, listSmallClickColor);
-        }
-
-        &:after {
-          color: map-get($configuration, listSmallChevronColor);
-        }
-      }
-
-      .list-image {
-        .fl-list-icon {
-          color: map-get($configuration, listSmallIconColor);
-          font-size: map-get($configuration, listSmallIconSize);
-        }
-      }
-
-      .list-title {
-        @include fontOnly((
-          fontFamily: map-get($configuration, listSmallTitleFont),
-          fontSize: map-get($configuration, listSmallTitleSize),
-          fontLineHeight: 1.5,
-          fontWeight: map-get($configuration, listSmallTitleWeight),
-          fontStyle: map-get($configuration, listSmallTitleStyle),
-          fontDecoration: map-get($configuration, listSmallTitleDecoration)
-        ));
-        color: map-get($configuration, listSmallTitleColor);
-      }
-
-      p + p {
-        @include fontOnly((
-          fontFamily: map-get($configuration, listSmallDescriptionFont),
-          fontSize: map-get($configuration, listSmallDescriptionSize),
-          fontLineHeight: 1.5,
-          fontWeight: map-get($configuration, listSmallDescriptionWeight),
-          fontStyle: map-get($configuration, listSmallDescriptionStyle),
-          fontDecoration: map-get($configuration, listSmallDescriptionDecoration)
-        ));
-        color: map-get($configuration, listSmallDescriptionColor);
-      }
-
-      // Styles for tablet
-      @include above($tabletBreakpoint) {
-        border-bottom: 1px solid map-get($configuration, listSmallSeparatorColorTablet);
-        background-color: map-get($configuration, listSmallBackgroundColorTablet);
-        padding: map-get($configuration, listSmallItemPaddingTopTablet)
-          map-get($configuration, listSmallItemPaddingRightTablet)
-          map-get($configuration, listSmallItemPaddingBottomTablet)
-          calc(#{map-get($configuration, listSmallItemPaddingLeftTablet)} + 46px);
+    .list.list-thumb-s {
+      ul > li {
+        border-bottom: 1px solid map-get($configuration, listSmallSeparatorColor);
+        background-color: map-get($configuration, listSmallBackgroundColor);
+        padding: map-get($configuration, listSmallItemPaddingTop)
+          map-get($configuration, listSmallItemPaddingRight)
+          map-get($configuration, listSmallItemPaddingBottom)
+          calc(#{map-get($configuration, listSmallItemPaddingLeft)} + 46px);
 
         &.linked {
-          padding-right: calc(#{map-get($configuration, listSmallItemPaddingRightTablet)} + 34px);
+          padding-right: calc(#{map-get($configuration, listSmallItemPaddingRight)} + 34px);
 
           &:active {
-            background-color: map-get($configuration, listSmallClickColorTablet);
+            background-color: map-get($configuration, listSmallClickColor);
           }
 
           &:after {
-            color: map-get($configuration, listSmallChevronColorTablet);
+            color: map-get($configuration, listSmallChevronColor);
           }
         }
 
         .list-image {
           .fl-list-icon {
-            color: map-get($configuration, listSmallIconColorTablet);
-            font-size: map-get($configuration, listSmallIconSizeTablet);
+            color: map-get($configuration, listSmallIconColor);
+            font-size: map-get($configuration, listSmallIconSize);
           }
         }
 
         .list-title {
           @include fontOnly((
-            fontFamily: map-get($configuration, listSmallTitleFontTablet),
-            fontSize: map-get($configuration, listSmallTitleSizeTablet),
+            fontFamily: map-get($configuration, listSmallTitleFont),
+            fontSize: map-get($configuration, listSmallTitleSize),
             fontLineHeight: 1.5,
-            fontWeight: map-get($configuration, listSmallTitleWeightTablet),
-            fontStyle: map-get($configuration, listSmallTitleStyleTablet),
-            fontDecoration: map-get($configuration, listSmallTitleDecorationTablet)
+            fontWeight: map-get($configuration, listSmallTitleWeight),
+            fontStyle: map-get($configuration, listSmallTitleStyle),
+            fontDecoration: map-get($configuration, listSmallTitleDecoration)
           ));
-          color: map-get($configuration, listSmallTitleColorTablet);
+          color: map-get($configuration, listSmallTitleColor);
         }
 
         p + p {
           @include fontOnly((
-            fontFamily: map-get($configuration, listSmallDescriptionFontTablet),
-            fontSize: map-get($configuration, listSmallDescriptionSizeTablet),
+            fontFamily: map-get($configuration, listSmallDescriptionFont),
+            fontSize: map-get($configuration, listSmallDescriptionSize),
             fontLineHeight: 1.5,
-            fontWeight: map-get($configuration, listSmallDescriptionWeightTablet),
-            fontStyle: map-get($configuration, listSmallDescriptionStyleTablet),
-            fontDecoration: map-get($configuration, listSmallDescriptionDecorationTablet)
+            fontWeight: map-get($configuration, listSmallDescriptionWeight),
+            fontStyle: map-get($configuration, listSmallDescriptionStyle),
+            fontDecoration: map-get($configuration, listSmallDescriptionDecoration)
           ));
-          color: map-get($configuration, listSmallDescriptionColorTablet);
+          color: map-get($configuration, listSmallDescriptionColor);
+        }
+
+        // Styles for tablet
+        @include above($tabletBreakpoint) {
+          border-bottom: 1px solid map-get($configuration, listSmallSeparatorColorTablet);
+          background-color: map-get($configuration, listSmallBackgroundColorTablet);
+          padding: map-get($configuration, listSmallItemPaddingTopTablet)
+            map-get($configuration, listSmallItemPaddingRightTablet)
+            map-get($configuration, listSmallItemPaddingBottomTablet)
+            calc(#{map-get($configuration, listSmallItemPaddingLeftTablet)} + 46px);
+
+          &.linked {
+            padding-right: calc(#{map-get($configuration, listSmallItemPaddingRightTablet)} + 34px);
+
+            &:active {
+              background-color: map-get($configuration, listSmallClickColorTablet);
+            }
+
+            &:after {
+              color: map-get($configuration, listSmallChevronColorTablet);
+            }
+          }
+
+          .list-image {
+            .fl-list-icon {
+              color: map-get($configuration, listSmallIconColorTablet);
+              font-size: map-get($configuration, listSmallIconSizeTablet);
+            }
+          }
+
+          .list-title {
+            @include fontOnly((
+              fontFamily: map-get($configuration, listSmallTitleFontTablet),
+              fontSize: map-get($configuration, listSmallTitleSizeTablet),
+              fontLineHeight: 1.5,
+              fontWeight: map-get($configuration, listSmallTitleWeightTablet),
+              fontStyle: map-get($configuration, listSmallTitleStyleTablet),
+              fontDecoration: map-get($configuration, listSmallTitleDecorationTablet)
+            ));
+            color: map-get($configuration, listSmallTitleColorTablet);
+          }
+
+          p + p {
+            @include fontOnly((
+              fontFamily: map-get($configuration, listSmallDescriptionFontTablet),
+              fontSize: map-get($configuration, listSmallDescriptionSizeTablet),
+              fontLineHeight: 1.5,
+              fontWeight: map-get($configuration, listSmallDescriptionWeightTablet),
+              fontStyle: map-get($configuration, listSmallDescriptionStyleTablet),
+              fontDecoration: map-get($configuration, listSmallDescriptionDecorationTablet)
+            ));
+            color: map-get($configuration, listSmallDescriptionColorTablet);
+          }
+        }
+
+        // Styles for desktop
+        @include above($desktopBreakpoint) {
+          border-bottom: 1px solid map-get($configuration, listSmallSeparatorColorDesktop);
+          background-color: map-get($configuration, listSmallBackgroundColorDesktop);
+          padding: map-get($configuration, listSmallItemPaddingTopDesktop)
+            map-get($configuration, listSmallItemPaddingRightDesktop)
+            map-get($configuration, listSmallItemPaddingBottomDesktop)
+            calc(#{map-get($configuration, listSmallItemPaddingLeftDesktop)} + 46px);
+
+          &.linked {
+            padding-right: calc(#{map-get($configuration, listSmallItemPaddingRightDesktop)} + 34px);
+
+            &:active {
+              background-color: map-get($configuration, listSmallClickColorDesktop);
+            }
+
+            &:after {
+              color: map-get($configuration, listSmallChevronColorDesktop);
+            }
+          }
+
+          .list-image {
+            .fl-list-icon {
+              color: map-get($configuration, listSmallIconColorDesktop);
+              font-size: map-get($configuration, listSmallIconSizeDesktop);
+            }
+          }
+
+          .list-title {
+            @include fontOnly((
+              fontFamily: map-get($configuration, listSmallTitleFontDesktop),
+              fontSize: map-get($configuration, listSmallTitleSizeDesktop),
+              fontLineHeight: 1.5,
+              fontWeight: map-get($configuration, listSmallTitleWeightDesktop),
+              fontStyle: map-get($configuration, listSmallTitleStyleDesktop),
+              fontDecoration: map-get($configuration, listSmallTitleDecorationDesktop)
+            ));
+            color: map-get($configuration, listSmallTitleColorDesktop);
+          }
+
+          p + p {
+            @include fontOnly((
+              fontFamily: map-get($configuration, listSmallDescriptionFontDesktop),
+              fontSize: map-get($configuration, listSmallDescriptionSizeDesktop),
+              fontLineHeight: 1.5,
+              fontWeight: map-get($configuration, listSmallDescriptionWeightDesktop),
+              fontStyle: map-get($configuration, listSmallDescriptionStyleDesktop),
+              fontDecoration: map-get($configuration, listSmallDescriptionDecorationDesktop)
+            ));
+            color: map-get($configuration, listSmallDescriptionColorDesktop);
+          }
         }
       }
 
-      // Styles for desktop
-      @include above($desktopBreakpoint) {
-        border-bottom: 1px solid map-get($configuration, listSmallSeparatorColorDesktop);
-        background-color: map-get($configuration, listSmallBackgroundColorDesktop);
-        padding: map-get($configuration, listSmallItemPaddingTopDesktop)
-          map-get($configuration, listSmallItemPaddingRightDesktop)
-          map-get($configuration, listSmallItemPaddingBottomDesktop)
-          calc(#{map-get($configuration, listSmallItemPaddingLeftDesktop)} + 46px);
-
-        &.linked {
-          padding-right: calc(#{map-get($configuration, listSmallItemPaddingRightDesktop)} + 34px);
-
-          &:active {
-            background-color: map-get($configuration, listSmallClickColorDesktop);
-          }
-
-          &:after {
-            color: map-get($configuration, listSmallChevronColorDesktop);
-          }
-        }
-
-        .list-image {
-          .fl-list-icon {
-            color: map-get($configuration, listSmallIconColorDesktop);
-            font-size: map-get($configuration, listSmallIconSizeDesktop);
-          }
-        }
-
-        .list-title {
-          @include fontOnly((
-            fontFamily: map-get($configuration, listSmallTitleFontDesktop),
-            fontSize: map-get($configuration, listSmallTitleSizeDesktop),
-            fontLineHeight: 1.5,
-            fontWeight: map-get($configuration, listSmallTitleWeightDesktop),
-            fontStyle: map-get($configuration, listSmallTitleStyleDesktop),
-            fontDecoration: map-get($configuration, listSmallTitleDecorationDesktop)
-          ));
-          color: map-get($configuration, listSmallTitleColorDesktop);
-        }
-
-        p + p {
-          @include fontOnly((
-            fontFamily: map-get($configuration, listSmallDescriptionFontDesktop),
-            fontSize: map-get($configuration, listSmallDescriptionSizeDesktop),
-            fontLineHeight: 1.5,
-            fontWeight: map-get($configuration, listSmallDescriptionWeightDesktop),
-            fontStyle: map-get($configuration, listSmallDescriptionStyleDesktop),
-            fontDecoration: map-get($configuration, listSmallDescriptionDecorationDesktop)
-          ));
-          color: map-get($configuration, listSmallDescriptionColorDesktop);
-        }
-      }
-    }
-
-    ul.list-save-filter {
-      border: 1px solid map-get($configuration, listSmallMyListToggleColor);
-
-      li {
-        border-left: 1px solid map-get($configuration, listSmallMyListToggleColor);
-        background: $bodyBackground;
-        color: map-get($configuration, listSmallMyListToggleColor);
-
-        &.active {
-          background: map-get($configuration, listSmallMyListToggleColor);
-          color: map-get($configuration, listSmallMyListToggleActiveColor);
-        }
-      }
-
-      // Styles for tablet
-      @include above($tabletBreakpoint) {
-        border: 1px solid map-get($configuration, listSmallMyListToggleColorTablet);
+      ul.list-save-filter {
+        border: 1px solid map-get($configuration, listSmallMyListToggleColor);
 
         li {
-          border-left: 1px solid map-get($configuration, listSmallMyListToggleColorTablet);
-          background: $bodyBackgroundTablet;
-          color: map-get($configuration, listSmallMyListToggleColorTablet);
+          border-left: 1px solid map-get($configuration, listSmallMyListToggleColor);
+          background: $bodyBackground;
+          color: map-get($configuration, listSmallMyListToggleColor);
 
           &.active {
-            background: map-get($configuration, listSmallMyListToggleColorTablet);
-            color: map-get($configuration, listSmallMyListToggleActiveColorTablet);
+            background: map-get($configuration, listSmallMyListToggleColor);
+            color: map-get($configuration, listSmallMyListToggleActiveColor);
+          }
+        }
+
+        // Styles for tablet
+        @include above($tabletBreakpoint) {
+          border: 1px solid map-get($configuration, listSmallMyListToggleColorTablet);
+
+          li {
+            border-left: 1px solid map-get($configuration, listSmallMyListToggleColorTablet);
+            background: $bodyBackgroundTablet;
+            color: map-get($configuration, listSmallMyListToggleColorTablet);
+
+            &.active {
+              background: map-get($configuration, listSmallMyListToggleColorTablet);
+              color: map-get($configuration, listSmallMyListToggleActiveColorTablet);
+            }
+          }
+        }
+
+        // Styles for desktop
+        @include above($desktopBreakpoint) {
+          border: 1px solid map-get($configuration, listSmallMyListToggleColorDesktop);
+
+          li {
+            border-left: 1px solid map-get($configuration, listSmallMyListToggleColorDesktop);
+            background: $bodyBackgroundDesktop;
+            color: map-get($configuration, listSmallMyListToggleColorDesktop);
+
+            &.active {
+              background: map-get($configuration, listSmallMyListToggleColorDesktop);
+              color: map-get($configuration, listSmallMyListToggleActiveColorDesktop);
+            }
           }
         }
       }
 
-      // Styles for desktop
-      @include above($desktopBreakpoint) {
-        border: 1px solid map-get($configuration, listSmallMyListToggleColorDesktop);
-
-        li {
-          border-left: 1px solid map-get($configuration, listSmallMyListToggleColorDesktop);
-          background: $bodyBackgroundDesktop;
-          color: map-get($configuration, listSmallMyListToggleColorDesktop);
-
-          &.active {
-            background: map-get($configuration, listSmallMyListToggleColorDesktop);
-            color: map-get($configuration, listSmallMyListToggleActiveColorDesktop);
-          }
-        }
-      }
-    }
-
-    ul.list-swipe .swipe-action {
-      background: map-get($configuration, listSmallMyListSwipeColor);
-      color: map-get($configuration, listSmallMyListSwipeTextColor);
-
-      &.swipe-action-right.active{
-        background: map-get($configuration, listSmallMyListSwipeRightColor);
-        color: map-get($configuration, listSmallMyListSwipeRightTextColor);
-      }
-
-      &.swipe-action-left.active {
-        background: map-get($configuration, listSmallMyListSwipeLeftColor);
-        color: map-get($configuration, listSmallMyListSwipeLeftTextColor);
-      }
-
-      // Styles for tablet
-      @include above($tabletBreakpoint) {
-        background: map-get($configuration, listSmallMyListSwipeColorTablet);
-        color: map-get($configuration, listSmallMyListSwipeTextColorTablet);
+      ul.list-swipe .swipe-action {
+        background: map-get($configuration, listSmallMyListSwipeColor);
+        color: map-get($configuration, listSmallMyListSwipeTextColor);
 
         &.swipe-action-right.active{
-          background: map-get($configuration, listSmallMyListSwipeRightColorTablet);
-          color: map-get($configuration, listSmallMyListSwipeRightTextColorTablet);
+          background: map-get($configuration, listSmallMyListSwipeRightColor);
+          color: map-get($configuration, listSmallMyListSwipeRightTextColor);
         }
 
         &.swipe-action-left.active {
-          background: map-get($configuration, listSmallMyListSwipeLeftColorTablet);
-          color: map-get($configuration, listSmallMyListSwipeLeftTextColorTablet);
-        }
-      }
-
-      // Styles for desktop
-      @include above($desktopBreakpoint) {
-        background: map-get($configuration, listSmallMyListSwipeColorDesktop);
-        color: map-get($configuration, listSmallMyListSwipeTextColorDesktop);
-
-        &.swipe-action-right.active{
-          background: map-get($configuration, listSmallMyListSwipeRightColorDesktop);
-          color: map-get($configuration, listSmallMyListSwipeRightTextColorDesktop);
+          background: map-get($configuration, listSmallMyListSwipeLeftColor);
+          color: map-get($configuration, listSmallMyListSwipeLeftTextColor);
         }
 
-        &.swipe-action-left.active {
-          background: map-get($configuration, listSmallMyListSwipeLeftColorDesktop);
-          color: map-get($configuration, listSmallMyListSwipeLeftTextColorDesktop);
+        // Styles for tablet
+        @include above($tabletBreakpoint) {
+          background: map-get($configuration, listSmallMyListSwipeColorTablet);
+          color: map-get($configuration, listSmallMyListSwipeTextColorTablet);
+
+          &.swipe-action-right.active{
+            background: map-get($configuration, listSmallMyListSwipeRightColorTablet);
+            color: map-get($configuration, listSmallMyListSwipeRightTextColorTablet);
+          }
+
+          &.swipe-action-left.active {
+            background: map-get($configuration, listSmallMyListSwipeLeftColorTablet);
+            color: map-get($configuration, listSmallMyListSwipeLeftTextColorTablet);
+          }
+        }
+
+        // Styles for desktop
+        @include above($desktopBreakpoint) {
+          background: map-get($configuration, listSmallMyListSwipeColorDesktop);
+          color: map-get($configuration, listSmallMyListSwipeTextColorDesktop);
+
+          &.swipe-action-right.active{
+            background: map-get($configuration, listSmallMyListSwipeRightColorDesktop);
+            color: map-get($configuration, listSmallMyListSwipeRightTextColorDesktop);
+          }
+
+          &.swipe-action-left.active {
+            background: map-get($configuration, listSmallMyListSwipeLeftColorDesktop);
+            color: map-get($configuration, listSmallMyListSwipeLeftTextColorDesktop);
+          }
         }
       }
     }

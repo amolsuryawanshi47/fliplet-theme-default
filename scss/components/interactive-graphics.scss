@@ -1,4 +1,4 @@
-@mixin calculateHeight($options: ()) {
+@mixin calculateHeight($options: (), $widgetInstanceId: '') {
   $configuration: map-merge((
     height: '',
     menuType: 'none'
@@ -24,7 +24,7 @@
   }
 }
 
-@mixin interactiveGraphics($options: ()) {
+@mixin interactiveGraphics($options: (), $widgetInstanceId: '') {
   $configuration: map-merge((
     interactiveGraphWidth: $interactiveGraphWidth,
     interactiveGraphHeight: $interactiveGraphHeight,
@@ -82,7 +82,12 @@
     mapSearchOverlayTextDesktop: $mapSearchOverlayTextDesktop
   ), $options);
 
-  .interactive-map-component-wrapper {
+  $instanceSelector: '[data-fl-widget-instance]';
+  @if $widgetInstanceId != '' {
+    $instanceSelector: '#{$instanceSelector}[data-id="#{$widgetInstanceId}"]';
+  }
+
+  #{$instanceSelector} {
     width: map-get($configuration, interactiveGraphWidth);
     min-width: map-get($configuration, interactiveGraphMinWidth);
     max-width: map-get($configuration, interactiveGraphMaxWidth);
@@ -127,6 +132,181 @@
       min-height: map-get($configuration, interactiveGraphMinHeightDesktop);
       max-height: map-get($configuration, interactiveGraphMaxHeightDesktop);
     }
+
+    .interactive-map-label-wrapper {
+      color: map-get($configuration, markerLabelText);
+      background-color: map-get($configuration, markerLabelBackground);
+
+      .interactive-map-label-text {
+        p {
+          color: map-get($configuration, markerLabelText);
+        }
+      }
+
+      // Styles for tablet
+      @include above($tabletBreakpoint) {
+        color: map-get($configuration, markerLabelTextTablet);
+        background-color: map-get($configuration, markerLabelBackgroundTablet);
+
+        .interactive-map-label-text {
+          p {
+            color: map-get($configuration, markerLabelTextTablet);
+          }
+        }
+      }
+
+      // Styles for desktop
+      @include above($desktopBreakpoint) {
+        color: map-get($configuration, markerLabelTextDesktop);
+        background-color: map-get($configuration, markerLabelBackgroundDesktop);
+
+        .interactive-map-label-text {
+          p {
+            color: map-get($configuration, markerLabelTextDesktop);
+          }
+        }
+      }
+    }
+
+    .maps-button {
+      color: map-get($configuration, mapLabelText);
+      background-color: map-get($configuration, mapLabelBackground);
+
+      .maps-button-text {
+        p {
+          color: map-get($configuration, mapLabelText);
+        }
+      }
+
+      // Styles for tablet
+      @include above($tabletBreakpoint) {
+        color: map-get($configuration, mapLabelTextTablet);
+        background-color: map-get($configuration, mapLabelBackgroundTablet);
+
+        .maps-button-text {
+          p {
+            color: map-get($configuration, mapLabelTextTablet);
+          }
+        }
+      }
+
+      // Styles for desktop
+      @include above($desktopBreakpoint) {
+        color: map-get($configuration, mapLabelTextDesktop);
+        background-color: map-get($configuration, mapLabelBackgroundDesktop);
+
+        .maps-button-text {
+          p {
+            color: map-get($configuration, mapLabelTextDesktop);
+          }
+        }
+      }
+    }
+
+    .interactive-map-search-icon {
+      color: map-get($configuration, controlsText);
+      background-color: map-get($configuration, controlsBackground);
+
+      // Styles for tablet
+      @include above($tabletBreakpoint) {
+        color: map-get($configuration, controlsTextTablet);
+        background-color: map-get($configuration, controlsBackgroundTablet);
+      }
+
+      // Styles for desktop
+      @include above($desktopBreakpoint) {
+        color: map-get($configuration, controlsTextDesktop);
+        background-color: map-get($configuration, controlsBackgroundDesktop);
+      }
+    }
+
+    .interactive-maps-search-overlay,
+    .interactive-maps-overlay {
+      background-color: map-get($configuration, mapSearchOverlayBackground);
+      color: map-get($configuration, mapSearchOverlayText);
+
+      // Styles for tablet
+      @include above($tabletBreakpoint) {
+        background-color: map-get($configuration, mapSearchOverlayBackgroundTablet);
+        color: map-get($configuration, mapSearchOverlayTextTablet);
+      }
+
+      // Styles for desktop
+      @include above($desktopBreakpoint) {
+        background-color: map-get($configuration, mapSearchOverlayBackgroundDesktop);
+        color: map-get($configuration, mapSearchOverlayTextDesktop);
+      }
+    }
+
+    .interactive-map-overlay-topbar {
+      background-color: map-get($configuration, mapSearchOverlayBackground);
+
+      // Styles for tablet
+      @include above($tabletBreakpoint) {
+        background-color: map-get($configuration, mapSearchOverlayBackgroundTablet);
+      }
+
+      // Styles for desktop
+      @include above($desktopBreakpoint) {
+        background-color: map-get($configuration, mapSearchOverlayBackgroundDesktop);
+      }
+    }
+
+    .interactive-maps-overlay {
+      .map-list-item {
+        &.active {
+          border-left-color: map-get($configuration, mapSearchOverlayText);
+
+          // Styles for tablet
+          @include above($tabletBreakpoint) {
+            border-left-color: map-get($configuration, mapSearchOverlayTextTablet);
+          }
+
+          // Styles for desktop
+          @include above($desktopBreakpoint) {
+            border-left-color: map-get($configuration, mapSearchOverlayTextDesktop);
+          }
+        }
+      }
+    }
+
+    .interactive-map-overlay-search-holder {
+      .form-control {
+        background: map-get($configuration, mapSearchOverlayBackground);
+        border-color: map-get($configuration, mapSearchOverlayText);
+      }
+
+      span {
+        background: rgba(map-get($configuration, mapSearchOverlayText), 0.1);
+        color: map-get($configuration, mapSearchOverlayText);
+      }
+
+      // Styles for tablet
+      @include above($tabletBreakpoint) {
+        .form-control {
+          background: map-get($configuration, mapSearchOverlayBackgroundTablet);
+          border-color: map-get($configuration, mapSearchOverlayTextTablet);
+        }
+
+        span {
+          background: rgba(map-get($configuration, mapSearchOverlayTextTablet), 0.1);
+          color: map-get($configuration, mapSearchOverlayTextTablet);
+        }
+      }
+
+      // Styles for desktop
+      @include above($desktopBreakpoint) {
+        .form-control {
+          background: map-get($configuration, mapSearchOverlayBackgroundDesktop);
+          border-color: map-get($configuration, mapSearchOverlayTextDesktop);
+        }
+
+        span {
+          background: rgba(map-get($configuration, mapSearchOverlayTextDesktop), 0.1);
+          color: map-get($configuration, mapSearchOverlayTextDesktop);
+        }
+      }
+    }
   }
 
   body.fl-with-top-menu .interactive-map-component-wrapper {
@@ -152,7 +332,7 @@
     }
   }
 
-  [data-has-notch] body.fl-with-top-menu .interactive-map-component-wrapper {
+  [data-has-notch] body.fl-with-top-menu #{$instanceSelector} .interactive-map-component-wrapper {
     @include calculateHeight((
       height: map-get($configuration, interactiveGraphHeight),
       menuType: 'top-with-notch'
@@ -175,7 +355,7 @@
     }
   }
 
-  body.fl-with-bottom-menu .interactive-map-component-wrapper {
+  body.fl-with-bottom-menu #{$instanceSelector} .interactive-map-component-wrapper {
     @include calculateHeight((
       height: map-get($configuration, interactiveGraphHeight),
       menuType: 'bottom'
@@ -198,7 +378,7 @@
     }
   }
 
-  [data-has-notch] body.fl-with-bottom-menu .interactive-map-component-wrapper {
+  [data-has-notch] body.fl-with-bottom-menu #{$instanceSelector} .interactive-map-component-wrapper {
     @include calculateHeight((
       height: map-get($configuration, interactiveGraphHeight),
       menuType: 'bottom-with-notch'
@@ -218,181 +398,6 @@
         height: map-get($configuration, interactiveGraphHeightDesktop),
         menuType: 'bottom-with-notch'
       ));
-    }
-  }
-
-  .interactive-map-label-wrapper {
-    color: map-get($configuration, markerLabelText);
-    background-color: map-get($configuration, markerLabelBackground);
-
-    .interactive-map-label-text {
-      p {
-        color: map-get($configuration, markerLabelText);
-      }
-    }
-
-    // Styles for tablet
-    @include above($tabletBreakpoint) {
-      color: map-get($configuration, markerLabelTextTablet);
-      background-color: map-get($configuration, markerLabelBackgroundTablet);
-
-      .interactive-map-label-text {
-        p {
-          color: map-get($configuration, markerLabelTextTablet);
-        }
-      }
-    }
-
-    // Styles for desktop
-    @include above($desktopBreakpoint) {
-      color: map-get($configuration, markerLabelTextDesktop);
-      background-color: map-get($configuration, markerLabelBackgroundDesktop);
-
-      .interactive-map-label-text {
-        p {
-          color: map-get($configuration, markerLabelTextDesktop);
-        }
-      }
-    }
-  }
-
-  .maps-button {
-    color: map-get($configuration, mapLabelText);
-    background-color: map-get($configuration, mapLabelBackground);
-
-    .maps-button-text {
-      p {
-        color: map-get($configuration, mapLabelText);
-      }
-    }
-
-    // Styles for tablet
-    @include above($tabletBreakpoint) {
-      color: map-get($configuration, mapLabelTextTablet);
-      background-color: map-get($configuration, mapLabelBackgroundTablet);
-
-      .maps-button-text {
-        p {
-          color: map-get($configuration, mapLabelTextTablet);
-        }
-      }
-    }
-
-    // Styles for desktop
-    @include above($desktopBreakpoint) {
-      color: map-get($configuration, mapLabelTextDesktop);
-      background-color: map-get($configuration, mapLabelBackgroundDesktop);
-
-      .maps-button-text {
-        p {
-          color: map-get($configuration, mapLabelTextDesktop);
-        }
-      }
-    }
-  }
-
-  .interactive-map-search-icon {
-    color: map-get($configuration, controlsText);
-    background-color: map-get($configuration, controlsBackground);
-
-    // Styles for tablet
-    @include above($tabletBreakpoint) {
-      color: map-get($configuration, controlsTextTablet);
-      background-color: map-get($configuration, controlsBackgroundTablet);
-    }
-
-    // Styles for desktop
-    @include above($desktopBreakpoint) {
-      color: map-get($configuration, controlsTextDesktop);
-      background-color: map-get($configuration, controlsBackgroundDesktop);
-    }
-  }
-
-  .interactive-maps-search-overlay,
-  .interactive-maps-overlay {
-    background-color: map-get($configuration, mapSearchOverlayBackground);
-    color: map-get($configuration, mapSearchOverlayText);
-
-    // Styles for tablet
-    @include above($tabletBreakpoint) {
-      background-color: map-get($configuration, mapSearchOverlayBackgroundTablet);
-      color: map-get($configuration, mapSearchOverlayTextTablet);
-    }
-
-    // Styles for desktop
-    @include above($desktopBreakpoint) {
-      background-color: map-get($configuration, mapSearchOverlayBackgroundDesktop);
-      color: map-get($configuration, mapSearchOverlayTextDesktop);
-    }
-  }
-
-  .interactive-map-overlay-topbar {
-    background-color: map-get($configuration, mapSearchOverlayBackground);
-
-    // Styles for tablet
-    @include above($tabletBreakpoint) {
-      background-color: map-get($configuration, mapSearchOverlayBackgroundTablet);
-    }
-
-    // Styles for desktop
-    @include above($desktopBreakpoint) {
-      background-color: map-get($configuration, mapSearchOverlayBackgroundDesktop);
-    }
-  }
-
-  .interactive-maps-overlay {
-    .map-list-item {
-      &.active {
-        border-left-color: map-get($configuration, mapSearchOverlayText);
-
-        // Styles for tablet
-        @include above($tabletBreakpoint) {
-          border-left-color: map-get($configuration, mapSearchOverlayTextTablet);
-        }
-
-        // Styles for desktop
-        @include above($desktopBreakpoint) {
-          border-left-color: map-get($configuration, mapSearchOverlayTextDesktop);
-        }
-      }
-    }
-  }
-
-  .interactive-map-overlay-search-holder {
-    .form-control {
-      background: map-get($configuration, mapSearchOverlayBackground);
-      border-color: map-get($configuration, mapSearchOverlayText);
-    }
-
-    span {
-      background: rgba(map-get($configuration, mapSearchOverlayText), 0.1);
-      color: map-get($configuration, mapSearchOverlayText);
-    }
-
-    // Styles for tablet
-    @include above($tabletBreakpoint) {
-      .form-control {
-        background: map-get($configuration, mapSearchOverlayBackgroundTablet);
-        border-color: map-get($configuration, mapSearchOverlayTextTablet);
-      }
-
-      span {
-        background: rgba(map-get($configuration, mapSearchOverlayTextTablet), 0.1);
-        color: map-get($configuration, mapSearchOverlayTextTablet);
-      }
-    }
-
-    // Styles for desktop
-    @include above($desktopBreakpoint) {
-      .form-control {
-        background: map-get($configuration, mapSearchOverlayBackgroundDesktop);
-        border-color: map-get($configuration, mapSearchOverlayTextDesktop);
-      }
-
-      span {
-        background: rgba(map-get($configuration, mapSearchOverlayTextDesktop), 0.1);
-        color: map-get($configuration, mapSearchOverlayTextDesktop);
-      }
     }
   }
 }

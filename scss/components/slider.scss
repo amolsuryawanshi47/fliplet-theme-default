@@ -1,4 +1,4 @@
-@mixin slider($options: ()) {
+@mixin slider($options: (), $widgetInstanceId: '') {
   $configuration: map-merge((
     sliderWidth: $sliderWidth,
     sliderHeight: $sliderHeight,
@@ -137,7 +137,12 @@
     paginationBulletBorderActiveDesktop: $paginationBulletBorderActiveDesktop
   ), $options);
 
-  .onboarding-holder {
+  $instanceSelector: '[data-fl-widget-instance]';
+  @if $widgetInstanceId != '' {
+    $instanceSelector: '#{$instanceSelector}[data-id="#{$widgetInstanceId}"]';
+  }
+
+  #{$instanceSelector} {
     width: map-get($configuration, sliderWidth);
     min-width: map-get($configuration, sliderMinWidth);
     max-width: map-get($configuration, sliderMaxWidth);
@@ -148,10 +153,6 @@
       map-get($configuration, sliderMarginRight)
       map-get($configuration, sliderMarginBottom)
       map-get($configuration, sliderMarginLeft);
-    padding: map-get($configuration, sliderPaddingTop)
-      map-get($configuration, sliderPaddingRight)
-      map-get($configuration, sliderPaddingBottom)
-      map-get($configuration, sliderPaddingLeft);
     overflow: auto;
 
     // Styles for tablet
@@ -166,10 +167,6 @@
         map-get($configuration, sliderMarginRightTablet)
         map-get($configuration, sliderMarginBottomTablet)
         map-get($configuration, sliderMarginLeftTablet);
-      padding: map-get($configuration, sliderPaddingTop)
-        map-get($configuration, sliderPaddingRight)
-        map-get($configuration, sliderPaddingBottom)
-        map-get($configuration, sliderPaddingLeft);
     }
 
     // Styles for desktop
@@ -184,207 +181,226 @@
         map-get($configuration, sliderMarginRightDesktop)
         map-get($configuration, sliderMarginBottomDesktop)
         map-get($configuration, sliderMarginLeftDesktop);
+    }
+
+    .onboarding-holder {
       padding: map-get($configuration, sliderPaddingTop)
         map-get($configuration, sliderPaddingRight)
         map-get($configuration, sliderPaddingBottom)
         map-get($configuration, sliderPaddingLeft);
+
+      // Styles for tablet
+      @include above($tabletBreakpoint) {
+        padding: map-get($configuration, sliderPaddingTop)
+          map-get($configuration, sliderPaddingRight)
+          map-get($configuration, sliderPaddingBottom)
+          map-get($configuration, sliderPaddingLeft);
+      }
+
+      // Styles for desktop
+      @include above($desktopBreakpoint) {
+        padding: map-get($configuration, sliderPaddingTop)
+          map-get($configuration, sliderPaddingRight)
+          map-get($configuration, sliderPaddingBottom)
+          map-get($configuration, sliderPaddingLeft);
+      }
     }
-  }
 
-  .swiper-pagination-bullet {
-    @include borderOnly((
-      borderSides: map-get($configuration, paginationBulletBorderSides),
-      borderWidth: map-get($configuration, paginationBulletBorderWidth),
-      borderStyle: map-get($configuration, paginationBulletBorderStyle),
-      borderColor: map-get($configuration, paginationBulletBorder)
-    ));
-
-    width: map-get($configuration, paginationBulletWidth);
-    height: map-get($configuration, paginationBulletHeight);
-    background: map-get($configuration, paginationBulletColor);
-
-    // Styles for tablet
-    @include above($tabletBreakpoint) {
+    .swiper-pagination-bullet {
       @include borderOnly((
-        borderSides: map-get($configuration, paginationBulletBorderSidesTablet),
-        borderWidth: map-get($configuration, paginationBulletBorderWidthTablet),
-        borderStyle: map-get($configuration, paginationBulletBorderStyleTablet),
-        borderColor: map-get($configuration, paginationBulletBorderTablet)
+        borderSides: map-get($configuration, paginationBulletBorderSides),
+        borderWidth: map-get($configuration, paginationBulletBorderWidth),
+        borderStyle: map-get($configuration, paginationBulletBorderStyle),
+        borderColor: map-get($configuration, paginationBulletBorder)
       ));
 
-      width: map-get($configuration, paginationBulletWidthTablet);
-      height: map-get($configuration, paginationBulletHeightTablet);
-      background: map-get($configuration, paginationBulletColorTablet);
+      width: map-get($configuration, paginationBulletWidth);
+      height: map-get($configuration, paginationBulletHeight);
+      background: map-get($configuration, paginationBulletColor);
+
+      // Styles for tablet
+      @include above($tabletBreakpoint) {
+        @include borderOnly((
+          borderSides: map-get($configuration, paginationBulletBorderSidesTablet),
+          borderWidth: map-get($configuration, paginationBulletBorderWidthTablet),
+          borderStyle: map-get($configuration, paginationBulletBorderStyleTablet),
+          borderColor: map-get($configuration, paginationBulletBorderTablet)
+        ));
+
+        width: map-get($configuration, paginationBulletWidthTablet);
+        height: map-get($configuration, paginationBulletHeightTablet);
+        background: map-get($configuration, paginationBulletColorTablet);
+      }
+
+      // Styles for desktop
+      @include above($desktopBreakpoint) {
+        @include borderOnly((
+          borderSides: map-get($configuration, paginationBulletBorderSidesDesktop),
+          borderWidth: map-get($configuration, paginationBulletBorderWidthDesktop),
+          borderStyle: map-get($configuration, paginationBulletBorderStyleDesktop),
+          borderColor: map-get($configuration, paginationBulletBorderDesktop)
+        ));
+
+        width: map-get($configuration, paginationBulletWidthDesktop);
+        height: map-get($configuration, paginationBulletHeightDesktop);
+        background: map-get($configuration, paginationBulletColorDesktop);
+      }
     }
 
-    // Styles for desktop
-    @include above($desktopBreakpoint) {
+    .swiper-pagination-bullet-active {
       @include borderOnly((
-        borderSides: map-get($configuration, paginationBulletBorderSidesDesktop),
-        borderWidth: map-get($configuration, paginationBulletBorderWidthDesktop),
-        borderStyle: map-get($configuration, paginationBulletBorderStyleDesktop),
-        borderColor: map-get($configuration, paginationBulletBorderDesktop)
+        borderSides: map-get($configuration, paginationBulletBorder)ActiveSides,
+        borderWidth: map-get($configuration, paginationBulletBorder)ActiveWidth,
+        borderStyle: map-get($configuration, paginationBulletBorder)ActiveStyle,
+        borderColor: map-get($configuration, paginationBulletBorder)Active
       ));
 
-      width: map-get($configuration, paginationBulletWidthDesktop);
-      height: map-get($configuration, paginationBulletHeightDesktop);
-      background: map-get($configuration, paginationBulletColorDesktop);
-    }
-  }
+      background: map-get($configuration, paginationBulletColor)Active;
 
-  .swiper-pagination-bullet-active {
-    @include borderOnly((
-      borderSides: map-get($configuration, paginationBulletBorder)ActiveSides,
-      borderWidth: map-get($configuration, paginationBulletBorder)ActiveWidth,
-      borderStyle: map-get($configuration, paginationBulletBorder)ActiveStyle,
-      borderColor: map-get($configuration, paginationBulletBorder)Active
-    ));
+      // Styles for tablet
+      @include above($tabletBreakpoint) {
+        @include borderOnly((
+          borderSides: map-get($configuration, paginationBulletBorder)ActiveSidesTablet,
+          borderWidth: map-get($configuration, paginationBulletBorder)ActiveWidthTablet,
+          borderStyle: map-get($configuration, paginationBulletBorder)ActiveStyleTablet,
+          borderColor: map-get($configuration, paginationBulletBorder)ActiveTablet
+        ));
 
-    background: map-get($configuration, paginationBulletColor)Active;
+        background: map-get($configuration, paginationBulletColor)ActiveTablet;
+      }
 
-    // Styles for tablet
-    @include above($tabletBreakpoint) {
-      @include borderOnly((
-        borderSides: map-get($configuration, paginationBulletBorder)ActiveSidesTablet,
-        borderWidth: map-get($configuration, paginationBulletBorder)ActiveWidthTablet,
-        borderStyle: map-get($configuration, paginationBulletBorder)ActiveStyleTablet,
-        borderColor: map-get($configuration, paginationBulletBorder)ActiveTablet
-      ));
+      // Styles for desktop
+      @include above($desktopBreakpoint) {
+        @include borderOnly((
+          borderSides: map-get($configuration, paginationBulletBorder)ActiveSidesDesktop,
+          borderWidth: map-get($configuration, paginationBulletBorder)ActiveWidthDesktop,
+          borderStyle: map-get($configuration, paginationBulletBorder)ActiveStyleDesktop,
+          borderColor: map-get($configuration, paginationBulletBorder)ActiveDesktop
+        ));
 
-      background: map-get($configuration, paginationBulletColor)ActiveTablet;
-    }
-
-    // Styles for desktop
-    @include above($desktopBreakpoint) {
-      @include borderOnly((
-        borderSides: map-get($configuration, paginationBulletBorder)ActiveSidesDesktop,
-        borderWidth: map-get($configuration, paginationBulletBorder)ActiveWidthDesktop,
-        borderStyle: map-get($configuration, paginationBulletBorder)ActiveStyleDesktop,
-        borderColor: map-get($configuration, paginationBulletBorder)ActiveDesktop
-      ));
-
-      background: map-get($configuration, paginationBulletColor)ActiveDesktop;
-    }
-  }
-
-  .swiper-button-next,
-  .swiper-button-prev {
-    color: map-get($configuration, paginationChevronsColor);
-
-    // Styles for tablet
-    @include above($tabletBreakpoint) {
-      color: map-get($configuration, paginationChevronsColorTablet);
+        background: map-get($configuration, paginationBulletColor)ActiveDesktop;
+      }
     }
 
-    // Styles for desktop
-    @include above($desktopBreakpoint) {
-      color: map-get($configuration, paginationChevronsColorDesktop);
-    }
-  }
+    .swiper-button-next,
+    .swiper-button-prev {
+      color: map-get($configuration, paginationChevronsColor);
 
-  .swiper-wrapper {
-    .swiper-slide {
-      padding: map-get($configuration, slidePaddingTop)
-        map-get($configuration, slidePaddingRight)
-        map-get($configuration, slidePaddingBottom)
-        map-get($configuration, slidePaddingLeft);
-    }
+      // Styles for tablet
+      @include above($tabletBreakpoint) {
+        color: map-get($configuration, paginationChevronsColorTablet);
+      }
 
-    p {
-      @include fontOnly((
-        fontFamily: map-get($configuration, sliderTextFont),
-        fontSize: map-get($configuration, sliderTextSize),
-        fontLineHeight: map-get($configuration, sliderTextHeight),
-        fontWeight: map-get($configuration, sliderTextWeight),
-        fontStyle: map-get($configuration, sliderTextStyle),
-        fontDecoration: map-get($configuration, sliderTextDecoration)
-      ));
-
-      color: map-get($configuration, sliderTextColor);
+      // Styles for desktop
+      @include above($desktopBreakpoint) {
+        color: map-get($configuration, paginationChevronsColorDesktop);
+      }
     }
 
-    h1 {
-      @include fontOnly((
-        fontFamily: map-get($configuration, sliderHeadingFont),
-        fontSize: map-get($configuration, sliderHeadingSize),
-        fontLineHeight: map-get($configuration, sliderHeadingHeight),
-        fontWeight: map-get($configuration, sliderHeadingWeight),
-        fontStyle: map-get($configuration, sliderHeadingStyle),
-        fontDecoration: map-get($configuration, sliderHeadingDecoration)
-      ));
-
-      color: map-get($configuration, sliderHeadingColor);
-    }
-
-    // Styles for tablet
-    @include above($tabletBreakpoint) {
+    .swiper-wrapper {
       .swiper-slide {
-        padding: map-get($configuration, slidePaddingTopTablet)
-          map-get($configuration, slidePaddingRightTablet)
-          map-get($configuration, slidePaddingBottomTablet)
-          map-get($configuration, slidePaddingLeftTablet);
+        padding: map-get($configuration, slidePaddingTop)
+          map-get($configuration, slidePaddingRight)
+          map-get($configuration, slidePaddingBottom)
+          map-get($configuration, slidePaddingLeft);
       }
 
       p {
         @include fontOnly((
-          fontFamily: map-get($configuration, sliderTextFontTablet),
-          fontSize: map-get($configuration, sliderTextSizeTablet),
-          fontLineHeight: map-get($configuration, sliderTextHeightTablet),
-          fontWeight: map-get($configuration, sliderTextWeightTablet),
-          fontStyle: map-get($configuration, sliderTextStyleTablet),
-          fontDecoration: map-get($configuration, sliderTextDecorationTablet)
+          fontFamily: map-get($configuration, sliderTextFont),
+          fontSize: map-get($configuration, sliderTextSize),
+          fontLineHeight: map-get($configuration, sliderTextHeight),
+          fontWeight: map-get($configuration, sliderTextWeight),
+          fontStyle: map-get($configuration, sliderTextStyle),
+          fontDecoration: map-get($configuration, sliderTextDecoration)
         ));
 
-        color: map-get($configuration, sliderTextColorTablet);
+        color: map-get($configuration, sliderTextColor);
       }
 
       h1 {
         @include fontOnly((
-          fontFamily: map-get($configuration, sliderHeadingFontTablet),
-          fontSize: map-get($configuration, sliderHeadingSizeTablet),
-          fontLineHeight: map-get($configuration, sliderHeadingHeightTablet),
-          fontWeight: map-get($configuration, sliderHeadingWeightTablet),
-          fontStyle: map-get($configuration, sliderHeadingStyleTablet),
-          fontDecoration: map-get($configuration, sliderHeadingDecorationTablet)
+          fontFamily: map-get($configuration, sliderHeadingFont),
+          fontSize: map-get($configuration, sliderHeadingSize),
+          fontLineHeight: map-get($configuration, sliderHeadingHeight),
+          fontWeight: map-get($configuration, sliderHeadingWeight),
+          fontStyle: map-get($configuration, sliderHeadingStyle),
+          fontDecoration: map-get($configuration, sliderHeadingDecoration)
         ));
 
-        color: map-get($configuration, sliderHeadingColorTablet);
-      }
-    }
-
-    // Styles for desktop
-    @include above($desktopBreakpoint) {
-      .swiper-slide {
-        padding: map-get($configuration, slidePaddingTopDesktop)
-          map-get($configuration, slidePaddingRightDesktop)
-          map-get($configuration, slidePaddingBottomDesktop)
-          map-get($configuration, slidePaddingLeftDesktop);
+        color: map-get($configuration, sliderHeadingColor);
       }
 
-      p {
-        @include fontOnly((
-          fontFamily: map-get($configuration, sliderTextFontDesktop),
-          fontSize: map-get($configuration, sliderTextSizeDesktop),
-          fontLineHeight: map-get($configuration, sliderTextHeightDesktop),
-          fontWeight: map-get($configuration, sliderTextWeightDesktop),
-          fontStyle: map-get($configuration, sliderTextStyleDesktop),
-          fontDecoration: map-get($configuration, sliderTextDecorationDesktop)
-        ));
+      // Styles for tablet
+      @include above($tabletBreakpoint) {
+        .swiper-slide {
+          padding: map-get($configuration, slidePaddingTopTablet)
+            map-get($configuration, slidePaddingRightTablet)
+            map-get($configuration, slidePaddingBottomTablet)
+            map-get($configuration, slidePaddingLeftTablet);
+        }
 
-        color: map-get($configuration, sliderTextColorDesktop);
+        p {
+          @include fontOnly((
+            fontFamily: map-get($configuration, sliderTextFontTablet),
+            fontSize: map-get($configuration, sliderTextSizeTablet),
+            fontLineHeight: map-get($configuration, sliderTextHeightTablet),
+            fontWeight: map-get($configuration, sliderTextWeightTablet),
+            fontStyle: map-get($configuration, sliderTextStyleTablet),
+            fontDecoration: map-get($configuration, sliderTextDecorationTablet)
+          ));
+
+          color: map-get($configuration, sliderTextColorTablet);
+        }
+
+        h1 {
+          @include fontOnly((
+            fontFamily: map-get($configuration, sliderHeadingFontTablet),
+            fontSize: map-get($configuration, sliderHeadingSizeTablet),
+            fontLineHeight: map-get($configuration, sliderHeadingHeightTablet),
+            fontWeight: map-get($configuration, sliderHeadingWeightTablet),
+            fontStyle: map-get($configuration, sliderHeadingStyleTablet),
+            fontDecoration: map-get($configuration, sliderHeadingDecorationTablet)
+          ));
+
+          color: map-get($configuration, sliderHeadingColorTablet);
+        }
       }
 
-      h1 {
-        @include fontOnly((
-          fontFamily: map-get($configuration, sliderHeadingFontDesktop),
-          fontSize: map-get($configuration, sliderHeadingSizeDesktop),
-          fontLineHeight: map-get($configuration, sliderHeadingHeightDesktop),
-          fontWeight: map-get($configuration, sliderHeadingWeightDesktop),
-          fontStyle: map-get($configuration, sliderHeadingStyleDesktop),
-          fontDecoration: map-get($configuration, sliderHeadingDecorationDesktop)
-        ));
+      // Styles for desktop
+      @include above($desktopBreakpoint) {
+        .swiper-slide {
+          padding: map-get($configuration, slidePaddingTopDesktop)
+            map-get($configuration, slidePaddingRightDesktop)
+            map-get($configuration, slidePaddingBottomDesktop)
+            map-get($configuration, slidePaddingLeftDesktop);
+        }
 
-        color: map-get($configuration, sliderHeadingColorDesktop);
+        p {
+          @include fontOnly((
+            fontFamily: map-get($configuration, sliderTextFontDesktop),
+            fontSize: map-get($configuration, sliderTextSizeDesktop),
+            fontLineHeight: map-get($configuration, sliderTextHeightDesktop),
+            fontWeight: map-get($configuration, sliderTextWeightDesktop),
+            fontStyle: map-get($configuration, sliderTextStyleDesktop),
+            fontDecoration: map-get($configuration, sliderTextDecorationDesktop)
+          ));
+
+          color: map-get($configuration, sliderTextColorDesktop);
+        }
+
+        h1 {
+          @include fontOnly((
+            fontFamily: map-get($configuration, sliderHeadingFontDesktop),
+            fontSize: map-get($configuration, sliderHeadingSizeDesktop),
+            fontLineHeight: map-get($configuration, sliderHeadingHeightDesktop),
+            fontWeight: map-get($configuration, sliderHeadingWeightDesktop),
+            fontStyle: map-get($configuration, sliderHeadingStyleDesktop),
+            fontDecoration: map-get($configuration, sliderHeadingDecorationDesktop)
+          ));
+
+          color: map-get($configuration, sliderHeadingColorDesktop);
+        }
       }
     }
   }
@@ -392,7 +408,7 @@
 
 @include slider();
 
-@mixin onboarding($options: ()) {
+@mixin onboarding($options: (), $widgetInstanceId: '') {
   $configuration: map-merge((
     onboardingSlideBackgroundColor: $onboardingSlideBackgroundColor,
     onboardingSkipTextColor: $onboardingSkipTextColor,
@@ -498,231 +514,238 @@
     onboardingPaginationBulletBorderActiveDesktop: $onboardingPaginationBulletBorderActiveDesktop
   ), $options);
 
-  .onboarding-holder.full-screen {
-    width: 100%;
-    min-width: auto;
-    max-width: none;
-    height: auto;
-    min-height: auto;
-    max-height: none;
-    margin: 0;
-    padding: 0;
+  $instanceSelector: '[data-fl-widget-instance]';
+  @if $widgetInstanceId != '' {
+    $instanceSelector: '#{$instanceSelector}[data-id="#{$widgetInstanceId}"]';
+  }
 
-    .ob-top-nav {
-      .ob-skip {
-        color: map-get($configuration, onboardingSkipTextColor);
+  #{$instanceSelector} {
+    .onboarding-holder.full-screen {
+      width: 100%;
+      min-width: auto;
+      max-width: none;
+      height: auto;
+      min-height: auto;
+      max-height: none;
+      margin: 0;
+      padding: 0;
+
+      .ob-top-nav {
+        .ob-skip {
+          color: map-get($configuration, onboardingSkipTextColor);
+
+          // Styles for tablet
+          @include above($tabletBreakpoint) {
+            color: map-get($configuration, onboardingSkipTextColorTablet);
+          }
+
+          // Styles for desktop
+          @include above($desktopBreakpoint) {
+            color: map-get($configuration, onboardingSkipTextColorDesktop);
+          }
+        }
+      }
+
+      .swiper-pagination-bullet {
+        @include borderOnly((
+          borderSides: map-get($configuration, onboardingPaginationBulletBorderSides),
+          borderWidth: map-get($configuration, onboardingPaginationBulletBorderWidth),
+          borderStyle: map-get($configuration, onboardingPaginationBulletBorderStyle),
+          borderColor: map-get($configuration, onboardingPaginationBulletBorder)
+        ));
+
+        width: map-get($configuration, onboardingPaginationBulletWidth);
+        height: map-get($configuration, onboardingPaginationBulletHeight);
+        background: map-get($configuration, onboardingPaginationBulletColo);
 
         // Styles for tablet
         @include above($tabletBreakpoint) {
-          color: map-get($configuration, onboardingSkipTextColorTablet);
+          @include borderOnly((
+            borderSides: map-get($configuration, onboardingPaginationBulletBorderSidesTablet),
+            borderWidth: map-get($configuration, onboardingPaginationBulletBorderWidthTablet),
+            borderStyle: map-get($configuration, onboardingPaginationBulletBorderStyleTablet),
+            borderColor: map-get($configuration, onboardingPaginationBulletBorderTablet)
+          ));
+
+          width: map-get($configuration, onboardingPaginationBulletWidthTablet);
+          height: map-get($configuration, onboardingPaginationBulletHeightTablet);
+          background: map-get($configuration, onboardingPaginationBulletColorTablet);
         }
 
         // Styles for desktop
         @include above($desktopBreakpoint) {
-          color: map-get($configuration, onboardingSkipTextColorDesktop);
+          @include borderOnly((
+            borderSides: map-get($configuration, onboardingPaginationBulletBorderSidesDesktop),
+            borderWidth: map-get($configuration, onboardingPaginationBulletBorderWidthDesktop),
+            borderStyle: map-get($configuration, onboardingPaginationBulletBorderStyleDesktop),
+            borderColor: map-get($configuration, onboardingPaginationBulletBorderDesktop)
+          ));
+
+          width: map-get($configuration, onboardingPaginationBulletWidthDesktop);
+          height: map-get($configuration, onboardingPaginationBulletHeightDesktop);
+          background: map-get($configuration, onboardingPaginationBulletColorDesktop);
         }
       }
-    }
 
-    .swiper-pagination-bullet {
-      @include borderOnly((
-        borderSides: map-get($configuration, onboardingPaginationBulletBorderSides),
-        borderWidth: map-get($configuration, onboardingPaginationBulletBorderWidth),
-        borderStyle: map-get($configuration, onboardingPaginationBulletBorderStyle),
-        borderColor: map-get($configuration, onboardingPaginationBulletBorder)
-      ));
-
-      width: map-get($configuration, onboardingPaginationBulletWidth);
-      height: map-get($configuration, onboardingPaginationBulletHeight);
-      background: map-get($configuration, onboardingPaginationBulletColo);
-
-      // Styles for tablet
-      @include above($tabletBreakpoint) {
+      .swiper-pagination-bullet-active {
         @include borderOnly((
-          borderSides: map-get($configuration, onboardingPaginationBulletBorderSidesTablet),
-          borderWidth: map-get($configuration, onboardingPaginationBulletBorderWidthTablet),
-          borderStyle: map-get($configuration, onboardingPaginationBulletBorderStyleTablet),
-          borderColor: map-get($configuration, onboardingPaginationBulletBorderTablet)
+          borderSides: map-get($configuration, onboardingPaginationBulletBorderActiveSides),
+          borderWidth: map-get($configuration, onboardingPaginationBulletBorderActiveWidth),
+          borderStyle: map-get($configuration, onboardingPaginationBulletBorderActiveStyle),
+          borderColor: map-get($configuration, onboardingPaginationBulletBorderActive)
         ));
 
-        width: map-get($configuration, onboardingPaginationBulletWidthTablet);
-        height: map-get($configuration, onboardingPaginationBulletHeightTablet);
-        background: map-get($configuration, onboardingPaginationBulletColorTablet);
+        background: map-get($configuration, onboardingPaginationBulletColorActive);
+
+        // Styles for tablet
+        @include above($tabletBreakpoint) {
+          @include borderOnly((
+            borderSides: map-get($configuration, onboardingPaginationBulletBorderActiveSidesTablet),
+            borderWidth: map-get($configuration, onboardingPaginationBulletBorderActiveWidthTablet),
+            borderStyle: map-get($configuration, onboardingPaginationBulletBorderActiveStyleTablet),
+            borderColor: map-get($configuration, onboardingPaginationBulletBorderActiveTablet)
+          ));
+
+          background: map-get($configuration, onboardingPaginationBulletColorActiveTablet);
+        }
+
+        // Styles for desktop
+        @include above($desktopBreakpoint) {
+          @include borderOnly((
+            borderSides: map-get($configuration, onboardingPaginationBulletBorderActiveSidesDesktop),
+            borderWidth: map-get($configuration, onboardingPaginationBulletBorderActiveWidthDesktop),
+            borderStyle: map-get($configuration, onboardingPaginationBulletBorderActiveStyleDesktop),
+            borderColor: map-get($configuration, onboardingPaginationBulletBorderActiveDesktop)
+          ));
+
+          background: map-get($configuration, onboardingPaginationBulletColorActiveDesktop);
+        }
       }
 
-      // Styles for desktop
-      @include above($desktopBreakpoint) {
-        @include borderOnly((
-          borderSides: map-get($configuration, onboardingPaginationBulletBorderSidesDesktop),
-          borderWidth: map-get($configuration, onboardingPaginationBulletBorderWidthDesktop),
-          borderStyle: map-get($configuration, onboardingPaginationBulletBorderStyleDesktop),
-          borderColor: map-get($configuration, onboardingPaginationBulletBorderDesktop)
-        ));
+      .swiper-button-next,
+      .swiper-button-prev {
+        color: map-get($configuration, onboardingPaginationChevronsColor);
+        background-color: map-get($configuration, onboardingPaginationChevronsBgColor);
 
-        width: map-get($configuration, onboardingPaginationBulletWidthDesktop);
-        height: map-get($configuration, onboardingPaginationBulletHeightDesktop);
-        background: map-get($configuration, onboardingPaginationBulletColorDesktop);
-      }
-    }
+        // Styles for tablet
+        @include above($tabletBreakpoint) {
+          color: map-get($configuration, onboardingPaginationChevronsColorTablet);
+          background-color: map-get($configuration, onboardingPaginationChevronsBgColorTablet);
+        }
 
-    .swiper-pagination-bullet-active {
-      @include borderOnly((
-        borderSides: map-get($configuration, onboardingPaginationBulletBorderActiveSides),
-        borderWidth: map-get($configuration, onboardingPaginationBulletBorderActiveWidth),
-        borderStyle: map-get($configuration, onboardingPaginationBulletBorderActiveStyle),
-        borderColor: map-get($configuration, onboardingPaginationBulletBorderActive)
-      ));
-
-      background: map-get($configuration, onboardingPaginationBulletColorActive);
-
-      // Styles for tablet
-      @include above($tabletBreakpoint) {
-        @include borderOnly((
-          borderSides: map-get($configuration, onboardingPaginationBulletBorderActiveSidesTablet),
-          borderWidth: map-get($configuration, onboardingPaginationBulletBorderActiveWidthTablet),
-          borderStyle: map-get($configuration, onboardingPaginationBulletBorderActiveStyleTablet),
-          borderColor: map-get($configuration, onboardingPaginationBulletBorderActiveTablet)
-        ));
-
-        background: map-get($configuration, onboardingPaginationBulletColorActiveTablet);
+        // Styles for desktop
+        @include above($desktopBreakpoint) {
+          color: map-get($configuration, onboardingPaginationChevronsColorDesktop);
+          background-color: map-get($configuration, onboardingPaginationChevronsBgColorDesktop);
+        }
       }
 
-      // Styles for desktop
-      @include above($desktopBreakpoint) {
-        @include borderOnly((
-          borderSides: map-get($configuration, onboardingPaginationBulletBorderActiveSidesDesktop),
-          borderWidth: map-get($configuration, onboardingPaginationBulletBorderActiveWidthDesktop),
-          borderStyle: map-get($configuration, onboardingPaginationBulletBorderActiveStyleDesktop),
-          borderColor: map-get($configuration, onboardingPaginationBulletBorderActiveDesktop)
-        ));
-
-        background: map-get($configuration, onboardingPaginationBulletColorActiveDesktop);
-      }
-    }
-
-    .swiper-button-next,
-    .swiper-button-prev {
-      color: map-get($configuration, onboardingPaginationChevronsColor);
-      background-color: map-get($configuration, onboardingPaginationChevronsBgColor);
-
-      // Styles for tablet
-      @include above($tabletBreakpoint) {
-        color: map-get($configuration, onboardingPaginationChevronsColorTablet);
-        background-color: map-get($configuration, onboardingPaginationChevronsBgColorTablet);
-      }
-
-      // Styles for desktop
-      @include above($desktopBreakpoint) {
-        color: map-get($configuration, onboardingPaginationChevronsColorDesktop);
-        background-color: map-get($configuration, onboardingPaginationChevronsBgColorDesktop);
-      }
-    }
-
-    .swiper-wrapper {
-      .swiper-slide-content {
-        background-color: map-get($configuration, onboardingSlideBackgroundColor);
-        padding: map-get($configuration, onboardingSlidePaddingTop)
-          map-get($configuration, onboardingSlidePaddingRight)
-          map-get($configuration, onboardingSlidePaddingBottom)
-          map-get($configuration, onboardingSlidePaddingLeft);
-      }
-
-      p {
-        @include fontOnly((
-          fontFamily: map-get($configuration, onboardingTextFont),
-          fontSize: map-get($configuration, onboardingTextSize),
-          fontLineHeight: map-get($configuration, onboardingTextHeight),
-          fontWeight: map-get($configuration, onboardingTextWeight),
-          fontStyle: map-get($configuration, onboardingTextStyle),
-          fontDecoration: map-get($configuration, onboardingTextDecoration)
-        ));
-        color: map-get($configuration, onboardingTextColor);
-      }
-
-      h1 {
-        @include fontOnly((
-          fontFamily: map-get($configuration, onboardingHeadingFont),
-          fontSize: map-get($configuration, onboardingHeadingSize),
-          fontLineHeight: map-get($configuration, onboardingHeadingHeight),
-          fontWeight: map-get($configuration, onboardingHeadingWeight),
-          fontStyle: map-get($configuration, onboardingHeadingStyle),
-          fontDecoration: map-get($configuration, onboardingHeadingDecoration)
-        ));
-
-        color: map-get($configuration, onboardingHeadingColor);
-      }
-
-      // Styles for tablet
-      @include above($tabletBreakpoint) {
+      .swiper-wrapper {
         .swiper-slide-content {
-          background-color: map-get($configuration, onboardingSlideBackgroundColorTablet);
-          padding: map-get($configuration, onboardingSlidePaddingTopTablet)
-            map-get($configuration, onboardingSlidePaddingRightTablet)
-            map-get($configuration, onboardingSlidePaddingBottomTablet)
-            map-get($configuration, onboardingSlidePaddingLeftTablet);
+          background-color: map-get($configuration, onboardingSlideBackgroundColor);
+          padding: map-get($configuration, onboardingSlidePaddingTop)
+            map-get($configuration, onboardingSlidePaddingRight)
+            map-get($configuration, onboardingSlidePaddingBottom)
+            map-get($configuration, onboardingSlidePaddingLeft);
         }
 
         p {
           @include fontOnly((
-            fontFamily: map-get($configuration, onboardingTextFontTablet),
-            fontSize: map-get($configuration, onboardingTextSizeTablet),
-            fontLineHeight: map-get($configuration, onboardingTextHeightTablet),
-            fontWeight: map-get($configuration, onboardingTextWeightTablet),
-            fontStyle: map-get($configuration, onboardingTextStyleTablet),
-            fontDecoration: map-get($configuration, onboardingTextDecorationTablet)
+            fontFamily: map-get($configuration, onboardingTextFont),
+            fontSize: map-get($configuration, onboardingTextSize),
+            fontLineHeight: map-get($configuration, onboardingTextHeight),
+            fontWeight: map-get($configuration, onboardingTextWeight),
+            fontStyle: map-get($configuration, onboardingTextStyle),
+            fontDecoration: map-get($configuration, onboardingTextDecoration)
           ));
-
-          color: map-get($configuration, onboardingTextColorTablet);
+          color: map-get($configuration, onboardingTextColor);
         }
 
         h1 {
           @include fontOnly((
-            fontFamily: map-get($configuration, onboardingHeadingFontTablet),
-            fontSize: map-get($configuration, onboardingHeadingSizeTablet),
-            fontLineHeight: map-get($configuration, onboardingHeadingHeightTablet),
-            fontWeight: map-get($configuration, onboardingHeadingWeightTablet),
-            fontStyle: map-get($configuration, onboardingHeadingStyleTablet),
-            fontDecoration: map-get($configuration, onboardingHeadingDecorationTablet)
+            fontFamily: map-get($configuration, onboardingHeadingFont),
+            fontSize: map-get($configuration, onboardingHeadingSize),
+            fontLineHeight: map-get($configuration, onboardingHeadingHeight),
+            fontWeight: map-get($configuration, onboardingHeadingWeight),
+            fontStyle: map-get($configuration, onboardingHeadingStyle),
+            fontDecoration: map-get($configuration, onboardingHeadingDecoration)
           ));
 
-          color: map-get($configuration, onboardingHeadingColorTablet);
-        }
-      }
-
-      // Styles for desktop
-      @include above($desktopBreakpoint) {
-        .swiper-slide-content {
-          background-color: map-get($configuration, onboardingSlideBackgroundColorDesktop);
-          padding: map-get($configuration, onboardingSlidePaddingTopDesktop)
-            map-get($configuration, onboardingSlidePaddingRightDesktop)
-            map-get($configuration, onboardingSlidePaddingBottomDesktop)
-            map-get($configuration, onboardingSlidePaddingLeftDesktop);
+          color: map-get($configuration, onboardingHeadingColor);
         }
 
-        p {
-          @include fontOnly((
-            fontFamily: map-get($configuration, onboardingTextFontDesktop),
-            fontSize: map-get($configuration, onboardingTextSizeDesktop),
-            fontLineHeight: map-get($configuration, onboardingTextHeightDesktop),
-            fontWeight: map-get($configuration, onboardingTextWeightDesktop),
-            fontStyle: map-get($configuration, onboardingTextStyleDesktop),
-            fontDecoration: map-get($configuration, onboardingTextDecorationDesktop)
-          ));
+        // Styles for tablet
+        @include above($tabletBreakpoint) {
+          .swiper-slide-content {
+            background-color: map-get($configuration, onboardingSlideBackgroundColorTablet);
+            padding: map-get($configuration, onboardingSlidePaddingTopTablet)
+              map-get($configuration, onboardingSlidePaddingRightTablet)
+              map-get($configuration, onboardingSlidePaddingBottomTablet)
+              map-get($configuration, onboardingSlidePaddingLeftTablet);
+          }
 
-          color: map-get($configuration, onboardingTextColorDesktop);
+          p {
+            @include fontOnly((
+              fontFamily: map-get($configuration, onboardingTextFontTablet),
+              fontSize: map-get($configuration, onboardingTextSizeTablet),
+              fontLineHeight: map-get($configuration, onboardingTextHeightTablet),
+              fontWeight: map-get($configuration, onboardingTextWeightTablet),
+              fontStyle: map-get($configuration, onboardingTextStyleTablet),
+              fontDecoration: map-get($configuration, onboardingTextDecorationTablet)
+            ));
+
+            color: map-get($configuration, onboardingTextColorTablet);
+          }
+
+          h1 {
+            @include fontOnly((
+              fontFamily: map-get($configuration, onboardingHeadingFontTablet),
+              fontSize: map-get($configuration, onboardingHeadingSizeTablet),
+              fontLineHeight: map-get($configuration, onboardingHeadingHeightTablet),
+              fontWeight: map-get($configuration, onboardingHeadingWeightTablet),
+              fontStyle: map-get($configuration, onboardingHeadingStyleTablet),
+              fontDecoration: map-get($configuration, onboardingHeadingDecorationTablet)
+            ));
+
+            color: map-get($configuration, onboardingHeadingColorTablet);
+          }
         }
 
-        h1 {
-          @include fontOnly((
-            fontFamily: map-get($configuration, onboardingHeadingFontDesktop),
-            fontSize: map-get($configuration, onboardingHeadingSizeDesktop),
-            fontLineHeight: map-get($configuration, onboardingHeadingHeightDesktop),
-            fontWeight: map-get($configuration, onboardingHeadingWeightDesktop),
-            fontStyle: map-get($configuration, onboardingHeadingStyleDesktop),
-            fontDecoration: map-get($configuration, onboardingHeadingDecorationDesktop)
-          ));
+        // Styles for desktop
+        @include above($desktopBreakpoint) {
+          .swiper-slide-content {
+            background-color: map-get($configuration, onboardingSlideBackgroundColorDesktop);
+            padding: map-get($configuration, onboardingSlidePaddingTopDesktop)
+              map-get($configuration, onboardingSlidePaddingRightDesktop)
+              map-get($configuration, onboardingSlidePaddingBottomDesktop)
+              map-get($configuration, onboardingSlidePaddingLeftDesktop);
+          }
 
-          color: map-get($configuration, onboardingHeadingColorDesktop);
+          p {
+            @include fontOnly((
+              fontFamily: map-get($configuration, onboardingTextFontDesktop),
+              fontSize: map-get($configuration, onboardingTextSizeDesktop),
+              fontLineHeight: map-get($configuration, onboardingTextHeightDesktop),
+              fontWeight: map-get($configuration, onboardingTextWeightDesktop),
+              fontStyle: map-get($configuration, onboardingTextStyleDesktop),
+              fontDecoration: map-get($configuration, onboardingTextDecorationDesktop)
+            ));
+
+            color: map-get($configuration, onboardingTextColorDesktop);
+          }
+
+          h1 {
+            @include fontOnly((
+              fontFamily: map-get($configuration, onboardingHeadingFontDesktop),
+              fontSize: map-get($configuration, onboardingHeadingSizeDesktop),
+              fontLineHeight: map-get($configuration, onboardingHeadingHeightDesktop),
+              fontWeight: map-get($configuration, onboardingHeadingWeightDesktop),
+              fontStyle: map-get($configuration, onboardingHeadingStyleDesktop),
+              fontDecoration: map-get($configuration, onboardingHeadingDecorationDesktop)
+            ));
+
+            color: map-get($configuration, onboardingHeadingColorDesktop);
+          }
         }
       }
     }

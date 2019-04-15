@@ -1,4 +1,4 @@
-@mixin images($options: ()) {
+@mixin images($options: (), $widgetInstanceId: '') {
   $configuration: map-merge((
     imageDisplay: $imageDisplay,
     imageWidth: $imageWidth,
@@ -80,21 +80,12 @@
     imageShadowColorDesktop: $imageShadowColorDesktop
   ), $options);
 
-  .mode-interact .fl-widget-instance[data-is-inline="true"] {
-    display: map-get($configuration, imageDisplay);
-
-    // Styles for tablet
-    @include above($tabletBreakpoint) {
-      display: map-get($configuration, imageDisplayTablet);
-    }
-
-    // Styles for desktop
-    @include above($desktopBreakpoint) {
-      display: map-get($configuration, imageDisplayDesktop);
-    }
+  $instanceSelector: '[data-fl-widget-instance]';
+  @if $widgetInstanceId != '' {
+    $instanceSelector: '#{$instanceSelector}[data-id="#{$widgetInstanceId}"]';
   }
 
-  img[data-image-id] {
+  #{$instanceSelector} {
     display: map-get($configuration, imageDisplay);
     width: map-get($configuration, imageWidth);
     min-width: map-get($configuration, imageMinWidth);
@@ -106,27 +97,6 @@
       map-get($configuration, imageMarginRight)
       map-get($configuration, imageMarginBottom)
       map-get($configuration, imageMarginLeft);
-    padding: map-get($configuration, imagePaddingTop)
-      map-get($configuration, imagePaddingRight)
-      map-get($configuration, imagePaddingBottom)
-      map-get($configuration, imagePaddingLeft);
-
-    @include borderOnly((
-      borderSides: map-get($configuration, imageBorderSides),
-      borderWidth: map-get($configuration, imageBorderWidth),
-      borderStyle: map-get($configuration, imageBorderStyle),
-      borderColor: map-get($configuration, imageBorderColor)
-    ));
-    border-radius: map-get($configuration, imageBorderRadius);
-
-    @include shadowOnly((
-      shadowStyle: map-get($configuration, imageShadowStyle),
-      shadowXOffset: map-get($configuration, imageShadowXoffset),
-      shadowYOffset: map-get($configuration, imageShadowYoffset),
-      shadowBlur: map-get($configuration, imageShadowBlur),
-      shadowSpread: map-get($configuration, imageShadowSpread),
-      shadowColor: map-get($configuration, imageShadowColor)
-    ));
 
     // Styles for tablet
     @include above($tabletBreakpoint) {
@@ -141,27 +111,6 @@
         map-get($configuration, imageMarginRightTablet)
         map-get($configuration, imageMarginBottomTablet)
         map-get($configuration, imageMarginLeftTablet);
-      padding: map-get($configuration, imagePaddingTopTablet)
-        map-get($configuration, imagePaddingRightTablet)
-        map-get($configuration, imagePaddingBottomTablet)
-        map-get($configuration, imagePaddingLeftTablet);
-
-      @include borderOnly((
-        borderSides: map-get($configuration, imageBorderSidesTablet),
-        borderWidth: map-get($configuration, imageBorderWidthTablet),
-        borderStyle: map-get($configuration, imageBorderStyleTablet),
-        borderColor: map-get($configuration, imageBorderColorTablet)
-      ));
-      border-radius: map-get($configuration, imageBorderRadiusTablet);
-
-      @include shadowOnly((
-        shadowStyle: map-get($configuration, imageShadowStyleTablet),
-        shadowXOffset: map-get($configuration, imageShadowXoffsetTablet),
-        shadowYOffset: map-get($configuration, imageShadowYoffsetTablet),
-        shadowBlur: map-get($configuration, imageShadowBlurTablet),
-        shadowSpread: map-get($configuration, imageShadowSpreadTablet),
-        shadowColor: map-get($configuration, imageShadowColorTablet)
-      ));
     }
 
     // Styles for desktop
@@ -177,34 +126,87 @@
         map-get($configuration, imageMarginRightDesktop)
         map-get($configuration, imageMarginBottomDesktop)
         map-get($configuration, imageMarginLeftDesktop);
-      padding: map-get($configuration, imagePaddingTopDesktop)
-        map-get($configuration, imagePaddingRightDesktop)
-        map-get($configuration, imagePaddingBottomDesktop)
-        map-get($configuration, imagePaddingLeftDesktop);
+    }
+
+    img[data-image-id] {
+      padding: map-get($configuration, imagePaddingTop)
+        map-get($configuration, imagePaddingRight)
+        map-get($configuration, imagePaddingBottom)
+        map-get($configuration, imagePaddingLeft);
 
       @include borderOnly((
-        borderSides: map-get($configuration, imageBorderSidesDesktop),
-        borderWidth: map-get($configuration, imageBorderWidthDesktop),
-        borderStyle: map-get($configuration, imageBorderStyleDesktop),
-        borderColor: map-get($configuration, imageBorderColorDesktop)
+        borderSides: map-get($configuration, imageBorderSides),
+        borderWidth: map-get($configuration, imageBorderWidth),
+        borderStyle: map-get($configuration, imageBorderStyle),
+        borderColor: map-get($configuration, imageBorderColor)
       ));
-      border-radius: map-get($configuration, imageBorderRadiusDesktop);
+      border-radius: map-get($configuration, imageBorderRadius);
 
       @include shadowOnly((
-        shadowStyle: map-get($configuration, imageShadowStyleDesktop),
-        shadowXOffset: map-get($configuration, imageShadowXoffsetDesktop),
-        shadowYOffset: map-get($configuration, imageShadowYoffsetDesktop),
-        shadowBlur: map-get($configuration, imageShadowBlurDesktop),
-        shadowSpread: map-get($configuration, imageShadowSpreadDesktop),
-        shadowColor: map-get($configuration, imageShadowColorDesktop)
+        shadowStyle: map-get($configuration, imageShadowStyle),
+        shadowXOffset: map-get($configuration, imageShadowXoffset),
+        shadowYOffset: map-get($configuration, imageShadowYoffset),
+        shadowBlur: map-get($configuration, imageShadowBlur),
+        shadowSpread: map-get($configuration, imageShadowSpread),
+        shadowColor: map-get($configuration, imageShadowColor)
       ));
+
+      // Styles for tablet
+      @include above($tabletBreakpoint) {
+        padding: map-get($configuration, imagePaddingTopTablet)
+          map-get($configuration, imagePaddingRightTablet)
+          map-get($configuration, imagePaddingBottomTablet)
+          map-get($configuration, imagePaddingLeftTablet);
+
+        @include borderOnly((
+          borderSides: map-get($configuration, imageBorderSidesTablet),
+          borderWidth: map-get($configuration, imageBorderWidthTablet),
+          borderStyle: map-get($configuration, imageBorderStyleTablet),
+          borderColor: map-get($configuration, imageBorderColorTablet)
+        ));
+        border-radius: map-get($configuration, imageBorderRadiusTablet);
+
+        @include shadowOnly((
+          shadowStyle: map-get($configuration, imageShadowStyleTablet),
+          shadowXOffset: map-get($configuration, imageShadowXoffsetTablet),
+          shadowYOffset: map-get($configuration, imageShadowYoffsetTablet),
+          shadowBlur: map-get($configuration, imageShadowBlurTablet),
+          shadowSpread: map-get($configuration, imageShadowSpreadTablet),
+          shadowColor: map-get($configuration, imageShadowColorTablet)
+        ));
+      }
+
+      // Styles for desktop
+      @include above($desktopBreakpoint) {
+        padding: map-get($configuration, imagePaddingTopDesktop)
+          map-get($configuration, imagePaddingRightDesktop)
+          map-get($configuration, imagePaddingBottomDesktop)
+          map-get($configuration, imagePaddingLeftDesktop);
+
+        @include borderOnly((
+          borderSides: map-get($configuration, imageBorderSidesDesktop),
+          borderWidth: map-get($configuration, imageBorderWidthDesktop),
+          borderStyle: map-get($configuration, imageBorderStyleDesktop),
+          borderColor: map-get($configuration, imageBorderColorDesktop)
+        ));
+        border-radius: map-get($configuration, imageBorderRadiusDesktop);
+
+        @include shadowOnly((
+          shadowStyle: map-get($configuration, imageShadowStyleDesktop),
+          shadowXOffset: map-get($configuration, imageShadowXoffsetDesktop),
+          shadowYOffset: map-get($configuration, imageShadowYoffsetDesktop),
+          shadowBlur: map-get($configuration, imageShadowBlurDesktop),
+          shadowSpread: map-get($configuration, imageShadowSpreadDesktop),
+          shadowColor: map-get($configuration, imageShadowColorDesktop)
+        ));
+      }
     }
   }
 }
 
 @include images();
 
-@mixin imageGallery($options: ()) {
+@mixin imageGallery($options: (), $widgetInstanceId: '') {
   $configuration: map-merge((
     galleryWidth: $galleryWidth,
     galleryHeight: $galleryHeight,
@@ -250,7 +252,12 @@
     galleryPaddingLeftDesktop: $galleryPaddingLeftDesktop
   ), $options);
 
-  .image-gallery {
+  $instanceSelector: '[data-fl-widget-instance]';
+  @if $widgetInstanceId != '' {
+    $instanceSelector: '#{$instanceSelector}[data-id="#{$widgetInstanceId}"]';
+  }
+
+  #{$instanceSelector} {
     width: map-get($configuration, galleryWidth);
     min-width: map-get($configuration, galleryMinWidth);
     max-width: map-get($configuration, galleryMaxWidth);
@@ -300,6 +307,29 @@
         map-get($configuration, galleryPaddingRightDesktop)
         map-get($configuration, galleryPaddingBottomDesktop)
         map-get($configuration, galleryPaddingLeftDesktop);
+    }
+
+    .image-gallery {
+      padding: map-get($configuration, galleryPaddingTop)
+        map-get($configuration, galleryPaddingRight)
+        map-get($configuration, galleryPaddingBottom)
+        map-get($configuration, galleryPaddingLeft);
+
+      // Styles for tablet
+      @include above($tabletBreakpoint) {
+        padding: map-get($configuration, galleryPaddingTopTablet)
+          map-get($configuration, galleryPaddingRightTablet)
+          map-get($configuration, galleryPaddingBottomTablet)
+          map-get($configuration, galleryPaddingLeftTablet);
+      }
+
+      // Styles for desktop
+      @include above($desktopBreakpoint) {
+        padding: map-get($configuration, galleryPaddingTopDesktop)
+          map-get($configuration, galleryPaddingRightDesktop)
+          map-get($configuration, galleryPaddingBottomDesktop)
+          map-get($configuration, galleryPaddingLeftDesktop);
+      }
     }
   }
 }

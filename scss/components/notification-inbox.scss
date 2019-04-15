@@ -1,4 +1,4 @@
-@mixin notificationBox($options: ()) {
+@mixin notificationBox($options: (), $widgetInstanceId: '') {
   $configuration: map-merge((
     notificationWidth: $notificationWidth,
     notificationMinWidth: $notificationMinWidth,
@@ -41,21 +41,12 @@
     notificationDraftBackgroundColorDesktop: $notificationDraftBackgroundColorDesktop,
   ), $options);
 
-  .notification-badge {
-    background-color: map-get($configuration, notificationBadgeBackgroundColor);
-
-    // Styles for tablet
-    @include above($tabletBreakpoint) {
-     background-color: map-get($configuration, notificationBadgeBackgroundColorTablet);
-    }
-
-    // Styles for desktop
-    @include above($desktopBreakpoint) {
-      background-color: map-get($configuration, notificationBadgeBackgroundColorDesktop);
-    }
+  $instanceSelector: '[data-fl-widget-instance]';
+  @if $widgetInstanceId != '' {
+    $instanceSelector: '#{$instanceSelector}[data-id="#{$widgetInstanceId}"]';
   }
 
-  .notifications-holder {
+  #{$instanceSelector} {
     width: map-get($configuration, notificationWidth);
     min-width: map-get($configuration, notificationMinWidth);
     max-width: map-get($configuration, notificationMaxWidth);
@@ -63,14 +54,6 @@
       map-get($configuration, notificationMarginRight)
       map-get($configuration, notificationMarginBottom)
       map-get($configuration, notificationMarginLeft);
-    padding: map-get($configuration, notificationPaddingTop)
-      map-get($configuration, notificationPaddingRight)
-      map-get($configuration, notificationPaddingBottom)
-      map-get($configuration, notificationPaddingLeft);
-
-    .notification[data-notification-status="draft"] {
-      background-color: map-get($configuration, notificationDraftBackgroundColor);
-    }
 
     // Styles for tablet
     @include above($tabletBreakpoint) {
@@ -84,14 +67,6 @@
         map-get($configuration, notificationMarginRightTablet)
         map-get($configuration, notificationMarginBottomTablet)
         map-get($configuration, notificationMarginLeftTablet);
-      padding: map-get($configuration, notificationPaddingTopTablet)
-        map-get($configuration, notificationPaddingRightTablet)
-        map-get($configuration, notificationPaddingBottomTablet)
-        map-get($configuration, notificationPaddingLeftTablet);
-
-      .notification[data-notification-status="draft"] {
-        background-color: map-get($configuration, notificationDraftBackgroundColorTablet);
-      }
     }
 
     // Styles for desktop
@@ -106,13 +81,54 @@
         map-get($configuration, notificationMarginRightDesktop)
         map-get($configuration, notificationMarginBottomDesktop)
         map-get($configuration, notificationMarginLeftDesktop);
-      padding: map-get($configuration, notificationPaddingTopDesktop)
-        map-get($configuration, notificationPaddingRightDesktop)
-        map-get($configuration, notificationPaddingBottomDesktop)
-        map-get($configuration, notificationPaddingLeftDesktop);
+    }
+
+    .notification-badge {
+      background-color: map-get($configuration, notificationBadgeBackgroundColor);
+
+      // Styles for tablet
+      @include above($tabletBreakpoint) {
+       background-color: map-get($configuration, notificationBadgeBackgroundColorTablet);
+      }
+
+      // Styles for desktop
+      @include above($desktopBreakpoint) {
+        background-color: map-get($configuration, notificationBadgeBackgroundColorDesktop);
+      }
+    }
+
+    .notifications-holder {
+      padding: map-get($configuration, notificationPaddingTop)
+        map-get($configuration, notificationPaddingRight)
+        map-get($configuration, notificationPaddingBottom)
+        map-get($configuration, notificationPaddingLeft);
 
       .notification[data-notification-status="draft"] {
-        background-color: map-get($configuration, notificationDraftBackgroundColorDesktop);
+        background-color: map-get($configuration, notificationDraftBackgroundColor);
+      }
+
+      // Styles for tablet
+      @include above($tabletBreakpoint) {
+        padding: map-get($configuration, notificationPaddingTopTablet)
+          map-get($configuration, notificationPaddingRightTablet)
+          map-get($configuration, notificationPaddingBottomTablet)
+          map-get($configuration, notificationPaddingLeftTablet);
+
+        .notification[data-notification-status="draft"] {
+          background-color: map-get($configuration, notificationDraftBackgroundColorTablet);
+        }
+      }
+
+      // Styles for desktop
+      @include above($desktopBreakpoint) {
+        padding: map-get($configuration, notificationPaddingTopDesktop)
+          map-get($configuration, notificationPaddingRightDesktop)
+          map-get($configuration, notificationPaddingBottomDesktop)
+          map-get($configuration, notificationPaddingLeftDesktop);
+
+        .notification[data-notification-status="draft"] {
+          background-color: map-get($configuration, notificationDraftBackgroundColorDesktop);
+        }
       }
     }
   }

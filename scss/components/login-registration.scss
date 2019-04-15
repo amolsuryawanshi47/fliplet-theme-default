@@ -1,4 +1,4 @@
-@mixin loginRegistration($options: ()) {
+@mixin loginRegistration($options: (), $widgetInstanceId: '') {
   $configuration: map-merge((
     loginWidth: $loginWidth,
     loginMinWidth: $loginMinWidth,
@@ -56,11 +56,12 @@
     fieldBorderRadiusDesktop: $fieldBorderRadiusDesktop
   ), $options);
 
-  .sso-login,
-  [data-login-ds-id],
-  [data-login-id],
-  .fl-sms-verification,
-  .fl-email-verification {
+  $instanceSelector: '[data-fl-widget-instance]';
+  @if $widgetInstanceId != '' {
+    $instanceSelector: '#{$instanceSelector}[data-id="#{$widgetInstanceId}"]';
+  }
+
+  #{$instanceSelector} {
     width: map-get($configuration, loginWidth);
     min-width: map-get($configuration, loginMinWidth);
     max-width: map-get($configuration, loginMaxWidth);
@@ -68,10 +69,6 @@
       map-get($configuration, loginMarginRight)
       map-get($configuration, loginMarginBottom)
       map-get($configuration, loginMarginLeft);
-    padding: map-get($configuration, loginPaddingTop)
-      map-get($configuration, loginPaddingRight)
-      map-get($configuration, loginPaddingBottom)
-      map-get($configuration, loginPaddingLeft);
 
     // Styles for tablet
     @include above($tabletBreakpoint) {
@@ -82,10 +79,6 @@
         map-get($configuration, loginMarginRightTablet)
         map-get($configuration, loginMarginBottomTablet)
         map-get($configuration, loginMarginLeftTablet);
-      padding: map-get($configuration, loginPaddingTopTablet)
-        map-get($configuration, loginPaddingRightTablet)
-        map-get($configuration, loginPaddingBottomTablet)
-        map-get($configuration, loginPaddingLeftTablet);
     }
 
     // Styles for desktop
@@ -97,59 +90,82 @@
         map-get($configuration, loginMarginRightDesktop)
         map-get($configuration, loginMarginBottomDesktop)
         map-get($configuration, loginMarginLeftDesktop);
-      padding: map-get($configuration, loginPaddingTopDesktop)
-        map-get($configuration, loginPaddingRightDesktop)
-        map-get($configuration, loginPaddingBottomDesktop)
-        map-get($configuration, loginPaddingLeftDesktop);
     }
-  }
 
-  .state input.form-control {
-    @include borderOnly((
-      borderSides: map-get($configuration, fieldBorderSides),
-      borderWidth: map-get($configuration, fieldBorderWidth),
-      borderStyle: map-get($configuration, fieldBorderStyle),
-      borderColor: map-get($configuration, fieldBorder)
-    ));
-    border-radius: map-get($configuration, fieldBorderRadius);
+    .sso-login,
+    [data-login-ds-id],
+    [data-login-id],
+    .fl-sms-verification,
+    .fl-email-verification {
+      padding: map-get($configuration, loginPaddingTop)
+        map-get($configuration, loginPaddingRight)
+        map-get($configuration, loginPaddingBottom)
+        map-get($configuration, loginPaddingLeft);
 
-    // Styles for tablet
-    @include above($tabletBreakpoint) {
+      // Styles for tablet
+      @include above($tabletBreakpoint) {
+        padding: map-get($configuration, loginPaddingTopTablet)
+          map-get($configuration, loginPaddingRightTablet)
+          map-get($configuration, loginPaddingBottomTablet)
+          map-get($configuration, loginPaddingLeftTablet);
+      }
+
+      // Styles for desktop
+      @include above($desktopBreakpoint) {
+        padding: map-get($configuration, loginPaddingTopDesktop)
+          map-get($configuration, loginPaddingRightDesktop)
+          map-get($configuration, loginPaddingBottomDesktop)
+          map-get($configuration, loginPaddingLeftDesktop);
+      }
+    }
+
+    .state input.form-control {
       @include borderOnly((
-        borderSides: map-get($configuration, fieldBorderSidesTablet),
-        borderWidth: map-get($configuration, fieldBorderWidthTablet),
-        borderStyle: map-get($configuration, fieldBorderStyleTablet),
-        borderColor: map-get($configuration, fieldBorderTablet)
+        borderSides: map-get($configuration, fieldBorderSides),
+        borderWidth: map-get($configuration, fieldBorderWidth),
+        borderStyle: map-get($configuration, fieldBorderStyle),
+        borderColor: map-get($configuration, fieldBorder)
       ));
-      border-radius: map-get($configuration, fieldBorderRadiusTablet);
+      border-radius: map-get($configuration, fieldBorderRadius);
+
+      // Styles for tablet
+      @include above($tabletBreakpoint) {
+        @include borderOnly((
+          borderSides: map-get($configuration, fieldBorderSidesTablet),
+          borderWidth: map-get($configuration, fieldBorderWidthTablet),
+          borderStyle: map-get($configuration, fieldBorderStyleTablet),
+          borderColor: map-get($configuration, fieldBorderTablet)
+        ));
+        border-radius: map-get($configuration, fieldBorderRadiusTablet);
+      }
+
+      // Styles for desktop
+      @include above($desktopBreakpoint) {
+        @include borderOnly((
+          borderSides: map-get($configuration, fieldBorderSidesDesktop),
+          borderWidth: map-get($configuration, fieldBorderWidthDesktop),
+          borderStyle: map-get($configuration, fieldBorderStyleDesktop),
+          borderColor: map-get($configuration, fieldBorderDesktop)
+        ));
+        border-radius: map-get($configuration, fieldBorderRadiusDesktop);
+      }
     }
 
-    // Styles for desktop
-    @include above($desktopBreakpoint) {
-      @include borderOnly((
-        borderSides: map-get($configuration, fieldBorderSidesDesktop),
-        borderWidth: map-get($configuration, fieldBorderWidthDesktop),
-        borderStyle: map-get($configuration, fieldBorderStyleDesktop),
-        borderColor: map-get($configuration, fieldBorderDesktop)
-      ));
-      border-radius: map-get($configuration, fieldBorderRadiusDesktop);
-    }
-  }
+    .state .back {
+      border-right: 1px solid map-get($configuration, chevronSeparator);
+      color: map-get($configuration, chevronColor);
 
-  .state .back {
-    border-right: 1px solid map-get($configuration, chevronSeparator);
-    color: map-get($configuration, chevronColor);
+      // Styles for tablet
+      @include above($tabletBreakpoint) {
+        border-right: 1px solid map-get($configuration, chevronSeparatorTablet);
+        color: map-get($configuration, chevronColorTablet);
+      }
 
-    // Styles for tablet
-    @include above($tabletBreakpoint) {
-      border-right: 1px solid map-get($configuration, chevronSeparatorTablet);
-      color: map-get($configuration, chevronColorTablet);
-    }
-
-    // Styles for desktop
-    @include above($desktopBreakpoint) {
-      border-right: 1px solid map-get($configuration, chevronSeparatorDesktop);
-      color: map-get($configuration, chevronColorDesktop);
+      // Styles for desktop
+      @include above($desktopBreakpoint) {
+        border-right: 1px solid map-get($configuration, chevronSeparatorDesktop);
+        color: map-get($configuration, chevronColorDesktop);
+      }
     }
   }
 }

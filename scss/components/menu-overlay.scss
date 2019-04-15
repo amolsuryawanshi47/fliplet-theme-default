@@ -1,4 +1,4 @@
-@mixin menuOverlay($options: ()) {
+@mixin menuOverlay($options: (), $widgetInstanceId: '') {
   $configuration: map-merge((
     menuFont: $menuFont,
     menuFontSize: $menuFontSize,
@@ -74,272 +74,279 @@
     menuWidthDesktop: $menuWidthDesktop
   ), $options);
 
-  // Menu Overlay
-  .fl-viewport-header.fl-menu-overlay-default {
-    text-shadow: none;
+  $instanceSelector: '[data-fl-widget-instance]';
+  @if $widgetInstanceId != '' {
+    $instanceSelector: '#{$instanceSelector}[data-id="#{$widgetInstanceId}"]';
+  }
 
-    @include viewportHeader((
-      headerBackgroundColor: map-get($configuration, menuTopNavBackground),
-      headerTextColor: map-get($configuration, menuTopNavFontColor),
-      headerBorderSides: map-get($configuration, menuTopNavBorderSides),
-      headerBorderWidth: map-get($configuration, menuTopNavBorderWidth),
-      headerBorderStyle: map-get($configuration, menuTopNavBorderStyle),
-      headerBorderColor: map-get($configuration, menuTopNavBorderColor),
-      headerShadowStyle: map-get($configuration, menuShadowStyle),
-      headerShadowXOffset: map-get($configuration, menuShadowXoffset),
-      headerShadowYOffset: map-get($configuration, menuShadowYoffset),
-      headerShadowBlur: map-get($configuration, menuShadowBlur),
-      headerShadowSpread: map-get($configuration, menuShadowSpread),
-      headerShadowColor: map-get($configuration, menuTopNavFontShadowColor)
-    ));
+  #{$instanceSelector} {
+    // Menu Overlay
+    .fl-viewport-header.fl-menu-overlay-default {
+      text-shadow: none;
 
-    // Styles for tablet
-    @include above($tabletBreakpoint) {
       @include viewportHeader((
-        headerBackgroundColor: map-get($configuration, menuTopNavBackgroundTablet),
-        headerTextColor: map-get($configuration, menuTopNavFontColorTablet),
-        headerBorderSides: map-get($configuration, menuTopNavBorderSidesTablet),
-        headerBorderWidth: map-get($configuration, menuTopNavBorderWidthTablet),
-        headerBorderStyle: map-get($configuration, menuTopNavBorderStyleTablet),
-        headerBorderColor: map-get($configuration, menuTopNavBorderColorTablet),
-        headerShadowStyle: map-get($configuration, menuShadowStyleTablet),
-        headerShadowXOffset: map-get($configuration, menuShadowXoffsetTablet),
-        headerShadowYOffset: map-get($configuration, menuShadowYoffsetTablet),
-        headerShadowBlur: map-get($configuration, menuShadowBlurTablet),
-        headerShadowSpread: map-get($configuration, menuShadowSpreadTablet),
-        headerShadowColor: map-get($configuration, menuTopNavFontShadowColorTablet)
+        headerBackgroundColor: map-get($configuration, menuTopNavBackground),
+        headerTextColor: map-get($configuration, menuTopNavFontColor),
+        headerBorderSides: map-get($configuration, menuTopNavBorderSides),
+        headerBorderWidth: map-get($configuration, menuTopNavBorderWidth),
+        headerBorderStyle: map-get($configuration, menuTopNavBorderStyle),
+        headerBorderColor: map-get($configuration, menuTopNavBorderColor),
+        headerShadowStyle: map-get($configuration, menuShadowStyle),
+        headerShadowXOffset: map-get($configuration, menuShadowXoffset),
+        headerShadowYOffset: map-get($configuration, menuShadowYoffset),
+        headerShadowBlur: map-get($configuration, menuShadowBlur),
+        headerShadowSpread: map-get($configuration, menuShadowSpread),
+        headerShadowColor: map-get($configuration, menuTopNavFontShadowColor)
       ));
-    }
-
-    // Styles for desktop
-    @include above($desktopBreakpoint) {
-      @include viewportHeader((
-        headerBackgroundColor: map-get($configuration, menuTopNavBackgroundDesktop),
-        headerTextColor: map-get($configuration, menuTopNavFontColorDesktop),
-        headerBorderSides: map-get($configuration, menuTopNavBorderSidesDesktop),
-        headerBorderWidth: map-get($configuration, menuTopNavBorderWidthDesktop),
-        headerBorderStyle: map-get($configuration, menuTopNavBorderStyleDesktop),
-        headerBorderColor: map-get($configuration, menuTopNavBorderColorDesktop),
-        headerShadowStyle: map-get($configuration, menuShadowStyleDesktop),
-        headerShadowXOffset: map-get($configuration, menuShadowXoffsetDesktop),
-        headerShadowYOffset: map-get($configuration, menuShadowYoffsetDesktop),
-        headerShadowBlur: map-get($configuration, menuShadowBlurDesktop),
-        headerShadowSpread: map-get($configuration, menuShadowSpreadDesktop),
-        headerShadowColor: map-get($configuration, menuTopNavFontShadowColorDesktop)
-      ));
-    }
-
-    .nav-left,
-    .nav-left-arrow,
-    .nav-right-arrow {
-      color: map-get($configuration, menuBackButtonColor);
 
       // Styles for tablet
       @include above($tabletBreakpoint) {
-        color: map-get($configuration, menuBackButtonColorTablet);
+        @include viewportHeader((
+          headerBackgroundColor: map-get($configuration, menuTopNavBackgroundTablet),
+          headerTextColor: map-get($configuration, menuTopNavFontColorTablet),
+          headerBorderSides: map-get($configuration, menuTopNavBorderSidesTablet),
+          headerBorderWidth: map-get($configuration, menuTopNavBorderWidthTablet),
+          headerBorderStyle: map-get($configuration, menuTopNavBorderStyleTablet),
+          headerBorderColor: map-get($configuration, menuTopNavBorderColorTablet),
+          headerShadowStyle: map-get($configuration, menuShadowStyleTablet),
+          headerShadowXOffset: map-get($configuration, menuShadowXoffsetTablet),
+          headerShadowYOffset: map-get($configuration, menuShadowYoffsetTablet),
+          headerShadowBlur: map-get($configuration, menuShadowBlurTablet),
+          headerShadowSpread: map-get($configuration, menuShadowSpreadTablet),
+          headerShadowColor: map-get($configuration, menuTopNavFontShadowColorTablet)
+        ));
       }
 
       // Styles for desktop
       @include above($desktopBreakpoint) {
-        color: map-get($configuration, menuBackButtonColorDesktop);
+        @include viewportHeader((
+          headerBackgroundColor: map-get($configuration, menuTopNavBackgroundDesktop),
+          headerTextColor: map-get($configuration, menuTopNavFontColorDesktop),
+          headerBorderSides: map-get($configuration, menuTopNavBorderSidesDesktop),
+          headerBorderWidth: map-get($configuration, menuTopNavBorderWidthDesktop),
+          headerBorderStyle: map-get($configuration, menuTopNavBorderStyleDesktop),
+          headerBorderColor: map-get($configuration, menuTopNavBorderColorDesktop),
+          headerShadowStyle: map-get($configuration, menuShadowStyleDesktop),
+          headerShadowXOffset: map-get($configuration, menuShadowXoffsetDesktop),
+          headerShadowYOffset: map-get($configuration, menuShadowYoffsetDesktop),
+          headerShadowBlur: map-get($configuration, menuShadowBlurDesktop),
+          headerShadowSpread: map-get($configuration, menuShadowSpreadDesktop),
+          headerShadowColor: map-get($configuration, menuTopNavFontShadowColorDesktop)
+        ));
       }
-    }
-    .nav-right,
-    .nav-center {
-      .hamburger {
-        .hamburger-inner {
-          background-color: map-get($configuration, menuButtonColor);
 
-          &:after,
-          &:before {
-            background-color: map-get($configuration, menuButtonColor);
-          }
+      .nav-left,
+      .nav-left-arrow,
+      .nav-right-arrow {
+        color: map-get($configuration, menuBackButtonColor);
 
-          // Styles for tablet
-          @include above($tabletBreakpoint) {
-            background-color: map-get($configuration, menuButtonColorTablet);
-
-            &:after,
-            &:before {
-              background-color: map-get($configuration, menuButtonColorTablet);
-            }
-          }
-
-          // Styles for desktop
-          @include above($desktopBreakpoint) {
-            background-color: map-get($configuration, menuButtonColorDesktop);
-
-            &:after,
-            &:before {
-              background-color: map-get($configuration, menuButtonColorDesktop);
-            }
-          }
+        // Styles for tablet
+        @include above($tabletBreakpoint) {
+          color: map-get($configuration, menuBackButtonColorTablet);
         }
 
-        &.is-active {
+        // Styles for desktop
+        @include above($desktopBreakpoint) {
+          color: map-get($configuration, menuBackButtonColorDesktop);
+        }
+      }
+      .nav-right,
+      .nav-center {
+        .hamburger {
           .hamburger-inner {
-            background-color: map-get($configuration, menuCloseButtonColor);
+            background-color: map-get($configuration, menuButtonColor);
 
             &:after,
             &:before {
-              background-color: map-get($configuration, menuCloseButtonColor);
+              background-color: map-get($configuration, menuButtonColor);
             }
 
             // Styles for tablet
             @include above($tabletBreakpoint) {
-              background-color: map-get($configuration, menuCloseButtonColorTablet);
+              background-color: map-get($configuration, menuButtonColorTablet);
 
               &:after,
               &:before {
-                background-color: map-get($configuration, menuCloseButtonColorTablet);
+                background-color: map-get($configuration, menuButtonColorTablet);
               }
             }
 
             // Styles for desktop
             @include above($desktopBreakpoint) {
-              background-color: map-get($configuration, menuCloseButtonColorDesktop);
+              background-color: map-get($configuration, menuButtonColorDesktop);
 
               &:after,
               &:before {
+                background-color: map-get($configuration, menuButtonColorDesktop);
+              }
+            }
+          }
+
+          &.is-active {
+            .hamburger-inner {
+              background-color: map-get($configuration, menuCloseButtonColor);
+
+              &:after,
+              &:before {
+                background-color: map-get($configuration, menuCloseButtonColor);
+              }
+
+              // Styles for tablet
+              @include above($tabletBreakpoint) {
+                background-color: map-get($configuration, menuCloseButtonColorTablet);
+
+                &:after,
+                &:before {
+                  background-color: map-get($configuration, menuCloseButtonColorTablet);
+                }
+              }
+
+              // Styles for desktop
+              @include above($desktopBreakpoint) {
                 background-color: map-get($configuration, menuCloseButtonColorDesktop);
+
+                &:after,
+                &:before {
+                  background-color: map-get($configuration, menuCloseButtonColorDesktop);
+                }
               }
             }
           }
         }
       }
     }
-  }
 
-  .fl-menu-overlay-default {
-    .fl-menu-panel {
-      background-color: map-get($configuration, menuBackgroundColor);
+    .fl-menu-overlay-default {
+      .fl-menu-panel {
+        background-color: map-get($configuration, menuBackgroundColor);
 
-      &:before {
-        border-bottom: 11px solid map-get($configuration, menuBackgroundColor);
+        &:before {
+          border-bottom: 11px solid map-get($configuration, menuBackgroundColor);
+
+          // Styles for tablet
+          @include above($tabletBreakpoint) {
+            border-bottom: 11px solid map-get($configuration, menuBackgroundColorTablet);
+          }
+
+          // Styles for desktop
+          @include above($desktopBreakpoint) {
+            border-bottom: 11px solid map-get($configuration, menuBackgroundColorDesktop);
+          }
+        }
+
+        .fl-list-default {
+          color: map-get($configuration, menuFontColor);
+
+          ul {
+            @include fontOnly((
+              fontFamily: map-get($configuration, menuFont),
+              fontSize: map-get($configuration, menuFontSize),
+              fontLineHeight: 1.5,
+              fontWeight: map-get($configuration, menuFontWeight),
+              fontStyle: map-get($configuration, menuFontStyle),
+              fontDecoration: map-get($configuration, menuFontDecoration)
+            ));
+
+            > li {
+              border-bottom: 1px solid rgba(map-get($configuration, menuTopNavFontColor), 0.2);
+
+              .fa {
+                color: map-get($configuration, menuFontColor);
+              }
+            }
+          }
+        }
+
+        .fl-app-menu-toolbar {
+          background-color: map-get($configuration, menuBackgroundColor);
+
+          .copyright {
+            color: map-get($configuration, menuFooterFontColor);
+
+            a {
+              color: map-get($configuration, menuFooterFontColor);
+            }
+          }
+        }
 
         // Styles for tablet
         @include above($tabletBreakpoint) {
-          border-bottom: 11px solid map-get($configuration, menuBackgroundColorTablet);
+          width: map-get($configuration, menuWidthTablet);
+          background-color: map-get($configuration, menuBackgroundColorTablet);
+
+          .fl-list-default {
+            color: map-get($configuration, menuFontColorTablet);
+
+            ul {
+              @include fontOnly((
+                fontFamily: map-get($configuration, menuFontTablet),
+                fontSize: map-get($configuration, menuFontSizeTablet),
+                fontLineHeight: 1.5,
+                fontWeight: map-get($configuration, menuFontWeightTablet),
+                fontStyle: map-get($configuration, menuFontStyleTablet),
+                fontDecoration: map-get($configuration, menuFontDecorationTablet)
+              ));
+
+              > li {
+                border-bottom: 1px solid rgba(map-get($configuration, menuTopNavFontColorTablet), 0.2);
+
+                .fa {
+                  color: map-get($configuration, menuFontColorTablet);
+                }
+              }
+            }
+          }
+
+          .fl-app-menu-toolbar {
+            background-color: map-get($configuration, menuBackgroundColorTablet);
+
+            .copyright {
+              color: map-get($configuration, menuFooterFontColorTablet);
+
+              a {
+                color: map-get($configuration, menuFooterFontColorTablet);
+              }
+            }
+          }
         }
 
         // Styles for desktop
         @include above($desktopBreakpoint) {
-          border-bottom: 11px solid map-get($configuration, menuBackgroundColorDesktop);
-        }
-      }
-
-      .fl-list-default {
-        color: map-get($configuration, menuFontColor);
-
-        ul {
-          @include fontOnly((
-            fontFamily: map-get($configuration, menuFont),
-            fontSize: map-get($configuration, menuFontSize),
-            fontLineHeight: 1.5,
-            fontWeight: map-get($configuration, menuFontWeight),
-            fontStyle: map-get($configuration, menuFontStyle),
-            fontDecoration: map-get($configuration, menuFontDecoration)
-          ));
-
-          > li {
-            border-bottom: 1px solid rgba(map-get($configuration, menuTopNavFontColor), 0.2);
-
-            .fa {
-              color: map-get($configuration, menuFontColor);
-            }
-          }
-        }
-      }
-
-      .fl-app-menu-toolbar {
-        background-color: map-get($configuration, menuBackgroundColor);
-
-        .copyright {
-          color: map-get($configuration, menuFooterFontColor);
-
-          a {
-            color: map-get($configuration, menuFooterFontColor);
-          }
-        }
-      }
-
-      // Styles for tablet
-      @include above($tabletBreakpoint) {
-        width: map-get($configuration, menuWidthTablet);
-        background-color: map-get($configuration, menuBackgroundColorTablet);
-
-        .fl-list-default {
-          color: map-get($configuration, menuFontColorTablet);
-
-          ul {
-            @include fontOnly((
-              fontFamily: map-get($configuration, menuFontTablet),
-              fontSize: map-get($configuration, menuFontSizeTablet),
-              fontLineHeight: 1.5,
-              fontWeight: map-get($configuration, menuFontWeightTablet),
-              fontStyle: map-get($configuration, menuFontStyleTablet),
-              fontDecoration: map-get($configuration, menuFontDecorationTablet)
-            ));
-
-            > li {
-              border-bottom: 1px solid rgba(map-get($configuration, menuTopNavFontColorTablet), 0.2);
-
-              .fa {
-                color: map-get($configuration, menuFontColorTablet);
-              }
-            }
-          }
-        }
-
-        .fl-app-menu-toolbar {
-          background-color: map-get($configuration, menuBackgroundColorTablet);
-
-          .copyright {
-            color: map-get($configuration, menuFooterFontColorTablet);
-
-            a {
-              color: map-get($configuration, menuFooterFontColorTablet);
-            }
-          }
-        }
-      }
-
-      // Styles for desktop
-      @include above($desktopBreakpoint) {
-        width: map-get($configuration, menuWidthDesktop);
-        background-color: map-get($configuration, menuBackgroundColorDesktop);
-
-        .fl-list-default {
-          color: map-get($configuration, menuFontColorDesktop);
-
-          ul {
-            @include fontOnly((
-              fontFamily: map-get($configuration, menuFontDesktop),
-              fontSize: map-get($configuration, menuFontSizeDesktop),
-              fontLineHeight: 1.5,
-              fontWeight: map-get($configuration, menuFontWeightDesktop),
-              fontStyle: map-get($configuration, menuFontStyleDesktop),
-              fontDecoration: map-get($configuration, menuFontDecorationDesktop)
-            ));
-
-            > li {
-              border-bottom: 1px solid rgba(map-get($configuration, menuTopNavFontColorDesktop), 0.2);
-
-              .fa {
-                color: map-get($configuration, menuFontColorTablet);
-              }
-            }
-          }
-        }
-
-        .fl-app-menu-toolbar {
+          width: map-get($configuration, menuWidthDesktop);
           background-color: map-get($configuration, menuBackgroundColorDesktop);
 
-          .copyright {
-            color: map-get($configuration, menuFooterFontColorDesktop);
+          .fl-list-default {
+            color: map-get($configuration, menuFontColorDesktop);
 
-            a {
+            ul {
+              @include fontOnly((
+                fontFamily: map-get($configuration, menuFontDesktop),
+                fontSize: map-get($configuration, menuFontSizeDesktop),
+                fontLineHeight: 1.5,
+                fontWeight: map-get($configuration, menuFontWeightDesktop),
+                fontStyle: map-get($configuration, menuFontStyleDesktop),
+                fontDecoration: map-get($configuration, menuFontDecorationDesktop)
+              ));
+
+              > li {
+                border-bottom: 1px solid rgba(map-get($configuration, menuTopNavFontColorDesktop), 0.2);
+
+                .fa {
+                  color: map-get($configuration, menuFontColorTablet);
+                }
+              }
+            }
+          }
+
+          .fl-app-menu-toolbar {
+            background-color: map-get($configuration, menuBackgroundColorDesktop);
+
+            .copyright {
               color: map-get($configuration, menuFooterFontColorDesktop);
+
+              a {
+                color: map-get($configuration, menuFooterFontColorDesktop);
+              }
             }
           }
         }

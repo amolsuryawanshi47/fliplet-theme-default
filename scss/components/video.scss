@@ -1,4 +1,4 @@
-@mixin video($options: ()) {
+@mixin video($options: (), $widgetInstanceId: '') {
   $configuration: map-merge((
     videoWidth: $videoWidth,
     videoMinWidth: $videoMinWidth,
@@ -68,7 +68,12 @@
     videoShadowColorDesktop: $videoShadowColorDesktop,
   ), $options);
 
-  .video-wrapper {
+  $instanceSelector: '[data-fl-widget-instance]';
+  @if $widgetInstanceId != '' {
+    $instanceSelector: '#{$instanceSelector}[data-id="#{$widgetInstanceId}"]';
+  }
+
+  #{$instanceSelector} {
     overflow: hidden;
     width: map-get($configuration, videoWidth);
     min-width: map-get($configuration, videoMinWidth);
@@ -77,27 +82,6 @@
       map-get($configuration, videoMarginRight)
       map-get($configuration, videoMarginBottom)
       map-get($configuration, videoMarginLeft);
-    padding: map-get($configuration, videoPaddingTop)
-      map-get($configuration, videoPaddingRight)
-      map-get($configuration, videoPaddingBottom)
-      map-get($configuration, videoPaddingLeft);
-    border-radius: map-get($configuration, videoBorderRadius);
-
-    @include borderOnly((
-      borderSides: map-get($configuration, videoBorderSides),
-      borderWidth: map-get($configuration, videoBorderWidth),
-      borderStyle: map-get($configuration, videoBorderStyle),
-      borderColor: map-get($configuration, videoBorderColor)
-    ));
-
-    @include shadowOnly((
-      shadowStyle: map-get($configuration, videoShadowStyle),
-      shadowXOffset: map-get($configuration, videoShadowXoffset),
-      shadowYOffset: map-get($configuration, videoShadowYoffset),
-      shadowBlur: map-get($configuration, videoShadowBlur),
-      shadowSpread: map-get($configuration, videoShadowSpread),
-      shadowColor: map-get($configuration, videoShadowColor)
-    ));
 
     // Styles for tablet
     @include above($tabletBreakpoint) {
@@ -108,27 +92,6 @@
         map-get($configuration, videoMarginRightTablet)
         map-get($configuration, videoMarginBottomTablet)
         map-get($configuration, videoMarginLeftTablet);
-      padding: map-get($configuration, videoPaddingTopTablet)
-        map-get($configuration, videoPaddingRightTablet)
-        map-get($configuration, videoPaddingBottomTablet)
-        map-get($configuration, videoPaddingLeftTablet);
-      border-radius: map-get($configuration, videoBorderRadiusTablet);
-
-      @include borderOnly((
-        borderSides: map-get($configuration, videoBorderSidesTablet),
-        borderWidth: map-get($configuration, videoBorderWidthTablet),
-        borderStyle: map-get($configuration, videoBorderStyleTablet),
-        borderColor: map-get($configuration, videoBorderColorTablet)
-      ));
-
-      @include shadowOnly((
-        shadowStyle: map-get($configuration, videoShadowStyleTablet),
-        shadowXOffset: map-get($configuration, videoShadowXoffsetTablet),
-        shadowYOffset: map-get($configuration, videoShadowYoffsetTablet),
-        shadowBlur: map-get($configuration, videoShadowBlurTablet),
-        shadowSpread: map-get($configuration, videoShadowSpreadTablet),
-        shadowColor: map-get($configuration, videoShadowColorTablet)
-      ));
     }
 
     // Styles for desktop
@@ -140,27 +103,80 @@
         map-get($configuration, videoMarginRightDesktop)
         map-get($configuration, videoMarginBottomDesktop)
         map-get($configuration, videoMarginLeftDesktop);
-      padding: map-get($configuration, videoPaddingTopDesktop)
-        map-get($configuration, videoPaddingRightDesktop)
-        map-get($configuration, videoPaddingBottomDesktop)
-        map-get($configuration, videoPaddingLeftDesktop);
-      border-radius: map-get($configuration, videoBorderRadiusDesktop);
+    }
+
+    .video-wrapper {
+      padding: map-get($configuration, videoPaddingTop)
+        map-get($configuration, videoPaddingRight)
+        map-get($configuration, videoPaddingBottom)
+        map-get($configuration, videoPaddingLeft);
+      border-radius: map-get($configuration, videoBorderRadius);
 
       @include borderOnly((
-        borderSides: map-get($configuration, videoBorderSidesDesktop),
-        borderWidth: map-get($configuration, videoBorderWidthDesktop),
-        borderStyle: map-get($configuration, videoBorderStyleDesktop),
-        borderColor: map-get($configuration, videoBorderColorDesktop)
+        borderSides: map-get($configuration, videoBorderSides),
+        borderWidth: map-get($configuration, videoBorderWidth),
+        borderStyle: map-get($configuration, videoBorderStyle),
+        borderColor: map-get($configuration, videoBorderColor)
       ));
 
       @include shadowOnly((
-        shadowStyle: map-get($configuration, videoShadowStyleDesktop),
-        shadowXOffset: map-get($configuration, videoShadowXoffsetDesktop),
-        shadowYOffset: map-get($configuration, videoShadowYoffsetDesktop),
-        shadowBlur: map-get($configuration, videoShadowBlurDesktop),
-        shadowSpread: map-get($configuration, videoShadowSpreadDesktop),
-        shadowColor: map-get($configuration, videoShadowColorDesktop)
+        shadowStyle: map-get($configuration, videoShadowStyle),
+        shadowXOffset: map-get($configuration, videoShadowXoffset),
+        shadowYOffset: map-get($configuration, videoShadowYoffset),
+        shadowBlur: map-get($configuration, videoShadowBlur),
+        shadowSpread: map-get($configuration, videoShadowSpread),
+        shadowColor: map-get($configuration, videoShadowColor)
       ));
+
+      // Styles for tablet
+      @include above($tabletBreakpoint) {
+        padding: map-get($configuration, videoPaddingTopTablet)
+          map-get($configuration, videoPaddingRightTablet)
+          map-get($configuration, videoPaddingBottomTablet)
+          map-get($configuration, videoPaddingLeftTablet);
+        border-radius: map-get($configuration, videoBorderRadiusTablet);
+
+        @include borderOnly((
+          borderSides: map-get($configuration, videoBorderSidesTablet),
+          borderWidth: map-get($configuration, videoBorderWidthTablet),
+          borderStyle: map-get($configuration, videoBorderStyleTablet),
+          borderColor: map-get($configuration, videoBorderColorTablet)
+        ));
+
+        @include shadowOnly((
+          shadowStyle: map-get($configuration, videoShadowStyleTablet),
+          shadowXOffset: map-get($configuration, videoShadowXoffsetTablet),
+          shadowYOffset: map-get($configuration, videoShadowYoffsetTablet),
+          shadowBlur: map-get($configuration, videoShadowBlurTablet),
+          shadowSpread: map-get($configuration, videoShadowSpreadTablet),
+          shadowColor: map-get($configuration, videoShadowColorTablet)
+        ));
+      }
+
+      // Styles for desktop
+      @include above($desktopBreakpoint) {
+        padding: map-get($configuration, videoPaddingTopDesktop)
+          map-get($configuration, videoPaddingRightDesktop)
+          map-get($configuration, videoPaddingBottomDesktop)
+          map-get($configuration, videoPaddingLeftDesktop);
+        border-radius: map-get($configuration, videoBorderRadiusDesktop);
+
+        @include borderOnly((
+          borderSides: map-get($configuration, videoBorderSidesDesktop),
+          borderWidth: map-get($configuration, videoBorderWidthDesktop),
+          borderStyle: map-get($configuration, videoBorderStyleDesktop),
+          borderColor: map-get($configuration, videoBorderColorDesktop)
+        ));
+
+        @include shadowOnly((
+          shadowStyle: map-get($configuration, videoShadowStyleDesktop),
+          shadowXOffset: map-get($configuration, videoShadowXoffsetDesktop),
+          shadowYOffset: map-get($configuration, videoShadowYoffsetDesktop),
+          shadowBlur: map-get($configuration, videoShadowBlurDesktop),
+          shadowSpread: map-get($configuration, videoShadowSpreadDesktop),
+          shadowColor: map-get($configuration, videoShadowColorDesktop)
+        ));
+      }
     }
   }
 }

@@ -1,4 +1,4 @@
-@mixin menuSwipe($options: ()) {
+@mixin menuSwipe($options: (), $widgetInstanceId: '') {
   $configuration: map-merge((
     menuSwipeFont: $menuSwipeFont,
     menuSwipeFontSize: $menuSwipeFontSize,
@@ -73,173 +73,303 @@
     menuSwipeFooterFontColorDesktop: $menuSwipeFooterFontColorDesktop,
     menuSwipeWidthDesktop: $menuSwipeWidthDesktop
   ), $options);
+  
+  $instanceSelector: '[data-fl-widget-instance]';
+  @if $widgetInstanceId != '' {
+    $instanceSelector: '#{$instanceSelector}[data-id="#{$widgetInstanceId}"]';
+  }
 
-  .fl-viewport-header.fl-menu-swipe {
-    text-shadow: none;
+  #{$instanceSelector} {
+    .fl-viewport-header.fl-menu-swipe {
+      text-shadow: none;
 
-    @include viewportHeader((
-      headerBackgroundColor: map-get($configuration, menuSwipeTopNavBackground),
-      headerTextColor: map-get($configuration, menuSwipeTopNavFontColor),
-      headerBorderSides: map-get($configuration, menuSwipeTopNavBorderSides),
-      headerBorderWidth: map-get($configuration, menuSwipeTopNavBorderWidth),
-      headerBorderStyle: map-get($configuration, menuSwipeTopNavBorderStyle),
-      headerBorderColor: map-get($configuration, menuSwipeTopNavBorderColor),
-      headerShadowStyle: map-get($configuration, menuSwipeShadowStyle),
-      headerShadowXOffset: map-get($configuration, menuSwipeShadowXoffset),
-      headerShadowYOffset: map-get($configuration, menuSwipeShadowYoffset),
-      headerShadowBlur: map-get($configuration, menuSwipeShadowBlur),
-      headerShadowSpread: map-get($configuration, menuSwipeShadowSpread),
-      headerShadowColor: map-get($configuration, menuSwipeTopNavFontShadowColor)
-    ));
-
-    // Styles for tablet
-    @include above($tabletBreakpoint) {
       @include viewportHeader((
-        headerBackgroundColor: map-get($configuration, menuSwipeTopNavBackgroundTablet),
-        headerTextColor: map-get($configuration, menuSwipeTopNavFontColorTablet),
-        headerBorderSides: map-get($configuration, menuSwipeTopNavBorderSidesTablet),
-        headerBorderWidth: map-get($configuration, menuSwipeTopNavBorderWidthTablet),
-        headerBorderStyle: map-get($configuration, menuSwipeTopNavBorderStyleTablet),
-        headerBorderColor: map-get($configuration, menuSwipeTopNavBorderColorTablet),
-        headerShadowStyle: map-get($configuration, menuSwipeShadowStyleTablet),
-        headerShadowXOffset: map-get($configuration, menuSwipeShadowXoffsetTablet),
-        headerShadowYOffset: map-get($configuration, menuSwipeShadowYoffsetTablet),
-        headerShadowBlur: map-get($configuration, menuSwipeShadowBlurTablet),
-        headerShadowSpread: map-get($configuration, menuSwipeShadowSpreadTablet),
-        headerShadowColor: map-get($configuration, menuSwipeTopNavFontShadowColorTablet)
+        headerBackgroundColor: map-get($configuration, menuSwipeTopNavBackground),
+        headerTextColor: map-get($configuration, menuSwipeTopNavFontColor),
+        headerBorderSides: map-get($configuration, menuSwipeTopNavBorderSides),
+        headerBorderWidth: map-get($configuration, menuSwipeTopNavBorderWidth),
+        headerBorderStyle: map-get($configuration, menuSwipeTopNavBorderStyle),
+        headerBorderColor: map-get($configuration, menuSwipeTopNavBorderColor),
+        headerShadowStyle: map-get($configuration, menuSwipeShadowStyle),
+        headerShadowXOffset: map-get($configuration, menuSwipeShadowXoffset),
+        headerShadowYOffset: map-get($configuration, menuSwipeShadowYoffset),
+        headerShadowBlur: map-get($configuration, menuSwipeShadowBlur),
+        headerShadowSpread: map-get($configuration, menuSwipeShadowSpread),
+        headerShadowColor: map-get($configuration, menuSwipeTopNavFontShadowColor)
       ));
-    }
-
-    // Styles for desktop
-    @include above($desktopBreakpoint) {
-      @include viewportHeader((
-        headerBackgroundColor: map-get($configuration, menuSwipeTopNavBackgroundDesktop),
-        headerTextColor: map-get($configuration, menuSwipeTopNavFontColorDesktop),
-        headerBorderSides: map-get($configuration, menuSwipeTopNavBorderSidesDesktop),
-        headerBorderWidth: map-get($configuration, menuSwipeTopNavBorderWidthDesktop),
-        headerBorderStyle: map-get($configuration, menuSwipeTopNavBorderStyleDesktop),
-        headerBorderColor: map-get($configuration, menuSwipeTopNavBorderColorDesktop),
-        headerShadowStyle: map-get($configuration, menuSwipeShadowStyleDesktop),
-        headerShadowXOffset: map-get($configuration, menuSwipeShadowXoffsetDesktop),
-        headerShadowYOffset: map-get($configuration, menuSwipeShadowYoffsetDesktop),
-        headerShadowBlur: map-get($configuration, menuSwipeShadowBlurDesktop),
-        headerShadowSpread: map-get($configuration, menuSwipeShadowSpreadDesktop),
-        headerShadowColor: map-get($configuration, menuSwipeTopNavFontShadowColorDesktop)
-      ));
-    }
-
-    .nav-left,
-    .nav-left-arrow,
-    .nav-right-arrow {
-      color: map-get($configuration, menuSwipeBackButtonColor);
 
       // Styles for tablet
       @include above($tabletBreakpoint) {
-        color: map-get($configuration, menuSwipeBackButtonColorTablet);
+        @include viewportHeader((
+          headerBackgroundColor: map-get($configuration, menuSwipeTopNavBackgroundTablet),
+          headerTextColor: map-get($configuration, menuSwipeTopNavFontColorTablet),
+          headerBorderSides: map-get($configuration, menuSwipeTopNavBorderSidesTablet),
+          headerBorderWidth: map-get($configuration, menuSwipeTopNavBorderWidthTablet),
+          headerBorderStyle: map-get($configuration, menuSwipeTopNavBorderStyleTablet),
+          headerBorderColor: map-get($configuration, menuSwipeTopNavBorderColorTablet),
+          headerShadowStyle: map-get($configuration, menuSwipeShadowStyleTablet),
+          headerShadowXOffset: map-get($configuration, menuSwipeShadowXoffsetTablet),
+          headerShadowYOffset: map-get($configuration, menuSwipeShadowYoffsetTablet),
+          headerShadowBlur: map-get($configuration, menuSwipeShadowBlurTablet),
+          headerShadowSpread: map-get($configuration, menuSwipeShadowSpreadTablet),
+          headerShadowColor: map-get($configuration, menuSwipeTopNavFontShadowColorTablet)
+        ));
       }
 
       // Styles for desktop
       @include above($desktopBreakpoint) {
-        color: map-get($configuration, menuSwipeBackButtonColorDesktop);
+        @include viewportHeader((
+          headerBackgroundColor: map-get($configuration, menuSwipeTopNavBackgroundDesktop),
+          headerTextColor: map-get($configuration, menuSwipeTopNavFontColorDesktop),
+          headerBorderSides: map-get($configuration, menuSwipeTopNavBorderSidesDesktop),
+          headerBorderWidth: map-get($configuration, menuSwipeTopNavBorderWidthDesktop),
+          headerBorderStyle: map-get($configuration, menuSwipeTopNavBorderStyleDesktop),
+          headerBorderColor: map-get($configuration, menuSwipeTopNavBorderColorDesktop),
+          headerShadowStyle: map-get($configuration, menuSwipeShadowStyleDesktop),
+          headerShadowXOffset: map-get($configuration, menuSwipeShadowXoffsetDesktop),
+          headerShadowYOffset: map-get($configuration, menuSwipeShadowYoffsetDesktop),
+          headerShadowBlur: map-get($configuration, menuSwipeShadowBlurDesktop),
+          headerShadowSpread: map-get($configuration, menuSwipeShadowSpreadDesktop),
+          headerShadowColor: map-get($configuration, menuSwipeTopNavFontShadowColorDesktop)
+        ));
       }
-    }
-    .nav-right,
-    .nav-center {
-      .hamburger {
-        .hamburger-inner {
-          background-color: map-get($configuration, menuSwipeButtonColor);
 
-          &:after,
-          &:before {
-            background-color: map-get($configuration, menuSwipeButtonColor);
-          }
+      .nav-left,
+      .nav-left-arrow,
+      .nav-right-arrow {
+        color: map-get($configuration, menuSwipeBackButtonColor);
 
-          // Styles for tablet
-          @include above($tabletBreakpoint) {
-            background-color: map-get($configuration, menuSwipeButtonColorTablet);
-
-            &:after,
-            &:before {
-              background-color: map-get($configuration, menuSwipeButtonColorTablet);
-            }
-          }
-
-          // Styles for desktop
-          @include above($desktopBreakpoint) {
-            background-color: map-get($configuration, menuSwipeButtonColorDesktop);
-
-            &:after,
-            &:before {
-              background-color: map-get($configuration, menuSwipeButtonColorDesktop);
-            }
-          }
+        // Styles for tablet
+        @include above($tabletBreakpoint) {
+          color: map-get($configuration, menuSwipeBackButtonColorTablet);
         }
 
-        &.is-active {
+        // Styles for desktop
+        @include above($desktopBreakpoint) {
+          color: map-get($configuration, menuSwipeBackButtonColorDesktop);
+        }
+      }
+      .nav-right,
+      .nav-center {
+        .hamburger {
           .hamburger-inner {
-            background-color: map-get($configuration, menuSwipeCloseButtonColor);
+            background-color: map-get($configuration, menuSwipeButtonColor);
 
             &:after,
             &:before {
-              background-color: map-get($configuration, menuSwipeCloseButtonColor);
+              background-color: map-get($configuration, menuSwipeButtonColor);
             }
 
             // Styles for tablet
             @include above($tabletBreakpoint) {
-              background-color: map-get($configuration, menuSwipeCloseButtonColorTablet);
+              background-color: map-get($configuration, menuSwipeButtonColorTablet);
 
               &:after,
               &:before {
-                background-color: map-get($configuration, menuSwipeCloseButtonColorTablet);
+                background-color: map-get($configuration, menuSwipeButtonColorTablet);
               }
             }
 
             // Styles for desktop
             @include above($desktopBreakpoint) {
-              background-color: map-get($configuration, menuSwipeCloseButtonColorDesktop);
+              background-color: map-get($configuration, menuSwipeButtonColorDesktop);
 
               &:after,
               &:before {
+                background-color: map-get($configuration, menuSwipeButtonColorDesktop);
+              }
+            }
+          }
+
+          &.is-active {
+            .hamburger-inner {
+              background-color: map-get($configuration, menuSwipeCloseButtonColor);
+
+              &:after,
+              &:before {
+                background-color: map-get($configuration, menuSwipeCloseButtonColor);
+              }
+
+              // Styles for tablet
+              @include above($tabletBreakpoint) {
+                background-color: map-get($configuration, menuSwipeCloseButtonColorTablet);
+
+                &:after,
+                &:before {
+                  background-color: map-get($configuration, menuSwipeCloseButtonColorTablet);
+                }
+              }
+
+              // Styles for desktop
+              @include above($desktopBreakpoint) {
                 background-color: map-get($configuration, menuSwipeCloseButtonColorDesktop);
+
+                &:after,
+                &:before {
+                  background-color: map-get($configuration, menuSwipeCloseButtonColorDesktop);
+                }
               }
             }
           }
         }
       }
     }
-  }
 
-  .fl-viewport-menu.fl-menu-swipe {
-    ul {
-      background: map-get($configuration, menuSwipeTopNavBackground);
-      border: none;
+    .fl-viewport-menu.fl-menu-swipe {
+      ul {
+        background: map-get($configuration, menuSwipeTopNavBackground);
+        border: none;
 
-      li {
-        &.fl-menu-arrow {
-          color: map-get($configuration, $menuSwipeBackButtonColor);
+        li {
+          &.fl-menu-arrow {
+            color: map-get($configuration, $menuSwipeBackButtonColor);
+          }
+          &.linked {
+            background-color: rgba(map-get($configuration, menuSwipeTopNavFontColor), 0.2);
+
+            &.active {
+              background-color: map-get($configuration, menuSwipeTopNavFontColor);
+            }
+          }
         }
-        &.linked {
-          background-color: rgba(map-get($configuration, menuSwipeTopNavFontColor), 0.2);
 
-          &.active {
-            background-color: map-get($configuration, menuSwipeTopNavFontColor);
+        // Styles for tablet
+        @include above($tabletBreakpoint) {
+          background: map-get($configuration, menuSwipeTopNavBackgroundTablet);
+
+          li {
+            &.fl-menu-arrow {
+              color: map-get($configuration, menuSwipeBackButtonColorTablet);
+            }
+            &.linked {
+              background-color: rgba(map-get($configuration, menuSwipeTopNavFontColorTablet), 0.2);
+
+              &.active {
+                background-color: map-get($configuration, menuSwipeTopNavFontColorTablet);
+              }
+            }
+          }
+        }
+
+        // Styles for desktop
+        @include above($desktopBreakpoint) {
+          background: map-get($configuration, menuSwipeTopNavBackgroundDesktop);
+
+          li {
+            &.fl-menu-arrow {
+              color: map-get($configuration, menuSwipeBackButtonColorDesktop);
+            }
+            &.linked {
+              background-color: rgba(map-get($configuration, menuSwipeTopNavFontColorDesktop), 0.2);
+
+              &.active {
+                background-color: map-get($configuration, menuSwipeTopNavFontColorDesktop);
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .fl-menu-swipe {
+      .fl-menu-panel-swipe {
+        &:after {
+          border-top: 11px solid map-get($configuration, menuSwipeBackgroundColor);
+        }
+
+        .fl-menu-panel-wrapper {
+          background-color: map-get($configuration, menuSwipeBackgroundColor);
+
+          .fl-menu-body-swipe {
+            background-color: map-get($configuration, menuSwipeBackgroundColor);
+          }
+
+          .fl-list-default {
+            color: map-get($configuration, menuSwipeFontColor);
+
+            ul {
+              @include fontOnly((
+                fontFamily: map-get($configuration, menuSwipeFont),
+                fontSize: map-get($configuration, menuSwipeFontSize),
+                fontLineHeight: 1.5,
+                fontWeight: map-get($configuration, menuSwipeFontWeight),
+                fontStyle: map-get($configuration, menuSwipeFontStyle),
+                fontDecoration: map-get($configuration, menuSwipeFontDecoration)
+              ));
+
+              > li {
+                border-bottom: 1px solid rgba(map-get($configuration, menuSwipeTopNavFontColor), 0.2);
+
+                .fa {
+                  color: map-get($configuration, menuSwipeFontColor);
+                }
+              }
+            }
+          }
+        }
+
+        .fl-app-menu-toolbar {
+          background-color: map-get($configuration, menuSwipeBackgroundColor);
+
+          .copyright {
+            color: map-get($configuration, menuSwipeFooterFontColor);
+
+            a {
+              color: map-get($configuration, menuSwipeFooterFontColor);
+            }
           }
         }
       }
 
       // Styles for tablet
       @include above($tabletBreakpoint) {
-        background: map-get($configuration, menuSwipeTopNavBackgroundTablet);
+        .fl-menu-panel-swipe {
+          width: map-get($configuration, menuSwipeWidthTablet);
 
-        li {
-          &.fl-menu-arrow {
-            color: map-get($configuration, menuSwipeBackButtonColorTablet);
+          &:after {
+            border-top: 11px solid map-get($configuration, menuSwipeBackgroundColorTablet);
           }
-          &.linked {
-            background-color: rgba(map-get($configuration, menuSwipeTopNavFontColorTablet), 0.2);
 
-            &.active {
-              background-color: map-get($configuration, menuSwipeTopNavFontColorTablet);
+          .fl-menu-panel-wrapper {
+            background-color: map-get($configuration, menuSwipeBackgroundColorTablet);
+
+            .fl-menu-body-swipe {
+              background-color: map-get($configuration, menuSwipeBackgroundColorTablet);
+            }
+
+            .fl-list-default {
+              color: map-get($configuration, menuSwipeFontColorTablet);
+
+              ul {
+                @include fontOnly((
+                  fontFamily: map-get($configuration, menuSwipeFontTablet),
+                  fontSize: map-get($configuration, menuSwipeFontSizeTablet),
+                  fontLineHeight: 1.5,
+                  fontWeight: map-get($configuration, menuSwipeFontWeightTablet),
+                  fontStyle: map-get($configuration, menuSwipeFontStyleTablet),
+                  fontDecoration: map-get($configuration, menuSwipeFontDecorationTablet)
+                ));
+
+                > li {
+                  border-bottom: 1px solid rgba(map-get($configuration, menuSwipeTopNavFontColorTablet), 0.2);
+
+                  .fa {
+                    color: map-get($configuration, menuSwipeFontColorTablet);
+                  }
+                }
+              }
+            }
+          }
+
+          .fl-app-menu-toolbar {
+            background-color: map-get($configuration, menuSwipeBackgroundColorTablet);
+
+            .copyright {
+              color: map-get($configuration, menuSwipeFooterFontColorTablet);
+
+              a {
+                color: map-get($configuration, menuSwipeFooterFontColorTablet);
+              }
             }
           }
         }
@@ -247,176 +377,53 @@
 
       // Styles for desktop
       @include above($desktopBreakpoint) {
-        background: map-get($configuration, menuSwipeTopNavBackgroundDesktop);
+        .fl-menu-panel-swipe {
+          width: map-get($configuration, menuSwipeWidthDesktop);
 
-        li {
-          &.fl-menu-arrow {
-            color: map-get($configuration, menuSwipeBackButtonColorDesktop);
-          }
-          &.linked {
-            background-color: rgba(map-get($configuration, menuSwipeTopNavFontColorDesktop), 0.2);
-
-            &.active {
-              background-color: map-get($configuration, menuSwipeTopNavFontColorDesktop);
-            }
-          }
-        }
-      }
-    }
-  }
-
-  .fl-menu-swipe {
-    .fl-menu-panel-swipe {
-      &:after {
-        border-top: 11px solid map-get($configuration, menuSwipeBackgroundColor);
-      }
-
-      .fl-menu-panel-wrapper {
-        background-color: map-get($configuration, menuSwipeBackgroundColor);
-
-        .fl-menu-body-swipe {
-          background-color: map-get($configuration, menuSwipeBackgroundColor);
-        }
-
-        .fl-list-default {
-          color: map-get($configuration, menuSwipeFontColor);
-
-          ul {
-            @include fontOnly((
-              fontFamily: map-get($configuration, menuSwipeFont),
-              fontSize: map-get($configuration, menuSwipeFontSize),
-              fontLineHeight: 1.5,
-              fontWeight: map-get($configuration, menuSwipeFontWeight),
-              fontStyle: map-get($configuration, menuSwipeFontStyle),
-              fontDecoration: map-get($configuration, menuSwipeFontDecoration)
-            ));
-
-            > li {
-              border-bottom: 1px solid rgba(map-get($configuration, menuSwipeTopNavFontColor), 0.2);
-
-              .fa {
-                color: map-get($configuration, menuSwipeFontColor);
-              }
-            }
-          }
-        }
-      }
-
-      .fl-app-menu-toolbar {
-        background-color: map-get($configuration, menuSwipeBackgroundColor);
-
-        .copyright {
-          color: map-get($configuration, menuSwipeFooterFontColor);
-
-          a {
-            color: map-get($configuration, menuSwipeFooterFontColor);
-          }
-        }
-      }
-    }
-
-    // Styles for tablet
-    @include above($tabletBreakpoint) {
-      .fl-menu-panel-swipe {
-        width: map-get($configuration, menuSwipeWidthTablet);
-
-        &:after {
-          border-top: 11px solid map-get($configuration, menuSwipeBackgroundColorTablet);
-        }
-
-        .fl-menu-panel-wrapper {
-          background-color: map-get($configuration, menuSwipeBackgroundColorTablet);
-
-          .fl-menu-body-swipe {
-            background-color: map-get($configuration, menuSwipeBackgroundColorTablet);
+          &:after {
+            border-top: 11px solid map-get($configuration, menuSwipeBackgroundColorDesktop);
           }
 
-          .fl-list-default {
-            color: map-get($configuration, menuSwipeFontColorTablet);
-
-            ul {
-              @include fontOnly((
-                fontFamily: map-get($configuration, menuSwipeFontTablet),
-                fontSize: map-get($configuration, menuSwipeFontSizeTablet),
-                fontLineHeight: 1.5,
-                fontWeight: map-get($configuration, menuSwipeFontWeightTablet),
-                fontStyle: map-get($configuration, menuSwipeFontStyleTablet),
-                fontDecoration: map-get($configuration, menuSwipeFontDecorationTablet)
-              ));
-
-              > li {
-                border-bottom: 1px solid rgba(map-get($configuration, menuSwipeTopNavFontColorTablet), 0.2);
-
-                .fa {
-                  color: map-get($configuration, menuSwipeFontColorTablet);
-                }
-              }
-            }
-          }
-        }
-
-        .fl-app-menu-toolbar {
-          background-color: map-get($configuration, menuSwipeBackgroundColorTablet);
-
-          .copyright {
-            color: map-get($configuration, menuSwipeFooterFontColorTablet);
-
-            a {
-              color: map-get($configuration, menuSwipeFooterFontColorTablet);
-            }
-          }
-        }
-      }
-    }
-
-    // Styles for desktop
-    @include above($desktopBreakpoint) {
-      .fl-menu-panel-swipe {
-        width: map-get($configuration, menuSwipeWidthDesktop);
-
-        &:after {
-          border-top: 11px solid map-get($configuration, menuSwipeBackgroundColorDesktop);
-        }
-
-        .fl-menu-panel-wrapper {
-          background-color: map-get($configuration, menuSwipeBackgroundColorDesktop);
-
-          .fl-menu-body-swipe {
+          .fl-menu-panel-wrapper {
             background-color: map-get($configuration, menuSwipeBackgroundColorDesktop);
-          }
 
-          .fl-list-default {
-            color: map-get($configuration, menuSwipeFontColorDesktop);
+            .fl-menu-body-swipe {
+              background-color: map-get($configuration, menuSwipeBackgroundColorDesktop);
+            }
 
-            ul {
-              @include fontOnly((
-                fontFamily: map-get($configuration, menuSwipeFontTablet),
-                fontSize: map-get($configuration, menuSwipeFontSizeTablet),
-                fontLineHeight: 1.5,
-                fontWeight: map-get($configuration, menuSwipeFontWeightTablet),
-                fontStyle: map-get($configuration, menuSwipeFontStyleTablet),
-                fontDecoration: map-get($configuration, menuSwipeFontDecorationTablet)
-              ));
+            .fl-list-default {
+              color: map-get($configuration, menuSwipeFontColorDesktop);
 
-              > li {
-                border-bottom: 1px solid rgba(map-get($configuration, menuSwipeTopNavFontColorDesktop), 0.2);
+              ul {
+                @include fontOnly((
+                  fontFamily: map-get($configuration, menuSwipeFontTablet),
+                  fontSize: map-get($configuration, menuSwipeFontSizeTablet),
+                  fontLineHeight: 1.5,
+                  fontWeight: map-get($configuration, menuSwipeFontWeightTablet),
+                  fontStyle: map-get($configuration, menuSwipeFontStyleTablet),
+                  fontDecoration: map-get($configuration, menuSwipeFontDecorationTablet)
+                ));
 
-                .fa {
-                  color: map-get($configuration, menuSwipeFontColorDesktop);
+                > li {
+                  border-bottom: 1px solid rgba(map-get($configuration, menuSwipeTopNavFontColorDesktop), 0.2);
+
+                  .fa {
+                    color: map-get($configuration, menuSwipeFontColorDesktop);
+                  }
                 }
               }
             }
           }
-        }
 
-        .fl-app-menu-toolbar {
-          background-color: map-get($configuration, menuSwipeBackgroundColorDesktop);
+          .fl-app-menu-toolbar {
+            background-color: map-get($configuration, menuSwipeBackgroundColorDesktop);
 
-          .copyright {
-            color: map-get($configuration, menuSwipeFooterFontColorDesktop);
-
-            a {
+            .copyright {
               color: map-get($configuration, menuSwipeFooterFontColorDesktop);
+
+              a {
+                color: map-get($configuration, menuSwipeFooterFontColorDesktop);
+              }
             }
           }
         }

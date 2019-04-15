@@ -1,4 +1,4 @@
-@mixin lock($options: ()) {
+@mixin lock($options: (), $widgetInstanceId: '') {
   $configuration: map-merge((
     lockWidth: $lockWidth,
     lockMinWidth: $lockMinWidth,
@@ -47,7 +47,12 @@
     touchIDBorderDesktop: $touchIDBorderDesktop
   ), $options);
 
-  .passcode-wrapper {
+  $instanceSelector: '[data-fl-widget-instance]';
+  @if $widgetInstanceId != '' {
+    $instanceSelector: '#{$instanceSelector}[data-id="#{$widgetInstanceId}"]';
+  }
+
+  #{$instanceSelector} {
     width: map-get($configuration, lockWidth);
     min-width: map-get($configuration, lockMinWidth);
     max-width: map-get($configuration, lockMaxWidth);
@@ -55,18 +60,6 @@
       map-get($configuration, lockMarginRight)
       map-get($configuration, lockMarginBottom)
       map-get($configuration, lockMarginLeft);
-    padding: map-get($configuration, lockPaddingTop)
-      map-get($configuration, lockPaddingRight)
-      map-get($configuration, lockPaddingBottom)
-      map-get($configuration, lockPaddingLeft);
-
-    .passcode-field {
-      border-bottom: 1px solid map-get($configuration, lockInput);
-
-      &:focus {
-        border-bottom: 1px solid map-get($configuration, lockInputFocus);
-      }
-    }
 
     // Styles for tablet
     @include above($tabletBreakpoint) {
@@ -77,18 +70,6 @@
         map-get($configuration, lockMarginRightTablet)
         map-get($configuration, lockMarginBottomTablet)
         map-get($configuration, lockMarginLeftTablet);
-      padding: map-get($configuration, lockPaddingTopTablet)
-        map-get($configuration, lockPaddingRightTablet)
-        map-get($configuration, lockPaddingBottomTablet)
-        map-get($configuration, lockPaddingLeftTablet);
-
-      .passcode-field {
-        border-bottom: 1px solid map-get($configuration, lockInputTablet);
-
-        &:focus {
-          border-bottom: 1px solid map-get($configuration, lockInputFocusTablet);
-        }
-      }
     }
 
     // Styles for desktop
@@ -100,46 +81,81 @@
         map-get($configuration, lockMarginRightDesktop)
         map-get($configuration, lockMarginBottomDesktop)
         map-get($configuration, lockMarginLeftDesktop);
-      padding: map-get($configuration, lockPaddingTopDesktop)
-        map-get($configuration, lockPaddingRightDesktop)
-        map-get($configuration, lockPaddingBottomDesktop)
-        map-get($configuration, lockPaddingLeftDesktop);
+    }
+
+    .passcode-wrapper {
+      padding: map-get($configuration, lockPaddingTop)
+        map-get($configuration, lockPaddingRight)
+        map-get($configuration, lockPaddingBottom)
+        map-get($configuration, lockPaddingLeft);
 
       .passcode-field {
-        border-bottom: 1px solid map-get($configuration, lockInputDesktop);
+        border-bottom: 1px solid map-get($configuration, lockInput);
 
         &:focus {
-          border-bottom: 1px solid map-get($configuration, lockInputFocusDesktop);
+          border-bottom: 1px solid map-get($configuration, lockInputFocus);
+        }
+      }
+
+      // Styles for tablet
+      @include above($tabletBreakpoint) {
+        padding: map-get($configuration, lockPaddingTopTablet)
+          map-get($configuration, lockPaddingRightTablet)
+          map-get($configuration, lockPaddingBottomTablet)
+          map-get($configuration, lockPaddingLeftTablet);
+
+        .passcode-field {
+          border-bottom: 1px solid map-get($configuration, lockInputTablet);
+
+          &:focus {
+            border-bottom: 1px solid map-get($configuration, lockInputFocusTablet);
+          }
+        }
+      }
+
+      // Styles for desktop
+      @include above($desktopBreakpoint) {
+        padding: map-get($configuration, lockPaddingTopDesktop)
+          map-get($configuration, lockPaddingRightDesktop)
+          map-get($configuration, lockPaddingBottomDesktop)
+          map-get($configuration, lockPaddingLeftDesktop);
+
+        .passcode-field {
+          border-bottom: 1px solid map-get($configuration, lockInputDesktop);
+
+          &:focus {
+            border-bottom: 1px solid map-get($configuration, lockInputFocusDesktop);
+          }
         }
       }
     }
-  }
 
-  .verify-field-wrapper .back-setup {
-    color: map-get($configuration, lockChevronColor);
+    .verify-field-wrapper .back-setup {
+      color: map-get($configuration, lockChevronColor);
 
-    // Styles for tablet
-    @include above($tabletBreakpoint) {
-      color: map-get($configuration, lockChevronColorTablet);
+      // Styles for tablet
+      @include above($tabletBreakpoint) {
+        color: map-get($configuration, lockChevronColorTablet);
+      }
+
+      // Styles for desktop
+      @include above($desktopBreakpoint) {
+        color: map-get($configuration, lockChevronColorDesktop);
+      }
     }
 
-    // Styles for desktop
-    @include above($desktopBreakpoint) {
-      color: map-get($configuration, lockChevronColorDesktop);
-    }
-  }
+    .use-touchid {
+      border: 1px solid map-get($configuration, touchIDBorder);
 
-  .use-touchid {
-    border: 1px solid map-get($configuration, touchIDBorder);
+      // Styles for tablet
+      @include above($tabletBreakpoint) {
+        border: 1px solid map-get($configuration, touchIDBorderTablet);
+      }
 
-    // Styles for tablet
-    @include above($tabletBreakpoint) {
-      border: 1px solid map-get($configuration, touchIDBorderTablet);
-    }
-
-    // Styles for desktop
-    @include above($desktopBreakpoint) {
-      border: 1px solid map-get($configuration, touchIDBorderDesktop);
+      // Styles for desktop
+      @include above($desktopBreakpoint) {
+        border: 1px solid map-get($configuration, touchIDBorderDesktop);
+      }
     }
   }
 }

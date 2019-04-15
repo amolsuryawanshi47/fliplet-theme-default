@@ -1,4 +1,4 @@
-@mixin charts($options: ()) {
+@mixin charts($options: (), $widgetInstanceId: '') {
   $configuration: map-merge((
     chartWidth: $chartWidth,
     chartHeight: $chartHeight,
@@ -74,12 +74,12 @@
     chartColor10Desktop: $chartColor10Desktop
   ), $options);
 
-  .chart-column-wrapper,
-  .chart-bar-wrapper,
-  .chart-donut-wrapper,
-  .chart-line-wrapper,
-  .chart-pie-wrapper,
-  .chart-scatter-wrapper {
+  $instanceSelector: '[data-fl-widget-instance]';
+  @if $widgetInstanceId != '' {
+    $instanceSelector: '#{$instanceSelector}[data-id="#{$widgetInstanceId}"]';
+  }
+
+  #{$instanceSelector} {
     width: map-get($configuration, chartWidth);
     min-width: map-get($configuration, chartMinWidth);
     max-width: map-get($configuration, chartMaxWidth);
@@ -87,16 +87,6 @@
       map-get($configuration, chartMarginRight)
       map-get($configuration, chartMarginBottom)
       map-get($configuration, chartMarginLeft);
-    padding: map-get($configuration, chartPaddingTop)
-      map-get($configuration, chartPaddingRight)
-      map-get($configuration, chartPaddingBottom)
-      map-get($configuration, chartPaddingLeft);
-
-    .chart-container {
-      height: map-get($configuration, chartHeight);
-      min-height: map-get($configuration, chartMinHeight);
-      max-height: map-get($configuration, chartMaxHeight);
-    }
 
     @include above($tabletBreakpoint) {
       width: map-get($configuration, chartWidthTablet);
@@ -106,16 +96,6 @@
         map-get($configuration, chartMarginRightTablet)
         map-get($configuration, chartMarginBottomTablet)
         map-get($configuration, chartMarginLeftTablet);
-      padding: map-get($configuration, chartPaddingTopTablet)
-        map-get($configuration, chartPaddingRightTablet)
-        map-get($configuration, chartPaddingBottomTablet)
-        map-get($configuration, chartPaddingLeftTablet);
-
-      .chart-container {
-        height: map-get($configuration, chartHeightTablet);
-        min-height: map-get($configuration, chartMinHeightTablet);
-        max-height: map-get($configuration, chartMaxHeightTablet);
-      }
     }
 
     @include above($desktopBreakpoint) {
@@ -126,146 +106,180 @@
         map-get($configuration, chartMarginRightDesktop)
         map-get($configuration, chartMarginBottomDesktop)
         map-get($configuration, chartMarginLeftDesktop);
-      padding: map-get($configuration, chartPaddingTopDesktop)
-        map-get($configuration, chartPaddingRightDesktop)
-        map-get($configuration, chartPaddingBottomDesktop)
-        map-get($configuration, chartPaddingLeftDesktop);
+    }
+
+    .chart-column-wrapper,
+    .chart-bar-wrapper,
+    .chart-donut-wrapper,
+    .chart-line-wrapper,
+    .chart-pie-wrapper,
+    .chart-scatter-wrapper {
+      padding: map-get($configuration, chartPaddingTop)
+        map-get($configuration, chartPaddingRight)
+        map-get($configuration, chartPaddingBottom)
+        map-get($configuration, chartPaddingLeft);
 
       .chart-container {
-        height: map-get($configuration, chartHeightDesktop);
-        min-height: map-get($configuration, chartMinHeightDesktop);
-        max-height: map-get($configuration, chartMaxHeightDesktop);
+        height: map-get($configuration, chartHeight);
+        min-height: map-get($configuration, chartMinHeight);
+        max-height: map-get($configuration, chartMaxHeight);
+      }
+
+      @include above($tabletBreakpoint) {
+        padding: map-get($configuration, chartPaddingTopTablet)
+          map-get($configuration, chartPaddingRightTablet)
+          map-get($configuration, chartPaddingBottomTablet)
+          map-get($configuration, chartPaddingLeftTablet);
+
+        .chart-container {
+          height: map-get($configuration, chartHeightTablet);
+          min-height: map-get($configuration, chartMinHeightTablet);
+          max-height: map-get($configuration, chartMaxHeightTablet);
+        }
+      }
+
+      @include above($desktopBreakpoint) {
+        padding: map-get($configuration, chartPaddingTopDesktop)
+          map-get($configuration, chartPaddingRightDesktop)
+          map-get($configuration, chartPaddingBottomDesktop)
+          map-get($configuration, chartPaddingLeftDesktop);
+
+        .chart-container {
+          height: map-get($configuration, chartHeightDesktop);
+          min-height: map-get($configuration, chartMinHeightDesktop);
+          max-height: map-get($configuration, chartMaxHeightDesktop);
+        }
       }
     }
-  }
-}
 
-.highcharts-background {
-  fill: none !important;
-}
+    .highcharts-background {
+      fill: none !important;
+    }
 
-.highcharts-axis-line {
-  stroke: lighten($bodyTextColor, 25%);
+    .highcharts-axis-line {
+      stroke: lighten($bodyTextColor, 25%);
 
-  // Styles for tablet
-  @include above($tabletBreakpoint) {
-    stroke: lighten($bodyTextColorTablet, 25%);
-  }
+      // Styles for tablet
+      @include above($tabletBreakpoint) {
+        stroke: lighten($bodyTextColorTablet, 25%);
+      }
 
-  // Styles for desktop
-  @include above($desktopBreakpoint) {
-    stroke: lighten($bodyTextColorDesktop, 25%);
-  }
-}
+      // Styles for desktop
+      @include above($desktopBreakpoint) {
+        stroke: lighten($bodyTextColorDesktop, 25%);
+      }
+    }
 
-.highcharts-axis-title {
-  fill: $bodyTextColor !important;
-  color: $bodyTextColor !important;
+    .highcharts-axis-title {
+      fill: $bodyTextColor !important;
+      color: $bodyTextColor !important;
 
-  // Styles for tablet
-  @include above($tabletBreakpoint) {
-    fill: $bodyTextColorTablet !important;
-    color: $bodyTextColorTablet !important;
-  }
+      // Styles for tablet
+      @include above($tabletBreakpoint) {
+        fill: $bodyTextColorTablet !important;
+        color: $bodyTextColorTablet !important;
+      }
 
-  // Styles for desktop
-  @include above($desktopBreakpoint) {
-    fill: $bodyTextColorDesktop !important;
-    color: $bodyTextColorDesktop !important;
-  }
-}
+      // Styles for desktop
+      @include above($desktopBreakpoint) {
+        fill: $bodyTextColorDesktop !important;
+        color: $bodyTextColorDesktop !important;
+      }
+    }
 
-.highcharts-label text {
-  color: lighten($bodyTextColor, 25%) !important;
-  fill: lighten($bodyTextColor, 25%) !important;
-  text-shadow: none !important;
+    .highcharts-label text {
+      color: lighten($bodyTextColor, 25%) !important;
+      fill: lighten($bodyTextColor, 25%) !important;
+      text-shadow: none !important;
 
-  // Styles for tablet
-  @include above($tabletBreakpoint) {
-    color: lighten($bodyTextColorTablet, 25%) !important;
-    fill: lighten($bodyTextColorTablet, 25%) !important;
-  }
+      // Styles for tablet
+      @include above($tabletBreakpoint) {
+        color: lighten($bodyTextColorTablet, 25%) !important;
+        fill: lighten($bodyTextColorTablet, 25%) !important;
+      }
 
-  // Styles for desktop
-  @include above($desktopBreakpoint) {
-    color: lighten($bodyTextColorDesktop, 25%) !important;
-    fill: lighten($bodyTextColorDesktop, 25%) !important;
-  }
-}
+      // Styles for desktop
+      @include above($desktopBreakpoint) {
+        color: lighten($bodyTextColorDesktop, 25%) !important;
+        fill: lighten($bodyTextColorDesktop, 25%) !important;
+      }
+    }
 
-.highcharts-axis-labels text {
-  color: lighten($bodyTextColor, 10%) !important;
-  fill: lighten($bodyTextColor, 10%) !important;
+    .highcharts-axis-labels text {
+      color: lighten($bodyTextColor, 10%) !important;
+      fill: lighten($bodyTextColor, 10%) !important;
 
-  // Styles for tablet
-  @include above($tabletBreakpoint) {
-    color: lighten($bodyTextColorTablet, 10%) !important;
-    fill: lighten($bodyTextColorTablet, 10%) !important;
-  }
+      // Styles for tablet
+      @include above($tabletBreakpoint) {
+        color: lighten($bodyTextColorTablet, 10%) !important;
+        fill: lighten($bodyTextColorTablet, 10%) !important;
+      }
 
-  // Styles for desktop
-  @include above($desktopBreakpoint) {
-    color: lighten($bodyTextColorDesktop, 10%) !important;
-    fill: lighten($bodyTextColorDesktop, 10%) !important;
-  }
-}
+      // Styles for desktop
+      @include above($desktopBreakpoint) {
+        color: lighten($bodyTextColorDesktop, 10%) !important;
+        fill: lighten($bodyTextColorDesktop, 10%) !important;
+      }
+    }
 
-.highcharts-legend-item text {
-  color: $bodyTextColor !important;
-  fill: $bodyTextColor !important;
+    .highcharts-legend-item text {
+      color: $bodyTextColor !important;
+      fill: $bodyTextColor !important;
 
-  // Styles for tablet
-  @include above($tabletBreakpoint) {
-    color: $bodyTextColorTablet !important;
-    fill: $bodyTextColorTablet !important;
-  }
+      // Styles for tablet
+      @include above($tabletBreakpoint) {
+        color: $bodyTextColorTablet !important;
+        fill: $bodyTextColorTablet !important;
+      }
 
-  // Styles for desktop
-  @include above($desktopBreakpoint) {
-    color: $bodyTextColorDesktop !important;
-    fill: $bodyTextColorDesktop !important;
-  }
-}
+      // Styles for desktop
+      @include above($desktopBreakpoint) {
+        color: $bodyTextColorDesktop !important;
+        fill: $bodyTextColorDesktop !important;
+      }
+    }
 
-.chart-column-updatedAt,
-.chart-column-total {
-  color: lighten($bodyTextColor, 50%);
+    .chart-column-updatedAt,
+    .chart-column-total {
+      color: lighten($bodyTextColor, 50%);
 
-  // Styles for tablet
-  @include above($tabletBreakpoint) {
-    color: lighten($bodyTextColorTablet, 50%);
-  }
+      // Styles for tablet
+      @include above($tabletBreakpoint) {
+        color: lighten($bodyTextColorTablet, 50%);
+      }
 
-  // Styles for desktop
-  @include above($desktopBreakpoint) {
-    color: lighten($bodyTextColorDesktop, 50%);
-  }
-}
-.chart-column-updatedAt > .updatedAt,
-.chart-column-total > .total {
-  color: lighten($bodyTextColor, 10%);
+      // Styles for desktop
+      @include above($desktopBreakpoint) {
+        color: lighten($bodyTextColorDesktop, 50%);
+      }
+    }
+    .chart-column-updatedAt > .updatedAt,
+    .chart-column-total > .total {
+      color: lighten($bodyTextColor, 10%);
 
-  // Styles for tablet
-  @include above($tabletBreakpoint) {
-    color: lighten($bodyTextColorTablet, 10%);
-  }
+      // Styles for tablet
+      @include above($tabletBreakpoint) {
+        color: lighten($bodyTextColorTablet, 10%);
+      }
 
-  // Styles for desktop
-  @include above($desktopBreakpoint) {
-    color: lighten($bodyTextColorDesktop, 10%);
-  }
-}
+      // Styles for desktop
+      @include above($desktopBreakpoint) {
+        color: lighten($bodyTextColorDesktop, 10%);
+      }
+    }
 
-.highcharts-tooltip-box {
-  fill: rgba($bodyBackground, 0.75) !important;
+    .highcharts-tooltip-box {
+      fill: rgba($bodyBackground, 0.75) !important;
 
-  // Styles for tablet
-  @include above($tabletBreakpoint) {
-    fill: rgba($bodyTextColorTablet, 0.75) !important;
-  }
+      // Styles for tablet
+      @include above($tabletBreakpoint) {
+        fill: rgba($bodyTextColorTablet, 0.75) !important;
+      }
 
-  // Styles for desktop
-  @include above($desktopBreakpoint) {
-    fill: rgba($bodyTextColorDesktop, 0.75) !important;
+      // Styles for desktop
+      @include above($desktopBreakpoint) {
+        fill: rgba($bodyTextColorDesktop, 0.75) !important;
+      }
+    }
   }
 }

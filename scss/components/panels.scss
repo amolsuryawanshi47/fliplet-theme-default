@@ -1,4 +1,4 @@
-@mixin panels($options: ()) {
+@mixin panels($options: (), $widgetInstanceId: '') {
   $configuration: map-merge((
     panelWidth: $panelWidth,
     panelHeight: $panelHeight,
@@ -128,7 +128,12 @@
     panelShadowColorDesktop: $panelShadowColorDesktop
   ), $options);
 
-  .list-panels {
+  $instanceSelector: '[data-fl-widget-instance]';
+  @if $widgetInstanceId != '' {
+    $instanceSelector: '#{$instanceSelector}[data-id="#{$widgetInstanceId}"]';
+  }
+
+  #{$instanceSelector} {
     width: map-get($configuration, panelWidth);
     min-width: map-get($configuration, panelMinWidth);
     max-width: map-get($configuration, panelMaxWidth);
@@ -181,194 +186,196 @@
         map-get($configuration, panelPaddingLeftDesktop);
     }
 
-    ul > li {
-      .list-desc {
-        padding: map-get($configuration, panelItemPaddingTop)
-          map-get($configuration, panelItemPaddingRight)
-          map-get($configuration, panelItemPaddingBottom)
-          map-get($configuration, panelItemPaddingLeft);
-
-        .list-title {
-          @include fontOnly((
-            fontFamily: map-get($configuration, panelTitleFont),
-            fontSize: map-get($configuration, panelTitleSize),
-            fontLineHeight: 1.5,
-            fontWeight: map-get($configuration, panelTitleWeight),
-            fontStyle: map-get($configuration, panelTitleStyle),
-            fontDecoration: map-get($configuration, panelTitleDecoration)
-          ));
-
-          color: map-get($configuration, panelTitleColor);
-
-          + p {
-            @include fontOnly((
-              fontFamily: map-get($configuration, panelDescriptionFont),
-              fontSize: map-get($configuration, panelDescriptionSize),
-              fontLineHeight: 1.5,
-              fontWeight: map-get($configuration, panelDescriptionWeight),
-              fontStyle: map-get($configuration, panelDescriptionStyle),
-              fontDecoration: map-get($configuration, panelDescriptionDecoration)
-            ));
-
-            color: map-get($configuration, panelDescriptionColor);
-          }
-        }
-      }
-
-      // Styles for tablet
-      @include above($tabletBreakpoint) {
+    .list-panels {
+      ul > li {
         .list-desc {
-          padding: map-get($configuration, panelItemPaddingTopTablet)
-            map-get($configuration, panelItemPaddingRightTablet)
-            map-get($configuration, panelItemPaddingBottomTablet)
-            map-get($configuration, panelItemPaddingLeftTablet);
+          padding: map-get($configuration, panelItemPaddingTop)
+            map-get($configuration, panelItemPaddingRight)
+            map-get($configuration, panelItemPaddingBottom)
+            map-get($configuration, panelItemPaddingLeft);
 
           .list-title {
             @include fontOnly((
-              fontFamily: map-get($configuration, panelTitleFontTablet),
-              fontSize: map-get($configuration, panelTitleSizeTablet),
+              fontFamily: map-get($configuration, panelTitleFont),
+              fontSize: map-get($configuration, panelTitleSize),
               fontLineHeight: 1.5,
-              fontWeight: map-get($configuration, panelTitleWeightTablet),
-              fontStyle: map-get($configuration, panelTitleStyleTablet),
-              fontDecoration: map-get($configuration, panelTitleDecorationTablet)
+              fontWeight: map-get($configuration, panelTitleWeight),
+              fontStyle: map-get($configuration, panelTitleStyle),
+              fontDecoration: map-get($configuration, panelTitleDecoration)
             ));
 
-            color: map-get($configuration, panelTitleColorTablet);
+            color: map-get($configuration, panelTitleColor);
 
             + p {
               @include fontOnly((
-                fontFamily: map-get($configuration, panelDescriptionFontTablet),
-                fontSize: map-get($configuration, panelDescriptionSizeTablet),
+                fontFamily: map-get($configuration, panelDescriptionFont),
+                fontSize: map-get($configuration, panelDescriptionSize),
                 fontLineHeight: 1.5,
-                fontWeight: map-get($configuration, panelDescriptionWeightTablet),
-                fontStyle: map-get($configuration, panelDescriptionStyleTablet),
-                fontDecoration: map-get($configuration, panelDescriptionDecorationTablet)
+                fontWeight: map-get($configuration, panelDescriptionWeight),
+                fontStyle: map-get($configuration, panelDescriptionStyle),
+                fontDecoration: map-get($configuration, panelDescriptionDecoration)
               ));
 
-              color: map-get($configuration, panelDescriptionColorTablet);
+              color: map-get($configuration, panelDescriptionColor);
             }
           }
         }
+
+        // Styles for tablet
+        @include above($tabletBreakpoint) {
+          .list-desc {
+            padding: map-get($configuration, panelItemPaddingTopTablet)
+              map-get($configuration, panelItemPaddingRightTablet)
+              map-get($configuration, panelItemPaddingBottomTablet)
+              map-get($configuration, panelItemPaddingLeftTablet);
+
+            .list-title {
+              @include fontOnly((
+                fontFamily: map-get($configuration, panelTitleFontTablet),
+                fontSize: map-get($configuration, panelTitleSizeTablet),
+                fontLineHeight: 1.5,
+                fontWeight: map-get($configuration, panelTitleWeightTablet),
+                fontStyle: map-get($configuration, panelTitleStyleTablet),
+                fontDecoration: map-get($configuration, panelTitleDecorationTablet)
+              ));
+
+              color: map-get($configuration, panelTitleColorTablet);
+
+              + p {
+                @include fontOnly((
+                  fontFamily: map-get($configuration, panelDescriptionFontTablet),
+                  fontSize: map-get($configuration, panelDescriptionSizeTablet),
+                  fontLineHeight: 1.5,
+                  fontWeight: map-get($configuration, panelDescriptionWeightTablet),
+                  fontStyle: map-get($configuration, panelDescriptionStyleTablet),
+                  fontDecoration: map-get($configuration, panelDescriptionDecorationTablet)
+                ));
+
+                color: map-get($configuration, panelDescriptionColorTablet);
+              }
+            }
+          }
+        }
+
+        // Styles for desktop
+        @include above($desktopBreakpoint) {
+          .list-desc {
+            padding: map-get($configuration, panelItemPaddingTopDesktop)
+              map-get($configuration, panelItemPaddingRightDesktop)
+              map-get($configuration, panelItemPaddingBottomDesktop)
+              map-get($configuration, panelItemPaddingLeftDesktop);
+
+            .list-title {
+              @include fontOnly((
+                fontFamily: map-get($configuration, panelTitleFontDesktop),
+                fontSize: map-get($configuration, panelTitleSizeDesktop),
+                fontLineHeight: 1.5,
+                fontWeight: map-get($configuration, panelTitleWeightDesktop),
+                fontStyle: map-get($configuration, panelTitleStyleDesktop),
+                fontDecoration: map-get($configuration, panelTitleDecorationDesktop)
+              ));
+
+              color: map-get($configuration, panelTitleColorDesktop);
+
+              + p {
+                @include fontOnly((
+                  fontFamily: map-get($configuration, panelDescriptionFontDesktop),
+                  fontSize: map-get($configuration, panelDescriptionSizeDesktop),
+                  fontLineHeight: 1.5,
+                  fontWeight: map-get($configuration, panelDescriptionWeightDesktop),
+                  fontStyle: map-get($configuration, panelDescriptionStyleDesktop),
+                  fontDecoration: map-get($configuration, panelDescriptionDecorationDesktop)
+                ));
+
+                color: map-get($configuration, panelDescriptionColorDesktop);
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .list-panels .panels {
+      @include borderOnly((
+        borderSides: map-get($configuration, panelBorderSides),
+        borderWidth: map-get($configuration, panelBorderWidth),
+        borderStyle: map-get($configuration, panelBorderStyle),
+        borderColor: map-get($configuration, panelBorder)
+      ));
+      border-radius: map-get($configuration, panelBorderRadius);
+      background-color: map-get($configuration, panelBackgroundColor);
+
+      @include shadowOnly((
+        shadowStyle: map-get($configuration, panelShadowStyle),
+        shadowXOffset: map-get($configuration, panelShadowXoffset),
+        shadowYOffset: map-get($configuration, panelShadowYoffset),
+        shadowBlur: map-get($configuration, panelShadowBlur),
+        shadowSpread: map-get($configuration, panelShadowSpread),
+        shadowColor: map-get($configuration, panelShadowColor)
+      ));
+
+      // Styles for tablet
+      @include above($tabletBreakpoint) {
+        @include borderOnly((
+          borderSides: map-get($configuration, panelBorderSidesTablet),
+          borderWidth: map-get($configuration, panelBorderWidthTablet),
+          borderStyle: map-get($configuration, panelBorderStyleTablet),
+          borderColor: map-get($configuration, panelBorderTablet)
+        ));
+        border-radius: map-get($configuration, panelBorderRadiusTablet);
+        background-color: map-get($configuration, panelBackgroundColorTablet);
+
+        @include shadowOnly((
+          shadowStyle: map-get($configuration, panelShadowStyleTablet),
+          shadowXOffset: map-get($configuration, panelShadowXoffsetTablet),
+          shadowYOffset: map-get($configuration, panelShadowYoffsetTablet),
+          shadowBlur: map-get($configuration, panelShadowBlurTablet),
+          shadowSpread: map-get($configuration, panelShadowSpreadTablet),
+          shadowColor: map-get($configuration, panelShadowColorTablet)
+        ));
       }
 
       // Styles for desktop
       @include above($desktopBreakpoint) {
-        .list-desc {
-          padding: map-get($configuration, panelItemPaddingTopDesktop)
-            map-get($configuration, panelItemPaddingRightDesktop)
-            map-get($configuration, panelItemPaddingBottomDesktop)
-            map-get($configuration, panelItemPaddingLeftDesktop);
+        @include borderOnly((
+          borderSides: map-get($configuration, panelBorderSidesDesktop),
+          borderWidth: map-get($configuration, panelBorderWidthDesktop),
+          borderStyle: map-get($configuration, panelBorderStyleDesktop),
+          borderColor: map-get($configuration, panelBorderDesktop)
+        ));
+        border-radius: map-get($configuration, panelBorderRadiusDesktop);
+        background-color: map-get($configuration, panelBackgroundColorDesktop);
 
-          .list-title {
-            @include fontOnly((
-              fontFamily: map-get($configuration, panelTitleFontDesktop),
-              fontSize: map-get($configuration, panelTitleSizeDesktop),
-              fontLineHeight: 1.5,
-              fontWeight: map-get($configuration, panelTitleWeightDesktop),
-              fontStyle: map-get($configuration, panelTitleStyleDesktop),
-              fontDecoration: map-get($configuration, panelTitleDecorationDesktop)
-            ));
-
-            color: map-get($configuration, panelTitleColorDesktop);
-
-            + p {
-              @include fontOnly((
-                fontFamily: map-get($configuration, panelDescriptionFontDesktop),
-                fontSize: map-get($configuration, panelDescriptionSizeDesktop),
-                fontLineHeight: 1.5,
-                fontWeight: map-get($configuration, panelDescriptionWeightDesktop),
-                fontStyle: map-get($configuration, panelDescriptionStyleDesktop),
-                fontDecoration: map-get($configuration, panelDescriptionDecorationDesktop)
-              ));
-
-              color: map-get($configuration, panelDescriptionColorDesktop);
-            }
-          }
-        }
+        @include shadowOnly((
+          shadowStyle: map-get($configuration, panelShadowStyleDesktop),
+          shadowXOffset: map-get($configuration, panelShadowXoffsetDesktop),
+          shadowYOffset: map-get($configuration, panelShadowYoffsetDesktop),
+          shadowBlur: map-get($configuration, panelShadowBlurDesktop),
+          shadowSpread: map-get($configuration, panelShadowSpreadDesktop),
+          shadowColor: map-get($configuration, panelShadowColorDesktop)
+        ));
       }
     }
-  }
 
-  .list-panels .panels {
-    @include borderOnly((
-      borderSides: map-get($configuration, panelBorderSides),
-      borderWidth: map-get($configuration, panelBorderWidth),
-      borderStyle: map-get($configuration, panelBorderStyle),
-      borderColor: map-get($configuration, panelBorder)
-    ));
-    border-radius: map-get($configuration, panelBorderRadius);
-    background-color: map-get($configuration, panelBackgroundColor);
+    .three-columns .panels {
+      border-radius: map-get($configuration, panelBorderRadius);
 
-    @include shadowOnly((
-      shadowStyle: map-get($configuration, panelShadowStyle),
-      shadowXOffset: map-get($configuration, panelShadowXoffset),
-      shadowYOffset: map-get($configuration, panelShadowYoffset),
-      shadowBlur: map-get($configuration, panelShadowBlur),
-      shadowSpread: map-get($configuration, panelShadowSpread),
-      shadowColor: map-get($configuration, panelShadowColor)
-    ));
+      // Styles for tablet
+      @include above($tabletBreakpoint) {
+        border-radius: map-get($configuration, panelBorderRadiusTablet);
+      }
 
-    // Styles for tablet
-    @include above($tabletBreakpoint) {
-      @include borderOnly((
-        borderSides: map-get($configuration, panelBorderSidesTablet),
-        borderWidth: map-get($configuration, panelBorderWidthTablet),
-        borderStyle: map-get($configuration, panelBorderStyleTablet),
-        borderColor: map-get($configuration, panelBorderTablet)
-      ));
-      border-radius: map-get($configuration, panelBorderRadiusTablet);
-      background-color: map-get($configuration, panelBackgroundColorTablet);
-
-      @include shadowOnly((
-        shadowStyle: map-get($configuration, panelShadowStyleTablet),
-        shadowXOffset: map-get($configuration, panelShadowXoffsetTablet),
-        shadowYOffset: map-get($configuration, panelShadowYoffsetTablet),
-        shadowBlur: map-get($configuration, panelShadowBlurTablet),
-        shadowSpread: map-get($configuration, panelShadowSpreadTablet),
-        shadowColor: map-get($configuration, panelShadowColorTablet)
-      ));
-    }
-
-    // Styles for desktop
-    @include above($desktopBreakpoint) {
-      @include borderOnly((
-        borderSides: map-get($configuration, panelBorderSidesDesktop),
-        borderWidth: map-get($configuration, panelBorderWidthDesktop),
-        borderStyle: map-get($configuration, panelBorderStyleDesktop),
-        borderColor: map-get($configuration, panelBorderDesktop)
-      ));
-      border-radius: map-get($configuration, panelBorderRadiusDesktop);
-      background-color: map-get($configuration, panelBackgroundColorDesktop);
-
-      @include shadowOnly((
-        shadowStyle: map-get($configuration, panelShadowStyleDesktop),
-        shadowXOffset: map-get($configuration, panelShadowXoffsetDesktop),
-        shadowYOffset: map-get($configuration, panelShadowYoffsetDesktop),
-        shadowBlur: map-get($configuration, panelShadowBlurDesktop),
-        shadowSpread: map-get($configuration, panelShadowSpreadDesktop),
-        shadowColor: map-get($configuration, panelShadowColorDesktop)
-      ));
-    }
-  }
-
-  .three-columns .panels {
-    border-radius: map-get($configuration, panelBorderRadius);
-
-    // Styles for tablet
-    @include above($tabletBreakpoint) {
-      border-radius: map-get($configuration, panelBorderRadiusTablet);
-    }
-
-    // Styles for desktop
-    @include above($desktopBreakpoint) {
-      border-radius: map-get($configuration, panelBorderRadiusDesktop);
+      // Styles for desktop
+      @include above($desktopBreakpoint) {
+        border-radius: map-get($configuration, panelBorderRadiusDesktop);
+      }
     }
   }
 }
 
 @include panels();
 
-@mixin grid($options: ()) {
+@mixin grid($options: (), $widgetInstanceId: '') {
   $configuration: map-merge((
     gridWidth: $gridWidth,
     gridMinWidth: $gridMinWidth,
@@ -459,7 +466,12 @@
     gridBorderRadiusDesktop: $gridBorderRadiusDesktop
   ), $options);
 
-  .metro-panels {
+  $instanceSelector: '[data-fl-widget-instance]';
+  @if $widgetInstanceId != '' {
+    $instanceSelector: '#{$instanceSelector}[data-id="#{$widgetInstanceId}"]';
+  }
+
+  #{$instanceSelector} {
     width: map-get($configuration, gridWidth);
     min-width: map-get($configuration, gridMinWidth);
     max-width: map-get($configuration, gridMaxWidth);
@@ -472,147 +484,149 @@
       map-get($configuration, gridHolderPaddingBottom)
       map-get($configuration, gridHolderPaddingLeft);
 
-    .panels {
-      overflow: hidden;
-      border-radius: map-get($configuration, gridBorderRadius);
-
-      .metro-desc {
-        background-color: map-get($configuration, gridTextBackgroundColor);
-        padding: map-get($configuration, gridPaddingTop)
-          map-get($configuration, gridPaddingRight)
-          map-get($configuration, gridPaddingBottom)
-          map-get($configuration, gridPaddingLeft);
-
-        .metro-title {
-          @include fontOnly((
-            fontFamily: map-get($configuration, gridTitleFont),
-            fontSize: map-get($configuration, gridTitleSize),
-            fontLineHeight: 1.5,
-            fontWeight: map-get($configuration, gridTitleWeight),
-            fontStyle: map-get($configuration, gridTitleStyle),
-            fontDecoration: map-get($configuration, gridTitleDecoration)
-          ));
-
-          color: map-get($configuration, gridTitleColor);
-
-          + p {
-            @include fontOnly((
-              fontFamily: map-get($configuration, gridDescriptionFont),
-              fontSize: map-get($configuration, gridDescriptionSize),
-              fontLineHeight: 1.5,
-              fontWeight: map-get($configuration, gridDescriptionWeight),
-              fontStyle: map-get($configuration, gridDescriptionStyle),
-              fontDecoration: map-get($configuration, gridDescriptionDecoration)
-            ));
-
-            color: map-get($configuration, gridDescriptionColor);
-          }
-        }
-      }
-    }
-
-    // Styles for tablet
-    @include above($tabletBreakpoint) {
-      width: map-get($configuration, gridWidth);
-      min-width: map-get($configuration, gridMinWidth);
-      max-width: map-get($configuration, gridMaxWidth);
-      margin: map-get($configuration, gridMarginTop)
-        map-get($configuration, gridMarginRight)
-        map-get($configuration, gridMarginBottom)
-        map-get($configuration, gridMarginLeft);
-      padding: map-get($configuration, gridHolderPaddingTop)
-        map-get($configuration, gridHolderPaddingRight)
-        map-get($configuration, gridHolderPaddingBottom)
-        map-get($configuration, gridHolderPaddingLeft);
-
+    .metro-panels {
       .panels {
         overflow: hidden;
-        border-radius: map-get($configuration, gridBorderRadiusTablet);
+        border-radius: map-get($configuration, gridBorderRadius);
 
         .metro-desc {
-          background-color: map-get($configuration, gridTextBackgroundColorTablet);
-          padding: map-get($configuration, gridPaddingTopTablet)
-            map-get($configuration, gridPaddingRightTablet)
-            map-get($configuration, gridPaddingBottomTablet)
-            map-get($configuration, gridPaddingLeftTablet);
+          background-color: map-get($configuration, gridTextBackgroundColor);
+          padding: map-get($configuration, gridPaddingTop)
+            map-get($configuration, gridPaddingRight)
+            map-get($configuration, gridPaddingBottom)
+            map-get($configuration, gridPaddingLeft);
 
           .metro-title {
             @include fontOnly((
-              fontFamily: map-get($configuration, gridTitleFontTablet),
-              fontSize: map-get($configuration, gridTitleSizeTablet),
+              fontFamily: map-get($configuration, gridTitleFont),
+              fontSize: map-get($configuration, gridTitleSize),
               fontLineHeight: 1.5,
-              fontWeight: map-get($configuration, gridTitleWeightTablet),
-              fontStyle: map-get($configuration, gridTitleStyleTablet),
-              fontDecoration: map-get($configuration, gridTitleDecorationTablet)
+              fontWeight: map-get($configuration, gridTitleWeight),
+              fontStyle: map-get($configuration, gridTitleStyle),
+              fontDecoration: map-get($configuration, gridTitleDecoration)
             ));
 
-            color: map-get($configuration, gridTitleColorTablet);
+            color: map-get($configuration, gridTitleColor);
 
             + p {
               @include fontOnly((
-                fontFamily: map-get($configuration, gridDescriptionFontTablet),
-                fontSize: map-get($configuration, gridDescriptionSizeTablet),
+                fontFamily: map-get($configuration, gridDescriptionFont),
+                fontSize: map-get($configuration, gridDescriptionSize),
                 fontLineHeight: 1.5,
-                fontWeight: map-get($configuration, gridDescriptionWeightTablet),
-                fontStyle: map-get($configuration, gridDescriptionStyleTablet),
-                fontDecoration: map-get($configuration, gridDescriptionDecorationTablet)
+                fontWeight: map-get($configuration, gridDescriptionWeight),
+                fontStyle: map-get($configuration, gridDescriptionStyle),
+                fontDecoration: map-get($configuration, gridDescriptionDecoration)
               ));
 
-              color: map-get($configuration, gridDescriptionColorTablet);
+              color: map-get($configuration, gridDescriptionColor);
             }
           }
         }
       }
-    }
 
-    // Styles for desktop
-    @include above($desktopBreakpoint) {
-      width: map-get($configuration, gridWidth);
-      min-width: map-get($configuration, gridMinWidth);
-      max-width: map-get($configuration, gridMaxWidth);
-      margin: map-get($configuration, gridMarginTop)
-        map-get($configuration, gridMarginRight)
-        map-get($configuration, gridMarginBottom)
-        map-get($configuration, gridMarginLeft);
-      padding: map-get($configuration, gridHolderPaddingTop)
-        map-get($configuration, gridHolderPaddingRight)
-        map-get($configuration, gridHolderPaddingBottom)
-        map-get($configuration, gridHolderPaddingLeft);
+      // Styles for tablet
+      @include above($tabletBreakpoint) {
+        width: map-get($configuration, gridWidth);
+        min-width: map-get($configuration, gridMinWidth);
+        max-width: map-get($configuration, gridMaxWidth);
+        margin: map-get($configuration, gridMarginTop)
+          map-get($configuration, gridMarginRight)
+          map-get($configuration, gridMarginBottom)
+          map-get($configuration, gridMarginLeft);
+        padding: map-get($configuration, gridHolderPaddingTop)
+          map-get($configuration, gridHolderPaddingRight)
+          map-get($configuration, gridHolderPaddingBottom)
+          map-get($configuration, gridHolderPaddingLeft);
 
-      .panels {
-        overflow: hidden;
-        border-radius: map-get($configuration, gridBorderRadiusDesktop);
+        .panels {
+          overflow: hidden;
+          border-radius: map-get($configuration, gridBorderRadiusTablet);
 
-        .metro-desc {
-          background-color: map-get($configuration, gridTextBackgroundColorDesktop);
-          padding: map-get($configuration, gridPaddingTopDesktop)
-            map-get($configuration, gridPaddingRightDesktop)
-            map-get($configuration, gridPaddingBottomDesktop)
-            map-get($configuration, gridPaddingLeftDesktop);
+          .metro-desc {
+            background-color: map-get($configuration, gridTextBackgroundColorTablet);
+            padding: map-get($configuration, gridPaddingTopTablet)
+              map-get($configuration, gridPaddingRightTablet)
+              map-get($configuration, gridPaddingBottomTablet)
+              map-get($configuration, gridPaddingLeftTablet);
 
-          .metro-title {
-            @include fontOnly((
-              fontFamily: map-get($configuration, gridTitleFontDesktop),
-              fontSize: map-get($configuration, gridTitleSizeDesktop),
-              fontLineHeight: 1.5,
-              fontWeight: map-get($configuration, gridTitleWeightDesktop),
-              fontStyle: map-get($configuration, gridTitleStyleDesktop),
-              fontDecoration: map-get($configuration, gridTitleDecorationDesktop)
-            ));
-
-            color: map-get($configuration, gridTitleColorDesktop);
-
-            + p {
+            .metro-title {
               @include fontOnly((
-                fontFamily: map-get($configuration, gridDescriptionFontDesktop),
-                fontSize: map-get($configuration, gridDescriptionSizeDesktop),
+                fontFamily: map-get($configuration, gridTitleFontTablet),
+                fontSize: map-get($configuration, gridTitleSizeTablet),
                 fontLineHeight: 1.5,
-                fontWeight: map-get($configuration, gridDescriptionWeightDesktop),
-                fontStyle: map-get($configuration, gridDescriptionStyleDesktop),
-                fontDecoration: map-get($configuration, gridDescriptionDecorationDesktop)
+                fontWeight: map-get($configuration, gridTitleWeightTablet),
+                fontStyle: map-get($configuration, gridTitleStyleTablet),
+                fontDecoration: map-get($configuration, gridTitleDecorationTablet)
               ));
 
-              color: map-get($configuration, gridDescriptionColorDesktop);
+              color: map-get($configuration, gridTitleColorTablet);
+
+              + p {
+                @include fontOnly((
+                  fontFamily: map-get($configuration, gridDescriptionFontTablet),
+                  fontSize: map-get($configuration, gridDescriptionSizeTablet),
+                  fontLineHeight: 1.5,
+                  fontWeight: map-get($configuration, gridDescriptionWeightTablet),
+                  fontStyle: map-get($configuration, gridDescriptionStyleTablet),
+                  fontDecoration: map-get($configuration, gridDescriptionDecorationTablet)
+                ));
+
+                color: map-get($configuration, gridDescriptionColorTablet);
+              }
+            }
+          }
+        }
+      }
+
+      // Styles for desktop
+      @include above($desktopBreakpoint) {
+        width: map-get($configuration, gridWidth);
+        min-width: map-get($configuration, gridMinWidth);
+        max-width: map-get($configuration, gridMaxWidth);
+        margin: map-get($configuration, gridMarginTop)
+          map-get($configuration, gridMarginRight)
+          map-get($configuration, gridMarginBottom)
+          map-get($configuration, gridMarginLeft);
+        padding: map-get($configuration, gridHolderPaddingTop)
+          map-get($configuration, gridHolderPaddingRight)
+          map-get($configuration, gridHolderPaddingBottom)
+          map-get($configuration, gridHolderPaddingLeft);
+
+        .panels {
+          overflow: hidden;
+          border-radius: map-get($configuration, gridBorderRadiusDesktop);
+
+          .metro-desc {
+            background-color: map-get($configuration, gridTextBackgroundColorDesktop);
+            padding: map-get($configuration, gridPaddingTopDesktop)
+              map-get($configuration, gridPaddingRightDesktop)
+              map-get($configuration, gridPaddingBottomDesktop)
+              map-get($configuration, gridPaddingLeftDesktop);
+
+            .metro-title {
+              @include fontOnly((
+                fontFamily: map-get($configuration, gridTitleFontDesktop),
+                fontSize: map-get($configuration, gridTitleSizeDesktop),
+                fontLineHeight: 1.5,
+                fontWeight: map-get($configuration, gridTitleWeightDesktop),
+                fontStyle: map-get($configuration, gridTitleStyleDesktop),
+                fontDecoration: map-get($configuration, gridTitleDecorationDesktop)
+              ));
+
+              color: map-get($configuration, gridTitleColorDesktop);
+
+              + p {
+                @include fontOnly((
+                  fontFamily: map-get($configuration, gridDescriptionFontDesktop),
+                  fontSize: map-get($configuration, gridDescriptionSizeDesktop),
+                  fontLineHeight: 1.5,
+                  fontWeight: map-get($configuration, gridDescriptionWeightDesktop),
+                  fontStyle: map-get($configuration, gridDescriptionStyleDesktop),
+                  fontDecoration: map-get($configuration, gridDescriptionDecorationDesktop)
+                ));
+
+                color: map-get($configuration, gridDescriptionColorDesktop);
+              }
             }
           }
         }

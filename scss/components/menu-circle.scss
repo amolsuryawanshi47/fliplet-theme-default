@@ -1,4 +1,4 @@
-@mixin menuExp($options: ()) {
+@mixin menuExp($options: (), $widgetInstanceId: '') {
   $configuration: map-merge((
     menuExpFont: $menuExpFont,
     menuExpFontSize: $menuExpFontSize,
@@ -56,218 +56,225 @@
     menuExpFooterFontColorDesktop: $menuExpFooterFontColorDesktop
   ), $options);
 
-  .fl-menu-circle-header {
-    .nav-toggle {
-      background-color: map-get($configuration, menuExpButtonColor);
-      color: map-get($configuration, menuExpButtonIconColor);
+  $instanceSelector: '[data-fl-widget-instance]';
+  @if $widgetInstanceId != '' {
+    $instanceSelector: '#{$instanceSelector}[data-id="#{$widgetInstanceId}"]';
+  }
 
-      @include shadowOnly((
-        shadowStyle: map-get($configuration, menuExpShadowStyle),
-        shadowXOffset: map-get($configuration, menuExpShadowXoffset),
-        shadowYOffset: map-get($configuration, menuExpShadowYoffset),
-        shadowBlur: map-get($configuration, menuExpShadowBlur),
-        shadowSpread: map-get($configuration, menuExpShadowSpread),
-        shadowColor: map-get($configuration, menuExpShadowColor)
-      ));
-
-      // Styles for tablet
-      @include above($tabletBreakpoint) {
-        background-color: map-get($configuration, menuExpButtonColorTablet);
-        color: map-get($configuration, menuExpButtonIconColorTablet);
+  #{$instanceSelector} {
+    .fl-menu-circle-header {
+      .nav-toggle {
+        background-color: map-get($configuration, menuExpButtonColor);
+        color: map-get($configuration, menuExpButtonIconColor);
 
         @include shadowOnly((
-          shadowStyle: map-get($configuration, menuExpShadowStyleTablet),
-          shadowXOffset: map-get($configuration, menuExpShadowXoffsetTablet),
-          shadowYOffset: map-get($configuration, menuExpShadowYoffsetTablet),
-          shadowBlur: map-get($configuration, menuExpShadowBlurTablet),
-          shadowSpread: map-get($configuration, menuExpShadowSpreadTablet),
-          shadowColor: map-get($configuration, menuExpShadowColorTablet)
+          shadowStyle: map-get($configuration, menuExpShadowStyle),
+          shadowXOffset: map-get($configuration, menuExpShadowXoffset),
+          shadowYOffset: map-get($configuration, menuExpShadowYoffset),
+          shadowBlur: map-get($configuration, menuExpShadowBlur),
+          shadowSpread: map-get($configuration, menuExpShadowSpread),
+          shadowColor: map-get($configuration, menuExpShadowColor)
         ));
-      }
-
-      // Styles for desktop
-      @include above($desktopBreakpoint) {
-        background-color: map-get($configuration, menuExpButtonColorDesktop);
-        color: map-get($configuration, menuExpButtonIconColorDesktop);
-
-        @include shadowOnly((
-          shadowStyle: map-get($configuration, menuExpShadowStyleDesktop),
-          shadowXOffset: map-get($configuration, menuExpShadowXoffsetDesktop),
-          shadowYOffset: map-get($configuration, menuExpShadowYoffsetDesktop),
-          shadowBlur: map-get($configuration, menuExpShadowBlurDesktop),
-          shadowSpread: map-get($configuration, menuExpShadowSpreadDesktop),
-          shadowColor: map-get($configuration, menuExpShadowColorDesktop)
-        ));
-      }
-
-      .hamburger {
-        .hamburger-inner {
-          background-color: map-get($configuration, menuExpButtonIconColor);
-
-          &:after,
-          &:before {
-            background-color: map-get($configuration, menuExpButtonIconColor);
-          }
-
-          // Styles for tablet
-          @include above($tabletBreakpoint) {
-            background-color: map-get($configuration, menuExpButtonIconColorTablet);
-
-            &:after,
-            &:before {
-              background-color: map-get($configuration, menuExpButtonIconColorTablet);
-            }
-          }
-
-          // Styles for desktop
-          @include above($desktopBreakpoint) {
-            background-color: map-get($configuration, menuExpButtonIconColorDesktop);
-
-            &:after,
-            &:before {
-              background-color: map-get($configuration, menuExpButtonIconColorDesktop);
-            }
-          }
-        }
-      }
-
-      &.active {
-        background: map-get($configuration, menuExpButtonColorOpen);
-        color: map-get($configuration, menuExpButtonIconColorOpen);
 
         // Styles for tablet
         @include above($tabletBreakpoint) {
-          background-color: map-get($configuration, menuExpButtonColorOpenTablet);
-          color: map-get($configuration, menuExpButtonIconColorOpenTablet);
+          background-color: map-get($configuration, menuExpButtonColorTablet);
+          color: map-get($configuration, menuExpButtonIconColorTablet);
+
+          @include shadowOnly((
+            shadowStyle: map-get($configuration, menuExpShadowStyleTablet),
+            shadowXOffset: map-get($configuration, menuExpShadowXoffsetTablet),
+            shadowYOffset: map-get($configuration, menuExpShadowYoffsetTablet),
+            shadowBlur: map-get($configuration, menuExpShadowBlurTablet),
+            shadowSpread: map-get($configuration, menuExpShadowSpreadTablet),
+            shadowColor: map-get($configuration, menuExpShadowColorTablet)
+          ));
         }
 
         // Styles for desktop
         @include above($desktopBreakpoint) {
-          background-color: map-get($configuration, menuExpButtonColorOpenDesktop);
-          color: map-get($configuration, menuExpButtonIconColorOpenDesktop);
+          background-color: map-get($configuration, menuExpButtonColorDesktop);
+          color: map-get($configuration, menuExpButtonIconColorDesktop);
+
+          @include shadowOnly((
+            shadowStyle: map-get($configuration, menuExpShadowStyleDesktop),
+            shadowXOffset: map-get($configuration, menuExpShadowXoffsetDesktop),
+            shadowYOffset: map-get($configuration, menuExpShadowYoffsetDesktop),
+            shadowBlur: map-get($configuration, menuExpShadowBlurDesktop),
+            shadowSpread: map-get($configuration, menuExpShadowSpreadDesktop),
+            shadowColor: map-get($configuration, menuExpShadowColorDesktop)
+          ));
         }
 
-        .hamburger.is-active {
+        .hamburger {
           .hamburger-inner {
-            background-color: map-get($configuration, menuExpButtonIconColorOpen);
+            background-color: map-get($configuration, menuExpButtonIconColor);
 
             &:after,
             &:before {
-              background-color: map-get($configuration, menuExpButtonIconColorOpen);
+              background-color: map-get($configuration, menuExpButtonIconColor);
             }
 
             // Styles for tablet
             @include above($tabletBreakpoint) {
-              background-color: map-get($configuration, menuExpButtonIconColorOpenTablet);
+              background-color: map-get($configuration, menuExpButtonIconColorTablet);
 
               &:after,
               &:before {
-                background-color: map-get($configuration, menuExpButtonIconColorOpenTablet);
+                background-color: map-get($configuration, menuExpButtonIconColorTablet);
               }
             }
 
             // Styles for desktop
             @include above($desktopBreakpoint) {
-              background-color: map-get($configuration, menuExpButtonIconColorOpenDesktop);
+              background-color: map-get($configuration, menuExpButtonIconColorDesktop);
 
               &:after,
               &:before {
+                background-color: map-get($configuration, menuExpButtonIconColorDesktop);
+              }
+            }
+          }
+        }
+
+        &.active {
+          background: map-get($configuration, menuExpButtonColorOpen);
+          color: map-get($configuration, menuExpButtonIconColorOpen);
+
+          // Styles for tablet
+          @include above($tabletBreakpoint) {
+            background-color: map-get($configuration, menuExpButtonColorOpenTablet);
+            color: map-get($configuration, menuExpButtonIconColorOpenTablet);
+          }
+
+          // Styles for desktop
+          @include above($desktopBreakpoint) {
+            background-color: map-get($configuration, menuExpButtonColorOpenDesktop);
+            color: map-get($configuration, menuExpButtonIconColorOpenDesktop);
+          }
+
+          .hamburger.is-active {
+            .hamburger-inner {
+              background-color: map-get($configuration, menuExpButtonIconColorOpen);
+
+              &:after,
+              &:before {
+                background-color: map-get($configuration, menuExpButtonIconColorOpen);
+              }
+
+              // Styles for tablet
+              @include above($tabletBreakpoint) {
+                background-color: map-get($configuration, menuExpButtonIconColorOpenTablet);
+
+                &:after,
+                &:before {
+                  background-color: map-get($configuration, menuExpButtonIconColorOpenTablet);
+                }
+              }
+
+              // Styles for desktop
+              @include above($desktopBreakpoint) {
                 background-color: map-get($configuration, menuExpButtonIconColorOpenDesktop);
+
+                &:after,
+                &:before {
+                  background-color: map-get($configuration, menuExpButtonIconColorOpenDesktop);
+                }
               }
             }
           }
         }
       }
     }
-  }
 
-  .fl-menu-circle-nav-holder {
-    .nav-circle {
-      background-color: map-get($configuration, menuExpButtonColor);
-
-      &.active {
-        background-color: map-get($configuration, menuExpBackgroundOpen);
-      }
-
-      // Styles for tablet
-      @include above($tabletBreakpoint) {
-        background-color: map-get($configuration, menuExpButtonColorTablet);
+    .fl-menu-circle-nav-holder {
+      .nav-circle {
+        background-color: map-get($configuration, menuExpButtonColor);
 
         &.active {
-          background-color: map-get($configuration, menuExpBackgroundOpenTablet);
+          background-color: map-get($configuration, menuExpBackgroundOpen);
         }
-      }
-
-      // Styles for desktop
-      @include above($desktopBreakpoint) {
-        background-color: map-get($configuration, menuExpButtonColorDesktop);
-
-        &.active {
-          background-color: map-get($configuration, menuExpBackgroundOpenDesktop);
-        }
-      }
-    }
-  }
-
-  .fl-menu-circle-nav-list-holder {
-    .nav-list{
-      @include fontOnly((
-        fontFamily: map-get($configuration, menuExpFont),
-        fontSize: map-get($configuration, menuExpFontSize),
-        fontLineHeight: 1.5,
-        fontWeight: map-get($configuration, menuExpFontWeight),
-        fontStyle: map-get($configuration, menuExpFontStyle),
-        fontDecoration: map-get($configuration, menuExpFontDecoration)
-      ));
-
-      li {
-        color: map-get($configuration, menuExpFontColor);
-      }
-
-      // Styles for tablet
-      @include above($tabletBreakpoint) {
-        @include fontOnly((
-          fontFamily: map-get($configuration, menuExpFontTablet),
-          fontSize: map-get($configuration, menuExpFontSizeTablet),
-          fontLineHeight: 1.5,
-          fontWeight: map-get($configuration, menuExpFontWeightTablet),
-          fontStyle: map-get($configuration, menuExpFontStyleTablet),
-          fontDecoration: map-get($configuration, menuExpFontDecorationTablet)
-        ));
-
-        li {
-          color: map-get($configuration, menuExpFontColorTablet);
-        }
-      }
-
-      // Styles for desktop
-      @include above($desktopBreakpoint) {
-        @include fontOnly((
-          fontFamily: map-get($configuration, menuExpFontDesktop),
-          fontSize: map-get($configuration, menuExpFontSizeDesktop),
-          fontLineHeight: 1.5,
-          fontWeight: map-get($configuration, menuExpFontWeightDesktop),
-          fontStyle: map-get($configuration, menuExpFontStyleDesktop),
-          fontDecoration: map-get($configuration, menuExpFontDecorationDesktop)
-        ));
-
-        li {
-          color: map-get($configuration, menuExpFontColorDesktop);
-        }
-      }
-    }
-    .fl-menu-foot {
-      a {
-        color: map-get($configuration, menuExpFooterFontColor);
 
         // Styles for tablet
         @include above($tabletBreakpoint) {
-          color: map-get($configuration, menuExpFooterFontColorTablet);
+          background-color: map-get($configuration, menuExpButtonColorTablet);
+
+          &.active {
+            background-color: map-get($configuration, menuExpBackgroundOpenTablet);
+          }
         }
 
         // Styles for desktop
         @include above($desktopBreakpoint) {
-          color: map-get($configuration, menuExpFooterFontColorDesktop);
+          background-color: map-get($configuration, menuExpButtonColorDesktop);
+
+          &.active {
+            background-color: map-get($configuration, menuExpBackgroundOpenDesktop);
+          }
+        }
+      }
+    }
+
+    .fl-menu-circle-nav-list-holder {
+      .nav-list{
+        @include fontOnly((
+          fontFamily: map-get($configuration, menuExpFont),
+          fontSize: map-get($configuration, menuExpFontSize),
+          fontLineHeight: 1.5,
+          fontWeight: map-get($configuration, menuExpFontWeight),
+          fontStyle: map-get($configuration, menuExpFontStyle),
+          fontDecoration: map-get($configuration, menuExpFontDecoration)
+        ));
+
+        li {
+          color: map-get($configuration, menuExpFontColor);
+        }
+
+        // Styles for tablet
+        @include above($tabletBreakpoint) {
+          @include fontOnly((
+            fontFamily: map-get($configuration, menuExpFontTablet),
+            fontSize: map-get($configuration, menuExpFontSizeTablet),
+            fontLineHeight: 1.5,
+            fontWeight: map-get($configuration, menuExpFontWeightTablet),
+            fontStyle: map-get($configuration, menuExpFontStyleTablet),
+            fontDecoration: map-get($configuration, menuExpFontDecorationTablet)
+          ));
+
+          li {
+            color: map-get($configuration, menuExpFontColorTablet);
+          }
+        }
+
+        // Styles for desktop
+        @include above($desktopBreakpoint) {
+          @include fontOnly((
+            fontFamily: map-get($configuration, menuExpFontDesktop),
+            fontSize: map-get($configuration, menuExpFontSizeDesktop),
+            fontLineHeight: 1.5,
+            fontWeight: map-get($configuration, menuExpFontWeightDesktop),
+            fontStyle: map-get($configuration, menuExpFontStyleDesktop),
+            fontDecoration: map-get($configuration, menuExpFontDecorationDesktop)
+          ));
+
+          li {
+            color: map-get($configuration, menuExpFontColorDesktop);
+          }
+        }
+      }
+      .fl-menu-foot {
+        a {
+          color: map-get($configuration, menuExpFooterFontColor);
+
+          // Styles for tablet
+          @include above($tabletBreakpoint) {
+            color: map-get($configuration, menuExpFooterFontColorTablet);
+          }
+
+          // Styles for desktop
+          @include above($desktopBreakpoint) {
+            color: map-get($configuration, menuExpFooterFontColorDesktop);
+          }
         }
       }
     }
