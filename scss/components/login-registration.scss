@@ -56,12 +56,24 @@
     fieldBorderRadiusDesktop: $fieldBorderRadiusDesktop
   ), $options);
 
-  $instanceSelector: '[data-fl-widget-instance]';
+  $instanceSelectorOne: '[data-fl-widget-instance][data-widget-package="com.fliplet.login"]';
+  $instanceSelectorTwo: '[data-fl-widget-instance][data-widget-package="com.fliplet.login-data-source"]';
+  $instanceSelectorThree: '[data-fl-widget-instance][data-widget-package="com.fliplet.login.saml2"]';
+  $instanceSelectorFour: '[data-fl-widget-instance][data-widget-package="com.fliplet.email-validation"]';
+  $instanceSelectorFive: '[data-fl-widget-instance][data-widget-package="com.fliplet.sms-verfication"]';
   @if $widgetInstanceId != '' {
-    $instanceSelector: '#{$instanceSelector}[data-id="#{$widgetInstanceId}"]';
+    $instanceSelectorOne: '#{$instanceSelectorOne}[data-id="#{$widgetInstanceId}"]';
+    $instanceSelectorTwo: '#{$instanceSelectorTwo}[data-id="#{$widgetInstanceId}"]';
+    $instanceSelectorThree: '#{$instanceSelectorThree}[data-id="#{$widgetInstanceId}"]';
+    $instanceSelectorFour: '#{$instanceSelectorFour}[data-id="#{$widgetInstanceId}"]';
+    $instanceSelectorFive: '#{$instanceSelectorFive}[data-id="#{$widgetInstanceId}"]';
   }
 
-  #{$instanceSelector} {
+  #{$instanceSelectorOne},
+  #{$instanceSelectorTwo},
+  #{$instanceSelectorThree},
+  #{$instanceSelectorFour},
+  #{$instanceSelectorFive} {
     width: map-get($configuration, loginWidth);
     min-width: map-get($configuration, loginMinWidth);
     max-width: map-get($configuration, loginMaxWidth);

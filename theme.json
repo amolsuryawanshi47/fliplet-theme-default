@@ -1388,6 +1388,32 @@
                 "name": "introOverlayPosition",
                 "default": "absolute",
                 "isFullRow": true,
+                "logic": {
+                  "relative": {
+                    "hide": [
+                      "introOverlayPositionTop",
+                      "introOverlayPositionRight",
+                      "introOverlayPositionBottom",
+                      "introOverlayPositionLeft"
+                    ]
+                  },
+                  "absolute": {
+                    "show": [
+                      "introOverlayPositionTop",
+                      "introOverlayPositionRight",
+                      "introOverlayPositionBottom",
+                      "introOverlayPositionLeft"
+                    ]
+                  },
+                  "fixed": {
+                    "show": [
+                      "introOverlayPositionTop",
+                      "introOverlayPositionRight",
+                      "introOverlayPositionBottom",
+                      "introOverlayPositionLeft"
+                    ]
+                  }
+                },
                 "breakpoints": {
                   "tablet": {
                     "name": "introOverlayPositionTablet",
@@ -1398,12 +1424,7 @@
                     "default": "inherit-tablet"
                   }
                 },
-                "type": "select",
-                "properties": {
-                  "relative": "In flow (relative)",
-                  "absolute": "Relative to container (absolute)",
-                  "fixed": "Relative to screen (fixed)"
-                }
+                "type": "position"
               },
               {
                 "name": "introOverlayPositionTop",
@@ -4273,31 +4294,6 @@
         "packages": ["com.fliplet.primary-button"],
         "variables": [
           {
-            "description": "Display",
-            "fields": [
-              {
-                "name": "primaryButtonDisplay",
-                "default": "block",
-                "isFullRow": true,
-                "breakpoints": {
-                  "tablet": {
-                    "name": "primaryButtonDisplayTablet",
-                    "default": "inline-block"
-                  },
-                  "desktop": {
-                    "name": "primaryButtonDisplayDesktop",
-                    "default": "inherit-tablet"
-                  }
-                },
-                "type": "select",
-                "properties": {
-                  "inline-block": "Inline",
-                  "block": "Block"
-                }
-              }
-            ]
-          },
-          {
             "description": "Sizes",
             "fields": [
               {
@@ -4453,6 +4449,7 @@
                 "name": "primaryButtonMarginTop",
                 "default": "0px",
                 "isHalfRow": true,
+                "logic": "primaryButtonMarginAlign",
                 "breakpoints": {
                   "tablet": {
                     "name": "primaryButtonMarginTopTablet",
@@ -4472,6 +4469,7 @@
                 "name": "primaryButtonMarginRight",
                 "default": "0px",
                 "isHalfRow": true,
+                "logic": "primaryButtonMarginAlign",
                 "breakpoints": {
                   "tablet": {
                     "name": "primaryButtonMarginRightTablet",
@@ -4491,6 +4489,7 @@
                 "name": "primaryButtonMarginBottom",
                 "default": "0px",
                 "isHalfRow": true,
+                "logic": "primaryButtonMarginAlign",
                 "breakpoints": {
                   "tablet": {
                     "name": "primaryButtonMarginBottomTablet",
@@ -4510,6 +4509,7 @@
                 "name": "primaryButtonMarginLeft",
                 "default": "0px",
                 "isHalfRow": true,
+                "logic": "primaryButtonMarginAlign",
                 "breakpoints": {
                   "tablet": {
                     "name": "primaryButtonMarginLeftTablet",
@@ -4523,6 +4523,148 @@
                 "type": "size",
                 "subtype": "margin",
                 "label": "Left",
+                "allowNegative": true
+              }
+            ]
+          },
+          {
+            "description": "Position",
+            "fields": [
+              {
+                "name": "primaryButtonPosition",
+                "default": "relative",
+                "isFullRow": true,
+                "logic": {
+                  "relative": {
+                    "hide": [
+                      "primaryButtonPositionTop",
+                      "primaryButtonPositionRight",
+                      "primaryButtonPositionBottom",
+                      "primaryButtonPositionLeft"
+                    ],
+                    "show": ["primaryButtonDisplay"]
+                  },
+                  "absolute": {
+                    "show": [
+                      "primaryButtonPositionTop",
+                      "primaryButtonPositionRight",
+                      "primaryButtonPositionBottom",
+                      "primaryButtonPositionLeft"
+                    ],
+                    "hide": ["primaryButtonDisplay"]
+                  },
+                  "fixed": {
+                    "show": [
+                      "primaryButtonPositionTop",
+                      "primaryButtonPositionRight",
+                      "primaryButtonPositionBottom",
+                      "primaryButtonPositionLeft"
+                    ],
+                    "hide": ["primaryButtonDisplay"]
+                  }
+                },
+                "breakpoints": {
+                  "tablet": {
+                    "name": "primaryButtonPositionTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "primaryButtonPositionDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "position"
+              },
+              {
+                "name": "primaryButtonDisplay",
+                "default": "block",
+                "isFullRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "primaryButtonDisplayTablet",
+                    "default": "inline-block"
+                  },
+                  "desktop": {
+                    "name": "primaryButtonDisplayDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "display"
+              },
+              {
+                "name": "primaryButtonPositionTop",
+                "default": "0px",
+                "isHalfRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "primaryButtonPositionTopTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "primaryButtonPositionTopDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "label": "Top",
+                "type": "size",
+                "subtype": "position",
+                "allowNegative": true
+              },
+              {
+                "name": "primaryButtonPositionRight",
+                "default": "0px",
+                "isHalfRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "primaryButtonPositionRightTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "primaryButtonPositionRightDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "label": "Right",
+                "type": "size",
+                "subtype": "position",
+                "allowNegative": true
+              },
+              {
+                "name": "primaryButtonPositionBottom",
+                "default": "0px",
+                "isHalfRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "primaryButtonPositionBottomTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "primaryButtonPositionBottomDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "label": "Bottom",
+                "type": "size",
+                "subtype": "position",
+                "allowNegative": true
+              },
+              {
+                "name": "primaryButtonPositionLeft",
+                "default": "0px",
+                "isHalfRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "primaryButtonPositionLeftTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "primaryButtonPositionLeftDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "label": "Left",
+                "type": "size",
+                "subtype": "position",
                 "allowNegative": true
               }
             ]
@@ -5335,31 +5477,6 @@
         "packages": ["com.fliplet.secondary-button"],
         "variables": [
           {
-            "description": "Display",
-            "fields": [
-              {
-                "name": "secondaryButtonDisplay",
-                "default": "block",
-                "isFullRow": true,
-                "breakpoints": {
-                  "tablet": {
-                    "name": "secondaryButtonDisplayTablet",
-                    "default": "inline-block"
-                  },
-                  "desktop": {
-                    "name": "secondaryButtonDisplayDesktop",
-                    "default": "inherit-tablet"
-                  }
-                },
-                "type": "select",
-                "properties": {
-                  "inline-block": "Inline",
-                  "block": "Block"
-                }
-              }
-            ]
-          },
-          {
             "description": "Sizes",
             "fields": [
               {
@@ -5515,6 +5632,7 @@
                 "name": "secondaryButtonMarginTop",
                 "default": "0px",
                 "isHalfRow": true,
+                "logic": "secondaryButtonMarginAlign",
                 "breakpoints": {
                   "tablet": {
                     "name": "secondaryButtonMarginTopTablet",
@@ -5534,6 +5652,7 @@
                 "name": "secondaryButtonMarginRight",
                 "default": "0px",
                 "isHalfRow": true,
+                "logic": "secondaryButtonMarginAlign",
                 "breakpoints": {
                   "tablet": {
                     "name": "secondaryButtonMarginRightTablet",
@@ -5553,6 +5672,7 @@
                 "name": "secondaryButtonMarginBottom",
                 "default": "0px",
                 "isHalfRow": true,
+                "logic": "secondaryButtonMarginAlign",
                 "breakpoints": {
                   "tablet": {
                     "name": "secondaryButtonMarginBottomTablet",
@@ -5572,6 +5692,7 @@
                 "name": "secondaryButtonMarginLeft",
                 "default": "0px",
                 "isHalfRow": true,
+                "logic": "secondaryButtonMarginAlign",
                 "breakpoints": {
                   "tablet": {
                     "name": "secondaryButtonMarginLeftTablet",
@@ -5585,6 +5706,148 @@
                 "type": "size",
                 "subtype": "margin",
                 "label": "Left",
+                "allowNegative": true
+              }
+            ]
+          },
+          {
+            "description": "Position",
+            "fields": [
+              {
+                "name": "secondaryButtonPosition",
+                "default": "relative",
+                "isFullRow": true,
+                "logic": {
+                  "relative": {
+                    "hide": [
+                      "secondaryButtonPositionTop",
+                      "secondaryButtonPositionRight",
+                      "secondaryButtonPositionBottom",
+                      "secondaryButtonPositionLeft"
+                    ],
+                    "show": ["secondaryButtonDisplay"]
+                  },
+                  "absolute": {
+                    "show": [
+                      "secondaryButtonPositionTop",
+                      "secondaryButtonPositionRight",
+                      "secondaryButtonPositionBottom",
+                      "secondaryButtonPositionLeft"
+                    ],
+                    "hide": ["secondaryButtonDisplay"]
+                  },
+                  "fixed": {
+                    "show": [
+                      "secondaryButtonPositionTop",
+                      "secondaryButtonPositionRight",
+                      "secondaryButtonPositionBottom",
+                      "secondaryButtonPositionLeft"
+                    ],
+                    "hide": ["secondaryButtonDisplay"]
+                  }
+                },
+                "breakpoints": {
+                  "tablet": {
+                    "name": "secondaryButtonPositionTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "secondaryButtonPositionDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "position"
+              },
+              {
+                "name": "secondaryButtonDisplay",
+                "default": "block",
+                "isFullRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "secondaryButtonDisplayTablet",
+                    "default": "inline-block"
+                  },
+                  "desktop": {
+                    "name": "secondaryButtonDisplayDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "display"
+              },
+              {
+                "name": "secondaryButtonPositionTop",
+                "default": "0px",
+                "isHalfRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "secondaryButtonPositionTopTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "secondaryButtonPositionTopDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "label": "Top",
+                "type": "size",
+                "subtype": "position",
+                "allowNegative": true
+              },
+              {
+                "name": "secondaryButtonPositionRight",
+                "default": "0px",
+                "isHalfRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "secondaryButtonPositionRightTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "secondaryButtonPositionRightDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "label": "Right",
+                "type": "size",
+                "subtype": "position",
+                "allowNegative": true
+              },
+              {
+                "name": "secondaryButtonPositionBottom",
+                "default": "0px",
+                "isHalfRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "secondaryButtonPositionBottomTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "secondaryButtonPositionBottomDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "label": "Bottom",
+                "type": "size",
+                "subtype": "position",
+                "allowNegative": true
+              },
+              {
+                "name": "secondaryButtonPositionLeft",
+                "default": "0px",
+                "isHalfRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "secondaryButtonPositionLeftTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "secondaryButtonPositionLeftDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "label": "Left",
+                "type": "size",
+                "subtype": "position",
                 "allowNegative": true
               }
             ]
@@ -6546,6 +6809,7 @@
                 "name": "accordionMarginTop",
                 "default": "0px",
                 "isHalfRow": true,
+                "logic": "accordionMarginAlign",
                 "breakpoints": {
                   "tablet": {
                     "name": "accordionMarginTopTablet",
@@ -6565,6 +6829,7 @@
                 "name": "accordionMarginRight",
                 "default": "0px",
                 "isHalfRow": true,
+                "logic": "accordionMarginAlign",
                 "breakpoints": {
                   "tablet": {
                     "name": "accordionMarginRightTablet",
@@ -6584,6 +6849,7 @@
                 "name": "accordionMarginBottom",
                 "default": "0px",
                 "isHalfRow": true,
+                "logic": "accordionMarginAlign",
                 "breakpoints": {
                   "tablet": {
                     "name": "accordionMarginBottomTablet",
@@ -6603,6 +6869,7 @@
                 "name": "accordionMarginLeft",
                 "default": "0px",
                 "isHalfRow": true,
+                "logic": "accordionMarginAlign",
                 "breakpoints": {
                   "tablet": {
                     "name": "accordionMarginLeftTablet",
@@ -7171,6 +7438,7 @@
                 "name": "appListMarginTop",
                 "default": "0px",
                 "isHalfRow": true,
+                "logic": "appListMarginAlign",
                 "breakpoints": {
                   "tablet": {
                     "name": "appListMarginTopTablet",
@@ -7190,6 +7458,7 @@
                 "name": "appListMarginRight",
                 "default": "0px",
                 "isHalfRow": true,
+                "logic": "appListMarginAlign",
                 "breakpoints": {
                   "tablet": {
                     "name": "appListMarginRightTablet",
@@ -7209,6 +7478,7 @@
                 "name": "appListMarginBottom",
                 "default": "0px",
                 "isHalfRow": true,
+                "logic": "appListMarginAlign",
                 "breakpoints": {
                   "tablet": {
                     "name": "appListMarginBottomTablet",
@@ -7228,6 +7498,7 @@
                 "name": "appListMarginLeft",
                 "default": "0px",
                 "isHalfRow": true,
+                "logic": "appListMarginAlign",
                 "breakpoints": {
                   "tablet": {
                     "name": "appListMarginLeftTablet",
@@ -8066,6 +8337,7 @@
                 "name": "chartMarginTop",
                 "default": "0px",
                 "isHalfRow": true,
+                "logic": "chartMarginAlign",
                 "breakpoints": {
                   "tablet": {
                     "name": "chartMarginTopTablet",
@@ -8085,6 +8357,7 @@
                 "name": "chartMarginRight",
                 "default": "auto",
                 "isHalfRow": true,
+                "logic": "chartMarginAlign",
                 "breakpoints": {
                   "tablet": {
                     "name": "chartMarginRightTablet",
@@ -8104,6 +8377,7 @@
                 "name": "chartMarginBottom",
                 "default": "0px",
                 "isHalfRow": true,
+                "logic": "chartMarginAlign",
                 "breakpoints": {
                   "tablet": {
                     "name": "chartMarginBottomTablet",
@@ -8123,6 +8397,7 @@
                 "name": "chartMarginLeft",
                 "default": "auto",
                 "isHalfRow": true,
+                "logic": "chartMarginAlign",
                 "breakpoints": {
                   "tablet": {
                     "name": "chartMarginLeftTablet",
@@ -9500,6 +9775,7 @@
                 "name": "formMarginTop",
                 "default": "0px",
                 "isHalfRow": true,
+                "logic": "formMarginAlign",
                 "breakpoints": {
                   "tablet": {
                     "name": "formMarginTopTablet",
@@ -9519,6 +9795,7 @@
                 "name": "formMarginRight",
                 "default": "auto",
                 "isHalfRow": true,
+                "logic": "formMarginAlign",
                 "breakpoints": {
                   "tablet": {
                     "name": "formMarginRightTablet",
@@ -9538,6 +9815,7 @@
                 "name": "formMarginBottom",
                 "default": "0px",
                 "isHalfRow": true,
+                "logic": "formMarginAlign",
                 "breakpoints": {
                   "tablet": {
                     "name": "formMarginBottomTablet",
@@ -9557,6 +9835,7 @@
                 "name": "formMarginLeft",
                 "default": "auto",
                 "isHalfRow": true,
+                "logic": "formMarginAlign",
                 "breakpoints": {
                   "tablet": {
                     "name": "formMarginLeftTablet",
@@ -10539,6 +10818,7 @@
                 "name": "gridMarginTop",
                 "default": "0px",
                 "isHalfRow": true,
+                "logic": "gridMarginAlign",
                 "breakpoints": {
                   "tablet": {
                     "name": "gridMarginTopTablet",
@@ -10558,6 +10838,7 @@
                 "name": "gridMarginRight",
                 "default": "auto",
                 "isHalfRow": true,
+                "logic": "gridMarginAlign",
                 "breakpoints": {
                   "tablet": {
                     "name": "gridMarginRightTablet",
@@ -10577,6 +10858,7 @@
                 "name": "gridMarginBottom",
                 "default": "0px",
                 "isHalfRow": true,
+                "logic": "gridMarginAlign",
                 "breakpoints": {
                   "tablet": {
                     "name": "gridMarginBottomTablet",
@@ -10596,6 +10878,7 @@
                 "name": "gridMarginLeft",
                 "default": "auto",
                 "isHalfRow": true,
+                "logic": "gridMarginAlign",
                 "breakpoints": {
                   "tablet": {
                     "name": "gridMarginLeftTablet",
@@ -11030,11 +11313,7 @@
                     "default": "inherit-tablet"
                   }
                 },
-                "type": "select",
-                "properties": {
-                  "inline-block": "Inline",
-                  "block": "Block"
-                }
+                "type": "display"
               }
             ]
           },
@@ -11194,6 +11473,7 @@
                 "name": "imageMarginTop",
                 "default": "0px",
                 "isHalfRow": true,
+                "logic": "imageMarginAlign",
                 "breakpoints": {
                   "tablet": {
                     "name": "imageMarginTopTablet",
@@ -11213,6 +11493,7 @@
                 "name": "imageMarginRight",
                 "default": "0px",
                 "isHalfRow": true,
+                "logic": "imageMarginAlign",
                 "breakpoints": {
                   "tablet": {
                     "name": "imageMarginRightTablet",
@@ -11232,6 +11513,7 @@
                 "name": "imageMarginBottom",
                 "default": "0px",
                 "isHalfRow": true,
+                "logic": "imageMarginAlign",
                 "breakpoints": {
                   "tablet": {
                     "name": "imageMarginBottomTablet",
@@ -11251,6 +11533,7 @@
                 "name": "imageMarginLeft",
                 "default": "0px",
                 "isHalfRow": true,
+                "logic": "imageMarginAlign",
                 "breakpoints": {
                   "tablet": {
                     "name": "imageMarginLeftTablet",
@@ -11779,6 +12062,7 @@
                 "name": "galleryMarginTop",
                 "default": "0px",
                 "isHalfRow": true,
+                "logic": "galleryMarginAlign",
                 "breakpoints": {
                   "tablet": {
                     "name": "galleryMarginTopTablet",
@@ -11798,6 +12082,7 @@
                 "name": "galleryMarginRight",
                 "default": "0px",
                 "isHalfRow": true,
+                "logic": "galleryMarginAlign",
                 "breakpoints": {
                   "tablet": {
                     "name": "galleryMarginRightTablet",
@@ -11817,6 +12102,7 @@
                 "name": "galleryMarginBottom",
                 "default": "0px",
                 "isHalfRow": true,
+                "logic": "galleryMarginAlign",
                 "breakpoints": {
                   "tablet": {
                     "name": "galleryMarginBottomTablet",
@@ -11836,6 +12122,7 @@
                 "name": "galleryMarginLeft",
                 "default": "0px",
                 "isHalfRow": true,
+                "logic": "galleryMarginAlign",
                 "breakpoints": {
                   "tablet": {
                     "name": "galleryMarginLeftTablet",
@@ -12092,6 +12379,7 @@
                 "name": "interactiveGraphMarginTop",
                 "default": "0px",
                 "isHalfRow": true,
+                "logic": "interactiveGraphMarginAlign",
                 "breakpoints": {
                   "tablet": {
                     "name": "interactiveGraphMarginTopTablet",
@@ -12111,6 +12399,7 @@
                 "name": "interactiveGraphMarginRight",
                 "default": "0px",
                 "isHalfRow": true,
+                "logic": "interactiveGraphMarginAlign",
                 "breakpoints": {
                   "tablet": {
                     "name": "interactiveGraphMarginRightTablet",
@@ -12130,6 +12419,7 @@
                 "name": "interactiveGraphMarginBottom",
                 "default": "0px",
                 "isHalfRow": true,
+                "logic": "interactiveGraphMarginAlign",
                 "breakpoints": {
                   "tablet": {
                     "name": "interactiveGraphMarginBottomTablet",
@@ -12149,6 +12439,7 @@
                 "name": "interactiveGraphMarginLeft",
                 "default": "0px",
                 "isHalfRow": true,
+                "logic": "interactiveGraphMarginAlign",
                 "breakpoints": {
                   "tablet": {
                     "name": "interactiveGraphMarginLeftTablet",
@@ -12484,6 +12775,7 @@
                 "name": "listMarginTop",
                 "default": "0px",
                 "isHalfRow": true,
+                "logic": "listMarginAlign",
                 "breakpoints": {
                   "tablet": {
                     "name": "listMarginTopTablet",
@@ -12503,6 +12795,7 @@
                 "name": "listMarginRight",
                 "default": "auto",
                 "isHalfRow": true,
+                "logic": "listMarginAlign",
                 "breakpoints": {
                   "tablet": {
                     "name": "listMarginRightTablet",
@@ -12522,6 +12815,7 @@
                 "name": "listMarginBottom",
                 "default": "0px",
                 "isHalfRow": true,
+                "logic": "listMarginAlign",
                 "breakpoints": {
                   "tablet": {
                     "name": "listMarginBottomTablet",
@@ -12541,6 +12835,7 @@
                 "name": "listMarginLeft",
                 "default": "auto",
                 "isHalfRow": true,
+                "logic": "listMarginAlign",
                 "breakpoints": {
                   "tablet": {
                     "name": "listMarginLeftTablet",
@@ -13288,6 +13583,7 @@
                 "name": "listSmallMarginTop",
                 "default": "0px",
                 "isHalfRow": true,
+                "logic": "listSmallMarginAlign",
                 "breakpoints": {
                   "tablet": {
                     "name": "listSmallMarginTopTablet",
@@ -13307,6 +13603,7 @@
                 "name": "listSmallMarginRight",
                 "default": "auto",
                 "isHalfRow": true,
+                "logic": "listSmallMarginAlign",
                 "breakpoints": {
                   "tablet": {
                     "name": "listSmallMarginRightTablet",
@@ -13326,6 +13623,7 @@
                 "name": "listSmallMarginBottom",
                 "default": "0px",
                 "isHalfRow": true,
+                "logic": "listSmallMarginAlign",
                 "breakpoints": {
                   "tablet": {
                     "name": "listSmallMarginBottomTablet",
@@ -13345,6 +13643,7 @@
                 "name": "listSmallMarginLeft",
                 "default": "auto",
                 "isHalfRow": true,
+                "logic": "listSmallMarginAlign",
                 "breakpoints": {
                   "tablet": {
                     "name": "listSmallMarginLeftTablet",
@@ -14132,6 +14431,7 @@
                 "name": "listLargeMarginTop",
                 "default": "0px",
                 "isHalfRow": true,
+                "logic": "listLargeMarginAlign",
                 "breakpoints": {
                   "tablet": {
                     "name": "listLargeMarginTopTablet",
@@ -14151,6 +14451,7 @@
                 "name": "listLargeMarginRight",
                 "default": "auto",
                 "isHalfRow": true,
+                "logic": "listLargeMarginAlign",
                 "breakpoints": {
                   "tablet": {
                     "name": "listLargeMarginRightTablet",
@@ -14170,6 +14471,7 @@
                 "name": "listLargeMarginBottom",
                 "default": "0px",
                 "isHalfRow": true,
+                "logic": "listLargeMarginAlign",
                 "breakpoints": {
                   "tablet": {
                     "name": "listLargeMarginBottomTablet",
@@ -14189,6 +14491,7 @@
                 "name": "listLargeMarginLeft",
                 "default": "auto",
                 "isHalfRow": true,
+                "logic": "listLargeMarginAlign",
                 "breakpoints": {
                   "tablet": {
                     "name": "listLargeMarginLeftTablet",
@@ -14908,6 +15211,7 @@
                 "name": "lfdMarginTop",
                 "default": "0",
                 "isHalfRow": true,
+                "logic": "lfdMarginAlign",
                 "breakpoints": {
                   "tablet": {
                     "name": "lfdMarginTopTablet",
@@ -14927,6 +15231,7 @@
                 "name": "lfdMarginRight",
                 "default": "auto",
                 "isHalfRow": true,
+                "logic": "lfdMarginAlign",
                 "breakpoints": {
                   "tablet": {
                     "name": "lfdMarginRightTablet",
@@ -14946,6 +15251,7 @@
                 "name": "lfdMarginBottom",
                 "default": "0px",
                 "isHalfRow": true,
+                "logic": "lfdMarginAlign",
                 "breakpoints": {
                   "tablet": {
                     "name": "lfdMarginBottomTablet",
@@ -14965,6 +15271,7 @@
                 "name": "lfdMarginLeft",
                 "default": "auto",
                 "isHalfRow": true,
+                "logic": "lfdMarginAlign",
                 "breakpoints": {
                   "tablet": {
                     "name": "lfdMarginLeftTablet",
@@ -15420,6 +15727,7 @@
                 "name": "lockMarginTop",
                 "default": "0px",
                 "isHalfRow": true,
+                "logic": "lockMarginAlign",
                 "breakpoints": {
                   "tablet": {
                     "name": "lockMarginTopTablet",
@@ -15439,6 +15747,7 @@
                 "name": "lockMarginRight",
                 "default": "auto",
                 "isHalfRow": true,
+                "logic": "lockMarginAlign",
                 "breakpoints": {
                   "tablet": {
                     "name": "lockMarginRightTablet",
@@ -15458,6 +15767,7 @@
                 "name": "lockMarginBottom",
                 "default": "0px",
                 "isHalfRow": true,
+                "logic": "lockMarginAlign",
                 "breakpoints": {
                   "tablet": {
                     "name": "lockMarginBottomTablet",
@@ -15477,6 +15787,7 @@
                 "name": "lockMarginLeft",
                 "default": "auto",
                 "isHalfRow": true,
+                "logic": "lockMarginAlign",
                 "breakpoints": {
                   "tablet": {
                     "name": "lockMarginLeftTablet",
@@ -15756,6 +16067,7 @@
                 "name": "loginMarginTop",
                 "default": "0px",
                 "isHalfRow": true,
+                "logic": "loginMarginAlign",
                 "breakpoints": {
                   "tablet": {
                     "name": "loginMarginTopTablet",
@@ -15775,6 +16087,7 @@
                 "name": "loginMarginRight",
                 "default": "auto",
                 "isHalfRow": true,
+                "logic": "loginMarginAlign",
                 "breakpoints": {
                   "tablet": {
                     "name": "loginMarginRightTablet",
@@ -15794,6 +16107,7 @@
                 "name": "loginMarginBottom",
                 "default": "0px",
                 "isHalfRow": true,
+                "logic": "loginMarginAlign",
                 "breakpoints": {
                   "tablet": {
                     "name": "loginMarginBottomTablet",
@@ -15813,6 +16127,7 @@
                 "name": "loginMarginLeft",
                 "default": "auto",
                 "isHalfRow": true,
+                "logic": "loginMarginAlign",
                 "breakpoints": {
                   "tablet": {
                     "name": "loginMarginLeftTablet",
@@ -16192,6 +16507,7 @@
                 "name": "notificationMarginTop",
                 "default": "0px",
                 "isHalfRow": true,
+                "logic": "notificationMarginAlign",
                 "breakpoints": {
                   "tablet": {
                     "name": "notificationMarginTopTablet",
@@ -16211,6 +16527,7 @@
                 "name": "notificationMarginRight",
                 "default": "auto",
                 "isHalfRow": true,
+                "logic": "notificationMarginAlign",
                 "breakpoints": {
                   "tablet": {
                     "name": "notificationMarginRightTablet",
@@ -16230,6 +16547,7 @@
                 "name": "notificationMarginBottom",
                 "default": "0px",
                 "isHalfRow": true,
+                "logic": "notificationMarginAlign",
                 "breakpoints": {
                   "tablet": {
                     "name": "notificationMarginBottomTablet",
@@ -16249,6 +16567,7 @@
                 "name": "notificationMarginLeft",
                 "default": "auto",
                 "isHalfRow": true,
+                "logic": "notificationMarginAlign",
                 "breakpoints": {
                   "tablet": {
                     "name": "notificationMarginLeftTablet",
@@ -17279,6 +17598,7 @@
                 "name": "panelMarginTop",
                 "default": "0px",
                 "isHalfRow": true,
+                "logic": "panelMarginAlign",
                 "breakpoints": {
                   "tablet": {
                     "name": "panelMarginTopTablet",
@@ -17298,6 +17618,7 @@
                 "name": "panelMarginRight",
                 "default": "auto",
                 "isHalfRow": true,
+                "logic": "panelMarginAlign",
                 "breakpoints": {
                   "tablet": {
                     "name": "panelMarginRightTablet",
@@ -17317,6 +17638,7 @@
                 "name": "panelMarginBottom",
                 "default": "0px",
                 "isHalfRow": true,
+                "logic": "panelMarginAlign",
                 "breakpoints": {
                   "tablet": {
                     "name": "panelMarginBottomTablet",
@@ -17336,6 +17658,7 @@
                 "name": "panelMarginLeft",
                 "default": "auto",
                 "isHalfRow": true,
+                "logic": "panelMarginAlign",
                 "breakpoints": {
                   "tablet": {
                     "name": "panelMarginLeftTablet",
@@ -18163,6 +18486,7 @@
                 "name": "photoSharingMarginTop",
                 "default": "0px",
                 "isHalfRow": true,
+                "logic": "photoSharingMarginAlign",
                 "breakpoints": {
                   "tablet": {
                     "name": "photoSharingMarginTopTablet",
@@ -18182,6 +18506,7 @@
                 "name": "photoSharingMarginRight",
                 "default": "auto",
                 "isHalfRow": true,
+                "logic": "photoSharingMarginAlign",
                 "breakpoints": {
                   "tablet": {
                     "name": "photoSharingMarginRightTablet",
@@ -18201,6 +18526,7 @@
                 "name": "photoSharingMarginBottom",
                 "default": "0px",
                 "isHalfRow": true,
+                "logic": "photoSharingMarginAlign",
                 "breakpoints": {
                   "tablet": {
                     "name": "photoSharingMarginBottomTablet",
@@ -18220,6 +18546,7 @@
                 "name": "photoSharingMarginLeft",
                 "default": "auto",
                 "isHalfRow": true,
+                "logic": "photoSharingMarginAlign",
                 "breakpoints": {
                   "tablet": {
                     "name": "photoSharingMarginLeftTablet",
@@ -18699,6 +19026,7 @@
                 "name": "rssMarginTop",
                 "default": "0px",
                 "isHalfRow": true,
+                "logic": "rssMarginAlign",
                 "breakpoints": {
                   "tablet": {
                     "name": "rssMarginTopTablet",
@@ -18718,6 +19046,7 @@
                 "name": "rssMarginRight",
                 "default": "auto",
                 "isHalfRow": true,
+                "logic": "rssMarginAlign",
                 "breakpoints": {
                   "tablet": {
                     "name": "rssMarginRightTablet",
@@ -18737,6 +19066,7 @@
                 "name": "rssMarginBottom",
                 "default": "0px",
                 "isHalfRow": true,
+                "logic": "rssMarginAlign",
                 "breakpoints": {
                   "tablet": {
                     "name": "rssMarginBottomTablet",
@@ -18756,6 +19086,7 @@
                 "name": "rssMarginLeft",
                 "default": "auto",
                 "isHalfRow": true,
+                "logic": "rssMarginAlign",
                 "breakpoints": {
                   "tablet": {
                     "name": "rssMarginLeftTablet",
@@ -19302,6 +19633,7 @@
                 "name": "sliderMarginTop",
                 "default": "0px",
                 "isHalfRow": true,
+                "logic": "sliderMarginAlign",
                 "breakpoints": {
                   "tablet": {
                     "name": "sliderMarginTopTablet",
@@ -19321,6 +19653,7 @@
                 "name": "sliderMarginRight",
                 "default": "auto",
                 "isHalfRow": true,
+                "logic": "sliderMarginAlign",
                 "breakpoints": {
                   "tablet": {
                     "name": "sliderMarginRightTablet",
@@ -19340,6 +19673,7 @@
                 "name": "sliderMarginBottom",
                 "default": "0px",
                 "isHalfRow": true,
+                "logic": "sliderMarginAlign",
                 "breakpoints": {
                   "tablet": {
                     "name": "sliderMarginBottomTablet",
@@ -19359,6 +19693,7 @@
                 "name": "sliderMarginLeft",
                 "default": "auto",
                 "isHalfRow": true,
+                "logic": "sliderMarginAlign",
                 "breakpoints": {
                   "tablet": {
                     "name": "sliderMarginLeftTablet",
@@ -20612,6 +20947,7 @@
                 "name": "videoMarginTop",
                 "default": "0px",
                 "isHalfRow": true,
+                "logic": "videoMarginAlign",
                 "breakpoints": {
                   "tablet": {
                     "name": "videoMarginTopTablet",
@@ -20631,6 +20967,7 @@
                 "name": "videoMarginRight",
                 "default": "auto",
                 "isHalfRow": true,
+                "logic": "videoMarginAlign",
                 "breakpoints": {
                   "tablet": {
                     "name": "videoMarginRightTablet",
@@ -20650,6 +20987,7 @@
                 "name": "videoMarginBottom",
                 "default": "0px",
                 "isHalfRow": true,
+                "logic": "videoMarginAlign",
                 "breakpoints": {
                   "tablet": {
                     "name": "videoMarginBottomTablet",
@@ -20669,6 +21007,7 @@
                 "name": "videoMarginLeft",
                 "default": "auto",
                 "isHalfRow": true,
+                "logic": "videoMarginAlign",
                 "breakpoints": {
                   "tablet": {
                     "name": "videoMarginLeftTablet",

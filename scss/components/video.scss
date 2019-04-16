@@ -68,12 +68,15 @@
     videoShadowColorDesktop: $videoShadowColorDesktop,
   ), $options);
 
-  $instanceSelector: '[data-fl-widget-instance]';
+  $instanceSelectorOne: '[data-fl-widget-instance][data-widget-package="com.fliplet.online-offline"]';
+  $instanceSelectorTwo: '[data-fl-widget-instance][data-widget-package="com.fliplet.online-video"]';
   @if $widgetInstanceId != '' {
-    $instanceSelector: '#{$instanceSelector}[data-id="#{$widgetInstanceId}"]';
+    $instanceSelectorOne: '#{$instanceSelectorOne}[data-id="#{$widgetInstanceId}"]';
+    $instanceSelectorTwo: '#{$instanceSelectorTwo}[data-id="#{$widgetInstanceId}"]';
   }
 
-  #{$instanceSelector} {
+  #{$instanceSelectorOne},
+  #{$instanceSelectorTwo} {
     overflow: hidden;
     width: map-get($configuration, videoWidth);
     min-width: map-get($configuration, videoMinWidth);

@@ -74,12 +74,27 @@
     chartColor10Desktop: $chartColor10Desktop
   ), $options);
 
-  $instanceSelector: '[data-fl-widget-instance]';
+  $instanceSelectorOne: '[data-fl-widget-instance][data-widget-package="com.fliplet.chart.bar"]';
+  $instanceSelectorTwo: '[data-fl-widget-instance][data-widget-package="com.fliplet.chart.column"]';
+  $instanceSelectorThree: '[data-fl-widget-instance][data-widget-package="com.fliplet.chart.scatter"]';
+  $instanceSelectorFour: '[data-fl-widget-instance][data-widget-package="com.fliplet.chart.line"]';
+  $instanceSelectorFive: '[data-fl-widget-instance][data-widget-package="com.fliplet.chart.donut"]';
+  $instanceSelectorSix: '[data-fl-widget-instance][data-widget-package="com.fliplet.chart.pie"]';
   @if $widgetInstanceId != '' {
-    $instanceSelector: '#{$instanceSelector}[data-id="#{$widgetInstanceId}"]';
+    $instanceSelectorOne: '#{$instanceSelectorOne}[data-id="#{$widgetInstanceId}"]';
+    $instanceSelectorTwo: '#{$instanceSelectorTwo}[data-id="#{$widgetInstanceId}"]';
+    $instanceSelectorThree: '#{$instanceSelectorThree}[data-id="#{$widgetInstanceId}"]';
+    $instanceSelectorFour: '#{$instanceSelectorFour}[data-id="#{$widgetInstanceId}"]';
+    $instanceSelectorFive: '#{$instanceSelectorFive}[data-id="#{$widgetInstanceId}"]';
+    $instanceSelectorSix: '#{$instanceSelectorSix}[data-id="#{$widgetInstanceId}"]';
   }
 
-  #{$instanceSelector} {
+  #{$instanceSelectorOne},
+  #{$instanceSelectorTwo},
+  #{$instanceSelectorThree},
+  #{$instanceSelectorFour},
+  #{$instanceSelectorFive},
+  #{$instanceSelectorSix} {
     width: map-get($configuration, chartWidth);
     min-width: map-get($configuration, chartMinWidth);
     max-width: map-get($configuration, chartMaxWidth);
