@@ -135,6 +135,41 @@
         ));
       }
 
+      .nav-title {
+        @include fontOnly((
+          fontFamily: map-get($configuration, menuFont),
+          fontSize: map-get($configuration, menuFontSize),
+          fontLineHeight: '43px',
+          fontWeight: map-get($configuration, menuFontWeight),
+          fontStyle: map-get($configuration, menuFontStyle),
+          fontDecoration: map-get($configuration, menuFontDecoration)
+        ));
+
+        // Styles for tablet
+        @include above($tabletBreakpoint) {
+          @include fontOnly((
+            fontFamily: map-get($configuration, menuFontTablet),
+            fontSize: map-get($configuration, menuFontSizeTablet),
+            fontLineHeight: '43px',
+            fontWeight: map-get($configuration, menuFontWeightTablet),
+            fontStyle: map-get($configuration, menuFontStyleTablet),
+            fontDecoration: map-get($configuration, menuFontDecorationTablet)
+          ));
+        }
+
+        // Styles for desktop
+        @include above($desktopBreakpoint) {
+          @include fontOnly((
+            fontFamily: map-get($configuration, menuFontDesktop),
+            fontSize: map-get($configuration, menuFontSizeDesktop),
+            fontLineHeight: '43px',
+            fontWeight: map-get($configuration, menuFontWeightDesktop),
+            fontStyle: map-get($configuration, menuFontStyleDesktop),
+            fontDecoration: map-get($configuration, menuFontDecorationDesktop)
+          ));
+        }
+      }
+
       .nav-left,
       .nav-left-arrow,
       .nav-right-arrow {

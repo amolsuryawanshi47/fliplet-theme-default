@@ -163,20 +163,201 @@
       }
     }
 
-    .state .back {
-      border-right: 1px solid map-get($configuration, chevronSeparator);
-      color: map-get($configuration, chevronColor);
+    .state {
+      .back {
+        border-right: 1px solid map-get($configuration, chevronSeparator);
+        color: map-get($configuration, chevronColor);
 
-      // Styles for tablet
-      @include above($tabletBreakpoint) {
-        border-right: 1px solid map-get($configuration, chevronSeparatorTablet);
-        color: map-get($configuration, chevronColorTablet);
+        // Styles for tablet
+        @include above($tabletBreakpoint) {
+          border-right: 1px solid map-get($configuration, chevronSeparatorTablet);
+          color: map-get($configuration, chevronColorTablet);
+        }
+
+        // Styles for desktop
+        @include above($desktopBreakpoint) {
+          border-right: 1px solid map-get($configuration, chevronSeparatorDesktop);
+          color: map-get($configuration, chevronColorDesktop);
+        }
       }
 
-      // Styles for desktop
-      @include above($desktopBreakpoint) {
-        border-right: 1px solid map-get($configuration, chevronSeparatorDesktop);
-        color: map-get($configuration, chevronColorDesktop);
+      .btn-primary {
+        background-color: $primaryButtonColor;
+        color: $primaryButtonTextColor;
+        padding: $primaryButtonPaddingTop
+          $primaryButtonPaddingRight
+          $primaryButtonPaddingBottom
+          $primaryButtonPaddingLeft;
+        border-radius: $primaryButtonBorderRadius;
+        @include fontOnly((
+          fontFamily: $primaryButtonFontFamily,
+          fontSize: $primaryButtonFontSize,
+          fontLineHeight: $primaryButtonLineHeight,
+          fontWeight: $primaryButtonFontWeight,
+          fontStyle: $primaryButtonFontStyle,
+          fontDecoration: $primaryButtonFontDecoration
+        ));
+
+        @include borderOnly((
+          borderSides: $primaryButtonBorderSides,
+          borderWidth: $primaryButtonBorderWidth,
+          borderStyle: $primaryButtonBorderStyle,
+          borderColor: $primaryButtonBorderColor
+        ));
+
+        @include shadowOnly((
+          shadowStyle: $primaryButtonShadowStyle,
+          shadowXOffset: $primaryButtonShadowXoffset,
+          shadowYOffset: $primaryButtonShadowYoffset,
+          shadowBlur: $primaryButtonShadowBlur,
+          shadowSpread: $primaryButtonShadowSpread,
+          shadowColor: $primaryButtonShadowColor
+        ));
+
+        &:focus,
+        &:hover,
+        &:active:focus,
+        &:active:hover {
+          background-color: $primaryButtonHoverColor;
+          color: $primaryButtonHoverTextColor;
+          border-radius: $primaryButtonHoverBorderRadius;
+
+          @include borderOnly((
+            borderSides: $primaryButtonHoverBorderSides,
+            borderWidth: $primaryButtonHoverBorderWidth,
+            borderStyle: $primaryButtonHoverBorderStyle,
+            borderColor: $primaryButtonHoverBorderColor
+          ));
+
+          @include shadowOnly((
+            shadowStyle: $primaryButtonHoverShadowStyle,
+            shadowXOffset: $primaryButtonHoverShadowXoffset,
+            shadowYOffset: $primaryButtonHoverShadowYoffset,
+            shadowBlur: $primaryButtonHoverShadowBlur,
+            shadowSpread: $primaryButtonHoverShadowSpread,
+            shadowColor: $primaryButtonHoverShadowColor
+          ));
+        }
+
+        // Styles for tablet
+        @include above($tabletBreakpoint) {
+          background-color: $primaryButtonColorTablet;
+          color: $primaryButtonTextColorTablet;
+          padding: $primaryButtonPaddingTopTablet
+            $primaryButtonPaddingRightTablet
+            $primaryButtonPaddingBottomTablet
+            $primaryButtonPaddingLeftTablet;
+          border-radius: $primaryButtonBorderRadiusTablet;
+          @include fontOnly((
+            fontFamily: $primaryButtonFontFamilyTablet,
+            fontSize: $primaryButtonFontSizeTablet,
+            fontLineHeight: $primaryButtonLineHeightTablet,
+            fontWeight: $primaryButtonFontWeightTablet,
+            fontStyle: $primaryButtonFontStyleTablet,
+            fontDecoration: $primaryButtonFontDecorationTablet
+          ));
+
+          @include borderOnly((
+            borderSides: $primaryButtonBorderSidesTablet,
+            borderWidth: $primaryButtonBorderWidthTablet,
+            borderStyle: $primaryButtonBorderStyleTablet,
+            borderColor: $primaryButtonBorderColorTablet
+          ));
+
+          @include shadowOnly((
+            shadowStyle: $primaryButtonShadowStyleTablet,
+            shadowXOffset: $primaryButtonShadowXoffsetTablet,
+            shadowYOffset: $primaryButtonShadowYoffsetTablet,
+            shadowBlur: $primaryButtonShadowBlurTablet,
+            shadowSpread: $primaryButtonShadowSpreadTablet,
+            shadowColor: $primaryButtonShadowColorTablet
+          ));
+
+          &:focus,
+          &:hover,
+          &:active:focus,
+          &:active:hover {
+            background-color: $primaryButtonHoverColorTablet;
+            color: $primaryButtonHoverTextColorTablet;
+            border-radius: $primaryButtonHoverBorderRadiusTablet;
+
+            @include borderOnly((
+              borderSides: $primaryButtonHoverBorderSidesTablet,
+              borderWidth: $primaryButtonHoverBorderWidthTablet,
+              borderStyle: $primaryButtonHoverBorderStyleTablet,
+              borderColor: $primaryButtonHoverBorderColorTablet
+            ));
+
+            @include shadowOnly((
+              shadowStyle: $primaryButtonHoverShadowStyleTablet,
+              shadowXOffset: $primaryButtonHoverShadowXoffsetTablet,
+              shadowYOffset: $primaryButtonHoverShadowYoffsetTablet,
+              shadowBlur: $primaryButtonHoverShadowBlurTablet,
+              shadowSpread: $primaryButtonHoverShadowSpreadTablet,
+              shadowColor: $primaryButtonHoverShadowColorTablet
+            ));
+          }
+        }
+
+        // Styles for desktop
+        @include above($desktopBreakpoint) {
+          background-color: $primaryButtonColorDesktop;
+          color: $primaryButtonTextColorDesktop;
+          padding: $primaryButtonPaddingTopDesktop
+            $primaryButtonPaddingRightDesktop
+            $primaryButtonPaddingBottomDesktop
+            $primaryButtonPaddingLeftDesktop;
+          border-radius: $primaryButtonBorderRadiusDesktop;
+          @include fontOnly((
+            fontFamily: $primaryButtonFontFamilyDesktop,
+            fontSize: $primaryButtonFontSizeDesktop,
+            fontLineHeight: $primaryButtonLineHeightDesktop,
+            fontWeight: $primaryButtonFontWeightDesktop,
+            fontStyle: $primaryButtonFontStyleDesktop,
+            fontDecoration: $primaryButtonFontDecorationDesktop
+          ));
+
+          @include borderOnly((
+            borderSides: $primaryButtonBorderSidesDesktop,
+            borderWidth: $primaryButtonBorderWidthDesktop,
+            borderStyle: $primaryButtonBorderStyleDesktop,
+            borderColor: $primaryButtonBorderColorDesktop
+          ));
+
+          @include shadowOnly((
+            shadowStyle: $primaryButtonShadowStyleDesktop,
+            shadowXOffset: $primaryButtonShadowXoffsetDesktop,
+            shadowYOffset: $primaryButtonShadowYoffsetDesktop,
+            shadowBlur: $primaryButtonShadowBlurDesktop,
+            shadowSpread: $primaryButtonShadowSpreadDesktop,
+            shadowColor: $primaryButtonShadowColorDesktop
+          ));
+
+          &:focus,
+          &:hover,
+          &:active:focus,
+          &:active:hover {
+            background-color: $primaryButtonHoverColorDesktop;
+            color: $primaryButtonHoverTextColorDesktop;
+            border-radius: $primaryButtonHoverBorderRadiusDesktop;
+
+            @include borderOnly((
+              borderSides: $primaryButtonHoverBorderSidesDesktop,
+              borderWidth: $primaryButtonHoverBorderWidthDesktop,
+              borderStyle: $primaryButtonHoverBorderStyleDesktop,
+              borderColor: $primaryButtonHoverBorderColorDesktop
+            ));
+
+            @include shadowOnly((
+              shadowStyle: $primaryButtonHoverShadowStyleDesktop,
+              shadowXOffset: $primaryButtonHoverShadowXoffsetDesktop,
+              shadowYOffset: $primaryButtonHoverShadowYoffsetDesktop,
+              shadowBlur: $primaryButtonHoverShadowBlurDesktop,
+              shadowSpread: $primaryButtonHoverShadowSpreadDesktop,
+              shadowColor: $primaryButtonHoverShadowColorDesktop
+            ));
+          }
+        }
       }
     }
   }

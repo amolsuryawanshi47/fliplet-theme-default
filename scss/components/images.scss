@@ -1,6 +1,11 @@
 @mixin images($options: (), $widgetInstanceId: '') {
   $configuration: map-merge((
+    imagePosition: $imagePosition,
     imageDisplay: $imageDisplay,
+    imagePositionTop: $imagePositionTop,
+    imagePositionRight: $imagePositionRight,
+    imagePositionBottom: $imagePositionBottom,
+    imagePositionLeft: $imagePositionLeft,
     imageWidth: $imageWidth,
     imageHeight: $imageHeight,
     imageMinWidth: $imageMinWidth,
@@ -26,7 +31,12 @@
     imageShadowBlur: $imageShadowBlur,
     imageShadowSpread: $imageShadowSpread,
     imageShadowColor: $imageShadowColor,
+    imagePositionTablet: $imagePositionTablet,
     imageDisplayTablet: $imageDisplayTablet,
+    imagePositionTopTablet: $imagePositionTopTablet,
+    imagePositionRightTablet: $imagePositionRightTablet,
+    imagePositionBottomTablet: $imagePositionBottomTablet,
+    imagePositionLeftTablet: $imagePositionLeftTablet,
     imageWidthTablet: $imageWidthTablet,
     imageHeightTablet: $imageHeightTablet,
     imageMinWidthTablet: $imageMinWidthTablet,
@@ -52,7 +62,12 @@
     imageShadowBlurTablet: $imageShadowBlurTablet,
     imageShadowSpreadTablet: $imageShadowSpreadTablet,
     imageShadowColorTablet: $imageShadowColorTablet,
+    imagePositionDesktop: $imagePositionDesktop,
     imageDisplayDesktop: $imageDisplayDesktop,
+    imagePositionTopDesktop: $imagePositionTopDesktop,
+    imagePositionRightDesktop: $imagePositionRightDesktop,
+    imagePositionBottomDesktop: $imagePositionBottomDesktop,
+    imagePositionLeftDesktop: $imagePositionLeftDesktop,
     imageWidthDesktop: $imageWidthDesktop,
     imageHeightDesktop: $imageHeightDesktop,
     imageMinWidthDesktop: $imageMinWidthDesktop,
@@ -86,49 +101,71 @@
   }
 
   #{$instanceSelector} {
-    display: map-get($configuration, imageDisplay);
-    width: map-get($configuration, imageWidth);
-    min-width: map-get($configuration, imageMinWidth);
-    max-width: map-get($configuration, imageMaxWidth);
-    height: map-get($configuration, imageHeight);
-    min-height: map-get($configuration, imageMinHeight);
-    max-height: map-get($configuration, imageMaxHeight);
-    margin: map-get($configuration, imageMarginTop)
-      map-get($configuration, imageMarginRight)
-      map-get($configuration, imageMarginBottom)
-      map-get($configuration, imageMarginLeft);
+    position: map-get($configuration, imagePosition);
+
+    @if map-get($configuration, imagePosition) == 'relative' {
+      @if map-get($configuration, imageWidth) == '100%' {
+        display: block !important;
+      } @else {
+        display: map-get($configuration, imageDisplay) !important;
+      }
+    } @else {
+      display: block !important;
+      top: map-get($configuration, imagePositionTop);
+      right: map-get($configuration, imagePositionRight);
+      bottom: map-get($configuration, imagePositionBottom);
+      left: map-get($configuration, imagePositionLeft);
+    }
 
     // Styles for tablet
     @include above($tabletBreakpoint) {
-      display: map-get($configuration, imageDisplayTablet);
-      width: map-get($configuration, imageWidthTablet);
-      min-width: map-get($configuration, imageMinWidthTablet);
-      max-width: map-get($configuration, imageMaxWidthTablet);
-      height: map-get($configuration, imageHeightTablet);
-      min-height: map-get($configuration, imageMinHeightTablet);
-      max-height: map-get($configuration, imageMaxHeightTablet);
-      margin: map-get($configuration, imageMarginTopTablet)
-        map-get($configuration, imageMarginRightTablet)
-        map-get($configuration, imageMarginBottomTablet)
-        map-get($configuration, imageMarginLeftTablet);
+      position: map-get($configuration, imagePositionTablet);
+
+      @if map-get($configuration, imagePositionTablet) == 'relative' {
+        @if map-get($configuration, imageWidthTablet) == '100%' {
+          display: block !important;
+        } @else {
+          display: map-get($configuration, imageDisplayTablet) !important;
+        }
+      } @else {
+        display: block !important;
+        top: map-get($configuration, imagePositionTopTablet);
+        right: map-get($configuration, imagePositionRightTablet);
+        bottom: map-get($configuration, imagePositionBottomTablet);
+        left: map-get($configuration, imagePositionLeftTablet);
+      }
     }
 
     // Styles for desktop
     @include above($desktopBreakpoint) {
-      display: map-get($configuration, imageDisplayDesktop);
-      width: map-get($configuration, imageWidthDesktop);
-      min-width: map-get($configuration, imageMinWidthDesktop);
-      max-width: map-get($configuration, imageMaxWidthDesktop);
-      height: map-get($configuration, imageHeightDesktop);
-      min-height: map-get($configuration, imageMinHeightDesktop);
-      max-height: map-get($configuration, imageMaxHeightDesktop);
-      margin: map-get($configuration, imageMarginTopDesktop)
-        map-get($configuration, imageMarginRightDesktop)
-        map-get($configuration, imageMarginBottomDesktop)
-        map-get($configuration, imageMarginLeftDesktop);
+      position: map-get($configuration, imagePositionDesktop);
+
+      @if map-get($configuration, imagePositionDesktop) == 'relative' {
+        @if map-get($configuration, imageWidthDesktop) == '100%' {
+          display: block !important;
+        } @else {
+          display: map-get($configuration, imageDisplayDesktop) !important;
+        }
+      } @else {
+        display: block !important;
+        top: map-get($configuration, imagePositionTopDesktop);
+        right: map-get($configuration, imagePositionRightDesktop);
+        bottom: map-get($configuration, imagePositionBottomDesktop);
+        left: map-get($configuration, imagePositionLeftDesktop);
+      }
     }
 
     img[data-image-id] {
+      width: map-get($configuration, imageWidth);
+      min-width: map-get($configuration, imageMinWidth);
+      max-width: map-get($configuration, imageMaxWidth);
+      height: map-get($configuration, imageHeight);
+      min-height: map-get($configuration, imageMinHeight);
+      max-height: map-get($configuration, imageMaxHeight);
+      margin: map-get($configuration, imageMarginTop)
+        map-get($configuration, imageMarginRight)
+        map-get($configuration, imageMarginBottom)
+        map-get($configuration, imageMarginLeft);
       padding: map-get($configuration, imagePaddingTop)
         map-get($configuration, imagePaddingRight)
         map-get($configuration, imagePaddingBottom)
@@ -153,6 +190,16 @@
 
       // Styles for tablet
       @include above($tabletBreakpoint) {
+        width: map-get($configuration, imageWidthTablet);
+        min-width: map-get($configuration, imageMinWidthTablet);
+        max-width: map-get($configuration, imageMaxWidthTablet);
+        height: map-get($configuration, imageHeightTablet);
+        min-height: map-get($configuration, imageMinHeightTablet);
+        max-height: map-get($configuration, imageMaxHeightTablet);
+        margin: map-get($configuration, imageMarginTopTablet)
+          map-get($configuration, imageMarginRightTablet)
+          map-get($configuration, imageMarginBottomTablet)
+          map-get($configuration, imageMarginLeftTablet);
         padding: map-get($configuration, imagePaddingTopTablet)
           map-get($configuration, imagePaddingRightTablet)
           map-get($configuration, imagePaddingBottomTablet)
@@ -178,6 +225,16 @@
 
       // Styles for desktop
       @include above($desktopBreakpoint) {
+        width: map-get($configuration, imageWidthDesktop);
+        min-width: map-get($configuration, imageMinWidthDesktop);
+        max-width: map-get($configuration, imageMaxWidthDesktop);
+        height: map-get($configuration, imageHeightDesktop);
+        min-height: map-get($configuration, imageMinHeightDesktop);
+        max-height: map-get($configuration, imageMaxHeightDesktop);
+        margin: map-get($configuration, imageMarginTopDesktop)
+          map-get($configuration, imageMarginRightDesktop)
+          map-get($configuration, imageMarginBottomDesktop)
+          map-get($configuration, imageMarginLeftDesktop);
         padding: map-get($configuration, imagePaddingTopDesktop)
           map-get($configuration, imagePaddingRightDesktop)
           map-get($configuration, imagePaddingBottomDesktop)
