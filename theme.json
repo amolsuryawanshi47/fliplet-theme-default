@@ -1882,6 +1882,21 @@
                 "subtype": "font"
               },
               {
+                "name": "menuTopNavFontColor",
+                "default": "$bodyTextColor",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "menuTopNavFontColorTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "menuTopNavFontColorDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "color"
+              },
+              {
                 "name": "menuFontWeight",
                 "default": "normal",
                 "breakpoints": {
@@ -1933,7 +1948,7 @@
             ]
           },
           {
-            "description": "Top bar background & font colors",
+            "description": "Colors",
             "fields": [
               {
                 "name": "menuTopNavBackground",
@@ -1949,24 +1964,109 @@
                     "default": "inherit-tablet"
                   }
                 },
-                "label": "Background",
+                "label": "Top bar background",
                 "type": "color"
               },
               {
-                "name": "menuTopNavFontColor",
-                "default": "$bodyTextColor",
+                "name": "menuBackButtonColor",
+                "default": "$menuTopNavFontColor",
                 "isFullRow": true,
                 "breakpoints": {
                   "tablet": {
-                    "name": "menuTopNavFontColorTablet",
+                    "name": "menuBackButtonColorTablet",
                     "default": "inherit-mobile"
                   },
                   "desktop": {
-                    "name": "menuTopNavFontColorDesktop",
+                    "name": "menuBackButtonColorDesktop",
                     "default": "inherit-tablet"
                   }
                 },
-                "label": "Text",
+                "label": "Back button",
+                "type": "color"
+              },
+              {
+                "name": "menuButtonColor",
+                "default": "$menuTopNavFontColor",
+                "isFullRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "menuButtonColorTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "menuButtonColorDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "label": "Menu button",
+                "type": "color"
+              },
+              {
+                "name": "menuBackgroundColor",
+                "default": "#ffffff",
+                "isFullRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "menuBackgroundColorTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "menuBackgroundColorDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "label": "Overlay background",
+                "type": "color"
+              },
+              {
+                "name": "menuFontColor",
+                "default": "$menuTopNavFontColor",
+                "isFullRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "menuFontColorTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "menuFontColorDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "label": "Overlay text",
+                "type": "color"
+              },
+              {
+                "name": "menuCloseButtonColor",
+                "default": "$menuTopNavFontColor",
+                "isFullRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "menuCloseButtonColorTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "menuCloseButtonColorDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "label": "Close button",
+                "type": "color"
+              },
+              {
+                "name": "menuFooterFontColor",
+                "default": "$menuTopNavFontColor",
+                "isFullRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "menuFooterFontColorTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "menuFooterFontColorDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "label": "Overlay footer font",
                 "type": "color"
               }
             ]
@@ -2191,118 +2291,6 @@
             ]
           },
           {
-            "description": "Navigation icons",
-            "fields": [
-              {
-                "name": "menuBackButtonColor",
-                "default": "$menuTopNavFontColor",
-                "isFullRow": true,
-                "breakpoints": {
-                  "tablet": {
-                    "name": "menuBackButtonColorTablet",
-                    "default": "inherit-mobile"
-                  },
-                  "desktop": {
-                    "name": "menuBackButtonColorDesktop",
-                    "default": "inherit-tablet"
-                  }
-                },
-                "label": "Back button",
-                "type": "color"
-              },
-              {
-                "name": "menuButtonColor",
-                "default": "$menuTopNavFontColor",
-                "isFullRow": true,
-                "breakpoints": {
-                  "tablet": {
-                    "name": "menuButtonColorTablet",
-                    "default": "inherit-mobile"
-                  },
-                  "desktop": {
-                    "name": "menuButtonColorDesktop",
-                    "default": "inherit-tablet"
-                  }
-                },
-                "label": "Menu button",
-                "type": "color"
-              }
-            ]
-          },
-          {
-            "description": "Overlay",
-            "fields": [
-              {
-                "name": "menuBackgroundColor",
-                "default": "#ffffff",
-                "isFullRow": true,
-                "breakpoints": {
-                  "tablet": {
-                    "name": "menuBackgroundColorTablet",
-                    "default": "inherit-mobile"
-                  },
-                  "desktop": {
-                    "name": "menuBackgroundColorDesktop",
-                    "default": "inherit-tablet"
-                  }
-                },
-                "label": "Background",
-                "type": "color"
-              },
-              {
-                "name": "menuFontColor",
-                "default": "$menuTopNavFontColor",
-                "isFullRow": true,
-                "breakpoints": {
-                  "tablet": {
-                    "name": "menuFontColorTablet",
-                    "default": "inherit-mobile"
-                  },
-                  "desktop": {
-                    "name": "menuFontColorDesktop",
-                    "default": "inherit-tablet"
-                  }
-                },
-                "label": "Text",
-                "type": "color"
-              },
-              {
-                "name": "menuCloseButtonColor",
-                "default": "$menuTopNavFontColor",
-                "isFullRow": true,
-                "breakpoints": {
-                  "tablet": {
-                    "name": "menuCloseButtonColorTablet",
-                    "default": "inherit-mobile"
-                  },
-                  "desktop": {
-                    "name": "menuCloseButtonColorDesktop",
-                    "default": "inherit-tablet"
-                  }
-                },
-                "label": "Close button",
-                "type": "color"
-              },
-              {
-                "name": "menuFooterFontColor",
-                "default": "$menuTopNavFontColor",
-                "isFullRow": true,
-                "breakpoints": {
-                  "tablet": {
-                    "name": "menuFooterFontColorTablet",
-                    "default": "inherit-mobile"
-                  },
-                  "desktop": {
-                    "name": "menuFooterFontColorDesktop",
-                    "default": "inherit-tablet"
-                  }
-                },
-                "label": "Footer font",
-                "type": "color"
-              }
-            ]
-          },
-          {
             "description": "Overlay size",
             "hide": ["mobile"],
             "fields": [
@@ -2367,6 +2355,21 @@
                 "subtype": "font"
               },
               {
+                "name": "menuPushTopNavFontColor",
+                "default": "$bodyTextColor",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "menuPushTopNavFontColorTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "menuPushTopNavFontColorDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "color"
+              },
+              {
                 "name": "menuPushFontWeight",
                 "default": "normal",
                 "breakpoints": {
@@ -2418,7 +2421,7 @@
             ]
           },
           {
-            "description": "Top bar background & font colors",
+            "description": "Colors",
             "fields": [
               {
                 "name": "menuPushTopNavBackground",
@@ -2434,24 +2437,109 @@
                     "default": "inherit-tablet"
                   }
                 },
-                "label": "Background",
+                "label": "Top bar background",
                 "type": "color"
               },
               {
-                "name": "menuPushTopNavFontColor",
-                "default": "$bodyTextColor",
+                "name": "menuPushBackButtonColor",
+                "default": "$menuPushTopNavFontColor",
                 "isFullRow": true,
                 "breakpoints": {
                   "tablet": {
-                    "name": "menuPushTopNavFontColorTablet",
+                    "name": "menuPushBackButtonColorTablet",
                     "default": "inherit-mobile"
                   },
                   "desktop": {
-                    "name": "menuPushTopNavFontColorDesktop",
+                    "name": "menuPushBackButtonColorDesktop",
                     "default": "inherit-tablet"
                   }
                 },
-                "label": "Text",
+                "label": "Back button",
+                "type": "color"
+              },
+              {
+                "name": "menuPushButtonColor",
+                "default": "$menuPushTopNavFontColor",
+                "isFullRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "menuPushButtonColorTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "menuPushButtonColorDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "label": "Menu button",
+                "type": "color"
+              },
+              {
+                "name": "menuPushBackgroundColor",
+                "default": "#ffffff",
+                "isFullRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "menuPushBackgroundColorTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "menuPushBackgroundColorDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "label": "Overlay background",
+                "type": "color"
+              },
+              {
+                "name": "menuPushFontColor",
+                "default": "$menuPushTopNavFontColor",
+                "isFullRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "menuPushFontColorTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "menuPushFontColorDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "label": "Overlay text",
+                "type": "color"
+              },
+              {
+                "name": "menuPushCloseButtonColor",
+                "default": "$menuPushTopNavFontColor",
+                "isFullRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "menuPushCloseButtonColorTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "menuPushCloseButtonColorDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "label": "Close button",
+                "type": "color"
+              },
+              {
+                "name": "menuPushFooterFontColor",
+                "default": "$menuPushTopNavFontColor",
+                "isFullRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "menuPushFooterFontColorTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "menuPushFooterFontColorDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "label": "Overlay footer font",
                 "type": "color"
               }
             ]
@@ -2674,118 +2762,6 @@
                 "type": "color"
               }
             ]
-          },
-          {
-            "description": "Navigation icons",
-            "fields": [
-              {
-                "name": "menuPushBackButtonColor",
-                "default": "$menuPushTopNavFontColor",
-                "isFullRow": true,
-                "breakpoints": {
-                  "tablet": {
-                    "name": "menuPushBackButtonColorTablet",
-                    "default": "inherit-mobile"
-                  },
-                  "desktop": {
-                    "name": "menuPushBackButtonColorDesktop",
-                    "default": "inherit-tablet"
-                  }
-                },
-                "label": "Back button",
-                "type": "color"
-              },
-              {
-                "name": "menuPushButtonColor",
-                "default": "$menuPushTopNavFontColor",
-                "isFullRow": true,
-                "breakpoints": {
-                  "tablet": {
-                    "name": "menuPushButtonColorTablet",
-                    "default": "inherit-mobile"
-                  },
-                  "desktop": {
-                    "name": "menuPushButtonColorDesktop",
-                    "default": "inherit-tablet"
-                  }
-                },
-                "label": "Menu button",
-                "type": "color"
-              }
-            ]
-          },
-          {
-            "description": "Overlay",
-            "fields": [
-              {
-                "name": "menuPushBackgroundColor",
-                "default": "#ffffff",
-                "isFullRow": true,
-                "breakpoints": {
-                  "tablet": {
-                    "name": "menuPushBackgroundColorTablet",
-                    "default": "inherit-mobile"
-                  },
-                  "desktop": {
-                    "name": "menuPushBackgroundColorDesktop",
-                    "default": "inherit-tablet"
-                  }
-                },
-                "label": "Background",
-                "type": "color"
-              },
-              {
-                "name": "menuPushFontColor",
-                "default": "$menuPushTopNavFontColor",
-                "isFullRow": true,
-                "breakpoints": {
-                  "tablet": {
-                    "name": "menuPushFontColorTablet",
-                    "default": "inherit-mobile"
-                  },
-                  "desktop": {
-                    "name": "menuPushFontColorDesktop",
-                    "default": "inherit-tablet"
-                  }
-                },
-                "label": "Text",
-                "type": "color"
-              },
-              {
-                "name": "menuPushCloseButtonColor",
-                "default": "$menuPushTopNavFontColor",
-                "isFullRow": true,
-                "breakpoints": {
-                  "tablet": {
-                    "name": "menuPushCloseButtonColorTablet",
-                    "default": "inherit-mobile"
-                  },
-                  "desktop": {
-                    "name": "menuPushCloseButtonColorDesktop",
-                    "default": "inherit-tablet"
-                  }
-                },
-                "label": "Close button",
-                "type": "color"
-              },
-              {
-                "name": "menuPushFooterFontColor",
-                "default": "$menuPushTopNavFontColor",
-                "isFullRow": true,
-                "breakpoints": {
-                  "tablet": {
-                    "name": "menuPushFooterFontColorTablet",
-                    "default": "inherit-mobile"
-                  },
-                  "desktop": {
-                    "name": "menuPushFooterFontColorDesktop",
-                    "default": "inherit-tablet"
-                  }
-                },
-                "label": "Footer font",
-                "type": "color"
-              }
-            ]
           }
         ]
       },
@@ -2826,6 +2802,21 @@
                 },
                 "type": "size",
                 "subtype": "font"
+              },
+              {
+                "name": "menuSlideTopNavFontColor",
+                "default": "$bodyTextColor",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "menuSlideTopNavFontColorTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "menuSlideTopNavFontColorDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "color"
               },
               {
                 "name": "menuSlideFontWeight",
@@ -2879,7 +2870,7 @@
             ]
           },
           {
-            "description": "Top bar background & font colors",
+            "description": "Colors",
             "fields": [
               {
                 "name": "menuSlideTopNavBackground",
@@ -2899,20 +2890,105 @@
                 "type": "color"
               },
               {
-                "name": "menuSlideTopNavFontColor",
-                "default": "$bodyTextColor",
+                "name": "menuSlideBackButtonColor",
+                "default": "$menuSlideTopNavFontColor",
                 "isFullRow": true,
                 "breakpoints": {
                   "tablet": {
-                    "name": "menuSlideTopNavFontColorTablet",
+                    "name": "menuSlideBackButtonColorTablet",
                     "default": "inherit-mobile"
                   },
                   "desktop": {
-                    "name": "menuSlideTopNavFontColorDesktop",
+                    "name": "menuSlideBackButtonColorDesktop",
                     "default": "inherit-tablet"
                   }
                 },
-                "label": "Text",
+                "label": "Back button",
+                "type": "color"
+              },
+              {
+                "name": "menuSlideButtonColor",
+                "default": "$menuSlideTopNavFontColor",
+                "isFullRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "menuSlideButtonColorTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "menuSlideButtonColorDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "label": "Menu button",
+                "type": "color"
+              },
+              {
+                "name": "menuSlideBackgroundColor",
+                "default": "#ffffff",
+                "isFullRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "menuSlideBackgroundColorTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "menuSlideBackgroundColorDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "label": "Overlay background",
+                "type": "color"
+              },
+              {
+                "name": "menuSlideFontColor",
+                "default": "$menuSlideTopNavFontColor",
+                "isFullRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "menuSlideFontColorTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "menuSlideFontColorDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "label": "Overlay text",
+                "type": "color"
+              },
+              {
+                "name": "menuSlideCloseButtonColor",
+                "default": "$menuSlideTopNavFontColor",
+                "isFullRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "menuSlideCloseButtonColorTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "menuSlideCloseButtonColorDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "label": "Close button",
+                "type": "color"
+              },
+              {
+                "name": "menuSlideFooterFontColor",
+                "default": "$menuSlideTopNavFontColor",
+                "isFullRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "menuSlideFooterFontColorTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "menuSlideFooterFontColorDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "label": "Overlay footer font",
                 "type": "color"
               }
             ]
@@ -3135,118 +3211,6 @@
                 "type": "color"
               }
             ]
-          },
-          {
-            "description": "Navigation icons",
-            "fields": [
-              {
-                "name": "menuSlideBackButtonColor",
-                "default": "$menuSlideTopNavFontColor",
-                "isFullRow": true,
-                "breakpoints": {
-                  "tablet": {
-                    "name": "menuSlideBackButtonColorTablet",
-                    "default": "inherit-mobile"
-                  },
-                  "desktop": {
-                    "name": "menuSlideBackButtonColorDesktop",
-                    "default": "inherit-tablet"
-                  }
-                },
-                "label": "Back button",
-                "type": "color"
-              },
-              {
-                "name": "menuSlideButtonColor",
-                "default": "$menuSlideTopNavFontColor",
-                "isFullRow": true,
-                "breakpoints": {
-                  "tablet": {
-                    "name": "menuSlideButtonColorTablet",
-                    "default": "inherit-mobile"
-                  },
-                  "desktop": {
-                    "name": "menuSlideButtonColorDesktop",
-                    "default": "inherit-tablet"
-                  }
-                },
-                "label": "Menu button",
-                "type": "color"
-              }
-            ]
-          },
-          {
-            "description": "Overlay",
-            "fields": [
-              {
-                "name": "menuSlideBackgroundColor",
-                "default": "#ffffff",
-                "isFullRow": true,
-                "breakpoints": {
-                  "tablet": {
-                    "name": "menuSlideBackgroundColorTablet",
-                    "default": "inherit-mobile"
-                  },
-                  "desktop": {
-                    "name": "menuSlideBackgroundColorDesktop",
-                    "default": "inherit-tablet"
-                  }
-                },
-                "label": "Background",
-                "type": "color"
-              },
-              {
-                "name": "menuSlideFontColor",
-                "default": "$menuSlideTopNavFontColor",
-                "isFullRow": true,
-                "breakpoints": {
-                  "tablet": {
-                    "name": "menuSlideFontColorTablet",
-                    "default": "inherit-mobile"
-                  },
-                  "desktop": {
-                    "name": "menuSlideFontColorDesktop",
-                    "default": "inherit-tablet"
-                  }
-                },
-                "label": "Text",
-                "type": "color"
-              },
-              {
-                "name": "menuSlideCloseButtonColor",
-                "default": "$menuSlideTopNavFontColor",
-                "isFullRow": true,
-                "breakpoints": {
-                  "tablet": {
-                    "name": "menuSlideCloseButtonColorTablet",
-                    "default": "inherit-mobile"
-                  },
-                  "desktop": {
-                    "name": "menuSlideCloseButtonColorDesktop",
-                    "default": "inherit-tablet"
-                  }
-                },
-                "label": "Close button",
-                "type": "color"
-              },
-              {
-                "name": "menuSlideFooterFontColor",
-                "default": "$menuSlideTopNavFontColor",
-                "isFullRow": true,
-                "breakpoints": {
-                  "tablet": {
-                    "name": "menuSlideFooterFontColorTablet",
-                    "default": "inherit-mobile"
-                  },
-                  "desktop": {
-                    "name": "menuSlideFooterFontColorDesktop",
-                    "default": "inherit-tablet"
-                  }
-                },
-                "label": "Footer font",
-                "type": "color"
-              }
-            ]
           }
         ]
       },
@@ -3287,6 +3251,21 @@
                 },
                 "type": "size",
                 "subtype": "font"
+              },
+              {
+                "name": "menuSwipeTopNavFontColor",
+                "default": "$bodyTextColor",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "menuSwipeTopNavFontColorTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "menuSwipeTopNavFontColorDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "color"
               },
               {
                 "name": "menuSwipeFontWeight",
@@ -3340,7 +3319,7 @@
             ]
           },
           {
-            "description": "Bottom bar background & font colors",
+            "description": "Colors",
             "fields": [
               {
                 "name": "menuSwipeTopNavBackground",
@@ -3360,20 +3339,105 @@
                 "type": "color"
               },
               {
-                "name": "menuSwipeTopNavFontColor",
-                "default": "$bodyTextColor",
+                "name": "menuSwipeBackButtonColor",
+                "default": "$menuSwipeTopNavFontColor",
                 "isFullRow": true,
                 "breakpoints": {
                   "tablet": {
-                    "name": "menuSwipeTopNavFontColorTablet",
+                    "name": "menuSwipeBackButtonColorTablet",
                     "default": "inherit-mobile"
                   },
                   "desktop": {
-                    "name": "menuSwipeTopNavFontColorDesktop",
+                    "name": "menuSwipeBackButtonColorDesktop",
                     "default": "inherit-tablet"
                   }
                 },
-                "label": "Text",
+                "label": "Back button",
+                "type": "color"
+              },
+              {
+                "name": "menuSwipeButtonColor",
+                "default": "$menuSwipeTopNavFontColor",
+                "isFullRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "menuSwipeButtonColorTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "menuSwipeButtonColorDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "label": "Menu button",
+                "type": "color"
+              },
+              {
+                "name": "menuSwipeBackgroundColor",
+                "default": "#ffffff",
+                "isFullRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "menuSwipeBackgroundColorTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "menuSwipeBackgroundColorDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "label": "Overlay background",
+                "type": "color"
+              },
+              {
+                "name": "menuSwipeFontColor",
+                "default": "$menuSwipeTopNavFontColor",
+                "isFullRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "menuSwipeFontColorTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "menuSwipeFontColorDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "label": "Overlay text",
+                "type": "color"
+              },
+              {
+                "name": "menuSwipeCloseButtonColor",
+                "default": "$menuSwipeTopNavFontColor",
+                "isFullRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "menuSwipeCloseButtonColorTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "menuSwipeCloseButtonColorDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "label": "Close button",
+                "type": "color"
+              },
+              {
+                "name": "menuSwipeFooterFontColor",
+                "default": "$menuSwipeTopNavFontColor",
+                "isFullRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "menuSwipeFooterFontColorTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "menuSwipeFooterFontColorDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "label": "Overlay footer font",
                 "type": "color"
               }
             ]
@@ -3598,118 +3662,6 @@
             ]
           },
           {
-            "description": "Navigation icons",
-            "fields": [
-              {
-                "name": "menuSwipeBackButtonColor",
-                "default": "$menuSwipeTopNavFontColor",
-                "isFullRow": true,
-                "breakpoints": {
-                  "tablet": {
-                    "name": "menuSwipeBackButtonColorTablet",
-                    "default": "inherit-mobile"
-                  },
-                  "desktop": {
-                    "name": "menuSwipeBackButtonColorDesktop",
-                    "default": "inherit-tablet"
-                  }
-                },
-                "label": "Back button",
-                "type": "color"
-              },
-              {
-                "name": "menuSwipeButtonColor",
-                "default": "$menuSwipeTopNavFontColor",
-                "isFullRow": true,
-                "breakpoints": {
-                  "tablet": {
-                    "name": "menuSwipeButtonColorTablet",
-                    "default": "inherit-mobile"
-                  },
-                  "desktop": {
-                    "name": "menuSwipeButtonColorDesktop",
-                    "default": "inherit-tablet"
-                  }
-                },
-                "label": "Menu button",
-                "type": "color"
-              }
-            ]
-          },
-          {
-            "description": "Overlay",
-            "fields": [
-              {
-                "name": "menuSwipeBackgroundColor",
-                "default": "#ffffff",
-                "isFullRow": true,
-                "breakpoints": {
-                  "tablet": {
-                    "name": "menuSwipeBackgroundColorTablet",
-                    "default": "inherit-mobile"
-                  },
-                  "desktop": {
-                    "name": "menuSwipeBackgroundColorDesktop",
-                    "default": "inherit-tablet"
-                  }
-                },
-                "label": "Background",
-                "type": "color"
-              },
-              {
-                "name": "menuSwipeFontColor",
-                "default": "$menuSwipeTopNavFontColor",
-                "isFullRow": true,
-                "breakpoints": {
-                  "tablet": {
-                    "name": "menuSwipeFontColorTablet",
-                    "default": "inherit-mobile"
-                  },
-                  "desktop": {
-                    "name": "menuSwipeFontColorDesktop",
-                    "default": "inherit-tablet"
-                  }
-                },
-                "label": "Text",
-                "type": "color"
-              },
-              {
-                "name": "menuSwipeCloseButtonColor",
-                "default": "$menuSwipeTopNavFontColor",
-                "isFullRow": true,
-                "breakpoints": {
-                  "tablet": {
-                    "name": "menuSwipeCloseButtonColorTablet",
-                    "default": "inherit-mobile"
-                  },
-                  "desktop": {
-                    "name": "menuSwipeCloseButtonColorDesktop",
-                    "default": "inherit-tablet"
-                  }
-                },
-                "label": "Close button",
-                "type": "color"
-              },
-              {
-                "name": "menuSwipeFooterFontColor",
-                "default": "$menuSwipeTopNavFontColor",
-                "isFullRow": true,
-                "breakpoints": {
-                  "tablet": {
-                    "name": "menuSwipeFooterFontColorTablet",
-                    "default": "inherit-mobile"
-                  },
-                  "desktop": {
-                    "name": "menuSwipeFooterFontColorDesktop",
-                    "default": "inherit-tablet"
-                  }
-                },
-                "label": "Footer font",
-                "type": "color"
-              }
-            ]
-          },
-          {
             "description": "Overlay size",
             "hide": ["mobile"],
             "fields": [
@@ -3772,6 +3724,21 @@
                 },
                 "type": "size",
                 "subtype": "font"
+              },
+              {
+                "name": "menuExpFontColor",
+                "default": "$bodyBackground",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "menuExpFontColorTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "menuExpFontColorDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "color"
               },
               {
                 "name": "menuExpFontWeight",
@@ -3841,7 +3808,7 @@
                     "default": "inherit-tablet"
                   }
                 },
-                "label": "Button",
+                "label": "Button background",
                 "type": "color"
               },
               {
@@ -3875,7 +3842,7 @@
                     "default": "inherit-tablet"
                   }
                 },
-                "label": "Button when open",
+                "label": "Button background when open",
                 "type": "color"
               },
               {
@@ -3892,7 +3859,41 @@
                     "default": "inherit-tablet"
                   }
                 },
-                "label": "Button icon when open",
+                "label": "Close icon",
+                "type": "color"
+              },
+              {
+                "name": "menuExpBackgroundOpen",
+                "default": "$bodyTextColor",
+                "isFullRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "menuExpBackgroundOpenTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "menuExpBackgroundOpenDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "label": "Overlay background",
+                "type": "color"
+              },
+              {
+                "name": "menuExpFooterFontColor",
+                "default": "$bodyBackground",
+                "isFullRow": true,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "menuExpFooterFontColorTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "menuExpFooterFontColorDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "label": "Overlay footer text",
                 "type": "color"
               }
             ]
@@ -4029,62 +4030,6 @@
                 "type": "color"
               }
             ]
-          },
-          {
-            "description": "Overlay",
-            "fields": [
-              {
-                "name": "menuExpBackgroundOpen",
-                "default": "$bodyTextColor",
-                "isFullRow": true,
-                "breakpoints": {
-                  "tablet": {
-                    "name": "menuExpBackgroundOpenTablet",
-                    "default": "inherit-mobile"
-                  },
-                  "desktop": {
-                    "name": "menuExpBackgroundOpenDesktop",
-                    "default": "inherit-tablet"
-                  }
-                },
-                "label": "Background",
-                "type": "color"
-              },
-              {
-                "name": "menuExpFontColor",
-                "default": "$bodyBackground",
-                "isFullRow": true,
-                "breakpoints": {
-                  "tablet": {
-                    "name": "menuExpFontColorTablet",
-                    "default": "inherit-mobile"
-                  },
-                  "desktop": {
-                    "name": "menuExpFontColorDesktop",
-                    "default": "inherit-tablet"
-                  }
-                },
-                "label": "Text",
-                "type": "color"
-              },
-              {
-                "name": "menuExpFooterFontColor",
-                "default": "$bodyBackground",
-                "isFullRow": true,
-                "breakpoints": {
-                  "tablet": {
-                    "name": "menuExpFooterFontColorTablet",
-                    "default": "inherit-mobile"
-                  },
-                  "desktop": {
-                    "name": "menuExpFooterFontColorDesktop",
-                    "default": "inherit-tablet"
-                  }
-                },
-                "label": "Footer text",
-                "type": "color"
-              }
-            ]
           }
         ]
       },
@@ -4125,6 +4070,21 @@
                 },
                 "type": "size",
                 "subtype": "font"
+              },
+              {
+                "name": "menuBottomBarFontColor",
+                "default": "rgba(255,255,255,0.5)",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "menuBottomBarFontColorTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "menuBottomBarFontColorDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "color"
               },
               {
                 "name": "menuBottomWeight",
@@ -4178,7 +4138,7 @@
             ]
           },
           {
-            "description": "Background & font colors",
+            "description": "Colors",
             "fields": [
               {
                 "name": "menuBottomBarBackgroundColor",
@@ -4194,31 +4154,9 @@
                     "default": "inherit-tablet"
                   }
                 },
-                "label": "Background",
+                "label": "Bottom bar background",
                 "type": "color"
               },
-              {
-                "name": "menuBottomBarFontColor",
-                "default": "rgba(255,255,255,0.5)",
-                "isFullRow": true,
-                "breakpoints": {
-                  "tablet": {
-                    "name": "menuBottomBarFontColorTablet",
-                    "default": "inherit-mobile"
-                  },
-                  "desktop": {
-                    "name": "menuBottomBarFontColorDesktop",
-                    "default": "inherit-tablet"
-                  }
-                },
-                "label": "Text",
-                "type": "color"
-              }
-            ]
-          },
-          {
-            "description": "Buttons",
-            "fields": [
               {
                 "name": "menuBottomActiveBackground",
                 "default": "transparent",
@@ -4233,7 +4171,7 @@
                     "default": "inherit-tablet"
                   }
                 },
-                "label": "Background when active",
+                "label": "Button background when active",
                 "type": "color"
               },
               {
@@ -4250,7 +4188,7 @@
                     "default": "inherit-tablet"
                   }
                 },
-                "label": "Text when active",
+                "label": "Button text when active",
                 "type": "color"
               }
             ]
@@ -6891,7 +6829,7 @@
             ]
           },
           {
-            "description": "Heading",
+            "description": "Heading bar",
             "fields": [
               {
                 "name": "accordionHeadingBg",
@@ -6998,7 +6936,7 @@
             ]
           },
           {
-            "description": "Heading padding",
+            "description": "Heading bar padding",
             "fields": [
               {
                 "name": "accordionHeadingPaddingTop",
@@ -17620,7 +17558,7 @@
             ]
           },
           {
-            "description": "Colors",
+            "description": "Background colors",
             "fields": [
               {
                 "name": "panelBackgroundColor",
@@ -17636,7 +17574,6 @@
                     "default": "inherit-tablet"
                   }
                 },
-                "label": "Text area color",
                 "type": "color"
               }
             ]
