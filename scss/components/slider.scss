@@ -1,11 +1,8 @@
 @mixin slider($options: (), $widgetInstanceId: '') {
   $configuration: map-merge((
     sliderWidth: $sliderWidth,
-    sliderHeight: $sliderHeight,
     sliderMinWidth: $sliderMinWidth,
     sliderMaxWidth: $sliderMaxWidth,
-    sliderMinHeight: $sliderMinHeight,
-    sliderMaxHeight: $sliderMaxHeight,
     paginationBulletColor: $paginationBulletColor,
     paginationBulletColorActive: $paginationBulletColorActive,
     paginationChevronsColor: $paginationChevronsColor,
@@ -46,11 +43,8 @@
     paginationBulletBorderActiveStyle: $paginationBulletBorderActiveStyle,
     paginationBulletBorderActive: $paginationBulletBorderActive,
     sliderWidthTablet: $sliderWidthTablet,
-    sliderHeightTablet: $sliderHeightTablet,
     sliderMinWidthTablet: $sliderMinWidthTablet,
     sliderMaxWidthTablet: $sliderMaxWidthTablet,
-    sliderMinHeightTablet: $sliderMinHeightTablet,
-    sliderMaxHeightTablet: $sliderMaxHeightTablet,
     paginationBulletColorTablet: $paginationBulletColorTablet,
     paginationBulletColorActiveTablet: $paginationBulletColorActiveTablet,
     paginationChevronsColorTablet: $paginationChevronsColorTablet,
@@ -91,11 +85,8 @@
     paginationBulletBorderActiveStyleTablet: $paginationBulletBorderActiveStyleTablet,
     paginationBulletBorderActiveTablet: $paginationBulletBorderActiveTablet,
     sliderWidthDesktop: $sliderWidthDesktop,
-    sliderHeightDesktop: $sliderHeightDesktop,
     sliderMinWidthDesktop: $sliderMinWidthDesktop,
     sliderMaxWidthDesktop: $sliderMaxWidthDesktop,
-    sliderMinHeightDesktop: $sliderMinHeightDesktop,
-    sliderMaxHeightDesktop: $sliderMaxHeightDesktop,
     paginationBulletColorDesktop: $paginationBulletColorDesktop,
     paginationBulletColorActiveDesktop: $paginationBulletColorActiveDesktop,
     paginationChevronsColorDesktop: $paginationChevronsColorDesktop,
@@ -146,23 +137,16 @@
     width: map-get($configuration, sliderWidth);
     min-width: map-get($configuration, sliderMinWidth);
     max-width: map-get($configuration, sliderMaxWidth);
-    height: map-get($configuration, sliderHeight);
-    min-height: map-get($configuration, sliderMinHeight);
-    max-height: map-get($configuration, sliderMaxHeight);
     margin: map-get($configuration, sliderMarginTop)
       map-get($configuration, sliderMarginRight)
       map-get($configuration, sliderMarginBottom)
       map-get($configuration, sliderMarginLeft);
-    overflow: auto;
 
     // Styles for tablet
     @include above($tabletBreakpoint) {
       width: map-get($configuration, sliderWidthTablet);
       min-width: map-get($configuration, sliderMinWidth);
       max-width: map-get($configuration, sliderMaxWidth);
-      height: map-get($configuration, sliderHeight);
-      min-height: map-get($configuration, sliderMinHeight);
-      max-height: map-get($configuration, sliderMaxHeight);
       margin: map-get($configuration, sliderMarginTopTablet)
         map-get($configuration, sliderMarginRightTablet)
         map-get($configuration, sliderMarginBottomTablet)
@@ -174,9 +158,6 @@
       width: map-get($configuration, sliderWidthDesktop);
       min-width: map-get($configuration, sliderMinWidth);
       max-width: map-get($configuration, sliderMaxWidth);
-      height: map-get($configuration, sliderHeight);
-      min-height: map-get($configuration, sliderMinHeight);
-      max-height: map-get($configuration, sliderMaxHeight);
       margin: map-get($configuration, sliderMarginTopDesktop)
         map-get($configuration, sliderMarginRightDesktop)
         map-get($configuration, sliderMarginBottomDesktop)

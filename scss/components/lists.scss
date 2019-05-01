@@ -1,11 +1,8 @@
 @mixin list($options: (), $widgetInstanceId: '') {
   $configuration: map-merge((
     listWidth: $listWidth,
-    listHeight: $listHeight,
     listMinWidth: $listMinWidth,
     listMaxWidth: $listMaxWidth,
-    listMinHeight: $listMinHeight,
-    listMaxHeight: $listMaxHeight,
     listMarginTop: $listMarginTop,
     listMarginRight: $listMarginRight,
     listMarginBottom: $listMarginBottom,
@@ -43,11 +40,8 @@
     listMyListSwipeLeftColor: $listMyListSwipeLeftColor,
     listMyListSwipeLeftTextColor: $listMyListSwipeLeftTextColor,
     listWidthTablet: $listWidthTablet,
-    listHeightTablet: $listHeightTablet,
     listMinWidthTablet: $listMinWidthTablet,
     listMaxWidthTablet: $listMaxWidthTablet,
-    listMinHeightTablet: $listMinHeightTablet,
-    listMaxHeightTablet: $listMaxHeightTablet,
     listMarginTopTablet: $listMarginTopTablet,
     listMarginRightTablet: $listMarginRightTablet,
     listMarginBottomTablet: $listMarginBottomTablet,
@@ -85,11 +79,8 @@
     listMyListSwipeLeftColorTablet: $listMyListSwipeLeftColorTablet,
     listMyListSwipeLeftTextColorTablet: $listMyListSwipeLeftTextColorTablet,
     listWidthDesktop: $listWidthDesktop,
-    listHeightDesktop: $listHeightDesktop,
     listMinWidthDesktop: $listMinWidthDesktop,
     listMaxWidthDesktop: $listMaxWidthDesktop,
-    listMinHeightDesktop: $listMinHeightDesktop,
-    listMaxHeightDesktop: $listMaxHeightDesktop,
     listMarginTopDesktop: $listMarginTopDesktop,
     listMarginRightDesktop: $listMarginRightDesktop,
     listMarginBottomDesktop: $listMarginBottomDesktop,
@@ -137,9 +128,6 @@
     width: map-get($configuration, listWidth);
     min-width: map-get($configuration, listMinWidth);
     max-width: map-get($configuration, listMaxWidth);
-    height: map-get($configuration, listHeight);
-    min-height: map-get($configuration, listMinHeight);
-    max-height: map-get($configuration, listMaxHeight);
     margin: map-get($configuration, listMarginTop)
       map-get($configuration, listMarginRight)
       map-get($configuration, listMarginBottom)
@@ -148,16 +136,12 @@
       map-get($configuration, listPaddingRight)
       map-get($configuration, listPaddingBottom)
       map-get($configuration, listPaddingLeft);
-    overflow: auto;
 
     // Styles for tablet
     @include above($tabletBreakpoint) {
       width: map-get($configuration, listWidthTablet);
       min-width: map-get($configuration, listMinWidthTablet);
       max-width: map-get($configuration, listMaxWidthTablet);
-      height: map-get($configuration, listHeightTablet);
-      min-height: map-get($configuration, listMinHeightTablet);
-      max-height: map-get($configuration, listMaxHeightTablet);
       margin: map-get($configuration, listMarginTopTablet)
         map-get($configuration, listMarginRightTablet)
         map-get($configuration, listMarginBottomTablet)
@@ -173,9 +157,6 @@
       width: map-get($configuration, listWidthDesktop);
       min-width: map-get($configuration, listMinWidthDesktop);
       max-width: map-get($configuration, listMaxWidthDesktop);
-      height: map-get($configuration, listHeightDesktop);
-      min-height: map-get($configuration, listMinHeightDesktop);
-      max-height: map-get($configuration, listMaxHeightDesktop);
       margin: map-get($configuration, listMarginTopDesktop)
         map-get($configuration, listMarginRightDesktop)
         map-get($configuration, listMarginBottomDesktop)

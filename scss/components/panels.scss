@@ -1,11 +1,8 @@
 @mixin panels($options: (), $widgetInstanceId: '') {
   $configuration: map-merge((
     panelWidth: $panelWidth,
-    panelHeight: $panelHeight,
     panelMinWidth: $panelMinWidth,
     panelMaxWidth: $panelMaxWidth,
-    panelMinHeight: $panelMinHeight,
-    panelMaxHeight: $panelMaxHeight,
     panelMarginTop: $panelMarginTop,
     panelMarginRight: $panelMarginRight,
     panelMarginBottom: $panelMarginBottom,
@@ -43,11 +40,8 @@
     panelShadowSpread: $panelShadowSpread,
     panelShadowColor: $panelShadowColor,
     panelWidthTablet: $panelWidthTablet,
-    panelHeightTablet: $panelHeightTablet,
     panelMinWidthTablet: $panelMinWidthTablet,
     panelMaxWidthTablet: $panelMaxWidthTablet,
-    panelMinHeightTablet: $panelMinHeightTablet,
-    panelMaxHeightTablet: $panelMaxHeightTablet,
     panelMarginTopTablet: $panelMarginTopTablet,
     panelMarginRightTablet: $panelMarginRightTablet,
     panelMarginBottomTablet: $panelMarginBottomTablet,
@@ -85,11 +79,8 @@
     panelShadowSpreadTablet: $panelShadowSpreadTablet,
     panelShadowColorTablet: $panelShadowColorTablet,
     panelWidthDesktop: $panelWidthDesktop,
-    panelHeightDesktop: $panelHeightDesktop,
     panelMinWidthDesktop: $panelMinWidthDesktop,
     panelMaxWidthDesktop: $panelMaxWidthDesktop,
-    panelMinHeightDesktop: $panelMinHeightDesktop,
-    panelMaxHeightDesktop: $panelMaxHeightDesktop,
     panelMarginTopDesktop: $panelMarginTopDesktop,
     panelMarginRightDesktop: $panelMarginRightDesktop,
     panelMarginBottomDesktop: $panelMarginBottomDesktop,
@@ -137,9 +128,6 @@
     width: map-get($configuration, panelWidth);
     min-width: map-get($configuration, panelMinWidth);
     max-width: map-get($configuration, panelMaxWidth);
-    height: map-get($configuration, panelHeight);
-    min-height: map-get($configuration, panelMinHeight);
-    max-height: map-get($configuration, panelMaxHeight);
     margin: map-get($configuration, panelMarginTop)
       map-get($configuration, panelMarginRight)
       map-get($configuration, panelMarginBottom)
@@ -148,16 +136,12 @@
       map-get($configuration, panelPaddingRight)
       map-get($configuration, panelPaddingBottom)
       map-get($configuration, panelPaddingLeft);
-    overflow: auto;
 
     // Styles for tablet
     @include above($tabletBreakpoint) {
       width: map-get($configuration, panelWidthTablet);
       min-width: map-get($configuration, panelMinWidthTablet);
       max-width: map-get($configuration, panelMaxWidthTablet);
-      height: map-get($configuration, panelHeightTablet);
-      min-height: map-get($configuration, panelMinHeightTablet);
-      max-height: map-get($configuration, panelMaxHeightTablet);
       margin: map-get($configuration, panelMarginTopTablet)
         map-get($configuration, panelMarginRightTablet)
         map-get($configuration, panelMarginBottomTablet)
@@ -173,9 +157,6 @@
       width: map-get($configuration, panelWidthDesktop);
       min-width: map-get($configuration, panelMinWidthDesktop);
       max-width: map-get($configuration, panelMaxWidthDesktop);
-      height: map-get($configuration, panelHeightDesktop);
-      min-height: map-get($configuration, panelMinHeightDesktop);
-      max-height: map-get($configuration, panelMaxHeightDesktop);
       margin: map-get($configuration, panelMarginTopDesktop)
         map-get($configuration, panelMarginRightDesktop)
         map-get($configuration, panelMarginBottomDesktop)

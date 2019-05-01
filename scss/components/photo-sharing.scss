@@ -1,11 +1,8 @@
 @mixin photoSharing($options: (), $widgetInstanceId: '') {
   $configuration: map-merge((
     photoSharingWidth: $photoSharingWidth,
-    photoSharingHeight: $photoSharingHeight,
     photoSharingMinWidth: $photoSharingMinWidth,
     photoSharingMaxWidth: $photoSharingMaxWidth,
-    photoSharingMinHeight: $photoSharingMinHeight,
-    photoSharingMaxHeight: $photoSharingMaxHeight,
     photoSharingMarginTop: $photoSharingMarginTop,
     photoSharingMarginRight: $photoSharingMarginRight,
     photoSharingMarginBottom: $photoSharingMarginBottom,
@@ -22,11 +19,8 @@
     imageContainerBorderStyle: $imageContainerBorderStyle,
     imageContainerBorder: $imageContainerBorder,
     photoSharingWidthTablet: $photoSharingWidthTablet,
-    photoSharingHeightTablet: $photoSharingHeightTablet,
     photoSharingMinWidthTablet: $photoSharingMinWidthTablet,
     photoSharingMaxWidthTablet: $photoSharingMaxWidthTablet,
-    photoSharingMinHeightTablet: $photoSharingMinHeightTablet,
-    photoSharingMaxHeightTablet: $photoSharingMaxHeightTablet,
     photoSharingMarginTopTablet: $photoSharingMarginTopTablet,
     photoSharingMarginRightTablet: $photoSharingMarginRightTablet,
     photoSharingMarginBottomTablet: $photoSharingMarginBottomTablet,
@@ -43,11 +37,8 @@
     imageContainerBorderStyleTablet: $imageContainerBorderStyleTablet,
     imageContainerBorderTablet: $imageContainerBorderTablet,
     photoSharingWidthDesktop: $photoSharingWidthDesktop,
-    photoSharingHeightDesktop: $photoSharingHeightDesktop,
     photoSharingMinWidthDesktop: $photoSharingMinWidthDesktop,
     photoSharingMaxWidthDesktop: $photoSharingMaxWidthDesktop,
-    photoSharingMinHeightDesktop: $photoSharingMinHeightDesktop,
-    photoSharingMaxHeightDesktop: $photoSharingMaxHeightDesktop,
     photoSharingMarginTopDesktop: $photoSharingMarginTopDesktop,
     photoSharingMarginRightDesktop: $photoSharingMarginRightDesktop,
     photoSharingMarginBottomDesktop: $photoSharingMarginBottomDesktop,
@@ -74,23 +65,16 @@
     width: map-get($configuration, photoSharingWidth);
     min-width: map-get($configuration, photoSharingMinWidth);
     max-width: map-get($configuration, photoSharingMaxWidth);
-    height: map-get($configuration, photoSharingHeight);
-    min-height: map-get($configuration, photoSharingMinHeight);
-    max-height: map-get($configuration, photoSharingMaxHeight);
     margin: map-get($configuration, photoSharingMarginTop)
       map-get($configuration, photoSharingMarginRight)
       map-get($configuration, photoSharingMarginBottom)
       map-get($configuration, photoSharingMarginLeft);
-    overflow: auto;
 
     // Styles for tablet
     @include above($tabletBreakpoint) {
       width: map-get($configuration, photoSharingWidthTablet);
       min-width: map-get($configuration, photoSharingMinWidthTablet);
       max-width: map-get($configuration, photoSharingMaxWidthTablet);
-      height: map-get($configuration, photoSharingHeightTablet);
-      min-height: map-get($configuration, photoSharingMinHeightTablet);
-      max-height: map-get($configuration, photoSharingMaxHeightTablet);
       margin: map-get($configuration, photoSharingMarginTopTablet)
         map-get($configuration, photoSharingMarginRightTablet)
         map-get($configuration, photoSharingMarginBottomTablet)
@@ -102,9 +86,6 @@
       width: map-get($configuration, photoSharingWidthDesktop);
       min-width: map-get($configuration, photoSharingMinWidthDesktop);
       max-width: map-get($configuration, photoSharingMaxWidthDesktop);
-      height: map-get($configuration, photoSharingHeightDesktop);
-      min-height: map-get($configuration, photoSharingMinHeightDesktop);
-      max-height: map-get($configuration, photoSharingMaxHeightDesktop);
       margin: map-get($configuration, photoSharingMarginTopDesktop)
         map-get($configuration, photoSharingMarginRightDesktop)
         map-get($configuration, photoSharingMarginBottomDesktop)

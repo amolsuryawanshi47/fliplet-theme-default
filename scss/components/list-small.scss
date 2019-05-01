@@ -1,11 +1,8 @@
 @mixin listSmallThumbs($options: (), $widgetInstanceId: '') {
   $configuration: map-merge((
     listSmallWidth: $listSmallWidth,
-    listSmallHeight: $listSmallHeight,
     listSmallMinWidth: $listSmallMinWidth,
     listSmallMaxWidth: $listSmallMaxWidth,
-    listSmallMinHeight: $listSmallMinHeight,
-    listSmallMaxHeight: $listSmallMaxHeight,
     listSmallMarginTop: $listSmallMarginTop,
     listSmallMarginRight: $listSmallMarginRight,
     listSmallMarginBottom: $listSmallMarginBottom,
@@ -45,11 +42,8 @@
     listSmallMyListSwipeLeftColor: $listSmallMyListSwipeLeftColor,
     listSmallMyListSwipeLeftTextColor: $listSmallMyListSwipeLeftTextColor,
     listSmallWidthTablet: $listSmallWidthTablet,
-    listSmallHeightTablet: $listSmallHeightTablet,
     listSmallMinWidthTablet: $listSmallMinWidthTablet,
     listSmallMaxWidthTablet: $listSmallMaxWidthTablet,
-    listSmallMinHeightTablet: $listSmallMinHeightTablet,
-    listSmallMaxHeightTablet: $listSmallMaxHeightTablet,
     listSmallMarginTopTablet: $listSmallMarginTopTablet,
     listSmallMarginRightTablet: $listSmallMarginRightTablet,
     listSmallMarginBottomTablet: $listSmallMarginBottomTablet,
@@ -89,11 +83,8 @@
     listSmallMyListSwipeLeftColorTablet: $listSmallMyListSwipeLeftColorTablet,
     listSmallMyListSwipeLeftTextColorTablet: $listSmallMyListSwipeLeftTextColorTablet,
     listSmallWidthDesktop: $listSmallWidthDesktop,
-    listSmallHeightDesktop: $listSmallHeightDesktop,
     listSmallMinWidthDesktop: $listSmallMinWidthDesktop,
     listSmallMaxWidthDesktop: $listSmallMaxWidthDesktop,
-    listSmallMinHeightDesktop: $listSmallMinHeightDesktop,
-    listSmallMaxHeightDesktop: $listSmallMaxHeightDesktop,
     listSmallMarginTopDesktop: $listSmallMarginTopDesktop,
     listSmallMarginRightDesktop: $listSmallMarginRightDesktop,
     listSmallMarginBottomDesktop: $listSmallMarginBottomDesktop,
@@ -143,9 +134,6 @@
     width: map-get($configuration, listSmallWidth);
     min-width: map-get($configuration, listSmallMinWidth);
     max-width: map-get($configuration, listSmallMaxWidth);
-    height: map-get($configuration, listSmallHeight);
-    min-height: map-get($configuration, listSmallMinHeight);
-    max-height: map-get($configuration, listSmallMaxHeight);
     margin: map-get($configuration, listSmallMarginTop)
       map-get($configuration, listSmallMarginRight)
       map-get($configuration, listSmallMarginBottom)
@@ -154,16 +142,12 @@
       map-get($configuration, listSmallPaddingRight)
       map-get($configuration, listSmallPaddingBottom)
       map-get($configuration, listSmallPaddingLeft);
-    overflow: auto;
 
     // Styles for tablet
     @include above($tabletBreakpoint) {
       width: map-get($configuration, listSmallWidthTablet);
       min-width: map-get($configuration, listSmallMinWidthTablet);
       max-width: map-get($configuration, listSmallMaxWidthTablet);
-      height: map-get($configuration, listSmallHeightTablet);
-      min-height: map-get($configuration, listSmallMinHeightTablet);
-      max-height: map-get($configuration, listSmallMaxHeightTablet);
       margin: map-get($configuration, listSmallMarginTopTablet)
         map-get($configuration, listSmallMarginRightTablet)
         map-get($configuration, listSmallMarginBottomTablet)
@@ -179,9 +163,6 @@
       width: map-get($configuration, listSmallWidthDesktop);
       min-width: map-get($configuration, listSmallMinWidthDesktop);
       max-width: map-get($configuration, listSmallMaxWidthDesktop);
-      height: map-get($configuration, listSmallHeightDesktop);
-      min-height: map-get($configuration, listSmallMinHeightDesktop);
-      max-height: map-get($configuration, listSmallMaxHeightDesktop);
       margin: map-get($configuration, listSmallMarginTopDesktop)
         map-get($configuration, listSmallMarginRightDesktop)
         map-get($configuration, listSmallMarginBottomDesktop)
