@@ -17,8 +17,98 @@
             "description": "Background color",
             "fields": [
               {
-                "name": "bodyBackground",
+                "name": "quickBackground",
                 "default": "#ffffff",
+                "label": "Background color",
+                "type": "color",
+                "isQuickSetting": true
+              }
+            ]
+          },
+          {
+            "description": "Headings color",
+            "fields": [
+              {
+                "name": "headingTextColor",
+                "default": "#333333",
+                "label": "Headings color",
+                "type": "color",
+                "isQuickSetting": true
+              }
+            ]
+          },
+          {
+            "description": "Paragraph text color",
+            "fields": [
+              {
+                "name": "quickTextColor",
+                "default": "#666666",
+                "label": "Paragraph text color",
+                "type": "color",
+                "isQuickSetting": true
+              }
+            ]
+          },
+          {
+            "description": "Highlight color",
+            "fields": [
+              {
+                "name": "highlightColor",
+                "default": "#00abd1",
+                "label": "Highlight color",
+                "type": "color",
+                "isQuickSetting": true
+              }
+            ]
+          },
+          {
+            "description": "Secondary color",
+            "fields": [
+              {
+                "name": "secondaryColor",
+                "default": "#ed9119",
+                "label": "Secondary color",
+                "type": "color",
+                "isQuickSetting": true
+              }
+            ]
+          },
+          {
+            "description": "Heading font family",
+            "fields": [
+              {
+                "name": "quickHeadingFontFamily",
+                "default": "helvetica",
+                "label": "Heading font family",
+                "type": "font",
+                "isQuickSetting": true
+              }
+            ]
+          },
+          {
+            "description": "Body text font family",
+            "fields": [
+              {
+                "name": "quickTextFontFamily",
+                "default": "helvetica",
+                "label": "Body text font family",
+                "type": "font",
+                "isQuickSetting": true
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "General",
+        "variables": [
+          {
+            "description": "Colors",
+            "fields": [
+              {
+                "name": "bodyBackground",
+                "default": "$quickBackground",
+                 "isFullRow": true,
                 "breakpoints": {
                   "tablet": {
                     "name": "bodyBackgroundTablet",
@@ -31,36 +121,11 @@
                 },
                 "label": "Background color",
                 "type": "color"
-              }
-            ]
-          },
-          {
-            "description": "Headings color",
-            "fields": [
-              {
-                "name": "headingTextColor",
-                "default": "#333333",
-                "breakpoints": {
-                  "tablet": {
-                    "name": "headingTextColorTablet",
-                    "default": "inherit-mobile"
-                  },
-                  "desktop": {
-                    "name": "headingTextColorDesktop",
-                    "default": "inherit-tablet"
-                  }
-                },
-                "label": "Headings color",
-                "type": "color"
-              }
-            ]
-          },
-          {
-            "description": "Paragraph text color",
-            "fields": [
+              },
               {
                 "name": "bodyTextColor",
-                "default": "#666666",
+                "default": "$quickTextColor",
+                 "isFullRow": true,
                 "breakpoints": {
                   "tablet": {
                     "name": "bodyTextColorTablet",
@@ -77,53 +142,12 @@
             ]
           },
           {
-            "description": "Highlight color",
-            "fields": [
-              {
-                "name": "highlightColor",
-                "default": "#00abd1",
-                "breakpoints": {
-                  "tablet": {
-                    "name": "highlightColorTablet",
-                    "default": "inherit-mobile"
-                  },
-                  "desktop": {
-                    "name": "highlightColorDesktop",
-                    "default": "inherit-tablet"
-                  }
-                },
-                "label": "Highlight color",
-                "type": "color"
-              }
-            ]
-          },
-          {
-            "description": "Secondary color",
-            "fields": [
-              {
-                "name": "secondaryColor",
-                "default": "#ed9119",
-                "breakpoints": {
-                  "tablet": {
-                    "name": "secondaryColorTablet",
-                    "default": "inherit-mobile"
-                  },
-                  "desktop": {
-                    "name": "secondaryColorDesktop",
-                    "default": "inherit-tablet"
-                  }
-                },
-                "label": "Secondary color",
-                "type": "color"
-              }
-            ]
-          },
-          {
-            "description": "Heading font family",
+            "description": "Fonts",
             "fields": [
               {
                 "name": "headingFontFamily",
-                "default": "Helvetica",
+                "default": "$quickHeadingFontFamily",
+                 "isFullRow": true,
                 "breakpoints": {
                   "tablet": {
                     "name": "headingFontFamilyTablet",
@@ -136,15 +160,11 @@
                 },
                 "label": "Heading font family",
                 "type": "font"
-              }
-            ]
-          },
-          {
-            "description": "Body text font family",
-            "fields": [
+              },
               {
                 "name": "bodyFontFamily",
-                "default": "Helvetica",
+                "default": "$quickTextFontFamily",
+                 "isFullRow": true,
                 "breakpoints": {
                   "tablet": {
                     "name": "bodyFontFamilyTablet",
@@ -174,11 +194,11 @@
                 "breakpoints": {
                   "tablet": {
                     "name": "headingOneFontFamilyTablet",
-                    "default": "$headingFontFamilyTablet"
+                    "default": "inherit-mobile"
                   },
                   "desktop": {
                     "name": "headingOneFontFamilyDesktop",
-                    "default": "$headingFontFamilyDesktop"
+                    "default": "inherit-tablet"
                   }
                 },
                 "type": "font"
@@ -327,11 +347,11 @@
                 "breakpoints": {
                   "tablet": {
                     "name": "headingTwoFontFamilyTablet",
-                    "default": "$headingFontFamilyTablet"
+                    "default": "inherit-mobile"
                   },
                   "desktop": {
                     "name": "headingTwoFontFamilyDesktop",
-                    "default": "$headingFontFamilyDesktop"
+                    "default": "inherit-tablet"
                   }
                 },
                 "type": "font"
@@ -480,11 +500,11 @@
                 "breakpoints": {
                   "tablet": {
                     "name": "headingThreeFontFamilyTablet",
-                    "default": "$headingFontFamilyTablet"
+                    "default": "inherit-mobile"
                   },
                   "desktop": {
                     "name": "headingThreeFontFamilyDesktop",
-                    "default": "$headingFontFamilyDesktop"
+                    "default": "inherit-tablet"
                   }
                 },
                 "type": "font"
@@ -633,11 +653,11 @@
                 "breakpoints": {
                   "tablet": {
                     "name": "headingFourFontFamilyTablet",
-                    "default": "$headingFontFamilyTablet"
+                    "default": "inherit-mobile"
                   },
                   "desktop": {
                     "name": "headingFourFontFamilyDesktop",
-                    "default": "$headingFontFamilyDesktop"
+                    "default": "inherit-tablet"
                   }
                 },
                 "type": "font"
@@ -786,11 +806,11 @@
                 "breakpoints": {
                   "tablet": {
                     "name": "headingFiveFontFamilyTablet",
-                    "default": "$headingFontFamilyTablet"
+                    "default": "inherit-mobile"
                   },
                   "desktop": {
                     "name": "headingFiveFontFamilyDesktop",
-                    "default": "$headingFontFamilyDesktop"
+                    "default": "inherit-tablet"
                   }
                 },
                 "type": "font"
@@ -939,11 +959,11 @@
                 "breakpoints": {
                   "tablet": {
                     "name": "headingSixFontFamilyTablet",
-                    "default": "$headingFontFamilyTablet"
+                    "default": "inherit-mobile"
                   },
                   "desktop": {
                     "name": "headingSixFontFamilyDesktop",
-                    "default": "$headingFontFamilyDesktop"
+                    "default": "inherit-tablet"
                   }
                 },
                 "type": "font"
