@@ -4231,6 +4231,13 @@
               {
                 "name": "primaryButtonWidth",
                 "default": "100%",
+                "styles": [
+                  {
+                    "parentSelector": "[data-fl-widget-instance][data-widget-package='com.fliplet.primary-button']",
+                    "selector": "",
+                    "properties": ["width"]
+                  }
+                ],
                 "breakpoints": {
                   "tablet": {
                     "name": "primaryButtonWidthTablet",
@@ -4795,6 +4802,14 @@
                 "name": "primaryButtonColor",
                 "default": "$highlightColor",
                 "isFullRow": true,
+                "styles": [
+                  {
+                    "parentSelector": "[data-fl-widget-instance][data-widget-package='com.fliplet.primary-button']",
+                    "selector": ".btn.btn-primary",
+                    "properties": ["background-color"],
+                    "dependency": "highlightColor"
+                  }
+                ],
                 "breakpoints": {
                   "tablet": {
                     "name": "primaryButtonColorTablet",
@@ -5964,6 +5979,14 @@
                 "name": "secondaryButtonColor",
                 "default": "$secondaryColor",
                 "isFullRow": true,
+                "styles": [
+                  {
+                    "parentSelector": "[data-fl-widget-instance][data-widget-package='com.fliplet.secondary-button']",
+                    "selector": ".btn.btn-secondary",
+                    "properties": ["background-color"],
+                    "dependency": "secondaryColor"
+                  }
+                ],
                 "breakpoints": {
                   "tablet": {
                     "name": "secondaryButtonColorTablet",
@@ -13230,9 +13253,10 @@
               {
                 "name": "listSmallWidth",
                 "default": "100%",
-                "style": [
+                "styles": [
                   {
-                    "selector": "[data-fl-widget-instance][data-widget-package='com.fliplet.list-small-thumbs']",
+                    "parentSelector": "[data-fl-widget-instance][data-widget-package='com.fliplet.list-small-thumbs']",
+                    "selector": "",
                     "properties": ["width"]
                   }
                 ],
