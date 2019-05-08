@@ -108,7 +108,90 @@
               {
                 "name": "bodyBackground",
                 "default": "$quickBackground",
-                 "isFullRow": true,
+                "isFullRow": true,
+                "styles": [
+                  {
+                    "selectors": [
+                      "body",
+                      ".overlay-about-app .overlayNavbar, .overlay-update-notes .overlayNavbar",
+                      ".overlay-about-app .overlayPanel .closeButton, .overlay-update-notes .overlayPanel .closeButton",
+                      ".overlay-about-app .overlayPanelContent, .overlay-update-notes .overlayPanelContent",
+                      ".overlay-about-app .overlayPanelContent .update-version, .overlay-update-notes .overlayPanelContent .update-version",
+                      ".overlay-about-app .fliplet-info, .overlay-update-notes .fliplet-info",
+                      ".collapse-end",
+                      ".image-fullscreen-wrapper .pswp__bg",
+                      ".slide-over"
+                    ],
+                    "properties": ["background-color"],
+                    "dependencies": ["quickBackground"]
+                  },
+                  {
+                    "parentSelector": ".panel-group .panel",
+                    "selectors": ".panel-body",
+                    "properties": ["background-color"],
+                    "dependencies": ["quickBackground"]
+                  },
+                  {
+                    "parentSelector": "[data-fl-widget-instance][data-widget-package='com.fliplet.chart.bar']",
+                    "selectors": ".highcharts-tooltip-box",
+                    "properties": ["fill"],
+                    "dependencies": ["quickBackground"]
+                  },
+                  {
+                    "parentSelector": "[data-fl-widget-instance][data-widget-package='com.fliplet.chart.column']",
+                    "selectors": ".highcharts-tooltip-box",
+                    "properties": ["fill"],
+                    "dependencies": ["quickBackground"]
+                  },
+                  {
+                    "parentSelector": "[data-fl-widget-instance][data-widget-package='com.fliplet.chart.scatter']",
+                    "selectors": ".highcharts-tooltip-box",
+                    "properties": ["fill"],
+                    "dependencies": ["quickBackground"]
+                  },
+                  {
+                    "parentSelector": "[data-fl-widget-instance][data-widget-package='com.fliplet.chart.line']",
+                    "selectors": ".highcharts-tooltip-box",
+                    "properties": ["fill"],
+                    "dependencies": ["quickBackground"]
+                  },
+                  {
+                    "parentSelector": "[data-fl-widget-instance][data-widget-package='com.fliplet.chart.donut']",
+                    "selectors": ".highcharts-tooltip-box",
+                    "properties": ["fill"],
+                    "dependencies": ["quickBackground"]
+                  },
+                  {
+                    "parentSelector": "[data-fl-widget-instance][data-widget-package='com.fliplet.chart.pie']",
+                    "selectors": ".highcharts-tooltip-box",
+                    "properties": ["fill"],
+                    "dependencies": ["quickBackground"]
+                  },
+                  {
+                    "parentSelector": "[data-fl-widget-instance][data-widget-package='com.fliplet.list-large-thumbs']",
+                    "selectors": ".list.list-thumb-l ul.list-save-filter li",
+                    "properties": ["background-color"],
+                    "dependencies": ["quickBackground"]
+                  },
+                  {
+                    "parentSelector": "[data-fl-widget-instance][data-widget-package='com.fliplet.list-small-thumbs']",
+                    "selectors": ".list.list-thumb-s ul.list-save-filter li",
+                    "properties": ["background-color"],
+                    "dependencies": ["quickBackground"]
+                  },
+                  {
+                    "parentSelector": "[data-fl-widget-instance][data-widget-package='com.fliplet.simple-list']",
+                    "selectors": ".list.list-default ul.list-save-filter li",
+                    "properties": ["background-color"],
+                    "dependencies": ["quickBackground"]
+                  },
+                  {
+                    "parentSelector": "[data-fl-widget-instance][data-widget-package='com.fliplet.dynamic-lists']",
+                    "selectors": ".new-small-card-list-container .search-holder .form-control, .small-card-list-container .search-holder .form-control, .new-news-feed-list-container .search-holder .form-control, .news-feed-list-container .search-holder .form-control, .simple-list-container .search-holder .form-control",
+                    "properties": ["background-color"],
+                    "dependencies": ["quickBackground"]
+                  }
+                ],
                 "breakpoints": {
                   "tablet": {
                     "name": "bodyBackgroundTablet",
@@ -125,7 +208,13 @@
               {
                 "name": "bodyTextColor",
                 "default": "$quickTextColor",
-                 "isFullRow": true,
+                "isFullRow": true,
+                "styles": [
+                  {
+                    "selectors": "body",
+                    "properties": ["background-color"]
+                  }
+                ],
                 "breakpoints": {
                   "tablet": {
                     "name": "bodyTextColorTablet",
@@ -147,7 +236,7 @@
               {
                 "name": "headingFontFamily",
                 "default": "$quickHeadingFontFamily",
-                 "isFullRow": true,
+                "isFullRow": true,
                 "breakpoints": {
                   "tablet": {
                     "name": "headingFontFamilyTablet",
@@ -164,7 +253,7 @@
               {
                 "name": "bodyFontFamily",
                 "default": "$quickTextFontFamily",
-                 "isFullRow": true,
+                "isFullRow": true,
                 "breakpoints": {
                   "tablet": {
                     "name": "bodyFontFamilyTablet",
@@ -4234,7 +4323,7 @@
                 "styles": [
                   {
                     "parentSelector": "[data-fl-widget-instance][data-widget-package='com.fliplet.primary-button']",
-                    "selector": "",
+                    "selectors": "",
                     "properties": ["width"]
                   }
                 ],
@@ -4805,9 +4894,9 @@
                 "styles": [
                   {
                     "parentSelector": "[data-fl-widget-instance][data-widget-package='com.fliplet.primary-button']",
-                    "selector": ".btn.btn-primary",
+                    "selectors": ".btn.btn-primary",
                     "properties": ["background-color"],
-                    "dependency": "highlightColor"
+                    "dependencies": ["highlightColor"]
                   }
                 ],
                 "breakpoints": {
@@ -5982,9 +6071,9 @@
                 "styles": [
                   {
                     "parentSelector": "[data-fl-widget-instance][data-widget-package='com.fliplet.secondary-button']",
-                    "selector": ".btn.btn-secondary",
+                    "selectors": ".btn.btn-secondary",
                     "properties": ["background-color"],
-                    "dependency": "secondaryColor"
+                    "dependencies": ["secondaryColor"]
                   }
                 ],
                 "breakpoints": {
@@ -12757,6 +12846,14 @@
                 "name": "listBackgroundColor",
                 "default": "$bodyBackground",
                 "isFullRow": true,
+                "styles": [
+                  {
+                    "parentSelector": "[data-fl-widget-instance][data-widget-package='com.fliplet.simple-list']",
+                    "selectors": ".list.list-default ul > li",
+                    "properties": ["background-color"],
+                    "dependencies": ["bodyBackground", "quickBackground"]
+                  }
+                ],
                 "breakpoints": {
                   "tablet": {
                     "name": "listBackgroundColorTablet",
@@ -13256,7 +13353,7 @@
                 "styles": [
                   {
                     "parentSelector": "[data-fl-widget-instance][data-widget-package='com.fliplet.list-small-thumbs']",
-                    "selector": "",
+                    "selectors": "",
                     "properties": ["width"]
                   }
                 ],
@@ -13519,8 +13616,16 @@
             "fields": [
               {
                 "name": "listSmallBackgroundColor",
-                "default": "$listBackgroundColor",
+                "default": "$bodyBackground",
                 "isFullRow": true,
+                "styles": [
+                  {
+                    "parentSelector": "[data-fl-widget-instance][data-widget-package='com.fliplet.list-small-thumbs']",
+                    "selectors": ".list.list-thumb-s ul > li",
+                    "properties": ["background-color"],
+                    "dependencies": ["bodyBackground", "quickBackground"]
+                  }
+                ],
                 "breakpoints": {
                   "tablet": {
                     "name": "listSmallBackgroundColorTablet",
@@ -13536,7 +13641,7 @@
               },
               {
                 "name": "listSmallClickColor",
-                "default": "$listClickColor",
+                "default": "rgba(51, 51, 51, 0.06)",
                 "isFullRow": true,
                 "breakpoints": {
                   "tablet": {
@@ -13553,7 +13658,7 @@
               },
               {
                 "name": "listSmallSeparatorColor",
-                "default": "$listSeparatorColor",
+                "default": "rgba(51, 51, 51, 0.2)",
                 "isFullRow": true,
                 "breakpoints": {
                   "tablet": {
@@ -13570,7 +13675,7 @@
               },
               {
                 "name": "listSmallChevronColor",
-                "default": "$listChevronColor",
+                "default": "$bodyTextColor",
                 "isFullRow": true,
                 "breakpoints": {
                   "tablet": {
@@ -13592,7 +13697,7 @@
             "fields": [
               {
                 "name": "listSmallTitleFont",
-                "default": "$titleFont",
+                "default": "$bodyFontFamily",
                 "breakpoints": {
                   "tablet": {
                     "name": "listSmallTitleFontTablet",
@@ -13607,7 +13712,7 @@
               },
               {
                 "name": "listSmallTitleSize",
-                "default": "$titleSize",
+                "default": "16px",
                 "breakpoints": {
                   "tablet": {
                     "name": "listSmallTitleSizeTablet",
@@ -13623,7 +13728,7 @@
               },
               {
                 "name": "listSmallTitleColor",
-                "default": "$titleColor",
+                "default": "$bodyTextColor",
                 "breakpoints": {
                   "tablet": {
                     "name": "listSmallTitleColorTablet",
@@ -13638,7 +13743,7 @@
               },
               {
                 "name": "listSmallTitleWeight",
-                "default": "$titleWeight",
+                "default": "bold",
                 "breakpoints": {
                   "tablet": {
                     "name": "listSmallTitleWeightTablet",
@@ -13654,7 +13759,7 @@
               },
               {
                 "name": "listSmallTitleStyle",
-                "default": "$titleStyle",
+                "default": "normal",
                 "breakpoints": {
                   "tablet": {
                     "name": "listSmallTitleStyleTablet",
@@ -13670,7 +13775,7 @@
               },
               {
                 "name": "listSmallTitleDecoration",
-                "default": "$titleDecoration",
+                "default": "none",
                 "breakpoints": {
                   "tablet": {
                     "name": "listSmallTitleDecorationTablet",
@@ -13692,7 +13797,7 @@
             "fields": [
               {
                 "name": "listSmallDescriptionFont",
-                "default": "$descriptionFont",
+                "default": "$bodyFontFamily",
                 "breakpoints": {
                   "tablet": {
                     "name": "listSmallDescriptionFontTablet",
@@ -13707,7 +13812,7 @@
               },
               {
                 "name": "listSmallDescriptionSize",
-                "default": "$descriptionSize",
+                "default": "14px",
                 "breakpoints": {
                   "tablet": {
                     "name": "listSmallDescriptionSizeTablet",
@@ -13723,7 +13828,7 @@
               },
               {
                 "name": "listSmallDescriptionColor",
-                "default": "$descriptionColor",
+                "default": "rgba(51,51,51,0.75)",
                 "breakpoints": {
                   "tablet": {
                     "name": "listSmallDescriptionColorTablet",
@@ -13738,7 +13843,7 @@
               },
               {
                 "name": "listSmallDescriptionWeight",
-                "default": "$descriptionWeight",
+                "default": "normal",
                 "breakpoints": {
                   "tablet": {
                     "name": "listSmallDescriptionWeightTablet",
@@ -13754,7 +13859,7 @@
               },
               {
                 "name": "listSmallDescriptionStyle",
-                "default": "$descriptionStyle",
+                "default": "normal",
                 "breakpoints": {
                   "tablet": {
                     "name": "listSmallDescriptionStyleTablet",
@@ -13770,7 +13875,7 @@
               },
               {
                 "name": "listSmallDescriptionDecoration",
-                "default": "$descriptionDecoration",
+                "default": "none",
                 "breakpoints": {
                   "tablet": {
                     "name": "listSmallDescriptionDecorationTablet",
@@ -14316,8 +14421,16 @@
             "fields": [
               {
                 "name": "listLargeBackgroundColor",
-                "default": "$listBackgroundColor",
+                "default": "$bodyBackground",
                 "isFullRow": true,
+                "styles": [
+                  {
+                    "parentSelector": "[data-fl-widget-instance][data-widget-package='com.fliplet.list-large-thumbs']",
+                    "selectors": ".list.list-thumb-l ul > li",
+                    "properties": ["background-color"],
+                    "dependencies": ["bodyBackground", "quickBackground"]
+                  }
+                ],
                 "breakpoints": {
                   "tablet": {
                     "name": "listLargeBackgroundColorTablet",
@@ -14333,7 +14446,7 @@
               },
               {
                 "name": "listLargeClickColor",
-                "default": "$listClickColor",
+                "default": "rgba(51, 51, 51, 0.06)",
                 "isFullRow": true,
                 "breakpoints": {
                   "tablet": {
@@ -14350,7 +14463,7 @@
               },
               {
                 "name": "listLargeSeparatorColor",
-                "default": "$listSeparatorColor",
+                "default": "rgba(51, 51, 51, 0.2)",
                 "isFullRow": true,
                 "breakpoints": {
                   "tablet": {
@@ -14367,7 +14480,7 @@
               },
               {
                 "name": "listLargeChevronColor",
-                "default": "$listChevronColor",
+                "default": "$bodyTextColor",
                 "isFullRow": true,
                 "breakpoints": {
                   "tablet": {
@@ -14389,7 +14502,7 @@
             "fields": [
               {
                 "name": "listLargeTitleFont",
-                "default": "$titleFont",
+                "default": "$bodyFontFamily",
                 "breakpoints": {
                   "tablet": {
                     "name": "listLargeTitleFontTablet",
@@ -14404,7 +14517,7 @@
               },
               {
                 "name": "listLargeTitleSize",
-                "default": "$titleSize",
+                "default": "16px",
                 "breakpoints": {
                   "tablet": {
                     "name": "listLargeTitleSizeTablet",
@@ -14420,7 +14533,7 @@
               },
               {
                 "name": "listLargeTitleColor",
-                "default": "$titleColor",
+                "default": "$bodyTextColor",
                 "breakpoints": {
                   "tablet": {
                     "name": "listLargeTitleColorTablet",
@@ -14435,7 +14548,7 @@
               },
               {
                 "name": "listLargeTitleWeight",
-                "default": "$titleWeight",
+                "default": "bold",
                 "breakpoints": {
                   "tablet": {
                     "name": "listLargeTitleWeightTablet",
@@ -14451,7 +14564,7 @@
               },
               {
                 "name": "listLargeTitleStyle",
-                "default": "$titleStyle",
+                "default": "normal",
                 "breakpoints": {
                   "tablet": {
                     "name": "listLargeTitleStyleTablet",
@@ -14467,7 +14580,7 @@
               },
               {
                 "name": "listLargeTitleDecoration",
-                "default": "$titleDecoration",
+                "default": "none",
                 "breakpoints": {
                   "tablet": {
                     "name": "listLargeTitleDecorationTablet",
@@ -14489,7 +14602,7 @@
             "fields": [
               {
                 "name": "listLargeDescriptionFont",
-                "default": "$descriptionFont",
+                "default": "$bodyFontFamily",
                 "breakpoints": {
                   "tablet": {
                     "name": "listLargeDescriptionFontTablet",
@@ -14504,7 +14617,7 @@
               },
               {
                 "name": "listLargeDescriptionSize",
-                "default": "$descriptionSize",
+                "default": "14px",
                 "breakpoints": {
                   "tablet": {
                     "name": "listLargeDescriptionSizeTablet",
@@ -14520,7 +14633,7 @@
               },
               {
                 "name": "listLargeDescriptionColor",
-                "default": "$descriptionColor",
+                "default": "rgba(51,51,51,0.75)",
                 "breakpoints": {
                   "tablet": {
                     "name": "listLargeDescriptionColorTablet",
@@ -14535,7 +14648,7 @@
               },
               {
                 "name": "listLargeDescriptionWeight",
-                "default": "$descriptionWeight",
+                "default": "normal",
                 "breakpoints": {
                   "tablet": {
                     "name": "listLargeDescriptionWeightTablet",
@@ -14551,7 +14664,7 @@
               },
               {
                 "name": "listLargeDescriptionStyle",
-                "default": "$descriptionStyle",
+                "default": "normal",
                 "breakpoints": {
                   "tablet": {
                     "name": "listLargeDescriptionStyleTablet",
@@ -14567,7 +14680,7 @@
               },
               {
                 "name": "listLargeDescriptionDecoration",
-                "default": "$descriptionDecoration",
+                "default": "none",
                 "breakpoints": {
                   "tablet": {
                     "name": "listLargeDescriptionDecorationTablet",
