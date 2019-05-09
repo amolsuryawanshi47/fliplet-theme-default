@@ -26,18 +26,6 @@
             ]
           },
           {
-            "description": "Headings color",
-            "fields": [
-              {
-                "name": "headingTextColor",
-                "default": "#333333",
-                "label": "Headings color",
-                "type": "color",
-                "isQuickSetting": true
-              }
-            ]
-          },
-          {
             "description": "Paragraph text color",
             "fields": [
               {
@@ -113,11 +101,16 @@
                   {
                     "selectors": [
                       "body",
-                      ".overlay-about-app .overlayNavbar, .overlay-update-notes .overlayNavbar",
-                      ".overlay-about-app .overlayPanel .closeButton, .overlay-update-notes .overlayPanel .closeButton",
-                      ".overlay-about-app .overlayPanelContent, .overlay-update-notes .overlayPanelContent",
-                      ".overlay-about-app .overlayPanelContent .update-version, .overlay-update-notes .overlayPanelContent .update-version",
-                      ".overlay-about-app .fliplet-info, .overlay-update-notes .fliplet-info",
+                      ".overlay-about-app .overlayNavbar",
+                      ".overlay-update-notes .overlayNavbar",
+                      ".overlay-about-app .overlayPanel .closeButton",
+                      ".overlay-update-notes .overlayPanel .closeButton",
+                      ".overlay-about-app .overlayPanelContent",
+                      ".overlay-update-notes .overlayPanelContent",
+                      ".overlay-about-app .overlayPanelContent .update-version",
+                      ".overlay-update-notes .overlayPanelContent .update-version",
+                      ".overlay-about-app .fliplet-info",
+                      ".overlay-update-notes .fliplet-info",
                       ".collapse-end",
                       ".image-fullscreen-wrapper .pswp__bg",
                       ".slide-over"
@@ -187,7 +180,13 @@
                   },
                   {
                     "parentSelector": "[data-fl-widget-instance][data-widget-package='com.fliplet.dynamic-lists']",
-                    "selectors": ".new-small-card-list-container .search-holder .form-control, .small-card-list-container .search-holder .form-control, .new-news-feed-list-container .search-holder .form-control, .news-feed-list-container .search-holder .form-control, .simple-list-container .search-holder .form-control",
+                    "selectors": [
+                      ".new-small-card-list-container .search-holder .form-control",
+                      ".small-card-list-container .search-holder .form-control",
+                      ".new-news-feed-list-container .search-holder .form-control",
+                      ".news-feed-list-container .search-holder .form-control",
+                      ".simple-list-container .search-holder .form-control"
+                    ],
                     "properties": ["background-color"],
                     "dependencies": ["quickBackground"]
                   }
@@ -211,8 +210,93 @@
                 "isFullRow": true,
                 "styles": [
                   {
-                    "selectors": "body",
-                    "properties": ["background-color"]
+                    "selectors": [
+                      "body",
+                      ".overlay-about-app .overlayNavbar",
+                      ".overlay-update-notes .overlayNavbar",
+                      ".overlay-about-app .overlayPanel",
+                      ".overlay-update-notes .overlayPanel",
+                      ".overlay-about-app .overlayPanel .closeButton",
+                      ".overlay-update-notes .overlayPanel .closeButton",
+                      ".overlay-about-app .overlayPanelContent",
+                      ".overlay-update-notes .overlayPanelContent",
+                      ".overlay-about-app .fliplet-info",
+                      ".overlay-update-notes .fliplet-info",
+                      ".collapse-end"
+                    ],
+                    "properties": ["color"],
+                    "dependencies": ["quickTextColor"]
+                  },
+                  {
+                    "parentSelector": "[data-fl-widget-instance][data-widget-package='app-list']",
+                    "selectors": ".helper.app-offline-notification",
+                    "properties": ["border-color"],
+                    "dependencies": ["quickTextColor"]
+                  },
+                  {
+                    "parentSelector": "[data-fl-widget-instance][data-widget-package='com.fliplet.chart.bar']",
+                    "selectors": ".highcharts-axis-title",
+                    "properties": ["fill", "color"],
+                    "dependencies": ["quickTextColor"]
+                  },
+                  {
+                    "parentSelector": "[data-fl-widget-instance][data-widget-package='com.fliplet.chart.column']",
+                    "selectors": ".highcharts-axis-title",
+                    "properties": ["fill", "color"],
+                    "dependencies": ["quickTextColor"]
+                  },
+                  {
+                    "parentSelector": "[data-fl-widget-instance][data-widget-package='com.fliplet.chart.scatter']",
+                    "selectors": [
+                      ".highcharts-axis-title",
+                      ".highcharts-axis-labels text"
+                    ],
+                    "properties": ["fill", "color"],
+                    "dependencies": ["quickTextColor"]
+                  },
+                  {
+                    "parentSelector": "[data-fl-widget-instance][data-widget-package='com.fliplet.chart.line']",
+                    "selectors": ".highcharts-axis-title",
+                    "properties": ["fill", "color"],
+                    "dependencies": ["quickTextColor"]
+                  },
+                  {
+                    "parentSelector": "[data-fl-widget-instance][data-widget-package='com.fliplet.chart.donut']",
+                    "selectors": ".highcharts-axis-title",
+                    "properties": ["fill", "color"],
+                    "dependencies": ["quickTextColor"]
+                  },
+                  {
+                    "parentSelector": "[data-fl-widget-instance][data-widget-package='com.fliplet.chart.pie']",
+                    "selectors": ".highcharts-axis-title",
+                    "properties": ["fill", "color"],
+                    "dependencies": ["quickTextColor"]
+                  },
+                  {
+                    "parentSelector": "[data-fl-widget-instance][data-widget-package='com.fliplet.form-builder']",
+                    "selectors": [
+                      ".input-group-addon",
+                      ".sending-form"
+                    ],
+                    "properties": ["color"],
+                    "dependencies": ["quickTextColor"]
+                  },
+                  {
+                    "parentSelector": "[data-fl-widget-instance][data-widget-package='com.fliplet.dynamic-lists']",
+                    "selectors": [
+                      ".new-small-card-list-container .search-holder .form-control",
+                      ".small-card-list-container .search-holder .form-control",
+                      ".new-news-feed-list-container .search-holder .form-control",
+                      ".news-feed-list-container .search-holder .form-control",
+                      ".simple-list-container .search-holder .form-control",
+                      ".new-small-card-list-container .search-holder .btn.search-btn",
+                      ".small-card-list-container .search-holder .btn.search-btn",
+                      ".new-news-feed-list-container .search-holder .btn.search-btn",
+                      ".news-feed-list-container .search-holder .btn.search-btn",
+                      ".simple-list-container .search-holder .btn.search-btn"
+                    ],
+                    "properties": ["color"],
+                    "dependencies": ["quickTextColor"]
                   }
                 ],
                 "breakpoints": {
@@ -254,6 +338,13 @@
                 "name": "bodyFontFamily",
                 "default": "$quickTextFontFamily",
                 "isFullRow": true,
+                "styles": [
+                  {
+                    "selectors": "body",
+                    "properties": ["font-family"],
+                    "dependencies": ["quickTextFontFamily"]
+                  }
+                ],
                 "breakpoints": {
                   "tablet": {
                     "name": "bodyFontFamilyTablet",
@@ -280,6 +371,13 @@
               {
                 "name": "headingOneFontFamily",
                 "default": "$headingFontFamily",
+                "styles": [
+                  {
+                    "selectors": "h1",
+                    "properties": ["font-family"],
+                    "dependencies": ["quickHeadingFontFamily", "headingFontFamily"]
+                  }
+                ],
                 "breakpoints": {
                   "tablet": {
                     "name": "headingOneFontFamilyTablet",
@@ -295,6 +393,12 @@
               {
                 "name": "headingOneSize",
                 "default": "36px",
+                "styles": [
+                  {
+                    "selectors": "h1",
+                    "properties": ["font-size"]
+                  }
+                ],
                 "breakpoints": {
                   "tablet": {
                     "name": "headingOneSizeTablet",
@@ -311,6 +415,13 @@
               {
                 "name": "headingOneColor",
                 "default": "$highlightColor",
+                "styles": [
+                  {
+                    "selectors": "h1",
+                    "properties": ["color"],
+                    "dependencies": ["highlightColor"]
+                  }
+                ],
                 "breakpoints": {
                   "tablet": {
                     "name": "headingOneColorTablet",
@@ -326,6 +437,12 @@
               {
                 "name": "headingOneWeight",
                 "default": "normal",
+                "styles": [
+                  {
+                    "selectors": "h1",
+                    "properties": ["font-weight"]
+                  }
+                ],
                 "breakpoints": {
                   "tablet": {
                     "name": "headingOneWeightTablet",
@@ -342,6 +459,12 @@
               {
                 "name": "headingOneStyle",
                 "default": "normal",
+                "styles": [
+                  {
+                    "selectors": "h1",
+                    "properties": ["font-style"]
+                  }
+                ],
                 "breakpoints": {
                   "tablet": {
                     "name": "headingOneStyleTablet",
@@ -358,6 +481,12 @@
               {
                 "name": "headingOneDecoration",
                 "default": "none",
+                "styles": [
+                  {
+                    "selectors": "h1",
+                    "properties": ["text-decoration"]
+                  }
+                ],
                 "breakpoints": {
                   "tablet": {
                     "name": "headingOneDecorationTablet",
@@ -375,6 +504,12 @@
               {
                 "name": "headingOneHeight",
                 "default": "1.3",
+                "styles": [
+                  {
+                    "selectors": "h1",
+                    "properties": ["line-height"]
+                  }
+                ],
                 "breakpoints": {
                   "tablet": {
                     "name": "headingOneHeightTablet",
@@ -392,6 +527,12 @@
               {
                 "name": "headingOneMarginTop",
                 "default": "25px",
+                "styles": [
+                  {
+                    "selectors": "h1",
+                    "properties": ["margin-top"]
+                  }
+                ],
                 "breakpoints": {
                   "tablet": {
                     "name": "headingOneMarginTopTablet",
@@ -410,6 +551,12 @@
               {
                 "name": "headingOneMarginBottom",
                 "default": "20px",
+                "styles": [
+                  {
+                    "selectors": "h1",
+                    "properties": ["margin-bottom"]
+                  }
+                ],
                 "breakpoints": {
                   "tablet": {
                     "name": "headingOneMarginBottomTablet",
@@ -433,6 +580,13 @@
               {
                 "name": "headingTwoFontFamily",
                 "default": "$headingFontFamily",
+                "styles": [
+                  {
+                    "selectors": "h2",
+                    "properties": ["font-family"],
+                    "dependencies": ["quickHeadingFontFamily", "headingFontFamily"]
+                  }
+                ],
                 "breakpoints": {
                   "tablet": {
                     "name": "headingTwoFontFamilyTablet",
@@ -448,6 +602,12 @@
               {
                 "name": "headingTwoSize",
                 "default": "30px",
+                "styles": [
+                  {
+                    "selectors": "h2",
+                    "properties": ["font-size"]
+                  }
+                ],
                 "breakpoints": {
                   "tablet": {
                     "name": "headingTwoSizeTablet",
@@ -464,6 +624,13 @@
               {
                 "name": "headingTwoColor",
                 "default": "$highlightColor",
+                "styles": [
+                  {
+                    "selectors": "h2",
+                    "properties": ["color"],
+                    "dependencies": ["highlightColor"]
+                  }
+                ],
                 "breakpoints": {
                   "tablet": {
                     "name": "headingTwoColorTablet",
@@ -479,6 +646,12 @@
               {
                 "name": "headingTwoWeight",
                 "default": "normal",
+                "styles": [
+                  {
+                    "selectors": "h2",
+                    "properties": ["font-weight"]
+                  }
+                ],
                 "breakpoints": {
                   "tablet": {
                     "name": "headingTwoWeightTablet",
@@ -495,6 +668,12 @@
               {
                 "name": "headingTwoStyle",
                 "default": "normal",
+                "styles": [
+                  {
+                    "selectors": "h2",
+                    "properties": ["font-style"]
+                  }
+                ],
                 "breakpoints": {
                   "tablet": {
                     "name": "headingTwoStyleTablet",
@@ -511,6 +690,12 @@
               {
                 "name": "headingTwoDecoration",
                 "default": "none",
+                "styles": [
+                  {
+                    "selectors": "h2",
+                    "properties": ["text-decoration"]
+                  }
+                ],
                 "breakpoints": {
                   "tablet": {
                     "name": "headingTwoDecorationTablet",
@@ -528,6 +713,12 @@
               {
                 "name": "headingTwoHeight",
                 "default": "1.3",
+                "styles": [
+                  {
+                    "selectors": "h2",
+                    "properties": ["line-height"]
+                  }
+                ],
                 "breakpoints": {
                   "tablet": {
                     "name": "headingTwoHeightTablet",
@@ -545,6 +736,12 @@
               {
                 "name": "headingTwoMarginTop",
                 "default": "25px",
+                "styles": [
+                  {
+                    "selectors": "h2",
+                    "properties": ["margin-top"]
+                  }
+                ],
                 "breakpoints": {
                   "tablet": {
                     "name": "headingTwoMarginTopTablet",
@@ -563,6 +760,12 @@
               {
                 "name": "headingTwoMarginBottom",
                 "default": "20px",
+                "styles": [
+                  {
+                    "selectors": "h2",
+                    "properties": ["margin-bottom"]
+                  }
+                ],
                 "breakpoints": {
                   "tablet": {
                     "name": "headingTwoMarginBottomTablet",
@@ -586,6 +789,13 @@
               {
                 "name": "headingThreeFontFamily",
                 "default": "$headingFontFamily",
+                "styles": [
+                  {
+                    "selectors": "h3",
+                    "properties": ["font-family"],
+                    "dependencies": ["quickHeadingFontFamily", "headingFontFamily"]
+                  }
+                ],
                 "breakpoints": {
                   "tablet": {
                     "name": "headingThreeFontFamilyTablet",
@@ -601,6 +811,12 @@
               {
                 "name": "headingThreeSize",
                 "default": "24px",
+                "styles": [
+                  {
+                    "selectors": "h3",
+                    "properties": ["font-size"]
+                  }
+                ],
                 "breakpoints": {
                   "tablet": {
                     "name": "headingThreeSizeTablet",
@@ -617,6 +833,13 @@
               {
                 "name": "headingThreeColor",
                 "default": "$bodyTextColor",
+                "styles": [
+                  {
+                    "selectors": "h3",
+                    "properties": ["color"],
+                    "dependencies": ["bodyTextColor"]
+                  }
+                ],
                 "breakpoints": {
                   "tablet": {
                     "name": "headingThreeColorTablet",
@@ -632,6 +855,12 @@
               {
                 "name": "headingThreeWeight",
                 "default": "normal",
+                "styles": [
+                  {
+                    "selectors": "h3",
+                    "properties": ["font-weight"]
+                  }
+                ],
                 "breakpoints": {
                   "tablet": {
                     "name": "headingThreeWeightTablet",
@@ -648,6 +877,12 @@
               {
                 "name": "headingThreeStyle",
                 "default": "normal",
+                "styles": [
+                  {
+                    "selectors": "h3",
+                    "properties": ["font-style"]
+                  }
+                ],
                 "breakpoints": {
                   "tablet": {
                     "name": "headingThreeStyleTablet",
@@ -664,6 +899,12 @@
               {
                 "name": "headingThreeDecoration",
                 "default": "none",
+                "styles": [
+                  {
+                    "selectors": "h3",
+                    "properties": ["text-decoration"]
+                  }
+                ],
                 "breakpoints": {
                   "tablet": {
                     "name": "headingThreeDecorationTablet",
@@ -681,6 +922,12 @@
               {
                 "name": "headingThreeHeight",
                 "default": "1.3",
+                "styles": [
+                  {
+                    "selectors": "h3",
+                    "properties": ["line-height"]
+                  }
+                ],
                 "breakpoints": {
                   "tablet": {
                     "name": "headingThreeHeightTablet",
@@ -698,6 +945,12 @@
               {
                 "name": "headingThreeMarginTop",
                 "default": "20px",
+                "styles": [
+                  {
+                    "selectors": "h3",
+                    "properties": ["margin-top"]
+                  }
+                ],
                 "breakpoints": {
                   "tablet": {
                     "name": "headingThreeMarginTopTablet",
@@ -716,6 +969,12 @@
               {
                 "name": "headingThreeMarginBottom",
                 "default": "15px",
+                "styles": [
+                  {
+                    "selectors": "h3",
+                    "properties": ["margin-bottom"]
+                  }
+                ],
                 "breakpoints": {
                   "tablet": {
                     "name": "headingThreeMarginBottomTablet",
@@ -739,6 +998,13 @@
               {
                 "name": "headingFourFontFamily",
                 "default": "$headingFontFamily",
+                "styles": [
+                  {
+                    "selectors": "h4",
+                    "properties": ["font-family"],
+                    "dependencies": ["quickHeadingFontFamily", "headingFontFamily"]
+                  }
+                ],
                 "breakpoints": {
                   "tablet": {
                     "name": "headingFourFontFamilyTablet",
@@ -754,6 +1020,12 @@
               {
                 "name": "headingFourSize",
                 "default": "18px",
+                "styles": [
+                  {
+                    "selectors": "h4",
+                    "properties": ["font-size"]
+                  }
+                ],
                 "breakpoints": {
                   "tablet": {
                     "name": "headingFourSizeTablet",
@@ -770,6 +1042,13 @@
               {
                 "name": "headingFourColor",
                 "default": "$bodyTextColor",
+                "styles": [
+                  {
+                    "selectors": "h4",
+                    "properties": ["color"],
+                    "dependencies": ["bodyTextColor"]
+                  }
+                ],
                 "breakpoints": {
                   "tablet": {
                     "name": "headingFourColorTablet",
@@ -785,6 +1064,12 @@
               {
                 "name": "headingFourWeight",
                 "default": "normal",
+                "styles": [
+                  {
+                    "selectors": "h4",
+                    "properties": ["font-weight"]
+                  }
+                ],
                 "breakpoints": {
                   "tablet": {
                     "name": "headingFourWeightTablet",
@@ -801,6 +1086,12 @@
               {
                 "name": "headingFourStyle",
                 "default": "normal",
+                "styles": [
+                  {
+                    "selectors": "h4",
+                    "properties": ["font-style"]
+                  }
+                ],
                 "breakpoints": {
                   "tablet": {
                     "name": "headingFourStyleTablet",
@@ -817,6 +1108,12 @@
               {
                 "name": "headingFourDecoration",
                 "default": "none",
+                "styles": [
+                  {
+                    "selectors": "h4",
+                    "properties": ["text-decoration"]
+                  }
+                ],
                 "breakpoints": {
                   "tablet": {
                     "name": "headingFourDecorationTablet",
@@ -834,6 +1131,12 @@
               {
                 "name": "headingFourHeight",
                 "default": "1.3",
+                "styles": [
+                  {
+                    "selectors": "h4",
+                    "properties": ["line-height"]
+                  }
+                ],
                 "breakpoints": {
                   "tablet": {
                     "name": "headingFourHeightTablet",
@@ -851,6 +1154,12 @@
               {
                 "name": "headingFourMarginTop",
                 "default": "10px",
+                "styles": [
+                  {
+                    "selectors": "h4",
+                    "properties": ["margin-top"]
+                  }
+                ],
                 "breakpoints": {
                   "tablet": {
                     "name": "headingFourMarginTopTablet",
@@ -869,6 +1178,12 @@
               {
                 "name": "headingFourMarginBottom",
                 "default": "10px",
+                "styles": [
+                  {
+                    "selectors": "h4",
+                    "properties": ["margin-bottom"]
+                  }
+                ],
                 "breakpoints": {
                   "tablet": {
                     "name": "headingFourMarginBottomTablet",
@@ -892,6 +1207,13 @@
               {
                 "name": "headingFiveFontFamily",
                 "default": "$headingFontFamily",
+                "styles": [
+                  {
+                    "selectors": "h5",
+                    "properties": ["font-family"],
+                    "dependencies": ["quickHeadingFontFamily", "headingFontFamily"]
+                  }
+                ],
                 "breakpoints": {
                   "tablet": {
                     "name": "headingFiveFontFamilyTablet",
@@ -907,6 +1229,12 @@
               {
                 "name": "headingFiveSize",
                 "default": "14px",
+                "styles": [
+                  {
+                    "selectors": "h5",
+                    "properties": ["font-size"]
+                  }
+                ],
                 "breakpoints": {
                   "tablet": {
                     "name": "headingFiveSizeTablet",
@@ -923,6 +1251,13 @@
               {
                 "name": "headingFiveColor",
                 "default": "$bodyTextColor",
+                "styles": [
+                  {
+                    "selectors": "h5",
+                    "properties": ["color"],
+                    "dependencies": ["bodyTextColor"]
+                  }
+                ],
                 "breakpoints": {
                   "tablet": {
                     "name": "headingFiveColorTablet",
@@ -938,6 +1273,12 @@
               {
                 "name": "headingFiveWeight",
                 "default": "normal",
+                "styles": [
+                  {
+                    "selectors": "h5",
+                    "properties": ["font-weight"]
+                  }
+                ],
                 "breakpoints": {
                   "tablet": {
                     "name": "headingFiveWeightTablet",
@@ -954,6 +1295,12 @@
               {
                 "name": "headingFiveStyle",
                 "default": "normal",
+                "styles": [
+                  {
+                    "selectors": "h5",
+                    "properties": ["font-style"]
+                  }
+                ],
                 "breakpoints": {
                   "tablet": {
                     "name": "headingFiveStyleTablet",
@@ -970,6 +1317,12 @@
               {
                 "name": "headingFiveDecoration",
                 "default": "none",
+                "styles": [
+                  {
+                    "selectors": "h5",
+                    "properties": ["text-decoration"]
+                  }
+                ],
                 "breakpoints": {
                   "tablet": {
                     "name": "headingFiveDecorationTablet",
@@ -987,6 +1340,12 @@
               {
                 "name": "headingFiveHeight",
                 "default": "1.3",
+                "styles": [
+                  {
+                    "selectors": "h5",
+                    "properties": ["line-height"]
+                  }
+                ],
                 "breakpoints": {
                   "tablet": {
                     "name": "headingFiveHeightTablet",
@@ -1004,6 +1363,12 @@
               {
                 "name": "headingFiveMarginTop",
                 "default": "10px",
+                "styles": [
+                  {
+                    "selectors": "h5",
+                    "properties": ["margin-top"]
+                  }
+                ],
                 "breakpoints": {
                   "tablet": {
                     "name": "headingFiveMarginTopTablet",
@@ -1022,6 +1387,12 @@
               {
                 "name": "headingFiveMarginBottom",
                 "default": "10px",
+                "styles": [
+                  {
+                    "selectors": "h5",
+                    "properties": ["margin-bottom"]
+                  }
+                ],
                 "breakpoints": {
                   "tablet": {
                     "name": "headingFiveMarginBottomTablet",
@@ -1045,6 +1416,13 @@
               {
                 "name": "headingSixFontFamily",
                 "default": "$headingFontFamily",
+                "styles": [
+                  {
+                    "selectors": "h6",
+                    "properties": ["font-family"],
+                    "dependencies": ["quickHeadingFontFamily", "headingFontFamily"]
+                  }
+                ],
                 "breakpoints": {
                   "tablet": {
                     "name": "headingSixFontFamilyTablet",
@@ -1060,6 +1438,12 @@
               {
                 "name": "headingSixSize",
                 "default": "12px",
+                "styles": [
+                  {
+                    "selectors": "h6",
+                    "properties": ["font-size"]
+                  }
+                ],
                 "breakpoints": {
                   "tablet": {
                     "name": "headingSixSizeTablet",
@@ -1076,6 +1460,13 @@
               {
                 "name": "headingSixColor",
                 "default": "$bodyTextColor",
+                "styles": [
+                  {
+                    "selectors": "h6",
+                    "properties": ["color"],
+                    "dependencies": ["bodyTextColor"]
+                  }
+                ],
                 "breakpoints": {
                   "tablet": {
                     "name": "headingSixColorTablet",
@@ -1091,6 +1482,12 @@
               {
                 "name": "headingSixWeight",
                 "default": "normal",
+                "styles": [
+                  {
+                    "selectors": "h6",
+                    "properties": ["font-weight"]
+                  }
+                ],
                 "breakpoints": {
                   "tablet": {
                     "name": "headingSixWeightTablet",
@@ -1107,6 +1504,12 @@
               {
                 "name": "headingSixStyle",
                 "default": "normal",
+                "styles": [
+                  {
+                    "selectors": "h6",
+                    "properties": ["font-style"]
+                  }
+                ],
                 "breakpoints": {
                   "tablet": {
                     "name": "headingSixStyleTablet",
@@ -1123,6 +1526,12 @@
               {
                 "name": "headingSixDecoration",
                 "default": "none",
+                "styles": [
+                  {
+                    "selectors": "h6",
+                    "properties": ["text-decoration"]
+                  }
+                ],
                 "breakpoints": {
                   "tablet": {
                     "name": "headingSixDecorationTablet",
@@ -1140,6 +1549,12 @@
               {
                 "name": "headingSixHeight",
                 "default": "1.3",
+                "styles": [
+                  {
+                    "selectors": "h6",
+                    "properties": ["line-height"]
+                  }
+                ],
                 "breakpoints": {
                   "tablet": {
                     "name": "headingSixHeightTablet",
@@ -1157,6 +1572,12 @@
               {
                 "name": "headingSixMarginTop",
                 "default": "10px",
+                "styles": [
+                  {
+                    "selectors": "h6",
+                    "properties": ["margin-top"]
+                  }
+                ],
                 "breakpoints": {
                   "tablet": {
                     "name": "headingSixMarginTopTablet",
@@ -1175,6 +1596,12 @@
               {
                 "name": "headingSixMarginBottom",
                 "default": "10px",
+                "styles": [
+                  {
+                    "selectors": "h6",
+                    "properties": ["margin-bottom"]
+                  }
+                ],
                 "breakpoints": {
                   "tablet": {
                     "name": "headingSixMarginBottomTablet",
@@ -1252,6 +1679,13 @@
               {
                 "name": "introBodyBackgroundColor",
                 "default": "$highlightColor",
+                "styles": [
+                  {
+                    "selectors": ".fl-intro-layout",
+                    "properties": ["background-color"],
+                    "dependencies": ["highlightColor"]
+                  }
+                ],
                 "breakpoints": {
                   "tablet": {
                     "name": "introBodyBackgroundColorTablet",
@@ -1267,6 +1701,12 @@
               {
                 "name": "introBodyBackgroundImage",
                 "default": "none",
+                "styles": [
+                  {
+                    "selectors": ".fl-intro-layout",
+                    "properties": ["background-image"]
+                  }
+                ],
                 "breakpoints": {
                   "tablet": {
                     "name": "introBodyBackgroundImageTablet",
@@ -1282,6 +1722,12 @@
               {
                 "name": "introBodyBackgroundPosX",
                 "default": "center",
+                "styles": [
+                  {
+                    "selectors": ".fl-intro-layout",
+                    "properties": ["background-position-x"]
+                  }
+                ],
                 "breakpoints": {
                   "tablet": {
                     "name": "introBodyBackgroundPosXTablet",
@@ -1299,6 +1745,12 @@
               {
                 "name": "introBodyBackgroundPosY",
                 "default": "center",
+                "styles": [
+                  {
+                    "selectors": ".fl-intro-layout",
+                    "properties": ["background-position-y"]
+                  }
+                ],
                 "breakpoints": {
                   "tablet": {
                     "name": "introBodyBackgroundPosYTablet",
@@ -1316,6 +1768,12 @@
               {
                 "name": "introBodyBackgroundSize",
                 "default": "cover",
+                "styles": [
+                  {
+                    "selectors": ".fl-intro-layout",
+                    "properties": ["background-size"]
+                  }
+                ],
                 "breakpoints": {
                   "tablet": {
                     "name": "introBodyBackgroundSizeTablet",
@@ -1337,6 +1795,12 @@
               {
                 "name": "introBodyBackgroundRepeat",
                 "default": "no-repeat",
+                "styles": [
+                  {
+                    "selectors": ".fl-intro-layout",
+                    "properties": ["background-repeat"]
+                  }
+                ],
                 "breakpoints": {
                   "tablet": {
                     "name": "introBodyBackgroundRepeatTablet",
@@ -1363,6 +1827,13 @@
               {
                 "name": "introBodyFontFamily",
                 "default": "$bodyFontFamily",
+                "styles": [
+                  {
+                    "selectors": ".fl-intro-layout",
+                    "properties": ["font-family"],
+                    "dependencies": ["quickTextFontFamily", "bodyFontFamily"]
+                  }
+                ],
                 "breakpoints": {
                   "tablet": {
                     "name": "introBodyFontFamilyTablet",
@@ -1378,6 +1849,12 @@
               {
                 "name": "introBodyFontSize",
                 "default": "16px",
+                "styles": [
+                  {
+                    "selectors": ".fl-intro-layout",
+                    "properties": ["font-size"]
+                  }
+                ],
                 "breakpoints": {
                   "tablet": {
                     "name": "introBodyFontSizeTablet",
@@ -1394,6 +1871,20 @@
               {
                 "name": "introBodyTextColor",
                 "default": "#ffffff",
+                "styles": [
+                  {
+                    "selectors": [
+                      ".fl-intro-layout",
+                      ".fl-intro-layout h1",
+                      ".fl-intro-layout h2",
+                      ".fl-intro-layout h3",
+                      ".fl-intro-layout h4",
+                      ".fl-intro-layout h5",
+                      ".fl-intro-layout h6"
+                    ],
+                    "properties": ["color"]
+                  }
+                ],
                 "breakpoints": {
                   "tablet": {
                     "name": "introBodyTextColorTablet",
@@ -1409,6 +1900,12 @@
               {
                 "name": "introBodyFontWeight",
                 "default": "normal",
+                "styles": [
+                  {
+                    "selectors": ".fl-intro-layout",
+                    "properties": ["font-weight"]
+                  }
+                ],
                 "breakpoints": {
                   "tablet": {
                     "name": "introBodyFontWeightTablet",
@@ -1425,6 +1922,12 @@
               {
                 "name": "introBodyFontStyle",
                 "default": "normal",
+                "styles": [
+                  {
+                    "selectors": ".fl-intro-layout",
+                    "properties": ["font-style"]
+                  }
+                ],
                 "breakpoints": {
                   "tablet": {
                     "name": "introBodyFontStyleTablet",
@@ -1441,6 +1944,12 @@
               {
                 "name": "introBodyFontDecoration",
                 "default": "none",
+                "styles": [
+                  {
+                    "selectors": ".fl-intro-layout p",
+                    "properties": ["text-decoration"]
+                  }
+                ],
                 "breakpoints": {
                   "tablet": {
                     "name": "introBodyFontDecorationTablet",
@@ -1458,6 +1967,12 @@
               {
                 "name": "introBodyLineHeight",
                 "default": "1.5",
+                "styles": [
+                  {
+                    "selectors": ".fl-intro-layout",
+                    "properties": ["line-height"]
+                  }
+                ],
                 "breakpoints": {
                   "tablet": {
                     "name": "introBodyLineHeightTablet",
@@ -1481,6 +1996,12 @@
                 "name": "introOverlayColor",
                 "default": "rgba(0, 0, 0, 0.5)",
                 "isFullRow": true,
+                "styles": [
+                  {
+                    "selectors": ".fl-intro-layout .panel-overlay > .panel-body",
+                    "properties": ["background-color"]
+                  }
+                ],
                 "breakpoints": {
                   "tablet": {
                     "name": "introOverlayColorTablet",
@@ -1502,6 +2023,12 @@
                 "name": "introOverlayPosition",
                 "default": "absolute",
                 "isFullRow": true,
+                "styles": [
+                  {
+                    "selectors": ".fl-intro-layout .panel-overlay > .panel-body",
+                    "properties": ["position"]
+                  }
+                ],
                 "logic": {
                   "relative": {
                     "hide": [
@@ -1544,6 +2071,12 @@
                 "name": "introOverlayPositionTop",
                 "default": "auto",
                 "isHalfRow": true,
+                "styles": [
+                  {
+                    "selectors": ".fl-intro-layout .panel-overlay > .panel-body",
+                    "properties": ["top"]
+                  }
+                ],
                 "breakpoints": {
                   "tablet": {
                     "name": "introOverlayPositionTopTablet",
@@ -1563,6 +2096,12 @@
                 "name": "introOverlayPositionRight",
                 "default": "15px",
                 "isHalfRow": true,
+                "styles": [
+                  {
+                    "selectors": ".fl-intro-layout .panel-overlay > .panel-body",
+                    "properties": ["right"]
+                  }
+                ],
                 "breakpoints": {
                   "tablet": {
                     "name": "introOverlayPositionRightTablet",
@@ -1582,6 +2121,12 @@
                 "name": "introOverlayPositionBottom",
                 "default": "15px",
                 "isHalfRow": true,
+                "styles": [
+                  {
+                    "selectors": ".fl-intro-layout .panel-overlay > .panel-body",
+                    "properties": ["bottom"]
+                  }
+                ],
                 "breakpoints": {
                   "tablet": {
                     "name": "introOverlayPositionBottomTablet",
@@ -1601,6 +2146,12 @@
                 "name": "introOverlayPositionLeft",
                 "default": "15px",
                 "isHalfRow": true,
+                "styles": [
+                  {
+                    "selectors": ".fl-intro-layout .panel-overlay > .panel-body",
+                    "properties": ["left"]
+                  }
+                ],
                 "breakpoints": {
                   "tablet": {
                     "name": "introOverlayPositionLeftTablet",
@@ -1625,6 +2176,12 @@
                 "name": "introOverlayPaddingTop",
                 "default": "15px",
                 "isHalfRow": true,
+                "styles": [
+                  {
+                    "selectors": ".fl-intro-layout .panel-overlay > .panel-body",
+                    "properties": ["padding-top"]
+                  }
+                ],
                 "breakpoints": {
                   "tablet": {
                     "name": "introOverlayPaddingTopTablet",
@@ -1643,6 +2200,12 @@
                 "name": "introOverlayPaddingRight",
                 "default": "15px",
                 "isHalfRow": true,
+                "styles": [
+                  {
+                    "selectors": ".fl-intro-layout .panel-overlay > .panel-body",
+                    "properties": ["padding-right"]
+                  }
+                ],
                 "breakpoints": {
                   "tablet": {
                     "name": "introOverlayPaddingRightTablet",
@@ -1661,6 +2224,12 @@
                 "name": "introOverlayPaddingBottom",
                 "default": "15px",
                 "isHalfRow": true,
+                "styles": [
+                  {
+                    "selectors": ".fl-intro-layout .panel-overlay > .panel-body",
+                    "properties": ["padding-bottom"]
+                  }
+                ],
                 "breakpoints": {
                   "tablet": {
                     "name": "introOverlayPaddingBottomTablet",
@@ -1679,6 +2248,12 @@
                 "name": "introOverlayPaddingLeft",
                 "default": "15px",
                 "isHalfRow": true,
+                "styles": [
+                  {
+                    "selectors": ".fl-intro-layout .panel-overlay > .panel-body",
+                    "properties": ["padding-left"]
+                  }
+                ],
                 "breakpoints": {
                   "tablet": {
                     "name": "introOverlayPaddingLeftTablet",
@@ -1761,6 +2336,12 @@
               {
                 "name": "introOverlayBorderWidth",
                 "default": "2px",
+                "styles": [
+                  {
+                    "selectors": ".fl-intro-layout .panel-overlay > .panel-body",
+                    "properties": ["border-width"]
+                  }
+                ],
                 "breakpoints": {
                   "tablet": {
                     "name": "introOverlayBorderWidthTablet",
@@ -1777,6 +2358,12 @@
               {
                 "name": "introOverlayBorderStyle",
                 "default": "solid",
+                "styles": [
+                  {
+                    "selectors": ".fl-intro-layout .panel-overlay > .panel-body",
+                    "properties": ["border-style"]
+                  }
+                ],
                 "breakpoints": {
                   "tablet": {
                     "name": "introOverlayBorderStyleTablet",
@@ -1792,6 +2379,12 @@
               {
                 "name": "introOverlayBorderColor",
                 "default": "rgba(0, 0, 0, 0.2)",
+                "styles": [
+                  {
+                    "selectors": ".fl-intro-layout .panel-overlay > .panel-body",
+                    "properties": ["border-color"]
+                  }
+                ],
                 "breakpoints": {
                   "tablet": {
                     "name": "introOverlayBorderColorTablet",
@@ -1807,6 +2400,12 @@
               {
                 "name": "introOverlayBorderRadius",
                 "default": "20px",
+                "styles": [
+                  {
+                    "selectors": ".fl-intro-layout .panel-overlay > .panel-body",
+                    "properties": ["border-radius"]
+                  }
+                ],
                 "breakpoints": {
                   "tablet": {
                     "name": "introOverlayBorderRadiusTablet",
