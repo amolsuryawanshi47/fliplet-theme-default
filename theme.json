@@ -3799,6 +3799,17 @@
               {
                 "name": "menuSlideFont",
                 "default": "$bodyFontFamily",
+                "styles": [
+                  {
+                    "parentSelector": "[data-fl-widget-instance][data-widget-package='com.fliplet.menu.slide-in']",
+                    "selectors": [
+                      ".fl-viewport-header .nav-title",
+                      ".fl-menu-slide-in .fl-menu-panel .fl-list-default ul"
+                    ],
+                    "properties": ["font-family"],
+                    "dependencies": ["quickTextFontFamily", "bodyFontFamily"]
+                  }
+                ],
                 "breakpoints": {
                   "tablet": {
                     "name": "menuSlideFontTablet",
@@ -3814,6 +3825,16 @@
               {
                 "name": "menuSlideFontSize",
                 "default": "16px",
+                "styles": [
+                  {
+                    "parentSelector": "[data-fl-widget-instance][data-widget-package='com.fliplet.menu.slide-in']",
+                    "selectors": [
+                      ".fl-viewport-header .nav-title",
+                      ".fl-menu-slide-in .fl-menu-panel .fl-list-default ul"
+                    ],
+                    "properties": ["font-size"]
+                  }
+                ],
                 "breakpoints": {
                   "tablet": {
                     "name": "menuSlideFontSizeTablet",
@@ -3830,6 +3851,22 @@
               {
                 "name": "menuSlideTopNavFontColor",
                 "default": "$bodyTextColor",
+                "styles": [
+                  {
+                    "parentSelector": "[data-fl-widget-instance][data-widget-package='com.fliplet.menu.slide-in']",
+                    "selectors": ".fl-viewport-header",
+                    "properties": ["color"],
+                    "dependencies": ["quickTextColor", "bodyTextColor"]
+                  },
+                  {
+                    "parentSelector": "[data-fl-widget-instance][data-widget-package='com.fliplet.menu.slide-in']",
+                    "selectors": [
+                      ".fl-menu-slide-in .fl-menu-panel .fl-list-default ul > li"
+                    ],
+                    "properties": ["border-color"],
+                    "dependencies": ["quickTextColor", "bodyTextColor"]
+                  }
+                ],
                 "breakpoints": {
                   "tablet": {
                     "name": "menuSlideTopNavFontColorTablet",
@@ -3845,6 +3882,16 @@
               {
                 "name": "menuSlideFontWeight",
                 "default": "normal",
+                "styles": [
+                  {
+                    "parentSelector": "[data-fl-widget-instance][data-widget-package='com.fliplet.menu.slide-in']",
+                    "selectors": [
+                      ".fl-viewport-header .nav-title",
+                      ".fl-menu-slide-in .fl-menu-panel .fl-list-default ul"
+                    ],
+                    "properties": ["font-weight"]
+                  }
+                ],
                 "breakpoints": {
                   "tablet": {
                     "name": "menuSlideFontWeightTablet",
@@ -3861,6 +3908,16 @@
               {
                 "name": "menuSlideFontStyle",
                 "default": "normal",
+                "styles": [
+                  {
+                    "parentSelector": "[data-fl-widget-instance][data-widget-package='com.fliplet.menu.slide-in']",
+                    "selectors": [
+                      ".fl-viewport-header .nav-title",
+                      ".fl-menu-slide-in .fl-menu-panel .fl-list-default ul"
+                    ],
+                    "properties": ["font-style"]
+                  }
+                ],
                 "breakpoints": {
                   "tablet": {
                     "name": "menuSlideFontStyleTablet",
@@ -3877,6 +3934,16 @@
               {
                 "name": "menuSlideFontDecoration",
                 "default": "none",
+                "styles": [
+                  {
+                    "parentSelector": "[data-fl-widget-instance][data-widget-package='com.fliplet.menu.slide-in']",
+                    "selectors": [
+                      ".fl-viewport-header .nav-title",
+                      ".fl-menu-slide-in .fl-menu-panel .fl-list-default ul"
+                    ],
+                    "properties": ["text-decoration"]
+                  }
+                ],
                 "breakpoints": {
                   "tablet": {
                     "name": "menuSlideFontDecorationTablet",
@@ -3900,6 +3967,13 @@
                 "name": "menuSlideTopNavBackground",
                 "default": "rgba(255, 255, 255, 0.85)",
                 "isFullRow": true,
+                "styles": [
+                  {
+                    "parentSelector": "[data-fl-widget-instance][data-widget-package='com.fliplet.menu.slide-in']",
+                    "selectors": ".fl-viewport-header",
+                    "properties": ["background-color"]
+                  }
+                ],
                 "breakpoints": {
                   "tablet": {
                     "name": "menuSlideTopNavBackgroundTablet",
@@ -3917,6 +3991,18 @@
                 "name": "menuSlideBackButtonColor",
                 "default": "$menuSlideTopNavFontColor",
                 "isFullRow": true,
+                "styles": [
+                  {
+                    "parentSelector": "[data-fl-widget-instance][data-widget-package='com.fliplet.menu.slide-in']",
+                    "selectors": [
+                      ".fl-viewport-header .nav-left",
+                      ".fl-viewport-header .nav-left-arrow",
+                      ".fl-viewport-header .nav-right-arrow"
+                    ],
+                    "properties": ["color"],
+                    "dependencies": ["quickTextColor", "bodyTextColor", "menuSlideTopNavFontColor"]
+                  }
+                ],
                 "breakpoints": {
                   "tablet": {
                     "name": "menuSlideBackButtonColorTablet",
@@ -3934,6 +4020,17 @@
                 "name": "menuSlideButtonColor",
                 "default": "$menuSlideTopNavFontColor",
                 "isFullRow": true,
+                "styles": [
+                  {
+                    "parentSelector": "[data-fl-widget-instance][data-widget-package='com.fliplet.menu.slide-in']",
+                    "selectors": [
+                      ".fl-viewport-header .nav-right .hamburger .hamburger-inner",
+                      ".fl-viewport-header .nav-center .hamburger .hamburger-inner"
+                    ],
+                    "properties": ["background-color"],
+                    "dependencies": ["quickTextColor", "bodyTextColor", "menuSlideTopNavFontColor"]
+                  }
+                ],
                 "breakpoints": {
                   "tablet": {
                     "name": "menuSlideButtonColorTablet",
@@ -3951,6 +4048,16 @@
                 "name": "menuSlideBackgroundColor",
                 "default": "#ffffff",
                 "isFullRow": true,
+                "styles": [
+                  {
+                    "parentSelector": "[data-fl-widget-instance][data-widget-package='com.fliplet.menu.slide-in']",
+                    "selectors": [
+                      ".fl-menu-slide-in .fl-menu-panel",
+                      ".fl-menu-slide-in .fl-menu-panel .fl-app-menu-toolbar"
+                    ],
+                    "properties": ["background-color"]
+                  }
+                ],
                 "breakpoints": {
                   "tablet": {
                     "name": "menuSlideBackgroundColorTablet",
@@ -3968,6 +4075,17 @@
                 "name": "menuSlideFontColor",
                 "default": "$menuSlideTopNavFontColor",
                 "isFullRow": true,
+                "styles": [
+                  {
+                    "parentSelector": "[data-fl-widget-instance][data-widget-package='com.fliplet.menu.slide-in']",
+                    "selectors": [
+                      ".fl-menu-slide-in .fl-menu-panel .fl-list-default",
+                      ".fl-menu-slide-in .fl-menu-panel .fl-list-default ul > li .fa"
+                    ],
+                    "properties": ["color"],
+                    "dependencies": ["quickTextColor", "bodyTextColor", "menuSlideTopNavFontColor"]
+                  }
+                ],
                 "breakpoints": {
                   "tablet": {
                     "name": "menuSlideFontColorTablet",
@@ -3985,6 +4103,17 @@
                 "name": "menuSlideCloseButtonColor",
                 "default": "$menuSlideTopNavFontColor",
                 "isFullRow": true,
+                "styles": [
+                  {
+                    "parentSelector": "[data-fl-widget-instance][data-widget-package='com.fliplet.menu.slide-in']",
+                    "selectors": [
+                      ".fl-viewport-header .nav-right .hamburger.is-active .hamburger-inner",
+                      ".fl-viewport-header .nav-center .hamburger.is-active .hamburger-inner"
+                    ],
+                    "properties": ["background-color"],
+                    "dependencies": ["quickTextColor", "bodyTextColor", "menuSlideTopNavFontColor"]
+                  }
+                ],
                 "breakpoints": {
                   "tablet": {
                     "name": "menuSlideCloseButtonColorTablet",
@@ -4002,6 +4131,17 @@
                 "name": "menuSlideFooterFontColor",
                 "default": "$menuSlideTopNavFontColor",
                 "isFullRow": true,
+                "styles": [
+                  {
+                    "parentSelector": "[data-fl-widget-instance][data-widget-package='com.fliplet.menu.slide-in']",
+                    "selectors": [
+                      ".fl-menu-slide-in .fl-menu-panel .fl-app-menu-toolbar .copyright",
+                      ".fl-menu-slide-in .fl-menu-panel .fl-app-menu-toolbar .copyright a"
+                    ],
+                    "properties": ["color"],
+                    "dependencies": ["quickTextColor", "bodyTextColor", "menuSlideTopNavFontColor"]
+                  }
+                ],
                 "breakpoints": {
                   "tablet": {
                     "name": "menuSlideFooterFontColorTablet",
@@ -4058,6 +4198,13 @@
               {
                 "name": "menuSlideTopNavBorderWidth",
                 "default": "1px",
+                "styles": [
+                  {
+                    "parentSelector": "[data-fl-widget-instance][data-widget-package='com.fliplet.menu.slide-in']",
+                    "selectors": ".fl-viewport-header",
+                    "properties": ["border-width"]
+                  }
+                ],
                 "breakpoints": {
                   "tablet": {
                     "name": "menuSlideTopNavBorderWidthTablet",
@@ -4089,6 +4236,13 @@
               {
                 "name": "menuSlideTopNavBorderColor",
                 "default": "rgba(127, 127, 127, 0.1)",
+                "styles": [
+                  {
+                    "parentSelector": "[data-fl-widget-instance][data-widget-package='com.fliplet.menu.slide-in']",
+                    "selectors": ".fl-viewport-header",
+                    "properties": ["border-color"]
+                  }
+                ],
                 "breakpoints": {
                   "tablet": {
                     "name": "menuSlideTopNavBorderColorTablet",
@@ -4248,6 +4402,14 @@
               {
                 "name": "menuSwipeFont",
                 "default": "$bodyFontFamily",
+                "styles": [
+                  {
+                    "parentSelector": "[data-fl-widget-instance][data-widget-package='com.fliplet.menu.sequential']",
+                    "selectors": ".fl-menu .fl-menu-panel-swipe .fl-menu-panel-wrapper .fl-list-default ul",
+                    "properties": ["font-family"],
+                    "dependencies": ["quickTextFontFamily", "bodyFontFamily"]
+                  }
+                ],
                 "breakpoints": {
                   "tablet": {
                     "name": "menuSwipeFontTablet",
@@ -4263,6 +4425,13 @@
               {
                 "name": "menuSwipeFontSize",
                 "default": "16px",
+                "styles": [
+                  {
+                    "parentSelector": "[data-fl-widget-instance][data-widget-package='com.fliplet.menu.sequential']",
+                    "selectors": ".fl-menu .fl-menu-panel-swipe .fl-menu-panel-wrapper .fl-list-default ul",
+                    "properties": ["font-size"]
+                  }
+                ],
                 "breakpoints": {
                   "tablet": {
                     "name": "menuSwipeFontSizeTablet",
@@ -4279,6 +4448,22 @@
               {
                 "name": "menuSwipeTopNavFontColor",
                 "default": "$bodyTextColor",
+                "styles": [
+                  {
+                    "parentSelector": "[data-fl-widget-instance][data-widget-package='com.fliplet.menu.sequential']",
+                    "selectors": ".fl-viewport-header",
+                    "properties": ["color"],
+                    "dependencies": ["quickTextColor", "bodyTextColor"]
+                  },
+                  {
+                    "parentSelector": "[data-fl-widget-instance][data-widget-package='com.fliplet.menu.sequential']",
+                    "selectors": [
+                      ".fl-viewport-menu ul li.linked.active"
+                    ],
+                    "properties": ["background-color"],
+                    "dependencies": ["quickTextColor", "bodyTextColor"]
+                  }
+                ],
                 "breakpoints": {
                   "tablet": {
                     "name": "menuSwipeTopNavFontColorTablet",
@@ -4294,6 +4479,15 @@
               {
                 "name": "menuSwipeFontWeight",
                 "default": "normal",
+                "styles": [
+                  {
+                    "parentSelector": "[data-fl-widget-instance][data-widget-package='com.fliplet.menu.sequential']",
+                    "selectors": [
+                      ".fl-menu .fl-menu-panel-swipe .fl-menu-panel-wrapper .fl-list-default ul"
+                    ],
+                    "properties": ["font-weight"]
+                  }
+                ],
                 "breakpoints": {
                   "tablet": {
                     "name": "menuSwipeFontWeightTablet",
@@ -4310,6 +4504,15 @@
               {
                 "name": "menuSwipeFontStyle",
                 "default": "normal",
+                "styles": [
+                  {
+                    "parentSelector": "[data-fl-widget-instance][data-widget-package='com.fliplet.menu.sequential']",
+                    "selectors": [
+                      ".fl-menu .fl-menu-panel-swipe .fl-menu-panel-wrapper .fl-list-default ul"
+                    ],
+                    "properties": ["font-style"]
+                  }
+                ],
                 "breakpoints": {
                   "tablet": {
                     "name": "menuSwipeFontStyleTablet",
@@ -4326,6 +4529,15 @@
               {
                 "name": "menuSwipeFontDecoration",
                 "default": "none",
+                "styles": [
+                  {
+                    "parentSelector": "[data-fl-widget-instance][data-widget-package='com.fliplet.menu.sequential']",
+                    "selectors": [
+                      ".fl-menu .fl-menu-panel-swipe .fl-menu-panel-wrapper .fl-list-default ul"
+                    ],
+                    "properties": ["text-decoration"]
+                  }
+                ],
                 "breakpoints": {
                   "tablet": {
                     "name": "menuSwipeFontDecorationTablet",
@@ -4349,6 +4561,16 @@
                 "name": "menuSwipeTopNavBackground",
                 "default": "rgba(255, 255, 255, 0.85)",
                 "isFullRow": true,
+                "styles": [
+                  {
+                    "parentSelector": "[data-fl-widget-instance][data-widget-package='com.fliplet.menu.sequential']",
+                    "selectors": [
+                      ".fl-viewport-header",
+                      ".fl-viewport-menu ul"
+                    ],
+                    "properties": ["background-color"]
+                  }
+                ],
                 "breakpoints": {
                   "tablet": {
                     "name": "menuSwipeTopNavBackgroundTablet",
@@ -4366,6 +4588,18 @@
                 "name": "menuSwipeBackButtonColor",
                 "default": "$menuSwipeTopNavFontColor",
                 "isFullRow": true,
+                "styles": [
+                  {
+                    "parentSelector": "[data-fl-widget-instance][data-widget-package='com.fliplet.menu.sequential']",
+                    "selectors": [
+                      ".fl-viewport-header .nav-left",
+                      ".fl-viewport-header .nav-left-arrow",
+                      ".fl-viewport-header .nav-right-arrow"
+                    ],
+                    "properties": ["color"],
+                    "dependencies": ["quickTextColor", "bodyTextColor", "menuSwipeTopNavFontColor"]
+                  }
+                ],
                 "breakpoints": {
                   "tablet": {
                     "name": "menuSwipeBackButtonColorTablet",
@@ -4383,6 +4617,17 @@
                 "name": "menuSwipeButtonColor",
                 "default": "$menuSwipeTopNavFontColor",
                 "isFullRow": true,
+                "styles": [
+                  {
+                    "parentSelector": "[data-fl-widget-instance][data-widget-package='com.fliplet.menu.sequential']",
+                    "selectors": [
+                      ".fl-viewport-header .nav-right .hamburger .hamburger-inner",
+                      ".fl-viewport-header .nav-center .hamburger .hamburger-inner"
+                    ],
+                    "properties": ["background-color"],
+                    "dependencies": ["quickTextColor", "bodyTextColor", "menuSwipeTopNavFontColor"]
+                  }
+                ],
                 "breakpoints": {
                   "tablet": {
                     "name": "menuSwipeButtonColorTablet",
@@ -4400,6 +4645,17 @@
                 "name": "menuSwipeBackgroundColor",
                 "default": "#ffffff",
                 "isFullRow": true,
+                "styles": [
+                  {
+                    "parentSelector": "[data-fl-widget-instance][data-widget-package='com.fliplet.menu.sequential']",
+                    "selectors": [
+                      ".fl-menu .fl-menu-panel-swipe .fl-menu-panel-wrapper",
+                      ".fl-menu .fl-menu-panel-swipe .fl-menu-panel-wrapper .fl-menu-body-swipe",
+                      ".fl-menu .fl-menu-panel-swipe .fl-app-menu-toolbar"
+                    ],
+                    "properties": ["background-color"]
+                  }
+                ],
                 "breakpoints": {
                   "tablet": {
                     "name": "menuSwipeBackgroundColorTablet",
@@ -4417,6 +4673,17 @@
                 "name": "menuSwipeFontColor",
                 "default": "$menuSwipeTopNavFontColor",
                 "isFullRow": true,
+                "styles": [
+                  {
+                    "parentSelector": "[data-fl-widget-instance][data-widget-package='com.fliplet.menu.sequential']",
+                    "selectors": [
+                      ".fl-menu .fl-menu-panel-swipe .fl-menu-panel-wrapper .fl-list-default",
+                      ".fl-menu .fl-menu-panel-swipe .fl-menu-panel-wrapper .fl-list-default ul > li .fa"
+                    ],
+                    "properties": ["color"],
+                    "dependencies": ["quickTextColor", "bodyTextColor", "menuSwipeTopNavFontColor"]
+                  }
+                ],
                 "breakpoints": {
                   "tablet": {
                     "name": "menuSwipeFontColorTablet",
@@ -4434,6 +4701,17 @@
                 "name": "menuSwipeCloseButtonColor",
                 "default": "$menuSwipeTopNavFontColor",
                 "isFullRow": true,
+                "styles": [
+                  {
+                    "parentSelector": "[data-fl-widget-instance][data-widget-package='com.fliplet.menu.sequential']",
+                    "selectors": [
+                      ".fl-viewport-header .nav-right .hamburger.is-active .hamburger-inner",
+                      ".fl-viewport-header .nav-center .hamburger.is-active .hamburger-inner"
+                    ],
+                    "properties": ["background-color"],
+                    "dependencies": ["quickTextColor", "bodyTextColor", "menuSwipeTopNavFontColor"]
+                  }
+                ],
                 "breakpoints": {
                   "tablet": {
                     "name": "menuSwipeCloseButtonColorTablet",
@@ -4451,6 +4729,17 @@
                 "name": "menuSwipeFooterFontColor",
                 "default": "$menuSwipeTopNavFontColor",
                 "isFullRow": true,
+                "styles": [
+                  {
+                    "parentSelector": "[data-fl-widget-instance][data-widget-package='com.fliplet.menu.sequential']",
+                    "selectors": [
+                      ".fl-menu .fl-menu-panel-swipe .fl-app-menu-toolbar .copyright",
+                      ".fl-menu .fl-menu-panel-swipe .fl-app-menu-toolbar .copyright a"
+                    ],
+                    "properties": ["color"],
+                    "dependencies": ["quickTextColor", "bodyTextColor", "menuSwipeTopNavFontColor"]
+                  }
+                ],
                 "breakpoints": {
                   "tablet": {
                     "name": "menuSwipeFooterFontColorTablet",
@@ -4507,6 +4796,13 @@
               {
                 "name": "menuSwipeTopNavBorderWidth",
                 "default": "1px",
+                "styles": [
+                  {
+                    "parentSelector": "[data-fl-widget-instance][data-widget-package='com.fliplet.menu.sequential']",
+                    "selectors": ".fl-viewport-header",
+                    "properties": ["border-width"]
+                  }
+                ],
                 "breakpoints": {
                   "tablet": {
                     "name": "menuSwipeTopNavBorderWidthTablet",
@@ -4538,6 +4834,13 @@
               {
                 "name": "menuSwipeTopNavBorderColor",
                 "default": "rgba(127, 127, 127, 0.1)",
+                "styles": [
+                  {
+                    "parentSelector": "[data-fl-widget-instance][data-widget-package='com.fliplet.menu.sequential']",
+                    "selectors": ".fl-viewport-header",
+                    "properties": ["border-color"]
+                  }
+                ],
                 "breakpoints": {
                   "tablet": {
                     "name": "menuSwipeTopNavBorderColorTablet",
@@ -4693,6 +4996,13 @@
                 "name": "menuSwipeWidth",
                 "default": "100%",
                 "isFullRow": true,
+                "styles": [
+                  {
+                    "parentSelector": "[data-fl-widget-instance][data-widget-package='com.fliplet.menu.sequential']",
+                    "selectors": ".fl-menu .fl-menu-panel-swipe",
+                    "properties": ["width"]
+                  }
+                ],
                 "breakpoints": {
                   "tablet": {
                     "name": "menuSwipeWidthTablet",
@@ -4721,6 +5031,14 @@
               {
                 "name": "menuExpFont",
                 "default": "$bodyFontFamily",
+                "styles": [
+                  {
+                    "parentSelector": "[data-fl-widget-instance][data-widget-package='com.fliplet.menu.expandable']",
+                    "selectors": ".fl-menu-circle-nav-list-holder .nav-list",
+                    "properties": ["font-family"],
+                    "dependencies": ["quickTextFontFamily", "bodyFontFamily"]
+                  }
+                ],
                 "breakpoints": {
                   "tablet": {
                     "name": "menuExpFontTablet",
@@ -4736,6 +5054,13 @@
               {
                 "name": "menuExpFontSize",
                 "default": "16px",
+                "styles": [
+                  {
+                    "parentSelector": "[data-fl-widget-instance][data-widget-package='com.fliplet.menu.expandable']",
+                    "selectors": ".fl-menu-circle-nav-list-holder .nav-list",
+                    "properties": ["font-size"]
+                  }
+                ],
                 "breakpoints": {
                   "tablet": {
                     "name": "menuExpFontSizeTablet",
@@ -4752,6 +5077,14 @@
               {
                 "name": "menuExpFontColor",
                 "default": "$bodyBackground",
+                "styles": [
+                  {
+                    "parentSelector": "[data-fl-widget-instance][data-widget-package='com.fliplet.menu.expandable']",
+                    "selectors": ".fl-menu-circle-nav-list-holder .nav-list li",
+                    "properties": ["color"],
+                    "dependencies": ["quickTextColor", "bodyTextColor"]
+                  }
+                ],
                 "breakpoints": {
                   "tablet": {
                     "name": "menuExpFontColorTablet",
@@ -4767,6 +5100,13 @@
               {
                 "name": "menuExpFontWeight",
                 "default": "normal",
+                "styles": [
+                  {
+                    "parentSelector": "[data-fl-widget-instance][data-widget-package='com.fliplet.menu.expandable']",
+                    "selectors": ".fl-menu-circle-nav-list-holder .nav-list",
+                    "properties": ["font-weight"]
+                  }
+                ],
                 "breakpoints": {
                   "tablet": {
                     "name": "menuExpFontWeightTablet",
@@ -4783,6 +5123,13 @@
               {
                 "name": "menuExpFontStyle",
                 "default": "normal",
+                "styles": [
+                  {
+                    "parentSelector": "[data-fl-widget-instance][data-widget-package='com.fliplet.menu.expandable']",
+                    "selectors": ".fl-menu-circle-nav-list-holder .nav-list",
+                    "properties": ["font-style"]
+                  }
+                ],
                 "breakpoints": {
                   "tablet": {
                     "name": "menuExpFontStyleTablet",
@@ -4799,6 +5146,13 @@
               {
                 "name": "menuExpFontDecoration",
                 "default": "none",
+                "styles": [
+                  {
+                    "parentSelector": "[data-fl-widget-instance][data-widget-package='com.fliplet.menu.expandable']",
+                    "selectors": ".fl-menu-circle-nav-list-holder .nav-list",
+                    "properties": ["text-decoration"]
+                  }
+                ],
                 "breakpoints": {
                   "tablet": {
                     "name": "menuExpFontDecorationTablet",
@@ -4822,6 +5176,17 @@
                 "name": "menuExpButtonColor",
                 "default": "$bodyTextColor",
                 "isFullRow": true,
+                "styles": [
+                  {
+                    "parentSelector": "[data-fl-widget-instance][data-widget-package='com.fliplet.menu.expandable']",
+                    "selectors": [
+                      ".fl-menu-circle-header .nav-toggle",
+                      ".fl-menu-circle-nav-holder .nav-circle"
+                    ],
+                    "properties": ["background-color"],
+                    "dependencies": ["quickTextColor", "bodyTextColor"]
+                  }
+                ],
                 "breakpoints": {
                   "tablet": {
                     "name": "menuExpButtonColorTablet",
@@ -4839,6 +5204,20 @@
                 "name": "menuExpButtonIconColor",
                 "default": "$bodyBackground",
                 "isFullRow": true,
+                "styles": [
+                  {
+                    "parentSelector": "[data-fl-widget-instance][data-widget-package='com.fliplet.menu.expandable']",
+                    "selectors": ".fl-menu-circle-header .nav-toggle",
+                    "properties": ["color"],
+                    "dependencies": ["quickBackground", "bodyBackground"]
+                  },
+                  {
+                    "parentSelector": "[data-fl-widget-instance][data-widget-package='com.fliplet.menu.expandable']",
+                    "selectors": ".fl-menu-circle-header .nav-toggle .hamburger .hamburger-inner",
+                    "properties": ["background-color"],
+                    "dependencies": ["quickBackground", "bodyBackground"]
+                  }
+                ],
                 "breakpoints": {
                   "tablet": {
                     "name": "menuExpButtonIconColorTablet",
@@ -4856,6 +5235,14 @@
                 "name": "menuExpButtonColorOpen",
                 "default": "$bodyBackground",
                 "isFullRow": true,
+                "styles": [
+                  {
+                    "parentSelector": "[data-fl-widget-instance][data-widget-package='com.fliplet.menu.expandable']",
+                    "selectors": ".fl-menu-circle-header .nav-toggle.active",
+                    "properties": ["background-color"],
+                    "dependencies": ["quickBackground", "bodyBackground"]
+                  }
+                ],
                 "breakpoints": {
                   "tablet": {
                     "name": "menuExpButtonColorOpenTablet",
@@ -4873,6 +5260,20 @@
                 "name": "menuExpButtonIconColorOpen",
                 "default": "$bodyTextColor",
                 "isFullRow": true,
+                "styles": [
+                  {
+                    "parentSelector": "[data-fl-widget-instance][data-widget-package='com.fliplet.menu.expandable']",
+                    "selectors": ".fl-menu-circle-header .nav-toggle.active",
+                    "properties": ["color"],
+                    "dependencies": ["quickTextColor", "bodyTextColor"]
+                  },
+                  {
+                    "parentSelector": "[data-fl-widget-instance][data-widget-package='com.fliplet.menu.expandable']",
+                    "selectors": ".fl-menu-circle-header .nav-toggle.active .hamburger.is-active .hamburger-inner",
+                    "properties": ["background-color"],
+                    "dependencies": ["quickTextColor", "bodyTextColor"]
+                  }
+                ],
                 "breakpoints": {
                   "tablet": {
                     "name": "menuExpButtonIconColorOpenTablet",
@@ -4890,6 +5291,14 @@
                 "name": "menuExpBackgroundOpen",
                 "default": "$bodyTextColor",
                 "isFullRow": true,
+                "styles": [
+                  {
+                    "parentSelector": "[data-fl-widget-instance][data-widget-package='com.fliplet.menu.expandable']",
+                    "selectors": ".fl-menu-circle-nav-holder .nav-circle.active",
+                    "properties": ["background-color"],
+                    "dependencies": ["quickTextColor", "bodyTextColor"]
+                  }
+                ],
                 "breakpoints": {
                   "tablet": {
                     "name": "menuExpBackgroundOpenTablet",
@@ -4907,6 +5316,14 @@
                 "name": "menuExpFooterFontColor",
                 "default": "$bodyBackground",
                 "isFullRow": true,
+                "styles": [
+                  {
+                    "parentSelector": "[data-fl-widget-instance][data-widget-package='com.fliplet.menu.expandable']",
+                    "selectors": ".fl-menu-circle-nav-list-holder .fl-menu-foot a",
+                    "properties": ["color"],
+                    "dependencies": ["quickBackground", "bodyBackground"]
+                  }
+                ],
                 "breakpoints": {
                   "tablet": {
                     "name": "menuExpFooterFontColorTablet",
@@ -5067,6 +5484,14 @@
               {
                 "name": "menuBottomFont",
                 "default": "$bodyFontFamily",
+                "styles": [
+                  {
+                    "parentSelector": "[data-fl-widget-instance][data-widget-package='com.fliplet.menu.bottom-bar']",
+                    "selectors": ".fl-bottom-bar-menu-holder li .fl-menu-title",
+                    "properties": ["font-family"],
+                    "dependencies": ["quickTextFontFamily", "bodyFontFamily"]
+                  }
+                ],
                 "breakpoints": {
                   "tablet": {
                     "name": "menuBottomFontTablet",
@@ -5082,6 +5507,13 @@
               {
                 "name": "menuBottomSize",
                 "default": "8px",
+                "styles": [
+                  {
+                    "parentSelector": "[data-fl-widget-instance][data-widget-package='com.fliplet.menu.bottom-bar']",
+                    "selectors": ".fl-bottom-bar-menu-holder li .fl-menu-title",
+                    "properties": ["font-size"]
+                  }
+                ],
                 "breakpoints": {
                   "tablet": {
                     "name": "menuBottomSizeTablet",
@@ -5098,6 +5530,13 @@
               {
                 "name": "menuBottomBarFontColor",
                 "default": "rgba(255,255,255,0.5)",
+                "styles": [
+                  {
+                    "parentSelector": "[data-fl-widget-instance][data-widget-package='com.fliplet.menu.bottom-bar']",
+                    "selectors": ".fl-bottom-bar-menu-holder",
+                    "properties": ["color"]
+                  }
+                ],
                 "breakpoints": {
                   "tablet": {
                     "name": "menuBottomBarFontColorTablet",
@@ -5113,6 +5552,13 @@
               {
                 "name": "menuBottomWeight",
                 "default": "normal",
+                "styles": [
+                  {
+                    "parentSelector": "[data-fl-widget-instance][data-widget-package='com.fliplet.menu.bottom-bar']",
+                    "selectors": ".fl-bottom-bar-menu-holder li .fl-menu-title",
+                    "properties": ["font-weight"]
+                  }
+                ],
                 "breakpoints": {
                   "tablet": {
                     "name": "menuBottomWeightTablet",
@@ -5129,6 +5575,13 @@
               {
                 "name": "menuBottomStyle",
                 "default": "normal",
+                "styles": [
+                  {
+                    "parentSelector": "[data-fl-widget-instance][data-widget-package='com.fliplet.menu.bottom-bar']",
+                    "selectors": ".fl-bottom-bar-menu-holder li .fl-menu-title",
+                    "properties": ["font-style"]
+                  }
+                ],
                 "breakpoints": {
                   "tablet": {
                     "name": "menuBottomStyleTablet",
@@ -5145,6 +5598,13 @@
               {
                 "name": "menuBottomDecoration",
                 "default": "none",
+                "styles": [
+                  {
+                    "parentSelector": "[data-fl-widget-instance][data-widget-package='com.fliplet.menu.bottom-bar']",
+                    "selectors": ".fl-bottom-bar-menu-holder li .fl-menu-title",
+                    "properties": ["text-decoration"]
+                  }
+                ],
                 "breakpoints": {
                   "tablet": {
                     "name": "menuBottomDecorationTablet",
@@ -5168,6 +5628,13 @@
                 "name": "menuBottomBarBackgroundColor",
                 "default": "#333333",
                 "isFullRow": true,
+                "styles": [
+                  {
+                    "parentSelector": "[data-fl-widget-instance][data-widget-package='com.fliplet.menu.bottom-bar']",
+                    "selectors": ".fl-bottom-bar-menu-holder ul",
+                    "properties": ["background-color"]
+                  }
+                ],
                 "breakpoints": {
                   "tablet": {
                     "name": "menuBottomBarBackgroundColorTablet",
@@ -5185,6 +5652,13 @@
                 "name": "menuBottomActiveBackground",
                 "default": "transparent",
                 "isFullRow": true,
+                "styles": [
+                  {
+                    "parentSelector": "[data-fl-widget-instance][data-widget-package='com.fliplet.menu.bottom-bar']",
+                    "selectors": ".fl-bottom-bar-menu-holder li.active",
+                    "properties": ["background-color"]
+                  }
+                ],
                 "breakpoints": {
                   "tablet": {
                     "name": "menuBottomActiveBackgroundTablet",
@@ -5202,6 +5676,17 @@
                 "name": "menuBottomBarActiveFontColor",
                 "default": "$highlightColor",
                 "isFullRow": true,
+                "styles": [
+                  {
+                    "parentSelector": "[data-fl-widget-instance][data-widget-package='com.fliplet.menu.bottom-bar']",
+                    "selectors": [
+                      ".fl-bottom-bar-menu-holder li.active .fl-menu-icon",
+                      ".fl-bottom-bar-menu-holder li.active .fl-menu-title"
+                    ],
+                    "properties": ["color"],
+                    "dependencies": ["highlightColor"]
+                  }
+                ],
                 "breakpoints": {
                   "tablet": {
                     "name": "menuBottomBarActiveFontColorTablet",
@@ -5253,6 +5738,13 @@
               {
                 "name": "primaryButtonMinWidth",
                 "default": "auto",
+                "styles": [
+                  {
+                    "parentSelector": "[data-fl-widget-instance][data-widget-package='com.fliplet.primary-button']",
+                    "selectors": "",
+                    "properties": ["min-width"]
+                  }
+                ],
                 "breakpoints": {
                   "tablet": {
                     "name": "primaryButtonMinWidthTablet",
