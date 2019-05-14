@@ -248,7 +248,7 @@
       .list-default {
 
         li {
-          border-top: map-get($configuration, directoryListBorderColor);
+          border-top: map-get($configuration, directoryListBorderWidth) map-get($configuration, directoryListBorderStyle) map-get($configuration, directoryListBorderColor);
 
           &:first-child {
             border-top: none;
@@ -258,6 +258,8 @@
             color: map-get($configuration, directoryListTitleColor);
             font-size: map-get($configuration, directoryListTitleSize);
             font-weight: map-get($configuration, directoryListTitleWeight);
+            font-style: map-get($configuration, directoryListTitleStyle);
+            text-decoration: map-get($configuration, directoryListTitleDecoration);
           }
         }
 
@@ -266,10 +268,17 @@
             color: map-get($configuration, directoryListDescColor);
             font-size: map-get($configuration, directoryListDescSize);
             font-weight: map-get($configuration, directoryListDescWeight);
+            font-style: map-get($configuration, directoryListDescStyle);
+            text-decoration: map-get($configuration, directoryListDescDecoration);
           }
 
           .icon {
             color: map-get($configuration, directoryListChevronColor);
+          }
+
+          .list-tags a {
+            color: map-get($configuration, directoryListTagsTextColor);
+            background: map-get($configuration, directoryListTagsColor);
           }
         }
       }
@@ -294,12 +303,14 @@
         .list-default {
 
           li {
-            border-top: map-get($configuration, directoryListBorderColorTablet);
+            border-top: map-get($configuration, directoryListBorderWidthTablet) map-get($configuration, directoryListBorderStyleTablet) map-get($configuration, directoryListBorderColorTablet);
 
             .list-title {
               color: map-get($configuration, directoryListTitleColorTablet);
               font-size: map-get($configuration, directoryListTitleSizeTablet);
               font-weight: map-get($configuration, directoryListTitleWeightTablet);
+              font-style: map-get($configuration, directoryListTitleStyleTablet);
+              text-decoration: map-get($configuration, directoryListTitleDecorationTablet);
             }
           }
 
@@ -308,10 +319,17 @@
               color: map-get($configuration, directoryListDescColorTablet);
               font-size: map-get($configuration, directoryListDescSizeTablet);
               font-weight: map-get($configuration, directoryListDescWeightTablet);
+              font-style: map-get($configuration, directoryListDescStyleTablet);
+              text-decoration: map-get($configuration, directoryListDescDecorationTablet);
             }
 
             .icon {
               color: map-get($configuration, directoryListChevronColorTablet);
+            }
+
+            .list-tags a {
+              background: map-get($configuration, directoryListTagsColorTablet);
+              color: map-get($configuration, directoryListTagsTextColorTablet);
             }
           }
         }
@@ -337,12 +355,14 @@
         .list-default {
 
           li {
-            border-top: map-get($configuration, directoryListBorderColorDesktop);
+            border-top: map-get($configuration, directoryListBorderWidthDesktop) map-get($configuration, directoryListBorderStyleDesktop) map-get($configuration, directoryListBorderColorDesktop);
 
             .list-title {
               color: map-get($configuration, directoryListTitleColorDesktop);
               font-size: map-get($configuration, directoryListTitleSizeDesktop);
               font-weight: map-get($configuration, directoryListTitleWeightDesktop);
+              font-style: map-get($configuration, directoryListTitleStyleDesktop);
+              text-decoration: map-get($configuration, directoryListTitleDecorationDesktop);
             }
           }
 
@@ -351,10 +371,17 @@
               color: map-get($configuration, directoryListDescColorDesktop);
               font-size: map-get($configuration, directoryListDescSizeDesktop);
               font-weight: map-get($configuration, directoryListDescWeightDesktop);
+              font-style: map-get($configuration, directoryListDescStyleDesktop);
+              text-decoration: map-get($configuration, directoryListDescDecorationDesktop);
             }
 
             .icon {
               color: map-get($configuration, directoryListChevronColorDesktop);
+            }
+
+            .list-tags a {
+              background: map-get($configuration, directoryListTagsColorDesktop);
+              color: map-get($configuration, directoryListTagsTextColorDesktop);
             }
           }
         }
@@ -394,8 +421,8 @@
           }
 
           .list-tags a {
-            color: map-get($configuration, directoryListTagsColor);
-            background: map-get($configuration, directoryListTagsTextColor);
+            color: map-get($configuration, directoryListTagsTextColor);
+            background: map-get($configuration, directoryListTagsColor);
           }
         }
       }
@@ -427,8 +454,8 @@
             }
 
             .list-tags a {
-              color: map-get($configuration, directoryListTagsColorTablet);
-              background: map-get($configuration, directoryListTagsTextColorTablet);
+              background: map-get($configuration, directoryListTagsColorTablet);
+              color: map-get($configuration, directoryListTagsTextColorTablet);
             }
           }
         }
@@ -461,8 +488,8 @@
             }
 
             .list-tags a {
-              color: map-get($configuration, directoryListTagsColorDesktop);
-              background: map-get($configuration, directoryListTagsTextColorDesktop);
+              background: map-get($configuration, directoryListTagsColorDesktop);
+              color: map-get($configuration, directoryListTagsTextColorDesktop);
             }
           }
         }
