@@ -51,9 +51,6 @@
     lfdMarginLeft: $lfdMarginLeft,
     lfdMarginLeftTablet: $lfdMarginLeftTablet,
     lfdMarginLeftDesktop: $lfdMarginLeftDesktop,
-    lfdSeparatorSides: $lfdSeparatorSides,
-    lfdSeparatorSidesTablet: $lfdSeparatorSidesTablet,
-    lfdSeparatorSidesDesktop: $lfdSeparatorSidesDesktop,
     lfdSeparatorWidth: $lfdSeparatorWidth,
     lfdSeparatorWidthTablet: $lfdSeparatorWidthTablet,
     lfdSeparatorWidthDesktop: $lfdSeparatorWidthDesktop,
@@ -62,10 +59,7 @@
     lfdSeparatorStyleDesktop: $lfdSeparatorStyleDesktop,
     lfdSeparatorColor: $lfdSeparatorColor,
     lfdSeparatorColorTablet: $lfdSeparatorColorTablet,
-    lfdSeparatorColorDesktop: $lfdSeparatorColorDesktop,
-    lfdSeparatorRadius: $lfdSeparatorRadius,
-    lfdSeparatorRadiusTablet: $lfdSeparatorRadiusTablet,
-    lfdSeparatorRadiusDesktop: $lfdSeparatorRadiusDesktop
+    lfdSeparatorColorDesktop: $lfdSeparatorColorDesktop
   ), $options);
 
   $instanceSelector: '[data-fl-widget-instance][data-widget-package="com.fliplet.dynamic-lists"]';
@@ -2579,7 +2573,7 @@
       }
 
       .simple-list-item {
-        border-bottom: 1px solid $lfdSeparatorColor;
+        border-bottom: map-get($configuration, lfdSeparatorWidth) map-get($configuration, lfdSeparatorStyle) map-get($configuration, lfdSeparatorColor);
       }
 
       .simple-list-item .list-item-description,
@@ -2596,7 +2590,7 @@
         }
 
         .simple-list-item {
-          border-bottom: 1px solid $lfdSeparatorColorTablet;
+          border-bottom: map-get($configuration, lfdSeparatorWidthTablet) map-get($configuration, lfdSeparatorStyleTablet) map-get($configuration, lfdSeparatorColorTablet);
         }
 
         .simple-list-item .list-item-description,
@@ -2614,7 +2608,7 @@
         }
 
         .simple-list-item {
-          border-bottom: 1px solid $lfdSeparatorColorDesktop;
+          border-bottom: map-get($configuration, lfdSeparatorWidthDesktop) map-get($configuration, lfdSeparatorStyleDesktop) map-get($configuration, lfdSeparatorColorDesktop);
         }
 
         .simple-list-item .list-item-description,
