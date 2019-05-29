@@ -398,6 +398,20 @@
       @include above($desktopBreakpoint) {
         color: map-get($configuration, formToggleActiveBackgroundColorDesktop);
       }
+
+      &:before {
+        background-color: map-get($configuration, formToggleActiveBackgroundColor);
+
+        // Styles for tablet
+        @include above($tabletBreakpoint) {
+          background-color: map-get($configuration, formToggleActiveBackgroundColorTablet);
+        }
+
+        // Styles for desktop
+        @include above($desktopBreakpoint) {
+          background-color: map-get($configuration, formToggleActiveBackgroundColorDesktop);
+        }
+      }
     }
 
     .radio.radio-icon input[type="radio"]:checked+label span.check>i.fa,
