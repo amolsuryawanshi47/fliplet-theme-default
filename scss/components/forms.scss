@@ -398,20 +398,6 @@
       @include above($desktopBreakpoint) {
         color: map-get($configuration, formToggleActiveBackgroundColorDesktop);
       }
-
-      &:before {
-        background-color: map-get($configuration, formToggleActiveBackgroundColor);
-
-        // Styles for tablet
-        @include above($tabletBreakpoint) {
-          background-color: map-get($configuration, formToggleActiveBackgroundColorTablet);
-        }
-
-        // Styles for desktop
-        @include above($desktopBreakpoint) {
-          background-color: map-get($configuration, formToggleActiveBackgroundColorDesktop);
-        }
-      }
     }
 
     .radio.radio-icon input[type="radio"]:checked+label span.check>i.fa,
@@ -426,6 +412,22 @@
       // Styles for desktop
       @include above($desktopBreakpoint) {
         color: map-get($configuration, formToggleColorDesktop);
+      }
+    }
+
+    .radio.radio-icon input[type="radio"]:checked+label span.check>i.fa {
+      &:before {
+        background-color: map-get($configuration, formToggleColor);
+
+        // Styles for tablet
+        @include above($tabletBreakpoint) {
+          background-color: map-get($configuration, formToggleColorTablet);
+        }
+
+        // Styles for desktop
+        @include above($desktopBreakpoint) {
+          background-color: map-get($configuration, formToggleColorDesktop);
+        }
       }
     }
 
