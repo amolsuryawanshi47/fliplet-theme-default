@@ -116,6 +116,13 @@
       bottom: map-get($configuration, imagePositionBottom);
       left: map-get($configuration, imagePositionLeft);
     }
+    width: map-get($configuration, imageWidth);
+    min-width: map-get($configuration, imageMinWidth);
+    max-width: map-get($configuration, imageMaxWidth);
+    margin: map-get($configuration, imageMarginTop)
+      map-get($configuration, imageMarginRight)
+      map-get($configuration, imageMarginBottom)
+      map-get($configuration, imageMarginLeft);
 
     // Styles for tablet
     @include above($tabletBreakpoint) {
@@ -134,6 +141,14 @@
         bottom: map-get($configuration, imagePositionBottomTablet);
         left: map-get($configuration, imagePositionLeftTablet);
       }
+
+      width: map-get($configuration, imageWidthTablet);
+      min-width: map-get($configuration, imageMinWidthTablet);
+      max-width: map-get($configuration, imageMaxWidthTablet);
+      margin: map-get($configuration, imageMarginTopTablet)
+        map-get($configuration, imageMarginRightTablet)
+        map-get($configuration, imageMarginBottomTablet)
+        map-get($configuration, imageMarginLeftTablet);
     }
 
     // Styles for desktop
@@ -153,19 +168,20 @@
         bottom: map-get($configuration, imagePositionBottomDesktop);
         left: map-get($configuration, imagePositionLeftDesktop);
       }
+
+      width: map-get($configuration, imageWidthDesktop);
+      min-width: map-get($configuration, imageMinWidthDesktop);
+      max-width: map-get($configuration, imageMaxWidthDesktop);
+      margin: map-get($configuration, imageMarginTopDesktop)
+        map-get($configuration, imageMarginRightDesktop)
+        map-get($configuration, imageMarginBottomDesktop)
+        map-get($configuration, imageMarginLeftDesktop);
     }
 
     img[data-image-id] {
-      width: map-get($configuration, imageWidth);
-      min-width: map-get($configuration, imageMinWidth);
-      max-width: map-get($configuration, imageMaxWidth);
       height: map-get($configuration, imageHeight);
       min-height: map-get($configuration, imageMinHeight);
       max-height: map-get($configuration, imageMaxHeight);
-      margin: map-get($configuration, imageMarginTop)
-        map-get($configuration, imageMarginRight)
-        map-get($configuration, imageMarginBottom)
-        map-get($configuration, imageMarginLeft);
       padding: map-get($configuration, imagePaddingTop)
         map-get($configuration, imagePaddingRight)
         map-get($configuration, imagePaddingBottom)
