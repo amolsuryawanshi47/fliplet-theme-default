@@ -165,6 +165,24 @@
       }
     }
 
+    .fl-login-form .fl-email:before,
+    .fl-login-form .fl-password:before {
+      color: $chevronSeparator;
+      border-right-color: $chevronSeparator;
+
+      // Styles for tablet
+      @include above($tabletBreakpoint) {
+        color: $chevronSeparatorTablet;
+        border-right-color: $chevronSeparatorTablet;
+      }
+
+      // Styles for desktop
+      @include above($desktopBreakpoint) {
+        color: $chevronSeparatorDesktop;
+        border-right-color: $chevronSeparatorDesktop;
+      }
+    }
+
     .state {
       .back {
         border-right: 1px solid map-get($configuration, chevronSeparator);

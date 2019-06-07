@@ -38,7 +38,7 @@
             ]
           },
           {
-            "description": "Highlight color",
+            "description": "Highlight color (Used in headings, primary buttons, etc...)",
             "fields": [
               {
                 "name": "highlightColor",
@@ -832,12 +832,12 @@
               },
               {
                 "name": "headingThreeColor",
-                "default": "$bodyTextColor",
+                "default": "$highlightColor",
                 "styles": [
                   {
                     "selectors": "h3",
                     "properties": ["color"],
-                    "dependencies": ["bodyTextColor"]
+                    "dependencies": ["highlightColor"]
                   }
                 ],
                 "breakpoints": {
@@ -1041,12 +1041,12 @@
               },
               {
                 "name": "headingFourColor",
-                "default": "$bodyTextColor",
+                "default": "$highlightColor",
                 "styles": [
                   {
                     "selectors": "h4",
                     "properties": ["color"],
-                    "dependencies": ["bodyTextColor"]
+                    "dependencies": ["highlightColor"]
                   }
                 ],
                 "breakpoints": {
@@ -1250,12 +1250,12 @@
               },
               {
                 "name": "headingFiveColor",
-                "default": "$bodyTextColor",
+                "default": "$highlightColor",
                 "styles": [
                   {
                     "selectors": "h5",
                     "properties": ["color"],
-                    "dependencies": ["bodyTextColor"]
+                    "dependencies": ["highlightColor"]
                   }
                 ],
                 "breakpoints": {
@@ -1459,12 +1459,12 @@
               },
               {
                 "name": "headingSixColor",
-                "default": "$bodyTextColor",
+                "default": "$highlightColor",
                 "styles": [
                   {
                     "selectors": "h6",
                     "properties": ["color"],
-                    "dependencies": ["bodyTextColor"]
+                    "dependencies": ["highlightColor"]
                   }
                 ],
                 "breakpoints": {
@@ -2026,7 +2026,14 @@
                 "styles": [
                   {
                     "selectors": ".fl-intro-layout .panel-overlay > .panel-body",
-                    "properties": ["position"]
+                    "properties": ["position"],
+                    "type": "position",
+                    "siblings": {
+                      "top": "introOverlayPositionTop",
+                      "right": "introOverlayPositionRight",
+                      "bottom": "introOverlayPositionBottom",
+                      "left": "introOverlayPositionLeft"
+                    }
                   }
                 ],
                 "logic": {
@@ -2347,6 +2354,34 @@
                 "subtype": "border-sides"
               },
               {
+                "name": "introOverlayBorderColor",
+                "default": "rgba(0, 0, 0, 0.2)",
+                "styles": [
+                  {
+                    "selectors": ".fl-intro-layout .panel-overlay > .panel-body",
+                    "properties": ["border"],
+                    "type": "border",
+                    "siblings": {
+                      "sides": "introOverlayBorderSides",
+                      "width": "introOverlayBorderWidth",
+                      "style": "introOverlayBorderStyle",
+                      "color": "introOverlayBorderColor"
+                    }
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "introOverlayBorderColorTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "introOverlayBorderColorDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "color"
+              },
+              {
                 "name": "introOverlayBorderWidth",
                 "default": "2px",
                 "styles": [
@@ -2402,34 +2437,6 @@
                   }
                 },
                 "type": "border-style"
-              },
-              {
-                "name": "introOverlayBorderColor",
-                "default": "rgba(0, 0, 0, 0.2)",
-                "styles": [
-                  {
-                    "selectors": ".fl-intro-layout .panel-overlay > .panel-body",
-                    "properties": ["border"],
-                    "type": "border",
-                    "siblings": {
-                      "sides": "introOverlayBorderSides",
-                      "width": "introOverlayBorderWidth",
-                      "style": "introOverlayBorderStyle",
-                      "color": "introOverlayBorderColor"
-                    }
-                  }
-                ],
-                "breakpoints": {
-                  "tablet": {
-                    "name": "introOverlayBorderColorTablet",
-                    "default": "inherit-mobile"
-                  },
-                  "desktop": {
-                    "name": "introOverlayBorderColorDesktop",
-                    "default": "inherit-tablet"
-                  }
-                },
-                "type": "color"
               },
               {
                 "name": "introOverlayBorderRadius",
@@ -6731,7 +6738,14 @@
                   {
                     "parentSelector": "[data-fl-widget-instance][data-widget-package='com.fliplet.primary-button']",
                     "selectors": "",
-                    "properties": ["position"]
+                    "properties": ["position"],
+                    "type": "position",
+                    "siblings": {
+                      "top": "primaryButtonPositionTop",
+                      "right": "primaryButtonPositionRight",
+                      "bottom": "primaryButtonPositionBottom",
+                      "left": "primaryButtonPositionLeft"
+                    }
                   }
                 ],
                 "breakpoints": {
@@ -7483,6 +7497,48 @@
                 "subtype": "border-sides"
               },
               {
+                "name": "primaryButtonBorderColor",
+                "default": "$primaryButtonColor",
+                "styles": [
+                  {
+                    "parentSelector": "[data-fl-widget-instance][data-widget-package='com.fliplet.primary-button']",
+                    "selectors": ".btn.btn-primary",
+                    "properties": ["border"],
+                    "type": "border",
+                    "siblings": {
+                      "sides": "primaryButtonBorderSides",
+                      "width": "primaryButtonBorderWidth",
+                      "style": "primaryButtonBorderStyle",
+                      "color": "primaryButtonBorderColor"
+                    },
+                    "dependencies": ["highlightColor", "primaryButtonColor"]
+                  },
+                  {
+                    "selectors": ".btn.btn-primary",
+                    "properties": ["border"],
+                    "type": "border",
+                    "siblings": {
+                      "sides": "primaryButtonBorderSides",
+                      "width": "primaryButtonBorderWidth",
+                      "style": "primaryButtonBorderStyle",
+                      "color": "primaryButtonBorderColor"
+                    },
+                    "dependencies": ["highlightColor", "primaryButtonColor"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "primaryButtonBorderColorTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "primaryButtonBorderColorDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "color"
+              },
+              {
                 "name": "primaryButtonBorderWidth",
                 "default": "1px",
                 "styles": [
@@ -7562,48 +7618,6 @@
                   }
                 },
                 "type": "border-style"
-              },
-              {
-                "name": "primaryButtonBorderColor",
-                "default": "$primaryButtonColor",
-                "styles": [
-                  {
-                    "parentSelector": "[data-fl-widget-instance][data-widget-package='com.fliplet.primary-button']",
-                    "selectors": ".btn.btn-primary",
-                    "properties": ["border"],
-                    "type": "border",
-                    "siblings": {
-                      "sides": "primaryButtonBorderSides",
-                      "width": "primaryButtonBorderWidth",
-                      "style": "primaryButtonBorderStyle",
-                      "color": "primaryButtonBorderColor"
-                    },
-                    "dependencies": ["highlightColor", "primaryButtonColor"]
-                  },
-                  {
-                    "selectors": ".btn.btn-primary",
-                    "properties": ["border"],
-                    "type": "border",
-                    "siblings": {
-                      "sides": "primaryButtonBorderSides",
-                      "width": "primaryButtonBorderWidth",
-                      "style": "primaryButtonBorderStyle",
-                      "color": "primaryButtonBorderColor"
-                    },
-                    "dependencies": ["highlightColor", "primaryButtonColor"]
-                  }
-                ],
-                "breakpoints": {
-                  "tablet": {
-                    "name": "primaryButtonBorderColorTablet",
-                    "default": "inherit-mobile"
-                  },
-                  "desktop": {
-                    "name": "primaryButtonBorderColorDesktop",
-                    "default": "inherit-tablet"
-                  }
-                },
-                "type": "color"
               },
               {
                 "name": "primaryButtonBorderRadius",
@@ -8047,6 +8061,21 @@
                 "subtype": "border-sides"
               },
               {
+                "name": "primaryButtonHoverBorderColor",
+                "default": "$highlightColor",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "primaryButtonHoverBorderColorTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "primaryButtonHoverBorderColorDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "color"
+              },
+              {
                 "name": "primaryButtonHoverBorderWidth",
                 "default": "1px",
                 "breakpoints": {
@@ -8076,21 +8105,6 @@
                   }
                 },
                 "type": "border-style"
-              },
-              {
-                "name": "primaryButtonHoverBorderColor",
-                "default": "$highlightColor",
-                "breakpoints": {
-                  "tablet": {
-                    "name": "primaryButtonHoverBorderColorTablet",
-                    "default": "inherit-mobile"
-                  },
-                  "desktop": {
-                    "name": "primaryButtonHoverBorderColorDesktop",
-                    "default": "inherit-tablet"
-                  }
-                },
-                "type": "color"
               },
               {
                 "name": "primaryButtonHoverBorderRadius",
@@ -8439,7 +8453,14 @@
                   {
                     "parentSelector": "[data-fl-widget-instance][data-widget-package='com.fliplet.secondary-button']",
                     "selectors": "",
-                    "properties": ["position"]
+                    "properties": ["position"],
+                    "type": "position",
+                    "siblings": {
+                      "top": "secondaryButtonPositionTop",
+                      "right": "secondaryButtonPositionRight",
+                      "bottom": "secondaryButtonPositionBottom",
+                      "left": "secondaryButtonPositionLeft"
+                    }
                   }
                 ],
                 "breakpoints": {
@@ -9191,6 +9212,48 @@
                 "subtype": "border-sides"
               },
               {
+                "name": "secondaryButtonBorderColor",
+                "default": "$secondaryButtonColor",
+                "styles": [
+                  {
+                    "parentSelector": "[data-fl-widget-instance][data-widget-package='com.fliplet.secondary-button']",
+                    "selectors": ".btn.btn-secondary",
+                    "properties": ["border"],
+                    "type": "border",
+                    "siblings": {
+                      "sides": "secondaryButtonBorderSides",
+                      "width": "secondaryButtonBorderWidth",
+                      "style": "secondaryButtonBorderStyle",
+                      "color": "secondaryButtonBorderColor"
+                    },
+                    "dependencies": ["secondaryColor", "secondaryButtonColor"]
+                  },
+                  {
+                    "selectors": ".btn.btn-secondary",
+                    "properties": ["border"],
+                    "type": "border",
+                    "siblings": {
+                      "sides": "secondaryButtonBorderSides",
+                      "width": "secondaryButtonBorderWidth",
+                      "style": "secondaryButtonBorderStyle",
+                      "color": "secondaryButtonBorderColor"
+                    },
+                    "dependencies": ["secondaryColor", "secondaryButtonColor"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "secondaryButtonBorderColorTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "secondaryButtonBorderColorDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "color"
+              },
+              {
                 "name": "secondaryButtonBorderWidth",
                 "default": "1px",
                 "styles": [
@@ -9270,48 +9333,6 @@
                   }
                 },
                 "type": "border-style"
-              },
-              {
-                "name": "secondaryButtonBorderColor",
-                "default": "$secondaryButtonColor",
-                "styles": [
-                  {
-                    "parentSelector": "[data-fl-widget-instance][data-widget-package='com.fliplet.secondary-button']",
-                    "selectors": ".btn.btn-secondary",
-                    "properties": ["border"],
-                    "type": "border",
-                    "siblings": {
-                      "sides": "secondaryButtonBorderSides",
-                      "width": "secondaryButtonBorderWidth",
-                      "style": "secondaryButtonBorderStyle",
-                      "color": "secondaryButtonBorderColor"
-                    },
-                    "dependencies": ["secondaryColor", "secondaryButtonColor"]
-                  },
-                  {
-                    "selectors": ".btn.btn-secondary",
-                    "properties": ["border"],
-                    "type": "border",
-                    "siblings": {
-                      "sides": "secondaryButtonBorderSides",
-                      "width": "secondaryButtonBorderWidth",
-                      "style": "secondaryButtonBorderStyle",
-                      "color": "secondaryButtonBorderColor"
-                    },
-                    "dependencies": ["secondaryColor", "secondaryButtonColor"]
-                  }
-                ],
-                "breakpoints": {
-                  "tablet": {
-                    "name": "secondaryButtonBorderColorTablet",
-                    "default": "inherit-mobile"
-                  },
-                  "desktop": {
-                    "name": "secondaryButtonBorderColorDesktop",
-                    "default": "inherit-tablet"
-                  }
-                },
-                "type": "color"
               },
               {
                 "name": "secondaryButtonBorderRadius",
@@ -9755,6 +9776,21 @@
                 "subtype": "border-sides"
               },
               {
+                "name": "secondaryButtonHoverBorderColor",
+                "default": "$secondaryColor",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "secondaryButtonHoverBorderColorTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "secondaryButtonHoverBorderColorDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "color"
+              },
+              {
                 "name": "secondaryButtonHoverBorderWidth",
                 "default": "1px",
                 "breakpoints": {
@@ -9784,21 +9820,6 @@
                   }
                 },
                 "type": "border-style"
-              },
-              {
-                "name": "secondaryButtonHoverBorderColor",
-                "default": "$secondaryColor",
-                "breakpoints": {
-                  "tablet": {
-                    "name": "secondaryButtonHoverBorderColorTablet",
-                    "default": "inherit-mobile"
-                  },
-                  "desktop": {
-                    "name": "secondaryButtonHoverBorderColorDesktop",
-                    "default": "inherit-tablet"
-                  }
-                },
-                "type": "color"
               },
               {
                 "name": "secondaryButtonHoverBorderRadius",
@@ -15366,6 +15387,42 @@
                 "subtype": "border-sides"
               },
               {
+                "name": "formInputBorderColor",
+                "default": "#e5e5e5",
+                "styles": [
+                  {
+                    "parentSelector": "[data-fl-widget-instance][data-widget-package='com.fliplet.form-builder']",
+                    "selectors": [
+                      ".form-control",
+                      ".select-proxy-display",
+                      ".select-proxy-display>.icon",
+                      ".field-signature canvas",
+                      ".form-group .mce-tinymce",
+                      ".form-group .tinymce-mobile-outer-container:not(.tinymce-mobile-fullscreen-maximized) .tinymce-mobile-editor-socket"
+                    ],
+                    "properties": ["border"],
+                    "type": "border",
+                    "siblings": {
+                      "sides": "formInputBorderSides",
+                      "width": "formInputBorderWidth",
+                      "style": "formInputBorderStyle",
+                      "color": "formInputBorderColor"
+                    }
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "formInputBorderColorTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "formInputBorderColorDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "color"
+              },
+              {
                 "name": "formInputBorderWidth",
                 "default": "1px",
                 "styles": [
@@ -15437,42 +15494,6 @@
                   }
                 },
                 "type": "border-style"
-              },
-              {
-                "name": "formInputBorderColor",
-                "default": "#e5e5e5",
-                "styles": [
-                  {
-                    "parentSelector": "[data-fl-widget-instance][data-widget-package='com.fliplet.form-builder']",
-                    "selectors": [
-                      ".form-control",
-                      ".select-proxy-display",
-                      ".select-proxy-display>.icon",
-                      ".field-signature canvas",
-                      ".form-group .mce-tinymce",
-                      ".form-group .tinymce-mobile-outer-container:not(.tinymce-mobile-fullscreen-maximized) .tinymce-mobile-editor-socket"
-                    ],
-                    "properties": ["border"],
-                    "type": "border",
-                    "siblings": {
-                      "sides": "formInputBorderSides",
-                      "width": "formInputBorderWidth",
-                      "style": "formInputBorderStyle",
-                      "color": "formInputBorderColor"
-                    }
-                  }
-                ],
-                "breakpoints": {
-                  "tablet": {
-                    "name": "formInputBorderColorTablet",
-                    "default": "inherit-mobile"
-                  },
-                  "desktop": {
-                    "name": "formInputBorderColorDesktop",
-                    "default": "inherit-tablet"
-                  }
-                },
-                "type": "color"
               },
               {
                 "name": "formInputBorderRadius",
@@ -15572,6 +15593,22 @@
                 "subtype": "border-sides"
               },
               {
+                "name": "formInputBorderFocusColor",
+                "default": "$highlightColor",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "formInputBorderFocusColorTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "formInputBorderFocusColorDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "label": "Color",
+                "type": "color"
+              },
+              {
                 "name": "formInputBorderFocusWidth",
                 "default": "1px",
                 "breakpoints": {
@@ -15603,22 +15640,6 @@
                 },
                 "label": "Style",
                 "type": "border-style"
-              },
-              {
-                "name": "formInputBorderFocusColor",
-                "default": "$highlightColor",
-                "breakpoints": {
-                  "tablet": {
-                    "name": "formInputBorderFocusColorTablet",
-                    "default": "inherit-mobile"
-                  },
-                  "desktop": {
-                    "name": "formInputBorderFocusColorDesktop",
-                    "default": "inherit-tablet"
-                  }
-                },
-                "label": "Color",
-                "type": "color"
               },
               {
                 "name": "formInputBorderFocusRadius",
@@ -15703,6 +15724,29 @@
                 "subtype": "border-sides"
               },
               {
+                "name": "formInputBorderErrorColor",
+                "default": "#F05865",
+                "styles": [
+                  {
+                    "parentSelector": "[data-fl-widget-instance][data-widget-package='com.fliplet.form-builder']",
+                    "selectors": ".form-control.has-error",
+                    "properties": ["border-color"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "formInputBorderErrorColorTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "formInputBorderErrorColorDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "label": "Color",
+                "type": "color"
+              },
+              {
                 "name": "formInputBorderErrorWidth",
                 "default": "1px",
                 "styles": [
@@ -15741,29 +15785,6 @@
                 },
                 "label": "Style",
                 "type": "border-style"
-              },
-              {
-                "name": "formInputBorderErrorColor",
-                "default": "#F05865",
-                "styles": [
-                  {
-                    "parentSelector": "[data-fl-widget-instance][data-widget-package='com.fliplet.form-builder']",
-                    "selectors": ".form-control.has-error",
-                    "properties": ["border-color"]
-                  }
-                ],
-                "breakpoints": {
-                  "tablet": {
-                    "name": "formInputBorderErrorColorTablet",
-                    "default": "inherit-mobile"
-                  },
-                  "desktop": {
-                    "name": "formInputBorderErrorColorDesktop",
-                    "default": "inherit-tablet"
-                  }
-                },
-                "label": "Color",
-                "type": "color"
               },
               {
                 "name": "formInputBorderErrorRadius",
@@ -17196,7 +17217,14 @@
                   {
                     "parentSelector": "[data-fl-widget-instance][data-widget-package='com.fliplet.image']",
                     "selectors": "",
-                    "properties": ["position"]
+                    "properties": ["position"],
+                    "type": "position",
+                    "siblings": {
+                      "top": "imagePositionTop",
+                      "right": "imagePositionRight",
+                      "bottom": "imagePositionBottom",
+                      "left": "imagePositionLeft"
+                    }
                   }
                 ],
                 "breakpoints": {
@@ -17688,6 +17716,35 @@
                 "subtype": "border-sides"
               },
               {
+                "name": "imageBorderColor",
+                "default": "rgba(0, 0, 0, 0.2)",
+                "styles": [
+                  {
+                    "parentSelector": "[data-fl-widget-instance][data-widget-package='com.fliplet.image']",
+                    "selectors": "img[data-image-id]",
+                    "properties": ["border"],
+                    "type": "border",
+                    "siblings": {
+                      "sides": "imageBorderSides",
+                      "width": "imageBorderWidth",
+                      "style": "imageBorderStyle",
+                      "color": "imageBorderColor"
+                    }
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "imageBorderColorTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "imageBorderColorDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "color"
+              },
+              {
                 "name": "imageBorderWidth",
                 "default": "1px",
                 "styles": [
@@ -17745,35 +17802,6 @@
                   }
                 },
                 "type": "border-style"
-              },
-              {
-                "name": "imageBorderColor",
-                "default": "rgba(0, 0, 0, 0.2)",
-                "styles": [
-                  {
-                    "parentSelector": "[data-fl-widget-instance][data-widget-package='com.fliplet.image']",
-                    "selectors": "img[data-image-id]",
-                    "properties": ["border"],
-                    "type": "border",
-                    "siblings": {
-                      "sides": "imageBorderSides",
-                      "width": "imageBorderWidth",
-                      "style": "imageBorderStyle",
-                      "color": "imageBorderColor"
-                    }
-                  }
-                ],
-                "breakpoints": {
-                  "tablet": {
-                    "name": "imageBorderColorTablet",
-                    "default": "inherit-mobile"
-                  },
-                  "desktop": {
-                    "name": "imageBorderColorDesktop",
-                    "default": "inherit-tablet"
-                  }
-                },
-                "type": "color"
               },
               {
                 "name": "imageBorderRadius",
@@ -24277,6 +24305,83 @@
                 "subtype": "border-sides"
               },
               {
+                "name": "fieldBorder",
+                "default": "#e5e5e5",
+                "styles": [
+                  {
+                    "parentSelector": "[data-fl-widget-instance][data-widget-package='com.fliplet.login']",
+                    "selectors": ".state input.form-control",
+                    "properties": ["border"],
+                    "type": "border",
+                    "siblings": {
+                      "sides": "fieldBorderSides",
+                      "width": "fieldBorderWidth",
+                      "style": "fieldBorderStyle",
+                      "color": "fieldBorder"
+                    }
+                  },
+                  {
+                    "parentSelector": "[data-fl-widget-instance][data-widget-package='com.fliplet.login-data-source']",
+                    "selectors": ".fl-login-form input.form-control",
+                    "properties": ["border"],
+                    "type": "border",
+                    "siblings": {
+                      "sides": "fieldBorderSides",
+                      "width": "fieldBorderWidth",
+                      "style": "fieldBorderStyle",
+                      "color": "fieldBorder"
+                    }
+                  },
+                  {
+                    "parentSelector": "[data-fl-widget-instance][data-widget-package='com.fliplet.login.saml2']",
+                    "selectors": ".state input.form-control",
+                    "properties": ["border"],
+                    "type": "border",
+                    "siblings": {
+                      "sides": "fieldBorderSides",
+                      "width": "fieldBorderWidth",
+                      "style": "fieldBorderStyle",
+                      "color": "fieldBorder"
+                    }
+                  },
+                  {
+                    "parentSelector": "[data-fl-widget-instance][data-widget-package='com.fliplet.email-validation']",
+                    "selectors": ".state input.form-control",
+                    "properties": ["border"],
+                    "type": "border",
+                    "siblings": {
+                      "sides": "fieldBorderSides",
+                      "width": "fieldBorderWidth",
+                      "style": "fieldBorderStyle",
+                      "color": "fieldBorder"
+                    }
+                  },
+                  {
+                    "parentSelector": "[data-fl-widget-instance][data-widget-package='com.fliplet.sms-verfication']",
+                    "selectors": ".state input.form-control",
+                    "properties": ["border"],
+                    "type": "border",
+                    "siblings": {
+                      "sides": "fieldBorderSides",
+                      "width": "fieldBorderWidth",
+                      "style": "fieldBorderStyle",
+                      "color": "fieldBorder"
+                    }
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "fieldBorderTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "fieldBorderDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "color"
+              },
+              {
                 "name": "fieldBorderWidth",
                 "default": "1px",
                 "styles": [
@@ -24430,83 +24535,6 @@
                   }
                 },
                 "type": "border-style"
-              },
-              {
-                "name": "fieldBorder",
-                "default": "#e5e5e5",
-                "styles": [
-                  {
-                    "parentSelector": "[data-fl-widget-instance][data-widget-package='com.fliplet.login']",
-                    "selectors": ".state input.form-control",
-                    "properties": ["border"],
-                    "type": "border",
-                    "siblings": {
-                      "sides": "fieldBorderSides",
-                      "width": "fieldBorderWidth",
-                      "style": "fieldBorderStyle",
-                      "color": "fieldBorder"
-                    }
-                  },
-                  {
-                    "parentSelector": "[data-fl-widget-instance][data-widget-package='com.fliplet.login-data-source']",
-                    "selectors": ".fl-login-form input.form-control",
-                    "properties": ["border"],
-                    "type": "border",
-                    "siblings": {
-                      "sides": "fieldBorderSides",
-                      "width": "fieldBorderWidth",
-                      "style": "fieldBorderStyle",
-                      "color": "fieldBorder"
-                    }
-                  },
-                  {
-                    "parentSelector": "[data-fl-widget-instance][data-widget-package='com.fliplet.login.saml2']",
-                    "selectors": ".state input.form-control",
-                    "properties": ["border"],
-                    "type": "border",
-                    "siblings": {
-                      "sides": "fieldBorderSides",
-                      "width": "fieldBorderWidth",
-                      "style": "fieldBorderStyle",
-                      "color": "fieldBorder"
-                    }
-                  },
-                  {
-                    "parentSelector": "[data-fl-widget-instance][data-widget-package='com.fliplet.email-validation']",
-                    "selectors": ".state input.form-control",
-                    "properties": ["border"],
-                    "type": "border",
-                    "siblings": {
-                      "sides": "fieldBorderSides",
-                      "width": "fieldBorderWidth",
-                      "style": "fieldBorderStyle",
-                      "color": "fieldBorder"
-                    }
-                  },
-                  {
-                    "parentSelector": "[data-fl-widget-instance][data-widget-package='com.fliplet.sms-verfication']",
-                    "selectors": ".state input.form-control",
-                    "properties": ["border"],
-                    "type": "border",
-                    "siblings": {
-                      "sides": "fieldBorderSides",
-                      "width": "fieldBorderWidth",
-                      "style": "fieldBorderStyle",
-                      "color": "fieldBorder"
-                    }
-                  }
-                ],
-                "breakpoints": {
-                  "tablet": {
-                    "name": "fieldBorderTablet",
-                    "default": "inherit-mobile"
-                  },
-                  "desktop": {
-                    "name": "fieldBorderDesktop",
-                    "default": "inherit-tablet"
-                  }
-                },
-                "type": "color"
               },
               {
                 "name": "fieldBorderRadius",
@@ -25738,6 +25766,35 @@
                 "subtype": "border-sides"
               },
               {
+                "name": "onboardingPaginationBulletBorder",
+                "default": "transparent",
+                "styles": [
+                  {
+                    "parentSelector": "[data-fl-widget-instance][data-widget-package='com.fliplet.onboarding']",
+                    "selectors": ".onboarding-holder.full-screen .swiper-pagination-bullet",
+                    "properties": ["border"],
+                    "type": "border",
+                    "siblings": {
+                      "sides": "onboardingPaginationBulletBorderSides",
+                      "width": "onboardingPaginationBulletBorderWidth",
+                      "style": "onboardingPaginationBulletBorderStyle",
+                      "color": "onboardingPaginationBulletBorder"
+                    }
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "onboardingPaginationBulletBorderTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "onboardingPaginationBulletBorderDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "color"
+              },
+              {
                 "name": "onboardingPaginationBulletBorderWidth",
                 "default": "1px",
                 "styles": [
@@ -25795,35 +25852,6 @@
                   }
                 },
                 "type": "border-style"
-              },
-              {
-                "name": "onboardingPaginationBulletBorder",
-                "default": "transparent",
-                "styles": [
-                  {
-                    "parentSelector": "[data-fl-widget-instance][data-widget-package='com.fliplet.onboarding']",
-                    "selectors": ".onboarding-holder.full-screen .swiper-pagination-bullet",
-                    "properties": ["border"],
-                    "type": "border",
-                    "siblings": {
-                      "sides": "onboardingPaginationBulletBorderSides",
-                      "width": "onboardingPaginationBulletBorderWidth",
-                      "style": "onboardingPaginationBulletBorderStyle",
-                      "color": "onboardingPaginationBulletBorder"
-                    }
-                  }
-                ],
-                "breakpoints": {
-                  "tablet": {
-                    "name": "onboardingPaginationBulletBorderTablet",
-                    "default": "inherit-mobile"
-                  },
-                  "desktop": {
-                    "name": "onboardingPaginationBulletBorderDesktop",
-                    "default": "inherit-tablet"
-                  }
-                },
-                "type": "color"
               }
             ]
           },
@@ -25905,6 +25933,35 @@
                 "subtype": "border-sides"
               },
               {
+                "name": "onboardingPaginationBulletBorderActive",
+                "default": "transparent",
+                "styles": [
+                  {
+                    "parentSelector": "[data-fl-widget-instance][data-widget-package='com.fliplet.onboarding']",
+                    "selectors": ".onboarding-holder.full-screen .swiper-pagination-bullet-active",
+                    "properties": ["border"],
+                    "type": "border",
+                    "siblings": {
+                      "sides": "onboardingPaginationBulletBorderActiveSides",
+                      "width": "onboardingPaginationBulletBorderActiveWidth",
+                      "style": "onboardingPaginationBulletBorderActiveStyle",
+                      "color": "onboardingPaginationBulletBorderActive"
+                    }
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "onboardingPaginationBulletBorderActiveTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "onboardingPaginationBulletBorderActiveDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "color"
+              },
+              {
                 "name": "onboardingPaginationBulletBorderActiveWidth",
                 "default": "1px",
                 "styles": [
@@ -25962,35 +26019,6 @@
                   }
                 },
                 "type": "border-style"
-              },
-              {
-                "name": "onboardingPaginationBulletBorderActive",
-                "default": "transparent",
-                "styles": [
-                  {
-                    "parentSelector": "[data-fl-widget-instance][data-widget-package='com.fliplet.onboarding']",
-                    "selectors": ".onboarding-holder.full-screen .swiper-pagination-bullet-active",
-                    "properties": ["border"],
-                    "type": "border",
-                    "siblings": {
-                      "sides": "onboardingPaginationBulletBorderActiveSides",
-                      "width": "onboardingPaginationBulletBorderActiveWidth",
-                      "style": "onboardingPaginationBulletBorderActiveStyle",
-                      "color": "onboardingPaginationBulletBorderActive"
-                    }
-                  }
-                ],
-                "breakpoints": {
-                  "tablet": {
-                    "name": "onboardingPaginationBulletBorderActiveTablet",
-                    "default": "inherit-mobile"
-                  },
-                  "desktop": {
-                    "name": "onboardingPaginationBulletBorderActiveDesktop",
-                    "default": "inherit-tablet"
-                  }
-                },
-                "type": "color"
               }
             ]
           }
@@ -26837,6 +26865,35 @@
                 "subtype": "border-sides"
               },
               {
+                "name": "panelBorder",
+                "default": "#e0e0e0",
+                "styles": [
+                  {
+                    "parentSelector": "[data-fl-widget-instance][data-widget-package='com.fliplet.panels']",
+                    "selectors": ".list-panels .panels",
+                    "properties": ["border"],
+                    "type": "border",
+                    "siblings": {
+                      "sides": "panelBorderSides",
+                      "width": "panelBorderWidth",
+                      "style": "panelBorderStyle",
+                      "color": "panelBorder"
+                    }
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "panelBorderTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "panelBorderDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "color"
+              },
+              {
                 "name": "panelBorderWidth",
                 "default": "1px",
                 "styles": [
@@ -26894,35 +26951,6 @@
                   }
                 },
                 "type": "border-style"
-              },
-              {
-                "name": "panelBorder",
-                "default": "#e0e0e0",
-                "styles": [
-                  {
-                    "parentSelector": "[data-fl-widget-instance][data-widget-package='com.fliplet.panels']",
-                    "selectors": ".list-panels .panels",
-                    "properties": ["border"],
-                    "type": "border",
-                    "siblings": {
-                      "sides": "panelBorderSides",
-                      "width": "panelBorderWidth",
-                      "style": "panelBorderStyle",
-                      "color": "panelBorder"
-                    }
-                  }
-                ],
-                "breakpoints": {
-                  "tablet": {
-                    "name": "panelBorderTablet",
-                    "default": "inherit-mobile"
-                  },
-                  "desktop": {
-                    "name": "panelBorderDesktop",
-                    "default": "inherit-tablet"
-                  }
-                },
-                "type": "color"
               },
               {
                 "name": "panelBorderRadius",
@@ -29599,6 +29627,35 @@
                 "subtype": "border-sides"
               },
               {
+                "name": "paginationBulletBorder",
+                "default": "transparent",
+                "styles": [
+                  {
+                    "parentSelector": "[data-fl-widget-instance][data-widget-package='com.fliplet.slider']",
+                    "selectors": ".swiper-pagination-bullet",
+                    "properties": ["border"],
+                    "type": "border",
+                    "siblings": {
+                      "sides": "paginationBulletBorderSides",
+                      "width": "paginationBulletBorderWidth",
+                      "style": "paginationBulletBorderStyle",
+                      "color": "paginationBulletBorder"
+                    }
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "paginationBulletBorderTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "paginationBulletBorderDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "color"
+              },
+              {
                 "name": "paginationBulletBorderWidth",
                 "default": "1px",
                 "styles": [
@@ -29656,35 +29713,6 @@
                   }
                 },
                 "type": "border-style"
-              },
-              {
-                "name": "paginationBulletBorder",
-                "default": "transparent",
-                "styles": [
-                  {
-                    "parentSelector": "[data-fl-widget-instance][data-widget-package='com.fliplet.slider']",
-                    "selectors": ".swiper-pagination-bullet",
-                    "properties": ["border"],
-                    "type": "border",
-                    "siblings": {
-                      "sides": "paginationBulletBorderSides",
-                      "width": "paginationBulletBorderWidth",
-                      "style": "paginationBulletBorderStyle",
-                      "color": "paginationBulletBorder"
-                    }
-                  }
-                ],
-                "breakpoints": {
-                  "tablet": {
-                    "name": "paginationBulletBorderTablet",
-                    "default": "inherit-mobile"
-                  },
-                  "desktop": {
-                    "name": "paginationBulletBorderDesktop",
-                    "default": "inherit-tablet"
-                  }
-                },
-                "type": "color"
               }
             ]
           },
@@ -29766,6 +29794,35 @@
                 "subtype": "border-sides"
               },
               {
+                "name": "paginationBulletBorderActive",
+                "default": "transparent",
+                "styles": [
+                  {
+                    "parentSelector": "[data-fl-widget-instance][data-widget-package='com.fliplet.slider']",
+                    "selectors": ".swiper-pagination-bullet-active",
+                    "properties": ["border"],
+                    "type": "border",
+                    "siblings": {
+                      "sides": "paginationBulletBorderActiveSides",
+                      "width": "paginationBulletBorderActiveWidth",
+                      "style": "paginationBulletBorderActiveStyle",
+                      "color": "paginationBulletBorderActive"
+                    }
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "paginationBulletBorderActiveTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "paginationBulletBorderActiveDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "color"
+              },
+              {
                 "name": "paginationBulletBorderActiveWidth",
                 "default": "1px",
                 "styles": [
@@ -29823,35 +29880,6 @@
                   }
                 },
                 "type": "border-style"
-              },
-              {
-                "name": "paginationBulletBorderActive",
-                "default": "transparent",
-                "styles": [
-                  {
-                    "parentSelector": "[data-fl-widget-instance][data-widget-package='com.fliplet.slider']",
-                    "selectors": ".swiper-pagination-bullet-active",
-                    "properties": ["border"],
-                    "type": "border",
-                    "siblings": {
-                      "sides": "paginationBulletBorderActiveSides",
-                      "width": "paginationBulletBorderActiveWidth",
-                      "style": "paginationBulletBorderActiveStyle",
-                      "color": "paginationBulletBorderActive"
-                    }
-                  }
-                ],
-                "breakpoints": {
-                  "tablet": {
-                    "name": "paginationBulletBorderActiveTablet",
-                    "default": "inherit-mobile"
-                  },
-                  "desktop": {
-                    "name": "paginationBulletBorderActiveDesktop",
-                    "default": "inherit-tablet"
-                  }
-                },
-                "type": "color"
               }
             ]
           }
@@ -30094,6 +30122,38 @@
                 "subtype": "border-sides"
               },
               {
+                "name": "tableBorder",
+                "default": "#cccccc",
+                "styles": [
+                  {
+                    "selectors": [
+                      ".table-bordered",
+                      "table",
+                      "table.mce-item-table"
+                    ],
+                    "properties": ["border"],
+                    "type": "border",
+                    "siblings": {
+                      "sides": "tableBorderSides",
+                      "width": "tableBorderWidth",
+                      "style": "tableBorderStyle",
+                      "color": "tableBorder"
+                    }
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "tableBorderTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "tableBorderDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "color"
+              },
+              {
                 "name": "tableBorderWidth",
                 "default": "1px",
                 "styles": [
@@ -30157,38 +30217,6 @@
                   }
                 },
                 "type": "border-style"
-              },
-              {
-                "name": "tableBorder",
-                "default": "#cccccc",
-                "styles": [
-                  {
-                    "selectors": [
-                      ".table-bordered",
-                      "table",
-                      "table.mce-item-table"
-                    ],
-                    "properties": ["border"],
-                    "type": "border",
-                    "siblings": {
-                      "sides": "tableBorderSides",
-                      "width": "tableBorderWidth",
-                      "style": "tableBorderStyle",
-                      "color": "tableBorder"
-                    }
-                  }
-                ],
-                "breakpoints": {
-                  "tablet": {
-                    "name": "tableBorderTablet",
-                    "default": "inherit-mobile"
-                  },
-                  "desktop": {
-                    "name": "tableBorderDesktop",
-                    "default": "inherit-tablet"
-                  }
-                },
-                "type": "color"
               }
             ]
           },
@@ -30436,6 +30464,47 @@
                 "subtype": "border-sides"
               },
               {
+                "name": "cellBorderTop",
+                "default": "#ddddd",
+                "styles": [
+                  {
+                    "selectors": [
+                      ".table-bordered > thead > tr > th",
+                      ".table-bordered > tbody > tr > th",
+                      ".table-bordered > tfoot > tr > th",
+                      ".table-bordered > thead > tr > td",
+                      ".table-bordered > tbody > tr > td",
+                      ".table-bordered > tfoot > tr > td",
+                      "table th",
+                      "table.mce-item-table th",
+                      "table td",
+                      "table.mce-item-table td",
+                      "table caption",
+                      "table.mce-item-table caption"
+                    ],
+                    "properties": ["border"],
+                    "type": "border",
+                    "siblings": {
+                      "sides": "cellBorderTopSides",
+                      "width": "cellBorderTopWidth",
+                      "style": "cellBorderTopStyle",
+                      "color": "cellBorderTop"
+                    }
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "cellBorderTopTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "cellBorderTopDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "color"
+              },
+              {
                 "name": "cellBorderTopWidth",
                 "default": "1px",
                 "styles": [
@@ -30517,47 +30586,6 @@
                   }
                 },
                 "type": "border-style"
-              },
-              {
-                "name": "cellBorderTop",
-                "default": "#ddddd",
-                "styles": [
-                  {
-                    "selectors": [
-                      ".table-bordered > thead > tr > th",
-                      ".table-bordered > tbody > tr > th",
-                      ".table-bordered > tfoot > tr > th",
-                      ".table-bordered > thead > tr > td",
-                      ".table-bordered > tbody > tr > td",
-                      ".table-bordered > tfoot > tr > td",
-                      "table th",
-                      "table.mce-item-table th",
-                      "table td",
-                      "table.mce-item-table td",
-                      "table caption",
-                      "table.mce-item-table caption"
-                    ],
-                    "properties": ["border"],
-                    "type": "border",
-                    "siblings": {
-                      "sides": "cellBorderTopSides",
-                      "width": "cellBorderTopWidth",
-                      "style": "cellBorderTopStyle",
-                      "color": "cellBorderTop"
-                    }
-                  }
-                ],
-                "breakpoints": {
-                  "tablet": {
-                    "name": "cellBorderTopTablet",
-                    "default": "inherit-mobile"
-                  },
-                  "desktop": {
-                    "name": "cellBorderTopDesktop",
-                    "default": "inherit-tablet"
-                  }
-                },
-                "type": "color"
               }
             ]
           }
@@ -31051,6 +31079,49 @@
                 "subtype": "border-sides"
               },
               {
+                "name": "videoBorderColor",
+                "default": "rgba(0, 0, 0, 0.2)",
+                "styles": [
+                  {
+                    "parentSelector": "[data-fl-widget-instance][data-widget-package='com.fliplet.online-offline']",
+                    "selectors": ".video-wrapper",
+                    "properties": ["border"],
+                    "type": "border",
+                    "siblings": {
+                      "sides": "videoBorderSides",
+                      "width": "videoBorderWidth",
+                      "style": "videoBorderStyle",
+                      "color": "videoBorderColor"
+                    },
+                    "dependencies": ["highlightColor"]
+                  },
+                  {
+                    "parentSelector": "[data-fl-widget-instance][data-widget-package='com.fliplet.online-video']",
+                    "selectors": ".video-wrapper",
+                    "properties": ["border"],
+                    "type": "border",
+                    "siblings": {
+                      "sides": "videoBorderSides",
+                      "width": "videoBorderWidth",
+                      "style": "videoBorderStyle",
+                      "color": "videoBorderColor"
+                    },
+                    "dependencies": ["highlightColor"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "videoBorderColorTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "videoBorderColorDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "color"
+              },
+              {
                 "name": "videoBorderWidth",
                 "default": "1px",
                 "styles": [
@@ -31132,49 +31203,6 @@
                   }
                 },
                 "type": "border-style"
-              },
-              {
-                "name": "videoBorderColor",
-                "default": "rgba(0, 0, 0, 0.2)",
-                "styles": [
-                  {
-                    "parentSelector": "[data-fl-widget-instance][data-widget-package='com.fliplet.online-offline']",
-                    "selectors": ".video-wrapper",
-                    "properties": ["border"],
-                    "type": "border",
-                    "siblings": {
-                      "sides": "videoBorderSides",
-                      "width": "videoBorderWidth",
-                      "style": "videoBorderStyle",
-                      "color": "videoBorderColor"
-                    },
-                    "dependencies": ["highlightColor"]
-                  },
-                  {
-                    "parentSelector": "[data-fl-widget-instance][data-widget-package='com.fliplet.online-video']",
-                    "selectors": ".video-wrapper",
-                    "properties": ["border"],
-                    "type": "border",
-                    "siblings": {
-                      "sides": "videoBorderSides",
-                      "width": "videoBorderWidth",
-                      "style": "videoBorderStyle",
-                      "color": "videoBorderColor"
-                    },
-                    "dependencies": ["highlightColor"]
-                  }
-                ],
-                "breakpoints": {
-                  "tablet": {
-                    "name": "videoBorderColorTablet",
-                    "default": "inherit-mobile"
-                  },
-                  "desktop": {
-                    "name": "videoBorderColorDesktop",
-                    "default": "inherit-tablet"
-                  }
-                },
-                "type": "color"
               },
               {
                 "name": "videoBorderRadius",
