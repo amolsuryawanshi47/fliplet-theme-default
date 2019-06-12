@@ -1,88 +1,736 @@
-/*****************************/
-/*** FLIPLET DEFAULT THEME ***/
-/********* CONTENTS **********/
-/*****************************/
-/*****************************
-01 - SLIDER
-******************************/
+@mixin slider($options: (), $widgetInstanceId: '') {
+  $configuration: map-merge((
+    sliderWidth: $sliderWidth,
+    sliderMinWidth: $sliderMinWidth,
+    sliderMaxWidth: $sliderMaxWidth,
+    paginationBulletColor: $paginationBulletColor,
+    paginationBulletColorActive: $paginationBulletColorActive,
+    paginationChevronsColor: $paginationChevronsColor,
+    sliderMarginTop: $sliderMarginTop,
+    sliderMarginRight: $sliderMarginRight,
+    sliderMarginBottom: $sliderMarginBottom,
+    sliderMarginLeft: $sliderMarginLeft,
+    sliderPaddingTop: $sliderPaddingTop,
+    sliderPaddingRight: $sliderPaddingRight,
+    sliderPaddingBottom: $sliderPaddingBottom,
+    sliderPaddingLeft: $sliderPaddingLeft,
+    sliderHeadingFont: $sliderHeadingFont,
+    sliderHeadingSize: $sliderHeadingSize,
+    sliderHeadingColor: $sliderHeadingColor,
+    sliderHeadingWeight: $sliderHeadingWeight,
+    sliderHeadingStyle: $sliderHeadingStyle,
+    sliderHeadingDecoration: $sliderHeadingDecoration,
+    sliderHeadingHeight: $sliderHeadingHeight,
+    sliderTextFont: $sliderTextFont,
+    sliderTextSize: $sliderTextSize,
+    sliderTextColor: $sliderTextColor,
+    sliderTextWeight: $sliderTextWeight,
+    sliderTextStyle: $sliderTextStyle,
+    sliderTextDecoration: $sliderTextDecoration,
+    sliderTextHeight: $sliderTextHeight,
+    slidePaddingTop: $slidePaddingTop,
+    slidePaddingRight: $slidePaddingRight,
+    slidePaddingBottom: $slidePaddingBottom,
+    slidePaddingLeft: $slidePaddingLeft,
+    paginationBulletWidth: $paginationBulletWidth,
+    paginationBulletHeight: $paginationBulletHeight,
+    paginationBulletBorderSides: $paginationBulletBorderSides,
+    paginationBulletBorderWidth: $paginationBulletBorderWidth,
+    paginationBulletBorderStyle: $paginationBulletBorderStyle,
+    paginationBulletBorder: $paginationBulletBorder,
+    paginationBulletBorderActiveSides: $paginationBulletBorderActiveSides,
+    paginationBulletBorderActiveWidth: $paginationBulletBorderActiveWidth,
+    paginationBulletBorderActiveStyle: $paginationBulletBorderActiveStyle,
+    paginationBulletBorderActive: $paginationBulletBorderActive,
+    sliderWidthTablet: $sliderWidthTablet,
+    sliderMinWidthTablet: $sliderMinWidthTablet,
+    sliderMaxWidthTablet: $sliderMaxWidthTablet,
+    paginationBulletColorTablet: $paginationBulletColorTablet,
+    paginationBulletColorActiveTablet: $paginationBulletColorActiveTablet,
+    paginationChevronsColorTablet: $paginationChevronsColorTablet,
+    sliderMarginTopTablet: $sliderMarginTopTablet,
+    sliderMarginRightTablet: $sliderMarginRightTablet,
+    sliderMarginBottomTablet: $sliderMarginBottomTablet,
+    sliderMarginLeftTablet: $sliderMarginLeftTablet,
+    sliderPaddingTopTablet: $sliderPaddingTopTablet,
+    sliderPaddingRightTablet: $sliderPaddingRightTablet,
+    sliderPaddingBottomTablet: $sliderPaddingBottomTablet,
+    sliderPaddingLeftTablet: $sliderPaddingLeftTablet,
+    sliderHeadingFontTablet: $sliderHeadingFontTablet,
+    sliderHeadingSizeTablet: $sliderHeadingSizeTablet,
+    sliderHeadingColorTablet: $sliderHeadingColorTablet,
+    sliderHeadingWeightTablet: $sliderHeadingWeightTablet,
+    sliderHeadingStyleTablet: $sliderHeadingStyleTablet,
+    sliderHeadingDecorationTablet: $sliderHeadingDecorationTablet,
+    sliderHeadingHeightTablet: $sliderHeadingHeightTablet,
+    sliderTextFontTablet: $sliderTextFontTablet,
+    sliderTextSizeTablet: $sliderTextSizeTablet,
+    sliderTextColorTablet: $sliderTextColorTablet,
+    sliderTextWeightTablet: $sliderTextWeightTablet,
+    sliderTextStyleTablet: $sliderTextStyleTablet,
+    sliderTextDecorationTablet: $sliderTextDecorationTablet,
+    sliderTextHeightTablet: $sliderTextHeightTablet,
+    slidePaddingTopTablet: $slidePaddingTopTablet,
+    slidePaddingRightTablet: $slidePaddingRightTablet,
+    slidePaddingBottomTablet: $slidePaddingBottomTablet,
+    slidePaddingLeftTablet: $slidePaddingLeftTablet,
+    paginationBulletWidthTablet: $paginationBulletWidthTablet,
+    paginationBulletHeightTablet: $paginationBulletHeightTablet,
+    paginationBulletBorderSidesTablet: $paginationBulletBorderSidesTablet,
+    paginationBulletBorderWidthTablet: $paginationBulletBorderWidthTablet,
+    paginationBulletBorderStyleTablet: $paginationBulletBorderStyleTablet,
+    paginationBulletBorderTablet: $paginationBulletBorderTablet,
+    paginationBulletBorderActiveSidesTablet: $paginationBulletBorderActiveSidesTablet,
+    paginationBulletBorderActiveWidthTablet: $paginationBulletBorderActiveWidthTablet,
+    paginationBulletBorderActiveStyleTablet: $paginationBulletBorderActiveStyleTablet,
+    paginationBulletBorderActiveTablet: $paginationBulletBorderActiveTablet,
+    sliderWidthDesktop: $sliderWidthDesktop,
+    sliderMinWidthDesktop: $sliderMinWidthDesktop,
+    sliderMaxWidthDesktop: $sliderMaxWidthDesktop,
+    paginationBulletColorDesktop: $paginationBulletColorDesktop,
+    paginationBulletColorActiveDesktop: $paginationBulletColorActiveDesktop,
+    paginationChevronsColorDesktop: $paginationChevronsColorDesktop,
+    sliderMarginTopDesktop: $sliderMarginTopDesktop,
+    sliderMarginRightDesktop: $sliderMarginRightDesktop,
+    sliderMarginBottomDesktop: $sliderMarginBottomDesktop,
+    sliderMarginLeftDesktop: $sliderMarginLeftDesktop,
+    sliderPaddingTopDesktop: $sliderPaddingTopDesktop,
+    sliderPaddingRightDesktop: $sliderPaddingRightDesktop,
+    sliderPaddingBottomDesktop: $sliderPaddingBottomDesktop,
+    sliderPaddingLeftDesktop: $sliderPaddingLeftDesktop,
+    sliderHeadingFontDesktop: $sliderHeadingFontDesktop,
+    sliderHeadingSizeDesktop: $sliderHeadingSizeDesktop,
+    sliderHeadingColorDesktop: $sliderHeadingColorDesktop,
+    sliderHeadingWeightDesktop: $sliderHeadingWeightDesktop,
+    sliderHeadingStyleDesktop: $sliderHeadingStyleDesktop,
+    sliderHeadingDecorationDesktop: $sliderHeadingDecorationDesktop,
+    sliderHeadingHeightDesktop: $sliderHeadingHeightDesktop,
+    sliderTextFontDesktop: $sliderTextFontDesktop,
+    sliderTextSizeDesktop: $sliderTextSizeDesktop,
+    sliderTextColorDesktop: $sliderTextColorDesktop,
+    sliderTextWeightDesktop: $sliderTextWeightDesktop,
+    sliderTextStyleDesktop: $sliderTextStyleDesktop,
+    sliderTextDecorationDesktop: $sliderTextDecorationDesktop,
+    sliderTextHeightDesktop: $sliderTextHeightDesktop,
+    slidePaddingTopDesktop: $slidePaddingTopDesktop,
+    slidePaddingRightDesktop: $slidePaddingRightDesktop,
+    slidePaddingBottomDesktop: $slidePaddingBottomDesktop,
+    slidePaddingLeftDesktop: $slidePaddingLeftDesktop,
+    paginationBulletWidthDesktop: $paginationBulletWidthDesktop,
+    paginationBulletHeightDesktop: $paginationBulletHeightDesktop,
+    paginationBulletBorderSidesDesktop: $paginationBulletBorderSidesDesktop,
+    paginationBulletBorderWidthDesktop: $paginationBulletBorderWidthDesktop,
+    paginationBulletBorderStyleDesktop: $paginationBulletBorderStyleDesktop,
+    paginationBulletBorderDesktop: $paginationBulletBorderDesktop,
+    paginationBulletBorderActiveSidesDesktop: $paginationBulletBorderActiveSidesDesktop,
+    paginationBulletBorderActiveWidthDesktop: $paginationBulletBorderActiveWidthDesktop,
+    paginationBulletBorderActiveStyleDesktop: $paginationBulletBorderActiveStyleDesktop,
+    paginationBulletBorderActiveDesktop: $paginationBulletBorderActiveDesktop
+  ), $options);
 
-/* 01 - SLIDER */
-
-.swiper-pagination-bullet {
-  width: $paginationBulletWidth;
-  height: $paginationBulletHeight;
-  border: $paginationBulletBorder;
-  background: $paginationBulletColor;
-}
-
-.swiper-pagination-bullet-active {
-  border: $paginationBulletBorderActive;
-  background: $paginationBulletColorActive;
-}
-
-.swiper-button-next,
-.swiper-button-prev {
-  color: $paginationChevronsColor;
-}
-
-.swiper-wrapper {
-  p {
-    color: $sliderTextColor;
-    font-weight: $sliderTextWeight;
-    font-size: $sliderTextSize;
-    line-height: $sliderTextHeight;
+  $instanceSelector: '[data-widget-package="com.fliplet.slider"]';
+  @if $widgetInstanceId != '' {
+    $instanceSelector: '#{$instanceSelector}[data-id="#{$widgetInstanceId}"]';
   }
 
-  h1 {
-    color: $sliderHeadingColor;
-    font-weight: $sliderHeadingWeigth;
-    font-size: $sliderHeadingSize;
-    line-height: $sliderHeadingHeight;
-  }
-}
+  #{$instanceSelector} {
+    width: map-get($configuration, sliderWidth);
+    min-width: map-get($configuration, sliderMinWidth);
+    max-width: map-get($configuration, sliderMaxWidth);
+    margin: map-get($configuration, sliderMarginTop)
+      map-get($configuration, sliderMarginRight)
+      map-get($configuration, sliderMarginBottom)
+      map-get($configuration, sliderMarginLeft);
 
-.onboarding-holder.full-screen {
-  .ob-top-nav {
-    .ob-skip {
-      color: $onboardingSkipTextColor;
+    // Styles for tablet
+    @include above($tabletBreakpoint) {
+      width: map-get($configuration, sliderWidthTablet);
+      min-width: map-get($configuration, sliderMinWidth);
+      max-width: map-get($configuration, sliderMaxWidth);
+      margin: map-get($configuration, sliderMarginTopTablet)
+        map-get($configuration, sliderMarginRightTablet)
+        map-get($configuration, sliderMarginBottomTablet)
+        map-get($configuration, sliderMarginLeftTablet);
+    }
+
+    // Styles for desktop
+    @include above($desktopBreakpoint) {
+      width: map-get($configuration, sliderWidthDesktop);
+      min-width: map-get($configuration, sliderMinWidth);
+      max-width: map-get($configuration, sliderMaxWidth);
+      margin: map-get($configuration, sliderMarginTopDesktop)
+        map-get($configuration, sliderMarginRightDesktop)
+        map-get($configuration, sliderMarginBottomDesktop)
+        map-get($configuration, sliderMarginLeftDesktop);
+    }
+
+    .onboarding-holder {
+      padding: map-get($configuration, sliderPaddingTop)
+        map-get($configuration, sliderPaddingRight)
+        map-get($configuration, sliderPaddingBottom)
+        map-get($configuration, sliderPaddingLeft);
+
+      // Styles for tablet
+      @include above($tabletBreakpoint) {
+        padding: map-get($configuration, sliderPaddingTop)
+          map-get($configuration, sliderPaddingRight)
+          map-get($configuration, sliderPaddingBottom)
+          map-get($configuration, sliderPaddingLeft);
+      }
+
+      // Styles for desktop
+      @include above($desktopBreakpoint) {
+        padding: map-get($configuration, sliderPaddingTop)
+          map-get($configuration, sliderPaddingRight)
+          map-get($configuration, sliderPaddingBottom)
+          map-get($configuration, sliderPaddingLeft);
+      }
+    }
+
+    .swiper-pagination-bullet {
+      @include borderOnly((
+        borderSides: map-get($configuration, paginationBulletBorderSides),
+        borderWidth: map-get($configuration, paginationBulletBorderWidth),
+        borderStyle: map-get($configuration, paginationBulletBorderStyle),
+        borderColor: map-get($configuration, paginationBulletBorder)
+      ));
+
+      width: map-get($configuration, paginationBulletWidth);
+      height: map-get($configuration, paginationBulletHeight);
+      background: map-get($configuration, paginationBulletColor);
+
+      // Styles for tablet
+      @include above($tabletBreakpoint) {
+        @include borderOnly((
+          borderSides: map-get($configuration, paginationBulletBorderSidesTablet),
+          borderWidth: map-get($configuration, paginationBulletBorderWidthTablet),
+          borderStyle: map-get($configuration, paginationBulletBorderStyleTablet),
+          borderColor: map-get($configuration, paginationBulletBorderTablet)
+        ));
+
+        width: map-get($configuration, paginationBulletWidthTablet);
+        height: map-get($configuration, paginationBulletHeightTablet);
+        background: map-get($configuration, paginationBulletColorTablet);
+      }
+
+      // Styles for desktop
+      @include above($desktopBreakpoint) {
+        @include borderOnly((
+          borderSides: map-get($configuration, paginationBulletBorderSidesDesktop),
+          borderWidth: map-get($configuration, paginationBulletBorderWidthDesktop),
+          borderStyle: map-get($configuration, paginationBulletBorderStyleDesktop),
+          borderColor: map-get($configuration, paginationBulletBorderDesktop)
+        ));
+
+        width: map-get($configuration, paginationBulletWidthDesktop);
+        height: map-get($configuration, paginationBulletHeightDesktop);
+        background: map-get($configuration, paginationBulletColorDesktop);
+      }
+    }
+
+    .swiper-pagination-bullet-active {
+      @include borderOnly((
+        borderSides: map-get($configuration, paginationBulletBorderActiveSides),
+        borderWidth: map-get($configuration, paginationBulletBorderActiveWidth),
+        borderStyle: map-get($configuration, paginationBulletBorderActiveStyle),
+        borderColor: map-get($configuration, paginationBulletBorderActive)
+      ));
+
+      background: map-get($configuration, paginationBulletColorActive);
+
+      // Styles for tablet
+      @include above($tabletBreakpoint) {
+        @include borderOnly((
+          borderSides: map-get($configuration, paginationBulletBorderActiveSidesTablet),
+          borderWidth: map-get($configuration, paginationBulletBorderActiveWidthTablet),
+          borderStyle: map-get($configuration, paginationBulletBorderActiveStyleTablet),
+          borderColor: map-get($configuration, paginationBulletBorderActiveTablet)
+        ));
+
+        background: map-get($configuration, paginationBulletColorActiveTablet);
+      }
+
+      // Styles for desktop
+      @include above($desktopBreakpoint) {
+        @include borderOnly((
+          borderSides: map-get($configuration, paginationBulletBorderActiveSidesDesktop),
+          borderWidth: map-get($configuration, paginationBulletBorderActiveWidthDesktop),
+          borderStyle: map-get($configuration, paginationBulletBorderActiveStyleDesktop),
+          borderColor: map-get($configuration, paginationBulletBorderActiveDesktop)
+        ));
+
+        background: map-get($configuration, paginationBulletColorActiveDesktop);
+      }
+    }
+
+    .swiper-button-next,
+    .swiper-button-prev {
+      color: map-get($configuration, paginationChevronsColor);
+
+      // Styles for tablet
+      @include above($tabletBreakpoint) {
+        color: map-get($configuration, paginationChevronsColorTablet);
+      }
+
+      // Styles for desktop
+      @include above($desktopBreakpoint) {
+        color: map-get($configuration, paginationChevronsColorDesktop);
+      }
+    }
+
+    .swiper-wrapper {
+      .swiper-slide {
+        padding: map-get($configuration, slidePaddingTop)
+          map-get($configuration, slidePaddingRight)
+          map-get($configuration, slidePaddingBottom)
+          map-get($configuration, slidePaddingLeft);
+      }
+
+      p {
+        @include fontOnly((
+          fontFamily: map-get($configuration, sliderTextFont),
+          fontSize: map-get($configuration, sliderTextSize),
+          fontLineHeight: map-get($configuration, sliderTextHeight),
+          fontWeight: map-get($configuration, sliderTextWeight),
+          fontStyle: map-get($configuration, sliderTextStyle),
+          fontDecoration: map-get($configuration, sliderTextDecoration)
+        ));
+
+        color: map-get($configuration, sliderTextColor);
+      }
+
+      h1 {
+        @include fontOnly((
+          fontFamily: map-get($configuration, sliderHeadingFont),
+          fontSize: map-get($configuration, sliderHeadingSize),
+          fontLineHeight: map-get($configuration, sliderHeadingHeight),
+          fontWeight: map-get($configuration, sliderHeadingWeight),
+          fontStyle: map-get($configuration, sliderHeadingStyle),
+          fontDecoration: map-get($configuration, sliderHeadingDecoration)
+        ));
+
+        color: map-get($configuration, sliderHeadingColor);
+      }
+
+      // Styles for tablet
+      @include above($tabletBreakpoint) {
+        .swiper-slide {
+          padding: map-get($configuration, slidePaddingTopTablet)
+            map-get($configuration, slidePaddingRightTablet)
+            map-get($configuration, slidePaddingBottomTablet)
+            map-get($configuration, slidePaddingLeftTablet);
+        }
+
+        p {
+          @include fontOnly((
+            fontFamily: map-get($configuration, sliderTextFontTablet),
+            fontSize: map-get($configuration, sliderTextSizeTablet),
+            fontLineHeight: map-get($configuration, sliderTextHeightTablet),
+            fontWeight: map-get($configuration, sliderTextWeightTablet),
+            fontStyle: map-get($configuration, sliderTextStyleTablet),
+            fontDecoration: map-get($configuration, sliderTextDecorationTablet)
+          ));
+
+          color: map-get($configuration, sliderTextColorTablet);
+        }
+
+        h1 {
+          @include fontOnly((
+            fontFamily: map-get($configuration, sliderHeadingFontTablet),
+            fontSize: map-get($configuration, sliderHeadingSizeTablet),
+            fontLineHeight: map-get($configuration, sliderHeadingHeightTablet),
+            fontWeight: map-get($configuration, sliderHeadingWeightTablet),
+            fontStyle: map-get($configuration, sliderHeadingStyleTablet),
+            fontDecoration: map-get($configuration, sliderHeadingDecorationTablet)
+          ));
+
+          color: map-get($configuration, sliderHeadingColorTablet);
+        }
+      }
+
+      // Styles for desktop
+      @include above($desktopBreakpoint) {
+        .swiper-slide {
+          padding: map-get($configuration, slidePaddingTopDesktop)
+            map-get($configuration, slidePaddingRightDesktop)
+            map-get($configuration, slidePaddingBottomDesktop)
+            map-get($configuration, slidePaddingLeftDesktop);
+        }
+
+        p {
+          @include fontOnly((
+            fontFamily: map-get($configuration, sliderTextFontDesktop),
+            fontSize: map-get($configuration, sliderTextSizeDesktop),
+            fontLineHeight: map-get($configuration, sliderTextHeightDesktop),
+            fontWeight: map-get($configuration, sliderTextWeightDesktop),
+            fontStyle: map-get($configuration, sliderTextStyleDesktop),
+            fontDecoration: map-get($configuration, sliderTextDecorationDesktop)
+          ));
+
+          color: map-get($configuration, sliderTextColorDesktop);
+        }
+
+        h1 {
+          @include fontOnly((
+            fontFamily: map-get($configuration, sliderHeadingFontDesktop),
+            fontSize: map-get($configuration, sliderHeadingSizeDesktop),
+            fontLineHeight: map-get($configuration, sliderHeadingHeightDesktop),
+            fontWeight: map-get($configuration, sliderHeadingWeightDesktop),
+            fontStyle: map-get($configuration, sliderHeadingStyleDesktop),
+            fontDecoration: map-get($configuration, sliderHeadingDecorationDesktop)
+          ));
+
+          color: map-get($configuration, sliderHeadingColorDesktop);
+        }
+      }
     }
   }
+}
 
-  .swiper-pagination-bullet {
-    width: $onboardingPaginationBulletWidth;
-    height: $onboardingPaginationBulletHeight;
-    border: $onboardingPaginationBulletBorder;
-    background: $onboardingPaginationBulletColor;
+@include slider();
+
+@mixin onboarding($options: (), $widgetInstanceId: '') {
+  $configuration: map-merge((
+    onboardingSlideBackgroundColor: $onboardingSlideBackgroundColor,
+    onboardingSkipTextColor: $onboardingSkipTextColor,
+    onboardingPaginationBulletColor: $onboardingPaginationBulletColor,
+    onboardingPaginationBulletColorActive: $onboardingPaginationBulletColorActive,
+    onboardingPaginationChevronsBgColor: $onboardingPaginationChevronsBgColor,
+    onboardingPaginationChevronsColor: $onboardingPaginationChevronsColor,
+    onboardingHeadingFont: $onboardingHeadingFont,
+    onboardingHeadingSize: $onboardingHeadingSize,
+    onboardingHeadingColor: $onboardingHeadingColor,
+    onboardingHeadingWeight: $onboardingHeadingWeight,
+    onboardingHeadingStyle: $onboardingHeadingStyle,
+    onboardingHeadingDecoration: $onboardingHeadingDecoration,
+    onboardingHeadingHeight: $onboardingHeadingHeight,
+    onboardingTextFont: $onboardingTextFont,
+    onboardingTextSize: $onboardingTextSize,
+    onboardingTextColor: $onboardingTextColor,
+    onboardingTextWeight: $onboardingTextWeight,
+    onboardingTextStyle: $onboardingTextStyle,
+    onboardingTextDecoration: $onboardingTextDecoration,
+    onboardingTextHeight: $onboardingTextHeight,
+    onboardingSlidePaddingTop: $onboardingSlidePaddingTop,
+    onboardingSlidePaddingRight: $onboardingSlidePaddingRight,
+    onboardingSlidePaddingBottom: $onboardingSlidePaddingBottom,
+    onboardingSlidePaddingLeft: $onboardingSlidePaddingLeft,
+    onboardingPaginationBulletWidth: $onboardingPaginationBulletWidth,
+    onboardingPaginationBulletHeight: $onboardingPaginationBulletHeight,
+    onboardingPaginationBulletBorderSides: $onboardingPaginationBulletBorderSides,
+    onboardingPaginationBulletBorderWidth: $onboardingPaginationBulletBorderWidth,
+    onboardingPaginationBulletBorderStyle: $onboardingPaginationBulletBorderStyle,
+    onboardingPaginationBulletBorder: $onboardingPaginationBulletBorder,
+    onboardingPaginationBulletBorderActiveSides: $onboardingPaginationBulletBorderActiveSides,
+    onboardingPaginationBulletBorderActiveWidth: $onboardingPaginationBulletBorderActiveWidth,
+    onboardingPaginationBulletBorderActiveStyle: $onboardingPaginationBulletBorderActiveStyle,
+    onboardingPaginationBulletBorderActive: $onboardingPaginationBulletBorderActive,
+    onboardingSlideBackgroundColorTablet: $onboardingSlideBackgroundColorTablet,
+    onboardingSkipTextColorTablet: $onboardingSkipTextColorTablet,
+    onboardingPaginationBulletColorTablet: $onboardingPaginationBulletColorTablet,
+    onboardingPaginationBulletColorActiveTablet: $onboardingPaginationBulletColorActiveTablet,
+    onboardingPaginationChevronsBgColorTablet: $onboardingPaginationChevronsBgColorTablet,
+    onboardingPaginationChevronsColorTablet: $onboardingPaginationChevronsColorTablet,
+    onboardingHeadingFontTablet: $onboardingHeadingFontTablet,
+    onboardingHeadingSizeTablet: $onboardingHeadingSizeTablet,
+    onboardingHeadingColorTablet: $onboardingHeadingColorTablet,
+    onboardingHeadingWeightTablet: $onboardingHeadingWeightTablet,
+    onboardingHeadingStyleTablet: $onboardingHeadingStyleTablet,
+    onboardingHeadingDecorationTablet: $onboardingHeadingDecorationTablet,
+    onboardingHeadingHeightTablet: $onboardingHeadingHeightTablet,
+    onboardingTextFontTablet: $onboardingTextFontTablet,
+    onboardingTextSizeTablet: $onboardingTextSizeTablet,
+    onboardingTextColorTablet: $onboardingTextColorTablet,
+    onboardingTextWeightTablet: $onboardingTextWeightTablet,
+    onboardingTextStyleTablet: $onboardingTextStyleTablet,
+    onboardingTextDecorationTablet: $onboardingTextDecorationTablet,
+    onboardingTextHeightTablet: $onboardingTextHeightTablet,
+    onboardingSlidePaddingTopTablet: $onboardingSlidePaddingTopTablet,
+    onboardingSlidePaddingRightTablet: $onboardingSlidePaddingRightTablet,
+    onboardingSlidePaddingBottomTablet: $onboardingSlidePaddingBottomTablet,
+    onboardingSlidePaddingLeftTablet: $onboardingSlidePaddingLeftTablet,
+    onboardingPaginationBulletWidthTablet: $onboardingPaginationBulletWidthTablet,
+    onboardingPaginationBulletHeightTablet: $onboardingPaginationBulletHeightTablet,
+    onboardingPaginationBulletBorderSidesTablet: $onboardingPaginationBulletBorderSidesTablet,
+    onboardingPaginationBulletBorderWidthTablet: $onboardingPaginationBulletBorderWidthTablet,
+    onboardingPaginationBulletBorderStyleTablet: $onboardingPaginationBulletBorderStyleTablet,
+    onboardingPaginationBulletBorderTablet: $onboardingPaginationBulletBorderTablet,
+    onboardingPaginationBulletBorderActiveSidesTablet: $onboardingPaginationBulletBorderActiveSidesTablet,
+    onboardingPaginationBulletBorderActiveWidthTablet: $onboardingPaginationBulletBorderActiveWidthTablet,
+    onboardingPaginationBulletBorderActiveStyleTablet: $onboardingPaginationBulletBorderActiveStyleTablet,
+    onboardingPaginationBulletBorderActiveTablet: $onboardingPaginationBulletBorderActiveTablet,
+    onboardingSlideBackgroundColorDesktop: $onboardingSlideBackgroundColorDesktop,
+    onboardingSkipTextColorDesktop: $onboardingSkipTextColorDesktop,
+    onboardingPaginationBulletColorDesktop: $onboardingPaginationBulletColorDesktop,
+    onboardingPaginationBulletColorActiveDesktop: $onboardingPaginationBulletColorActiveDesktop,
+    onboardingPaginationChevronsBgColorDesktop: $onboardingPaginationChevronsBgColorDesktop,
+    onboardingPaginationChevronsColorDesktop: $onboardingPaginationChevronsColorDesktop,
+    onboardingHeadingFontDesktop: $onboardingHeadingFontDesktop,
+    onboardingHeadingSizeDesktop: $onboardingHeadingSizeDesktop,
+    onboardingHeadingColorDesktop: $onboardingHeadingColorDesktop,
+    onboardingHeadingWeightDesktop: $onboardingHeadingWeightDesktop,
+    onboardingHeadingStyleDesktop: $onboardingHeadingStyleDesktop,
+    onboardingHeadingDecorationDesktop: $onboardingHeadingDecorationDesktop,
+    onboardingHeadingHeightDesktop: $onboardingHeadingHeightDesktop,
+    onboardingTextFontDesktop: $onboardingTextFontDesktop,
+    onboardingTextSizeDesktop: $onboardingTextSizeDesktop,
+    onboardingTextColorDesktop: $onboardingTextColorDesktop,
+    onboardingTextWeightDesktop: $onboardingTextWeightDesktop,
+    onboardingTextStyleDesktop: $onboardingTextStyleDesktop,
+    onboardingTextDecorationDesktop: $onboardingTextDecorationDesktop,
+    onboardingTextHeightDesktop: $onboardingTextHeightDesktop,
+    onboardingSlidePaddingTopDesktop: $onboardingSlidePaddingTopDesktop,
+    onboardingSlidePaddingRightDesktop: $onboardingSlidePaddingRightDesktop,
+    onboardingSlidePaddingBottomDesktop: $onboardingSlidePaddingBottomDesktop,
+    onboardingSlidePaddingLeftDesktop: $onboardingSlidePaddingLeftDesktop,
+    onboardingPaginationBulletWidthDesktop: $onboardingPaginationBulletWidthDesktop,
+    onboardingPaginationBulletHeightDesktop: $onboardingPaginationBulletHeightDesktop,
+    onboardingPaginationBulletBorderSidesDesktop: $onboardingPaginationBulletBorderSidesDesktop,
+    onboardingPaginationBulletBorderWidthDesktop: $onboardingPaginationBulletBorderWidthDesktop,
+    onboardingPaginationBulletBorderStyleDesktop: $onboardingPaginationBulletBorderStyleDesktop,
+    onboardingPaginationBulletBorderDesktop: $onboardingPaginationBulletBorderDesktop,
+    onboardingPaginationBulletBorderActiveSidesDesktop: $onboardingPaginationBulletBorderActiveSidesDesktop,
+    onboardingPaginationBulletBorderActiveWidthDesktop: $onboardingPaginationBulletBorderActiveWidthDesktop,
+    onboardingPaginationBulletBorderActiveStyleDesktop: $onboardingPaginationBulletBorderActiveStyleDesktop,
+    onboardingPaginationBulletBorderActiveDesktop: $onboardingPaginationBulletBorderActiveDesktop
+  ), $options);
+
+  $instanceSelector: '[data-widget-package="com.fliplet.onboarding"]';
+  @if $widgetInstanceId != '' {
+    $instanceSelector: '#{$instanceSelector}[data-id="#{$widgetInstanceId}"]';
   }
 
-  .swiper-pagination-bullet-active {
-    border: $onboardingPaginationBulletBorderActive;
-    background: $onboardingPaginationBulletColorActive;
-  }
+  #{$instanceSelector} {
+    .onboarding-holder.full-screen {
+      width: 100%;
+      min-width: auto;
+      max-width: none;
+      height: auto;
+      min-height: auto;
+      max-height: none;
+      margin: 0;
+      padding: 0;
 
-  .swiper-button-next,
-  .swiper-button-prev {
-    color: $onboardingPaginationChevronsColor;
-    background-color: $onboardingPaginationChevronsBgColor;
-  }
+      .ob-top-nav {
+        .ob-skip {
+          color: map-get($configuration, onboardingSkipTextColor);
 
-  .swiper-wrapper {
-    .swiper-slide-content {
-      background-color: $onboardingSlideBackgroundColor;
-    }
+          // Styles for tablet
+          @include above($tabletBreakpoint) {
+            color: map-get($configuration, onboardingSkipTextColorTablet);
+          }
 
-    p {
-      color: $onboardingTextColor;
-      font-weight: $onboardingTextWeight;
-      font-size: $onboardingTextSize;
-      line-height: $onboardingTextHeight;
-    }
+          // Styles for desktop
+          @include above($desktopBreakpoint) {
+            color: map-get($configuration, onboardingSkipTextColorDesktop);
+          }
+        }
+      }
 
-    h1 {
-      color: $onboardingHeadingColor;
-      font-weight: $onboardingHeadingWeigth;
-      font-size: $onboardingHeadingSize;
-      line-height: $onboardingHeadingHeight;
+      .swiper-pagination-bullet {
+        @include borderOnly((
+          borderSides: map-get($configuration, onboardingPaginationBulletBorderSides),
+          borderWidth: map-get($configuration, onboardingPaginationBulletBorderWidth),
+          borderStyle: map-get($configuration, onboardingPaginationBulletBorderStyle),
+          borderColor: map-get($configuration, onboardingPaginationBulletBorder)
+        ));
+
+        width: map-get($configuration, onboardingPaginationBulletWidth);
+        height: map-get($configuration, onboardingPaginationBulletHeight);
+        background: map-get($configuration, onboardingPaginationBulletColor);
+
+        // Styles for tablet
+        @include above($tabletBreakpoint) {
+          @include borderOnly((
+            borderSides: map-get($configuration, onboardingPaginationBulletBorderSidesTablet),
+            borderWidth: map-get($configuration, onboardingPaginationBulletBorderWidthTablet),
+            borderStyle: map-get($configuration, onboardingPaginationBulletBorderStyleTablet),
+            borderColor: map-get($configuration, onboardingPaginationBulletBorderTablet)
+          ));
+
+          width: map-get($configuration, onboardingPaginationBulletWidthTablet);
+          height: map-get($configuration, onboardingPaginationBulletHeightTablet);
+          background: map-get($configuration, onboardingPaginationBulletColorTablet);
+        }
+
+        // Styles for desktop
+        @include above($desktopBreakpoint) {
+          @include borderOnly((
+            borderSides: map-get($configuration, onboardingPaginationBulletBorderSidesDesktop),
+            borderWidth: map-get($configuration, onboardingPaginationBulletBorderWidthDesktop),
+            borderStyle: map-get($configuration, onboardingPaginationBulletBorderStyleDesktop),
+            borderColor: map-get($configuration, onboardingPaginationBulletBorderDesktop)
+          ));
+
+          width: map-get($configuration, onboardingPaginationBulletWidthDesktop);
+          height: map-get($configuration, onboardingPaginationBulletHeightDesktop);
+          background: map-get($configuration, onboardingPaginationBulletColorDesktop);
+        }
+      }
+
+      .swiper-pagination-bullet-active {
+        @include borderOnly((
+          borderSides: map-get($configuration, onboardingPaginationBulletBorderActiveSides),
+          borderWidth: map-get($configuration, onboardingPaginationBulletBorderActiveWidth),
+          borderStyle: map-get($configuration, onboardingPaginationBulletBorderActiveStyle),
+          borderColor: map-get($configuration, onboardingPaginationBulletBorderActive)
+        ));
+
+        background: map-get($configuration, onboardingPaginationBulletColorActive);
+
+        // Styles for tablet
+        @include above($tabletBreakpoint) {
+          @include borderOnly((
+            borderSides: map-get($configuration, onboardingPaginationBulletBorderActiveSidesTablet),
+            borderWidth: map-get($configuration, onboardingPaginationBulletBorderActiveWidthTablet),
+            borderStyle: map-get($configuration, onboardingPaginationBulletBorderActiveStyleTablet),
+            borderColor: map-get($configuration, onboardingPaginationBulletBorderActiveTablet)
+          ));
+
+          background: map-get($configuration, onboardingPaginationBulletColorActiveTablet);
+        }
+
+        // Styles for desktop
+        @include above($desktopBreakpoint) {
+          @include borderOnly((
+            borderSides: map-get($configuration, onboardingPaginationBulletBorderActiveSidesDesktop),
+            borderWidth: map-get($configuration, onboardingPaginationBulletBorderActiveWidthDesktop),
+            borderStyle: map-get($configuration, onboardingPaginationBulletBorderActiveStyleDesktop),
+            borderColor: map-get($configuration, onboardingPaginationBulletBorderActiveDesktop)
+          ));
+
+          background: map-get($configuration, onboardingPaginationBulletColorActiveDesktop);
+        }
+      }
+
+      .swiper-button-next,
+      .swiper-button-prev {
+        color: map-get($configuration, onboardingPaginationChevronsColor);
+        background-color: map-get($configuration, onboardingPaginationChevronsBgColor);
+
+        // Styles for tablet
+        @include above($tabletBreakpoint) {
+          color: map-get($configuration, onboardingPaginationChevronsColorTablet);
+          background-color: map-get($configuration, onboardingPaginationChevronsBgColorTablet);
+        }
+
+        // Styles for desktop
+        @include above($desktopBreakpoint) {
+          color: map-get($configuration, onboardingPaginationChevronsColorDesktop);
+          background-color: map-get($configuration, onboardingPaginationChevronsBgColorDesktop);
+        }
+      }
+
+      .swiper-wrapper {
+        .swiper-slide-content {
+          background-color: map-get($configuration, onboardingSlideBackgroundColor);
+          padding: map-get($configuration, onboardingSlidePaddingTop)
+            map-get($configuration, onboardingSlidePaddingRight)
+            map-get($configuration, onboardingSlidePaddingBottom)
+            map-get($configuration, onboardingSlidePaddingLeft);
+        }
+
+        p {
+          @include fontOnly((
+            fontFamily: map-get($configuration, onboardingTextFont),
+            fontSize: map-get($configuration, onboardingTextSize),
+            fontLineHeight: map-get($configuration, onboardingTextHeight),
+            fontWeight: map-get($configuration, onboardingTextWeight),
+            fontStyle: map-get($configuration, onboardingTextStyle),
+            fontDecoration: map-get($configuration, onboardingTextDecoration)
+          ));
+          color: map-get($configuration, onboardingTextColor);
+        }
+
+        h1 {
+          @include fontOnly((
+            fontFamily: map-get($configuration, onboardingHeadingFont),
+            fontSize: map-get($configuration, onboardingHeadingSize),
+            fontLineHeight: map-get($configuration, onboardingHeadingHeight),
+            fontWeight: map-get($configuration, onboardingHeadingWeight),
+            fontStyle: map-get($configuration, onboardingHeadingStyle),
+            fontDecoration: map-get($configuration, onboardingHeadingDecoration)
+          ));
+
+          color: map-get($configuration, onboardingHeadingColor);
+        }
+
+        // Styles for tablet
+        @include above($tabletBreakpoint) {
+          .swiper-slide-content {
+            background-color: map-get($configuration, onboardingSlideBackgroundColorTablet);
+            padding: map-get($configuration, onboardingSlidePaddingTopTablet)
+              map-get($configuration, onboardingSlidePaddingRightTablet)
+              map-get($configuration, onboardingSlidePaddingBottomTablet)
+              map-get($configuration, onboardingSlidePaddingLeftTablet);
+          }
+
+          p {
+            @include fontOnly((
+              fontFamily: map-get($configuration, onboardingTextFontTablet),
+              fontSize: map-get($configuration, onboardingTextSizeTablet),
+              fontLineHeight: map-get($configuration, onboardingTextHeightTablet),
+              fontWeight: map-get($configuration, onboardingTextWeightTablet),
+              fontStyle: map-get($configuration, onboardingTextStyleTablet),
+              fontDecoration: map-get($configuration, onboardingTextDecorationTablet)
+            ));
+
+            color: map-get($configuration, onboardingTextColorTablet);
+          }
+
+          h1 {
+            @include fontOnly((
+              fontFamily: map-get($configuration, onboardingHeadingFontTablet),
+              fontSize: map-get($configuration, onboardingHeadingSizeTablet),
+              fontLineHeight: map-get($configuration, onboardingHeadingHeightTablet),
+              fontWeight: map-get($configuration, onboardingHeadingWeightTablet),
+              fontStyle: map-get($configuration, onboardingHeadingStyleTablet),
+              fontDecoration: map-get($configuration, onboardingHeadingDecorationTablet)
+            ));
+
+            color: map-get($configuration, onboardingHeadingColorTablet);
+          }
+        }
+
+        // Styles for desktop
+        @include above($desktopBreakpoint) {
+          .swiper-slide-content {
+            background-color: map-get($configuration, onboardingSlideBackgroundColorDesktop);
+            padding: map-get($configuration, onboardingSlidePaddingTopDesktop)
+              map-get($configuration, onboardingSlidePaddingRightDesktop)
+              map-get($configuration, onboardingSlidePaddingBottomDesktop)
+              map-get($configuration, onboardingSlidePaddingLeftDesktop);
+          }
+
+          p {
+            @include fontOnly((
+              fontFamily: map-get($configuration, onboardingTextFontDesktop),
+              fontSize: map-get($configuration, onboardingTextSizeDesktop),
+              fontLineHeight: map-get($configuration, onboardingTextHeightDesktop),
+              fontWeight: map-get($configuration, onboardingTextWeightDesktop),
+              fontStyle: map-get($configuration, onboardingTextStyleDesktop),
+              fontDecoration: map-get($configuration, onboardingTextDecorationDesktop)
+            ));
+
+            color: map-get($configuration, onboardingTextColorDesktop);
+          }
+
+          h1 {
+            @include fontOnly((
+              fontFamily: map-get($configuration, onboardingHeadingFontDesktop),
+              fontSize: map-get($configuration, onboardingHeadingSizeDesktop),
+              fontLineHeight: map-get($configuration, onboardingHeadingHeightDesktop),
+              fontWeight: map-get($configuration, onboardingHeadingWeightDesktop),
+              fontStyle: map-get($configuration, onboardingHeadingStyleDesktop),
+              fontDecoration: map-get($configuration, onboardingHeadingDecorationDesktop)
+            ));
+
+            color: map-get($configuration, onboardingHeadingColorDesktop);
+          }
+        }
+      }
     }
   }
 }
+
+@include onboarding();

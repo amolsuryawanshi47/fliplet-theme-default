@@ -1,57 +1,408 @@
-.interactive-map-label-wrapper {
-  color: $markerLabelText;
-  background-color: $markerLabelBackground;
+@mixin calculateHeight($options: (), $widgetInstanceId: '') {
+  $configuration: map-merge((
+    height: '',
+    menuType: 'none'
+  ), $options);
 
-  .interactive-map-label-text {
-    p {
-      color: $markerLabelText;
+  @if map-get($configuration, menuType) == 'none' {
+    height: map-get($configuration, height);
+    height: calc(#{map-get($configuration, height)} - (env(safe-area-inset-bottom) + env(safe-area-inset-top))); 
+  }
+  @if map-get($configuration, menuType) == 'top' {
+    height: calc(#{map-get($configuration, height)} - 44px);
+    height: calc(#{map-get($configuration, height)} - (44px + env(safe-area-inset-bottom) + env(safe-area-inset-top))); 
+  }
+  @if map-get($configuration, menuType) == 'bottom' {
+    height: calc(#{map-get($configuration, height)} - 65px);
+    height: calc(#{map-get($configuration, height)} - (65px + env(safe-area-inset-bottom) + env(safe-area-inset-top))); 
+  }
+  @if map-get($configuration, menuType) == 'top-with-notch' {
+    height: calc(#{map-get($configuration, height)} - (44px + 34px)); 
+  }
+  @if map-get($configuration, menuType) == 'bottom-with-notch' {
+    height: calc(#{map-get($configuration, height)} - (65px + 34px)); 
+  }
+}
+
+@mixin interactiveGraphics($options: (), $widgetInstanceId: '') {
+  $configuration: map-merge((
+    interactiveGraphWidth: $interactiveGraphWidth,
+    interactiveGraphHeight: $interactiveGraphHeight,
+    interactiveGraphMinWidth: $interactiveGraphMinWidth,
+    interactiveGraphMaxWidth: $interactiveGraphMaxWidth,
+    interactiveGraphMinHeight: $interactiveGraphMinHeight,
+    interactiveGraphMaxHeight: $interactiveGraphMaxHeight,
+    interactiveGraphMarginTop: $interactiveGraphMarginTop,
+    interactiveGraphMarginRight: $interactiveGraphMarginRight,
+    interactiveGraphMarginBottom: $interactiveGraphMarginBottom,
+    interactiveGraphMarginLeft: $interactiveGraphMarginLeft,
+    markerLabelBackground: $markerLabelBackground,
+    markerLabelText: $markerLabelText,
+    mapLabelBackground: $mapLabelBackground,
+    mapLabelText: $mapLabelText,
+    controlsBackground: $controlsBackground,
+    controlsText: $controlsText,
+    mapSearchOverlayBackground: $mapSearchOverlayBackground,
+    mapSearchOverlayText: $mapSearchOverlayText,
+    interactiveGraphWidthTablet: $interactiveGraphWidthTablet,
+    interactiveGraphHeightTablet: $interactiveGraphHeightTablet,
+    interactiveGraphMinWidthTablet: $interactiveGraphMinWidthTablet,
+    interactiveGraphMaxWidthTablet: $interactiveGraphMaxWidthTablet,
+    interactiveGraphMinHeightTablet: $interactiveGraphMinHeightTablet,
+    interactiveGraphMaxHeightTablet: $interactiveGraphMaxHeightTablet,
+    interactiveGraphMarginTopTablet: $interactiveGraphMarginTopTablet,
+    interactiveGraphMarginRightTablet: $interactiveGraphMarginRightTablet,
+    interactiveGraphMarginBottomTablet: $interactiveGraphMarginBottomTablet,
+    interactiveGraphMarginLeftTablet: $interactiveGraphMarginLeftTablet,
+    markerLabelBackgroundTablet: $markerLabelBackgroundTablet,
+    markerLabelTextTablet: $markerLabelTextTablet,
+    mapLabelBackgroundTablet: $mapLabelBackgroundTablet,
+    mapLabelTextTablet: $mapLabelTextTablet,
+    controlsBackgroundTablet: $controlsBackgroundTablet,
+    controlsTextTablet: $controlsTextTablet,
+    mapSearchOverlayBackgroundTablet: $mapSearchOverlayBackgroundTablet,
+    mapSearchOverlayTextTablet: $mapSearchOverlayTextTablet,
+    interactiveGraphMinWidthDesktop: $interactiveGraphMinWidthDesktop,
+    interactiveGraphMaxWidthDesktop: $interactiveGraphMaxWidthDesktop,
+    interactiveGraphMinHeightDesktop: $interactiveGraphMinHeightDesktop,
+    interactiveGraphMaxHeightDesktop: $interactiveGraphMaxHeightDesktop,
+    interactiveGraphWidthDesktop: $interactiveGraphWidthDesktop,
+    interactiveGraphHeightDesktop: $interactiveGraphHeightDesktop,
+    interactiveGraphMarginTopDesktop: $interactiveGraphMarginTopDesktop,
+    interactiveGraphMarginRightDesktop: $interactiveGraphMarginRightDesktop,
+    interactiveGraphMarginBottomDesktop: $interactiveGraphMarginBottomDesktop,
+    interactiveGraphMarginLeftDesktop: $interactiveGraphMarginLeftDesktop,
+    markerLabelBackgroundDesktop: $markerLabelBackgroundDesktop,
+    markerLabelTextDesktop: $markerLabelTextDesktop,
+    mapLabelBackgroundDesktop: $mapLabelBackgroundDesktop,
+    mapLabelTextDesktop: $mapLabelTextDesktop,
+    controlsBackgroundDesktop: $controlsBackgroundDesktop,
+    controlsTextDesktop: $controlsTextDesktop,
+    mapSearchOverlayBackgroundDesktop: $mapSearchOverlayBackgroundDesktop,
+    mapSearchOverlayTextDesktop: $mapSearchOverlayTextDesktop
+  ), $options);
+
+  $instanceSelector: '[data-widget-package="com.fliplet.interactive-map"]';
+  @if $widgetInstanceId != '' {
+    $instanceSelector: '#{$instanceSelector}[data-id="#{$widgetInstanceId}"]';
+  }
+
+  #{$instanceSelector} {
+    width: map-get($configuration, interactiveGraphWidth);
+    min-width: map-get($configuration, interactiveGraphMinWidth);
+    max-width: map-get($configuration, interactiveGraphMaxWidth);
+    margin: map-get($configuration, interactiveGraphMarginTop)
+      map-get($configuration, interactiveGraphMarginRight)
+      map-get($configuration, interactiveGraphMarginBottom)
+      map-get($configuration, interactiveGraphMarginLeft);
+    @include calculateHeight((
+      height: map-get($configuration, interactiveGraphHeight)
+    ));
+    min-height: map-get($configuration, interactiveGraphMinHeight);
+    max-height: map-get($configuration, interactiveGraphMaxHeight);
+
+    // Styles for tablet
+    @include above($tabletBreakpoint) {
+      width: map-get($configuration, interactiveGraphWidthTablet);
+      min-width: map-get($configuration, interactiveGraphMinWidthTablet);
+      max-width: map-get($configuration, interactiveGraphMaxWidthTablet);
+      margin: map-get($configuration, interactiveGraphMarginTopTablet)
+        map-get($configuration, interactiveGraphMarginRightTablet)
+        map-get($configuration, interactiveGraphMarginBottomTablet)
+        map-get($configuration, interactiveGraphMarginLeftTablet);
+      @include calculateHeight((
+        height: map-get($configuration, interactiveGraphHeightTablet)
+      ));
+      min-height: map-get($configuration, interactiveGraphMinHeightTablet);
+      max-height: map-get($configuration, interactiveGraphMaxHeightTablet);
+    }
+
+    // Styles for desktop
+    @include above($desktopBreakpoint) {
+      width: map-get($configuration, interactiveGraphWidthDesktop);
+      min-width: map-get($configuration, interactiveGraphMinWidthDesktop);
+      max-width: map-get($configuration, interactiveGraphMaxWidthDesktop);
+      margin: map-get($configuration, interactiveGraphMarginTopDesktop)
+        map-get($configuration, interactiveGraphMarginRightDesktop)
+        map-get($configuration, interactiveGraphMarginBottomDesktop)
+        map-get($configuration, interactiveGraphMarginLeftDesktop);
+      @include calculateHeight((
+        height: map-get($configuration, interactiveGraphHeightDesktop)
+      ));
+      min-height: map-get($configuration, interactiveGraphMinHeightDesktop);
+      max-height: map-get($configuration, interactiveGraphMaxHeightDesktop);
+    }
+
+    .interactive-map-label-wrapper {
+      color: map-get($configuration, markerLabelText);
+      background-color: map-get($configuration, markerLabelBackground);
+
+      .interactive-map-label-text {
+        p {
+          color: map-get($configuration, markerLabelText);
+        }
+      }
+
+      // Styles for tablet
+      @include above($tabletBreakpoint) {
+        color: map-get($configuration, markerLabelTextTablet);
+        background-color: map-get($configuration, markerLabelBackgroundTablet);
+
+        .interactive-map-label-text {
+          p {
+            color: map-get($configuration, markerLabelTextTablet);
+          }
+        }
+      }
+
+      // Styles for desktop
+      @include above($desktopBreakpoint) {
+        color: map-get($configuration, markerLabelTextDesktop);
+        background-color: map-get($configuration, markerLabelBackgroundDesktop);
+
+        .interactive-map-label-text {
+          p {
+            color: map-get($configuration, markerLabelTextDesktop);
+          }
+        }
+      }
+    }
+
+    .maps-button {
+      color: map-get($configuration, mapLabelText);
+      background-color: map-get($configuration, mapLabelBackground);
+
+      .maps-button-text {
+        p {
+          color: map-get($configuration, mapLabelText);
+        }
+      }
+
+      // Styles for tablet
+      @include above($tabletBreakpoint) {
+        color: map-get($configuration, mapLabelTextTablet);
+        background-color: map-get($configuration, mapLabelBackgroundTablet);
+
+        .maps-button-text {
+          p {
+            color: map-get($configuration, mapLabelTextTablet);
+          }
+        }
+      }
+
+      // Styles for desktop
+      @include above($desktopBreakpoint) {
+        color: map-get($configuration, mapLabelTextDesktop);
+        background-color: map-get($configuration, mapLabelBackgroundDesktop);
+
+        .maps-button-text {
+          p {
+            color: map-get($configuration, mapLabelTextDesktop);
+          }
+        }
+      }
+    }
+
+    .interactive-map-search-icon,
+    .fl-zoom-in,
+    .fl-zoom-out {
+      color: map-get($configuration, controlsText);
+      background-color: map-get($configuration, controlsBackground);
+
+      // Styles for tablet
+      @include above($tabletBreakpoint) {
+        color: map-get($configuration, controlsTextTablet);
+        background-color: map-get($configuration, controlsBackgroundTablet);
+      }
+
+      // Styles for desktop
+      @include above($desktopBreakpoint) {
+        color: map-get($configuration, controlsTextDesktop);
+        background-color: map-get($configuration, controlsBackgroundDesktop);
+      }
+    }
+
+    .interactive-maps-search-overlay,
+    .interactive-maps-overlay {
+      background-color: map-get($configuration, mapSearchOverlayBackground);
+      color: map-get($configuration, mapSearchOverlayText);
+
+      // Styles for tablet
+      @include above($tabletBreakpoint) {
+        background-color: map-get($configuration, mapSearchOverlayBackgroundTablet);
+        color: map-get($configuration, mapSearchOverlayTextTablet);
+      }
+
+      // Styles for desktop
+      @include above($desktopBreakpoint) {
+        background-color: map-get($configuration, mapSearchOverlayBackgroundDesktop);
+        color: map-get($configuration, mapSearchOverlayTextDesktop);
+      }
+    }
+
+    .interactive-map-overlay-topbar {
+      background-color: map-get($configuration, mapSearchOverlayBackground);
+
+      // Styles for tablet
+      @include above($tabletBreakpoint) {
+        background-color: map-get($configuration, mapSearchOverlayBackgroundTablet);
+      }
+
+      // Styles for desktop
+      @include above($desktopBreakpoint) {
+        background-color: map-get($configuration, mapSearchOverlayBackgroundDesktop);
+      }
+    }
+
+    .interactive-maps-overlay {
+      .map-list-item {
+        &.active {
+          border-left-color: map-get($configuration, mapSearchOverlayText);
+
+          // Styles for tablet
+          @include above($tabletBreakpoint) {
+            border-left-color: map-get($configuration, mapSearchOverlayTextTablet);
+          }
+
+          // Styles for desktop
+          @include above($desktopBreakpoint) {
+            border-left-color: map-get($configuration, mapSearchOverlayTextDesktop);
+          }
+        }
+      }
+    }
+
+    .interactive-map-overlay-search-holder {
+      .form-control {
+        background: map-get($configuration, mapSearchOverlayBackground);
+        color: map-get($configuration, mapSearchOverlayText);
+        border-color: map-get($configuration, mapSearchOverlayText);
+      }
+
+      span {
+        background: rgba(map-get($configuration, mapSearchOverlayText), 0.1);
+        color: map-get($configuration, mapSearchOverlayText);
+      }
+
+      // Styles for tablet
+      @include above($tabletBreakpoint) {
+        .form-control {
+          background: map-get($configuration, mapSearchOverlayBackgroundTablet);
+          border-color: map-get($configuration, mapSearchOverlayTextTablet);
+        }
+
+        span {
+          background: rgba(map-get($configuration, mapSearchOverlayTextTablet), 0.1);
+          color: map-get($configuration, mapSearchOverlayTextTablet);
+        }
+      }
+
+      // Styles for desktop
+      @include above($desktopBreakpoint) {
+        .form-control {
+          background: map-get($configuration, mapSearchOverlayBackgroundDesktop);
+          border-color: map-get($configuration, mapSearchOverlayTextDesktop);
+        }
+
+        span {
+          background: rgba(map-get($configuration, mapSearchOverlayTextDesktop), 0.1);
+          color: map-get($configuration, mapSearchOverlayTextDesktop);
+        }
+      }
+    }
+  }
+
+  body.fl-with-top-menu #{$instanceSelector} {
+    @include calculateHeight((
+      height: map-get($configuration, interactiveGraphHeight),
+      menuType: 'top'
+    ));
+
+    // Styles for tablet
+    @include above($tabletBreakpoint) {
+      @include calculateHeight((
+        height: map-get($configuration, interactiveGraphHeightTablet),
+        menuType: 'top'
+      ));
+    }
+
+    // Styles for desktop
+    @include above($desktopBreakpoint) {
+      @include calculateHeight((
+        height: map-get($configuration, interactiveGraphHeightDesktop),
+        menuType: 'top'
+      ));
+    }
+  }
+
+  [data-has-notch] body.fl-with-top-menu #{$instanceSelector} {
+    @include calculateHeight((
+      height: map-get($configuration, interactiveGraphHeight),
+      menuType: 'top-with-notch'
+    ));
+
+    // Styles for tablet
+    @include above($tabletBreakpoint) {
+      @include calculateHeight((
+        height: map-get($configuration, interactiveGraphHeightTablet),
+        menuType: 'top-with-notch'
+      ));
+    }
+
+    // Styles for desktop
+    @include above($desktopBreakpoint) {
+      @include calculateHeight((
+        height: map-get($configuration, interactiveGraphHeightDesktop),
+        menuType: 'top-with-notch'
+      ));
+    }
+  }
+
+  body.fl-with-bottom-menu #{$instanceSelector} {
+    @include calculateHeight((
+      height: map-get($configuration, interactiveGraphHeight),
+      menuType: 'bottom'
+    ));
+
+    // Styles for tablet
+    @include above($tabletBreakpoint) {
+      @include calculateHeight((
+        height: map-get($configuration, interactiveGraphHeightTablet),
+        menuType: 'bottom'
+      ));
+    }
+
+    // Styles for desktop
+    @include above($desktopBreakpoint) {
+      @include calculateHeight((
+        height: map-get($configuration, interactiveGraphHeightDesktop),
+        menuType: 'bottom'
+      ));
+    }
+  }
+
+  [data-has-notch] body.fl-with-bottom-menu #{$instanceSelector} {
+    @include calculateHeight((
+      height: map-get($configuration, interactiveGraphHeight),
+      menuType: 'bottom-with-notch'
+    ));
+
+    // Styles for tablet
+    @include above($tabletBreakpoint) {
+      @include calculateHeight((
+        height: map-get($configuration, interactiveGraphHeightTablet),
+        menuType: 'bottom-with-notch'
+      ));
+    }
+
+    // Styles for desktop
+    @include above($desktopBreakpoint) {
+      @include calculateHeight((
+        height: map-get($configuration, interactiveGraphHeightDesktop),
+        menuType: 'bottom-with-notch'
+      ));
     }
   }
 }
 
-.maps-button {
-  color: $mapLabelText;
-  background-color: $mapLabelBackground;
-
-  .maps-button-text {
-    p {
-      color: $mapLabelText;
-    }
-  }
-}
-
-.interactive-map-search-icon {
-  color: $controlsText;
-  background-color: $controlsBackground;
-}
-
-.interactive-maps-search-overlay,
-.interactive-maps-overlay {
-  background-color: $mapSearchOverlayBackground;
-  color: $mapSearchOverlayText;
-}
-
-.interactive-map-overlay-topbar {
-  background-color: $mapSearchOverlayBackground;
-}
-
-.interactive-maps-overlay {
-  .map-list-item {
-    &.active {
-      border-left-color: $mapSearchOverlayText;
-    }
-  }
-}
-
-.interactive-map-overlay-search-holder {
-  .form-control {
-    background: $mapSearchOverlayBackground;
-    color: $mapSearchOverlayText;
-    border-color: $mapSearchOverlayText;
-  }
-
-  span {
-    background: rgba($mapSearchOverlayText, 0.1);
-    color: $mapSearchOverlayText;
-  }
-}
+@include interactiveGraphics();

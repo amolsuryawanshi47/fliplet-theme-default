@@ -3,116 +3,19 @@
 /********* CONTENTS **********/
 /*****************************/
 /*****************************
-01 - PAGE
-02 - HEADINGS
-03 - LINKS
-03 - TABLES
+MENUS
+TABLES
 ******************************/
 
-/* 01 - PAGE */
-body {
-  background: $bodyBackground;
-  color: $bodyTextColor;
-  line-height: $bodyLineHeight;
-  font-weight: $bodyFontWeight;
-  font-family: $bodyFontFamily, Helvetica, Arial, sans-serif;
-  font-size: $bodyFontSize;
-}
-
-/* 02 - HEADINGS */
-
-h1 {
-  color: $headingOneColor;
-  line-height: $headingOneHeight;
-  font-weight: $headingOneWeight;
-  font-family: $headingOneFont, Helvetica, Arial, sans-serif;
-  font-size: $headingOneSize;
-  margin-top: $headingOneMarginTop;
-  margin-bottom: $headingOneMarginBottom;
-}
-
-h2 {
-  color: $headingTwoColor;
-  line-height: $headingTwoHeight;
-  font-weight: $headingTwoWeight;
-  font-family: $headingTwoFont, Helvetica, Arial, sans-serif;
-  font-size: $headingTwoSize;
-  margin-top: $headingTwoMarginTop;
-  margin-bottom: $headingTwoMarginBottom;
-}
-
-h3 {
-  color: $headingThreeColor;
-  line-height: $headingThreeHeight;
-  font-weight: $headingThreeWeight;
-  font-family: $headingThreeFont, Helvetica, Arial, sans-serif;
-  font-size: $headingThreeSize;
-  margin-top: $headingThreeMarginTop;
-  margin-bottom: $headingThreeMarginBottom;
-}
-
-h4 {
-  color: $headingFourColor;
-  line-height: $headingFourHeight;
-  font-weight: $headingFourWeight;
-  font-family: $headingFourFont, Helvetica, Arial, sans-serif;
-  font-size: $headingFourSize;
-  margin-top: $headingFourMarginTop;
-  margin-bottom: $headingFourMarginBottom;
-}
-
-h5 {
-  color: $headingFiveColor;
-  line-height: $headingFiveHeight;
-  font-weight: $headingFiveWeight;
-  font-family: $headingFiveFont, Helvetica, Arial, sans-serif;
-  font-size: $headingFiveSize;
-  margin-top: $headingFiveMarginTop;
-  margin-bottom: $headingFiveMarginBottom;
-}
-
-h6 {
-  color: $headingSixColor;
-  line-height: $headingSixHeight;
-  font-weight: $headingSixWeight;
-  font-family: $headingSixFont, Helvetica, Arial, sans-serif;
-  font-size: $headingSixSize;
-  margin-top: $headingSixMarginTop;
-  margin-bottom: $headingSixMarginBottom;
-}
-
-/* 03 - LINKS */
-
-a {
-  color: $linkColor;
-  text-decoration: none;
-
-  &:hover,
-  &:focus,
-  &:active:hover,
-  &:active:focus {
-    color: $linkHoverColor;
-    text-decoration: $linkHoverDecor;
-    outline: none;
+/* MENUS */
+.fl-bar-padding {
+  .fl-viewport-header {
+    border-bottom: none;
+    border-top: none;
   }
 }
 
-.btn.btn-link {
-  color: $linkColor;
-  text-decoration: none;
-
-  &:hover,
-  &:focus,
-  &:active:hover,
-  &:active:focus {
-    color: $linkHoverColor;
-    text-decoration: $linkHoverDecor;
-    outline: none;
-  }
-}
-
-/* 04 - TABLES */
-
+/* TABLES */
 .table {
   > thead,
   > tbody,
@@ -120,17 +23,37 @@ a {
     > tr {
       > th,
       > td {
-        padding: $cellPadding;
+        padding: $cellPaddingTop $cellPaddingRight $cellPaddingBottom $cellPaddingLeft;
+
+        // Styles for tablet
+        @include above($tabletBreakpoint) {
+          padding: $cellPaddingTopTablet $cellPaddingRightTablet $cellPaddingBottomTablet $cellPaddingLeftTablet;
+        }
+
+        // Styles for desktop
+        @include above($desktopBreakpoint) {
+          padding: $cellPaddingTopDesktop $cellPaddingRightDesktop $cellPaddingBottomDesktop $cellPaddingLeftDesktop;
+        }
       }
     }
   }
 }
 
 .table-bordered {
-  border: $tableBorder;
+  @include borderOnly((
+    borderSides: $tableBorderSides,
+    borderWidth: $tableBorderWidth,
+    borderStyle: $tableBorderStyle,
+    borderColor: $tableBorder
+  ));
 
   tr {
-    border-top: $rowBorder;
+    @include borderOnly((
+      borderSides: $rowBorderSides,
+      borderWidth: $rowBorderWidth,
+      borderStyle: $rowBorderStyle,
+      borderColor: $rowBorder
+    ));
   }
 
   > thead,
@@ -139,7 +62,82 @@ a {
     > tr {
       > th,
       > td {
-        border: $cellBorderTop;
+        @include borderOnly((
+          borderSides: $cellBorderTopSides,
+          borderWidth: $cellBorderTopWidth,
+          borderStyle: $cellBorderTopStyle,
+          borderColor: $cellBorderTop
+        ));
+      }
+    }
+  }
+
+  // Styles for tablet
+  @include above($tabletBreakpoint) {
+    @include borderOnly((
+      borderSides: $tableBorderSidesTablet,
+      borderWidth: $tableBorderWidthTablet,
+      borderStyle: $tableBorderStyleTablet,
+      borderColor: $tableBorderTablet
+    ));
+
+    tr {
+      @include borderOnly((
+        borderSides: $rowBorderSidesTablet,
+        borderWidth: $rowBorderWidthTablet,
+        borderStyle: $rowBorderStyleTablet,
+        borderColor: $rowBorderTablet
+      ));
+    }
+
+    > thead,
+    > tbody,
+    > tfoot {
+      > tr {
+        > th,
+        > td {
+          @include borderOnly((
+            borderSides: $cellBorderTopSidesTablet,
+            borderWidth: $cellBorderTopWidthTablet,
+            borderStyle: $cellBorderTopStyleTablet,
+            borderColor: $cellBorderTopTablet
+          ));
+        }
+      }
+    }
+  }
+
+  // Styles for desktop
+  @include above($desktopBreakpoint) {
+    @include borderOnly((
+      borderSides: $tableBorderSidesDesktop,
+      borderWidth: $tableBorderWidthDesktop,
+      borderStyle: $tableBorderStyleDesktop,
+      borderColor: $tableBorderDesktop
+    ));
+
+    tr {
+      @include borderOnly((
+        borderSides: $rowBorderSidesDesktop,
+        borderWidth: $rowBorderWidthDesktop,
+        borderStyle: $rowBorderStyleDesktop,
+        borderColor: $rowBorderDesktop
+      ));
+    }
+
+    > thead,
+    > tbody,
+    > tfoot {
+      > tr {
+        > th,
+        > td {
+          @include borderOnly((
+            borderSides: $cellBorderTopSidesDesktop,
+            borderWidth: $cellBorderTopWidthDesktop,
+            borderStyle: $cellBorderTopStyleDesktop,
+            borderColor: $cellBorderTopDesktop
+          ));
+        }
       }
     }
   }
@@ -148,10 +146,60 @@ a {
 table,
 table.mce-item-table {
 
-  border: $tableBorder;
+  @include borderOnly((
+    borderSides: $tableBorderSides,
+    borderWidth: $tableBorderWidth,
+    borderStyle: $tableBorderStyle,
+    borderColor: $tableBorder
+  ));
+
+  // Styles for tablet
+  @include above($tabletBreakpoint) {
+    @include borderOnly((
+      borderSides: $tableBorderSidesTablet,
+      borderWidth: $tableBorderWidthTablet,
+      borderStyle: $tableBorderStyleTablet,
+      borderColor: $tableBorderTablet
+    ));
+  }
+
+  // Styles for desktop
+  @include above($desktopBreakpoint) {
+    @include borderOnly((
+      borderSides: $tableBorderSidesDesktop,
+      borderWidth: $tableBorderWidthDesktop,
+      borderStyle: $tableBorderStyleDesktop,
+      borderColor: $tableBorderDesktop
+    ));
+  }
 
   tr {
-    border-top: $rowBorder;
+    @include borderOnly((
+      borderSides: $rowBorderSides,
+      borderWidth: $rowBorderWidth,
+      borderStyle: $rowBorderStyle,
+      borderColor: $rowBorder
+    ));
+
+    // Styles for tablet
+    @include above($tabletBreakpoint) {
+      @include borderOnly((
+        borderSides: $rowBorderSidesTablet,
+        borderWidth: $rowBorderWidthTablet,
+        borderStyle: $rowBorderStyleTablet,
+        borderColor: $rowBorderTablet
+      ));
+    }
+
+    // Styles for desktop
+    @include above($desktopBreakpoint) {
+      @include borderOnly((
+        borderSides: $rowBorderSidesDesktop,
+        borderWidth: $rowBorderWidthDesktop,
+        borderStyle: $rowBorderStyleDesktop,
+        borderColor: $rowBorderDesktop
+      ));
+    }
 
     &:first-child {
       border-top: none;
@@ -161,15 +209,70 @@ table.mce-item-table {
   > thead ~ tbody,
   > thead ~ tfoot {
     tr:first-child {
-      border-top: $rowBorder;
+      @include borderOnly((
+        borderSides: $rowBorderSides,
+        borderWidth: $rowBorderWidth,
+        borderStyle: $rowBorderStyle,
+        borderColor: $rowBorder
+      ));
+
+      // Styles for tablet
+      @include above($tabletBreakpoint) {
+        @include borderOnly((
+          borderSides: $rowBorderSidesTablet,
+          borderWidth: $rowBorderWidthTablet,
+          borderStyle: $rowBorderStyleTablet,
+          borderColor: $rowBorderTablet
+        ));
+      }
+
+      // Styles for desktop
+      @include above($desktopBreakpoint) {
+        @include borderOnly((
+          borderSides: $rowBorderSidesDesktop,
+          borderWidth: $rowBorderWidthDesktop,
+          borderStyle: $rowBorderStyleDesktop,
+          borderColor: $rowBorderDesktop
+        ));
+      }
     }
   }
 
   th,
   td,
   caption {
-    padding: $cellPadding;
-    border: $cellBorderTop;
+    padding: $cellPaddingTop $cellPaddingRight $cellPaddingBottom $cellPaddingLeft;
+
+    @include borderOnly((
+      borderSides: $cellBorderTopSides,
+      borderWidth: $cellBorderTopWidth,
+      borderStyle: $cellBorderTopStyle,
+      borderColor: $cellBorderTop
+    ));
+
+    // Styles for tablet
+    @include above($tabletBreakpoint) {
+      padding: $cellPaddingTopTablet $cellPaddingRightTablet $cellPaddingBottomTablet $cellPaddingLeftTablet;
+
+      @include borderOnly((
+        borderSides: $cellBorderTopSidesTablet,
+        borderWidth: $cellBorderTopWidthTablet,
+        borderStyle: $cellBorderTopStyleTablet,
+        borderColor: $cellBorderTopTablet
+      ));
+    }
+
+    // Styles for desktop
+    @include above($desktopBreakpoint) {
+      padding: $cellPaddingTopDesktop $cellPaddingRightDesktop $cellPaddingBottomDesktop $cellPaddingLeftDesktop;
+
+      @include borderOnly((
+        borderSides: $cellBorderTopSidesDesktop,
+        borderWidth: $cellBorderTopWidthDesktop,
+        borderStyle: $cellBorderTopStyleDesktop,
+        borderColor: $cellBorderTopDesktop
+      ));
+    }
   }
 }
 

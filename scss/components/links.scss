@@ -1,0 +1,88 @@
+@mixin inlineLink($options: (), $widgetInstanceId: '') {
+  $configuration: map-merge((
+    linkColor: $linkColor,
+    linkHoverColor: $linkHoverColor,
+    linkColorTablet: $linkColorTablet,
+    linkHoverColorTablet: $linkHoverColorTablet,
+    linkColorDesktop: $linkColorDesktop,
+    linkHoverColorDesktop: $linkHoverColorDesktop
+  ), $options);
+
+  $instanceSelector: '[data-widget-package="com.fliplet.inline-link"]';
+  @if $widgetInstanceId != '' {
+    $instanceSelector: '#{$instanceSelector}[data-id="#{$widgetInstanceId}"]';
+  }
+
+  #{$instanceSelector} {
+    a {
+      text-decoration: none;
+      color: map-get($configuration, linkColor);
+
+      // Styles for tablet
+      @include above($tabletBreakpoint) {
+        color: map-get($configuration, linkColorTablet);
+      }
+
+      // Styles for desktop
+      @include above($desktopBreakpoint) {
+        color: map-get($configuration, linkColorDesktop);
+      }
+
+      &:hover,
+      &:focus,
+      &:active:hover,
+      &:active:focus {
+        color: map-get($configuration, linkHoverColor);
+        text-decoration: none;
+        outline: none;
+
+        // Styles for tablet
+        @include above($tabletBreakpoint) {
+          color: map-get($configuration, linkHoverColorTablet);
+        }
+
+        // Styles for desktop
+        @include above($desktopBreakpoint) {
+          color: map-get($configuration, linkHoverColorDesktop);
+        }
+      }
+    }
+
+    .btn.btn-link {
+      text-decoration: none;
+
+      color: map-get($configuration, linkColor);
+
+      // Styles for tablet
+      @include above($tabletBreakpoint) {
+        color: map-get($configuration, linkColorTablet);
+      }
+
+      // Styles for desktop
+      @include above($desktopBreakpoint) {
+        color: map-get($configuration, linkColorDesktop);
+      }
+
+      &:hover,
+      &:focus,
+      &:active:hover,
+      &:active:focus {
+        color: map-get($configuration, linkHoverColor);
+        text-decoration: none;
+        outline: none;
+
+        // Styles for tablet
+        @include above($tabletBreakpoint) {
+          color: map-get($configuration, linkHoverColorTablet);
+        }
+
+        // Styles for desktop
+        @include above($desktopBreakpoint) {
+          color: map-get($configuration, linkHoverColorDesktop);
+        }
+      }
+    }
+  }
+}
+
+@include inlineLink();

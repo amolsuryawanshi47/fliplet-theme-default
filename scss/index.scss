@@ -1,25 +1,172 @@
+@import "core/mixins";
+@import "core/variables";
 @import "core/base";
-@import "core/menu";
-@import "modules/slide-over";
+@import "components/body";
+@import "components/headings";
+@import "components/intro-layout";
+@import "components/menu-overlay";
+@import "components/menu-push-in";
+@import "components/menu-slide-in";
+@import "components/menu-swipe";
+@import "components/menu-circle";
+@import "components/menu-bottom-bar";
 @import "components/buttons";
-@import "components/lists";
-@import "components/panels";
-@import "components/login-registration";
-@import "components/lock";
-@import "components/slider";
+@import "components/links";
+@import "components/accordions";
+@import "components/app-list";
+@import "components/chat";
+@import "components/charts";
 @import "components/directories";
 @import "components/forms";
+@import "components/images";
 @import "components/interactive-graphics";
-@import "components/photo-sharing";
-@import "components/charts";
-@import "components/chat";
-@import "components/push-notification";
-@import "components/app-list";
-@import "components/about-overlay";
-@import "components/accordions";
-@import "components/intro-layout";
-@import "components/image-fullscreen";
+@import "components/lists";
+@import "components/list-small";
+@import "components/list-large";
+@import "components/rss";
 @import "components/lists-data-source";
-@import "components/app-analytics";
+@import "components/lock";
+@import "components/login-registration";
 @import "components/notification-inbox";
 @import "components/audio-player";
+@import "components/panels";
+@import "components/photo-sharing";
+@import "components/push-notification";
+@import "components/slider";
+@import "modules/slide-over";
+@import "components/about-overlay";
+@import "components/image-fullscreen";
+@import "components/video";
+
+/* @import "components/app-analytics"; */
+
+@if variable-exists(widgetInstances) {
+  @each $widgetInstance in $widgetInstances {
+    @if nth($widgetInstance, 2) == 'menuOverlay' {
+      @include menuOverlay(nth($widgetInstance, 3), nth($widgetInstance, 1));
+    }
+    @if nth($widgetInstance, 2) == 'menuPushIn' {
+      @include menuPushIn(nth($widgetInstance, 3), nth($widgetInstance, 1));
+    }
+    @if nth($widgetInstance, 2) == 'menuSlideIn' {
+      @include menuSlideIn(nth($widgetInstance, 3), nth($widgetInstance, 1));
+    }
+    @if nth($widgetInstance, 2) == 'menuSwipe' {
+      @include menuSwipe(nth($widgetInstance, 3), nth($widgetInstance, 1));
+    }
+    @if nth($widgetInstance, 2) == 'menuCircle' {
+      @include menuCircle(nth($widgetInstance, 3), nth($widgetInstance, 1));
+    }
+    @if nth($widgetInstance, 2) == 'menuBottom' {
+      @include menuBottom(nth($widgetInstance, 3), nth($widgetInstance, 1));
+    }
+    @if nth($widgetInstance, 2) == 'primaryButton' {
+      @include primaryButton(nth($widgetInstance, 3), nth($widgetInstance, 1));
+    }
+    @if nth($widgetInstance, 2) == 'secondaryButton' {
+      @include secondaryButton(nth($widgetInstance, 3), nth($widgetInstance, 1));
+    }
+    @if nth($widgetInstance, 2) == 'inlineLink' {
+      @include inlineLink(nth($widgetInstance, 3), nth($widgetInstance, 1));
+    }
+    @if nth($widgetInstance, 2) == 'accordion' {
+      @include accordion(nth($widgetInstance, 3), nth($widgetInstance, 1));
+    }
+    @if nth($widgetInstance, 2) == 'appList' {
+      @include appList(nth($widgetInstance, 3), nth($widgetInstance, 1));
+    }
+    @if nth($widgetInstance, 2) == 'chat' {
+      @include chat(nth($widgetInstance, 3), nth($widgetInstance, 1));
+    }
+    @if nth($widgetInstance, 2) == 'formBuilder' {
+      @include formBuilder(nth($widgetInstance, 3), nth($widgetInstance, 1));
+    }
+    @if nth($widgetInstance, 2) == 'interactiveGraphics' {
+      @include interactiveGraphics(nth($widgetInstance, 3), nth($widgetInstance, 1));
+    }
+    @if nth($widgetInstance, 2) == 'list' {
+      @include list(nth($widgetInstance, 3), nth($widgetInstance, 1));
+    }
+    @if nth($widgetInstance, 2) == 'listSmallThumbs' {
+      @include listSmallThumbs(nth($widgetInstance, 3), nth($widgetInstance, 1));
+    }
+    @if nth($widgetInstance, 2) == 'listLargeThumbs' {
+      @include listLargeThumbs(nth($widgetInstance, 3), nth($widgetInstance, 1));
+    }
+    @if nth($widgetInstance, 2) == 'rss' {
+      @include rss(nth($widgetInstance, 3), nth($widgetInstance, 1));
+    }
+    @if nth($widgetInstance, 2) == 'lfd' {
+      @include lfd(nth($widgetInstance, 3), nth($widgetInstance, 1));
+    }
+    @if nth($widgetInstance, 2) == 'lock' {
+      @include lock(nth($widgetInstance, 3), nth($widgetInstance, 1));
+    }
+    @if nth($widgetInstance, 2) == 'notificationBox' {
+      @include notificationBox(nth($widgetInstance, 3), nth($widgetInstance, 1));
+    }
+    @if nth($widgetInstance, 2) == 'slider' {
+      @include slider(nth($widgetInstance, 3), nth($widgetInstance, 1));
+    }
+    @if nth($widgetInstance, 2) == 'onboarding' {
+      @include onboarding(nth($widgetInstance, 3), nth($widgetInstance, 1));
+    }
+    @if nth($widgetInstance, 2) == 'panels' {
+      @include panels(nth($widgetInstance, 3), nth($widgetInstance, 1));
+    }
+    @if nth($widgetInstance, 2) == 'grid' {
+      @include grid(nth($widgetInstance, 3), nth($widgetInstance, 1));
+    }
+    @if nth($widgetInstance, 2) == 'photoSharing' {
+      @include photoSharing(nth($widgetInstance, 3), nth($widgetInstance, 1));
+    }
+    @if nth($widgetInstance, 2) == 'login' {
+      @include loginRegistration(nth($widgetInstance, 3), nth($widgetInstance, 1));
+    }
+    @if nth($widgetInstance, 2) == 'loginDataSource' {
+      @include loginRegistration(nth($widgetInstance, 3), nth($widgetInstance, 1));
+    }
+    @if nth($widgetInstance, 2) == 'loginSaml' {
+      @include loginRegistration(nth($widgetInstance, 3), nth($widgetInstance, 1));
+    }
+    @if nth($widgetInstance, 2) == 'emailVerification' {
+      @include loginRegistration(nth($widgetInstance, 3), nth($widgetInstance, 1));
+    }
+    @if nth($widgetInstance, 2) == 'smsVerification' {
+      @include loginRegistration(nth($widgetInstance, 3), nth($widgetInstance, 1));
+    }
+    @if nth($widgetInstance, 2) == 'chartBar' {
+      @include charts(nth($widgetInstance, 3), nth($widgetInstance, 1));
+    }
+    @if nth($widgetInstance, 2) == 'chartColumn' {
+      @include charts(nth($widgetInstance, 3), nth($widgetInstance, 1));
+    }
+    @if nth($widgetInstance, 2) == 'charScatter' {
+      @include charts(nth($widgetInstance, 3), nth($widgetInstance, 1));
+    }
+    @if nth($widgetInstance, 2) == 'chartLine' {
+      @include charts(nth($widgetInstance, 3), nth($widgetInstance, 1));
+    }
+    @if nth($widgetInstance, 2) == 'chartDonut' {
+      @include charts(nth($widgetInstance, 3), nth($widgetInstance, 1));
+    }
+    @if nth($widgetInstance, 2) == 'image' {
+      @include images(nth($widgetInstance, 3), nth($widgetInstance, 1));
+    }
+    @if nth($widgetInstance, 2) == 'imageGallery' {
+      @include imageGallery(nth($widgetInstance, 3), nth($widgetInstance, 1));
+    }
+    @if nth($widgetInstance, 2) == 'directory' {
+      @include directories(nth($widgetInstance, 3), nth($widgetInstance, 1));
+    }
+    @if nth($widgetInstance, 2) == 'advancedDirectory' {
+      @include directories(nth($widgetInstance, 3), nth($widgetInstance, 1));
+    }
+    @if nth($widgetInstance, 2) == 'offlineVideo' {
+      @include video(nth($widgetInstance, 3), nth($widgetInstance, 1));
+    }
+    @if nth($widgetInstance, 2) == 'onlineVideo' {
+      @include video(nth($widgetInstance, 3), nth($widgetInstance, 1));
+    }
+  }
+}

@@ -1,19 +1,386 @@
-/*****************************/
-/*** FLIPLET DEFAULT THEME ***/
-/********* CONTENTS **********/
-/*****************************/
-/*****************************
-01 - LOGIN & REGISTRATION
-******************************/
+@mixin loginRegistration($options: (), $widgetInstanceId: '') {
+  $configuration: map-merge((
+    loginWidth: $loginWidth,
+    loginMinWidth: $loginMinWidth,
+    loginMaxWidth: $loginMaxWidth,
+    loginMarginTop: $loginMarginTop,
+    loginMarginRight: $loginMarginRight,
+    loginMarginBottom: $loginMarginBottom,
+    loginMarginLeft: $loginMarginLeft,
+    loginPaddingTop: $loginPaddingTop,
+    loginPaddingRight: $loginPaddingRight,
+    loginPaddingBottom: $loginPaddingBottom,
+    loginPaddingLeft: $loginPaddingLeft,
+    chevronColor: $chevronColor,
+    chevronSeparator: $chevronSeparator,
+    fieldBorderSides: $fieldBorderSides,
+    fieldBorderWidth: $fieldBorderWidth,
+    fieldBorderStyle: $fieldBorderStyle,
+    fieldBorder: $fieldBorder,
+    fieldBorderRadius: $fieldBorderRadius,
+    loginWidthTablet: $loginWidthTablet,
+    loginMinWidthTablet: $loginMinWidthTablet,
+    loginMaxWidthTablet: $loginMaxWidthTablet,
+    loginMarginTopTablet: $loginMarginTopTablet,
+    loginMarginRightTablet: $loginMarginRightTablet,
+    loginMarginBottomTablet: $loginMarginBottomTablet,
+    loginMarginLeftTablet: $loginMarginLeftTablet,
+    loginPaddingTopTablet: $loginPaddingTopTablet,
+    loginPaddingRightTablet: $loginPaddingRightTablet,
+    loginPaddingBottomTablet: $loginPaddingBottomTablet,
+    loginPaddingLeftTablet: $loginPaddingLeftTablet,
+    chevronColorTablet: $chevronColorTablet,
+    chevronSeparatorTablet: $chevronSeparatorTablet,
+    fieldBorderSidesTablet: $fieldBorderSidesTablet,
+    fieldBorderWidthTablet: $fieldBorderWidthTablet,
+    fieldBorderStyleTablet: $fieldBorderStyleTablet,
+    fieldBorderTablet: $fieldBorderTablet,
+    fieldBorderRadiusTablet: $fieldBorderRadiusTablet,
+    loginWidthDesktop: $loginWidthDesktop,
+    loginMinWidthDesktop: $loginMinWidthDesktop,
+    loginMaxWidthDesktop: $loginMaxWidthDesktop,
+    loginMarginTopDesktop: $loginMarginTopDesktop,
+    loginMarginRightDesktop: $loginMarginRightDesktop,
+    loginMarginBottomDesktop: $loginMarginBottomDesktop,
+    loginMarginLeftDesktop: $loginMarginLeftDesktop,
+    loginPaddingTopDesktop: $loginPaddingTopDesktop,
+    loginPaddingRightDesktop: $loginPaddingRightDesktop,
+    loginPaddingBottomDesktop: $loginPaddingBottomDesktop,
+    loginPaddingLeftDesktop: $loginPaddingLeftDesktop,
+    chevronColorDesktop: $chevronColorDesktop,
+    chevronSeparatorDesktop: $chevronSeparatorDesktop,
+    fieldBorderSidesDesktop: $fieldBorderSidesDesktop,
+    fieldBorderWidthDesktop: $fieldBorderWidthDesktop,
+    fieldBorderStyleDesktop: $fieldBorderStyleDesktop,
+    fieldBorderDesktop: $fieldBorderDesktop,
+    fieldBorderRadiusDesktop: $fieldBorderRadiusDesktop
+  ), $options);
 
-/* 01 - LOGIN & REGISTRATION */
+  $instanceSelectorOne: '[data-widget-package="com.fliplet.login"]';
+  $instanceSelectorTwo: '[data-widget-package="com.fliplet.login-data-source"]';
+  $instanceSelectorThree: '[data-widget-package="com.fliplet.login.saml2"]';
+  $instanceSelectorFour: '[data-widget-package="com.fliplet.email-validation"]';
+  $instanceSelectorFive: '[data-widget-package="com.fliplet.sms-verfication"]';
+  @if $widgetInstanceId != '' {
+    $instanceSelectorOne: '#{$instanceSelectorOne}[data-id="#{$widgetInstanceId}"]';
+    $instanceSelectorTwo: '#{$instanceSelectorTwo}[data-id="#{$widgetInstanceId}"]';
+    $instanceSelectorThree: '#{$instanceSelectorThree}[data-id="#{$widgetInstanceId}"]';
+    $instanceSelectorFour: '#{$instanceSelectorFour}[data-id="#{$widgetInstanceId}"]';
+    $instanceSelectorFive: '#{$instanceSelectorFive}[data-id="#{$widgetInstanceId}"]';
+  }
 
-.state input.form-control {
-  border: $fieldBorder;
-  border-radius: $fieldBorderRadius;
+  #{$instanceSelectorOne},
+  #{$instanceSelectorTwo},
+  #{$instanceSelectorThree},
+  #{$instanceSelectorFour},
+  #{$instanceSelectorFive} {
+    width: map-get($configuration, loginWidth);
+    min-width: map-get($configuration, loginMinWidth);
+    max-width: map-get($configuration, loginMaxWidth);
+    margin: map-get($configuration, loginMarginTop)
+      map-get($configuration, loginMarginRight)
+      map-get($configuration, loginMarginBottom)
+      map-get($configuration, loginMarginLeft);
+
+    // Styles for tablet
+    @include above($tabletBreakpoint) {
+      width: map-get($configuration, loginWidthTablet);
+      min-width: map-get($configuration, loginMinWidthTablet);
+      max-width: map-get($configuration, loginMaxWidthTablet);
+      margin: map-get($configuration, loginMarginTopTablet)
+        map-get($configuration, loginMarginRightTablet)
+        map-get($configuration, loginMarginBottomTablet)
+        map-get($configuration, loginMarginLeftTablet);
+    }
+
+    // Styles for desktop
+    @include above($desktopBreakpoint) {
+      width: map-get($configuration, loginWidthDesktop);
+      min-width: map-get($configuration, loginMinWidthDesktop);
+      max-width: map-get($configuration, loginMaxWidthDesktop);
+      margin: map-get($configuration, loginMarginTopDesktop)
+        map-get($configuration, loginMarginRightDesktop)
+        map-get($configuration, loginMarginBottomDesktop)
+        map-get($configuration, loginMarginLeftDesktop);
+    }
+
+    .sso-login,
+    [data-login-ds-id],
+    [data-login-id],
+    .fl-sms-verification,
+    .fl-email-verification {
+      padding: map-get($configuration, loginPaddingTop)
+        map-get($configuration, loginPaddingRight)
+        map-get($configuration, loginPaddingBottom)
+        map-get($configuration, loginPaddingLeft);
+
+      // Styles for tablet
+      @include above($tabletBreakpoint) {
+        padding: map-get($configuration, loginPaddingTopTablet)
+          map-get($configuration, loginPaddingRightTablet)
+          map-get($configuration, loginPaddingBottomTablet)
+          map-get($configuration, loginPaddingLeftTablet);
+      }
+
+      // Styles for desktop
+      @include above($desktopBreakpoint) {
+        padding: map-get($configuration, loginPaddingTopDesktop)
+          map-get($configuration, loginPaddingRightDesktop)
+          map-get($configuration, loginPaddingBottomDesktop)
+          map-get($configuration, loginPaddingLeftDesktop);
+      }
+    }
+
+    .state input.form-control,
+    .fl-login-form input.form-control {
+      border: none;
+      @include borderOnly((
+        borderSides: map-get($configuration, fieldBorderSides),
+        borderWidth: map-get($configuration, fieldBorderWidth),
+        borderStyle: map-get($configuration, fieldBorderStyle),
+        borderColor: map-get($configuration, fieldBorder)
+      ));
+      border-radius: map-get($configuration, fieldBorderRadius);
+
+      // Styles for tablet
+      @include above($tabletBreakpoint) {
+        @include borderOnly((
+          borderSides: map-get($configuration, fieldBorderSidesTablet),
+          borderWidth: map-get($configuration, fieldBorderWidthTablet),
+          borderStyle: map-get($configuration, fieldBorderStyleTablet),
+          borderColor: map-get($configuration, fieldBorderTablet)
+        ));
+        border-radius: map-get($configuration, fieldBorderRadiusTablet);
+      }
+
+      // Styles for desktop
+      @include above($desktopBreakpoint) {
+        @include borderOnly((
+          borderSides: map-get($configuration, fieldBorderSidesDesktop),
+          borderWidth: map-get($configuration, fieldBorderWidthDesktop),
+          borderStyle: map-get($configuration, fieldBorderStyleDesktop),
+          borderColor: map-get($configuration, fieldBorderDesktop)
+        ));
+        border-radius: map-get($configuration, fieldBorderRadiusDesktop);
+      }
+    }
+
+    .fl-login-form .fl-email:before,
+    .fl-login-form .fl-password:before {
+      color: $chevronSeparator;
+      border-right-color: $chevronSeparator;
+
+      // Styles for tablet
+      @include above($tabletBreakpoint) {
+        color: $chevronSeparatorTablet;
+        border-right-color: $chevronSeparatorTablet;
+      }
+
+      // Styles for desktop
+      @include above($desktopBreakpoint) {
+        color: $chevronSeparatorDesktop;
+        border-right-color: $chevronSeparatorDesktop;
+      }
+    }
+
+    .state {
+      .back {
+        border-right: 1px solid map-get($configuration, chevronSeparator);
+        color: map-get($configuration, chevronColor);
+
+        // Styles for tablet
+        @include above($tabletBreakpoint) {
+          border-right: 1px solid map-get($configuration, chevronSeparatorTablet);
+          color: map-get($configuration, chevronColorTablet);
+        }
+
+        // Styles for desktop
+        @include above($desktopBreakpoint) {
+          border-right: 1px solid map-get($configuration, chevronSeparatorDesktop);
+          color: map-get($configuration, chevronColorDesktop);
+        }
+      }
+
+      .btn-primary {
+        background-color: $primaryButtonColor;
+        color: $primaryButtonTextColor;
+        padding: $primaryButtonPaddingTop
+          $primaryButtonPaddingRight
+          $primaryButtonPaddingBottom
+          $primaryButtonPaddingLeft;
+        border-radius: $primaryButtonBorderRadius;
+        @include fontOnly((
+          fontFamily: $primaryButtonFontFamily,
+          fontSize: $primaryButtonFontSize,
+          fontLineHeight: $primaryButtonLineHeight,
+          fontWeight: $primaryButtonFontWeight,
+          fontStyle: $primaryButtonFontStyle,
+          fontDecoration: $primaryButtonFontDecoration
+        ));
+
+        @include borderOnly((
+          borderSides: $primaryButtonBorderSides,
+          borderWidth: $primaryButtonBorderWidth,
+          borderStyle: $primaryButtonBorderStyle,
+          borderColor: $primaryButtonBorderColor
+        ));
+
+        @include shadowOnly((
+          shadowStyle: $primaryButtonShadowStyle,
+          shadowXOffset: $primaryButtonShadowXoffset,
+          shadowYOffset: $primaryButtonShadowYoffset,
+          shadowBlur: $primaryButtonShadowBlur,
+          shadowSpread: $primaryButtonShadowSpread,
+          shadowColor: $primaryButtonShadowColor
+        ));
+
+        &:focus,
+        &:hover,
+        &:active:focus,
+        &:active:hover {
+          background-color: $primaryButtonHoverColor;
+          color: $primaryButtonHoverTextColor;
+          border-radius: $primaryButtonHoverBorderRadius;
+
+          @include borderOnly((
+            borderSides: $primaryButtonHoverBorderSides,
+            borderWidth: $primaryButtonHoverBorderWidth,
+            borderStyle: $primaryButtonHoverBorderStyle,
+            borderColor: $primaryButtonHoverBorderColor
+          ));
+
+          @include shadowOnly((
+            shadowStyle: $primaryButtonHoverShadowStyle,
+            shadowXOffset: $primaryButtonHoverShadowXoffset,
+            shadowYOffset: $primaryButtonHoverShadowYoffset,
+            shadowBlur: $primaryButtonHoverShadowBlur,
+            shadowSpread: $primaryButtonHoverShadowSpread,
+            shadowColor: $primaryButtonHoverShadowColor
+          ));
+        }
+
+        // Styles for tablet
+        @include above($tabletBreakpoint) {
+          background-color: $primaryButtonColorTablet;
+          color: $primaryButtonTextColorTablet;
+          padding: $primaryButtonPaddingTopTablet
+            $primaryButtonPaddingRightTablet
+            $primaryButtonPaddingBottomTablet
+            $primaryButtonPaddingLeftTablet;
+          border-radius: $primaryButtonBorderRadiusTablet;
+          @include fontOnly((
+            fontFamily: $primaryButtonFontFamilyTablet,
+            fontSize: $primaryButtonFontSizeTablet,
+            fontLineHeight: $primaryButtonLineHeightTablet,
+            fontWeight: $primaryButtonFontWeightTablet,
+            fontStyle: $primaryButtonFontStyleTablet,
+            fontDecoration: $primaryButtonFontDecorationTablet
+          ));
+
+          @include borderOnly((
+            borderSides: $primaryButtonBorderSidesTablet,
+            borderWidth: $primaryButtonBorderWidthTablet,
+            borderStyle: $primaryButtonBorderStyleTablet,
+            borderColor: $primaryButtonBorderColorTablet
+          ));
+
+          @include shadowOnly((
+            shadowStyle: $primaryButtonShadowStyleTablet,
+            shadowXOffset: $primaryButtonShadowXoffsetTablet,
+            shadowYOffset: $primaryButtonShadowYoffsetTablet,
+            shadowBlur: $primaryButtonShadowBlurTablet,
+            shadowSpread: $primaryButtonShadowSpreadTablet,
+            shadowColor: $primaryButtonShadowColorTablet
+          ));
+
+          &:focus,
+          &:hover,
+          &:active:focus,
+          &:active:hover {
+            background-color: $primaryButtonHoverColorTablet;
+            color: $primaryButtonHoverTextColorTablet;
+            border-radius: $primaryButtonHoverBorderRadiusTablet;
+
+            @include borderOnly((
+              borderSides: $primaryButtonHoverBorderSidesTablet,
+              borderWidth: $primaryButtonHoverBorderWidthTablet,
+              borderStyle: $primaryButtonHoverBorderStyleTablet,
+              borderColor: $primaryButtonHoverBorderColorTablet
+            ));
+
+            @include shadowOnly((
+              shadowStyle: $primaryButtonHoverShadowStyleTablet,
+              shadowXOffset: $primaryButtonHoverShadowXoffsetTablet,
+              shadowYOffset: $primaryButtonHoverShadowYoffsetTablet,
+              shadowBlur: $primaryButtonHoverShadowBlurTablet,
+              shadowSpread: $primaryButtonHoverShadowSpreadTablet,
+              shadowColor: $primaryButtonHoverShadowColorTablet
+            ));
+          }
+        }
+
+        // Styles for desktop
+        @include above($desktopBreakpoint) {
+          background-color: $primaryButtonColorDesktop;
+          color: $primaryButtonTextColorDesktop;
+          padding: $primaryButtonPaddingTopDesktop
+            $primaryButtonPaddingRightDesktop
+            $primaryButtonPaddingBottomDesktop
+            $primaryButtonPaddingLeftDesktop;
+          border-radius: $primaryButtonBorderRadiusDesktop;
+          @include fontOnly((
+            fontFamily: $primaryButtonFontFamilyDesktop,
+            fontSize: $primaryButtonFontSizeDesktop,
+            fontLineHeight: $primaryButtonLineHeightDesktop,
+            fontWeight: $primaryButtonFontWeightDesktop,
+            fontStyle: $primaryButtonFontStyleDesktop,
+            fontDecoration: $primaryButtonFontDecorationDesktop
+          ));
+
+          @include borderOnly((
+            borderSides: $primaryButtonBorderSidesDesktop,
+            borderWidth: $primaryButtonBorderWidthDesktop,
+            borderStyle: $primaryButtonBorderStyleDesktop,
+            borderColor: $primaryButtonBorderColorDesktop
+          ));
+
+          @include shadowOnly((
+            shadowStyle: $primaryButtonShadowStyleDesktop,
+            shadowXOffset: $primaryButtonShadowXoffsetDesktop,
+            shadowYOffset: $primaryButtonShadowYoffsetDesktop,
+            shadowBlur: $primaryButtonShadowBlurDesktop,
+            shadowSpread: $primaryButtonShadowSpreadDesktop,
+            shadowColor: $primaryButtonShadowColorDesktop
+          ));
+
+          &:focus,
+          &:hover,
+          &:active:focus,
+          &:active:hover {
+            background-color: $primaryButtonHoverColorDesktop;
+            color: $primaryButtonHoverTextColorDesktop;
+            border-radius: $primaryButtonHoverBorderRadiusDesktop;
+
+            @include borderOnly((
+              borderSides: $primaryButtonHoverBorderSidesDesktop,
+              borderWidth: $primaryButtonHoverBorderWidthDesktop,
+              borderStyle: $primaryButtonHoverBorderStyleDesktop,
+              borderColor: $primaryButtonHoverBorderColorDesktop
+            ));
+
+            @include shadowOnly((
+              shadowStyle: $primaryButtonHoverShadowStyleDesktop,
+              shadowXOffset: $primaryButtonHoverShadowXoffsetDesktop,
+              shadowYOffset: $primaryButtonHoverShadowYoffsetDesktop,
+              shadowBlur: $primaryButtonHoverShadowBlurDesktop,
+              shadowSpread: $primaryButtonHoverShadowSpreadDesktop,
+              shadowColor: $primaryButtonHoverShadowColorDesktop
+            ));
+          }
+        }
+      }
+    }
+  }
 }
 
-.state .back {
-    border-right: $chevronSeparator;
-    color: $chevronColor;
-}
+@include loginRegistration();

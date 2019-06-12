@@ -1,172 +1,455 @@
-/*****************************/
-/*** FLIPLET DEFAULT THEME ***/
-/********* CONTENTS **********/
-/*****************************/
-/*****************************
-01 - LIST, LIST SMALL THUMBS, LIST LARGE THUMBS
-02 - PDF FILE LIST
-03 - RSS LIST
-04 - APP LIST
-******************************/
-
-/* 01 - LIST, LIST SMALL THUMBS, LIST LARGE THUMBS */
-
-.list.list-default,
-.list.list-thumb-s,
-.list.list-thumb-l {
-
-  ul > li {
-    border-bottom: $listSeparatorColor;
-    background-color: $listBackgroundColor;
-
-    &.linked:active {
-      background-color: $listClickColor;
-    }
-
-    &.linked:after {
-      color: $listChevronColor;
-    }
-
-    .list-title {
-      font-size: $titleSize;
-    	font-weight: $titleWeight;
-      color: $titleColor;
-    }
-
-    .list-image {
-      .fl-list-icon {
-        color: $listIconColor;
-      }
-    }
-
-    p + p {
-      font-size: $descriptionSize;
-    	font-weight: $descriptionWeight;
-      color: $descriptionColor;
-    }
-
+@mixin list($options: (), $widgetInstanceId: '') {
+  $configuration: map-merge((
+    listWidth: $listWidth,
+    listMinWidth: $listMinWidth,
+    listMaxWidth: $listMaxWidth,
+    listMarginTop: $listMarginTop,
+    listMarginRight: $listMarginRight,
+    listMarginBottom: $listMarginBottom,
+    listMarginLeft: $listMarginLeft,
+    listPaddingTop: $listPaddingTop,
+    listPaddingRight: $listPaddingRight,
+    listPaddingBottom: $listPaddingBottom,
+    listPaddingLeft: $listPaddingLeft,
+    listBackgroundColor: $listBackgroundColor,
+    listClickColor: $listClickColor,
+    listSeparatorColor: $listSeparatorColor,
+    listChevronColor: $listChevronColor,
+    titleFont: $titleFont,
+    titleSize: $titleSize,
+    titleColor: $titleColor,
+    titleWeight: $titleWeight,
+    titleStyle: $titleStyle,
+    titleDecoration: $titleDecoration,
+    descriptionFont: $descriptionFont,
+    descriptionSize: $descriptionSize,
+    descriptionColor: $descriptionColor,
+    descriptionWeight: $descriptionWeight,
+    descriptionStyle: $descriptionStyle,
+    descriptionDecoration: $descriptionDecoration,
+    listItemPaddingTop: $listItemPaddingTop,
+    listItemPaddingRight: $listItemPaddingRight,
+    listItemPaddingBottom: $listItemPaddingBottom,
+    listItemPaddingLeft: $listItemPaddingLeft,
+    listMyListToggleColor: $listMyListToggleColor,
+    listMyListToggleActiveColor: $listMyListToggleActiveColor,
+    listMyListSwipeColor: $listMyListSwipeColor,
+    listMyListSwipeTextColor: $listMyListSwipeTextColor,
+    listMyListSwipeRightColor: $listMyListSwipeRightColor,
+    listMyListSwipeRightTextColor: $listMyListSwipeRightTextColor,
+    listMyListSwipeLeftColor: $listMyListSwipeLeftColor,
+    listMyListSwipeLeftTextColor: $listMyListSwipeLeftTextColor,
+    listWidthTablet: $listWidthTablet,
+    listMinWidthTablet: $listMinWidthTablet,
+    listMaxWidthTablet: $listMaxWidthTablet,
+    listMarginTopTablet: $listMarginTopTablet,
+    listMarginRightTablet: $listMarginRightTablet,
+    listMarginBottomTablet: $listMarginBottomTablet,
+    listMarginLeftTablet: $listMarginLeftTablet,
+    listPaddingTopTablet: $listPaddingTopTablet,
+    listPaddingRightTablet: $listPaddingRightTablet,
+    listPaddingBottomTablet: $listPaddingBottomTablet,
+    listPaddingLeftTablet: $listPaddingLeftTablet,
+    listBackgroundColorTablet: $listBackgroundColorTablet,
+    listClickColorTablet: $listClickColorTablet,
+    listSeparatorColorTablet: $listSeparatorColorTablet,
+    listChevronColorTablet: $listChevronColorTablet,
+    titleFontTablet: $titleFontTablet,
+    titleSizeTablet: $titleSizeTablet,
+    titleColorTablet: $titleColorTablet,
+    titleWeightTablet: $titleWeightTablet,
+    titleStyleTablet: $titleStyleTablet,
+    titleDecorationTablet: $titleDecorationTablet,
+    descriptionFontTablet: $descriptionFontTablet,
+    descriptionSizeTablet: $descriptionSizeTablet,
+    descriptionColorTablet: $descriptionColorTablet,
+    descriptionWeightTablet: $descriptionWeightTablet,
+    descriptionStyleTablet: $descriptionStyleTablet,
+    descriptionDecorationTablet: $descriptionDecorationTablet,
+    listItemPaddingTopTablet: $listItemPaddingTopTablet,
+    listItemPaddingRightTablet: $listItemPaddingRightTablet,
+    listItemPaddingBottomTablet: $listItemPaddingBottomTablet,
+    listItemPaddingLeftTablet: $listItemPaddingLeftTablet,
+    listMyListToggleColorTablet: $listMyListToggleColorTablet,
+    listMyListToggleActiveColorTablet: $listMyListToggleActiveColorTablet,
+    listMyListSwipeColorTablet: $listMyListSwipeColorTablet,
+    listMyListSwipeTextColorTablet: $listMyListSwipeTextColorTablet,
+    listMyListSwipeRightColorTablet: $listMyListSwipeRightColorTablet,
+    listMyListSwipeRightTextColorTablet: $listMyListSwipeRightTextColorTablet,
+    listMyListSwipeLeftColorTablet: $listMyListSwipeLeftColorTablet,
+    listMyListSwipeLeftTextColorTablet: $listMyListSwipeLeftTextColorTablet,
+    listWidthDesktop: $listWidthDesktop,
+    listMinWidthDesktop: $listMinWidthDesktop,
+    listMaxWidthDesktop: $listMaxWidthDesktop,
+    listMarginTopDesktop: $listMarginTopDesktop,
+    listMarginRightDesktop: $listMarginRightDesktop,
+    listMarginBottomDesktop: $listMarginBottomDesktop,
+    listMarginLeftDesktop: $listMarginLeftDesktop,
+    listPaddingTopDesktop: $listPaddingTopDesktop,
+    listPaddingRightDesktop: $listPaddingRightDesktop,
+    listPaddingBottomDesktop: $listPaddingBottomDesktop,
+    listPaddingLeftDesktop: $listPaddingLeftDesktop,
+    listBackgroundColorDesktop: $listBackgroundColorDesktop,
+    listClickColorDesktop: $listClickColorDesktop,
+    listSeparatorColorDesktop: $listSeparatorColorDesktop,
+    listChevronColorDesktop: $listChevronColorDesktop,
+    titleFontDesktop: $titleFontDesktop,
+    titleSizeDesktop: $titleSizeDesktop,
+    titleColorDesktop: $titleColorDesktop,
+    titleWeightDesktop: $titleWeightDesktop,
+    titleStyleDesktop: $titleStyleDesktop,
+    titleDecorationDesktop: $titleDecorationDesktop,
+    descriptionFontDesktop: $descriptionFontDesktop,
+    descriptionSizeDesktop: $descriptionSizeDesktop,
+    descriptionColorDesktop: $descriptionColorDesktop,
+    descriptionWeightDesktop: $descriptionWeightDesktop,
+    descriptionStyleDesktop: $descriptionStyleDesktop,
+    descriptionDecorationDesktop: $descriptionDecorationDesktop,
+    listItemPaddingTopDesktop: $listItemPaddingTopDesktop,
+    listItemPaddingRightDesktop: $listItemPaddingRightDesktop,
+    listItemPaddingBottomDesktop: $listItemPaddingBottomDesktop,
+    listItemPaddingLeftDesktop: $listItemPaddingLeftDesktop,
+    listMyListToggleColorDesktop: $listMyListToggleColorDesktop,
+    listMyListToggleActiveColorDesktop: $listMyListToggleActiveColorDesktop,
+    listMyListSwipeColorDesktop: $listMyListSwipeColorDesktop,
+    listMyListSwipeTextColorDesktop: $listMyListSwipeTextColorDesktop,
+    listMyListSwipeRightColorDesktop: $listMyListSwipeRightColorDesktop,
+    listMyListSwipeRightTextColorDesktop: $listMyListSwipeRightTextColorDesktop,
+    listMyListSwipeLeftColorDesktop: $listMyListSwipeLeftColorDesktop,
+    listMyListSwipeLeftTextColorDesktop: $listMyListSwipeLeftTextColorDesktop
+  ), $options);
+  
+  $instanceSelector: '[data-widget-package="com.fliplet.simple-list"]';
+  @if $widgetInstanceId != '' {
+    $instanceSelector: '#{$instanceSelector}[data-id="#{$widgetInstanceId}"]';
   }
 
-}
+  #{$instanceSelector} {
+    width: map-get($configuration, listWidth);
+    min-width: map-get($configuration, listMinWidth);
+    max-width: map-get($configuration, listMaxWidth);
+    margin: map-get($configuration, listMarginTop)
+      map-get($configuration, listMarginRight)
+      map-get($configuration, listMarginBottom)
+      map-get($configuration, listMarginLeft);
+    padding: map-get($configuration, listPaddingTop)
+      map-get($configuration, listPaddingRight)
+      map-get($configuration, listPaddingBottom)
+      map-get($configuration, listPaddingLeft);
 
-.list.list-thumb-s {
-  ul > li {
-    .list-image {
-      .fl-list-icon {
-        font-size: $listSmallIconSize;
-      }
+    // Styles for tablet
+    @include above($tabletBreakpoint) {
+      width: map-get($configuration, listWidthTablet);
+      min-width: map-get($configuration, listMinWidthTablet);
+      max-width: map-get($configuration, listMaxWidthTablet);
+      margin: map-get($configuration, listMarginTopTablet)
+        map-get($configuration, listMarginRightTablet)
+        map-get($configuration, listMarginBottomTablet)
+        map-get($configuration, listMarginLeftTablet);
+      padding: map-get($configuration, listPaddingTopTablet)
+        map-get($configuration, listPaddingRightTablet)
+        map-get($configuration, listPaddingBottomTablet)
+        map-get($configuration, listPaddingLeftTablet);
     }
-  }
-}
 
-.list.list-thumb-l {
-  ul > li {
-    .list-image {
-      .fl-list-icon {
-        font-size: $listLargeIconSize;
-      }
+    // Styles for desktop
+    @include above($desktopBreakpoint) {
+      width: map-get($configuration, listWidthDesktop);
+      min-width: map-get($configuration, listMinWidthDesktop);
+      max-width: map-get($configuration, listMaxWidthDesktop);
+      margin: map-get($configuration, listMarginTopDesktop)
+        map-get($configuration, listMarginRightDesktop)
+        map-get($configuration, listMarginBottomDesktop)
+        map-get($configuration, listMarginLeftDesktop);
+      padding: map-get($configuration, listPaddingTopDesktop)
+        map-get($configuration, listPaddingRightDesktop)
+        map-get($configuration, listPaddingBottomDesktop)
+        map-get($configuration, listPaddingLeftDesktop);
     }
-  }
-}
 
-ul.list-save-filter {
-  border: 1px solid $listMyListToggleColor;
+    .list.list-default {
+      ul > li {
+        border-bottom: 1px solid map-get($configuration, listSeparatorColor);
+        background-color: map-get($configuration, listBackgroundColor);
+        padding: map-get($configuration, listItemPaddingTop)
+          map-get($configuration, listItemPaddingRight)
+          map-get($configuration, listItemPaddingBottom)
+          map-get($configuration, listItemPaddingLeft);
 
-  li {
-    border-left: 1px solid $listMyListToggleColor;
-    background: $bodyBackground;
-    color: $listMyListToggleColor;
+        &.linked {
+          padding-right: calc(#{map-get($configuration, listItemPaddingRight)} + 34px);
 
-    &.active {
-      background: $listMyListToggleColor;
-      color: listMyListToggleActiveColor;
-    }
-  }
-}
+          &:active {
+            background-color: map-get($configuration, listClickColor);
+          }
 
-ul.list-swipe .swipe-action {
-  background: $listMyListSwipeColor;
-  color: $listMyListSwipeTextColor;
+          .list-icon {
+            color: map-get($configuration, listChevronColor);
+          }
+        }
 
-  &.swipe-action-right.active{
-    background: $listMyListSwipeRightColor;
-    color: $listMyListSwipeRightTextColor;
-  }
+        .list-title {
+          @include fontOnly((
+            fontFamily: map-get($configuration, titleFont),
+            fontSize: map-get($configuration, titleSize),
+            fontLineHeight: 1.5,
+            fontWeight: map-get($configuration, titleWeight),
+            fontStyle: map-get($configuration, titleStyle),
+            fontDecoration: map-get($configuration, titleDecoration)
+          ));
+          color: map-get($configuration, titleColor);
+        }
 
-  &.swipe-action-left.active {
-    background: $listMyListSwipeLeftColor;
-    color: $listMyListSwipeLeftTextColor;
-  }
-}
+        p + p {
+          @include fontOnly((
+            fontFamily: map-get($configuration, descriptionFont),
+            fontSize: map-get($configuration, descriptionSize),
+            fontLineHeight: 1.5,
+            fontWeight: map-get($configuration, descriptionWeight),
+            fontStyle: map-get($configuration, descriptionStyle),
+            fontDecoration: map-get($configuration, descriptionDecoration)
+          ));
+          color: map-get($configuration, descriptionColor);
+        }
 
-/* 02 - PDF FILE LIST */
+        // Styles for tablet
+        @include above($tabletBreakpoint) {
+          border-bottom: 1px solid map-get($configuration, listSeparatorColorTablet);
+          background-color: map-get($configuration, listBackgroundColorTablet);
+          padding: map-get($configuration, listItemPaddingTopTablet)
+            map-get($configuration, listItemPaddingRightTablet)
+            map-get($configuration, listItemPaddingBottomTablet)
+            map-get($configuration, listItemPaddingLeftTablet);
 
-.list-search {
-  border-bottom: $listSearchBorder;
-}
+          &.linked {
+            padding-right: calc(#{map-get($configuration, listItemPaddingRightTablet)} + 34px);
 
-.btn.btn-link.search-cancel {
-  color: $listSearchCancel;
+            &:active {
+              background-color: map-get($configuration, listClickColorTablet);
+            }
 
-  &:hover,
-  &:focus,
-  &:active:hover,
-  &:active:focus {
-    color: $linkHoverColor;
-  }
-}
+            .list-icon {
+              color: map-get($configuration, listChevronColorTablet);
+            }
+          }
 
-/* 03 - RSS LIST */
-.feed {
-  ul {
-    &.feed-panels {
-      &.line > li {
-        &.feed-item {
-          border-bottom: $listSeparatorColor;
+          .list-title {
+            @include fontOnly((
+              fontFamily: map-get($configuration, titleFontTablet),
+              fontSize: map-get($configuration, titleSizeTablet),
+              fontLineHeight: 1.5,
+              fontWeight: map-get($configuration, titleWeightTablet),
+              fontStyle: map-get($configuration, titleStyleTablet),
+              fontDecoration: map-get($configuration, titleDecorationTablet)
+            ));
+            color: map-get($configuration, titleColorTablet);
+          }
+
+          p + p {
+            @include fontOnly((
+              fontFamily: map-get($configuration, descriptionFontTablet),
+              fontSize: map-get($configuration, descriptionSizeTablet),
+              fontLineHeight: 1.5,
+              fontWeight: map-get($configuration, descriptionWeightTablet),
+              fontStyle: map-get($configuration, descriptionStyleTablet),
+              fontDecoration: map-get($configuration, descriptionDecorationTablet)
+            ));
+            color: map-get($configuration, descriptionColorTablet);
+          }
+        }
+
+        // Styles for desktop
+        @include above($desktopBreakpoint) {
+          border-bottom: 1px solid map-get($configuration, listSeparatorColorDesktop);
+          background-color: map-get($configuration, listBackgroundColorDesktop);
+          padding: map-get($configuration, listItemPaddingTopDesktop)
+            map-get($configuration, listItemPaddingRightDesktop)
+            map-get($configuration, listItemPaddingBottomDesktop)
+            map-get($configuration, listItemPaddingLeftDesktop);
+
+          &.linked {
+            padding-right: calc(#{map-get($configuration, listItemPaddingRightDesktop)} + 34px);
+
+            &:active {
+              background-color: map-get($configuration, listClickColorDesktop);
+            }
+
+            .list-icon {
+              color: map-get($configuration, listChevronColorDesktop);
+            }
+          }
+
+          .list-title {
+            @include fontOnly((
+              fontFamily: map-get($configuration, titleFontDesktop),
+              fontSize: map-get($configuration, titleSizeDesktop),
+              fontLineHeight: 1.5,
+              fontWeight: map-get($configuration, titleWeightDesktop),
+              fontStyle: map-get($configuration, titleStyleDesktop),
+              fontDecoration: map-get($configuration, titleDecorationDesktop)
+            ));
+            color: map-get($configuration, titleColorDesktop);
+          }
+
+          p + p {
+            @include fontOnly((
+              fontFamily: map-get($configuration, descriptionFontDesktop),
+              fontSize: map-get($configuration, descriptionSizeDesktop),
+              fontLineHeight: 1.5,
+              fontWeight: map-get($configuration, descriptionWeightDesktop),
+              fontStyle: map-get($configuration, descriptionStyleDesktop),
+              fontDecoration: map-get($configuration, descriptionDecorationDesktop)
+            ));
+            color: map-get($configuration, descriptionColorDesktop);
+          }
         }
       }
 
-      &.stripes > li {
-        &.feed-item:nth-child(odd) {
-          background-color: $rssStripes;
+      ul.list-save-filter {
+        border: 1px solid map-get($configuration, listMyListToggleColor);
+
+        li {
+          border-left: 1px solid map-get($configuration, listMyListToggleColor);
+          background: $bodyBackground;
+          color: map-get($configuration, listMyListToggleColor);
+
+          &.active {
+            background: map-get($configuration, listMyListToggleColor);
+            color: map-get($configuration, listMyListToggleActiveColor);
+          }
+        }
+
+        // Styles for tablet
+        @include above($tabletBreakpoint) {
+          border: 1px solid map-get($configuration, listMyListToggleColorTablet);
+
+          li {
+            border-left: 1px solid map-get($configuration, listMyListToggleColorTablet);
+            background: $bodyBackgroundTablet;
+            color: map-get($configuration, listMyListToggleColorTablet);
+
+            &.active {
+              background: map-get($configuration, listMyListToggleColorTablet);
+              color: map-get($configuration, listMyListToggleActiveColorTablet);
+            }
+          }
+        }
+
+        // Styles for desktop
+        @include above($desktopBreakpoint) {
+          border: 1px solid map-get($configuration, listMyListToggleColorDesktop);
+
+          li {
+            border-left: 1px solid map-get($configuration, listMyListToggleColorDesktop);
+            background: $bodyBackgroundDesktop;
+            color: map-get($configuration, listMyListToggleColorDesktop);
+
+            &.active {
+              background: map-get($configuration, listMyListToggleColorDesktop);
+              color: map-get($configuration, listMyListToggleActiveColorDesktop);
+            }
+          }
         }
       }
 
-      & > li {
-        &.feed-item {
-          background-color: $listBackgroundColor;
+      ul.list-swipe .swipe-action {
+        background: map-get($configuration, listMyListSwipeColor);
+        color: map-get($configuration, listMyListSwipeTextColor);
 
-          &.line {
-            border-left-color: $rssHighlight;
+        &.swipe-action-right.active {
+          background: map-get($configuration, listMyListSwipeRightColor);
+          color: map-get($configuration, listMyListSwipeRightTextColor);
+        }
+
+        &.swipe-action-left.active {
+          background: map-get($configuration, listMyListSwipeLeftColor);
+          color: map-get($configuration, listMyListSwipeLeftTextColor);
+        }
+
+        // Styles for tablet
+        @include above($tabletBreakpoint) {
+          background: map-get($configuration, listMyListSwipeColorTablet);
+          color: map-get($configuration, listMyListSwipeTextColorTablet);
+
+          &.swipe-action-right.active{
+            background: map-get($configuration, listMyListSwipeRightColorTablet);
+            color: map-get($configuration, listMyListSwipeRightTextColorTablet);
+          }
+
+          &.swipe-action-left.active {
+            background: map-get($configuration, listMyListSwipeLeftColorTablet);
+            color: map-get($configuration, listMyListSwipeLeftTextColorTablet);
+          }
+        }
+
+        // Styles for desktop
+        @include above($desktopBreakpoint) {
+          background: map-get($configuration, listMyListSwipeColorDesktop);
+          color: map-get($configuration, listMyListSwipeTextColorDesktop);
+
+          &.swipe-action-right.active{
+            background: map-get($configuration, listMyListSwipeRightColorDesktop);
+            color: map-get($configuration, listMyListSwipeRightTextColorDesktop);
+          }
+
+          &.swipe-action-left.active {
+            background: map-get($configuration, listMyListSwipeLeftColorDesktop);
+            color: map-get($configuration, listMyListSwipeLeftTextColorDesktop);
           }
         }
       }
     }
-  }
 
-  .feed-item {
-    &.circle {
-      p.list-title {
-        .circle-icon {
-          background-color: $rssHighlight;
-        }
+    /* 02 - PDF FILE LIST */
+    .list-search {
+      border-bottom: 2px solid map-get($configuration, listSeparatorColor);
+
+      // Styles for tablet
+      @include above($tabletBreakpoint) {
+        border-bottom: 2px solid map-get($configuration, listSeparatorColorTablet);
+      }
+
+      // Styles for desktop
+      @include above($desktopBreakpoint) {
+        border-bottom: 2px solid map-get($configuration, listSeparatorColorDesktop);
       }
     }
 
-    .list-title {
-      color: $titleColor;
-      font-size: $titleSize;
-      font-weight: $titleWeight;
-    }
+    .btn.btn-link.search-cancel {
+      color: map-get($configuration, titleColor);
 
-    .list-description {
-      color: $descriptionColor;
-      font-size: $descriptionSize;
-      font-weight: $descriptionWeight;
-    }
+      &:hover,
+      &:focus,
+      &:active:hover,
+      &:active:focus {
+        color: $linkHoverColor;
+      }
 
-    .icon {
-      color: $listChevronColor;
+      // Styles for tablet
+      @include above($tabletBreakpoint) {
+        color: map-get($configuration, titleColorTablet);
+
+        &:hover,
+        &:focus,
+        &:active:hover,
+        &:active:focus {
+          color: $linkHoverColorDesktop;
+        }
+      }
+
+      // Styles for desktop
+      @include above($desktopBreakpoint) {
+        color: map-get($configuration, titleColorDesktop);
+
+        &:hover,
+        &:focus,
+        &:active:hover,
+        &:active:focus {
+          color: $linkHoverColorDesktop;
+        }
+      }
     }
   }
 }
+
+@include list();

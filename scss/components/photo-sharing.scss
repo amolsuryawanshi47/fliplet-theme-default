@@ -1,76 +1,306 @@
-/*****************************/
-/*** FLIPLET DEFAULT THEME ***/
-/********* CONTENTS **********/
-/*****************************/
-/*****************************
-01 - PHOTO SHARING
-******************************/
+@mixin photoSharing($options: (), $widgetInstanceId: '') {
+  $configuration: map-merge((
+    photoSharingWidth: $photoSharingWidth,
+    photoSharingMinWidth: $photoSharingMinWidth,
+    photoSharingMaxWidth: $photoSharingMaxWidth,
+    photoSharingMarginTop: $photoSharingMarginTop,
+    photoSharingMarginRight: $photoSharingMarginRight,
+    photoSharingMarginBottom: $photoSharingMarginBottom,
+    photoSharingMarginLeft: $photoSharingMarginLeft,
+    photoSharingPaddingTop: $photoSharingPaddingTop,
+    photoSharingPaddingRight: $photoSharingPaddingRight,
+    photoSharingPaddingBottom: $photoSharingPaddingBottom,
+    photoSharingPaddingLeft: $photoSharingPaddingLeft,
+    imageOverlayBackgroundColor: $imageOverlayBackgroundColor,
+    imageOverlayTextColor: $imageOverlayTextColor,
+    imageOverlayNavBackgroundColor: $imageOverlayNavBackgroundColor,
+    imageOverlayNavTextColor: $imageOverlayNavTextColor,
+    imageContainerBorderWidth: $imageContainerBorderWidth,
+    imageContainerBorderStyle: $imageContainerBorderStyle,
+    imageContainerBorder: $imageContainerBorder,
+    photoSharingWidthTablet: $photoSharingWidthTablet,
+    photoSharingMinWidthTablet: $photoSharingMinWidthTablet,
+    photoSharingMaxWidthTablet: $photoSharingMaxWidthTablet,
+    photoSharingMarginTopTablet: $photoSharingMarginTopTablet,
+    photoSharingMarginRightTablet: $photoSharingMarginRightTablet,
+    photoSharingMarginBottomTablet: $photoSharingMarginBottomTablet,
+    photoSharingMarginLeftTablet: $photoSharingMarginLeftTablet,
+    photoSharingPaddingTopTablet: $photoSharingPaddingTopTablet,
+    photoSharingPaddingRightTablet: $photoSharingPaddingRightTablet,
+    photoSharingPaddingBottomTablet: $photoSharingPaddingBottomTablet,
+    photoSharingPaddingLeftTablet: $photoSharingPaddingLeftTablet,
+    imageOverlayBackgroundColorTablet: $imageOverlayBackgroundColorTablet,
+    imageOverlayTextColorTablet: $imageOverlayTextColorTablet,
+    imageOverlayNavBackgroundColorTablet: $imageOverlayNavBackgroundColorTablet,
+    imageOverlayNavTextColorTablet: $imageOverlayNavTextColorTablet,
+    imageContainerBorderWidthTablet: $imageContainerBorderWidthTablet,
+    imageContainerBorderStyleTablet: $imageContainerBorderStyleTablet,
+    imageContainerBorderTablet: $imageContainerBorderTablet,
+    photoSharingWidthDesktop: $photoSharingWidthDesktop,
+    photoSharingMinWidthDesktop: $photoSharingMinWidthDesktop,
+    photoSharingMaxWidthDesktop: $photoSharingMaxWidthDesktop,
+    photoSharingMarginTopDesktop: $photoSharingMarginTopDesktop,
+    photoSharingMarginRightDesktop: $photoSharingMarginRightDesktop,
+    photoSharingMarginBottomDesktop: $photoSharingMarginBottomDesktop,
+    photoSharingMarginLeftDesktop: $photoSharingMarginLeftDesktop,
+    photoSharingPaddingTopDesktop: $photoSharingPaddingTopDesktop,
+    photoSharingPaddingRightDesktop: $photoSharingPaddingRightDesktop,
+    photoSharingPaddingBottomDesktop: $photoSharingPaddingBottomDesktop,
+    photoSharingPaddingLeftDesktop: $photoSharingPaddingLeftDesktop,
+    imageOverlayBackgroundColorDesktop: $imageOverlayBackgroundColorDesktop,
+    imageOverlayTextColorDesktop: $imageOverlayTextColorDesktop,
+    imageOverlayNavBackgroundColorDesktop: $imageOverlayNavBackgroundColorDesktop,
+    imageOverlayNavTextColorDesktop: $imageOverlayNavTextColorDesktop,
+    imageContainerBorderWidthDesktop: $imageContainerBorderWidthDesktop,
+    imageContainerBorderStyleDesktop: $imageContainerBorderStyleDesktop,
+    imageContainerBorderDesktop: $imageContainerBorderDesktop
+  ), $options);
 
-/* 01 - PHOTO SHARING */
+  $instanceSelector: '[data-widget-package="com.fliplet.photo-sharing"]';
+  @if $widgetInstanceId != '' {
+    $instanceSelector: '#{$instanceSelector}[data-id="#{$widgetInstanceId}"]';
+  }
 
-.btn.refresh {
-	color: $primaryButtonColor;
-	background-color: transparent;
-	border: 1px solid $primaryButtonColor;
+  #{$instanceSelector} {
+    width: map-get($configuration, photoSharingWidth);
+    min-width: map-get($configuration, photoSharingMinWidth);
+    max-width: map-get($configuration, photoSharingMaxWidth);
+    margin: map-get($configuration, photoSharingMarginTop)
+      map-get($configuration, photoSharingMarginRight)
+      map-get($configuration, photoSharingMarginBottom)
+      map-get($configuration, photoSharingMarginLeft);
 
-  &:focus,
-  &:hover,
-  &:active:focus,
-  &:active:hover {
-    border-width: 1px;
+    // Styles for tablet
+    @include above($tabletBreakpoint) {
+      width: map-get($configuration, photoSharingWidthTablet);
+      min-width: map-get($configuration, photoSharingMinWidthTablet);
+      max-width: map-get($configuration, photoSharingMaxWidthTablet);
+      margin: map-get($configuration, photoSharingMarginTopTablet)
+        map-get($configuration, photoSharingMarginRightTablet)
+        map-get($configuration, photoSharingMarginBottomTablet)
+        map-get($configuration, photoSharingMarginLeftTablet);
+    }
+
+    // Styles for desktop
+    @include above($desktopBreakpoint) {
+      width: map-get($configuration, photoSharingWidthDesktop);
+      min-width: map-get($configuration, photoSharingMinWidthDesktop);
+      max-width: map-get($configuration, photoSharingMaxWidthDesktop);
+      margin: map-get($configuration, photoSharingMarginTopDesktop)
+        map-get($configuration, photoSharingMarginRightDesktop)
+        map-get($configuration, photoSharingMarginBottomDesktop)
+        map-get($configuration, photoSharingMarginLeftDesktop);
+    }
+
+    .photo-feed-parent-holder {
+      padding: map-get($configuration, photoSharingPaddingTop)
+        map-get($configuration, photoSharingPaddingRight)
+        map-get($configuration, photoSharingPaddingBottom)
+        map-get($configuration, photoSharingPaddingLeft);
+
+      // Styles for tablet
+      @include above($tabletBreakpoint) {
+        padding: map-get($configuration, photoSharingPaddingTopTablet)
+          map-get($configuration, photoSharingPaddingRightTablet)
+          map-get($configuration, photoSharingPaddingBottomTablet)
+          map-get($configuration, photoSharingPaddingLeftTablet);
+      }
+
+      // Styles for desktop
+      @include above($desktopBreakpoint) {
+        padding: map-get($configuration, photoSharingPaddingTopDesktop)
+          map-get($configuration, photoSharingPaddingRightDesktop)
+          map-get($configuration, photoSharingPaddingBottomDesktop)
+          map-get($configuration, photoSharingPaddingLeftDesktop);
+      }
+
+      .btn.refresh {
+        color: $highlightColor;
+        background-color: transparent;
+        border: 1px solid $highlightColor;
+
+        &:focus,
+        &:hover,
+        &:active:focus,
+        &:active:hover {
+          border-width: 1px;
+        }
+      }
+
+      .add-photo {
+        background-color: $highlightColor;
+        color: $primaryButtonTextColor;
+      }
+
+      .btn.btn-default {
+        background-color: $secondaryButtonColor;
+        color: $secondaryButtonTextColor;
+        border-radius: $secondaryButtonBorderRadius;
+
+        &:focus,
+        &:hover,
+        &:active:focus,
+        &:active:hover {
+          background-color: $secondaryButtonHoverColor;
+          color: $secondaryButtonHoverTextColor;
+        }
+
+        &.disabled,
+        &[disabled] {
+          opacity: 0.65;
+          pointer-events: none;
+        }
+
+        // Styles for tablet
+        @include above($tabletBreakpoint) {
+          background-color: $secondaryButtonColorTablet;
+          color: $secondaryButtonTextColorTablet;
+          border-radius: $secondaryButtonBorderRadiusTablet;
+
+          &:focus,
+          &:hover,
+          &:active:focus,
+          &:active:hover {
+            background-color: $secondaryButtonHoverColorTablet;
+            color: $secondaryButtonHoverTextColorTablet;
+          }
+        }
+
+        // Styles for desktop
+        @include above($desktopBreakpoint) {
+          background-color: $secondaryButtonColorDesktop;
+          color: $secondaryButtonTextColorDesktop;
+          border-radius: $secondaryButtonBorderRadiusDesktop;
+
+          &:focus,
+          &:hover,
+          &:active:focus,
+          &:active:hover {
+            background-color: $secondaryButtonHoverColorDesktop;
+            color: $secondaryButtonHoverTextColorDesktop;
+          }
+        }
+      }
+
+      .image-wrapper {
+        @include borderOnly((
+          borderSides: 'top',
+          borderWidth: map-get($configuration, imageContainerBorderWidth),
+          borderStyle: map-get($configuration, imageContainerBorderStyle),
+          borderColor: map-get($configuration, imageContainerBorder)
+        ));
+        @include borderOnly((
+          borderSides: 'bottom',
+          borderWidth: map-get($configuration, imageContainerBorderWidth),
+          borderStyle: map-get($configuration, imageContainerBorderStyle),
+          borderColor: map-get($configuration, imageContainerBorder)
+        ));
+
+        // Styles for tablet
+        @include above($tabletBreakpoint) {
+          @include borderOnly((
+            borderSides: 'all',
+            borderWidth: map-get($configuration, imageContainerBorderWidthTablet),
+            borderStyle: map-get($configuration, imageContainerBorderStyleTablet),
+            borderColor: map-get($configuration, imageContainerBorderTablet)
+          ));
+        }
+
+        // Styles for desktop
+        @include above($desktopBreakpoint) {
+          @include borderOnly((
+            borderSides: 'all',
+            borderWidth: map-get($configuration, imageContainerBorderWidthDesktop),
+            borderStyle: map-get($configuration, imageContainerBorderStyleDesktop),
+            borderColor: map-get($configuration, imageContainerBorderDesktop)
+          ));
+        }
+      }
+    }
+
+    .photo-upload-overlay {
+      .overlayNavbar {
+        @include borderOnly((
+          borderSides: 'bottom',
+          borderWidth: map-get($configuration, imageContainerBorderWidth),
+          borderStyle: map-get($configuration, imageContainerBorderStyle),
+          borderColor: map-get($configuration, imageContainerBorder)
+        ));
+        background: map-get($configuration, imageOverlayNavBackgroundColor);
+        color: map-get($configuration, imageOverlayNavTextColor);
+      }
+
+      .overlayPanelContent {
+        background: map-get($configuration, imageOverlayBackgroundColor);
+        color: map-get($configuration, imageOverlayTextColor);
+      }
+
+      .form-horizontal canvas {
+        @include borderOnly((
+          borderSides: 'bottom',
+          borderWidth: map-get($configuration, imageContainerBorderWidth),
+          borderStyle: map-get($configuration, imageContainerBorderStyle),
+          borderColor: map-get($configuration, imageContainerBorder)
+        ));
+      }
+
+      // Styles for tablet
+      @include above($tabletBreakpoint) {
+        .overlayNavbar {
+          @include borderOnly((
+            borderSides: 'bottom',
+            borderWidth: map-get($configuration, imageContainerBorderWidthTablet),
+            borderStyle: map-get($configuration, imageContainerBorderStyleTablet),
+            borderColor: map-get($configuration, imageContainerBorderTablet)
+          ));
+          background: map-get($configuration, imageOverlayNavBackgroundColorTablet);
+          color: map-get($configuration, imageOverlayNavTextColorTablet);
+        }
+
+        .overlayPanelContent {
+          background: map-get($configuration, imageOverlayBackgroundColorTablet);
+          color: map-get($configuration, imageOverlayTextColorTablet);
+        }
+
+        .form-horizontal canvas {
+          @include borderOnly((
+            borderSides: 'bottom',
+            borderWidth: map-get($configuration, imageContainerBorderWidthTablet),
+            borderStyle: map-get($configuration, imageContainerBorderStyleTablet),
+            borderColor: map-get($configuration, imageContainerBorderTablet)
+          ));
+        }
+      }
+
+      // Styles for desktop
+      @include above($desktopBreakpoint) {
+        .overlayNavbar {
+          @include borderOnly((
+            borderSides: 'bottom',
+            borderWidth: map-get($configuration, imageContainerBorderWidthDesktop),
+            borderStyle: map-get($configuration, imageContainerBorderStyleDesktop),
+            borderColor: map-get($configuration, imageContainerBorderDesktop)
+          ));
+          background: map-get($configuration, imageOverlayNavBackgroundColorDesktop);
+          color: map-get($configuration, imageOverlayNavTextColorDesktop);
+        }
+
+        .overlayPanelContent {
+          background: map-get($configuration, imageOverlayBackgroundColorDesktop);
+          color: map-get($configuration, imageOverlayTextColorDesktop);
+        }
+
+        .form-horizontal canvas {
+          @include borderOnly((
+            borderSides: 'bottom',
+            borderWidth: map-get($configuration, imageContainerBorderWidthDesktop),
+            borderStyle: map-get($configuration, imageContainerBorderStyleDesktop),
+            borderColor: map-get($configuration, imageContainerBorderDesktop)
+          ));
+        }
+      }
+    }
   }
 }
 
-.add-photo {
-  background-color: $primaryButtonColor;
-  color: $primaryButtonTextColor;
-}
-
-.btn.btn-default {
-  background-color: $secondaryButtonColor;
-  color: $secondaryButtonTextColor;
-  border: $secondaryButtonBorder;
-  border-radius: $secondaryButtonBorderRadius;
-
-  &:focus,
-  &:hover,
-  &:active:focus,
-  &:active:hover {
-    background-color: $secondaryButtonHoverColor;
-    color: $secondaryButtonHoverTextColor;
-    border: $secondaryButtonHoverBorder;
-  }
-
-  &.disabled,
-  &[disabled] {
-    opacity: 0.65;
-    pointer-events: none;
-  }
-}
-
-.image-wrapper {
-	border-top: $imageContainerBorder;
-	border-bottom: $imageContainerBorder;
-
-  @media (min-width: 640px) {
-    border: $imageContainerBorder;
-  }
-}
-
-.photo-upload-overlay {
-
-  .overlayNavbar {
-    border-bottom: $imageContainerBorder;
-    background: $imageOverlayNavBackgroundColor;
-    color: $imageOverlayNavTextColor;
-  }
-
-  .overlayPanelContent {
-    background: $imageOverlayBackgroundColor;
-    color: $imageOverlayTextColor;
-  }
-
-  .form-horizontal canvas {
-    border-bottom: $imageContainerBorder;
-  }
-}
+@include photoSharing();

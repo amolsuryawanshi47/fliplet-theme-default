@@ -1,0 +1,124 @@
+@mixin above ($breakpoint) {
+  @media only screen and (min-width: $breakpoint) {
+    @content;
+  }
+}
+
+@mixin below ($breakpoint) {
+  @media only screen and (max-width: $breakpoint) {
+    @content;
+  }
+}
+
+@mixin shadowOnly($options: ()) {
+  $configuration: map-merge((
+    shadowStyle: '',
+    shadowXOffset: '',
+    shadowYOffset: '',
+    shadowBlur: '',
+    shadowSpread: '',
+    shadowColor: ''
+  ), $options);
+
+  @if map-get($configuration, shadowStyle) == 'inset' {
+    box-shadow: map-get($configuration, shadowStyle)
+      map-get($configuration, shadowXOffset)
+      map-get($configuration, shadowYOffset)
+      map-get($configuration, shadowBlur)
+      map-get($configuration, shadowSpread)
+      map-get($configuration, shadowColor);
+  }
+  @if map-get($configuration, shadowStyle) == 'none' {
+    box-shadow: map-get($configuration, shadowStyle);
+  }
+  @if map-get($configuration, shadowStyle) == 'outset' {
+    box-shadow: map-get($configuration, shadowXOffset)
+      map-get($configuration, shadowYOffset)
+      map-get($configuration, shadowBlur)
+      map-get($configuration, shadowSpread)
+      map-get($configuration, shadowColor);
+  }
+}
+
+@mixin borderOnly($options: ()) {
+  $configuration: map-merge((
+    borderSides: '',
+    borderWidth: '',
+    borderStyle: '',
+    borderColor: ''
+  ), $options);
+
+  @if map-get($configuration, borderSides) == 'none' {
+    border: none;
+  }
+  @if map-get($configuration, borderSides) == 'all' {
+    border: map-get($configuration, borderWidth) map-get($configuration, borderStyle) map-get($configuration, borderColor);
+  }
+  @if map-get($configuration, borderSides) == 'top' {
+    border-top: map-get($configuration, borderWidth) map-get($configuration, borderStyle) map-get($configuration, borderColor);
+  }
+  @if map-get($configuration, borderSides) == 'right' {
+    border-right: map-get($configuration, borderWidth) map-get($configuration, borderStyle) map-get($configuration, borderColor);
+  }
+  @if map-get($configuration, borderSides) == 'bottom' {
+    border-bottom: map-get($configuration, borderWidth) map-get($configuration, borderStyle) map-get($configuration, borderColor);
+  }
+  @if map-get($configuration, borderSides) == 'left' {
+    border-left: map-get($configuration, borderWidth) map-get($configuration, borderStyle) map-get($configuration, borderColor);
+  }
+}
+
+@mixin fontOnly($options: ()) {
+  $configuration: map-merge((
+    fontFamily: '',
+    fontSize: '',
+    fontLineHeight: '',
+    fontWeight: '',
+    fontStyle: '',
+    fontDecoration: ''
+  ), $options);
+
+  font-family: map-get($configuration, fontFamily);
+  font-size: map-get($configuration, fontSize);
+  font-weight: map-get($configuration, fontWeight);
+  line-height: map-get($configuration, fontLineHeight);
+  font-style: map-get($configuration, fontStyle);
+  text-decoration: map-get($configuration, fontDecoration);
+}
+
+@mixin viewportHeader($options: ()) {
+  $configuration: map-merge((
+    headerBackgroundColor: '',
+    headerTextColor: '',
+    headerShadowStyle: '',
+    headerShadowXOffset: '',
+    headerShadowYOffset: '',
+    headerShadowBlur: '',
+    headerShadowSpread: '',
+    headerShadowColor: '',
+    headerBorderSides: '',
+    headerBorderWidth: '',
+    headerBorderStyle: '',
+    headerBorderColor: ''
+  ), $options);
+
+  background-color: map-get($configuration, headerBackgroundColor);
+  color: map-get($configuration, headerTextColor);
+
+
+  @include shadowOnly((
+    shadowStyle: map-get($configuration, headerShadowStyle),
+    shadowXOffset: map-get($configuration, headerShadowXOffset),
+    shadowYOffset: map-get($configuration, headerShadowYOffset),
+    shadowBlur: map-get($configuration, headerShadowBlur),
+    shadowSpread: map-get($configuration, headerShadowSpread),
+    shadowColor: map-get($configuration, headerShadowColor)
+  ));
+
+  @include borderOnly((
+    borderSides: map-get($configuration, headerBorderSides),
+    borderWidth: map-get($configuration, headerBorderWidth),
+    borderStyle: map-get($configuration, headerBorderStyle),
+    borderColor: map-get($configuration, headerBorderColor)
+  ));
+}

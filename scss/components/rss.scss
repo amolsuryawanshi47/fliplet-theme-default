@@ -1,0 +1,329 @@
+@mixin rss($options: (), $widgetInstanceId: '') {
+  $configuration: map-merge((
+    rssWidth: $rssWidth,
+    rssMinWidth: $rssMinWidth,
+    rssMaxWidth: $rssMaxWidth,
+    rssMarginTop: $rssMarginTop,
+    rssMarginRight: $rssMarginRight,
+    rssMarginBottom: $rssMarginBottom,
+    rssMarginLeft: $rssMarginLeft,
+    rssPaddingTop: $rssPaddingTop,
+    rssPaddingRight: $rssPaddingRight,
+    rssPaddingBottom: $rssPaddingBottom,
+    rssPaddingLeft: $rssPaddingLeft,
+    rssBackgroundColor: $rssBackgroundColor,
+    rssHighlight: $rssHighlight,
+    rssStripes: $rssStripes,
+    rssSeparatorColor: $rssSeparatorColor,
+    rssChevronColor: $rssChevronColor,
+    rssTitleFont: $rssTitleFont,
+    rssTitleSize: $rssTitleSize,
+    rssTitleColor: $rssTitleColor,
+    rssTitleWeight: $rssTitleWeight,
+    rssTitleStyle: $rssTitleStyle,
+    rssTitleDecoration: $rssTitleDecoration,
+    rssDescriptionFont: $rssDescriptionFont,
+    rssDescriptionSize: $rssDescriptionSize,
+    rssDescriptionColor: $rssDescriptionColor,
+    rssDescriptionWeight: $rssDescriptionWeight,
+    rssDescriptionStyle: $rssDescriptionStyle,
+    rssDescriptionDecoration: $rssDescriptionDecoration,
+    rssWidthTablet: $rssWidthTablet,
+    rssMinWidthTablet: $rssMinWidthTablet,
+    rssMaxWidthTablet: $rssMaxWidthTablet,
+    rssMarginTopTablet: $rssMarginTopTablet,
+    rssMarginRightTablet: $rssMarginRightTablet,
+    rssMarginBottomTablet: $rssMarginBottomTablet,
+    rssMarginLeftTablet: $rssMarginLeftTablet,
+    rssPaddingTopTablet: $rssPaddingTopTablet,
+    rssPaddingRightTablet: $rssPaddingRightTablet,
+    rssPaddingBottomTablet: $rssPaddingBottomTablet,
+    rssPaddingLeftTablet: $rssPaddingLeftTablet,
+    rssBackgroundColorTablet: $rssBackgroundColorTablet,
+    rssHighlightTablet: $rssHighlightTablet,
+    rssStripesTablet: $rssStripesTablet,
+    rssSeparatorColorTablet: $rssSeparatorColorTablet,
+    rssChevronColorTablet: $rssChevronColorTablet,
+    rssTitleFontTablet: $rssTitleFontTablet,
+    rssTitleSizeTablet: $rssTitleSizeTablet,
+    rssTitleColorTablet: $rssTitleColorTablet,
+    rssTitleWeightTablet: $rssTitleWeightTablet,
+    rssTitleStyleTablet: $rssTitleStyleTablet,
+    rssTitleDecorationTablet: $rssTitleDecorationTablet,
+    rssDescriptionFontTablet: $rssDescriptionFontTablet,
+    rssDescriptionSizeTablet: $rssDescriptionSizeTablet,
+    rssDescriptionColorTablet: $rssDescriptionColorTablet,
+    rssDescriptionWeightTablet: $rssDescriptionWeightTablet,
+    rssDescriptionStyleTablet: $rssDescriptionStyleTablet,
+    rssDescriptionDecorationTablet: $rssDescriptionDecorationTablet,
+    rssWidthDesktop: $rssWidthDesktop,
+    rssMinWidthDesktop: $rssMinWidthDesktop,
+    rssMaxWidthDesktop: $rssMaxWidthDesktop,
+    rssMarginTopDesktop: $rssMarginTopDesktop,
+    rssMarginRightDesktop: $rssMarginRightDesktop,
+    rssMarginBottomDesktop: $rssMarginBottomDesktop,
+    rssMarginLeftDesktop: $rssMarginLeftDesktop,
+    rssPaddingTopDesktop: $rssPaddingTopDesktop,
+    rssPaddingRightDesktop: $rssPaddingRightDesktop,
+    rssPaddingBottomDesktop: $rssPaddingBottomDesktop,
+    rssPaddingLeftDesktop: $rssPaddingLeftDesktop,
+    rssBackgroundColorDesktop: $rssBackgroundColorDesktop,
+    rssHighlightDesktop: $rssHighlightDesktop,
+    rssStripesDesktop: $rssStripesDesktop,
+    rssSeparatorColorDesktop: $rssSeparatorColorDesktop,
+    rssChevronColorDesktop: $rssChevronColorDesktop,
+    rssTitleFontDesktop: $rssTitleFontDesktop,
+    rssTitleSizeDesktop: $rssTitleSizeDesktop,
+    rssTitleColorDesktop: $rssTitleColorDesktop,
+    rssTitleWeightDesktop: $rssTitleWeightDesktop,
+    rssTitleStyleDesktop: $rssTitleStyleDesktop,
+    rssTitleDecorationDesktop: $rssTitleDecorationDesktop,
+    rssDescriptionFontDesktop: $rssDescriptionFontDesktop,
+    rssDescriptionSizeDesktop: $rssDescriptionSizeDesktop,
+    rssDescriptionColorDesktop: $rssDescriptionColorDesktop,
+    rssDescriptionWeightDesktop: $rssDescriptionWeightDesktop,
+    rssDescriptionStyleDesktop: $rssDescriptionStyleDesktop,
+    rssDescriptionDecorationDesktop: $rssDescriptionDecorationDesktop,
+  ), $options);
+
+  $instanceSelector: '[data-widget-package="com.fliplet.rss"]';
+  @if $widgetInstanceId != '' {
+    $instanceSelector: '#{$instanceSelector}[data-id="#{$widgetInstanceId}"]';
+  }
+
+  #{$instanceSelector} {
+    width: map-get($configuration, rssWidth);
+    min-width: map-get($configuration, rssMinWidth);
+    max-width: map-get($configuration, rssMaxWidth);
+    margin: map-get($configuration, rssMarginTop)
+      map-get($configuration, rssMarginRight)
+      map-get($configuration, rssMarginBottom)
+      map-get($configuration, rssMarginLeft);
+    padding: map-get($configuration, rssPaddingTop)
+      map-get($configuration, rssPaddingRight)
+      map-get($configuration, rssPaddingBottom)
+      map-get($configuration, rssPaddingLeft);
+
+    // Styles for tablet
+    @include above($tabletBreakpoint) {
+      width: map-get($configuration, rssWidthTablet);
+      min-width: map-get($configuration, rssMinWidthTablet);
+      max-width: map-get($configuration, rssMaxWidthTablet);
+      margin: map-get($configuration, rssMarginTopTablet)
+        map-get($configuration, rssMarginRightTablet)
+        map-get($configuration, rssMarginBottomTablet)
+        map-get($configuration, rssMarginLeftTablet);
+      padding: map-get($configuration, rssPaddingTopTablet)
+        map-get($configuration, rssPaddingRightTablet)
+        map-get($configuration, rssPaddingBottomTablet)
+        map-get($configuration, rssPaddingLeftTablet);
+    }
+
+    // Styles for desktop
+    @include above($desktopBreakpoint) {
+      width: map-get($configuration, rssWidthDesktop);
+      min-width: map-get($configuration, rssMinWidthDesktop);
+      max-width: map-get($configuration, rssMaxWidthDesktop);
+      margin: map-get($configuration, rssMarginTopDesktop)
+        map-get($configuration, rssMarginRightDesktop)
+        map-get($configuration, rssMarginBottomDesktop)
+        map-get($configuration, rssMarginLeftDesktop);
+      padding: map-get($configuration, rssPaddingTopDesktop)
+        map-get($configuration, rssPaddingRightDesktop)
+        map-get($configuration, rssPaddingBottomDesktop)
+        map-get($configuration, rssPaddingLeftDesktop);
+    }
+    
+    .feed {
+      ul {
+        &.feed-panels {
+          &.line > li {
+            &.feed-item {
+              border-bottom: 1px solid map-get($configuration, rssSeparatorColor);
+            }
+          }
+
+          &.stripes > li {
+            &.feed-item:nth-child(odd) {
+              background-color: map-get($configuration, rssStripes);
+            }
+          }
+
+          & > li {
+            &.feed-item {
+              background-color: map-get($configuration, rssBackgroundColor);
+
+              &.line {
+                border-left-color: map-get($configuration, rssHighlight);
+              }
+            }
+          }
+
+          // Styles for tablet
+          @include above($tabletBreakpoint) {
+            &.line > li {
+              &.feed-item {
+                border-bottom: 1px solid map-get($configuration, rssSeparatorColorTablet);
+              }
+            }
+
+            &.stripes > li {
+              &.feed-item:nth-child(odd) {
+                background-color: map-get($configuration, rssStripesTablet);
+              }
+            }
+
+            & > li {
+              &.feed-item {
+                background-color: map-get($configuration, rssBackgroundColorTablet);
+
+                &.line {
+                  border-left-color: map-get($configuration, rssHighlightTablet);
+                }
+              }
+            }
+          }
+
+          // Styles for desktop
+          @include above($desktopBreakpoint) {
+            &.line > li {
+              &.feed-item {
+                border-bottom: 1px solid map-get($configuration, rssSeparatorColorDesktop);
+              }
+            }
+
+            &.stripes > li {
+              &.feed-item:nth-child(odd) {
+                background-color: map-get($configuration, rssStripesDesktop);
+              }
+            }
+
+            & > li {
+              &.feed-item {
+                background-color: map-get($configuration, rssBackgroundColorDesktop);
+
+                &.line {
+                  border-left-color: map-get($configuration, rssHighlightDesktop);
+                }
+              }
+            }
+          }
+        }
+      }
+
+      .feed-item {
+        &.circle {
+          p.list-title {
+            .circle-icon {
+              background-color: map-get($configuration, rssHighlight);
+
+              // Styles for tablet
+              @include above($tabletBreakpoint) {
+                background-color: map-get($configuration, rssHighlightTablet);
+              }
+
+              // Styles for desktop
+              @include above($desktopBreakpoint) {
+                background-color: map-get($configuration, rssHighlightDesktop);
+              }
+            }
+          }
+        }
+
+        .list-title {
+          @include fontOnly((
+            fontFamily: map-get($configuration, rssTitleFont),
+            fontSize: map-get($configuration, rssTitleSize),
+            fontLineHeight: 1.5,
+            fontWeight: map-get($configuration, rssTitleWeight),
+            fontStyle: map-get($configuration, rssTitleStyle),
+            fontDecoration: map-get($configuration, rssTitleDecoration)
+          ));
+          color: map-get($configuration, rssTitleColor);
+        }
+
+        .list-description {
+          @include fontOnly((
+            fontFamily: map-get($configuration, rssDescriptionFont),
+            fontSize: map-get($configuration, rssDescriptionSize),
+            fontLineHeight: 1.5,
+            fontWeight: map-get($configuration, rssDescriptionWeight),
+            fontStyle: map-get($configuration, rssDescriptionStyle),
+            fontDecoration: map-get($configuration, rssDescriptionDecoration)
+          ));
+          color: map-get($configuration, rssDescriptionColor);
+          font-size: map-get($configuration, rssDescriptionSize);
+          font-weight: map-get($configuration, rssDescriptionWeight);
+        }
+
+        .icon {
+          color: map-get($configuration, rssChevronColor);
+        }
+
+        // Styles for tablet
+        @include above($tabletBreakpoint) {
+          .list-title {
+            @include fontOnly((
+              fontFamily: map-get($configuration, rssTitleFontTablet),
+              fontSize: map-get($configuration, rssTitleSizeTablet),
+              fontLineHeight: 1.5,
+              fontWeight: map-get($configuration, rssTitleWeightTablet),
+              fontStyle: map-get($configuration, rssTitleStyleTablet),
+              fontDecoration: map-get($configuration, rssTitleDecorationTablet)
+            ));
+            color: map-get($configuration, rssTitleColorTablet);
+          }
+
+          .list-description {
+            @include fontOnly((
+              fontFamily: map-get($configuration, rssDescriptionFontTablet),
+              fontSize: map-get($configuration, rssDescriptionSizeTablet),
+              fontLineHeight: 1.5,
+              fontWeight: map-get($configuration, rssDescriptionWeightTablet),
+              fontStyle: map-get($configuration, rssDescriptionStyleTablet),
+              fontDecoration: map-get($configuration, rssDescriptionDecorationTablet)
+            ));
+            color: map-get($configuration, rssDescriptionColorTablet);
+          }
+
+          .icon {
+            color: map-get($configuration, rssChevronColorTablet);
+          }
+        }
+
+        // Styles for desktop
+        @include above($desktopBreakpoint) {
+          .list-title {
+            @include fontOnly((
+              fontFamily: map-get($configuration, rssTitleFontDesktop),
+              fontSize: map-get($configuration, rssTitleSizeDesktop),
+              fontLineHeight: 1.5,
+              fontWeight: map-get($configuration, rssTitleWeightDesktop),
+              fontStyle: map-get($configuration, rssTitleStyleDesktop),
+              fontDecoration: map-get($configuration, rssTitleDecorationDesktop)
+            ));
+            color: map-get($configuration, rssTitleColorDesktop);
+          }
+
+          .list-description {
+            @include fontOnly((
+              fontFamily: map-get($configuration, rssDescriptionFontDesktop),
+              fontSize: map-get($configuration, rssDescriptionSizeDesktop),
+              fontLineHeight: 1.5,
+              fontWeight: map-get($configuration, rssDescriptionWeightDesktop),
+              fontStyle: map-get($configuration, rssDescriptionStyleDesktop),
+              fontDecoration: map-get($configuration, rssDescriptionDecorationDesktop)
+            ));
+            color: map-get($configuration, rssDescriptionColorDesktop);
+          }
+
+          .icon {
+            color: map-get($configuration, rssChevronColorDesktop);
+          }
+        }
+      }
+    }
+  }
+}
+
+@include rss();

@@ -1,0 +1,38 @@
+// Body mixin
+@mixin body($options: ()) {
+  $configuration: map-merge((
+    backgroundColor: $bodyBackground,
+    fontColor: $bodyTextColor,
+    fontFamily: $bodyFontFamily
+  ), $options);
+
+  background-color: map-get($configuration, backgroundColor);
+  color: map-get($configuration, fontColor);
+  font-family: map-get($configuration, fontFamily);
+}
+
+body {
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: normal;
+  // Include styles for default mobile viewport
+  @include body();
+
+  // Styles for tablet
+  @include above($tabletBreakpoint) {
+    @include body((
+      backgroundColor: $bodyBackgroundTablet,
+      fontColor: $bodyTextColorTablet,
+      fontFamily: $bodyFontFamilyTablet
+    ));
+  }
+
+  // Styles for desktop
+  @include above($desktopBreakpoint) {
+    @include body((
+      backgroundColor: $bodyBackgroundDesktop,
+      fontColor: $bodyTextColorDesktop,
+      fontFamily: $bodyFontFamilyDesktop
+    ));
+  }
+}
