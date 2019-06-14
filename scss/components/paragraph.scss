@@ -1,0 +1,23 @@
+@mixin paragraph($options: (), $widgetInstanceId: '') {
+  $configuration: map-merge((
+    paragraphBackground: $paragraphBackground,
+    paragraphBackgroundTablet: $paragraphBackgroundTablet,
+    paragraphBackgroundDesktop: $paragraphBackgroundDesktop
+  ), $options);
+
+  .fl-text-component {
+    background-color: map-get($configuration, paragraphBackground);
+
+    // Styles for tablet
+    @include above($tabletBreakpoint) {
+      background-color: map-get($configuration, paragraphBackgroundTablet);
+    }
+
+    // Styles for desktop
+    @include above($desktopBreakpoint) {
+      background-color: map-get($configuration, paragraphBackgroundDesktop);
+    }
+  }
+}
+
+@include paragraph();

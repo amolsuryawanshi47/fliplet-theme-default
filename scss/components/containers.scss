@@ -1,0 +1,29 @@
+@mixin containers($options: (), $widgetInstanceId: '') {
+  $configuration: map-merge((
+    containerHeight: $containerHeight,
+    containerHeightTablet: $containerHeightTablet,
+    containerHeightDesktop: $containerHeightDesktop
+  ), $options);
+
+  .mode-interact {
+    .fl-container {
+      min-height: 50px;
+    }
+  }
+
+  .fl-container {
+    height: map-get($configuration, containerHeight);
+
+    // Styles for tablet
+    @include above($tabletBreakpoint) {
+      height: map-get($configuration, containerHeightTablet);
+    }
+
+    // Styles for desktop
+    @include above($desktopBreakpoint) {
+      height: map-get($configuration, containerHeightDesktop);
+    }
+  }
+}
+
+@include containers();
