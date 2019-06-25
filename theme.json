@@ -22146,7 +22146,8 @@
                       ".new-small-h-card-list-container .small-h-card-list-detail-content-wrapper",
                       ".small-h-card-list-container .small-h-card-list-detail-content-wrapper",
                       ".new-small-h-card-list-container .small-h-card-list-detail-wrapper",
-                      "small-h-card-list-container .small-h-card-list-detail-wrapper"
+                      "small-h-card-list-container .small-h-card-list-detail-wrapper",
+                      ".simple-list-container .simple-list-item"
                     ],
                     "properties": ["background-color"]
                   }
@@ -22211,6 +22212,8 @@
                       ".agenda-list-card-holder.empty + .agenda-item-empty-state",
                       ".new-small-h-card-list-container .loading-data",
                       ".small-h-card-list-container .loading-data",
+                      ".new-small-h-card-list-container .small-h-card-list-item-text",
+                      ".small-h-card-list-container .small-h-card-list-item-text",
                       ".new-small-h-card-list-container .small-h-card-list-detail-name",
                       ".small-h-card-list-container .small-h-card-list-detail-name",
                       ".new-small-h-card-list-container .small-h-card-list-detail-role",
@@ -22484,6 +22487,77 @@
                 "type": "color"
               },
               {
+                "name": "lfdAgendaTopBackgroundColor",
+                "default": "$bodyBackground",
+                "columns": 12,
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists']",
+                    "selectors": [
+                      ".new-agenda-list-container .agenda-date-selector",
+                      ".agenda-date-selector"
+                    ],
+                    "properties": ["background-color"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "lfdAgendaTopBackgroundColorTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "lfdAgendaTopBackgroundColorDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "label": "Agenda top bar background",
+                "type": "color"
+              },
+              {
+                "name": "lfdAgendaTopTextColor",
+                "default": "$lfdFontColor",
+                "columns": 12,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "lfdAgendaTopTextColorTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "lfdAgendaTopTextColorDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "label": "Agenda top bar text",
+                "type": "color"
+              },
+              {
+                "name": "lfdAgendaTopTextActiveColor",
+                "default": "$highlightColor",
+                "columns": 12,
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists']",
+                    "selectors": [
+                      ".new-agenda-list-container .agenda-date-selector ul li.active .day",
+                      ".agenda-date-selector ul li.active .day"
+                    ],
+                    "properties": ["color"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "lfdAgendaTopTextActiveColorTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "lfdAgendaTopTextActiveColorDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "label": "Agenda top bar active text",
+                "type": "color"
+              },
+              {
                 "name": "lfdAgendaDatesBackgroundColor",
                 "default": "$lfdBackgroundColor",
                 "columns": 12,
@@ -22491,9 +22565,7 @@
                   {
                     "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists']",
                     "selectors": [
-                      ".new-agenda-list-container .agenda-date-selector",
                       ".new-agenda-list-container .agenda-list-controls",
-                      ".agenda-date-selector",
                       ".agenda-list-controls"
                     ],
                     "properties": ["background-color"]

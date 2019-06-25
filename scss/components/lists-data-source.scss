@@ -24,6 +24,15 @@
     lfdCommentsFontColor: $lfdCommentsFontColor,
     lfdCommentsFontColorTablet: $lfdCommentsFontColorTablet,
     lfdCommentsFontColorDesktop: $lfdCommentsFontColorDesktop,
+    lfdAgendaTopBackgroundColor: $lfdAgendaTopBackgroundColor,
+    lfdAgendaTopBackgroundColorTablet: $lfdAgendaTopBackgroundColorTablet,
+    lfdAgendaTopBackgroundColorDesktop: $lfdAgendaTopBackgroundColorDesktop,
+    lfdAgendaTopTextColor: $lfdAgendaTopTextColor,
+    lfdAgendaTopTextColorTablet: $lfdAgendaTopTextColorTablet,
+    lfdAgendaTopTextColorDesktop: $lfdAgendaTopTextColorDesktop,
+    lfdAgendaTopTextActiveColor: $lfdAgendaTopTextActiveColor,
+    lfdAgendaTopTextActiveColorTablet: $lfdAgendaTopTextActiveColorTablet,
+    lfdAgendaTopTextActiveColorDesktop: $lfdAgendaTopTextActiveColorDesktop,
     lfdAgendaDatesBackgroundColor: $lfdAgendaDatesBackgroundColor,
     lfdAgendaDatesBackgroundColorTablet: $lfdAgendaDatesBackgroundColorTablet,
     lfdAgendaDatesBackgroundColorDesktop: $lfdAgendaDatesBackgroundColorDesktop,
@@ -1484,28 +1493,28 @@
 
     .new-agenda-list-container {
       .agenda-date-selector {
-        background-color: map-get($configuration, lfdAgendaDatesBackgroundColor);
+        background-color: map-get($configuration, lfdAgendaTopBackgroundColor);
 
         ul {
           li {
-            color: rgba(map-get($configuration, lfdAgendaDatesFontColor), 0.5);
+            color: rgba(map-get($configuration, lfdAgendaTopTextColor), 0.5);
 
             .day {
-              color: rgba(map-get($configuration, lfdAgendaDatesFontColor), 0.7);
+              color: rgba(map-get($configuration, lfdAgendaTopTextColor), 0.7);
             }
 
             &.placeholder {
-              color: rgba(map-get($configuration, lfdAgendaDatesFontColor), 0.1);
+              color: rgba(map-get($configuration, lfdAgendaTopTextColor), 0.1);
 
               .day {
-                color: rgba(map-get($configuration, lfdAgendaDatesFontColor), 0.1);
+                color: rgba(map-get($configuration, lfdAgendaTopTextColor), 0.1);
               }
             }
             &.active {
-              color: rgba($highlightColor, 0.5);
+              color: rgba(map-get($configuration, lfdAgendaTopTextActiveColor), 0.5);
 
               .day {
-                color: rgba($highlightColor, 1);
+                color: rgba(map-get($configuration, lfdAgendaTopTextActiveColor), 1);
               }
             }
           }
@@ -1613,21 +1622,29 @@
       // Styles for tablet
       @include above($tabletBreakpoint) {
         .agenda-date-selector {
-          background-color: map-get($configuration, lfdAgendaDatesBackgroundColorTablet);
+          background-color: map-get($configuration, lfdAgendaTopBackgroundColorTablet);
 
           ul {
             li {
-              color: rgba(map-get($configuration, lfdAgendaDatesFontColorTablet), 0.5);
+              color: rgba(map-get($configuration, lfdAgendaTopTextColorTablet), 0.5);
 
               .day {
-                color: rgba(map-get($configuration, lfdAgendaDatesFontColorTablet), 0.7);
+                color: rgba(map-get($configuration, lfdAgendaTopTextColorTablet), 0.7);
               }
 
               &.placeholder {
-                color: rgba(map-get($configuration, lfdAgendaDatesFontColorTablet), 0.1);
+                color: rgba(map-get($configuration, lfdAgendaTopTextColorTablet), 0.1);
 
                 .day {
-                  color: rgba(map-get($configuration, lfdAgendaDatesFontColorTablet), 0.1);
+                  color: rgba(map-get($configuration, lfdAgendaTopTextColorTablet), 0.1);
+                }
+              }
+
+              &.active {
+                color: rgba(map-get($configuration, lfdAgendaTopTextActiveColorTablet), 0.5);
+  
+                .day {
+                  color: rgba(map-get($configuration, lfdAgendaTopTextActiveColorTablet), 1);
                 }
               }
             }
@@ -1714,21 +1731,29 @@
       // Styles for desktop
       @include above($desktopBreakpoint) {
         .agenda-date-selector {
-          background-color: map-get($configuration, lfdAgendaDatesBackgroundColorDesktop);
+          background-color: map-get($configuration, lfdAgendaTopBackgroundColorDesktop);
 
           ul {
             li {
-              color: rgba(map-get($configuration, lfdAgendaDatesFontColorDesktop), 0.5);
+              color: rgba(map-get($configuration, lfdAgendaTopTextColorDesktop), 0.5);
 
               .day {
-                color: rgba(map-get($configuration, lfdAgendaDatesFontColorDesktop), 0.7);
+                color: rgba(map-get($configuration, lfdAgendaTopTextColorDesktop), 0.7);
               }
 
               &.placeholder {
-                color: rgba(map-get($configuration, lfdAgendaDatesFontColorDesktop), 0.1);
+                color: rgba(map-get($configuration, lfdAgendaTopTextColorDesktop), 0.1);
 
                 .day {
-                  color: rgba(map-get($configuration, lfdAgendaDatesFontColorDesktop), 0.1);
+                  color: rgba(map-get($configuration, lfdAgendaTopTextColorDesktop), 0.1);
+                }
+              }
+
+              &.active {
+                color: rgba(map-get($configuration, lfdAgendaTopTextActiveColorDesktop), 0.5);
+  
+                .day {
+                  color: rgba(map-get($configuration, lfdAgendaTopTextActiveColorDesktop), 1);
                 }
               }
             }
@@ -1815,28 +1840,29 @@
 
     /* Old Agenda */
     .agenda-date-selector {
-      background-color: map-get($configuration, lfdAgendaDatesBackgroundColor);
+      background-color: map-get($configuration, lfdAgendaTopBackgroundColor);
 
       ul {
         li {
-          color: rgba(map-get($configuration, lfdAgendaDatesFontColor), 0.5);
+          color: rgba(map-get($configuration, lfdAgendaTopTextColor), 0.5);
 
           .day {
-            color: rgba(map-get($configuration, lfdAgendaDatesFontColor), 0.7);
+            color: rgba(map-get($configuration, lfdAgendaTopTextColor), 0.7);
           }
 
           &.placeholder {
-            color: rgba(map-get($configuration, lfdAgendaDatesFontColor), 0.1);
+            color: rgba(map-get($configuration, lfdAgendaTopTextColor), 0.1);
 
             .day {
-              color: rgba(map-get($configuration, lfdAgendaDatesFontColor), 0.1);
+              color: rgba(map-get($configuration, lfdAgendaTopTextColor), 0.1);
             }
           }
+
           &.active {
-            color: rgba($highlightColor, 0.5);
+            color: rgba(map-get($configuration, lfdAgendaTopTextActiveColor), 0.5);
 
             .day {
-              color: rgba($highlightColor, 1);
+              color: rgba(map-get($configuration, lfdAgendaTopTextActiveColor), 1);
             }
           }
         }
@@ -1844,21 +1870,29 @@
 
       // Styles for tablet
       @include above($tabletBreakpoint) {
-        background-color: map-get($configuration, lfdAgendaDatesBackgroundColorTablet);
+        background-color: map-get($configuration, lfdAgendaTopBackgroundColorTablet);
 
         ul {
           li {
-            color: rgba(map-get($configuration, lfdAgendaDatesFontColorTablet), 0.5);
+            color: rgba(map-get($configuration, lfdAgendaTopTextColorTablet), 0.5);
 
             .day {
-              color: rgba(map-get($configuration, lfdAgendaDatesFontColorTablet), 0.7);
+              color: rgba(map-get($configuration, lfdAgendaTopTextColorTablet), 0.7);
             }
 
             &.placeholder {
-              color: rgba(map-get($configuration, lfdAgendaDatesFontColorTablet), 0.1);
+              color: rgba(map-get($configuration, lfdAgendaTopTextColorTablet), 0.1);
 
               .day {
-                color: rgba(map-get($configuration, lfdAgendaDatesFontColorTablet), 0.1);
+                color: rgba(map-get($configuration, lfdAgendaTopTextColorTablet), 0.1);
+              }
+            }
+
+            &.active {
+              color: rgba(map-get($configuration, lfdAgendaTopTextActiveColorTablet), 0.5);
+  
+              .day {
+                color: rgba(map-get($configuration, lfdAgendaTopTextActiveColorTablet), 1);
               }
             }
           }
@@ -1867,21 +1901,29 @@
 
       // Styles for desktop
       @include above($desktopBreakpoint) {
-        background-color: map-get($configuration, lfdAgendaDatesBackgroundColorDesktop);
+        background-color: map-get($configuration, lfdAgendaTopBackgroundColorDesktop);
 
         ul {
           li {
-            color: rgba(map-get($configuration, lfdAgendaDatesFontColorDesktop), 0.5);
+            color: rgba(map-get($configuration, lfdAgendaTopTextColorDesktop), 0.5);
 
             .day {
-              color: rgba(map-get($configuration, lfdAgendaDatesFontColorDesktop), 0.7);
+              color: rgba(map-get($configuration, lfdAgendaTopTextColorDesktop), 0.7);
             }
 
             &.placeholder {
-              color: rgba(map-get($configuration, lfdAgendaDatesFontColorDesktop), 0.1);
+              color: rgba(map-get($configuration, lfdAgendaTopTextColorDesktop), 0.1);
 
               .day {
-                color: rgba(map-get($configuration, lfdAgendaDatesFontColorDesktop), 0.1);
+                color: rgba(map-get($configuration, lfdAgendaTopTextColorDesktop), 0.1);
+              }
+            }
+
+            &.active {
+              color: rgba(map-get($configuration, lfdAgendaTopTextActiveColorDesktop), 0.5);
+  
+              .day {
+                color: rgba(map-get($configuration, lfdAgendaTopTextActiveColorDesktop), 1);
               }
             }
           }
@@ -2171,6 +2213,10 @@
     .new-small-h-card-list-container,
     .small-h-card-list-container {
       .loading-data {
+        color: map-get($configuration, lfdFontColor);
+      }
+
+      .small-h-card-list-item-text {
         color: map-get($configuration, lfdFontColor);
       }
 
@@ -2573,6 +2619,7 @@
       }
 
       .simple-list-item {
+        background-color: map-get($configuration, lfdBackgroundColor);
         border-bottom: map-get($configuration, lfdSeparatorWidth) map-get($configuration, lfdSeparatorStyle) map-get($configuration, lfdSeparatorColor);
       }
 
@@ -2590,6 +2637,7 @@
         }
 
         .simple-list-item {
+          background-color: map-get($configuration, lfdBackgroundColorTablet);
           border-bottom: map-get($configuration, lfdSeparatorWidthTablet) map-get($configuration, lfdSeparatorStyleTablet) map-get($configuration, lfdSeparatorColorTablet);
         }
 
@@ -2608,6 +2656,7 @@
         }
 
         .simple-list-item {
+          background-color: map-get($configuration, lfdBackgroundColorDesktop);
           border-bottom: map-get($configuration, lfdSeparatorWidthDesktop) map-get($configuration, lfdSeparatorStyleDesktop) map-get($configuration, lfdSeparatorColorDesktop);
         }
 
