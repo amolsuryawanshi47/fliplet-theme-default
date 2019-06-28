@@ -470,7 +470,7 @@
         overflow: hidden;
         border-radius: map-get($configuration, gridBorderRadius);
 
-        &.active {
+        &.linked {
           .metro-desc {
             @if strip-unit(map-get($configuration, gridPaddingTop)) > 24 {
               padding-top: map-get($configuration, gridPaddingTop);
@@ -535,6 +535,18 @@
           overflow: hidden;
           border-radius: map-get($configuration, gridBorderRadiusTablet);
 
+          &.linked {
+            .metro-desc {
+              @if strip-unit(map-get($configuration, gridPaddingTopTablet)) > 24 {
+                padding-top: map-get($configuration, gridPaddingTopTablet);
+              } @else if strip-unit(map-get($configuration, gridPaddingTopTablet)) == 0 {
+                padding-top: 24px;
+              } @else {
+                padding-top: calc(#{map-get($configuration, gridPaddingTopTablet)} + 14px);
+              }
+            }
+          }
+
           .metro-desc {
             background-color: map-get($configuration, gridTextBackgroundColorTablet);
             padding: map-get($configuration, gridPaddingTopTablet)
@@ -588,6 +600,18 @@
         .panels {
           overflow: hidden;
           border-radius: map-get($configuration, gridBorderRadiusDesktop);
+
+          &.linked {
+            .metro-desc {
+              @if strip-unit(map-get($configuration, gridPaddingTopDesktop)) > 24 {
+                padding-top: map-get($configuration, gridPaddingTopDesktop);
+              } @else if strip-unit(map-get($configuration, gridPaddingTopDesktop)) == 0 {
+                padding-top: 24px;
+              } @else {
+                padding-top: calc(#{map-get($configuration, gridPaddingTopDesktop)} + 14px);
+              }
+            }
+          }
 
           .metro-desc {
             background-color: map-get($configuration, gridTextBackgroundColorDesktop);
