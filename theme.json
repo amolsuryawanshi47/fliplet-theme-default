@@ -192,6 +192,54 @@
                 },
                 "label": "Background color",
                 "type": "color"
+              }
+            ]
+          },
+          {
+            "description": "Body font",
+            "fields": [
+              {
+                "name": "bodyFontFamily",
+                "default": "$quickTextFontFamily",
+                "styles": [
+                  {
+                    "selectors": "body",
+                    "properties": ["font-family"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "bodyFontFamilyTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "bodyFontFamilyDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "font"
+              },
+              {
+                "name": "bodyFontSize",
+                "default": "16px",
+                "styles": [
+                  {
+                    "selectors": "body",
+                    "properties": ["font-size"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "bodyFontSizeTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "bodyFontSizeDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "size",
+                "subtype": "font"
               },
               {
                 "name": "bodyTextColor",
@@ -290,34 +338,73 @@
                 },
                 "label": "Paragraph text color",
                 "type": "color"
-              }
-            ]
-          },
-          {
-            "description": "Fonts",
-            "fields": [
+              },
               {
-                "name": "bodyFontFamily",
-                "default": "$quickTextFontFamily",
-                "columns": 12,
+                "name": "bodyFontWeight",
+                "default": "normal",
                 "styles": [
                   {
                     "selectors": "body",
-                    "properties": ["font-family"]
+                    "properties": ["font-weight"]
                   }
                 ],
                 "breakpoints": {
                   "tablet": {
-                    "name": "bodyFontFamilyTablet",
+                    "name": "bodyFontWeightTablet",
                     "default": "inherit-mobile"
                   },
                   "desktop": {
-                    "name": "bodyFontFamilyDesktop",
+                    "name": "bodyFontWeightDesktop",
                     "default": "inherit-tablet"
                   }
                 },
-                "label": "Body text font family",
-                "type": "font"
+                "type": "font-style",
+                "properties": "weight"
+              },
+              {
+                "name": "bodyFontStyle",
+                "default": "normal",
+                "styles": [
+                  {
+                    "selectors": "body",
+                    "properties": ["font-style"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "bodyFontStyleTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "bodyFontStyleDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "font-style",
+                "properties": "italic"
+              },
+              {
+                "name": "bodyLineHeight",
+                "default": "1.5",
+                "styles": [
+                  {
+                    "selectors": "body",
+                    "properties": ["line-height"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "bodyLineHeightTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "bodyLineHeightDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "label": "Line height",
+                "type": "size",
+                "subtype": "line-height"
               }
             ]
           }
