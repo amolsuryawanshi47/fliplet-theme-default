@@ -3,18 +3,23 @@
   $configuration: map-merge((
     backgroundColor: $bodyBackground,
     fontColor: $bodyTextColor,
-    fontFamily: $bodyFontFamily
+    fontFamily: $bodyFontFamily,
+    fontSize: $bodyFontSize,
+    fontWeight: $bodyFontWeight,
+    fontStyle: $bodyFontStyle,
+    fontLineHeight: $bodyLineHeight
   ), $options);
 
   background-color: map-get($configuration, backgroundColor);
   color: map-get($configuration, fontColor);
   font-family: map-get($configuration, fontFamily);
+  font-size: map-get($configuration, fontSize);
+  font-style: map-get($configuration, fontStyle);
+  line-height: map-get($configuration, fontLineHeight);
+  font-weight: map-get($configuration, fontWeight);
 }
 
 body {
-  font-size: 16px;
-  line-height: 1.5;
-  font-weight: normal;
   // Include styles for default mobile viewport
   @include body();
 
