@@ -1227,8 +1227,124 @@
     }
   }
 
+  &.btn-default {
+    background-color: $secondaryButtonColor;
+    color: $secondaryButtonTextColor;
+    border-radius: $secondaryButtonBorderRadius;
+
+    @include fontOnly((
+      fontFamily: $secondaryButtonFontFamily,
+      fontSize: $secondaryButtonFontSize,
+      fontLineHeight: $secondaryButtonLineHeight,
+      fontWeight: $secondaryButtonFontWeight,
+      fontStyle: $secondaryButtonFontStyle,
+      fontDecoration: $secondaryButtonFontDecoration
+    ));
+
+    @include borderOnly((
+      borderSides: $secondaryButtonBorderSides,
+      borderWidth: $secondaryButtonBorderWidth,
+      borderStyle: $secondaryButtonBorderStyle,
+      borderColor: $secondaryButtonBorderColor
+    ));
+  
+    &:focus,
+    &:hover,
+    &:active:focus,
+    &:active:hover {
+      background-color: $secondaryButtonHoverColor;
+      color: $secondaryButtonHoverTextColor;
+      
+      @include borderOnly((
+        borderSides: $secondaryButtonHoverBorderSides,
+        borderWidth: $secondaryButtonHoverBorderWidth,
+        borderStyle: $secondaryButtonHoverBorderStyle,
+        borderColor: $secondaryButtonHoverBorderColor
+      ));
+    }
+
+    // Styles for tablet
+    @include above($tabletBreakpoint) {
+      background-color: $secondaryButtonColorTablet;
+      color: $secondaryButtonTextColorTablet;
+      border-radius: $secondaryButtonBorderRadiusTablet;
+
+      @include fontOnly((
+        fontFamily: $secondaryButtonFontFamilyTablet,
+        fontSize: $secondaryButtonFontSizeTablet,
+        fontLineHeight: $secondaryButtonLineHeightTablet,
+        fontWeight: $secondaryButtonFontWeightTablet,
+        fontStyle: $secondaryButtonFontStyleTablet,
+        fontDecoration: $secondaryButtonFontDecorationTablet
+      ));
+
+      @include borderOnly((
+        borderSides: $secondaryButtonBorderSidesTablet,
+        borderWidth: $secondaryButtonBorderWidthTablet,
+        borderStyle: $secondaryButtonBorderStyleTablet,
+        borderColor: $secondaryButtonBorderColorTablet
+      ));
+
+      &:focus,
+      &:hover,
+      &:active:focus,
+      &:active:hover {
+        background-color: $secondaryButtonHoverColorTablet;
+        color: $secondaryButtonHoverTextColorTablet;
+        border-radius: $secondaryButtonHoverBorderRadiusTablet;
+
+        @include borderOnly((
+          borderSides: $secondaryButtonHoverBorderSidesTablet,
+          borderWidth: $secondaryButtonHoverBorderWidthTablet,
+          borderStyle: $secondaryButtonHoverBorderStyleTablet,
+          borderColor: $secondaryButtonHoverBorderColorTablet
+        ));
+      }
+    }
+
+    // Styles for desktop
+    @include above($desktopBreakpoint) {
+      background-color: $secondaryButtonColorDesktop;
+      color: $secondaryButtonTextColorDesktop;
+      border-radius: $secondaryButtonBorderRadiusDesktop;
+
+      @include fontOnly((
+        fontFamily: $secondaryButtonFontFamilyDesktop,
+        fontSize: $secondaryButtonFontSizeDesktop,
+        fontLineHeight: $secondaryButtonLineHeightDesktop,
+        fontWeight: $secondaryButtonFontWeightDesktop,
+        fontStyle: $secondaryButtonFontStyleDesktop,
+        fontDecoration: $secondaryButtonFontDecorationDesktop
+      ));
+
+      @include borderOnly((
+        borderSides: $secondaryButtonBorderSidesDesktop,
+        borderWidth: $secondaryButtonBorderWidthDesktop,
+        borderStyle: $secondaryButtonBorderStyleDesktop,
+        borderColor: $secondaryButtonBorderColorDesktop
+      ));
+
+      &:focus,
+      &:hover,
+      &:active:focus,
+      &:active:hover {
+        background-color: $secondaryButtonHoverColorDesktop;
+        color: $secondaryButtonHoverTextColorDesktop;
+        border-radius: $secondaryButtonHoverBorderRadiusDesktop;
+
+        @include borderOnly((
+          borderSides: $secondaryButtonHoverBorderSidesDesktop,
+          borderWidth: $secondaryButtonHoverBorderWidthDesktop,
+          borderStyle: $secondaryButtonHoverBorderStyleDesktop,
+          borderColor: $secondaryButtonHoverBorderColorDesktop
+        ));
+      }
+    }
+  }
+
   &.btn-primary,
-  &.btn-secondary {
+  &.btn-secondary,
+  &.btn-default {
     &.disabled,
     &[disabled] {
       opacity: 0.65;
