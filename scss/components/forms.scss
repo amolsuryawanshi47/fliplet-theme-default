@@ -258,6 +258,20 @@
           border-top-left-radius: map-get($configuration, formInputBorderRadius);
           border-bottom-left-radius: map-get($configuration, formInputBorderRadius);
           padding-left: calc(45px + #{map-get($configuration, formInputPaddingLeft)});
+
+          // Styles for tablet
+          @include above($tabletBreakpoint) {
+            border-top-left-radius: map-get($configuration, formInputBorderRadiusTablet);
+            border-bottom-left-radius: map-get($configuration, formInputBorderRadiusTablet);
+            padding-left: calc(45px + #{map-get($configuration, formInputPaddingLeftTablet)});
+          }
+
+          // Styles for desktop
+          @include above($desktopBreakpoint) {
+            border-top-left-radius: map-get($configuration, formInputBorderRadiusDesktop);
+            border-bottom-left-radius: map-get($configuration, formInputBorderRadiusDesktop);
+            padding-left: calc(45px + #{map-get($configuration, formInputPaddingLeftDesktop)});
+          }
         }
       }
     }
