@@ -1,4 +1,4 @@
-@mixin loginRegistration($options: (), $widgetInstanceId: '') {
+@mixin loginRegistration($options: (), $widgetInstanceId: '', $widgetInstanceUUID: '') {
   $configuration: map-merge((
     loginWidth: $loginWidth,
     loginMinWidth: $loginMinWidth,
@@ -61,7 +61,13 @@
   $instanceSelectorThree: '[data-widget-package="com.fliplet.login.saml2"]';
   $instanceSelectorFour: '[data-widget-package="com.fliplet.email-validation"]';
   $instanceSelectorFive: '[data-widget-package="com.fliplet.sms-verfication"]';
-  @if $widgetInstanceId != '' {
+  @if $widgetInstanceUUID != '' {
+    $instanceSelectorOne: '#{$instanceSelectorOne}[data-uuid="#{$widgetInstanceUUID}"]';
+    $instanceSelectorTwo: '#{$instanceSelectorTwo}[data-uuid="#{$widgetInstanceUUID}"]';
+    $instanceSelectorThree: '#{$instanceSelectorThree}[data-uuid="#{$widgetInstanceUUID}"]';
+    $instanceSelectorFour: '#{$instanceSelectorFour}[data-uuid="#{$widgetInstanceUUID}"]';
+    $instanceSelectorFive: '#{$instanceSelectorFive}[data-uuid="#{$widgetInstanceUUID}"]';
+  } @else if $widgetInstanceId != '' {
     $instanceSelectorOne: '#{$instanceSelectorOne}[data-id="#{$widgetInstanceId}"]';
     $instanceSelectorTwo: '#{$instanceSelectorTwo}[data-id="#{$widgetInstanceId}"]';
     $instanceSelectorThree: '#{$instanceSelectorThree}[data-id="#{$widgetInstanceId}"]';

@@ -1,4 +1,4 @@
-@mixin lock($options: (), $widgetInstanceId: '') {
+@mixin lock($options: (), $widgetInstanceId: '', $widgetInstanceUUID: '') {
   $configuration: map-merge((
     lockWidth: $lockWidth,
     lockMinWidth: $lockMinWidth,
@@ -48,7 +48,9 @@
   ), $options);
 
   $instanceSelector: '[data-widget-package="com.fliplet.lock"]';
-  @if $widgetInstanceId != '' {
+  @if widgetInstanceUUID != '' {
+    $instanceSelector: '#{$instanceSelector}[data-uuid="#{$widgetInstanceUUID}"]';
+  } @else if $widgetInstanceId != '' {
     $instanceSelector: '#{$instanceSelector}[data-id="#{$widgetInstanceId}"]';
   }
 

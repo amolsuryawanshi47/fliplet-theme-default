@@ -1,4 +1,4 @@
-@mixin menuSlideIn($options: (), $widgetInstanceId: '') {
+@mixin menuSlideIn($options: (), $widgetInstanceId: '', $widgetInstanceUUID: '') {
   $configuration: map-merge((
     menuSlideFont: $menuSlideFont,
     menuSlideFontSize: $menuSlideFontSize,
@@ -72,7 +72,9 @@
   ), $options);
   
   $instanceSelector: '[data-widget-package="com.fliplet.menu.slide-in"]';
-  @if $widgetInstanceId != '' {
+  @if widgetInstanceUUID != '' {
+    $instanceSelector: '#{$instanceSelector}[data-uuid="#{$widgetInstanceUUID}"]';
+  } @else if $widgetInstanceId != '' {
     $instanceSelector: '#{$instanceSelector}[data-id="#{$widgetInstanceId}"]';
   }
 

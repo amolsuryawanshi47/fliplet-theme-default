@@ -1,4 +1,4 @@
-@mixin appList($options: (), $widgetInstanceId: '') {
+@mixin appList($options: (), $widgetInstanceId: '', $widgetInstanceUUID: '') {
   $configuration: map-merge((
     appListWidth: $appListWidth,
     appListMinWidth: $appListMinWidth,
@@ -105,7 +105,9 @@
   ), $options);
 
   $instanceSelector: '[data-widget-package="app-list"]';
-  @if $widgetInstanceId != '' {
+  @if widgetInstanceUUID != '' {
+    $instanceSelector: '#{$instanceSelector}[data-uuid="#{$widgetInstanceUUID}"]';
+  } @else if $widgetInstanceId != '' {
     $instanceSelector: '#{$instanceSelector}[data-id="#{$widgetInstanceId}"]';
   }
 

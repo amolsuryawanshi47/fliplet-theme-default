@@ -1,4 +1,4 @@
-@mixin menuSwipe($options: (), $widgetInstanceId: '') {
+@mixin menuSwipe($options: (), $widgetInstanceId: '', $widgetInstanceUUID: '') {
   $configuration: map-merge((
     menuSwipeFont: $menuSwipeFont,
     menuSwipeFontSize: $menuSwipeFontSize,
@@ -75,7 +75,9 @@
   ), $options);
   
   $instanceSelector: '[data-widget-package="com.fliplet.menu.sequential"]';
-  @if $widgetInstanceId != '' {
+  @if widgetInstanceUUID != '' {
+    $instanceSelector: '#{$instanceSelector}[data-uuid="#{$widgetInstanceUUID}"]';
+  } @else if $widgetInstanceId != '' {
     $instanceSelector: '#{$instanceSelector}[data-id="#{$widgetInstanceId}"]';
   }
 

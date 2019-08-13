@@ -1,4 +1,4 @@
-@mixin photoSharing($options: (), $widgetInstanceId: '') {
+@mixin photoSharing($options: (), $widgetInstanceId: '', $widgetInstanceUUID: '') {
   $configuration: map-merge((
     photoSharingWidth: $photoSharingWidth,
     photoSharingMinWidth: $photoSharingMinWidth,
@@ -57,7 +57,9 @@
   ), $options);
 
   $instanceSelector: '[data-widget-package="com.fliplet.photo-sharing"]';
-  @if $widgetInstanceId != '' {
+  @if widgetInstanceUUID != '' {
+    $instanceSelector: '#{$instanceSelector}[data-uuid="#{$widgetInstanceUUID}"]';
+  } @else if $widgetInstanceId != '' {
     $instanceSelector: '#{$instanceSelector}[data-id="#{$widgetInstanceId}"]';
   }
 
