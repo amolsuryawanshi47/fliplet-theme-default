@@ -1,4 +1,4 @@
-@mixin video($options: (), $widgetInstanceId: '', widgetInstanceUUID: '') {
+@mixin video($options: (), $widgetInstanceId: '', $widgetInstanceUUID: '') {
   $configuration: map-merge((
     videoWidth: $videoWidth,
     videoMinWidth: $videoMinWidth,
@@ -70,7 +70,7 @@
 
   $instanceSelectorOne: '[data-widget-package="com.fliplet.online-offline"]';
   $instanceSelectorTwo: '[data-widget-package="com.fliplet.online-video"]';
-  @if widgetInstanceUUID != '' {
+  @if $widgetInstanceUUID != '' {
     $instanceSelectorOne: '#{$instanceSelectorOne}[data-uuid="#{$widgetInstanceUUID}"]';
     $instanceSelectorTwo: '#{$instanceSelectorTwo}[data-uuid="#{$widgetInstanceUUID}"]';
   } @else if $widgetInstanceId != '' {
