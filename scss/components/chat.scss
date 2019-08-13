@@ -1,4 +1,4 @@
-@mixin chat($options: (), $widgetInstanceId: '') {
+@mixin chat($options: (), $widgetInstanceId: '', $widgetInstanceUUID: '') {
   $configuration: map-merge((
     chatConvListWidth: $chatConvListWidth,
     chatConvAreaWidth: $chatConvAreaWidth,
@@ -27,7 +27,9 @@
   ), $options);
 
   $instanceSelector: '[data-widget-package="com.fliplet.chat"]';
-  @if $widgetInstanceId != '' {
+  @if $widgetInstanceUUID != '' {
+    $instanceSelector: '#{$instanceSelector}[data-uuid="#{$widgetInstanceUUID}"]';
+  } @else if $widgetInstanceId != '' {
     $instanceSelector: '#{$instanceSelector}[data-id="#{$widgetInstanceId}"]';
   }
 

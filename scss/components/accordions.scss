@@ -1,4 +1,4 @@
-@mixin accordion($options: (), $widgetInstanceId: '') {
+@mixin accordion($options: (), $widgetInstanceId: '', $widgetInstanceUUID: '') {
   $configuration: map-merge((
     accordionWidth: $accordionWidth,
     accordionMinWidth: $accordionMinWidth,
@@ -87,7 +87,9 @@
   ), $options);
 
   $instanceSelector: '.panel';
-  @if $widgetInstanceId != '' {
+  @if $widgetInstanceUUID != '' {
+    $instanceSelector: '#{$instanceSelector}[data-collapse-uuid="#{$widgetInstanceUUID}"]';
+  } @else if $widgetInstanceId != '' {
     $instanceSelector: '#{$instanceSelector}[data-collapse-id="#{$widgetInstanceId}"]';
   }
 

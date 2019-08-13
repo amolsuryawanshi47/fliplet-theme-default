@@ -1,4 +1,4 @@
-@mixin images($options: (), $widgetInstanceId: '') {
+@mixin images($options: (), $widgetInstanceId: '', $widgetInstanceUUID: '') {
   $configuration: map-merge((
     imagePosition: $imagePosition,
     imageDisplay: $imageDisplay,
@@ -96,7 +96,9 @@
   ), $options);
 
   $instanceSelector: '[data-widget-package="com.fliplet.image"]';
-  @if $widgetInstanceId != '' {
+  @if $widgetInstanceUUID != '' {
+    $instanceSelector: '#{$instanceSelector}[data-uuid="#{$widgetInstanceUUID}"]';
+  } @else if $widgetInstanceId != '' {
     $instanceSelector: '#{$instanceSelector}[data-id="#{$widgetInstanceId}"]';
   }
 

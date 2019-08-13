@@ -1,4 +1,4 @@
-@mixin lfd($options: (), $widgetInstanceId: '') {
+@mixin lfd($options: (), $widgetInstanceId: '', $widgetInstanceUUID: '') {
   $configuration: map-merge((
     lfdBackgroundColor: $lfdBackgroundColor,
     lfdBackgroundColorTablet: $lfdBackgroundColorTablet,
@@ -72,7 +72,9 @@
   ), $options);
 
   $instanceSelector: '[data-widget-package="com.fliplet.dynamic-lists"]';
-  @if $widgetInstanceId != '' {
+  @if $widgetInstanceUUID != '' {
+    $instanceSelector: '#{$instanceSelector}[data-uuid="#{$widgetInstanceUUID}"]';
+  } @else if $widgetInstanceId != '' {
     $instanceSelector: '#{$instanceSelector}[data-id="#{$widgetInstanceId}"]';
   }
 

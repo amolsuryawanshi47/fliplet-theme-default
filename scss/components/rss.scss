@@ -1,4 +1,4 @@
-@mixin rss($options: (), $widgetInstanceId: '') {
+@mixin rss($options: (), $widgetInstanceId: '', $widgetInstanceUUID: '') {
   $configuration: map-merge((
     rssWidth: $rssWidth,
     rssMinWidth: $rssMinWidth,
@@ -87,7 +87,9 @@
   ), $options);
 
   $instanceSelector: '[data-widget-package="com.fliplet.rss"]';
-  @if $widgetInstanceId != '' {
+  @if $widgetInstanceUUID != '' {
+    $instanceSelector: '#{$instanceSelector}[data-uuid="#{$widgetInstanceUUID}"]';
+  } @else if $widgetInstanceId != '' {
     $instanceSelector: '#{$instanceSelector}[data-id="#{$widgetInstanceId}"]';
   }
 

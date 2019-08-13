@@ -1,4 +1,4 @@
-@mixin charts($options: (), $widgetInstanceId: '') {
+@mixin charts($options: (), $widgetInstanceId: '', $widgetInstanceUUID: '') {
   $configuration: map-merge((
     chartWidth: $chartWidth,
     chartHeight: $chartHeight,
@@ -80,7 +80,14 @@
   $instanceSelectorFour: '[data-widget-package="com.fliplet.chart.line"]';
   $instanceSelectorFive: '[data-widget-package="com.fliplet.chart.donut"]';
   $instanceSelectorSix: '[data-widget-package="com.fliplet.chart.pie"]';
-  @if $widgetInstanceId != '' {
+  @if $widgetInstanceUUID != '' {
+    $instanceSelectorOne: '#{$instanceSelectorOne}[data-uuid="#{$widgetInstanceUUID}"]';
+    $instanceSelectorTwo: '#{$instanceSelectorTwo}[data-uuid="#{$widgetInstanceUUID}"]';
+    $instanceSelectorThree: '#{$instanceSelectorThree}[data-uuid="#{$widgetInstanceUUID}"]';
+    $instanceSelectorFour: '#{$instanceSelectorFour}[data-uuid="#{$widgetInstanceUUID}"]';
+    $instanceSelectorFive: '#{$instanceSelectorFive}[data-uuid="#{$widgetInstanceUUID}"]';
+    $instanceSelectorSix: '#{$instanceSelectorSix}[data-uuid="#{$widgetInstanceUUID}"]';
+  } @else if $widgetInstanceId != '' {
     $instanceSelectorOne: '#{$instanceSelectorOne}[data-id="#{$widgetInstanceId}"]';
     $instanceSelectorTwo: '#{$instanceSelectorTwo}[data-id="#{$widgetInstanceId}"]';
     $instanceSelectorThree: '#{$instanceSelectorThree}[data-id="#{$widgetInstanceId}"]';
