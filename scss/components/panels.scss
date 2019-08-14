@@ -358,7 +358,7 @@
 
 @include panels();
 
-@mixin grid($options: (), $widgetInstanceId: '') {
+@mixin grid($options: (), $widgetInstanceId: '', $widgetInstanceUUID: '') {
   $configuration: map-merge((
     gridWidth: $gridWidth,
     gridMinWidth: $gridMinWidth,
@@ -450,7 +450,9 @@
   ), $options);
 
   $instanceSelector: '[data-widget-package="com.fliplet.metro"]';
-  @if $widgetInstanceId != '' {
+  @if $widgetInstanceUUID != '' {
+    $instanceSelector: '#{$instanceSelector}[data-uuid="#{$widgetInstanceUUID}"]';
+  } @else if $widgetInstanceId != '' {
     $instanceSelector: '#{$instanceSelector}[data-id="#{$widgetInstanceId}"]';
   }
 

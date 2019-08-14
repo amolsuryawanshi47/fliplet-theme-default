@@ -391,7 +391,7 @@
 
 @include slider();
 
-@mixin onboarding($options: (), $widgetInstanceId: '') {
+@mixin onboarding($options: (), $widgetInstanceId: '', $widgetInstanceUUID: '') {
   $configuration: map-merge((
     onboardingSlideBackgroundColor: $onboardingSlideBackgroundColor,
     onboardingSkipTextColor: $onboardingSkipTextColor,
@@ -498,7 +498,9 @@
   ), $options);
 
   $instanceSelector: '[data-widget-package="com.fliplet.onboarding"]';
-  @if $widgetInstanceId != '' {
+  @if $widgetInstanceUUID != '' {
+    $instanceSelector: '#{$instanceSelector}[data-uuid="#{$widgetInstanceUUID}"]';
+  } @else if $widgetInstanceId != '' {
     $instanceSelector: '#{$instanceSelector}[data-id="#{$widgetInstanceId}"]';
   }
 

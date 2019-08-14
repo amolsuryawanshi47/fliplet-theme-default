@@ -430,7 +430,7 @@
   }
 }
 
-@mixin secondaryButton($options: (), $widgetInstanceId: '') {
+@mixin secondaryButton($options: (), $widgetInstanceId: '', $widgetInstanceUUID: '') {
   $configuration: map-merge((
     secondaryButtonWidth: $secondaryButtonWidth,
     secondaryButtonHeight: $secondaryButtonHeight,
@@ -591,7 +591,9 @@
   ), $options);
   
   $instanceSelector: '[data-widget-package="com.fliplet.secondary-button"]';
-  @if $widgetInstanceId != '' {
+  @if $widgetInstanceUUID != '' {
+    $instanceSelector: '#{$instanceSelector}[data-uuid="#{$widgetInstanceUUID}"]';
+  } @else if $widgetInstanceId != '' {
     $instanceSelector: '#{$instanceSelector}[data-id="#{$widgetInstanceId}"]';
   }
 
