@@ -267,7 +267,7 @@
 
 @include images();
 
-@mixin imageGallery($options: (), $widgetInstanceId: '') {
+@mixin imageGallery($options: (), $widgetInstanceId: '', $widgetInstanceUUID: '') {
   $configuration: map-merge((
     galleryWidth: $galleryWidth,
     galleryMinWidth: $galleryMinWidth,
@@ -305,7 +305,9 @@
   ), $options);
 
   $instanceSelector: '[data-widget-package="masonry-image-gallery"]';
-  @if $widgetInstanceId != '' {
+  @if $widgetInstanceUUID != '' {
+    $instanceSelector: '#{$instanceSelector}[data-uuid="#{$widgetInstanceUUID}"]';
+  } @else if $widgetInstanceId != '' {
     $instanceSelector: '#{$instanceSelector}[data-id="#{$widgetInstanceId}"]';
   }
 
