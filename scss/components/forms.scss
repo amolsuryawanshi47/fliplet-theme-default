@@ -799,3 +799,14 @@
 }
 
 @include formBuilder();
+
+.form-control {
+  @include borderOnly((
+    borderSides: $formInputBorderSides,
+    borderWidth: $formInputBorderWidth,
+    borderStyle: $formInputBorderStyle,
+    borderColor: $formInputBorderColor
+  ));
+
+  border-radius: $formInputBorderRadius;
+} 
