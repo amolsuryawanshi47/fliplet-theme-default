@@ -1,0 +1,84 @@
+@mixin container($options: (), $widgetInstanceId: '', $widgetInstanceUUID: '') {
+  $configuration: map-merge((
+    containerWidth: $containerWidth,
+    containerHeight: $containerHeight,
+    containerMinWidth: $containerMinWidth,
+    containerMaxWidth: $containerMaxWidth,
+    containerMinHeight: $containerMinHeight,
+    containerMaxHeight: $containerMaxHeight,
+    containerPaddingTop: $containerPaddingTop,
+    containerPaddingRight: $containerPaddingRight,
+    containerPaddingBottom: $containerPaddingBottom,
+    containerPaddingLeft: $containerPaddingLeft,
+    containerWidthTablet: $containerWidthTablet,
+    containerHeightTablet: $containerHeightTablet,
+    containerMinWidthTablet: $containerMinWidthTablet,
+    containerMaxWidthTablet: $containerMaxWidthTablet,
+    containerMinHeightTablet: $containerMinHeightTablet,
+    containerMaxHeightTablet: $containerMaxHeightTablet,
+    containerPaddingTopTablet: $containerPaddingTopTablet,
+    containerPaddingRightTablet: $containerPaddingRightTablet,
+    containerPaddingBottomTablet: $containerPaddingBottomTablet,
+    containerPaddingLeftTablet: $containerPaddingLeftTablet,
+    containerWidthDesktop: $containerWidthDesktop,
+    containerHeightDesktop: $containerHeightDesktop,
+    containerMinWidthDesktop: $containerMinWidthDesktop,
+    containerMaxWidthDesktop: $containerMaxWidthDesktop,
+    containerMinHeightDesktop: $containerMinHeightDesktop,
+    containerMaxHeightDesktop: $containerMaxHeightDesktop,
+    containerPaddingTopDesktop: $containerPaddingTopDesktop,
+    containerPaddingRightDesktop: $containerPaddingRightDesktop,
+    containerPaddingBottomDesktop: $containerPaddingBottomDesktop,
+    containerPaddingLeftDesktop: $containerPaddingLeftDesktop
+  ), $options);
+  
+  $instanceSelector: '[data-widget-package="com.fliplet.container"]';
+  @if $widgetInstanceUUID != '' {
+    $instanceSelector: '#{$instanceSelector}[data-uuid="#{$widgetInstanceUUID}"]';
+  } @else if $widgetInstanceId != '' {
+    $instanceSelector: '#{$instanceSelector}[data-id="#{$widgetInstanceId}"]';
+  }
+
+  #{$instanceSelector} {
+    width: map-get($configuration, containerWidth);
+    min-width: map-get($configuration, containerMinWidth);
+    max-width: map-get($configuration, containerMaxWidth);
+    height: auto !important;
+    min-height: map-get($configuration, containerMinHeight);
+    max-height: map-get($configuration, containerMaxHeight);
+    padding: map-get($configuration, containerPaddingTop)
+      map-get($configuration, containerPaddingRight)
+      map-get($configuration, containerPaddingBottom)
+      map-get($configuration, containerPaddingLeft);
+
+    // Styles for tablet
+    @include above($tabletBreakpoint) {
+      width: map-get($configuration, containerWidthTablet);
+      min-width: map-get($configuration, containerMinWidthTablet);
+      max-width: map-get($configuration, containerMaxWidthTablet);
+      height: auto !important;
+      min-height: map-get($configuration, containerMinHeightTablet);
+      max-height: map-get($configuration, containerMaxHeightTablet);
+      padding: map-get($configuration, containerPaddingTopTablet)
+        map-get($configuration, containerPaddingRightTablet)
+        map-get($configuration, containerPaddingBottomTablet)
+        map-get($configuration, containerPaddingLeftTablet);
+    }
+
+    // Styles for desktop
+    @include above($desktopBreakpoint) {
+      width: map-get($configuration, containerWidthDesktop);
+      min-width: map-get($configuration, containerMinWidthDesktop);
+      max-width: map-get($configuration, containerMaxWidthDesktop);
+      height: auto !important;
+      min-height: map-get($configuration, containerMinHeightDesktop);
+      max-height: map-get($configuration, containerMaxHeightDesktop);
+      padding: map-get($configuration, containerPaddingTopDesktop)
+        map-get($configuration, containerPaddingRightDesktop)
+        map-get($configuration, containerPaddingBottomDesktop)
+        map-get($configuration, containerPaddingLeftDesktop);
+    }
+  }
+}
+
+@include container();

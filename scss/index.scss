@@ -37,6 +37,7 @@
 @import "components/about-overlay";
 @import "components/image-fullscreen";
 @import "components/video";
+@import "components/container";
 
 /* @import "components/app-analytics"; */
 
@@ -167,6 +168,9 @@
     }
     @if nth($widgetInstance, 2) == 'onlineVideo' {
       @include video(nth($widgetInstance, 3), nth($widgetInstance, 1), nth($widgetInstance, 4));
+    }
+    @if nth($widgetInstance, 2) == 'container' {
+      @include container(nth($widgetInstance, 3), nth($widgetInstance, 1), nth($widgetInstance, 4));
     }
   }
 }
