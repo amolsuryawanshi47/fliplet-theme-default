@@ -125,6 +125,10 @@
       map-get($configuration, imageMarginRight)
       map-get($configuration, imageMarginBottom)
       map-get($configuration, imageMarginLeft);
+    padding: map-get($configuration, imagePaddingTop)
+      map-get($configuration, imagePaddingRight)
+      map-get($configuration, imagePaddingBottom)
+      map-get($configuration, imagePaddingLeft);
 
     // Styles for tablet
     @include above($tabletBreakpoint) {
@@ -151,6 +155,10 @@
         map-get($configuration, imageMarginRightTablet)
         map-get($configuration, imageMarginBottomTablet)
         map-get($configuration, imageMarginLeftTablet);
+      padding: map-get($configuration, imagePaddingTopTablet)
+        map-get($configuration, imagePaddingRightTablet)
+        map-get($configuration, imagePaddingBottomTablet)
+        map-get($configuration, imagePaddingLeftTablet);
     }
 
     // Styles for desktop
@@ -178,16 +186,16 @@
         map-get($configuration, imageMarginRightDesktop)
         map-get($configuration, imageMarginBottomDesktop)
         map-get($configuration, imageMarginLeftDesktop);
+      padding: map-get($configuration, imagePaddingTopDesktop)
+        map-get($configuration, imagePaddingRightDesktop)
+        map-get($configuration, imagePaddingBottomDesktop)
+        map-get($configuration, imagePaddingLeftDesktop);
     }
 
     img[data-image-id] {
       height: map-get($configuration, imageHeight);
       min-height: map-get($configuration, imageMinHeight);
       max-height: map-get($configuration, imageMaxHeight);
-      padding: map-get($configuration, imagePaddingTop)
-        map-get($configuration, imagePaddingRight)
-        map-get($configuration, imagePaddingBottom)
-        map-get($configuration, imagePaddingLeft);
 
       @include borderOnly((
         borderSides: map-get($configuration, imageBorderSides),
@@ -211,10 +219,6 @@
         height: map-get($configuration, imageHeightTablet);
         min-height: map-get($configuration, imageMinHeightTablet);
         max-height: map-get($configuration, imageMaxHeightTablet);
-        padding: map-get($configuration, imagePaddingTopTablet)
-          map-get($configuration, imagePaddingRightTablet)
-          map-get($configuration, imagePaddingBottomTablet)
-          map-get($configuration, imagePaddingLeftTablet);
 
         @include borderOnly((
           borderSides: map-get($configuration, imageBorderSidesTablet),
@@ -239,10 +243,6 @@
         height: map-get($configuration, imageHeightDesktop);
         min-height: map-get($configuration, imageMinHeightDesktop);
         max-height: map-get($configuration, imageMaxHeightDesktop);
-        padding: map-get($configuration, imagePaddingTopDesktop)
-          map-get($configuration, imagePaddingRightDesktop)
-          map-get($configuration, imagePaddingBottomDesktop)
-          map-get($configuration, imagePaddingLeftDesktop);
 
         @include borderOnly((
           borderSides: map-get($configuration, imageBorderSidesDesktop),
