@@ -755,6 +755,59 @@
             ]
           },
           {
+            "description": "Overflow",
+            "fields": [
+              {
+                "name": "containerOverflowX",
+                "default": "visible",
+                "columns": 6,
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.container']",
+                    "properties": ["overflow-x"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "containerOverflowXTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "containerOverflowXDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "select",
+                "subtype": "overflow",
+                "label": "Overflow X"
+              },
+              {
+                "name": "containerOverflowY",
+                "default": "visible",
+                "columns": 6,
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.container']",
+                    "properties": ["overflow-y"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "containerOverflowYTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "containerOverflowYDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "select",
+                "subtype": "overflow",
+                "label": "Overflow Y"
+              }
+            ]
+          },
+          {
             "description": "Positioning",
             "fields": [
               {
@@ -768,8 +821,7 @@
                       "containerPositionRight",
                       "containerPositionBottom",
                       "containerPositionLeft"
-                    ],
-                    "show": ["containerDisplay"]
+                    ]
                   },
                   "absolute": {
                     "show": [
@@ -777,8 +829,7 @@
                       "containerPositionRight",
                       "containerPositionBottom",
                       "containerPositionLeft"
-                    ],
-                    "hide": ["containerDisplay"]
+                    ]
                   },
                   "fixed": {
                     "show": [
@@ -786,8 +837,7 @@
                       "containerPositionRight",
                       "containerPositionBottom",
                       "containerPositionLeft"
-                    ],
-                    "hide": ["containerDisplay"]
+                    ]
                   }
                 },
                 "styles": [
@@ -821,16 +871,36 @@
                 "columns": 12,
                 "logic": {
                   "none": {
-                    "hide": ["containerMarginAlign"]
+                    "hide": [
+                      "containerMarginAlign",
+                      "containerFlexDirection",
+                      "containerFlexAlign",
+                      "containerFlexJustify"
+                    ]
                   },
                   "block": {
+                    "hide": [
+                      "containerFlexDirection",
+                      "containerFlexAlign",
+                      "containerFlexJustify"
+                    ],
                     "show": ["containerMarginAlign"]
                   },
                   "inline-block": {
-                    "hide": ["containerMarginAlign"]
+                    "hide": [
+                      "containerMarginAlign",
+                      "containerFlexDirection",
+                      "containerFlexAlign",
+                      "containerFlexJustify"
+                    ]
                   },
                   "flex": {
-                    "show": ["containerMarginAlign"]
+                    "show": [
+                      "containerMarginAlign",
+                      "containerFlexDirection",
+                      "containerFlexAlign",
+                      "containerFlexJustify"
+                    ]
                   }
                 },
                 "styles": [
@@ -850,6 +920,78 @@
                   }
                 },
                 "type": "display-extended"
+              },
+              {
+                "name": "containerFlexDirection",
+                "default": "row",
+                "columns": 12,
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.container']",
+                    "properties": ["flex-direction"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "containerFlexDirectionTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "containerFlexDirectionDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "select",
+                "subtype": "flex-direction",
+                "label": "Content direction"
+              },
+              {
+                "name": "containerFlexAlign",
+                "default": "stretch",
+                "columns": 12,
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.container']",
+                    "properties": ["align-items"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "containerFlexAlignTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "containerFlexAlignDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "select",
+                "subtype": "flex-align",
+                "label": "Content alignment"
+              },
+              {
+                "name": "containerFlexJustify",
+                "default": "flex-start",
+                "columns": 12,
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.container']",
+                    "properties": ["justify-content"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "containerFlexJustifyTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "containerFlexJustifyDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "select",
+                "subtype": "flex-justify",
+                "label": "Content justification"
               },
               {
                 "name": "containerPositionTop",
