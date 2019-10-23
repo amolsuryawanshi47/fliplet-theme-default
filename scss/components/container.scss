@@ -1,5 +1,12 @@
 @mixin container($options: (), $widgetInstanceId: '', $widgetInstanceUUID: '') {
   $configuration: map-merge((
+    containerBackgroundImage: $containerBackgroundImage,
+    containerBackgroundColor: $containerBackgroundColor,
+    containerBackgroundType: $containerBackgroundType,
+    containerBackgroundSize: $containerBackgroundSize,
+    containerBackgroundRepeat: $containerBackgroundRepeat,
+    containerBackgroundPosX: $containerBackgroundPosX,
+    containerBackgroundPosY: $containerBackgroundPosY,
     containerWidth: $containerWidth,
     containerHeight: $containerHeight,
     containerMinWidth: $containerMinWidth,
@@ -20,7 +27,6 @@
     containerPaddingRight: $containerPaddingRight,
     containerPaddingBottom: $containerPaddingBottom,
     containerPaddingLeft: $containerPaddingLeft,
-    containerColor: $containerColor,
     containerBorderSides: $containerBorderSides,
     containerBorderWidth: $containerBorderWidth,
     containerBorderStyle: $containerBorderStyle,
@@ -32,6 +38,13 @@
     containerShadowBlur: $containerShadowBlur,
     containerShadowSpread: $containerShadowSpread,
     containerShadowColor: $containerShadowColor,
+    containerBackgroundImageTablet: $containerBackgroundImageTablet,
+    containerBackgroundColorTablet: $containerBackgroundColorTablet,
+    containerBackgroundTypeTablet: $containerBackgroundTypeTablet,
+    containerBackgroundSizeTablet: $containerBackgroundSizeTablet,
+    containerBackgroundRepeatTablet: $containerBackgroundRepeatTablet,
+    containerBackgroundPosXTablet: $containerBackgroundPosXTablet,
+    containerBackgroundPosYTablet: $containerBackgroundPosYTablet,
     containerWidthTablet: $containerWidthTablet,
     containerHeightTablet: $containerHeightTablet,
     containerMinWidthTablet: $containerMinWidthTablet,
@@ -52,7 +65,6 @@
     containerPaddingRightTablet: $containerPaddingRightTablet,
     containerPaddingBottomTablet: $containerPaddingBottomTablet,
     containerPaddingLeftTablet: $containerPaddingLeftTablet,
-    containerColorTablet: $containerColorTablet,
     containerBorderSidesTablet: $containerBorderSidesTablet,
     containerBorderWidthTablet: $containerBorderWidthTablet,
     containerBorderStyleTablet: $containerBorderStyleTablet,
@@ -64,6 +76,13 @@
     containerShadowBlurTablet: $containerShadowBlurTablet,
     containerShadowSpreadTablet: $containerShadowSpreadTablet,
     containerShadowColorTablet: $containerShadowColorTablet,
+    containerBackgroundImageDesktop: $containerBackgroundImageDesktop,
+    containerBackgroundColorDesktop: $containerBackgroundColorDesktop,
+    containerBackgroundTypeDesktop: $containerBackgroundTypeDesktop,
+    containerBackgroundSizeDesktop: $containerBackgroundSizeDesktop,
+    containerBackgroundRepeatDesktop: $containerBackgroundRepeatDesktop,
+    containerBackgroundPosXDesktop: $containerBackgroundPosXDesktop,
+    containerBackgroundPosYDesktop: $containerBackgroundPosYDesktop,
     containerWidthDesktop: $containerWidthDesktop,
     containerHeightDesktop: $containerHeightDesktop,
     containerMinWidthDesktop: $containerMinWidthDesktop,
@@ -84,7 +103,6 @@
     containerPaddingRightDesktop: $containerPaddingRightDesktop,
     containerPaddingBottomDesktop: $containerPaddingBottomDesktop,
     containerPaddingLeftDesktop: $containerPaddingLeftDesktop,
-    containerColorDesktop: $containerColorDesktop,
     containerBorderSidesDesktop: $containerBorderSidesDesktop,
     containerBorderWidthDesktop: $containerBorderWidthDesktop,
     containerBorderStyleDesktop: $containerBorderStyleDesktop,
@@ -106,6 +124,24 @@
   }
 
   #{$instanceSelector} {
+    @if map-get($configuration, containerBackgroundType) == 'Image' {
+      @if map-get($configuration, containerBackgroundImage) == 'none' {
+        background-image: map-get($configuration, containerBackgroundImage)
+      } @else {
+        background-image: url(#{map-get($configuration, containerBackgroundImage)});
+      }
+    } @else if map-get($configuration, containerBackgroundType) == 'Color' {
+      background-image: none;
+      background-color: map-get($configuration, containerBackgroundColor);
+    } @else {
+      background-image: none;
+      background-color: none;
+    }
+  
+    background-size: map-get($configuration, containerBackgroundSize);
+    background-repeat: map-get($configuration, containerBackgroundRepeat);
+    background-position: map-get($configuration, containerBackgroundPosX) map-get($configuration, containerBackgroundPosY);
+
     position: map-get($configuration, containerPosition);
 
     @if map-get($configuration, containerPosition) == 'relative' {
@@ -132,7 +168,6 @@
       map-get($configuration, containerPaddingRight)
       map-get($configuration, containerPaddingBottom)
       map-get($configuration, containerPaddingLeft);
-    background-color: map-get($configuration, containerColor);
     @include borderOnly((
       borderSides: map-get($configuration, containerBorderSides),
       borderWidth: map-get($configuration, containerBorderWidth),
@@ -151,6 +186,24 @@
 
     // Styles for tablet
     @include above($tabletBreakpoint) {
+      @if map-get($configuration, containerBackgroundTypeTablet) == 'Image' {
+        @if map-get($configuration, containerBackgroundImageTablet) == 'none' {
+          background-image: map-get($configuration, containerBackgroundImageTablet)
+        } @else {
+          background-image: url(#{map-get($configuration, containerBackgroundImageTablet)});
+        }
+      } @else if map-get($configuration, containerBackgroundTypeTablet) == 'Color' {
+        background-image: none;
+        background-color: map-get($configuration, containerBackgroundColorTablet);
+      } @else {
+        background-image: none;
+        background-color: none;
+      }
+    
+      background-size: map-get($configuration, containerBackgroundSizeTablet);
+      background-repeat: map-get($configuration, containerBackgroundRepeatTablet);
+      background-position: map-get($configuration, containerBackgroundPosXTablet) map-get($configuration, containerBackgroundPosYTablet);
+
       position: map-get($configuration, containerPositionTablet);
 
       @if map-get($configuration, containerPositionTablet) == 'relative' {
@@ -177,7 +230,6 @@
         map-get($configuration, containerPaddingRightTablet)
         map-get($configuration, containerPaddingBottomTablet)
         map-get($configuration, containerPaddingLeftTablet);
-      background-color: map-get($configuration, containerColorTablet);
       @include borderOnly((
         borderSides: map-get($configuration, containerBorderSidesTablet),
         borderWidth: map-get($configuration, containerBorderWidthTablet),
@@ -197,6 +249,24 @@
 
     // Styles for desktop
     @include above($desktopBreakpoint) {
+      @if map-get($configuration, containerBackgroundTypeDesktop) == 'Image' {
+        @if map-get($configuration, containerBackgroundImageDesktop) == 'none' {
+          background-image: map-get($configuration, containerBackgroundImageDesktop)
+        } @else {
+          background-image: url(#{map-get($configuration, containerBackgroundImageDesktop)});
+        }
+      } @else if map-get($configuration, containerBackgroundTypeDesktop) == 'Color' {
+        background-image: none;
+        background-color: map-get($configuration, containerBackgroundColorDesktop);
+      } @else {
+        background-image: none;
+        background-color: none;
+      }
+    
+      background-size: map-get($configuration, containerBackgroundSizeDesktop);
+      background-repeat: map-get($configuration, containerBackgroundRepeatDesktop);
+      background-position: map-get($configuration, containerBackgroundPosXDesktop) map-get($configuration, containerBackgroundPosYDesktop);
+
       position: map-get($configuration, containerPositionDesktop);
 
       @if map-get($configuration, containerPositionDesktop) == 'relative' {
@@ -223,7 +293,6 @@
         map-get($configuration, containerPaddingRightDesktop)
         map-get($configuration, containerPaddingBottomDesktop)
         map-get($configuration, containerPaddingLeftDesktop);
-      background-color: map-get($configuration, containerColorDesktop);
       @include borderOnly((
         borderSides: map-get($configuration, containerBorderSidesDesktop),
         borderWidth: map-get($configuration, containerBorderWidthDesktop),
