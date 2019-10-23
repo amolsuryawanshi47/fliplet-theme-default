@@ -38,6 +38,7 @@
 @import "components/image-fullscreen";
 @import "components/video";
 @import "components/container";
+@import "components/text";
 
 /* @import "components/app-analytics"; */
 
@@ -171,6 +172,9 @@
     }
     @if nth($widgetInstance, 2) == 'container' {
       @include container(nth($widgetInstance, 3), nth($widgetInstance, 1), nth($widgetInstance, 4));
+    }
+    @if nth($widgetInstance, 2) == 'text' {
+      @include text(nth($widgetInstance, 3), nth($widgetInstance, 1), nth($widgetInstance, 4));
     }
   }
 }

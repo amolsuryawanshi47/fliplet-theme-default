@@ -1,0 +1,62 @@
+@mixin text($options: (), $widgetInstanceId: '', $widgetInstanceUUID: '') {
+  $configuration: map-merge((
+    bodyFontFamily: $bodyFontFamily,
+    bodyFontSize: $bodyFontSize,
+    bodyTextColor: $bodyTextColor,
+    bodyFontWeight: $bodyFontWeight,
+    bodyFontStyle: $bodyFontStyle,
+    bodyLineHeight: $bodyLineHeight,
+    bodyFontFamilyTablet: $bodyFontFamilyTablet,
+    bodyFontSizeTablet: $bodyFontSizeTablet,
+    bodyTextColorTablet: $bodyTextColorTablet,
+    bodyFontWeightTablet: $bodyFontWeightTablet,
+    bodyFontStyleTablet: $bodyFontStyleTablet,
+    bodyLineHeightTablet: $bodyLineHeightTablet,
+    bodyFontFamilyDesktop: $bodyFontFamilyDesktop,
+    bodyFontSizeDesktop: $bodyFontSizeDesktop,
+    bodyTextColorDesktop: $bodyTextColorDesktop,
+    bodyFontWeightDesktop: $bodyFontWeightDesktop,
+    bodyFontStyleDesktop: $bodyFontStyleDesktop,
+    bodyLineHeightDesktop: $bodyLineHeightDesktop
+  ), $options);
+  
+  $instanceSelector: '[data-widget-package="com.fliplet.text"]';
+  @if $widgetInstanceUUID != '' {
+    $instanceSelector: '#{$instanceSelector}[data-uuid="#{$widgetInstanceUUID}"]';
+  } @else if $widgetInstanceId != '' {
+    $instanceSelector: '#{$instanceSelector}[data-id="#{$widgetInstanceId}"]';
+  }
+
+  #{$instanceSelector} {
+    p {
+      color: map-get($configuration, bodyTextColor);
+      font-family: map-get($configuration, bodyFontFamily);
+      font-size: map-get($configuration, bodyFontSize);
+      font-style: map-get($configuration, bodyFontStyle);
+      line-height: map-get($configuration, bodyLineHeight);
+      font-weight: map-get($configuration, bodyFontWeight);
+
+      // Styles for tablet
+      @include above($tabletBreakpoint) {
+        color: map-get($configuration, bodyTextColorTablet);
+        font-family: map-get($configuration, bodyFontFamilyTablet);
+        font-size: map-get($configuration, bodyFontSizeTablet);
+        font-style: map-get($configuration, bodyFontStyleTablet);
+        line-height: map-get($configuration, bodyLineHeightTablet);
+        font-weight: map-get($configuration, bodyFontWeightTablet);
+      }
+
+      // Styles for desktop
+      @include above($desktopBreakpoint) {
+        color: map-get($configuration, bodyTextColorDesktop);
+        font-family: map-get($configuration, bodyFontFamilyDesktop);
+        font-size: map-get($configuration, bodyFontSizeDesktop);
+        font-style: map-get($configuration, bodyFontStyleDesktop);
+        line-height: map-get($configuration, bodyLineHeightDesktop);
+        font-weight: map-get($configuration, bodyFontWeightDesktop);
+      }
+    }
+  }
+}
+
+@include text();

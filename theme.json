@@ -89,10 +89,10 @@
         ]
       },
       {
-        "name": "General",
+        "name": "Background",
         "variables": [
           {
-            "description": "Colors",
+            "description": "Color",
             "fields": [
               {
                 "name": "bodyBackground",
@@ -194,9 +194,15 @@
                 "type": "color"
               }
             ]
-          },
+          }
+        ]
+      },
+      {
+        "name": "Text",
+        "packages": ["com.fliplet.text"],
+        "variables": [
           {
-            "description": "Body font",
+            "description": "Paragraphs",
             "fields": [
               {
                 "name": "bodyFontFamily",
@@ -204,6 +210,11 @@
                 "styles": [
                   {
                     "selectors": "body",
+                    "properties": ["font-family"]
+                  },
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.text']",
+                    "selectors": "p",
                     "properties": ["font-family"]
                   }
                 ],
@@ -226,6 +237,11 @@
                   {
                     "selectors": "body",
                     "properties": ["font-size"]
+                  },
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.text']",
+                    "selectors": "p",
+                    "properties": ["font-size"]
                   }
                 ],
                 "breakpoints": {
@@ -244,7 +260,6 @@
               {
                 "name": "bodyTextColor",
                 "default": "$quickTextColor",
-                "columns": 12,
                 "styles": [
                   {
                     "selectors": [
@@ -261,6 +276,11 @@
                       ".overlay-update-notes .fliplet-info",
                       ".collapse-end"
                     ],
+                    "properties": ["color"]
+                  },
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.text']",
+                    "selectors": "p",
                     "properties": ["color"]
                   },
                   {
@@ -336,7 +356,6 @@
                     "default": "inherit-tablet"
                   }
                 },
-                "label": "Paragraph text color",
                 "type": "color"
               },
               {
@@ -345,6 +364,11 @@
                 "styles": [
                   {
                     "selectors": "body",
+                    "properties": ["font-weight"]
+                  },
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.text']",
+                    "selectors": "p",
                     "properties": ["font-weight"]
                   }
                 ],
@@ -368,6 +392,11 @@
                   {
                     "selectors": "body",
                     "properties": ["font-style"]
+                  },
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.text']",
+                    "selectors": "p",
+                    "properties": ["font-style"]
                   }
                 ],
                 "breakpoints": {
@@ -389,6 +418,11 @@
                 "styles": [
                   {
                     "selectors": "body",
+                    "properties": ["line-height"]
+                  },
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.text']",
+                    "selectors": "p",
                     "properties": ["line-height"]
                   }
                 ],
