@@ -900,66 +900,6 @@
                 "type": "position"
               },
               {
-                "name": "containerDisplay",
-                "default": "flex",
-                "columns": 12,
-                "logic": {
-                  "none": {
-                    "hide": [
-                      "containerMarginAlign",
-                      "containerFlexDirection",
-                      "containerFlexAlign",
-                      "containerFlexJustify",
-                      "containerFlexWrap"
-                    ]
-                  },
-                  "block": {
-                    "hide": [
-                      "containerFlexDirection",
-                      "containerFlexAlign",
-                      "containerFlexJustify",
-                      "containerFlexWrap"
-                    ],
-                    "show": ["containerMarginAlign"]
-                  },
-                  "inline-block": {
-                    "hide": [
-                      "containerMarginAlign",
-                      "containerFlexDirection",
-                      "containerFlexAlign",
-                      "containerFlexJustify",
-                      "containerFlexWrap"
-                    ]
-                  },
-                  "flex": {
-                    "show": [
-                      "containerMarginAlign",
-                      "containerFlexDirection",
-                      "containerFlexAlign",
-                      "containerFlexJustify",
-                      "containerFlexWrap"
-                    ]
-                  }
-                },
-                "styles": [
-                  {
-                    "parentSelector": "[data-widget-package='com.fliplet.container']",
-                    "properties": ["display"]
-                  }
-                ],
-                "breakpoints": {
-                  "tablet": {
-                    "name": "containerDisplayTablet",
-                    "default": "inherit-mobile"
-                  },
-                  "desktop": {
-                    "name": "containerDisplayDesktop",
-                    "default": "inherit-tablet"
-                  }
-                },
-                "type": "display-extended"
-              },
-              {
                 "name": "containerPositionTop",
                 "default": "auto",
                 "columns": 6,
@@ -1058,104 +998,6 @@
                 "type": "size",
                 "subtype": "position",
                 "allowNegative": true
-              }
-            ]
-          },
-          {
-            "description": "Content layout",
-            "fields": [
-              {
-                "name": "containerFlexDirection",
-                "default": "row",
-                "columns": 12,
-                "styles": [
-                  {
-                    "parentSelector": "[data-widget-package='com.fliplet.container']",
-                    "properties": ["flex-direction"]
-                  }
-                ],
-                "breakpoints": {
-                  "tablet": {
-                    "name": "containerFlexDirectionTablet",
-                    "default": "inherit-mobile"
-                  },
-                  "desktop": {
-                    "name": "containerFlexDirectionDesktop",
-                    "default": "inherit-tablet"
-                  }
-                },
-                "type": "flex-direction",
-                "label": "Flow direction"
-              },
-              {
-                "name": "containerFlexAlign",
-                "default": "stretch",
-                "columns": 12,
-                "styles": [
-                  {
-                    "parentSelector": "[data-widget-package='com.fliplet.container']",
-                    "properties": ["align-items"]
-                  }
-                ],
-                "breakpoints": {
-                  "tablet": {
-                    "name": "containerFlexAlignTablet",
-                    "default": "inherit-mobile"
-                  },
-                  "desktop": {
-                    "name": "containerFlexAlignDesktop",
-                    "default": "inherit-tablet"
-                  }
-                },
-                "type": "flex-align",
-                "label": "Vertical"
-              },
-              {
-                "name": "containerFlexJustify",
-                "default": "flex-start",
-                "columns": 12,
-                "styles": [
-                  {
-                    "parentSelector": "[data-widget-package='com.fliplet.container']",
-                    "properties": ["justify-content"]
-                  }
-                ],
-                "breakpoints": {
-                  "tablet": {
-                    "name": "containerFlexJustifyTablet",
-                    "default": "inherit-mobile"
-                  },
-                  "desktop": {
-                    "name": "containerFlexJustifyDesktop",
-                    "default": "inherit-tablet"
-                  }
-                },
-                "type": "flex-justify",
-                "label": "Horizontal"
-              },
-              {
-                "name": "containerFlexWrap",
-                "default": "wrap",
-                "columns": 12,
-                "styles": [
-                  {
-                    "parentSelector": "[data-widget-package='com.fliplet.container']",
-                    "properties": ["flex-wrap"]
-                  }
-                ],
-                "breakpoints": {
-                  "tablet": {
-                    "name": "containerFlexWrapTablet",
-                    "default": "inherit-mobile"
-                  },
-                  "desktop": {
-                    "name": "containerFlexWrapDesktop",
-                    "default": "inherit-tablet"
-                  }
-                },
-                "type": "toggle",
-                "subtype": "flex-wrap",
-                "label": "Wrap content"
               }
             ]
           },
@@ -1409,6 +1251,104 @@
                 "type": "size",
                 "subtype": "padding",
                 "label": "Left"
+              }
+            ]
+          },
+          {
+            "description": "Content layout",
+            "fields": [
+              {
+                "name": "containerFlexDirection",
+                "default": "row",
+                "columns": 12,
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.container']",
+                    "properties": ["flex-direction"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "containerFlexDirectionTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "containerFlexDirectionDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "flex-direction",
+                "label": "Flow direction"
+              },
+              {
+                "name": "containerFlexAlign",
+                "default": "stretch",
+                "columns": 12,
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.container']",
+                    "properties": ["align-items"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "containerFlexAlignTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "containerFlexAlignDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "flex-align",
+                "label": "Vertical"
+              },
+              {
+                "name": "containerFlexJustify",
+                "default": "flex-start",
+                "columns": 12,
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.container']",
+                    "properties": ["justify-content"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "containerFlexJustifyTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "containerFlexJustifyDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "flex-justify",
+                "label": "Horizontal"
+              },
+              {
+                "name": "containerFlexWrap",
+                "default": "wrap",
+                "columns": 12,
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.container']",
+                    "properties": ["flex-wrap"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "containerFlexWrapTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "containerFlexWrapDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "toggle",
+                "subtype": "flex-wrap",
+                "label": "Wrap content"
               }
             ]
           },
@@ -1820,6 +1760,34 @@
                   }
                 },
                 "type": "color"
+              }
+            ]
+          },
+          {
+            "description": "Visibility",
+            "fields": [
+              {
+                "name": "containerDisplay",
+                "default": "flex",
+                "columns": 12,
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.container']",
+                    "properties": ["display"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "containerDisplayTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "containerDisplayDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "toggle",
+                "subtype": "display-flex"
               }
             ]
           }
