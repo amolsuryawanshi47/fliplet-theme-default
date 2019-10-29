@@ -148,15 +148,15 @@
   }
 
   #{$instanceSelector} {
-    @if map-get($configuration, containerBackgroundType) == 'Image' {
-      @if map-get($configuration, containerBackgroundImage) == 'none' {
-        background-image: map-get($configuration, containerBackgroundImage)
+    @if map-get($configuration, textBackgroundType) == 'Image' {
+      @if map-get($configuration, textBackgroundImage) == 'none' {
+        background-image: map-get($configuration, textBackgroundImage)
       } @else {
-        background-image: url(#{map-get($configuration, containerBackgroundImage)});
+        background-image: url(#{map-get($configuration, textBackgroundImage)});
       }
-    } @else if map-get($configuration, containerBackgroundType) == 'Color' {
+    } @else if map-get($configuration, textBackgroundType) == 'Color' {
       background-image: none;
-      background-color: map-get($configuration, containerBackgroundColor);
+      background-color: map-get($configuration, textBackgroundColor);
     } @else {
       background-image: none;
       background-color: none;
