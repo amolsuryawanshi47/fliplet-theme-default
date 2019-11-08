@@ -14,10 +14,12 @@
     textMinHeight: $textMinHeight,
     textMaxHeight: $textMaxHeight,
     textPosition: $textPosition,
+    textDisplay: $textDisplay,
     textPositionTop: $textPositionTop,
     textPositionRight: $textPositionRight,
     textPositionBottom: $textPositionBottom,
     textPositionLeft: $textPositionLeft,
+    textIndex: $textIndex,
     textMarginTop: $textMarginTop,
     textMarginRight: $textMarginRight,
     textMarginBottom: $textMarginBottom,
@@ -60,10 +62,12 @@
     textMinHeightTablet: $textMinHeightTablet,
     textMaxHeightTablet: $textMaxHeightTablet,
     textPositionTablet: $textPositionTablet,
+    textDisplayTablet: $textDisplayTablet,
     textPositionTopTablet: $textPositionTopTablet,
     textPositionRightTablet: $textPositionRightTablet,
     textPositionBottomTablet: $textPositionBottomTablet,
     textPositionLeftTablet: $textPositionLeftTablet,
+    textIndexTablet: $textIndexTablet,
     textMarginTopTablet: $textMarginTopTablet,
     textMarginRightTablet: $textMarginRightTablet,
     textMarginBottomTablet: $textMarginBottomTablet,
@@ -107,9 +111,11 @@
     textMaxHeightDesktop: $textMaxHeightDesktop,
     textPositionDesktop: $textPositionDesktop,
     textPositionTopDesktop: $textPositionTopDesktop,
+    textDisplayDesktop: $textDisplayDesktop,
     textPositionRightDesktop: $textPositionRightDesktop,
     textPositionBottomDesktop: $textPositionBottomDesktop,
     textPositionLeftDesktop: $textPositionLeftDesktop,
+    textIndexDesktop: $textIndexDesktop,
     textMarginTopDesktop: $textMarginTopDesktop,
     textMarginRightDesktop: $textMarginRightDesktop,
     textMarginBottomDesktop: $textMarginBottomDesktop,
@@ -167,7 +173,12 @@
     background-position: map-get($configuration, textBackgroundPosX) map-get($configuration, textBackgroundPosY);
 
     position: map-get($configuration, textPosition) !important;
-    @if map-get($configuration, textPosition) != 'relative' {
+
+    @if map-get($configuration, textPosition) == 'relative' {
+      display: map-get($configuration, textDisplay) !important;
+    } @else {
+      display: block !important;
+      z-index: map-get($configuration, textIndex);
       top: map-get($configuration, textPositionTop);
       right: map-get($configuration, textPositionRight);
       bottom: map-get($configuration, textPositionBottom);
@@ -226,7 +237,12 @@
       background-position: map-get($configuration, textBackgroundPosXTablet) map-get($configuration, textBackgroundPosYTablet);
 
       position: map-get($configuration, textPositionTablet) !important;
-      @if map-get($configuration, textPositionTablet) != 'relative' {
+
+      @if map-get($configuration, textPositionTablet) == 'relative' {
+        display: map-get($configuration, textDisplayTablet) !important;
+      } @else {
+        display: block !important;
+        z-index: map-get($configuration, textIndexTablet);
         top: map-get($configuration, textPositionTopTablet);
         right: map-get($configuration, textPositionRightTablet);
         bottom: map-get($configuration, textPositionBottomTablet);
@@ -286,7 +302,12 @@
       background-position: map-get($configuration, textBackgroundPosXDesktop) map-get($configuration, textBackgroundPosYDesktop);
 
       position: map-get($configuration, textPositionDesktop) !important;
-      @if map-get($configuration, textPositionDesktop) != 'relative' {
+
+      @if map-get($configuration, textPositionDesktop) == 'relative' {
+        display: map-get($configuration, textDisplayDesktop) !important;
+      } @else {
+        display: block !important;
+        z-index: map-get($configuration, textIndexDesktop);
         top: map-get($configuration, textPositionTopDesktop);
         right: map-get($configuration, textPositionRightDesktop);
         bottom: map-get($configuration, textPositionBottomDesktop);
