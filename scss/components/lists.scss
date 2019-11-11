@@ -39,6 +39,7 @@
     listMyListSwipeRightTextColor: $listMyListSwipeRightTextColor,
     listMyListSwipeLeftColor: $listMyListSwipeLeftColor,
     listMyListSwipeLeftTextColor: $listMyListSwipeLeftTextColor,
+    listVisibility: $listVisibility,
     listWidthTablet: $listWidthTablet,
     listMinWidthTablet: $listMinWidthTablet,
     listMaxWidthTablet: $listMaxWidthTablet,
@@ -78,6 +79,7 @@
     listMyListSwipeRightTextColorTablet: $listMyListSwipeRightTextColorTablet,
     listMyListSwipeLeftColorTablet: $listMyListSwipeLeftColorTablet,
     listMyListSwipeLeftTextColorTablet: $listMyListSwipeLeftTextColorTablet,
+    listVisibilityTablet: $listVisibilityTablet,
     listWidthDesktop: $listWidthDesktop,
     listMinWidthDesktop: $listMinWidthDesktop,
     listMaxWidthDesktop: $listMaxWidthDesktop,
@@ -116,7 +118,8 @@
     listMyListSwipeRightColorDesktop: $listMyListSwipeRightColorDesktop,
     listMyListSwipeRightTextColorDesktop: $listMyListSwipeRightTextColorDesktop,
     listMyListSwipeLeftColorDesktop: $listMyListSwipeLeftColorDesktop,
-    listMyListSwipeLeftTextColorDesktop: $listMyListSwipeLeftTextColorDesktop
+    listMyListSwipeLeftTextColorDesktop: $listMyListSwipeLeftTextColorDesktop,
+    listVisibilityDesktop: $listVisibilityDesktop
   ), $options);
   
   $instanceSelector: '[data-widget-package="com.fliplet.simple-list"]';
@@ -138,6 +141,11 @@
       map-get($configuration, listPaddingRight)
       map-get($configuration, listPaddingBottom)
       map-get($configuration, listPaddingLeft);
+    @if map-get($configuration, listVisibility) == 'visible' {
+      display: block !important;
+    } @else {
+      display: none !important;
+    }
 
     // Styles for tablet
     @include above($tabletBreakpoint) {
@@ -152,6 +160,11 @@
         map-get($configuration, listPaddingRightTablet)
         map-get($configuration, listPaddingBottomTablet)
         map-get($configuration, listPaddingLeftTablet);
+      @if map-get($configuration, listVisibilityTablet) == 'visible' {
+        display: block !important;
+      } @else {
+        display: none !important;
+      }
     }
 
     // Styles for desktop
@@ -167,6 +180,11 @@
         map-get($configuration, listPaddingRightDesktop)
         map-get($configuration, listPaddingBottomDesktop)
         map-get($configuration, listPaddingLeftDesktop);
+      @if map-get($configuration, listVisibilityDesktop) == 'visible' {
+        display: block !important;
+      } @else {
+        display: none !important;
+      }
     }
 
     .list.list-default {

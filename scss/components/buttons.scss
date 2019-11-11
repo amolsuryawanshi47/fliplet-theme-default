@@ -24,6 +24,7 @@
     primaryButtonPositionRight: $primaryButtonPositionRight,
     primaryButtonPositionBottom: $primaryButtonPositionBottom,
     primaryButtonPositionLeft: $primaryButtonPositionLeft,
+    primaryButtonIndex: $primaryButtonIndex,
     primaryButtonExtPaddingTop: $primaryButtonExtPaddingTop,
     primaryButtonExtPaddingRight: $primaryButtonExtPaddingRight,
     primaryButtonExtPaddingBottom: $primaryButtonExtPaddingBottom,
@@ -56,6 +57,7 @@
     primaryButtonHoverShadowBlur: $primaryButtonHoverShadowBlur,
     primaryButtonHoverShadowSpread: $primaryButtonHoverShadowSpread,
     primaryButtonHoverShadowColor: $primaryButtonHoverShadowColor,
+    primaryButtonVisibility: $primaryButtonVisibility,
     primaryButtonWidthTablet: $primaryButtonWidthTablet,
     primaryButtonHeightTablet: $primaryButtonHeightTablet,
     primaryButtonMinWidthTablet: $primaryButtonMinWidthTablet,
@@ -80,6 +82,7 @@
     primaryButtonPositionRightTablet: $primaryButtonPositionRightTablet,
     primaryButtonPositionBottomTablet: $primaryButtonPositionBottomTablet,
     primaryButtonPositionLeftTablet: $primaryButtonPositionLeftTablet,
+    primaryButtonIndexTablet: $primaryButtonIndexTablet,
     primaryButtonExtPaddingTopTablet: $primaryButtonExtPaddingTopTablet,
     primaryButtonExtPaddingRightTablet: $primaryButtonExtPaddingRightTablet,
     primaryButtonExtPaddingBottomTablet: $primaryButtonExtPaddingBottomTablet,
@@ -112,6 +115,7 @@
     primaryButtonHoverShadowBlurTablet: $primaryButtonHoverShadowBlurTablet,
     primaryButtonHoverShadowSpreadTablet: $primaryButtonHoverShadowSpreadTablet,
     primaryButtonHoverShadowColorTablet: $primaryButtonHoverShadowColorTablet,
+    primaryButtonVisibilityTablet: $primaryButtonVisibilityTablet,
     primaryButtonWidthDesktop: $primaryButtonWidthDesktop,
     primaryButtonHeightDesktop: $primaryButtonHeightDesktop,
     primaryButtonMinWidthDesktop: $primaryButtonMinWidthDesktop,
@@ -136,6 +140,7 @@
     primaryButtonPositionRightDesktop: $primaryButtonPositionRightDesktop,
     primaryButtonPositionBottomDesktop: $primaryButtonPositionBottomDesktop,
     primaryButtonPositionLeftDesktop: $primaryButtonPositionLeftDesktop,
+    primaryButtonIndexDesktop: $primaryButtonIndexDesktop,
     primaryButtonExtPaddingTopDesktop: $primaryButtonExtPaddingTopDesktop,
     primaryButtonExtPaddingRightDesktop: $primaryButtonExtPaddingRightDesktop,
     primaryButtonExtPaddingBottomDesktop: $primaryButtonExtPaddingBottomDesktop,
@@ -167,7 +172,8 @@
     primaryButtonHoverShadowYoffsetDesktop: $primaryButtonHoverShadowYoffsetDesktop,
     primaryButtonHoverShadowBlurDesktop: $primaryButtonHoverShadowBlurDesktop,
     primaryButtonHoverShadowSpreadDesktop: $primaryButtonHoverShadowSpreadDesktop,
-    primaryButtonHoverShadowColorDesktop: $primaryButtonHoverShadowColorDesktop
+    primaryButtonHoverShadowColorDesktop: $primaryButtonHoverShadowColorDesktop,
+    primaryButtonVisibilityDesktop: $primaryButtonVisibilityDesktop
   ), $options);
   
   $instanceSelector: '[data-widget-package="com.fliplet.primary-button"]';
@@ -181,13 +187,22 @@
     position: map-get($configuration, primaryButtonPosition);
 
     @if map-get($configuration, primaryButtonPosition) == 'relative' {
-      display: map-get($configuration, primaryButtonDisplay) !important;
+      @if map-get($configuration, primaryButtonVisibility) == 'visible' {
+        display: map-get($configuration, primaryButtonDisplay) !important;
+      } @else {
+        display: none !important;
+      }
     } @else {
-      display: block !important;
+      @if map-get($configuration, primaryButtonVisibility) == 'visible' {
+        display: block !important;
+      } @else {
+        display: none !important;
+      }
       top: map-get($configuration, primaryButtonPositionTop);
       right: map-get($configuration, primaryButtonPositionRight);
       bottom: map-get($configuration, primaryButtonPositionBottom);
       left: map-get($configuration, primaryButtonPositionLeft);
+      z-index: map-get($configuration, primaryButtonIndex);
     }
 
     width: map-get($configuration, primaryButtonWidth);
@@ -210,13 +225,22 @@
       position: map-get($configuration, primaryButtonPositionTablet);
 
       @if map-get($configuration, primaryButtonPositionTablet) == 'relative' {
-        display: map-get($configuration, primaryButtonDisplayTablet) !important;
+        @if map-get($configuration, primaryButtonVisibilityTablet) == 'visible' {
+          display: map-get($configuration, primaryButtonDisplayTablet) !important;
+        } @else {
+          display: none !important;
+        }
       } @else {
-        display: block !important;
+        @if map-get($configuration, primaryButtonVisibilityTablet) == 'visible' {
+          display: block !important;
+        } @else {
+          display: none !important;
+        }
         top: map-get($configuration, primaryButtonPositionTopTablet);
         right: map-get($configuration, primaryButtonPositionRightTablet);
         bottom: map-get($configuration, primaryButtonPositionBottomTablet);
         left: map-get($configuration, primaryButtonPositionLeftTablet);
+        z-index: map-get($configuration, primaryButtonIndexTablet);
       }
 
       width: map-get($configuration, primaryButtonWidthTablet);
@@ -240,13 +264,22 @@
       position: map-get($configuration, primaryButtonPositionDesktop);
 
       @if map-get($configuration, primaryButtonPositionDesktop) == 'relative' {
-        display: map-get($configuration, primaryButtonDisplayDesktop) !important;
+        @if map-get($configuration, primaryButtonVisibilityDesktop) == 'visible' {
+          display: map-get($configuration, primaryButtonDisplayDesktop) !important;
+        } @else {
+          display: none !important;
+        }
       } @else {
-        display: block !important;
+        @if map-get($configuration, primaryButtonVisibilityDesktop) == 'visible' {
+          display: block !important;
+        } @else {
+          display: none !important;
+        }
         top: map-get($configuration, primaryButtonPositionTopDesktop);
         right: map-get($configuration, primaryButtonPositionRightDesktop);
         bottom: map-get($configuration, primaryButtonPositionBottomDesktop);
         left: map-get($configuration, primaryButtonPositionLeftDesktop);
+        z-index: map-get($configuration, primaryButtonIndexDesktop);
       }
 
       width: map-get($configuration, primaryButtonWidthDesktop);
@@ -484,6 +517,7 @@
     secondaryButtonExtPaddingRight: $secondaryButtonExtPaddingRight,
     secondaryButtonExtPaddingBottom: $secondaryButtonExtPaddingBottom,
     secondaryButtonExtPaddingLeft: $secondaryButtonExtPaddingLeft,
+    secondaryButtonIndex: $secondaryButtonIndex,
     secondaryButtonPaddingTop: $secondaryButtonPaddingTop,
     secondaryButtonPaddingRight: $secondaryButtonPaddingRight,
     secondaryButtonPaddingBottom: $secondaryButtonPaddingBottom,
@@ -512,6 +546,7 @@
     secondaryButtonHoverShadowBlur: $secondaryButtonHoverShadowBlur,
     secondaryButtonHoverShadowSpread: $secondaryButtonHoverShadowSpread,
     secondaryButtonHoverShadowColor: $secondaryButtonHoverShadowColor,
+    secondaryButtonVisibility: $secondaryButtonVisibility,
     secondaryButtonWidthTablet: $secondaryButtonWidthTablet,
     secondaryButtonHeightTablet: $secondaryButtonHeightTablet,
     secondaryButtonMinWidthTablet: $secondaryButtonMinWidthTablet,
@@ -536,6 +571,7 @@
     secondaryButtonPositionRightTablet: $secondaryButtonPositionRightTablet,
     secondaryButtonPositionBottomTablet: $secondaryButtonPositionBottomTablet,
     secondaryButtonPositionLeftTablet: $secondaryButtonPositionLeftTablet,
+    secondaryButtonIndexTablet: $secondaryButtonIndexTablet,
     secondaryButtonExtPaddingTopTablet: $secondaryButtonExtPaddingTopTablet,
     secondaryButtonExtPaddingRightTablet: $secondaryButtonExtPaddingRightTablet,
     secondaryButtonExtPaddingBottomTablet: $secondaryButtonExtPaddingBottomTablet,
@@ -568,6 +604,7 @@
     secondaryButtonHoverShadowBlurTablet: $secondaryButtonHoverShadowBlurTablet,
     secondaryButtonHoverShadowSpreadTablet: $secondaryButtonHoverShadowSpreadTablet,
     secondaryButtonHoverShadowColorTablet: $secondaryButtonHoverShadowColorTablet,
+    secondaryButtonVisibilityTablet: $secondaryButtonVisibilityTablet,
     secondaryButtonWidthDesktop: $secondaryButtonWidthDesktop,
     secondaryButtonHeightDesktop: $secondaryButtonHeightDesktop,
     secondaryButtonMinWidthDesktop: $secondaryButtonMinWidthDesktop,
@@ -592,6 +629,7 @@
     secondaryButtonPositionRightDesktop: $secondaryButtonPositionRightDesktop,
     secondaryButtonPositionBottomDesktop: $secondaryButtonPositionBottomDesktop,
     secondaryButtonPositionLeftDesktop: $secondaryButtonPositionLeftDesktop,
+    secondaryButtonIndexDesktop: $secondaryButtonIndexDesktop,
     secondaryButtonExtPaddingTopDesktop: $secondaryButtonExtPaddingTopDesktop,
     secondaryButtonExtPaddingRightDesktop: $secondaryButtonExtPaddingRightDesktop,
     secondaryButtonExtPaddingBottomDesktop: $secondaryButtonExtPaddingBottomDesktop,
@@ -623,7 +661,8 @@
     secondaryButtonHoverShadowYoffsetDesktop: $secondaryButtonHoverShadowYoffsetDesktop,
     secondaryButtonHoverShadowBlurDesktop: $secondaryButtonHoverShadowBlurDesktop,
     secondaryButtonHoverShadowSpreadDesktop: $secondaryButtonHoverShadowSpreadDesktop,
-    secondaryButtonHoverShadowColorDesktop: $secondaryButtonHoverShadowColorDesktop
+    secondaryButtonHoverShadowColorDesktop: $secondaryButtonHoverShadowColorDesktop,
+    secondaryButtonVisibilityDesktop: $secondaryButtonVisibilityDesktop,
   ), $options);
   
   $instanceSelector: '[data-widget-package="com.fliplet.secondary-button"]';
@@ -637,13 +676,22 @@
     position: map-get($configuration, secondaryButtonPosition);
 
     @if map-get($configuration, secondaryButtonPosition) == 'relative' {
-      display: map-get($configuration, secondaryButtonDisplay) !important;
+      @if map-get($configuration, secondaryButtonVisibility) == 'visible' {
+        display: map-get($configuration, secondaryButtonDisplay) !important;
+      } @else {
+        display: none !important;
+      }
     } @else {
-      display: block !important;
+      @if map-get($configuration, secondaryButtonVisibility) == 'visible' {
+        display: block !important;
+      } @else {
+        display: none !important;
+      }
       top: map-get($configuration, secondaryButtonPositionTop);
       right: map-get($configuration, secondaryButtonPositionRight);
       bottom: map-get($configuration, secondaryButtonPositionBottom);
       left: map-get($configuration, secondaryButtonPositionLeft);
+      z-index: map-get($configuration, secondaryButtonIndex);
     }
 
     width: map-get($configuration, secondaryButtonWidth);
@@ -666,13 +714,22 @@
       position: map-get($configuration, secondaryButtonPositionTablet);
 
       @if map-get($configuration, secondaryButtonPositionTablet) == 'relative' {
-        display: map-get($configuration, secondaryButtonDisplayTablet) !important;
+        @if map-get($configuration, secondaryButtonVisibilityTablet) == 'visible' {
+          display: map-get($configuration, secondaryButtonDisplayTablet) !important;
+        } @else {
+          display: none !important;
+        }
       } @else {
-        display: block !important;
+        @if map-get($configuration, secondaryButtonVisibilityTablet) == 'visible' {
+          display: block !important;
+        } @else {
+          display: none !important;
+        }
         top: map-get($configuration, secondaryButtonPositionTopTablet);
         right: map-get($configuration, secondaryButtonPositionRightTablet);
         bottom: map-get($configuration, secondaryButtonPositionBottomTablet);
         left: map-get($configuration, secondaryButtonPositionLeftTablet);
+        z-index: map-get($configuration, secondaryButtonIndexTablet);
       }
 
       width: map-get($configuration, secondaryButtonWidthTablet);
@@ -696,13 +753,22 @@
       position: map-get($configuration, secondaryButtonPositionDesktop);
 
       @if map-get($configuration, secondaryButtonPositionDesktop) == 'relative' {
-        display: map-get($configuration, secondaryButtonDisplayDesktop) !important;
+        @if map-get($configuration, secondaryButtonVisibilityDesktop) == 'visible' {
+          display: map-get($configuration, secondaryButtonDisplayDesktop) !important;
+        } @else {
+          display: none !important;
+        }
       } @else {
-        display: block !important;
+        @if map-get($configuration, secondaryButtonVisibilityDesktop) == 'visible' {
+          display: block !important;
+        } @else {
+          display: none !important;
+        }
         top: map-get($configuration, secondaryButtonPositionTopDesktop);
         right: map-get($configuration, secondaryButtonPositionRightDesktop);
         bottom: map-get($configuration, secondaryButtonPositionBottomDesktop);
         left: map-get($configuration, secondaryButtonPositionLeftDesktop);
+        z-index: map-get($configuration, secondaryButtonIndexDesktop);
       }
 
       width: map-get($configuration, secondaryButtonWidthDesktop);

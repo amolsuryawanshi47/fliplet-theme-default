@@ -3,6 +3,9 @@
     videoWidth: $videoWidth,
     videoMinWidth: $videoMinWidth,
     videoMaxWidth: $videoMaxWidth,
+    videoHeight: $videoHeight,
+    videoMinHeight: $videoMinHeight,
+    videoMaxHeight: $videoMaxHeight,
     videoMarginTop: $videoMarginTop,
     videoMarginRight: $videoMarginRight,
     videoMarginBottom: $videoMarginBottom,
@@ -22,9 +25,13 @@
     videoShadowBlur: $videoShadowBlur,
     videoShadowSpread: $videoShadowSpread,
     videoShadowColor: $videoShadowColor,
+    videoVisibility: $videoVisibility,
     videoWidthTablet: $videoWidthTablet,
     videoMinWidthTablet: $videoMinWidthTablet,
     videoMaxWidthTablet: $videoMaxWidthTablet,
+    videoHeightTablet: $videoHeightTablet,
+    videoMinHeightTablet: $videoMinHeightTablet,
+    videoMaxHeightTablet: $videoMaxHeightTablet,
     videoMarginTopTablet: $videoMarginTopTablet,
     videoMarginRightTablet: $videoMarginRightTablet,
     videoMarginBottomTablet: $videoMarginBottomTablet,
@@ -44,9 +51,13 @@
     videoShadowBlurTablet: $videoShadowBlurTablet,
     videoShadowSpreadTablet: $videoShadowSpreadTablet,
     videoShadowColorTablet: $videoShadowColorTablet,
+    videoVisibilityTablet: $videoVisibilityTablet,
     videoWidthDesktop: $videoWidthDesktop,
     videoMinWidthDesktop: $videoMinWidthDesktop,
     videoMaxWidthDesktop: $videoMaxWidthDesktop,
+    videoHeightDesktop: $videoHeightDesktop,
+    videoMinHeightDesktop: $videoMinHeightDesktop,
+    videoMaxHeightDesktop: $videoMaxHeightDesktop,
     videoMarginTopDesktop: $videoMarginTopDesktop,
     videoMarginRightDesktop: $videoMarginRightDesktop,
     videoMarginBottomDesktop: $videoMarginBottomDesktop,
@@ -66,6 +77,7 @@
     videoShadowBlurDesktop: $videoShadowBlurDesktop,
     videoShadowSpreadDesktop: $videoShadowSpreadDesktop,
     videoShadowColorDesktop: $videoShadowColorDesktop,
+    videoVisibilityDesktop: $videoVisibilityDesktop
   ), $options);
 
   $instanceSelectorOne: '[data-widget-package="com.fliplet.online-offline"]';
@@ -84,20 +96,36 @@
     width: map-get($configuration, videoWidth);
     min-width: map-get($configuration, videoMinWidth);
     max-width: map-get($configuration, videoMaxWidth);
+    height: map-get($configuration, videoHeight);
+    min-height: map-get($configuration, videoMinHeight);
+    max-height: map-get($configuration, videoMaxHeight);
     margin: map-get($configuration, videoMarginTop)
       map-get($configuration, videoMarginRight)
       map-get($configuration, videoMarginBottom)
       map-get($configuration, videoMarginLeft);
+    @if map-get($configuration, videoVisibility) == 'visible' {
+      display: block !important;
+    } @else {
+      display: none !important;
+    }
 
     // Styles for tablet
     @include above($tabletBreakpoint) {
       width: map-get($configuration, videoWidthTablet);
       min-width: map-get($configuration, videoMinWidthTablet);
       max-width: map-get($configuration, videoMaxWidthTablet);
+      height: map-get($configuration, videoHeightTablet);
+      min-height: map-get($configuration, videoMinHeightTablet);
+      max-height: map-get($configuration, videoMaxHeightTablet);
       margin: map-get($configuration, videoMarginTopTablet)
         map-get($configuration, videoMarginRightTablet)
         map-get($configuration, videoMarginBottomTablet)
         map-get($configuration, videoMarginLeftTablet);
+      @if map-get($configuration, videoVisibilityTablet) == 'visible' {
+        display: block !important;
+      } @else {
+        display: none !important;
+      }
     }
 
     // Styles for desktop
@@ -105,10 +133,18 @@
       width: map-get($configuration, videoWidthDesktop);
       min-width: map-get($configuration, videoMinWidthDesktop);
       max-width: map-get($configuration, videoMaxWidthDesktop);
+      height: map-get($configuration, videoHeightDesktop);
+      min-height: map-get($configuration, videoMinHeightDesktop);
+      max-height: map-get($configuration, videoMaxHeightDesktop);
       margin: map-get($configuration, videoMarginTopDesktop)
         map-get($configuration, videoMarginRightDesktop)
         map-get($configuration, videoMarginBottomDesktop)
         map-get($configuration, videoMarginLeftDesktop);
+      @if map-get($configuration, videoVisibilityDesktop) == 'visible' {
+        display: block !important;
+      } @else {
+        display: none !important;
+      }
     }
 
     .video-wrapper {

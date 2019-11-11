@@ -28,6 +28,7 @@
     rssDescriptionWeight: $rssDescriptionWeight,
     rssDescriptionStyle: $rssDescriptionStyle,
     rssDescriptionDecoration: $rssDescriptionDecoration,
+    rssVisibility: $rssVisibility,
     rssWidthTablet: $rssWidthTablet,
     rssMinWidthTablet: $rssMinWidthTablet,
     rssMaxWidthTablet: $rssMaxWidthTablet,
@@ -56,6 +57,7 @@
     rssDescriptionWeightTablet: $rssDescriptionWeightTablet,
     rssDescriptionStyleTablet: $rssDescriptionStyleTablet,
     rssDescriptionDecorationTablet: $rssDescriptionDecorationTablet,
+    rssVisibilityTablet: $rssVisibilityTablet,
     rssWidthDesktop: $rssWidthDesktop,
     rssMinWidthDesktop: $rssMinWidthDesktop,
     rssMaxWidthDesktop: $rssMaxWidthDesktop,
@@ -84,6 +86,7 @@
     rssDescriptionWeightDesktop: $rssDescriptionWeightDesktop,
     rssDescriptionStyleDesktop: $rssDescriptionStyleDesktop,
     rssDescriptionDecorationDesktop: $rssDescriptionDecorationDesktop,
+    rssVisibilityDesktop: $rssVisibilityDesktop
   ), $options);
 
   $instanceSelector: '[data-widget-package="com.fliplet.rss"]';
@@ -105,6 +108,11 @@
       map-get($configuration, rssPaddingRight)
       map-get($configuration, rssPaddingBottom)
       map-get($configuration, rssPaddingLeft);
+    @if map-get($configuration, rssVisibility) == 'visible' {
+      display: block !important;
+    } @else {
+      display: none !important;
+    }
 
     // Styles for tablet
     @include above($tabletBreakpoint) {
@@ -119,6 +127,11 @@
         map-get($configuration, rssPaddingRightTablet)
         map-get($configuration, rssPaddingBottomTablet)
         map-get($configuration, rssPaddingLeftTablet);
+      @if map-get($configuration, rssVisibilityTablet) == 'visible' {
+        display: block !important;
+      } @else {
+        display: none !important;
+      }
     }
 
     // Styles for desktop
@@ -134,6 +147,11 @@
         map-get($configuration, rssPaddingRightDesktop)
         map-get($configuration, rssPaddingBottomDesktop)
         map-get($configuration, rssPaddingLeftDesktop);
+      @if map-get($configuration, rssVisibilityDesktop) == 'visible' {
+        display: block !important;
+      } @else {
+        display: none !important;
+      }
     }
     
     .feed {

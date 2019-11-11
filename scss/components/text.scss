@@ -48,6 +48,7 @@
     bodyLineHeight: $bodyLineHeight,
     paragraphMarginTop: $paragraphMarginTop,
     paragraphMarginBottom: $paragraphMarginBottom,
+    textVisibility: $textVisibility,
     textBackgroundImageTablet: $textBackgroundImageTablet,
     textBackgroundColorTablet: $textBackgroundColorTablet,
     textBackgroundTypeTablet: $textBackgroundTypeTablet,
@@ -96,6 +97,7 @@
     bodyLineHeightTablet: $bodyLineHeightTablet,
     paragraphMarginTopTablet: $paragraphMarginTopTablet,
     paragraphMarginBottomTablet: $paragraphMarginBottomTablet,
+    textVisibilityTablet: $textVisibilityTablet,
     textBackgroundImageDesktop: $textBackgroundImageDesktop,
     textBackgroundColorDesktop: $textBackgroundColorDesktop,
     textBackgroundTypeDesktop: $textBackgroundTypeDesktop,
@@ -143,7 +145,8 @@
     bodyFontDecorationDesktop: $bodyFontDecorationDesktop,
     bodyLineHeightDesktop: $bodyLineHeightDesktop,
     paragraphMarginTopDesktop: $paragraphMarginTopDesktop,
-    paragraphMarginBottomDesktop: $paragraphMarginBottomDesktop
+    paragraphMarginBottomDesktop: $paragraphMarginBottomDesktop,
+    textVisibilityDesktop: $textVisibilityDesktop
   ), $options);
   
   $instanceSelector: '[data-widget-package="com.fliplet.text"]';
@@ -175,9 +178,17 @@
     position: map-get($configuration, textPosition) !important;
 
     @if map-get($configuration, textPosition) == 'relative' {
-      display: map-get($configuration, textDisplay) !important;
+      @if map-get($configuration, textVisibility) == 'visible' {
+        display: map-get($configuration, textDisplay) !important;
+      } @else {
+        display: none !important;
+      }
     } @else {
-      display: block !important;
+      @if map-get($configuration, textVisibility) == 'visible' {
+        display: block !important;
+      } @else {
+        display: none !important;
+      }
       z-index: map-get($configuration, textIndex);
       top: map-get($configuration, textPositionTop);
       right: map-get($configuration, textPositionRight);
@@ -239,9 +250,17 @@
       position: map-get($configuration, textPositionTablet) !important;
 
       @if map-get($configuration, textPositionTablet) == 'relative' {
-        display: map-get($configuration, textDisplayTablet) !important;
+        @if map-get($configuration, textVisibilityTablet) == 'visible' {
+          display: map-get($configuration, textDisplayTablet) !important;
+        } @else {
+          display: none !important;
+        }
       } @else {
-        display: block !important;
+        @if map-get($configuration, textVisibilityTablet) == 'visible' {
+          display: block !important;
+        } @else {
+          display: none !important;
+        }
         z-index: map-get($configuration, textIndexTablet);
         top: map-get($configuration, textPositionTopTablet);
         right: map-get($configuration, textPositionRightTablet);
@@ -304,9 +323,17 @@
       position: map-get($configuration, textPositionDesktop) !important;
 
       @if map-get($configuration, textPositionDesktop) == 'relative' {
-        display: map-get($configuration, textDisplayDesktop) !important;
+        @if map-get($configuration, textVisibilityDesktop) == 'visible' {
+          display: map-get($configuration, textDisplayDesktop) !important;
+        } @else {
+          display: none !important;
+        }
       } @else {
-        display: block !important;
+        @if map-get($configuration, textVisibilityDesktop) == 'visible' {
+          display: block !important;
+        } @else {
+          display: none !important;
+        }
         z-index: map-get($configuration, textIndexDesktop);
         top: map-get($configuration, textPositionTopDesktop);
         right: map-get($configuration, textPositionRightDesktop);

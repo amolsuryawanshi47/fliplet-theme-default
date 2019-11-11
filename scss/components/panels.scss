@@ -39,6 +39,7 @@
     panelShadowBlur: $panelShadowBlur,
     panelShadowSpread: $panelShadowSpread,
     panelShadowColor: $panelShadowColor,
+    panelVisibility: $panelVisibility,
     panelWidthTablet: $panelWidthTablet,
     panelMinWidthTablet: $panelMinWidthTablet,
     panelMaxWidthTablet: $panelMaxWidthTablet,
@@ -78,6 +79,7 @@
     panelShadowBlurTablet: $panelShadowBlurTablet,
     panelShadowSpreadTablet: $panelShadowSpreadTablet,
     panelShadowColorTablet: $panelShadowColorTablet,
+    panelVisibilityTablet: $panelVisibilityTablet,
     panelWidthDesktop: $panelWidthDesktop,
     panelMinWidthDesktop: $panelMinWidthDesktop,
     panelMaxWidthDesktop: $panelMaxWidthDesktop,
@@ -116,7 +118,8 @@
     panelShadowYoffsetDesktop: $panelShadowYoffsetDesktop,
     panelShadowBlurDesktop: $panelShadowBlurDesktop,
     panelShadowSpreadDesktop: $panelShadowSpreadDesktop,
-    panelShadowColorDesktop: $panelShadowColorDesktop
+    panelShadowColorDesktop: $panelShadowColorDesktop,
+    panelVisibilityDesktop: $panelVisibilityDesktop
   ), $options);
 
   $instanceSelector: '[data-widget-package="com.fliplet.panels"]';
@@ -138,6 +141,11 @@
       map-get($configuration, panelPaddingRight)
       map-get($configuration, panelPaddingBottom)
       map-get($configuration, panelPaddingLeft);
+    @if map-get($configuration, panelVisibility) == 'visible' {
+      display: block !important;
+    } @else {
+      display: none !important;
+    }
 
     // Styles for tablet
     @include above($tabletBreakpoint) {
@@ -152,6 +160,11 @@
         map-get($configuration, panelPaddingRightTablet)
         map-get($configuration, panelPaddingBottomTablet)
         map-get($configuration, panelPaddingLeftTablet);
+      @if map-get($configuration, panelVisibilityTablet) == 'visible' {
+        display: block !important;
+      } @else {
+        display: none !important;
+      }
     }
 
     // Styles for desktop
@@ -167,6 +180,11 @@
         map-get($configuration, panelPaddingRightDesktop)
         map-get($configuration, panelPaddingBottomDesktop)
         map-get($configuration, panelPaddingLeftDesktop);
+      @if map-get($configuration, panelVisibilityDesktop) == 'visible' {
+        display: block !important;
+      } @else {
+        display: none !important;
+      }
     }
 
     .list-panels {
@@ -389,6 +407,7 @@
     gridPaddingBottom: $gridPaddingBottom,
     gridPaddingLeft: $gridPaddingLeft,
     gridBorderRadius: $gridBorderRadius,
+    gridVisibility: $gridVisibility,
     gridWidthTablet: $gridWidthTablet,
     gridMinWidthTablet: $gridMinWidthTablet,
     gridMaxWidthTablet: $gridMaxWidthTablet,
@@ -418,6 +437,7 @@
     gridPaddingBottomTablet: $gridPaddingBottomTablet,
     gridPaddingLeftTablet: $gridPaddingLeftTablet,
     gridBorderRadiusTablet: $gridBorderRadiusTablet,
+    gridVisibilityTablet: $gridVisibilityTablet,
     gridWidthDesktop: $gridWidthDesktop,
     gridMinWidthDesktop: $gridMinWidthDesktop,
     gridMaxWidthDesktop: $gridMaxWidthDesktop,
@@ -446,7 +466,8 @@
     gridPaddingRightDesktop: $gridPaddingRightDesktop,
     gridPaddingBottomDesktop: $gridPaddingBottomDesktop,
     gridPaddingLeftDesktop: $gridPaddingLeftDesktop,
-    gridBorderRadiusDesktop: $gridBorderRadiusDesktop
+    gridBorderRadiusDesktop: $gridBorderRadiusDesktop,
+    gridVisibilityDesktop: $gridVisibilityDesktop
   ), $options);
 
   $instanceSelector: '[data-widget-package="com.fliplet.metro"]';
@@ -468,6 +489,12 @@
       map-get($configuration, gridHolderPaddingRight)
       map-get($configuration, gridHolderPaddingBottom)
       map-get($configuration, gridHolderPaddingLeft);
+
+    @if map-get($configuration, gridVisibility) == 'visible' {
+      display: block !important;
+    } @else {
+      display: none !important;
+    }
 
     .metro-panels {
       .panels {
@@ -523,17 +550,23 @@
 
       // Styles for tablet
       @include above($tabletBreakpoint) {
-        width: map-get($configuration, gridWidth);
-        min-width: map-get($configuration, gridMinWidth);
-        max-width: map-get($configuration, gridMaxWidth);
-        margin: map-get($configuration, gridMarginTop)
-          map-get($configuration, gridMarginRight)
-          map-get($configuration, gridMarginBottom)
-          map-get($configuration, gridMarginLeft);
-        padding: map-get($configuration, gridHolderPaddingTop)
-          map-get($configuration, gridHolderPaddingRight)
-          map-get($configuration, gridHolderPaddingBottom)
-          map-get($configuration, gridHolderPaddingLeft);
+        width: map-get($configuration, gridWidthTablet);
+        min-width: map-get($configuration, gridMinWidthTablet);
+        max-width: map-get($configuration, gridMaxWidthTablet);
+        margin: map-get($configuration, gridMarginTopTablet)
+          map-get($configuration, gridMarginRightTablet)
+          map-get($configuration, gridMarginBottomTablet)
+          map-get($configuration, gridMarginLeftTablet);
+        padding: map-get($configuration, gridHolderPaddingTopTablet)
+          map-get($configuration, gridHolderPaddingRightTablet)
+          map-get($configuration, gridHolderPaddingBottomTablet)
+          map-get($configuration, gridHolderPaddingLeftTablet);
+
+        @if map-get($configuration, gridVisibilityTablet) == 'visible' {
+          display: block !important;
+        } @else {
+          display: none !important;
+        }
 
         .panels {
           overflow: hidden;
@@ -590,16 +623,22 @@
       // Styles for desktop
       @include above($desktopBreakpoint) {
         width: map-get($configuration, gridWidth);
-        min-width: map-get($configuration, gridMinWidth);
-        max-width: map-get($configuration, gridMaxWidth);
-        margin: map-get($configuration, gridMarginTop)
-          map-get($configuration, gridMarginRight)
-          map-get($configuration, gridMarginBottom)
-          map-get($configuration, gridMarginLeft);
-        padding: map-get($configuration, gridHolderPaddingTop)
-          map-get($configuration, gridHolderPaddingRight)
-          map-get($configuration, gridHolderPaddingBottom)
-          map-get($configuration, gridHolderPaddingLeft);
+        min-width: map-get($configuration, gridMinWidthDesktop);
+        max-width: map-get($configuration, gridMaxWidthDesktop);
+        margin: map-get($configuration, gridMarginTopDesktop)
+          map-get($configuration, gridMarginRightDesktop)
+          map-get($configuration, gridMarginBottomDesktop)
+          map-get($configuration, gridMarginLeftDesktop);
+        padding: map-get($configuration, gridHolderPaddingTopDesktop)
+          map-get($configuration, gridHolderPaddingRightDesktop)
+          map-get($configuration, gridHolderPaddingBottomDesktop)
+          map-get($configuration, gridHolderPaddingLeftDesktop);
+
+        @if map-get($configuration, gridVisibilityDesktop) == 'visible' {
+          display: block !important;
+        } @else {
+          display: none !important;
+        }
 
         .panels {
           overflow: hidden;

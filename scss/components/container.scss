@@ -44,6 +44,7 @@
     containerShadowBlur: $containerShadowBlur,
     containerShadowSpread: $containerShadowSpread,
     containerShadowColor: $containerShadowColor,
+    containerIndex: $containerIndex,
     containerBackgroundImageTablet: $containerBackgroundImageTablet,
     containerBackgroundColorTablet: $containerBackgroundColorTablet,
     containerBackgroundTypeTablet: $containerBackgroundTypeTablet,
@@ -88,6 +89,7 @@
     containerShadowBlurTablet: $containerShadowBlurTablet,
     containerShadowSpreadTablet: $containerShadowSpreadTablet,
     containerShadowColorTablet: $containerShadowColorTablet,
+    containerIndexTablet: $containerIndexTablet,
     containerBackgroundImageDesktop: $containerBackgroundImageDesktop,
     containerBackgroundColorDesktop: $containerBackgroundColorDesktop,
     containerBackgroundTypeDesktop: $containerBackgroundTypeDesktop,
@@ -131,7 +133,8 @@
     containerShadowYoffsetDesktop: $containerShadowYoffsetDesktop,
     containerShadowBlurDesktop: $containerShadowBlurDesktop,
     containerShadowSpreadDesktop: $containerShadowSpreadDesktop,
-    containerShadowColorDesktop: $containerShadowColorDesktop
+    containerShadowColorDesktop: $containerShadowColorDesktop,
+    containerIndexDesktop: $containerIndexDesktop
   ), $options);
   
   $instanceSelector: '[data-widget-package="com.fliplet.container"]';
@@ -166,6 +169,7 @@
       right: map-get($configuration, containerPositionRight);
       bottom: map-get($configuration, containerPositionBottom);
       left: map-get($configuration, containerPositionLeft);
+      z-index: map-get($configuration, containerIndex);
     }
 
     display: map-get($configuration, containerDisplay) !important;
@@ -234,6 +238,7 @@
         right: map-get($configuration, containerPositionRightTablet);
         bottom: map-get($configuration, containerPositionBottomTablet);
         left: map-get($configuration, containerPositionLeftTablet);
+        z-index: map-get($configuration, containerIndexTablet);
       }
 
       display: map-get($configuration, containerDisplayTablet) !important;
@@ -303,6 +308,7 @@
         right: map-get($configuration, containerPositionRightDesktop);
         bottom: map-get($configuration, containerPositionBottomDesktop);
         left: map-get($configuration, containerPositionLeftDesktop);
+        z-index: map-get($configuration, containerIndexDesktop);
       }
 
       display: map-get($configuration, containerDisplayDesktop) !important;
