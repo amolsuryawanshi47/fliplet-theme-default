@@ -17,6 +17,8 @@
     containerOverflowY: $containerOverflowY,
     containerPosition: $containerPosition,
     containerDisplay: $containerDisplay,
+    containerVisibility: $containerVisibility,
+    containerContentLayout: $containerContentLayout,
     containerFlexDirection: $containerFlexDirection,
     containerFlexAlign: $containerFlexAlign,
     containerFlexJustify: $containerFlexJustify,
@@ -62,6 +64,8 @@
     containerOverflowYTablet: $containerOverflowYTablet,
     containerPositionTablet: $containerPositionTablet,
     containerDisplayTablet: $containerDisplayTablet,
+    containerVisibilityTablet: $containerVisibilityTablet,
+    containerContentLayoutTablet: $containerContentLayoutTablet,
     containerFlexDirectionTablet: $containerFlexDirectionTablet,
     containerFlexAlignTablet: $containerFlexAlignTablet,
     containerFlexJustifyTablet: $containerFlexJustifyTablet,
@@ -107,6 +111,8 @@
     containerOverflowYDesktop: $containerOverflowYDesktop,
     containerPositionDesktop: $containerPositionDesktop,
     containerDisplayDesktop: $containerDisplayDesktop,
+    containerVisibilityDesktop: $containerVisibilityDesktop,
+    containerContentLayoutDesktop: $containerContentLayoutDesktop,
     containerFlexDirectionDesktop: $containerFlexDirectionDesktop,
     containerFlexAlignDesktop: $containerFlexAlignDesktop,
     containerFlexJustifyDesktop: $containerFlexJustifyDesktop,
@@ -172,12 +178,23 @@
       z-index: map-get($configuration, containerIndex);
     }
 
-    display: map-get($configuration, containerDisplay) !important;
-    @if map-get($configuration, containerDisplay) == 'flex' {
-      flex-direction:  map-get($configuration, containerFlexDirection);
-      align-items: map-get($configuration, containerFlexAlign);
-      justify-content: map-get($configuration, containerFlexJustify);
-      flex-wrap: map-get($configuration, containerFlexWrap);
+    @if map-get($configuration, containerVisibility) == 'hidden' {
+      display: none !important;
+    } @else {
+      @if map-get($configuration, containerContentLayout) == 'on' {
+        @if map-get($configuration, containerDisplay) == 'block' {
+          display: flex !important;
+        } @else {
+          display: inline-flex !important;
+        }
+
+        flex-direction:  map-get($configuration, containerFlexDirection);
+        align-items: map-get($configuration, containerFlexAlign);
+        justify-content: map-get($configuration, containerFlexJustify);
+        flex-wrap: map-get($configuration, containerFlexWrap);
+      } @else {
+        display: map-get($configuration, containerDisplay) !important;
+      }
     }
 
     width: map-get($configuration, containerWidth);
@@ -241,12 +258,23 @@
         z-index: map-get($configuration, containerIndexTablet);
       }
 
-      display: map-get($configuration, containerDisplayTablet) !important;
-      @if map-get($configuration, containerDisplayTablet) == 'flex' {
-        flex-direction:  map-get($configuration, containerFlexDirectionTablet);
-        align-items: map-get($configuration, containerFlexAlignTablet);
-        justify-content: map-get($configuration, containerFlexJustifyTablet);
-        flex-wrap: map-get($configuration, containerFlexWrapTablet);
+      @if map-get($configuration, containerVisibilityTablet) == 'hidden' {
+        display: none !important;
+      } @else {
+        @if map-get($configuration, containerContentLayoutTablet) == 'on' {
+          @if map-get($configuration, containerDisplayTablet) == 'block' {
+            display: flex !important;
+          } @else {
+            display: inline-flex !important;
+          }
+  
+          flex-direction:  map-get($configuration, containerFlexDirectionTablet);
+          align-items: map-get($configuration, containerFlexAlignTablet);
+          justify-content: map-get($configuration, containerFlexJustifyTablet);
+          flex-wrap: map-get($configuration, containerFlexWrapTablet);
+        } @else {
+          display: map-get($configuration, containerDisplayTablet) !important;
+        }
       }
 
       width: map-get($configuration, containerWidthTablet);
@@ -311,12 +339,23 @@
         z-index: map-get($configuration, containerIndexDesktop);
       }
 
-      display: map-get($configuration, containerDisplayDesktop) !important;
-      @if map-get($configuration, containerDisplayDesktop) == 'flex' {
-        flex-direction:  map-get($configuration, containerFlexDirectionDesktop);
-        align-items: map-get($configuration, containerFlexAlignDesktop);
-        justify-content: map-get($configuration, containerFlexJustifyDesktop);
-        flex-wrap: map-get($configuration, containerFlexWrapDesktop);
+      @if map-get($configuration, containerVisibilityDesktop) == 'hidden' {
+        display: none !important;
+      } @else {
+        @if map-get($configuration, containerContentLayoutDesktop) == 'on' {
+          @if map-get($configuration, containerDisplayDesktop) == 'block' {
+            display: flex !important;
+          } @else {
+            display: inline-flex !important;
+          }
+  
+          flex-direction:  map-get($configuration, containerFlexDirectionDesktop);
+          align-items: map-get($configuration, containerFlexAlignDesktop);
+          justify-content: map-get($configuration, containerFlexJustifyDesktop);
+          flex-wrap: map-get($configuration, containerFlexWrapDesktop);
+        } @else {
+          display: map-get($configuration, containerDisplayDesktop) !important;
+        }
       }
 
       width: map-get($configuration, containerWidthDesktop);

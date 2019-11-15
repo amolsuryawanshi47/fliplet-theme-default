@@ -2251,7 +2251,7 @@
             "fields": [
               {
                 "name": "textMarginAlign",
-                "default": "custom",
+                "default": "center",
                 "columns": 12,
                 "logic": {
                   "left": {
@@ -2320,7 +2320,7 @@
               },
               {
                 "name": "textMarginRight",
-                "default": "0px",
+                "default": "auto",
                 "columns": 6,
                 "logic": "textMarginAlign",
                 "styles": [
@@ -2372,7 +2372,7 @@
               },
               {
                 "name": "textMarginLeft",
-                "default": "0px",
+                "default": "auto",
                 "columns": 6,
                 "logic": "textMarginAlign",
                 "styles": [
@@ -4955,6 +4955,36 @@
                 "type": "position"
               },
               {
+                "name": "containerDisplay",
+                "default": "block",
+                "columns": 12,
+                "logic": {
+                  "block": {
+                    "show": ["containerMarginAlign"]
+                  },
+                  "inline-block": {
+                    "hide": ["containerMarginAlign"]
+                  }
+                },
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.container']",
+                    "properties": ["display"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "containerDisplayTablet",
+                    "default": "inline-block"
+                  },
+                  "desktop": {
+                    "name": "containerDisplayDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "display"
+              },
+              {
                 "name": "containerPositionTop",
                 "default": "auto",
                 "columns": 6,
@@ -5340,6 +5370,24 @@
           {
             "description": "Content layout",
             "fields": [
+              {
+                "name": "containerContentLayout",
+                "default": "on",
+                "columns": 12,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "containerContentLayoutTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "containerContentLayoutDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "toggle",
+                "subtype": "toggle",
+                "label": "Control content layout"
+              },
               {
                 "name": "containerFlexDirection",
                 "default": "row",
@@ -5903,27 +5951,21 @@
             "description": "Visibility",
             "fields": [
               {
-                "name": "containerDisplay",
+                "name": "containerVisibility",
                 "default": "flex",
                 "columns": 12,
-                "styles": [
-                  {
-                    "parentSelector": "[data-widget-package='com.fliplet.container']",
-                    "properties": ["display"]
-                  }
-                ],
                 "breakpoints": {
                   "tablet": {
-                    "name": "containerDisplayTablet",
+                    "name": "containerVisibilityTablet",
                     "default": "inherit-mobile"
                   },
                   "desktop": {
-                    "name": "containerDisplayDesktop",
+                    "name": "containerVisibilityDesktop",
                     "default": "inherit-tablet"
                   }
                 },
                 "type": "toggle",
-                "subtype": "display-flex"
+                "subtype": "visibility"
               }
             ]
           }
