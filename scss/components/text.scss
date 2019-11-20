@@ -578,197 +578,250 @@
     }
 
     h1 {
-      // Include styles for default mobile viewport
-      @include headings((
-        headingColor: map-get($configuration, textHeadingOneColor),
-        headingFamily: map-get($configuration, textHeadingOneFontFamily),
-        headingSize: map-get($configuration, textHeadingOneSize),
-        headingLineHeight: map-get($configuration, textHeadingOneHeight),
-        headingWeight: map-get($configuration, textHeadingOneWeight),
-        headingStyle: map-get($configuration, textHeadingOneStyle),
-        headingDecoration: map-get($configuration, textHeadingOneDecoration),
-        headingMarginTop: map-get($configuration, textHeadingOneMarginTop),
-        headingMarginBottom: map-get($configuration, textHeadingOneMarginBottom),
-        headingColorTablet: map-get($configuration, textHeadingOneColorTablet),
-        headingFamilyTablet: map-get($configuration, textHeadingOneFontFamilyTablet),
-        headingSizeTablet: map-get($configuration, textHeadingOneSizeTablet),
-        headingLineHeightTablet: map-get($configuration, textHeadingOneHeightTablet),
-        headingWeightTablet: map-get($configuration, textHeadingOneWeightTablet),
-        headingStyleTablet: map-get($configuration, textHeadingOneStyleTablet),
-        headingDecorationTablet: map-get($configuration, textHeadingOneDecorationTablet),
-        headingMarginTopTablet: map-get($configuration, textHeadingOneMarginTopTablet),
-        headingMarginBottomTablet: map-get($configuration, textHeadingOneMarginBottomTablet),
-        headingColorDesktop: map-get($configuration, textHeadingOneColorDesktop),
-        headingFamilyDesktop: map-get($configuration, textHeadingOneFontFamilyDesktop),
-        headingSizeDesktop: map-get($configuration, textHeadingOneSizeDesktop),
-        headingLineHeightDesktop: map-get($configuration, textHeadingOneHeightDesktop),
-        headingWeightDesktop: map-get($configuration, textHeadingOneWeightDesktop),
-        headingStyleDesktop: map-get($configuration, textHeadingOneStyleDesktop),
-        headingDecorationDesktop: map-get($configuration, textHeadingOneDecorationDesktop),
-        headingMarginTopDesktop: map-get($configuration, textHeadingOneMarginTopDesktop),
-        headingMarginBottomDesktop: map-get($configuration, textHeadingOneMarginBottomDesktop)
-      ));
+      color: map-get($configuration, textHeadingOneColor);
+      font-family: map-get($configuration, textHeadingOneFontFamily);
+      font-size: map-get($configuration, textHeadingOneSize);
+      font-style: map-get($configuration, textHeadingOneStyle);
+      text-decoration: map-get($configuration, textHeadingOneDecoration);
+      line-height: map-get($configuration, textHeadingOneHeight);
+      font-weight: map-get($configuration, textHeadingOneWeight);
+
+      margin-top: map-get($configuration, textHeadingOneMarginTop);
+      margin-bottom: map-get($configuration, textHeadingOneMarginBottom);
+
+      // Styles for tablet
+      @include above($tabletBreakpoint) {
+        color: map-get($configuration, textHeadingOneColorTablet);
+        font-family: map-get($configuration, textHeadingOneFontFamilyTablet);
+        font-size: map-get($configuration, textHeadingOneSizeTablet);
+        font-style: map-get($configuration, textHeadingOneStyleTablet);
+        text-decoration: map-get($configuration, textHeadingOneDecorationTablet);
+        line-height: map-get($configuration, textHeadingOneHeightTablet);
+        font-weight: map-get($configuration, textHeadingOneWeightTablet);
+
+        margin-top: map-get($configuration, textHeadingOneMarginTopTablet);
+        margin-bottom: map-get($configuration, textHeadingOneMarginBottomTablet);
+      }
+
+      // Styles for desktop
+      @include above($desktopBreakpoint) {
+        color: map-get($configuration, textHeadingOneColorDesktop);
+        font-family: map-get($configuration, textHeadingOneFontFamilyDesktop);
+        font-size: map-get($configuration, textHeadingOneSizeDesktop);
+        font-style: map-get($configuration, textHeadingOneStyleDesktop);
+        text-decoration: map-get($configuration, textHeadingOneDecorationDesktop);
+        line-height: map-get($configuration, textHeadingOneHeightDesktop);
+        font-weight: map-get($configuration, textHeadingOneWeightDesktop);
+
+        margin-top: map-get($configuration, textHeadingOneMarginTopDesktop);
+        margin-bottom: map-get($configuration, textHeadingOneMarginBottomDesktop);
+      }
     }
     
     
     h2 {
-      @include headings((
-        headingColor: map-get($configuration, textHeadingTwoColor),
-        headingFamily: map-get($configuration, textHeadingTwoFontFamily),
-        headingSize: map-get($configuration, textHeadingTwoSize),
-        headingLineHeight: map-get($configuration, textHeadingTwoHeight),
-        headingWeight: map-get($configuration, textHeadingTwoWeight),
-        headingStyle: map-get($configuration, textHeadingTwoStyle),
-        headingDecoration: map-get($configuration, textHeadingTwoDecoration),
-        headingMarginTop: map-get($configuration, textHeadingTwoMarginTop),
-        headingMarginBottom: map-get($configuration, textHeadingTwoMarginBottom),
-        headingColorTablet: map-get($configuration, textHeadingTwoColorTablet),
-        headingFamilyTablet: map-get($configuration, textHeadingTwoFontFamilyTablet),
-        headingSizeTablet: map-get($configuration, textHeadingTwoSizeTablet),
-        headingLineHeightTablet: map-get($configuration, textHeadingTwoHeightTablet),
-        headingWeightTablet: map-get($configuration, textHeadingTwoWeightTablet),
-        headingStyleTablet: map-get($configuration, textHeadingTwoStyleTablet),
-        headingDecorationTablet: map-get($configuration, textHeadingTwoDecorationTablet),
-        headingMarginTopTablet: map-get($configuration, textHeadingTwoMarginTopTablet),
-        headingMarginBottomTablet: map-get($configuration, textHeadingTwoMarginBottomTablet),
-        headingColorDesktop: map-get($configuration, textHeadingTwoColorDesktop),
-        headingFamilyDesktop: map-get($configuration, textHeadingTwoFontFamilyDesktop),
-        headingSizeDesktop: map-get($configuration, textHeadingTwoSizeDesktop),
-        headingLineHeightDesktop: map-get($configuration, textHeadingTwoHeightDesktop),
-        headingWeightDesktop: map-get($configuration, textHeadingTwoWeightDesktop),
-        headingStyleDesktop: map-get($configuration, textHeadingTwoStyleDesktop),
-        headingDecorationDesktop: map-get($configuration, textHeadingTwoDecorationDesktop),
-        headingMarginTopDesktop: map-get($configuration, textHeadingTwoMarginTopDesktop),
-        headingMarginBottomDesktop: map-get($configuration, textHeadingTwoMarginBottomDesktop)
-      ));
+      color: map-get($configuration, textHeadingTwoColor);
+      font-family: map-get($configuration, textHeadingTwoFontFamily);
+      font-size: map-get($configuration, textHeadingTwoSize);
+      font-style: map-get($configuration, textHeadingTwoStyle);
+      text-decoration: map-get($configuration, textHeadingTwoDecoration);
+      line-height: map-get($configuration, textHeadingTwoHeight);
+      font-weight: map-get($configuration, textHeadingTwoWeight);
+
+      margin-top: map-get($configuration, textHeadingTwoMarginTop);
+      margin-bottom: map-get($configuration, textHeadingTwoMarginBottom);
+
+      // Styles for tablet
+      @include above($tabletBreakpoint) {
+        color: map-get($configuration, textHeadingTwoColorTablet);
+        font-family: map-get($configuration, textHeadingTwoFontFamilyTablet);
+        font-size: map-get($configuration, textHeadingTwoSizeTablet);
+        font-style: map-get($configuration, textHeadingTwoStyleTablet);
+        text-decoration: map-get($configuration, textHeadingTwoDecorationTablet);
+        line-height: map-get($configuration, textHeadingTwoHeightTablet);
+        font-weight: map-get($configuration, textHeadingTwoWeightTablet);
+
+        margin-top: map-get($configuration, textHeadingTwoMarginTopTablet);
+        margin-bottom: map-get($configuration, textHeadingTwoMarginBottomTablet);
+      }
+
+      // Styles for desktop
+      @include above($desktopBreakpoint) {
+        color: map-get($configuration, textHeadingTwoColorDesktop);
+        font-family: map-get($configuration, textHeadingTwoFontFamilyDesktop);
+        font-size: map-get($configuration, textHeadingTwoSizeDesktop);
+        font-style: map-get($configuration, textHeadingTwoStyleDesktop);
+        text-decoration: map-get($configuration, textHeadingTwoDecorationDesktop);
+        line-height: map-get($configuration, textHeadingTwoHeightDesktop);
+        font-weight: map-get($configuration, textHeadingTwoWeightDesktop);
+
+        margin-top: map-get($configuration, textHeadingTwoMarginTopDesktop);
+        margin-bottom: map-get($configuration, textHeadingTwoMarginBottomDesktop);
+      }
     }
     
     h3 {
-      @include headings((
-        headingColor: map-get($configuration, textHeadingThreeColor),
-        headingFamily: map-get($configuration, textHeadingThreeFontFamily),
-        headingSize: map-get($configuration, textHeadingThreeSize),
-        headingLineHeight: map-get($configuration, textHeadingThreeHeight),
-        headingWeight: map-get($configuration, textHeadingThreeWeight),
-        headingStyle: map-get($configuration, textHeadingThreeStyle),
-        headingDecoration: map-get($configuration, textHeadingThreeDecoration),
-        headingMarginTop: map-get($configuration, textHeadingThreeMarginTop),
-        headingMarginBottom: map-get($configuration, textHeadingThreeMarginBottom),
-        headingColorTablet: map-get($configuration, textHeadingThreeColorTablet),
-        headingFamilyTablet: map-get($configuration, textHeadingThreeFontFamilyTablet),
-        headingSizeTablet: map-get($configuration, textHeadingThreeSizeTablet),
-        headingLineHeightTablet: map-get($configuration, textHeadingThreeHeightTablet),
-        headingWeightTablet: map-get($configuration, textHeadingThreeWeightTablet),
-        headingStyleTablet: map-get($configuration, textHeadingThreeStyleTablet),
-        headingDecorationTablet: map-get($configuration, textHeadingThreeDecorationTablet),
-        headingMarginTopTablet: map-get($configuration, textHeadingThreeMarginTopTablet),
-        headingMarginBottomTablet: map-get($configuration, textHeadingThreeMarginBottomTablet),
-        headingColorDesktop: map-get($configuration, textHeadingThreeColorDesktop),
-        headingFamilyDesktop: map-get($configuration, textHeadingThreeFontFamilyDesktop),
-        headingSizeDesktop: map-get($configuration, textHeadingThreeSizeDesktop),
-        headingLineHeightDesktop: map-get($configuration, textHeadingThreeHeightDesktop),
-        headingWeightDesktop: map-get($configuration, textHeadingThreeWeightDesktop),
-        headingStyleDesktop: map-get($configuration, textHeadingThreeStyleDesktop),
-        headingDecorationDesktop: map-get($configuration, textHeadingThreeDecorationDesktop),
-        headingMarginTopDesktop: map-get($configuration, textHeadingThreeMarginTopDesktop),
-        headingMarginBottomDesktop: map-get($configuration, textHeadingThreeMarginBottomDesktop)
-      ));
+      color: map-get($configuration, textHeadingThreeColor);
+      font-family: map-get($configuration, textHeadingThreeFontFamily);
+      font-size: map-get($configuration, textHeadingThreeSize);
+      font-style: map-get($configuration, textHeadingThreeStyle);
+      text-decoration: map-get($configuration, textHeadingThreeDecoration);
+      line-height: map-get($configuration, textHeadingThreeHeight);
+      font-weight: map-get($configuration, textHeadingThreeWeight);
+
+      margin-top: map-get($configuration, textHeadingThreeMarginTop);
+      margin-bottom: map-get($configuration, textHeadingThreeMarginBottom);
+
+      // Styles for tablet
+      @include above($tabletBreakpoint) {
+        color: map-get($configuration, textHeadingThreeColorTablet);
+        font-family: map-get($configuration, textHeadingThreeFontFamilyTablet);
+        font-size: map-get($configuration, textHeadingThreeSizeTablet);
+        font-style: map-get($configuration, textHeadingThreeStyleTablet);
+        text-decoration: map-get($configuration, textHeadingThreeDecorationTablet);
+        line-height: map-get($configuration, textHeadingThreeHeightTablet);
+        font-weight: map-get($configuration, textHeadingThreeWeightTablet);
+
+        margin-top: map-get($configuration, textHeadingThreeMarginTopTablet);
+        margin-bottom: map-get($configuration, textHeadingThreeMarginBottomTablet);
+      }
+
+      // Styles for desktop
+      @include above($desktopBreakpoint) {
+        color: map-get($configuration, textHeadingThreeColorDesktop);
+        font-family: map-get($configuration, textHeadingThreeFontFamilyDesktop);
+        font-size: map-get($configuration, textHeadingThreeSizeDesktop);
+        font-style: map-get($configuration, textHeadingThreeStyleDesktop);
+        text-decoration: map-get($configuration, textHeadingThreeDecorationDesktop);
+        line-height: map-get($configuration, textHeadingThreeHeightDesktop);
+        font-weight: map-get($configuration, textHeadingThreeWeightDesktop);
+
+        margin-top: map-get($configuration, textHeadingThreeMarginTopDesktop);
+        margin-bottom: map-get($configuration, textHeadingThreeMarginBottomDesktop);
+      }
     }
     
     h4 {
-      @include headings((
-        headingColor: map-get($configuration, textHeadingFourColor),
-        headingFamily: map-get($configuration, textHeadingFourFontFamily),
-        headingSize: map-get($configuration, textHeadingFourSize),
-        headingLineHeight: map-get($configuration, textHeadingFourHeight),
-        headingWeight: map-get($configuration, textHeadingFourWeight),
-        headingStyle: map-get($configuration, textHeadingFourStyle),
-        headingDecoration: map-get($configuration, textHeadingFourDecoration),
-        headingMarginTop: map-get($configuration, textHeadingFourMarginTop),
-        headingMarginBottom: map-get($configuration, textHeadingFourMarginBottom),
-        headingColorTablet: map-get($configuration, textHeadingFourColorTablet),
-        headingFamilyTablet: map-get($configuration, textHeadingFourFontFamilyTablet),
-        headingSizeTablet: map-get($configuration, textHeadingFourSizeTablet),
-        headingLineHeightTablet: map-get($configuration, textHeadingFourHeightTablet),
-        headingWeightTablet: map-get($configuration, textHeadingFourWeightTablet),
-        headingStyleTablet: map-get($configuration, textHeadingFourStyleTablet),
-        headingDecorationTablet: map-get($configuration, textHeadingFourDecorationTablet),
-        headingMarginTopTablet: map-get($configuration, textHeadingFourMarginTopTablet),
-        headingMarginBottomTablet: map-get($configuration, textHeadingFourMarginBottomTablet),
-        headingColorDesktop: map-get($configuration, textHeadingFourColorDesktop),
-        headingFamilyDesktop: map-get($configuration, textHeadingFourFontFamilyDesktop),
-        headingSizeDesktop: map-get($configuration, textHeadingFourSizeDesktop),
-        headingLineHeightDesktop: map-get($configuration, textHeadingFourHeightDesktop),
-        headingWeightDesktop: map-get($configuration, textHeadingFourWeightDesktop),
-        headingStyleDesktop: map-get($configuration, textHeadingFourStyleDesktop),
-        headingDecorationDesktop: map-get($configuration, textHeadingFourDecorationDesktop),
-        headingMarginTopDesktop: map-get($configuration, textHeadingFourMarginTopDesktop),
-        headingMarginBottomDesktop: map-get($configuration, textHeadingFourMarginBottomDesktop)
-      ));
+      color: map-get($configuration, textHeadingFourColor);
+      font-family: map-get($configuration, textHeadingFourFontFamily);
+      font-size: map-get($configuration, textHeadingFourSize);
+      font-style: map-get($configuration, textHeadingFourStyle);
+      text-decoration: map-get($configuration, textHeadingFourDecoration);
+      line-height: map-get($configuration, textHeadingFourHeight);
+      font-weight: map-get($configuration, textHeadingFourWeight);
+
+      margin-top: map-get($configuration, textHeadingFourMarginTop);
+      margin-bottom: map-get($configuration, textHeadingFourMarginBottom);
+
+      // Styles for tablet
+      @include above($tabletBreakpoint) {
+        color: map-get($configuration, textHeadingFourColorTablet);
+        font-family: map-get($configuration, textHeadingFourFontFamilyTablet);
+        font-size: map-get($configuration, textHeadingFourSizeTablet);
+        font-style: map-get($configuration, textHeadingFourStyleTablet);
+        text-decoration: map-get($configuration, textHeadingFourDecorationTablet);
+        line-height: map-get($configuration, textHeadingFourHeightTablet);
+        font-weight: map-get($configuration, textHeadingFourWeightTablet);
+
+        margin-top: map-get($configuration, textHeadingFourMarginTopTablet);
+        margin-bottom: map-get($configuration, textHeadingFourMarginBottomTablet);
+      }
+
+      // Styles for desktop
+      @include above($desktopBreakpoint) {
+        color: map-get($configuration, textHeadingFourColorDesktop);
+        font-family: map-get($configuration, textHeadingFourFontFamilyDesktop);
+        font-size: map-get($configuration, textHeadingFourSizeDesktop);
+        font-style: map-get($configuration, textHeadingFourStyleDesktop);
+        text-decoration: map-get($configuration, textHeadingFourDecorationDesktop);
+        line-height: map-get($configuration, textHeadingFourHeightDesktop);
+        font-weight: map-get($configuration, textHeadingFourWeightDesktop);
+
+        margin-top: map-get($configuration, textHeadingFourMarginTopDesktop);
+        margin-bottom: map-get($configuration, textHeadingFourMarginBottomDesktop);
+      }
     }
     
     h5 {
-      @include headings((
-        headingColor: map-get($configuration, textHeadingFiveColor),
-        headingFamily: map-get($configuration, textHeadingFiveFontFamily),
-        headingSize: map-get($configuration, textHeadingFiveSize),
-        headingLineHeight: map-get($configuration, textHeadingFiveHeight),
-        headingWeight: map-get($configuration, textHeadingFiveWeight),
-        headingStyle: map-get($configuration, textHeadingFiveStyle),
-        headingDecoration: map-get($configuration, textHeadingFiveDecoration),
-        headingMarginTop: map-get($configuration, textHeadingFiveMarginTop),
-        headingMarginBottom: map-get($configuration, textHeadingFiveMarginBottom),
-        headingColorTablet: map-get($configuration, textHeadingFiveColorTablet),
-        headingFamilyTablet: map-get($configuration, textHeadingFiveFontFamilyTablet),
-        headingSizeTablet: map-get($configuration, textHeadingFiveSizeTablet),
-        headingLineHeightTablet: map-get($configuration, textHeadingFiveHeightTablet),
-        headingWeightTablet: map-get($configuration, textHeadingFiveWeightTablet),
-        headingStyleTablet: map-get($configuration, textHeadingFiveStyleTablet),
-        headingDecorationTablet: map-get($configuration, textHeadingFiveDecorationTablet),
-        headingMarginTopTablet: map-get($configuration, textHeadingFiveMarginTopTablet),
-        headingMarginBottomTablet: map-get($configuration, textHeadingFiveMarginBottomTablet),
-        headingColorDesktop: map-get($configuration, textHeadingFiveColorDesktop),
-        headingFamilyDesktop: map-get($configuration, textHeadingFiveFontFamilyDesktop),
-        headingSizeDesktop: map-get($configuration, textHeadingFiveSizeDesktop),
-        headingLineHeightDesktop: map-get($configuration, textHeadingFiveHeightDesktop),
-        headingWeightDesktop: map-get($configuration, textHeadingFiveWeightDesktop),
-        headingStyleDesktop: map-get($configuration, textHeadingFiveStyleDesktop),
-        headingDecorationDesktop: map-get($configuration, textHeadingFiveDecorationDesktop),
-        headingMarginTopDesktop: map-get($configuration, textHeadingFiveMarginTopDesktop),
-        headingMarginBottomDesktop: map-get($configuration, textHeadingFiveMarginBottomDesktop)
-      ));
+      color: map-get($configuration, textHeadingFiveColor);
+      font-family: map-get($configuration, textHeadingFiveFontFamily);
+      font-size: map-get($configuration, textHeadingFiveSize);
+      font-style: map-get($configuration, textHeadingFiveStyle);
+      text-decoration: map-get($configuration, textHeadingFiveDecoration);
+      line-height: map-get($configuration, textHeadingFiveHeight);
+      font-weight: map-get($configuration, textHeadingFiveWeight);
+
+      margin-top: map-get($configuration, textHeadingFiveMarginTop);
+      margin-bottom: map-get($configuration, textHeadingFiveMarginBottom);
+
+      // Styles for tablet
+      @include above($tabletBreakpoint) {
+        color: map-get($configuration, textHeadingFiveColorTablet);
+        font-family: map-get($configuration, textHeadingFiveFontFamilyTablet);
+        font-size: map-get($configuration, textHeadingFiveSizeTablet);
+        font-style: map-get($configuration, textHeadingFiveStyleTablet);
+        text-decoration: map-get($configuration, textHeadingFiveDecorationTablet);
+        line-height: map-get($configuration, textHeadingFiveHeightTablet);
+        font-weight: map-get($configuration, textHeadingFiveWeightTablet);
+
+        margin-top: map-get($configuration, textHeadingFiveMarginTopTablet);
+        margin-bottom: map-get($configuration, textHeadingFiveMarginBottomTablet);
+      }
+
+      // Styles for desktop
+      @include above($desktopBreakpoint) {
+        color: map-get($configuration, textHeadingFiveColorDesktop);
+        font-family: map-get($configuration, textHeadingFiveFontFamilyDesktop);
+        font-size: map-get($configuration, textHeadingFiveSizeDesktop);
+        font-style: map-get($configuration, textHeadingFiveStyleDesktop);
+        text-decoration: map-get($configuration, textHeadingFiveDecorationDesktop);
+        line-height: map-get($configuration, textHeadingFiveHeightDesktop);
+        font-weight: map-get($configuration, textHeadingFiveWeightDesktop);
+
+        margin-top: map-get($configuration, textHeadingFiveMarginTopDesktop);
+        margin-bottom: map-get($configuration, textHeadingFiveMarginBottomDesktop);
+      }
     }
     
     h6 {
-      @include headings((
-        headingColor: map-get($configuration, textHeadingSixColor),
-        headingFamily: map-get($configuration, textHeadingSixFontFamily),
-        headingSize: map-get($configuration, textHeadingSixSize),
-        headingLineHeight: map-get($configuration, textHeadingSixHeight),
-        headingWeight: map-get($configuration, textHeadingSixWeight),
-        headingStyle: map-get($configuration, textHeadingSixStyle),
-        headingDecoration: map-get($configuration, textHeadingSixDecoration),
-        headingMarginTop: map-get($configuration, textHeadingSixMarginTop),
-        headingMarginBottom: map-get($configuration, textHeadingSixMarginBottom),
-        headingColorTablet: map-get($configuration, textHeadingSixColorTablet),
-        headingFamilyTablet: map-get($configuration, textHeadingSixFontFamilyTablet),
-        headingSizeTablet: map-get($configuration, textHeadingSixSizeTablet),
-        headingLineHeightTablet: map-get($configuration, textHeadingSixHeightTablet),
-        headingWeightTablet: map-get($configuration, textHeadingSixWeightTablet),
-        headingStyleTablet: map-get($configuration, textHeadingSixStyleTablet),
-        headingDecorationTablet: map-get($configuration, textHeadingSixDecorationTablet),
-        headingMarginTopTablet: map-get($configuration, textHeadingSixMarginTopTablet),
-        headingMarginBottomTablet: map-get($configuration, textHeadingSixMarginBottomTablet),
-        headingColorDesktop: map-get($configuration, textHeadingSixColorDesktop),
-        headingFamilyDesktop: map-get($configuration, textHeadingSixFontFamilyDesktop),
-        headingSizeDesktop: map-get($configuration, textHeadingSixSizeDesktop),
-        headingLineHeightDesktop: map-get($configuration, textHeadingSixHeightDesktop),
-        headingWeightDesktop: map-get($configuration, textHeadingSixWeightDesktop),
-        headingStyleDesktop: map-get($configuration, textHeadingSixStyleDesktop),
-        headingDecorationDesktop: map-get($configuration, textHeadingSixDecorationDesktop),
-        headingMarginTopDesktop: map-get($configuration, textHeadingSixMarginTopDesktop),
-        headingMarginBottomDesktop: map-get($configuration, textHeadingSixMarginBottomDesktop)
-      ));
+      color: map-get($configuration, textHeadingSixColor);
+      font-family: map-get($configuration, textHeadingSixFontFamily);
+      font-size: map-get($configuration, textHeadingSixSize);
+      font-style: map-get($configuration, textHeadingSixStyle);
+      text-decoration: map-get($configuration, textHeadingSixDecoration);
+      line-height: map-get($configuration, textHeadingSixHeight);
+      font-weight: map-get($configuration, textHeadingSixWeight);
+
+      margin-top: map-get($configuration, textHeadingSixMarginTop);
+      margin-bottom: map-get($configuration, textHeadingSixMarginBottom);
+
+      // Styles for tablet
+      @include above($tabletBreakpoint) {
+        color: map-get($configuration, textHeadingSixColorTablet);
+        font-family: map-get($configuration, textHeadingSixFontFamilyTablet);
+        font-size: map-get($configuration, textHeadingSixSizeTablet);
+        font-style: map-get($configuration, textHeadingSixStyleTablet);
+        text-decoration: map-get($configuration, textHeadingSixDecorationTablet);
+        line-height: map-get($configuration, textHeadingSixHeightTablet);
+        font-weight: map-get($configuration, textHeadingSixWeightTablet);
+
+        margin-top: map-get($configuration, textHeadingSixMarginTopTablet);
+        margin-bottom: map-get($configuration, textHeadingSixMarginBottomTablet);
+      }
+
+      // Styles for desktop
+      @include above($desktopBreakpoint) {
+        color: map-get($configuration, textHeadingSixColorDesktop);
+        font-family: map-get($configuration, textHeadingSixFontFamilyDesktop);
+        font-size: map-get($configuration, textHeadingSixSizeDesktop);
+        font-style: map-get($configuration, textHeadingSixStyleDesktop);
+        text-decoration: map-get($configuration, textHeadingSixDecorationDesktop);
+        line-height: map-get($configuration, textHeadingSixHeightDesktop);
+        font-weight: map-get($configuration, textHeadingSixWeightDesktop);
+
+        margin-top: map-get($configuration, textHeadingSixMarginTopDesktop);
+        margin-bottom: map-get($configuration, textHeadingSixMarginBottomDesktop);
+      }
     }
   }
 }
