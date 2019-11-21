@@ -42,6 +42,7 @@
     listLargeMyListSwipeRightTextColor: $listLargeMyListSwipeRightTextColor,
     listLargeMyListSwipeLeftColor: $listLargeMyListSwipeLeftColor,
     listLargeMyListSwipeLeftTextColor: $listLargeMyListSwipeLeftTextColor,
+    listLargeVisibility: $listLargeVisibility,
     listLargeWidthTablet: $listLargeWidthTablet,
     listLargeMinWidthTablet: $listLargeMinWidthTablet,
     listLargeMaxWidthTablet: $listLargeMaxWidthTablet,
@@ -84,6 +85,7 @@
     listLargeMyListSwipeRightTextColorTablet: $listLargeMyListSwipeRightTextColorTablet,
     listLargeMyListSwipeLeftColorTablet: $listLargeMyListSwipeLeftColorTablet,
     listLargeMyListSwipeLeftTextColorTablet: $listLargeMyListSwipeLeftTextColorTablet,
+    listLargeVisibilityTablet: $listLargeVisibilityTablet,
     listLargeWidthDesktop: $listLargeWidthDesktop,
     listLargeMinWidthDesktop: $listLargeMinWidthDesktop,
     listLargeMaxWidthDesktop: $listLargeMaxWidthDesktop,
@@ -125,7 +127,8 @@
     listLargeMyListSwipeRightColorDesktop: $listLargeMyListSwipeRightColorDesktop,
     listLargeMyListSwipeRightTextColorDesktop: $listLargeMyListSwipeRightTextColorDesktop,
     listLargeMyListSwipeLeftColorDesktop: $listLargeMyListSwipeLeftColorDesktop,
-    listLargeMyListSwipeLeftTextColorDesktop: $listLargeMyListSwipeLeftTextColorDesktop
+    listLargeMyListSwipeLeftTextColorDesktop: $listLargeMyListSwipeLeftTextColorDesktop,
+    listLargeVisibilityDesktop: $listLargeVisibilityDesktop
   ), $options);
   
   $instanceSelector: '[data-widget-package="com.fliplet.list-large-thumbs"]';
@@ -147,6 +150,11 @@
       map-get($configuration, listLargePaddingRight)
       map-get($configuration, listLargePaddingBottom)
       map-get($configuration, listLargePaddingLeft);
+    @if map-get($configuration, listLargeVisibility) == 'visible' {
+      display: block !important;
+    } @else {
+      display: none !important;
+    }
 
     // Styles for tablet
     @include above($tabletBreakpoint) {
@@ -161,6 +169,11 @@
         map-get($configuration, listLargePaddingRightTablet)
         map-get($configuration, listLargePaddingBottomTablet)
         map-get($configuration, listLargePaddingLeftTablet);
+      @if map-get($configuration, listLargeVisibilityTablet) == 'visible' {
+        display: block !important;
+      } @else {
+        display: none !important;
+      }
     }
 
     // Styles for desktop
@@ -176,6 +189,11 @@
         map-get($configuration, listLargePaddingRightDesktop)
         map-get($configuration, listLargePaddingBottomDesktop)
         map-get($configuration, listLargePaddingLeftDesktop);
+      @if map-get($configuration, listLargeVisibilityDesktop) == 'visible' {
+        display: block !important;
+      } @else {
+        display: none !important;
+      }
     }
 
     .list.list-thumb-l {

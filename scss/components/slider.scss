@@ -42,6 +42,7 @@
     paginationBulletBorderActiveWidth: $paginationBulletBorderActiveWidth,
     paginationBulletBorderActiveStyle: $paginationBulletBorderActiveStyle,
     paginationBulletBorderActive: $paginationBulletBorderActive,
+    slideVisibility: $slideVisibility,
     sliderWidthTablet: $sliderWidthTablet,
     sliderMinWidthTablet: $sliderMinWidthTablet,
     sliderMaxWidthTablet: $sliderMaxWidthTablet,
@@ -84,6 +85,7 @@
     paginationBulletBorderActiveWidthTablet: $paginationBulletBorderActiveWidthTablet,
     paginationBulletBorderActiveStyleTablet: $paginationBulletBorderActiveStyleTablet,
     paginationBulletBorderActiveTablet: $paginationBulletBorderActiveTablet,
+    slideVisibilityTablet: $slideVisibilityTablet,
     sliderWidthDesktop: $sliderWidthDesktop,
     sliderMinWidthDesktop: $sliderMinWidthDesktop,
     sliderMaxWidthDesktop: $sliderMaxWidthDesktop,
@@ -125,7 +127,8 @@
     paginationBulletBorderActiveSidesDesktop: $paginationBulletBorderActiveSidesDesktop,
     paginationBulletBorderActiveWidthDesktop: $paginationBulletBorderActiveWidthDesktop,
     paginationBulletBorderActiveStyleDesktop: $paginationBulletBorderActiveStyleDesktop,
-    paginationBulletBorderActiveDesktop: $paginationBulletBorderActiveDesktop
+    paginationBulletBorderActiveDesktop: $paginationBulletBorderActiveDesktop,
+    slideVisibilityDesktop: $slideVisibilityDesktop
   ), $options);
 
   $instanceSelector: '[data-widget-package="com.fliplet.slider"]';
@@ -143,6 +146,11 @@
       map-get($configuration, sliderMarginRight)
       map-get($configuration, sliderMarginBottom)
       map-get($configuration, sliderMarginLeft);
+    @if map-get($configuration, slideVisibility) == 'visible' {
+      display: block !important;
+    } @else {
+      display: none !important;
+    }
 
     // Styles for tablet
     @include above($tabletBreakpoint) {
@@ -153,6 +161,11 @@
         map-get($configuration, sliderMarginRightTablet)
         map-get($configuration, sliderMarginBottomTablet)
         map-get($configuration, sliderMarginLeftTablet);
+      @if map-get($configuration, slideVisibilityTablet) == 'visible' {
+        display: block !important;
+      } @else {
+        display: none !important;
+      }
     }
 
     // Styles for desktop
@@ -164,6 +177,11 @@
         map-get($configuration, sliderMarginRightDesktop)
         map-get($configuration, sliderMarginBottomDesktop)
         map-get($configuration, sliderMarginLeftDesktop);
+      @if map-get($configuration, slideVisibilityDesktop) == 'visible' {
+        display: block !important;
+      } @else {
+        display: none !important;
+      }
     }
 
     .onboarding-holder {

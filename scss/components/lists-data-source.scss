@@ -68,7 +68,10 @@
     lfdSeparatorStyleDesktop: $lfdSeparatorStyleDesktop,
     lfdSeparatorColor: $lfdSeparatorColor,
     lfdSeparatorColorTablet: $lfdSeparatorColorTablet,
-    lfdSeparatorColorDesktop: $lfdSeparatorColorDesktop
+    lfdSeparatorColorDesktop: $lfdSeparatorColorDesktop,
+    lfdVisibility: $lfdVisibility,
+    lfdVisibilityTablet: $lfdVisibilityTablet,
+    lfdVisibilityDesktop: $lfdVisibilityDesktop
   ), $options);
 
   $instanceSelector: '[data-widget-package="com.fliplet.dynamic-lists"]';
@@ -85,6 +88,11 @@
       map-get($configuration, lfdMarginRight)
       map-get($configuration, lfdMarginBottom)
       map-get($configuration, lfdMarginLeft);
+    @if map-get($configuration, lfdVisibility) == 'visible' {
+      display: block !important;
+    } @else {
+      display: none !important;
+    }
 
     // Styles for tablet
     @include above($tabletBreakpoint) {
@@ -94,6 +102,11 @@
         map-get($configuration, lfdMarginRightTablet)
         map-get($configuration, lfdMarginBottomTablet)
         map-get($configuration, lfdMarginLeftTablet);
+      @if map-get($configuration, lfdVisibilityTablet) == 'visible' {
+        display: block !important;
+      } @else {
+        display: none !important;
+      }
     }
 
     // Styles for desktop
@@ -104,6 +117,11 @@
         map-get($configuration, lfdMarginRightDesktop)
         map-get($configuration, lfdMarginBottomDesktop)
         map-get($configuration, lfdMarginLeftDesktop);
+      @if map-get($configuration, lfdVisibilityDesktop) == 'visible' {
+        display: block !important;
+      } @else {
+        display: none !important;
+      }
     }
     
     .new-small-card-list-container,

@@ -93,6 +93,40 @@
     $instanceSelector: '#{$instanceSelector}[data-collapse-id="#{$widgetInstanceId}"]';
   }
 
+  $instanceWidgetStartSelector: '[data-widget-package="com.fliplet.accordionstart"]';
+  @if $widgetInstanceUUID != '' {
+    $instanceWidgetStartSelector: '#{$instanceWidgetStartSelector}[data-uuid="#{$widgetInstanceUUID}"]';
+  } @else if $widgetInstanceId != '' {
+    $instanceWidgetStartSelector: '#{$instanceWidgetStartSelector}[data-id="#{$widgetInstanceId}"]';
+  }
+
+  $instanceWidgetEndSelector: '[data-widget-package="com.fliplet.accordionend"]';
+  @if $widgetInstanceUUID != '' {
+    $instanceWidgetEndSelector: '#{$instanceWidgetEndSelector}[data-uuid="#{$widgetInstanceUUID}"]';
+  } @else if $widgetInstanceId != '' {
+    $instanceWidgetEndSelector: '#{$instanceWidgetEndSelector}[data-id="#{$widgetInstanceId}"]';
+  }
+
+  #{$instanceWidgetStartSelector},
+  #{$instanceWidgetEndSelector} {
+    width: map-get($configuration, accordionWidth);
+    min-width: map-get($configuration, accordionMinWidth);
+    max-width: map-get($configuration, accordionMaxWidth);
+
+    @include above($tabletBreakpoint) {
+      width: map-get($configuration, accordionWidthTablet);
+      min-width: map-get($configuration, accordionMinWidthTablet);
+      max-width: map-get($configuration, accordionMaxWidthTablet);
+    }
+
+    // Styles for desktop
+    @include above($desktopBreakpoint) {
+      width: map-get($configuration, accordionWidthDesktop);
+      min-width: map-get($configuration, accordionMinWidthDesktop);
+      max-width: map-get($configuration, accordionMaxWidthDesktop);
+    }
+  }
+
   .collapse-start {
     color: map-get($configuration, accordionHeadingText);
     background-color: map-get($configuration, accordionHeadingBg);
@@ -146,6 +180,9 @@
   }
 
   .collapse-end {
+    width: map-get($configuration, accordionWidth);
+    min-width: map-get($configuration, accordionMinWidth);
+    max-width: map-get($configuration, accordionMaxWidth);
     color: $bodyTextColor;
     background-color: $bodyBackground;
 
@@ -155,6 +192,9 @@
 
     // Styles for tablet
     @include above($tabletBreakpoint) {
+      width: map-get($configuration, accordionWidthTablet);
+      min-width: map-get($configuration, accordionMinWidthTablet);
+      max-width: map-get($configuration, accordionMaxWidthTablet);
       color: $bodyTextColorTablet;
       background-color: $bodyBackgroundTablet;
 
@@ -165,6 +205,9 @@
 
     // Styles for desktop
     @include above($desktopBreakpoint) {
+      width: map-get($configuration, accordionWidthDesktop);
+      min-width: map-get($configuration, accordionMinWidthDesktop);
+      max-width: map-get($configuration, accordionMaxWidthDesktop);
       color: $bodyTextColorDesktop;
       background-color: $bodyBackgroundDesktop;
 
@@ -175,10 +218,25 @@
   }
 
   .panel-group {
+    width: map-get($configuration, accordionWidth);
+    min-width: map-get($configuration, accordionMinWidth);
+    max-width: map-get($configuration, accordionMaxWidth);
+
+    // Styles for tablet
+    @include above($tabletBreakpoint) {
+      width: map-get($configuration, accordionWidthTablet);
+      min-width: map-get($configuration, accordionMinWidthTablet);
+      max-width: map-get($configuration, accordionMaxWidthTablet);
+    }
+
+    // Styles for desktop
+    @include above($desktopBreakpoint) {
+      width: map-get($configuration, accordionWidthDesktop);
+      min-width: map-get($configuration, accordionMinWidthDesktop);
+      max-width: map-get($configuration, accordionMaxWidthDesktop);
+    }
+
     #{$instanceSelector} {
-      width: map-get($configuration, accordionWidth);
-      min-width: map-get($configuration, accordionMinWidth);
-      max-width: map-get($configuration, accordionMaxWidth);
       margin: map-get($configuration, accordionMarginTop)
         map-get($configuration, accordionMarginRight)
         map-get($configuration, accordionMarginBottom)
@@ -194,9 +252,6 @@
 
       // Styles for tablet
       @include above($tabletBreakpoint) {
-        width: map-get($configuration, accordionWidthTablet);
-        min-width: map-get($configuration, accordionMinWidthTablet);
-        max-width: map-get($configuration, accordionMaxWidthTablet);
         margin: map-get($configuration, accordionMarginTopTablet)
           map-get($configuration, accordionMarginRightTablet)
           map-get($configuration, accordionMarginBottomTablet)
@@ -212,9 +267,6 @@
 
       // Styles for desktop
       @include above($desktopBreakpoint) {
-        width: map-get($configuration, accordionWidthDesktop);
-        min-width: map-get($configuration, accordionMinWidthDesktop);
-        max-width: map-get($configuration, accordionMaxWidthDesktop);
         margin: map-get($configuration, accordionMarginTopDesktop)
           map-get($configuration, accordionMarginRightDesktop)
           map-get($configuration, accordionMarginBottomDesktop)

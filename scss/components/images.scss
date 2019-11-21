@@ -6,6 +6,7 @@
     imagePositionRight: $imagePositionRight,
     imagePositionBottom: $imagePositionBottom,
     imagePositionLeft: $imagePositionLeft,
+    imageIndex: $imageIndex,
     imageWidth: $imageWidth,
     imageHeight: $imageHeight,
     imageMinWidth: $imageMinWidth,
@@ -31,12 +32,14 @@
     imageShadowBlur: $imageShadowBlur,
     imageShadowSpread: $imageShadowSpread,
     imageShadowColor: $imageShadowColor,
+    imageVisibility: $imageVisibility,
     imagePositionTablet: $imagePositionTablet,
     imageDisplayTablet: $imageDisplayTablet,
     imagePositionTopTablet: $imagePositionTopTablet,
     imagePositionRightTablet: $imagePositionRightTablet,
     imagePositionBottomTablet: $imagePositionBottomTablet,
     imagePositionLeftTablet: $imagePositionLeftTablet,
+    imageIndexTablet: $imageIndexTablet,
     imageWidthTablet: $imageWidthTablet,
     imageHeightTablet: $imageHeightTablet,
     imageMinWidthTablet: $imageMinWidthTablet,
@@ -62,12 +65,14 @@
     imageShadowBlurTablet: $imageShadowBlurTablet,
     imageShadowSpreadTablet: $imageShadowSpreadTablet,
     imageShadowColorTablet: $imageShadowColorTablet,
+    imageVisibilityTablet: $imageVisibilityTablet,
     imagePositionDesktop: $imagePositionDesktop,
     imageDisplayDesktop: $imageDisplayDesktop,
     imagePositionTopDesktop: $imagePositionTopDesktop,
     imagePositionRightDesktop: $imagePositionRightDesktop,
     imagePositionBottomDesktop: $imagePositionBottomDesktop,
     imagePositionLeftDesktop: $imagePositionLeftDesktop,
+    imageIndexDesktop: $imageIndexDesktop,
     imageWidthDesktop: $imageWidthDesktop,
     imageHeightDesktop: $imageHeightDesktop,
     imageMinWidthDesktop: $imageMinWidthDesktop,
@@ -92,7 +97,8 @@
     imageShadowYoffsetDesktop: $imageShadowYoffsetDesktop,
     imageShadowBlurDesktop: $imageShadowBlurDesktop,
     imageShadowSpreadDesktop: $imageShadowSpreadDesktop,
-    imageShadowColorDesktop: $imageShadowColorDesktop
+    imageShadowColorDesktop: $imageShadowColorDesktop,
+    imageVisibilityDesktop: $imageVisibilityDesktop
   ), $options);
 
   $instanceSelector: '[data-widget-package="com.fliplet.image"]';
@@ -106,17 +112,26 @@
     position: map-get($configuration, imagePosition);
 
     @if map-get($configuration, imagePosition) == 'relative' {
-      @if map-get($configuration, imageWidth) == '100%' {
-        display: block !important;
+      @if map-get($configuration, imageVisibility) == 'visible' {
+        @if map-get($configuration, imageWidth) == '100%' {
+          display: block !important;
+        } @else {
+          display: map-get($configuration, imageDisplay) !important;
+        }
       } @else {
-        display: map-get($configuration, imageDisplay) !important;
+        display: none !important;
       }
     } @else {
-      display: block !important;
+      @if map-get($configuration, imageVisibility) == 'visible' {
+        display: block !important;
+      } @else {
+        display: none !important;
+      }
       top: map-get($configuration, imagePositionTop);
       right: map-get($configuration, imagePositionRight);
       bottom: map-get($configuration, imagePositionBottom);
       left: map-get($configuration, imagePositionLeft);
+      z-index: map-get($configuration, imageIndex);
     }
     width: map-get($configuration, imageWidth);
     min-width: map-get($configuration, imageMinWidth);
@@ -135,17 +150,26 @@
       position: map-get($configuration, imagePositionTablet);
 
       @if map-get($configuration, imagePositionTablet) == 'relative' {
-        @if map-get($configuration, imageWidthTablet) == '100%' {
-          display: block !important;
+        @if map-get($configuration, imageVisibilityTablet) == 'visible' {
+          @if map-get($configuration, imageWidthTablet) == '100%' {
+            display: block !important;
+          } @else {
+            display: map-get($configuration, imageDisplayTablet) !important;
+          }
         } @else {
-          display: map-get($configuration, imageDisplayTablet) !important;
+          display: none !important;
         }
       } @else {
-        display: block !important;
+        @if map-get($configuration, imageVisibilityTablet) == 'visible' {
+          display: block !important;
+        } @else {
+          display: none !important;
+        }
         top: map-get($configuration, imagePositionTopTablet);
         right: map-get($configuration, imagePositionRightTablet);
         bottom: map-get($configuration, imagePositionBottomTablet);
         left: map-get($configuration, imagePositionLeftTablet);
+        z-index: map-get($configuration, imageIndexTablet);
       }
 
       width: map-get($configuration, imageWidthTablet);
@@ -166,17 +190,26 @@
       position: map-get($configuration, imagePositionDesktop);
 
       @if map-get($configuration, imagePositionDesktop) == 'relative' {
-        @if map-get($configuration, imageWidthDesktop) == '100%' {
-          display: block !important;
+        @if map-get($configuration, imageVisibilityDesktop) == 'visible' {
+          @if map-get($configuration, imageWidthDesktop) == '100%' {
+            display: block !important;
+          } @else {
+            display: map-get($configuration, imageDisplayDesktop) !important;
+          }
         } @else {
-          display: map-get($configuration, imageDisplayDesktop) !important;
+          display: none !important;
         }
       } @else {
-        display: block !important;
+        @if map-get($configuration, imageVisibilityDesktop) == 'visible' {
+          display: block !important;
+        } @else {
+          display: none !important;
+        }
         top: map-get($configuration, imagePositionTopDesktop);
         right: map-get($configuration, imagePositionRightDesktop);
         bottom: map-get($configuration, imagePositionBottomDesktop);
         left: map-get($configuration, imagePositionLeftDesktop);
+        z-index: map-get($configuration, imageIndexDesktop);
       }
 
       width: map-get($configuration, imageWidthDesktop);
