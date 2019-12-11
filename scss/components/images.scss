@@ -110,6 +110,7 @@
 
   #{$instanceSelector} {
     position: map-get($configuration, imagePosition);
+    z-index: map-get($configuration, imageIndex);
 
     @if map-get($configuration, imagePosition) == 'relative' {
       @if map-get($configuration, imageVisibility) == 'visible' {
@@ -127,11 +128,11 @@
       } @else {
         display: none !important;
       }
+
       top: map-get($configuration, imagePositionTop);
       right: map-get($configuration, imagePositionRight);
       bottom: map-get($configuration, imagePositionBottom);
       left: map-get($configuration, imagePositionLeft);
-      z-index: map-get($configuration, imageIndex);
     }
     width: map-get($configuration, imageWidth);
     min-width: map-get($configuration, imageMinWidth);
@@ -148,6 +149,7 @@
     // Styles for tablet
     @include above($tabletBreakpoint) {
       position: map-get($configuration, imagePositionTablet);
+      z-index: map-get($configuration, imageIndexTablet);
 
       @if map-get($configuration, imagePositionTablet) == 'relative' {
         @if map-get($configuration, imageVisibilityTablet) == 'visible' {
@@ -165,11 +167,11 @@
         } @else {
           display: none !important;
         }
+
         top: map-get($configuration, imagePositionTopTablet);
         right: map-get($configuration, imagePositionRightTablet);
         bottom: map-get($configuration, imagePositionBottomTablet);
         left: map-get($configuration, imagePositionLeftTablet);
-        z-index: map-get($configuration, imageIndexTablet);
       }
 
       width: map-get($configuration, imageWidthTablet);
@@ -188,6 +190,7 @@
     // Styles for desktop
     @include above($desktopBreakpoint) {
       position: map-get($configuration, imagePositionDesktop);
+      z-index: map-get($configuration, imageIndexDesktop);
 
       @if map-get($configuration, imagePositionDesktop) == 'relative' {
         @if map-get($configuration, imageVisibilityDesktop) == 'visible' {
@@ -205,11 +208,11 @@
         } @else {
           display: none !important;
         }
+
         top: map-get($configuration, imagePositionTopDesktop);
         right: map-get($configuration, imagePositionRightDesktop);
         bottom: map-get($configuration, imagePositionBottomDesktop);
         left: map-get($configuration, imagePositionLeftDesktop);
-        z-index: map-get($configuration, imageIndexDesktop);
       }
 
       width: map-get($configuration, imageWidthDesktop);

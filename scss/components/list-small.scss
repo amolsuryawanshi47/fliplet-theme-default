@@ -3,6 +3,13 @@
     listSmallWidth: $listSmallWidth,
     listSmallMinWidth: $listSmallMinWidth,
     listSmallMaxWidth: $listSmallMaxWidth,
+    listSmallPosition: $listSmallPosition,
+    listSmallPositionTop: $listSmallPositionTop,
+    listSmallPositionRight: $listSmallPositionRight,
+    listSmallPositionBottom: $listSmallPositionBottom,
+    listSmallPositionLeft: $listSmallPositionLeft,
+    listSmallIndex: $listSmallIndex,
+    listSmallDisplay: $listSmallDisplay,
     listSmallMarginTop: $listSmallMarginTop,
     listSmallMarginRight: $listSmallMarginRight,
     listSmallMarginBottom: $listSmallMarginBottom,
@@ -46,6 +53,13 @@
     listSmallWidthTablet: $listSmallWidthTablet,
     listSmallMinWidthTablet: $listSmallMinWidthTablet,
     listSmallMaxWidthTablet: $listSmallMaxWidthTablet,
+    listSmallPositionTablet: $listSmallPositionTablet,
+    listSmallPositionTopTablet: $listSmallPositionTopTablet,
+    listSmallPositionRightTablet: $listSmallPositionRightTablet,
+    listSmallPositionBottomTablet: $listSmallPositionBottomTablet,
+    listSmallPositionLeftTablet: $listSmallPositionLeftTablet,
+    listSmallIndexTablet: $listSmallIndexTablet,
+    listSmallDisplayTablet: $listSmallDisplayTablet,
     listSmallMarginTopTablet: $listSmallMarginTopTablet,
     listSmallMarginRightTablet: $listSmallMarginRightTablet,
     listSmallMarginBottomTablet: $listSmallMarginBottomTablet,
@@ -89,6 +103,13 @@
     listSmallWidthDesktop: $listSmallWidthDesktop,
     listSmallMinWidthDesktop: $listSmallMinWidthDesktop,
     listSmallMaxWidthDesktop: $listSmallMaxWidthDesktop,
+    listSmallPositionDesktop: $listSmallPositionDesktop,
+    listSmallPositionTopDesktop: $listSmallPositionTopDesktop,
+    listSmallPositionRightDesktop: $listSmallPositionRightDesktop,
+    listSmallPositionBottomDesktop: $listSmallPositionBottomDesktop,
+    listSmallPositionLeftDesktop: $listSmallPositionLeftDesktop,
+    listSmallIndexDesktop: $listSmallIndexDesktop,
+    listSmallDisplayDesktop: $listSmallDisplayDesktop,
     listSmallMarginTopDesktop: $listSmallMarginTopDesktop,
     listSmallMarginRightDesktop: $listSmallMarginRightDesktop,
     listSmallMarginBottomDesktop: $listSmallMarginBottomDesktop,
@@ -139,6 +160,28 @@
   }
 
   #{$instanceSelector} {
+    position: map-get($configuration, listSmallPosition) !important;
+    z-index: map-get($configuration, listSmallIndex);
+
+    @if map-get($configuration, listSmallPosition) == 'relative' {
+      @if map-get($configuration, listSmallVisibility) == 'visible' {
+        display: map-get($configuration, listSmallDisplay) !important;
+      } @else {
+        display: none !important;
+      }
+    } @else {
+      @if map-get($configuration, listSmallVisibility) == 'visible' {
+        display: block !important;
+      } @else {
+        display: none !important;
+      }
+
+      top: map-get($configuration, listSmallPositionTop);
+      right: map-get($configuration, listSmallPositionRight);
+      bottom: map-get($configuration, listSmallPositionBottom);
+      left: map-get($configuration, listSmallPositionLeft);
+    }
+
     width: map-get($configuration, listSmallWidth);
     min-width: map-get($configuration, listSmallMinWidth);
     max-width: map-get($configuration, listSmallMaxWidth);
@@ -150,14 +193,31 @@
       map-get($configuration, listSmallPaddingRight)
       map-get($configuration, listSmallPaddingBottom)
       map-get($configuration, listSmallPaddingLeft);
-    @if map-get($configuration, listSmallVisibility) == 'visible' {
-      display: block !important;
-    } @else {
-      display: none !important;
-    }
 
     // Styles for tablet
     @include above($tabletBreakpoint) {
+      position: map-get($configuration, listSmallPositionTablet) !important;
+      z-index: map-get($configuration, listSmallIndexTablet);
+
+      @if map-get($configuration, listSmallPositionTablet) == 'relative' {
+        @if map-get($configuration, listSmallVisibilityTablet) == 'visible' {
+          display: map-get($configuration, listSmallDisplayTablet) !important;
+        } @else {
+          display: none !important;
+        }
+      } @else {
+        @if map-get($configuration, listSmallVisibilityTablet) == 'visible' {
+          display: block !important;
+        } @else {
+          display: none !important;
+        }
+
+        top: map-get($configuration, listSmallPositionTopTablet);
+        right: map-get($configuration, listSmallPositionRightTablet);
+        bottom: map-get($configuration, listSmallPositionBottomTablet);
+        left: map-get($configuration, listSmallPositionLeftTablet);
+      }
+
       width: map-get($configuration, listSmallWidthTablet);
       min-width: map-get($configuration, listSmallMinWidthTablet);
       max-width: map-get($configuration, listSmallMaxWidthTablet);
@@ -169,15 +229,32 @@
         map-get($configuration, listSmallPaddingRightTablet)
         map-get($configuration, listSmallPaddingBottomTablet)
         map-get($configuration, listSmallPaddingLeftTablet);
-      @if map-get($configuration, listSmallVisibilityTablet) == 'visible' {
-        display: block !important;
-      } @else {
-        display: none !important;
-      }
     }
 
     // Styles for desktop
     @include above($desktopBreakpoint) {
+      position: map-get($configuration, listSmallPositionDesktop) !important;
+      z-index: map-get($configuration, listSmallIndexDesktop);
+
+      @if map-get($configuration, listSmallPositionDesktop) == 'relative' {
+        @if map-get($configuration, listSmallVisibilityDesktop) == 'visible' {
+          display: map-get($configuration, listSmallDisplayDesktop) !important;
+        } @else {
+          display: none !important;
+        }
+      } @else {
+        @if map-get($configuration, listSmallVisibilityDesktop) == 'visible' {
+          display: block !important;
+        } @else {
+          display: none !important;
+        }
+
+        top: map-get($configuration, listSmallPositionTopDesktop);
+        right: map-get($configuration, listSmallPositionRightDesktop);
+        bottom: map-get($configuration, listSmallPositionBottomDesktop);
+        left: map-get($configuration, listSmallPositionLeftDesktop);
+      }
+
       width: map-get($configuration, listSmallWidthDesktop);
       min-width: map-get($configuration, listSmallMinWidthDesktop);
       max-width: map-get($configuration, listSmallMaxWidthDesktop);
@@ -189,11 +266,6 @@
         map-get($configuration, listSmallPaddingRightDesktop)
         map-get($configuration, listSmallPaddingBottomDesktop)
         map-get($configuration, listSmallPaddingLeftDesktop);
-      @if map-get($configuration, listSmallVisibilityDesktop) == 'visible' {
-        display: block !important;
-      } @else {
-        display: none !important;
-      }
     }
 
     .list.list-thumb-s {

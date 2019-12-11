@@ -3,6 +3,13 @@
     panelWidth: $panelWidth,
     panelMinWidth: $panelMinWidth,
     panelMaxWidth: $panelMaxWidth,
+    panelPosition: $panelPosition,
+    panelPositionTop: $panelPositionTop,
+    panelPositionRight: $panelPositionRight,
+    panelPositionBottom: $panelPositionBottom,
+    panelPositionLeft: $panelPositionLeft,
+    panelIndex: $panelIndex,
+    panelDisplay: $panelDisplay,
     panelMarginTop: $panelMarginTop,
     panelMarginRight: $panelMarginRight,
     panelMarginBottom: $panelMarginBottom,
@@ -43,6 +50,13 @@
     panelWidthTablet: $panelWidthTablet,
     panelMinWidthTablet: $panelMinWidthTablet,
     panelMaxWidthTablet: $panelMaxWidthTablet,
+    panelPositionTablet: $panelPositionTablet,
+    panelPositionTopTablet: $panelPositionTopTablet,
+    panelPositionRightTablet: $panelPositionRightTablet,
+    panelPositionBottomTablet: $panelPositionBottomTablet,
+    panelPositionLeftTablet: $panelPositionLeftTablet,
+    panelIndexTablet: $panelIndexTablet,
+    panelDisplayTablet: $panelDisplayTablet,
     panelMarginTopTablet: $panelMarginTopTablet,
     panelMarginRightTablet: $panelMarginRightTablet,
     panelMarginBottomTablet: $panelMarginBottomTablet,
@@ -83,6 +97,13 @@
     panelWidthDesktop: $panelWidthDesktop,
     panelMinWidthDesktop: $panelMinWidthDesktop,
     panelMaxWidthDesktop: $panelMaxWidthDesktop,
+    panelPositionDesktop: $panelPositionDesktop,
+    panelPositionTopDesktop: $panelPositionTopDesktop,
+    panelPositionRightDesktop: $panelPositionRightDesktop,
+    panelPositionBottomDesktop: $panelPositionBottomDesktop,
+    panelPositionLeftDesktop: $panelPositionLeftDesktop,
+    panelIndexDesktop: $panelIndexDesktop,
+    panelDisplayDesktop: $panelDisplayDesktop,
     panelMarginTopDesktop: $panelMarginTopDesktop,
     panelMarginRightDesktop: $panelMarginRightDesktop,
     panelMarginBottomDesktop: $panelMarginBottomDesktop,
@@ -130,6 +151,28 @@
   }
 
   #{$instanceSelector} {
+    position: map-get($configuration, panelPosition) !important;
+    z-index: map-get($configuration, panelIndex);
+
+    @if map-get($configuration, panelPosition) == 'relative' {
+      @if map-get($configuration, panelVisibility) == 'visible' {
+        display: map-get($configuration, panelDisplay) !important;
+      } @else {
+        display: none !important;
+      }
+    } @else {
+      @if map-get($configuration, panelVisibility) == 'visible' {
+        display: block !important;
+      } @else {
+        display: none !important;
+      }
+
+      top: map-get($configuration, panelPositionTop);
+      right: map-get($configuration, panelPositionRight);
+      bottom: map-get($configuration, panelPositionBottom);
+      left: map-get($configuration, panelPositionLeft);
+    }
+
     width: map-get($configuration, panelWidth);
     min-width: map-get($configuration, panelMinWidth);
     max-width: map-get($configuration, panelMaxWidth);
@@ -141,14 +184,31 @@
       map-get($configuration, panelPaddingRight)
       map-get($configuration, panelPaddingBottom)
       map-get($configuration, panelPaddingLeft);
-    @if map-get($configuration, panelVisibility) == 'visible' {
-      display: block !important;
-    } @else {
-      display: none !important;
-    }
 
     // Styles for tablet
     @include above($tabletBreakpoint) {
+      position: map-get($configuration, panelPositionTablet) !important;
+      z-index: map-get($configuration, panelIndexTablet);
+
+      @if map-get($configuration, panelPositionTablet) == 'relative' {
+        @if map-get($configuration, panelVisibilityTablet) == 'visible' {
+          display: map-get($configuration, panelDisplayTablet) !important;
+        } @else {
+          display: none !important;
+        }
+      } @else {
+        @if map-get($configuration, panelVisibilityTablet) == 'visible' {
+          display: block !important;
+        } @else {
+          display: none !important;
+        }
+
+        top: map-get($configuration, panelPositionTopTablet);
+        right: map-get($configuration, panelPositionRightTablet);
+        bottom: map-get($configuration, panelPositionBottomTablet);
+        left: map-get($configuration, panelPositionLeftTablet);
+      }
+
       width: map-get($configuration, panelWidthTablet);
       min-width: map-get($configuration, panelMinWidthTablet);
       max-width: map-get($configuration, panelMaxWidthTablet);
@@ -160,15 +220,32 @@
         map-get($configuration, panelPaddingRightTablet)
         map-get($configuration, panelPaddingBottomTablet)
         map-get($configuration, panelPaddingLeftTablet);
-      @if map-get($configuration, panelVisibilityTablet) == 'visible' {
-        display: block !important;
-      } @else {
-        display: none !important;
-      }
     }
 
     // Styles for desktop
     @include above($desktopBreakpoint) {
+      position: map-get($configuration, panelPositionDesktop) !important;
+      z-index: map-get($configuration, panelIndexDesktop);
+
+      @if map-get($configuration, panelPositionDesktop) == 'relative' {
+        @if map-get($configuration, panelVisibilityDesktop) == 'visible' {
+          display: map-get($configuration, panelDisplayDesktop) !important;
+        } @else {
+          display: none !important;
+        }
+      } @else {
+        @if map-get($configuration, panelVisibilityDesktop) == 'visible' {
+          display: block !important;
+        } @else {
+          display: none !important;
+        }
+
+        top: map-get($configuration, panelPositionTopDesktop);
+        right: map-get($configuration, panelPositionRightDesktop);
+        bottom: map-get($configuration, panelPositionBottomDesktop);
+        left: map-get($configuration, panelPositionLeftDesktop);
+      }
+
       width: map-get($configuration, panelWidthDesktop);
       min-width: map-get($configuration, panelMinWidthDesktop);
       max-width: map-get($configuration, panelMaxWidthDesktop);
@@ -180,11 +257,6 @@
         map-get($configuration, panelPaddingRightDesktop)
         map-get($configuration, panelPaddingBottomDesktop)
         map-get($configuration, panelPaddingLeftDesktop);
-      @if map-get($configuration, panelVisibilityDesktop) == 'visible' {
-        display: block !important;
-      } @else {
-        display: none !important;
-      }
     }
 
     .list-panels {
