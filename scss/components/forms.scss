@@ -3,6 +3,14 @@
     formWidth: $formWidth,
     formMinWidth: $formMinWidth,
     formMaxWidth: $formMaxWidth,
+    formPosition: $formPosition,
+    formPositionTop: $formPositionTop,
+    formPositionRight: $formPositionRight,
+    formPositionBottom: $formPositionBottom,
+    formPositionLeft: $formPositionLeft,
+    formIndex: $formIndex,
+    formDisplay: $formDisplay,
+    formMarginAlign: $formMarginAlign,
     formMarginTop: $formMarginTop,
     formMarginRight: $formMarginRight,
     formMarginBottom: $formMarginBottom,
@@ -46,9 +54,18 @@
     formStarRating: $formStarRating,
     formStarRatingSelected: $formStarRatingSelected,
     formRequiredColor: $formRequiredColor,
+    formVisibility: $formVisibility,
     formWidthTablet: $formWidthTablet,
     formMinWidthTablet: $formMinWidthTablet,
     formMaxWidthTablet: $formMaxWidthTablet,
+    formPositionTablet: $formPositionTablet,
+    formPositionTopTablet: $formPositionTopTablet,
+    formPositionRightTablet: $formPositionRightTablet,
+    formPositionBottomTablet: $formPositionBottomTablet,
+    formPositionLeftTablet: $formPositionLeftTablet,
+    formIndexTablet: $formIndexTablet,
+    formDisplayTablet: $formDisplayTablet,
+    formMarginAlignTablet: $formMarginAlignTablet,
     formMarginTopTablet: $formMarginTopTablet,
     formMarginRightTablet: $formMarginRightTablet,
     formMarginBottomTablet: $formMarginBottomTablet,
@@ -92,9 +109,18 @@
     formStarRatingTablet: $formStarRatingTablet,
     formStarRatingSelectedTablet: $formStarRatingSelectedTablet,
     formRequiredColorTablet: $formRequiredColorTablet,
+    formVisibilityTablet: $formVisibilityTablet,
     formWidthDesktop: $formWidthDesktop,
     formMinWidthDesktop: $formMinWidthDesktop,
     formMaxWidthDesktop: $formMaxWidthDesktop,
+    formPositionDesktop: $formPositionDesktop,
+    formPositionTopDesktop: $formPositionTopDesktop,
+    formPositionRightDesktop: $formPositionRightDesktop,
+    formPositionBottomDesktop: $formPositionBottomDesktop,
+    formPositionLeftDesktop: $formPositionLeftDesktop,
+    formIndexDesktop: $formIndexDesktop,
+    formDisplayDesktop: $formDisplayDesktop,
+    formMarginAlignDesktop: $formMarginAlignDesktop,
     formMarginTopDesktop: $formMarginTopDesktop,
     formMarginRightDesktop: $formMarginRightDesktop,
     formMarginBottomDesktop: $formMarginBottomDesktop,
@@ -137,7 +163,8 @@
     formSelectArrowDesktop: $formSelectArrowDesktop,
     formStarRatingDesktop: $formStarRatingDesktop,
     formStarRatingSelectedDesktop: $formStarRatingSelectedDesktop,
-    formRequiredColorDesktop: $formRequiredColorDesktop
+    formRequiredColorDesktop: $formRequiredColorDesktop,
+    formVisibilityDesktop: $formVisibilityDesktop
   ), $options);
 
   $spinnerColor: lighten($bodyTextColor, 33%);
@@ -152,6 +179,28 @@
   }
 
   #{$instanceSelector} {
+    position: map-get($configuration, formPosition) !important;
+    z-index: map-get($configuration, formIndex);
+
+    @if map-get($configuration, formPosition) == 'relative' {
+      @if map-get($configuration, formVisibility) == 'visible' {
+        display: map-get($configuration, formDisplay) !important;
+      } @else {
+        display: none !important;
+      }
+    } @else {
+      @if map-get($configuration, formVisibility) == 'visible' {
+        display: block !important;
+      } @else {
+        display: none !important;
+      }
+
+      top: map-get($configuration, formPositionTop);
+      right: map-get($configuration, formPositionRight);
+      bottom: map-get($configuration, formPositionBottom);
+      left: map-get($configuration, formPositionLeft);
+    }
+
     width: map-get($configuration, formWidth);
     min-width: map-get($configuration, formMinWidth);
     max-width: map-get($configuration, formMaxWidth);
@@ -165,6 +214,28 @@
       map-get($configuration, formPaddingLeft);
 
     @include above($tabletBreakpoint) {
+      position: map-get($configuration, formPositionTablet) !important;
+      z-index: map-get($configuration, formIndexTablet);
+
+      @if map-get($configuration, formPositionTablet) == 'relative' {
+        @if map-get($configuration, formVisibilityTablet) == 'visible' {
+          display: map-get($configuration, formDisplayTablet) !important;
+        } @else {
+          display: none !important;
+        }
+      } @else {
+        @if map-get($configuration, formVisibilityTablet) == 'visible' {
+          display: block !important;
+        } @else {
+          display: none !important;
+        }
+
+        top: map-get($configuration, formPositionTopTablet);
+        right: map-get($configuration, formPositionRightTablet);
+        bottom: map-get($configuration, formPositionBottomTablet);
+        left: map-get($configuration, formPositionLeftTablet);
+      }
+
       width: map-get($configuration, formWidthTablet);
       min-width: map-get($configuration, formMinWidthTablet);
       max-width: map-get($configuration, formMaxWidthTablet);
@@ -179,6 +250,28 @@
     }
 
     @include above($desktopBreakpoint) {
+      position: map-get($configuration, formPositionDesktop) !important;
+      z-index: map-get($configuration, formIndexDesktop);
+
+      @if map-get($configuration, formPositionDesktop) == 'relative' {
+        @if map-get($configuration, formVisibilityDesktop) == 'visible' {
+          display: map-get($configuration, formDisplayDesktop) !important;
+        } @else {
+          display: none !important;
+        }
+      } @else {
+        @if map-get($configuration, formVisibilityDesktop) == 'visible' {
+          display: block !important;
+        } @else {
+          display: none !important;
+        }
+
+        top: map-get($configuration, formPositionTopDesktop);
+        right: map-get($configuration, formPositionRightDesktop);
+        bottom: map-get($configuration, formPositionBottomDesktop);
+        left: map-get($configuration, formPositionLeftDesktop);
+      }
+
       width: map-get($configuration, formWidthDesktop);
       min-width: map-get($configuration, formMinWidthDesktop);
       max-width: map-get($configuration, formMaxWidthDesktop);

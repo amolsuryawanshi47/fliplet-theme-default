@@ -3,6 +3,13 @@
     rssWidth: $rssWidth,
     rssMinWidth: $rssMinWidth,
     rssMaxWidth: $rssMaxWidth,
+    rssPosition: $rssPosition,
+    rssPositionTop: $rssPositionTop,
+    rssPositionRight: $rssPositionRight,
+    rssPositionBottom: $rssPositionBottom,
+    rssPositionLeft: $rssPositionLeft,
+    rssIndex: $rssIndex,
+    rssDisplay: $rssDisplay,
     rssMarginTop: $rssMarginTop,
     rssMarginRight: $rssMarginRight,
     rssMarginBottom: $rssMarginBottom,
@@ -32,6 +39,13 @@
     rssWidthTablet: $rssWidthTablet,
     rssMinWidthTablet: $rssMinWidthTablet,
     rssMaxWidthTablet: $rssMaxWidthTablet,
+    rssPositionTablet: $rssPositionTablet,
+    rssPositionTopTablet: $rssPositionTopTablet,
+    rssPositionRightTablet: $rssPositionRightTablet,
+    rssPositionBottomTablet: $rssPositionBottomTablet,
+    rssPositionLeftTablet: $rssPositionLeftTablet,
+    rssIndexTablet: $rssIndexTablet,
+    rssDisplayTablet: $rssDisplayTablet,
     rssMarginTopTablet: $rssMarginTopTablet,
     rssMarginRightTablet: $rssMarginRightTablet,
     rssMarginBottomTablet: $rssMarginBottomTablet,
@@ -61,6 +75,13 @@
     rssWidthDesktop: $rssWidthDesktop,
     rssMinWidthDesktop: $rssMinWidthDesktop,
     rssMaxWidthDesktop: $rssMaxWidthDesktop,
+    rssPositionDesktop: $rssPositionDesktop,
+    rssPositionTopDesktop: $rssPositionTopDesktop,
+    rssPositionRightDesktop: $rssPositionRightDesktop,
+    rssPositionBottomDesktop: $rssPositionBottomDesktop,
+    rssPositionLeftDesktop: $rssPositionLeftDesktop,
+    rssIndexDesktop: $rssIndexDesktop,
+    rssDisplayDesktop: $rssDisplayDesktop,
     rssMarginTopDesktop: $rssMarginTopDesktop,
     rssMarginRightDesktop: $rssMarginRightDesktop,
     rssMarginBottomDesktop: $rssMarginBottomDesktop,
@@ -97,6 +118,28 @@
   }
 
   #{$instanceSelector} {
+    position: map-get($configuration, rssPosition) !important;
+    z-index: map-get($configuration, rssIndex);
+
+    @if map-get($configuration, rssPosition) == 'relative' {
+      @if map-get($configuration, rssVisibility) == 'visible' {
+        display: map-get($configuration, rssDisplay) !important;
+      } @else {
+        display: none !important;
+      }
+    } @else {
+      @if map-get($configuration, rssVisibility) == 'visible' {
+        display: block !important;
+      } @else {
+        display: none !important;
+      }
+
+      top: map-get($configuration, rssPositionTop);
+      right: map-get($configuration, rssPositionRight);
+      bottom: map-get($configuration, rssPositionBottom);
+      left: map-get($configuration, rssPositionLeft);
+    }
+
     width: map-get($configuration, rssWidth);
     min-width: map-get($configuration, rssMinWidth);
     max-width: map-get($configuration, rssMaxWidth);
@@ -108,14 +151,31 @@
       map-get($configuration, rssPaddingRight)
       map-get($configuration, rssPaddingBottom)
       map-get($configuration, rssPaddingLeft);
-    @if map-get($configuration, rssVisibility) == 'visible' {
-      display: block !important;
-    } @else {
-      display: none !important;
-    }
 
     // Styles for tablet
     @include above($tabletBreakpoint) {
+      position: map-get($configuration, rssPositionTablet) !important;
+      z-index: map-get($configuration, rssIndexTablet);
+
+      @if map-get($configuration, rssPositionTablet) == 'relative' {
+        @if map-get($configuration, rssVisibilityTablet) == 'visible' {
+          display: map-get($configuration, rssDisplayTablet) !important;
+        } @else {
+          display: none !important;
+        }
+      } @else {
+        @if map-get($configuration, rssVisibilityTablet) == 'visible' {
+          display: block !important;
+        } @else {
+          display: none !important;
+        }
+
+        top: map-get($configuration, rssPositionTopTablet);
+        right: map-get($configuration, rssPositionRightTablet);
+        bottom: map-get($configuration, rssPositionBottomTablet);
+        left: map-get($configuration, rssPositionLeftTablet);
+      }
+
       width: map-get($configuration, rssWidthTablet);
       min-width: map-get($configuration, rssMinWidthTablet);
       max-width: map-get($configuration, rssMaxWidthTablet);
@@ -127,15 +187,32 @@
         map-get($configuration, rssPaddingRightTablet)
         map-get($configuration, rssPaddingBottomTablet)
         map-get($configuration, rssPaddingLeftTablet);
-      @if map-get($configuration, rssVisibilityTablet) == 'visible' {
-        display: block !important;
-      } @else {
-        display: none !important;
-      }
     }
 
     // Styles for desktop
     @include above($desktopBreakpoint) {
+      position: map-get($configuration, rssPositionDesktop) !important;
+      z-index: map-get($configuration, rssIndexDesktop);
+
+      @if map-get($configuration, rssPositionDesktop) == 'relative' {
+        @if map-get($configuration, rssVisibilityDesktop) == 'visible' {
+          display: map-get($configuration, rssDisplayDesktop) !important;
+        } @else {
+          display: none !important;
+        }
+      } @else {
+        @if map-get($configuration, rssVisibilityDesktop) == 'visible' {
+          display: block !important;
+        } @else {
+          display: none !important;
+        }
+
+        top: map-get($configuration, rssPositionTopDesktop);
+        right: map-get($configuration, rssPositionRightDesktop);
+        bottom: map-get($configuration, rssPositionBottomDesktop);
+        left: map-get($configuration, rssPositionLeftDesktop);
+      }
+
       width: map-get($configuration, rssWidthDesktop);
       min-width: map-get($configuration, rssMinWidthDesktop);
       max-width: map-get($configuration, rssMaxWidthDesktop);
@@ -147,11 +224,6 @@
         map-get($configuration, rssPaddingRightDesktop)
         map-get($configuration, rssPaddingBottomDesktop)
         map-get($configuration, rssPaddingLeftDesktop);
-      @if map-get($configuration, rssVisibilityDesktop) == 'visible' {
-        display: block !important;
-      } @else {
-        display: none !important;
-      }
     }
     
     .feed {

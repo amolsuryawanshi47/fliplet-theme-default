@@ -3,6 +3,13 @@
     lockWidth: $lockWidth,
     lockMinWidth: $lockMinWidth,
     lockMaxWidth: $lockMaxWidth,
+    lockPosition: $lockPosition,
+    lockPositionTop: $lockPositionTop,
+    lockPositionRight: $lockPositionRight,
+    lockPositionBottom: $lockPositionBottom,
+    lockPositionLeft: $lockPositionLeft,
+    lockIndex: $lockIndex,
+    lockDisplay: $lockDisplay,
     lockMarginTop: $lockMarginTop,
     lockMarginRight: $lockMarginRight,
     lockMarginBottom: $lockMarginBottom,
@@ -15,9 +22,17 @@
     lockInputFocus: $lockInputFocus,
     lockChevronColor: $lockChevronColor,
     touchIDBorder: $touchIDBorder,
+    lockVisibility: $lockVisibility,
     lockWidthTablet: $lockWidthTablet,
     lockMinWidthTablet: $lockMinWidthTablet,
     lockMaxWidthTablet: $lockMaxWidthTablet,
+    lockPositionTablet: $lockPositionTablet,
+    lockPositionTopTablet: $lockPositionTopTablet,
+    lockPositionRightTablet: $lockPositionRightTablet,
+    lockPositionBottomTablet: $lockPositionBottomTablet,
+    lockPositionLeftTablet: $lockPositionLeftTablet,
+    lockIndexTablet: $lockIndexTablet,
+    lockDisplayTablet: $lockDisplayTablet,
     lockMarginTopTablet: $lockMarginTopTablet,
     lockMarginRightTablet: $lockMarginRightTablet,
     lockMarginBottomTablet: $lockMarginBottomTablet,
@@ -30,9 +45,17 @@
     lockInputFocusTablet: $lockInputFocusTablet,
     lockChevronColorTablet: $lockChevronColorTablet,
     touchIDBorderTablet: $touchIDBorderTablet,
+    lockVisibilityTablet: $lockVisibilityTablet,
     lockWidthDesktop: $lockWidthDesktop,
     lockMinWidthDesktop: $lockMinWidthDesktop,
     lockMaxWidthDesktop: $lockMaxWidthDesktop,
+    lockPositionDesktop: $lockPositionDesktop,
+    lockPositionTopDesktop: $lockPositionTopDesktop,
+    lockPositionRightDesktop: $lockPositionRightDesktop,
+    lockPositionBottomDesktop: $lockPositionBottomDesktop,
+    lockPositionLeftDesktop: $lockPositionLeftDesktop,
+    lockIndexDesktop: $lockIndexDesktop,
+    lockDisplayDesktop: $lockDisplayDesktop,
     lockMarginTopDesktop: $lockMarginTopDesktop,
     lockMarginRightDesktop: $lockMarginRightDesktop,
     lockMarginBottomDesktop: $lockMarginBottomDesktop,
@@ -44,7 +67,8 @@
     lockInputDesktop: $lockInputDesktop,
     lockInputFocusDesktop: $lockInputFocusDesktop,
     lockChevronColorDesktop: $lockChevronColorDesktop,
-    touchIDBorderDesktop: $touchIDBorderDesktop
+    touchIDBorderDesktop: $touchIDBorderDesktop,
+    lockVisibilityDesktop: $lockVisibilityDesktop
   ), $options);
 
   $instanceSelector: '[data-widget-package="com.fliplet.lock"]';
@@ -55,6 +79,28 @@
   }
 
   #{$instanceSelector} {
+    position: map-get($configuration, lockPosition) !important;
+    z-index: map-get($configuration, lockIndex);
+
+    @if map-get($configuration, lockPosition) == 'relative' {
+      @if map-get($configuration, lockVisibility) == 'visible' {
+        display: map-get($configuration, lockDisplay) !important;
+      } @else {
+        display: none !important;
+      }
+    } @else {
+      @if map-get($configuration, lockVisibility) == 'visible' {
+        display: block !important;
+      } @else {
+        display: none !important;
+      }
+
+      top: map-get($configuration, lockPositionTop);
+      right: map-get($configuration, lockPositionRight);
+      bottom: map-get($configuration, lockPositionBottom);
+      left: map-get($configuration, lockPositionLeft);
+    }
+
     width: map-get($configuration, lockWidth);
     min-width: map-get($configuration, lockMinWidth);
     max-width: map-get($configuration, lockMaxWidth);
@@ -65,6 +111,28 @@
 
     // Styles for tablet
     @include above($tabletBreakpoint) {
+      position: map-get($configuration, lockPositionTablet) !important;
+      z-index: map-get($configuration, lockIndexTablet);
+
+      @if map-get($configuration, lockPositionTablet) == 'relative' {
+        @if map-get($configuration, lockVisibilityTablet) == 'visible' {
+          display: map-get($configuration, lockDisplayTablet) !important;
+        } @else {
+          display: none !important;
+        }
+      } @else {
+        @if map-get($configuration, lockVisibilityTablet) == 'visible' {
+          display: block !important;
+        } @else {
+          display: none !important;
+        }
+
+        top: map-get($configuration, lockPositionTopTablet);
+        right: map-get($configuration, lockPositionRightTablet);
+        bottom: map-get($configuration, lockPositionBottomTablet);
+        left: map-get($configuration, lockPositionLeftTablet);
+      }
+
       width: map-get($configuration, lockWidthTablet);
       min-width: map-get($configuration, lockMinWidthTablet);
       max-width: map-get($configuration, lockMaxWidthTablet);
@@ -76,6 +144,28 @@
 
     // Styles for desktop
     @include above($desktopBreakpoint) {
+      position: map-get($configuration, lockPositionDesktop) !important;
+      z-index: map-get($configuration, lockIndexDesktop);
+
+      @if map-get($configuration, lockPositionDesktop) == 'relative' {
+        @if map-get($configuration, lockVisibilityDesktop) == 'visible' {
+          display: map-get($configuration, lockDisplayDesktop) !important;
+        } @else {
+          display: none !important;
+        }
+      } @else {
+        @if map-get($configuration, lockVisibilityDesktop) == 'visible' {
+          display: block !important;
+        } @else {
+          display: none !important;
+        }
+
+        top: map-get($configuration, lockPositionTopDesktop);
+        right: map-get($configuration, lockPositionRightDesktop);
+        bottom: map-get($configuration, lockPositionBottomDesktop);
+        left: map-get($configuration, lockPositionLeftDesktop);
+      }
+
       width: map-get($configuration, lockWidthDesktop);
       min-width: map-get($configuration, lockMinWidthDesktop);
       max-width: map-get($configuration, lockMaxWidthDesktop);
