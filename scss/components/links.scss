@@ -1,5 +1,35 @@
 @mixin inlineLink($options: (), $widgetInstanceId: '', $widgetInstanceUUID: '') {
   $configuration: map-merge((
+    linkFontFamily: $linkFontFamily,
+    linkFontFamilyHover: $linkFontFamilyHover,
+    linkFontFamilyTablet: $linkFontFamilyTablet,
+    linkFontFamilyHoverTablet: $linkFontFamilyHoverTablet,
+    linkFontFamilyDesktop: $linkFontFamilyDesktop,
+    linkFontFamilyHoverDesktop: $linkFontFamilyHoverDesktop,
+    linkFontSize: $linkFontSize,
+    linkFontSizeHover: $linkFontSizeHover,
+    linkFontSizeTablet: $linkFontSizeTablet,
+    linkFontSizeHoverTablet: $linkFontSizeHoverTablet,
+    linkFontSizeDesktop: $linkFontSizeDesktop,
+    linkFontSizeHoverDesktop: $linkFontSizeHoverDesktop,
+    linkFontWeight: $linkFontWeight,
+    linkFontWeightHover: $linkFontWeightHover,
+    linkFontWeightTablet: $linkFontWeightTablet,
+    linkFontWeightHoverTablet: $linkFontWeightHoverTablet,
+    linkFontWeightDesktop: $linkFontWeightDesktop,
+    linkFontWeightHoverDesktop: $linkFontWeightHoverDesktop,
+    linkFontStyle: $linkFontStyle,
+    linkFontStyleHover: $linkFontStyleHover,
+    linkFontStyleTablet: $linkFontStyleTablet,
+    linkFontStyleHoverTablet: $linkFontStyleHoverTablet,
+    linkFontStyleDesktop: $linkFontStyleDesktop,
+    linkFontStyleHoverDesktop: $linkFontStyleHoverDesktop,
+    linkFontDecoration: $linkFontDecoration,
+    linkFontDecorationHover: $linkFontDecorationHover,
+    linkFontDecorationTablet: $linkFontDecorationTablet,
+    linkFontDecorationHoverTablet: $linkFontDecorationHoverTablet,
+    linkFontDecorationDesktop: $linkFontDecorationDesktop,
+    linkFontDecorationHoverDesktop: $linkFontDecorationHoverDesktop,
     linkColor: $linkColor,
     linkHoverColor: $linkHoverColor,
     linkColorTablet: $linkColorTablet,
@@ -17,16 +47,30 @@
 
   #{$instanceSelector} {
     a {
-      text-decoration: none;
+      font-family: map-get($configuration, linkFontFamily);
+      font-size: map-get($configuration, linkFontSize);
+      font-weight: map-get($configuration, linkFontWeight);
+      font-style: map-get($configuration, linkFontStyle);
+      text-decoration: map-get($configuration, linkFontDecoration);
       color: map-get($configuration, linkColor);
 
       // Styles for tablet
       @include above($tabletBreakpoint) {
+        font-family: map-get($configuration, linkFontFamilyTablet);
+        font-size: map-get($configuration, linkFontSizeTablet);
+        font-weight: map-get($configuration, linkFontWeightTablet);
+        font-style: map-get($configuration, linkFontStyleTablet);
+        text-decoration: map-get($configuration, linkFontDecorationTablet);
         color: map-get($configuration, linkColorTablet);
       }
 
       // Styles for desktop
       @include above($desktopBreakpoint) {
+        font-family: map-get($configuration, linkFontFamilyDesktop);
+        font-size: map-get($configuration, linkFontSizeDesktop);
+        font-weight: map-get($configuration, linkFontWeightDesktop);
+        font-style: map-get($configuration, linkFontStyleDesktop);
+        text-decoration: map-get($configuration, linkFontDecorationDesktop);
         color: map-get($configuration, linkColorDesktop);
       }
 
@@ -34,34 +78,61 @@
       &:focus,
       &:active:hover,
       &:active:focus {
-        color: map-get($configuration, linkHoverColor);
-        text-decoration: none;
         outline: none;
-
+        font-family: map-get($configuration, linkFontFamilyHover);
+        font-size: map-get($configuration, linkFontSizeHover);
+        font-weight: map-get($configuration, linkFontWeightHover);
+        font-style: map-get($configuration, linkFontStyleHover);
+        text-decoration: map-get($configuration, linkFontDecorationHover);
+        color: map-get($configuration, linkHoverColor);
+  
         // Styles for tablet
         @include above($tabletBreakpoint) {
+          font-family: map-get($configuration, linkFontFamilyHoverTablet);
+          font-size: map-get($configuration, linkFontSizeHoverTablet);
+          font-weight: map-get($configuration, linkFontWeightHoverTablet);
+          font-style: map-get($configuration, linkFontStyleHoverTablet);
+          text-decoration: map-get($configuration, linkFontDecorationHoverTablet);
           color: map-get($configuration, linkHoverColorTablet);
         }
-
+  
         // Styles for desktop
         @include above($desktopBreakpoint) {
+          font-family: map-get($configuration, linkFontFamilyHoverDesktop);
+          font-size: map-get($configuration, linkFontSizeHoverDesktop);
+          font-weight: map-get($configuration, linkFontWeightHoverDesktop);
+          font-style: map-get($configuration, linkFontStyleHoverDesktop);
+          text-decoration: map-get($configuration, linkFontDecorationHoverDesktop);
           color: map-get($configuration, linkHoverColorDesktop);
         }
       }
     }
 
     .btn.btn-link {
-      text-decoration: none;
-
+      font-family: map-get($configuration, linkFontFamily);
+      font-size: map-get($configuration, linkFontSize);
+      font-weight: map-get($configuration, linkFontWeight);
+      font-style: map-get($configuration, linkFontStyle);
+      text-decoration: map-get($configuration, linkFontDecoration);
       color: map-get($configuration, linkColor);
 
       // Styles for tablet
       @include above($tabletBreakpoint) {
+        font-family: map-get($configuration, linkFontFamilyTablet);
+        font-size: map-get($configuration, linkFontSizeTablet);
+        font-weight: map-get($configuration, linkFontWeightTablet);
+        font-style: map-get($configuration, linkFontStyleTablet);
+        text-decoration: map-get($configuration, linkFontDecorationTablet);
         color: map-get($configuration, linkColorTablet);
       }
 
       // Styles for desktop
       @include above($desktopBreakpoint) {
+        font-family: map-get($configuration, linkFontFamilyDesktop);
+        font-size: map-get($configuration, linkFontSizeDesktop);
+        font-weight: map-get($configuration, linkFontWeightDesktop);
+        font-style: map-get($configuration, linkFontStyleDesktop);
+        text-decoration: map-get($configuration, linkFontDecorationDesktop);
         color: map-get($configuration, linkColorDesktop);
       }
 
@@ -69,17 +140,31 @@
       &:focus,
       &:active:hover,
       &:active:focus {
-        color: map-get($configuration, linkHoverColor);
-        text-decoration: none;
         outline: none;
-
+        font-family: map-get($configuration, linkFontFamilyHover);
+        font-size: map-get($configuration, linkFontSizeHover);
+        font-weight: map-get($configuration, linkFontWeightHover);
+        font-style: map-get($configuration, linkFontStyleHover);
+        text-decoration: map-get($configuration, linkFontDecorationHover);
+        color: map-get($configuration, linkHoverColor);
+  
         // Styles for tablet
         @include above($tabletBreakpoint) {
+          font-family: map-get($configuration, linkFontFamilyHoverTablet);
+          font-size: map-get($configuration, linkFontSizeHoverTablet);
+          font-weight: map-get($configuration, linkFontWeightHoverTablet);
+          font-style: map-get($configuration, linkFontStyleHoverTablet);
+          text-decoration: map-get($configuration, linkFontDecorationHoverTablet);
           color: map-get($configuration, linkHoverColorTablet);
         }
-
+  
         // Styles for desktop
         @include above($desktopBreakpoint) {
+          font-family: map-get($configuration, linkFontFamilyHoverDesktop);
+          font-size: map-get($configuration, linkFontSizeHoverDesktop);
+          font-weight: map-get($configuration, linkFontWeightHoverDesktop);
+          font-style: map-get($configuration, linkFontStyleHoverDesktop);
+          text-decoration: map-get($configuration, linkFontDecorationHoverDesktop);
           color: map-get($configuration, linkHoverColorDesktop);
         }
       }
