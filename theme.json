@@ -14563,12 +14563,56 @@
         "packages": ["com.fliplet.inline-link"],
         "variables": [
           {
-            "description": "Colors",
+            "description": "Text",
             "fields": [
+              {
+                "name": "linkFontFamily",
+                "default": "$paragraphFontFamily",
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.inline-link']",
+                    "selectors": "a",
+                    "properties": ["font-family"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "linkFontFamilyTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "linkFontFamilyDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "font"
+              },
+              {
+                "name": "linkFontSize",
+                "default": "$paragraphFontSize",
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.inline-link']",
+                    "selectors": "a",
+                    "properties": ["font-size"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "linkFontSizeTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "linkFontSizeDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "size",
+                "subtype": "font"
+              },
               {
                 "name": "linkColor",
                 "default": "$highlightColor",
-                "columns": 12,
                 "styles": [
                   {
                     "selectors": [
@@ -14603,13 +14647,121 @@
                     "default": "inherit-tablet"
                   }
                 },
-                "label": "Color",
                 "type": "color"
+              },
+              {
+                "name": "linkFontWeight",
+                "default": "$paragraphFontWeight",
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.inline-link']",
+                    "selectors": "a",
+                    "properties": ["font-weight"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "linkFontWeightTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "linkFontWeightDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "font-style",
+                "properties": "weight"
+              },
+              {
+                "name": "linkFontStyle",
+                "default": "$paragraphFontStyle",
+                "styles": [
+                  {
+                    "selectors": "body",
+                    "properties": ["font-style"]
+                  },
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.inline-link']",
+                    "selectors": "a",
+                    "properties": ["font-style"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "linkFontStyleTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "linkFontStyleDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "font-style",
+                "properties": "italic"
+              },
+              {
+                "name": "linkFontDecoration",
+                "default": "$paragraphFontDecoration",
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.inline-link']",
+                    "selectors": "a",
+                    "properties": ["text-decoration"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "linkFontDecorationTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "linkFontDecorationDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "font-style",
+                "subType": "decoration",
+                "properties": "underline"
+              }
+            ]
+          },
+          {
+            "description": "Text Hover",
+            "fields": [
+              {
+                "name": "linkFontFamilyHover",
+                "default": "$linkFontFamily",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "linkFontFamilyHoverTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "linkFontFamilyHoverDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "font"
+              },
+              {
+                "name": "linkFontSizeHover",
+                "default": "$linkFontSize",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "linkFontSizeHoverTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "linkFontSizeHoverDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "size",
+                "subtype": "font"
               },
               {
                 "name": "linkHoverColor",
                 "default": "#0096B8",
-                "columns": 12,
                 "breakpoints": {
                   "tablet": {
                     "name": "linkHoverColorTablet",
@@ -14620,8 +14772,56 @@
                     "default": "inherit-tablet"
                   }
                 },
-                "label": "Color when clicked",
                 "type": "color"
+              },
+              {
+                "name": "linkFontWeightHover",
+                "default": "$linkFontWeight",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "linkFontWeightHoverTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "linkFontWeightHoverDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "font-style",
+                "properties": "weight"
+              },
+              {
+                "name": "linkFontStyleHover",
+                "default": "$linkFontStyle",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "linkFontStyleHoverTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "linkFontStyleHoverDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "font-style",
+                "properties": "italic"
+              },
+              {
+                "name": "linkFontDecorationHover",
+                "default": "$linkFontDecoration",
+                "breakpoints": {
+                  "tablet": {
+                    "name": "linkFontDecorationHoverTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "linkFontDecorationHoverDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "font-style",
+                "subType": "decoration",
+                "properties": "underline"
               }
             ]
           }
