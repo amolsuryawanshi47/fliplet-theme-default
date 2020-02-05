@@ -13,6 +13,7 @@
     notificationPaddingLeft: $notificationPaddingLeft,
     notificationBadgeBackgroundColor: $notificationBadgeBackgroundColor,
     notificationDraftBackgroundColor: $notificationDraftBackgroundColor,
+    notificationPublishedBackgroundColor: $notificationPublishedBackgroundColor,
     notificationWidthTablet: $notificationWidthTablet,
     notificationMinWidthTablet: $notificationMinWidthTablet,
     notificationMaxWidthTablet: $notificationMaxWidthTablet,
@@ -26,6 +27,7 @@
     notificationPaddingLeftTablet: $notificationPaddingLeftTablet,
     notificationBadgeBackgroundColorTablet: $notificationBadgeBackgroundColorTablet,
     notificationDraftBackgroundColorTablet: $notificationDraftBackgroundColorTablet,
+    notificationPublishedBackgroundColorTablet: $notificationPublishedBackgroundColorTablet,
     notificationWidthDesktop: $notificationWidthDesktop,
     notificationMinWidthDesktop: $notificationMinWidthDesktop,
     notificationMaxWidthDesktop: $notificationMaxWidthDesktop,
@@ -39,6 +41,7 @@
     notificationPaddingLeftDesktop: $notificationPaddingLeftDesktop,
     notificationBadgeBackgroundColorDesktop: $notificationBadgeBackgroundColorDesktop,
     notificationDraftBackgroundColorDesktop: $notificationDraftBackgroundColorDesktop,
+    notificationPublishedBackgroundColorDesktop: $notificationPublishedBackgroundColorDesktop
   ), $options);
 
   $instanceSelector: '[data-widget-package="com.fliplet.notificationinbox"]';
@@ -109,6 +112,10 @@
         background-color: map-get($configuration, notificationDraftBackgroundColor);
       }
 
+      .notification[data-notification-status="published"] {
+        background-color: map-get($configuration, notificationPublishedBackgroundColor);
+      }
+
       // Styles for tablet
       @include above($tabletBreakpoint) {
         padding: map-get($configuration, notificationPaddingTopTablet)
@@ -118,6 +125,10 @@
 
         .notification[data-notification-status="draft"] {
           background-color: map-get($configuration, notificationDraftBackgroundColorTablet);
+        }
+
+        .notification[data-notification-status="published"] {
+          background-color: map-get($configuration, notificationPublishedBackgroundColorTablet);
         }
       }
 
@@ -130,6 +141,10 @@
 
         .notification[data-notification-status="draft"] {
           background-color: map-get($configuration, notificationDraftBackgroundColorDesktop);
+        }
+
+        .notification[data-notification-status="published"] {
+          background-color: map-get($configuration, notificationPublishedBackgroundColorDesktop);
         }
       }
     }
