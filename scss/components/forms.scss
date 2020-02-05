@@ -793,7 +793,7 @@
       }
     }
 
-    .form-group .mce-tinymce,
+    .form-group .mce-tinymce > .mce-container-body.mce-stack-layout,
     .form-group .tinymce-mobile-outer-container:not(.tinymce-mobile-fullscreen-maximized) .tinymce-mobile-editor-socket {
       @include borderOnly((
         borderWidth: map-get($configuration, formInputBorderWidth),
@@ -801,6 +801,9 @@
         borderColor: map-get($configuration, formInputBorderColor),
         borderSides: map-get($configuration, formInputBorderSides)
       ));
+
+      border-radius: $formInputBorderRadius;
+      overflow: hidden;
 
       // Styles for tablet
       @include above($tabletBreakpoint) {
@@ -902,4 +905,4 @@
   ));
 
   border-radius: $formInputBorderRadius;
-} 
+}
