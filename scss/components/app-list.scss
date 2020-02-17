@@ -24,6 +24,7 @@
     appListPreparingIconColor: $appListPreparingIconColor,
     appListCompletedIconColor: $appListCompletedIconColor,
     appListInitialIconColor: $appListInitialIconColor,
+    appListTextColor: $appListTextColor,
     appListProgressBarColor: $appListProgressBarColor,
     appListProgressBarBGColor: $appListProgressBarBGColor,
     appListLoginOverlayColor: $appListLoginOverlayColor,
@@ -58,6 +59,7 @@
     appListPreparingIconColorTablet: $appListPreparingIconColorTablet,
     appListCompletedIconColorTablet: $appListCompletedIconColorTablet,
     appListInitialIconColorTablet: $appListInitialIconColorTablet,
+    appListTextColorTablet: $appListTextColorTablet,
     appListProgressBarColorTablet: $appListProgressBarColorTablet,
     appListProgressBarBGColorTablet: $appListProgressBarBGColorTablet,
     appListLoginOverlayColorTablet: $appListLoginOverlayColorTablet,
@@ -92,6 +94,7 @@
     appListPreparingIconColorDesktop: $appListPreparingIconColorDesktop,
     appListCompletedIconColorDesktop: $appListCompletedIconColorDesktop,
     appListInitialIconColorDesktop: $appListInitialIconColorDesktop,
+    appListTextColorDesktop: $appListTextColorDesktop,
     appListProgressBarColorDesktop: $appListProgressBarColorDesktop,
     appListProgressBarBGColorDesktop: $appListProgressBarBGColorDesktop,
     appListLoginOverlayColorDesktop: $appListLoginOverlayColorDesktop,
@@ -204,6 +207,21 @@
         // Styles for desktop
         @include above($desktopBreakpoint) {
           border-left-color: map-get($configuration, appListLoaderDesktop);
+        }
+      }
+
+      .list.list-default ul > li .list-swipe-holder .list-desc .list-title,
+      .app-list-content .no-apps-found-text {
+        color: map-get($configuration, appListTextColor);
+
+        // Styles for tablet
+        @include above($tabletBreakpoint) {
+          color: map-get($configuration, appListTextColorTablet);
+        }
+
+        // Styles for desktop
+        @include above($desktopBreakpoint) {
+          color: map-get($configuration, appListTextColorDesktop);
         }
       }
 
