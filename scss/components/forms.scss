@@ -826,35 +826,6 @@
       }
     }
 
-    .form-group .mce-top-part::before {
-      @include borderOnly((
-        borderWidth: map-get($configuration, formInputBorderWidth),
-        borderStyle: map-get($configuration, formInputBorderStyle),
-        borderColor: map-get($configuration, formInputBorderColor),
-        borderSides: 'bottom'
-      ));
-
-      // Styles for tablet
-      @include above($tabletBreakpoint) {
-        @include borderOnly((
-          borderWidth: map-get($configuration, formInputBorderWidthTablet),
-          borderStyle: map-get($configuration, formInputBorderStyleTablet),
-          borderColor: map-get($configuration, formInputBorderColorTablet),
-          borderSides: 'bottom'
-        ));
-      }
-
-      // Styles for desktop
-      @include above($desktopBreakpoint) {
-        @include borderOnly((
-          borderWidth: map-get($configuration, formInputBorderWidthDesktop),
-          borderStyle: map-get($configuration, formInputBorderStyleDesktop),
-          borderColor: map-get($configuration, formInputBorderColorDesktop),
-          borderSides: 'bottom'
-        ));
-      }
-    }
-
     .sending-form {
       color: $bodyTextColor;
 
