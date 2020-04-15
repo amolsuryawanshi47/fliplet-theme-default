@@ -127,54 +127,58 @@
     }
   }
 
-  .collapse-start {
-    color: map-get($configuration, accordionHeadingText);
-    background-color: map-get($configuration, accordionHeadingBg);
-    padding: map-get($configuration, accordionHeadingPaddingTop)
-      calc(#{map-get($configuration, accordionHeadingPaddingRight)} + 29px)
-      map-get($configuration, accordionHeadingPaddingBottom)
-      map-get($configuration, accordionHeadingPaddingLeft);
-    border: map-get($configuration, accordionBorderWidth)
-      map-get($configuration, accordionBorderStyle)
-      map-get($configuration, accordionBorderColor);
-
-    // Styles for tablet
-    @include above($tabletBreakpoint) {
-      color: map-get($configuration, accordionHeadingTextTablet);
-      background-color: map-get($configuration, accordionHeadingBgTablet);
-      padding: map-get($configuration, accordionHeadingPaddingTopTablet)
-        calc(#{map-get($configuration, accordionHeadingPaddingRightTablet)} + 29px)
-        map-get($configuration, accordionHeadingPaddingBottomTablet)
-        map-get($configuration, accordionHeadingPaddingLeftTablet);
-      border: map-get($configuration, accordionBorderWidthTablet)
-        map-get($configuration, accordionBorderStyleTablet)
-        map-get($configuration, accordionBorderColorTablet);
-    }
-
-    // Styles for desktop
-    @include above($desktopBreakpoint) {
-      color: map-get($configuration, accordionHeadingTextDesktop);
-      background-color: map-get($configuration, accordionHeadingBgDesktop);
-      padding: map-get($configuration, accordionHeadingPaddingTopDesktop)
-        calc(#{map-get($configuration, accordionHeadingPaddingRightDesktop)} + 29px)
-        map-get($configuration, accordionHeadingPaddingBottomDesktop)
-        map-get($configuration, accordionHeadingPaddingLeftDesktop);
-      border: map-get($configuration, accordionBorderWidthDesktop)
-        map-get($configuration, accordionBorderStyleDesktop)
-        map-get($configuration, accordionBorderColorDesktop);
-    }
-
-    &:after {
-      color: map-get($configuration, accordionHeadingChevron);
+  #{$instanceSelector},
+  #{$instanceWidgetStartSelector},
+  #{$instanceWidgetEndSelector} {
+    .collapse-start {
+      color: map-get($configuration, accordionHeadingText);
+      background-color: map-get($configuration, accordionHeadingBg);
+      padding: map-get($configuration, accordionHeadingPaddingTop)
+        calc(#{map-get($configuration, accordionHeadingPaddingRight)} + 29px)
+        map-get($configuration, accordionHeadingPaddingBottom)
+        map-get($configuration, accordionHeadingPaddingLeft);
+      border: map-get($configuration, accordionBorderWidth)
+        map-get($configuration, accordionBorderStyle)
+        map-get($configuration, accordionBorderColor);
 
       // Styles for tablet
       @include above($tabletBreakpoint) {
-        color: map-get($configuration, accordionHeadingChevronTablet);
+        color: map-get($configuration, accordionHeadingTextTablet);
+        background-color: map-get($configuration, accordionHeadingBgTablet);
+        padding: map-get($configuration, accordionHeadingPaddingTopTablet)
+          calc(#{map-get($configuration, accordionHeadingPaddingRightTablet)} + 29px)
+          map-get($configuration, accordionHeadingPaddingBottomTablet)
+          map-get($configuration, accordionHeadingPaddingLeftTablet);
+        border: map-get($configuration, accordionBorderWidthTablet)
+          map-get($configuration, accordionBorderStyleTablet)
+          map-get($configuration, accordionBorderColorTablet);
       }
 
       // Styles for desktop
       @include above($desktopBreakpoint) {
-        color: map-get($configuration, accordionHeadingChevronDesktop);
+        color: map-get($configuration, accordionHeadingTextDesktop);
+        background-color: map-get($configuration, accordionHeadingBgDesktop);
+        padding: map-get($configuration, accordionHeadingPaddingTopDesktop)
+          calc(#{map-get($configuration, accordionHeadingPaddingRightDesktop)} + 29px)
+          map-get($configuration, accordionHeadingPaddingBottomDesktop)
+          map-get($configuration, accordionHeadingPaddingLeftDesktop);
+        border: map-get($configuration, accordionBorderWidthDesktop)
+          map-get($configuration, accordionBorderStyleDesktop)
+          map-get($configuration, accordionBorderColorDesktop);
+      }
+
+      &:after {
+        color: map-get($configuration, accordionHeadingChevron);
+
+        // Styles for tablet
+        @include above($tabletBreakpoint) {
+          color: map-get($configuration, accordionHeadingChevronTablet);
+        }
+
+        // Styles for desktop
+        @include above($desktopBreakpoint) {
+          color: map-get($configuration, accordionHeadingChevronDesktop);
+        }
       }
     }
   }
@@ -396,5 +400,3 @@
 }
 
 @include accordion();
-
-
