@@ -27873,6 +27873,433 @@
         ]
       },
       {
+        "name": "Directory - List (from data source)",
+        "packages": ["com.fliplet.login-data-source"],
+        "variables": [
+          {
+            "description": "Width",
+            "fields": [
+              {
+                "name": "directoryWidth",
+                "default": "100%",
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='small-card']",
+                    "properties": ["width"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "directoryWidthTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "directoryWidthDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "size",
+                "subtype": "width",
+                "label": "Width"
+              },
+              {
+                "name": "directoryMaxWidth",
+                "default": "600px",
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='small-card']",
+                    "properties": ["max-width"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "directoryMaxWidthTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "directoryMaxWidthDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "size",
+                "subtype": "max-width",
+                "label": "Max-width"
+              }
+            ]
+          },
+          {
+            "description": "Positioning",
+            "fields": [
+              {
+                "name": "directoryPosition",
+                "default": "relative",
+                "columns": 12,
+                "logic": {
+                  "relative": {
+                    "hide": [
+                      "directoryPositionTop",
+                      "directoryPositionRight",
+                      "directoryPositionBottom",
+                      "directoryPositionLeft"
+                    ]
+                  },
+                  "absolute": {
+                    "show": [
+                      "directoryPositionTop",
+                      "directoryPositionRight",
+                      "directoryPositionBottom",
+                      "directoryPositionLeft"
+                    ]
+                  },
+                  "fixed": {
+                    "show": [
+                      "directoryPositionTop",
+                      "directoryPositionRight",
+                      "directoryPositionBottom",
+                      "directoryPositionLeft"
+                    ]
+                  }
+                },
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='small-card']",
+                    "properties": ["position"],
+                    "type": "position",
+                    "siblings": {
+                      "top": "directoryPositionTop",
+                      "right": "directoryPositionRight",
+                      "bottom": "directoryPositionBottom",
+                      "left": "directoryPositionLeft"
+                    }
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "directoryPositionTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "directoryPositionDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "position"
+              },
+              {
+                "name": "directoryDisplay",
+                "default": "block",
+                "columns": 12,
+                "logic": {
+                  "block": {
+                    "show": ["directoryMarginAlign"]
+                  },
+                  "inline-block": {
+                    "hide": ["directoryMarginAlign"]
+                  }
+                },
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='small-card']",
+                    "properties": ["display"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "directoryDisplayTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "directoryDisplayDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "display"
+              },
+              {
+                "name": "directoryPositionTop",
+                "default": "auto",
+                "columns": 6,
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='small-card']",
+                    "properties": ["top"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "directoryPositionTopTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "directoryPositionTopDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "label": "Top",
+                "type": "size",
+                "subtype": "position",
+                "allowNegative": true
+              },
+              {
+                "name": "directoryPositionRight",
+                "default": "auto",
+                "columns": 6,
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='small-card']",
+                    "properties": ["right"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "directoryPositionRightTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "directoryPositionRightDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "label": "Right",
+                "type": "size",
+                "subtype": "position",
+                "allowNegative": true
+              },
+              {
+                "name": "directoryPositionBottom",
+                "default": "auto",
+                "columns": 6,
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='small-card']",
+                    "properties": ["bottom"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "directoryPositionBottomTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "directoryPositionBottomDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "label": "Bottom",
+                "type": "size",
+                "subtype": "position",
+                "allowNegative": true
+              },
+              {
+                "name": "directoryPositionLeft",
+                "default": "auto",
+                "columns": 6,
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='small-card']",
+                    "properties": ["left"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "directoryPositionLeftTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "directoryPositionLeftDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "label": "Left",
+                "type": "size",
+                "subtype": "position",
+                "allowNegative": true
+              }
+            ]
+          },
+          {
+            "description": "Layer order",
+            "fields": [
+              {
+                "name": "directoryIndex",
+                "default": "auto",
+                "columns": 12,
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='small-card']",
+                    "properties": ["z-index"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "directoryIndexTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "directoryIndexDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "size",
+                "subtype": "z-index"
+              }
+            ]
+          },
+          {
+            "description": "Margin",
+            "fields": [
+              {
+                "name": "directoryMarginAlign",
+                "default": "center",
+                "columns": 12,
+                "logic": {
+                  "left": {
+                    "chartMarginRight": "auto",
+                    "chartMarginLeft": "0px"
+                  },
+                  "center": {
+                    "chartMarginRight": "auto",
+                    "chartMarginLeft": "auto"
+                  },
+                  "right": {
+                    "chartMarginRight": "0px",
+                    "chartMarginLeft": "auto"
+                  },
+                  "custom": [
+                    "directoryMarginTop",
+                    "directoryMarginRight",
+                    "directoryMarginBottom",
+                    "directoryMarginLeft"
+                  ]
+                },
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='small-card']",
+                    "properties": ["margin"],
+                    "type": "margin"
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "directoryMarginAlignTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "directoryMarginAlignDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "margin-align"
+              },
+              {
+                "name": "directoryMarginTop",
+                "default": "0px",
+                "columns": 6,
+                "logic": "directoryMarginAlign",
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='small-card']",
+                    "properties": ["margin-top"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "directoryMarginTopTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "directoryMarginTopDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "size",
+                "subtype": "margin",
+                "label": "Top",
+                "allowNegative": true
+              },
+              {
+                "name": "directoryMarginRight",
+                "default": "auto",
+                "columns": 6,
+                "logic": "directoryMarginAlign",
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='small-card']",
+                    "properties": ["margin-right"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "directoryMarginRightTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "directoryMarginRightDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "size",
+                "subtype": "margin",
+                "label": "Right",
+                "allowNegative": true
+              },
+              {
+                "name": "directoryMarginBottom",
+                "default": "0px",
+                "columns": 6,
+                "logic": "directoryMarginAlign",
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='small-card']",
+                    "properties": ["margin-bottom"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "directoryMarginBottomTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "directoryMarginBottomDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "size",
+                "subtype": "margin",
+                "label": "Bottom",
+                "allowNegative": true
+              },
+              {
+                "name": "directoryMarginLeft",
+                "default": "auto",
+                "columns": 6,
+                "logic": "chartMarginAlign",
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='small-card']",
+                    "properties": ["margin-left"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "directoryMarginLeftTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "directoryMarginLeftDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "size",
+                "subtype": "margin",
+                "label": "Left",
+                "allowNegative": true
+              }
+            ]
+          }
+        ]
+      },
+      {
         "name": "List (from data source)",
         "packages": ["com.fliplet.dynamic-lists"],
         "variables": [
