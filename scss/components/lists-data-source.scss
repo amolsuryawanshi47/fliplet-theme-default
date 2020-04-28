@@ -195,7 +195,7 @@
         map-get($configuration, lfdMarginBottomDesktop)
         map-get($configuration, lfdMarginLeftDesktop);
     }
-    
+
     .new-small-card-list-container,
     .small-card-list-container {
       .small-card-list-detail-wrapper {
@@ -630,15 +630,18 @@
     }
 
     .new-news-feed-list-container .news-feed-search-filter-overlay,
-    .simple-list-search-filter-overlay {
+    .simple-list-container .simple-list-search-filter-overlay,
+    .new-agenda-list-container .new-agenda-search-filter-overlay {
       .news-feed-overlay-wrapper,
-      .simple-list-overlay-wrapper {
+      .simple-list-overlay-wrapper,
+      .agenda-overlay-wrapper {
         background-color: map-get($configuration, lfdOverlayBackgroundColor);
         color: map-get($configuration, lfdOverlayFontColor);
       }
 
       .news-feed-overlay-header,
-      .simple-list-overlay-header {
+      .simple-list-overlay-header,
+      .agenda-overlay-header {
         background-color: map-get($configuration, lfdOverlayBackgroundColor);
       }
 
@@ -654,13 +657,15 @@
       // Styles for tablet
       @include above($tabletBreakpoint) {
         .news-feed-overlay-wrapper,
-        .simple-list-overlay-wrapper {
+        .simple-list-overlay-wrapper,
+        .agenda-overlay-wrapper {
           background-color: map-get($configuration, lfdOverlayBackgroundColorTablet);
           color: map-get($configuration, lfdOverlayFontColorTablet);
         }
 
         .news-feed-overlay-header,
-        .simple-list-overlay-header {
+        .simple-list-overlay-header,
+        .agenda-overlay-header {
           background-color: map-get($configuration, lfdOverlayBackgroundColorTablet);
         }
 
@@ -677,13 +682,15 @@
       // Styles for desktop
       @include above($desktopBreakpoint) {
         .news-feed-overlay-wrapper,
-        .simple-list-overlay-wrapper {
+        .simple-list-overlay-wrapper,
+        .agenda-overlay-wrapper {
           background-color: map-get($configuration, lfdOverlayBackgroundColorDesktop);
           color: map-get($configuration, lfdOverlayFontColorDesktop);
         }
 
         .news-feed-overlay-header,
-        .simple-list-overlay-header {
+        .simple-list-overlay-header,
+        .agenda-overlay-header {
           background-color: map-get($configuration, lfdOverlayBackgroundColorDesktop);
         }
 
@@ -702,7 +709,8 @@
     .small-card-list-container,
     .new-news-feed-list-container,
     .news-feed-list-container,
-    .simple-list-container {
+    .simple-list-container,
+    .new-agenda-list-container {
       width: map-get($configuration, lfdWidth);
       max-width: map-get($configuration, lfdMaxWidth);
       margin: map-get($configuration, lfdMarginTop)
@@ -712,7 +720,8 @@
 
       .news-feed-search-filter-overlay,
       .small-card-search-filter-overlay,
-      .simple-list-search-filter-overlay {
+      .simple-list-search-filter-overlay,
+      .new-agenda-search-filter-overlay {
         .apply-filters,
         .hidden-filter-controls-filter.mixitup-control-active {
           background-color: $highlightColor;
@@ -739,7 +748,7 @@
       // The use of !important in this case is to avoid CSS repetion
       // Some layouts on the LFD component have more specific targets
 
-      .search-holder {
+      .section-top-wrapper {
         .fa {
           color: $highlightColor;
         }
@@ -789,7 +798,8 @@
         }
       }
 
-      .hidden-filter-controls-label {
+      .hidden-filter-controls-label,
+      .search-query-holder {
         color: rgba($bodyTextColor, 0.5);
       }
 
@@ -824,7 +834,8 @@
 
         .news-feed-search-filter-overlay,
         .small-card-search-filter-overlay,
-        .simple-list-search-filter-overlay {
+        .simple-list-search-filter-overlay,
+        .new-agenda-search-filter-overlay {
           .apply-filters,
           .hidden-filter-controls-filter.mixitup-control-active {
             color: $primaryButtonTextColorTablet;
@@ -888,7 +899,8 @@
           }
         }
 
-        .hidden-filter-controls-label {
+        .hidden-filter-controls-label,
+        .search-query-holder {
           color: rgba($bodyTextColorTablet, 0.5);
         }
 
@@ -922,7 +934,8 @@
 
         .news-feed-search-filter-overlay,
         .small-card-search-filter-overlay,
-        .simple-list-search-filter-overlay {
+        .simple-list-search-filter-overlay,
+        .new-agenda-search-filter-overlay {
           .apply-filters,
           .hidden-filter-controls-filter.mixitup-control-active {
             color: $primaryButtonTextColorDesktop;
@@ -986,7 +999,8 @@
           }
         }
 
-        .hidden-filter-controls-label {
+        .hidden-filter-controls-label,
+        .search-query-holder {
           color: rgba($bodyTextColorDesktop, 0.5);
         }
 
@@ -1613,6 +1627,10 @@
         }
       }
 
+      .search-results-list-date {
+        color: rgba(map-get($configuration, lfdAgendaTopTextActiveColor), 1);
+      }
+
       .agenda-list-item {
         .slide-over {
           .agenda-item-inner-content {
@@ -1711,6 +1729,15 @@
         color: map-get($configuration, lfdDetailFontColor);
       }
 
+      .section-top-wrapper,
+      .hidden-controls,
+      .agenda-list-card-holder,
+      .agenda-list-item-content .container-fluid,
+      .search-results,
+      .agenda-detail-overlay-panel {
+        max-width: map-get($configuration, lfdMaxWidth);
+      }
+
       // Styles for tablet
       @include above($tabletBreakpoint) {
         .agenda-date-selector {
@@ -1734,13 +1761,17 @@
 
               &.active {
                 color: rgba(map-get($configuration, lfdAgendaTopTextActiveColorTablet), 0.5);
-  
+
                 .day {
                   color: rgba(map-get($configuration, lfdAgendaTopTextActiveColorTablet), 1);
                 }
               }
             }
           }
+        }
+
+        .search-results-list-date {
+          color: rgba(map-get($configuration, lfdAgendaTopTextActiveColorTablet), 1);
         }
 
         .agenda-list-item {
@@ -1818,6 +1849,15 @@
         .agenda-list-card-holder.empty + .agenda-item-empty-state {
           color: map-get($configuration, lfdDetailFontColorTablet);
         }
+
+        .section-top-wrapper,
+        .hidden-controls,
+        .agenda-list-card-holder,
+        .agenda-list-item-content .container-fluid,
+        .search-results,
+        .agenda-detail-overlay-panel {
+          max-width: map-get($configuration, lfdMaxWidthTablet);
+        }
       }
 
       // Styles for desktop
@@ -1843,13 +1883,17 @@
 
               &.active {
                 color: rgba(map-get($configuration, lfdAgendaTopTextActiveColorDesktop), 0.5);
-  
+
                 .day {
                   color: rgba(map-get($configuration, lfdAgendaTopTextActiveColorDesktop), 1);
                 }
               }
             }
           }
+        }
+
+        .search-results-list-date {
+          color: rgba(map-get($configuration, lfdAgendaTopTextActiveColorDesktop), 1);
         }
 
         .agenda-list-item {
@@ -1927,6 +1971,15 @@
         .agenda-list-card-holder.empty + .agenda-item-empty-state {
           color: map-get($configuration, lfdDetailFontColorDesktop);
         }
+
+        .section-top-wrapper,
+        .hidden-controls,
+        .agenda-list-card-holder,
+        .agenda-list-item-content .container-fluid,
+        .search-results,
+        .agenda-detail-overlay-panel {
+          max-width: map-get($configuration, lfdMaxWidthDesktop);
+        }
       }
     }
 
@@ -1982,7 +2035,7 @@
 
             &.active {
               color: rgba(map-get($configuration, lfdAgendaTopTextActiveColorTablet), 0.5);
-  
+
               .day {
                 color: rgba(map-get($configuration, lfdAgendaTopTextActiveColorTablet), 1);
               }
@@ -2013,7 +2066,7 @@
 
             &.active {
               color: rgba(map-get($configuration, lfdAgendaTopTextActiveColorDesktop), 0.5);
-  
+
               .day {
                 color: rgba(map-get($configuration, lfdAgendaTopTextActiveColorDesktop), 1);
               }
