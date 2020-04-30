@@ -31895,6 +31895,2722 @@
         ]
       },
       {
+        "name": "Feed - List (from data source)",
+        "packages": ["com.fliplet.dynamic-lists"],
+        "variables": [
+          {
+            "description": "Width",
+            "fields": [
+              {
+                "name": "newsFeedWidth",
+                "default": "100%",
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='news-feed']",
+                    "properties": ["width"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "newsFeedWidthTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "newsFeedWidthDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "size",
+                "subtype": "width",
+                "label": "Width"
+              },
+              {
+                "name": "newsFeedMaxWidth",
+                "default": "600px",
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='news-feed']",
+                    "properties": ["max-width"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "newsFeedMaxWidthTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "newsFeedMaxWidthDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "size",
+                "subtype": "max-width",
+                "label": "Max-width"
+              }
+            ]
+          },
+          {
+            "description": "Positioning",
+            "fields": [
+              {
+                "name": "newsFeedPosition",
+                "default": "relative",
+                "columns": 12,
+                "logic": {
+                  "relative": {
+                    "hide": [
+                      "newsFeedPositionTop",
+                      "newsFeedPositionRight",
+                      "newsFeedPositionBottom",
+                      "newsFeedPositionLeft"
+                    ]
+                  },
+                  "absolute": {
+                    "show": [
+                      "newsFeedPositionTop",
+                      "newsFeedPositionRight",
+                      "newsFeedPositionBottom",
+                      "newsFeedPositionLeft"
+                    ]
+                  },
+                  "fixed": {
+                    "show": [
+                      "newsFeedPositionTop",
+                      "newsFeedPositionRight",
+                      "newsFeedPositionBottom",
+                      "newsFeedPositionLeft"
+                    ]
+                  }
+                },
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='news-feed']",
+                    "properties": ["position"],
+                    "type": "position",
+                    "siblings": {
+                      "top": "newsFeedPositionTop",
+                      "right": "newsFeedPositionRight",
+                      "bottom": "newsFeedPositionBottom",
+                      "left": "newsFeedPositionLeft"
+                    }
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "newsFeedPositionTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "newsFeedPositionDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "position"
+              },
+              {
+                "name": "newsFeedDisplay",
+                "default": "block",
+                "columns": 12,
+                "logic": {
+                  "block": {
+                    "show": ["newsFeedMarginAlign"]
+                  },
+                  "inline-block": {
+                    "hide": ["newsFeedMarginAlign"]
+                  }
+                },
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='news-feed']",
+                    "properties": ["display"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "newsFeedDisplayTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "newsFeedDisplayDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "display"
+              },
+              {
+                "name": "newsFeedPositionTop",
+                "default": "auto",
+                "columns": 6,
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='news-feed']",
+                    "properties": ["top"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "newsFeedPositionTopTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "newsFeedPositionTopDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "label": "Top",
+                "type": "size",
+                "subtype": "position",
+                "allowNegative": true
+              },
+              {
+                "name": "newsFeedPositionRight",
+                "default": "auto",
+                "columns": 6,
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='news-feed']",
+                    "properties": ["right"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "newsFeedPositionRightTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "newsFeedPositionRightDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "label": "Right",
+                "type": "size",
+                "subtype": "position",
+                "allowNegative": true
+              },
+              {
+                "name": "newsFeedPositionBottom",
+                "default": "auto",
+                "columns": 6,
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='news-feed']",
+                    "properties": ["bottom"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "newsFeedPositionBottomTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "newsFeedPositionBottomDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "label": "Bottom",
+                "type": "size",
+                "subtype": "position",
+                "allowNegative": true
+              },
+              {
+                "name": "newsFeedPositionLeft",
+                "default": "auto",
+                "columns": 6,
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='news-feed']",
+                    "properties": ["left"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "newsFeedPositionLeftTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "newsFeedPositionLeftDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "label": "Left",
+                "type": "size",
+                "subtype": "position",
+                "allowNegative": true
+              }
+            ]
+          },
+          {
+            "description": "Layer order",
+            "fields": [
+              {
+                "name": "newsFeedIndex",
+                "default": "auto",
+                "columns": 12,
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='news-feed']",
+                    "properties": ["z-index"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "newsFeedIndexTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "newsFeedIndexDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "size",
+                "subtype": "z-index"
+              }
+            ]
+          },
+          {
+            "description": "Margin",
+            "fields": [
+              {
+                "name": "newsFeedMarginAlign",
+                "default": "center",
+                "columns": 12,
+                "logic": {
+                  "left": {
+                    "chartMarginRight": "auto",
+                    "chartMarginLeft": "0px"
+                  },
+                  "center": {
+                    "chartMarginRight": "auto",
+                    "chartMarginLeft": "auto"
+                  },
+                  "right": {
+                    "chartMarginRight": "0px",
+                    "chartMarginLeft": "auto"
+                  },
+                  "custom": [
+                    "newsFeedMarginTop",
+                    "newsFeedMarginRight",
+                    "newsFeedMarginBottom",
+                    "newsFeedMarginLeft"
+                  ]
+                },
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='news-feed']",
+                    "properties": ["margin"],
+                    "type": "margin"
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "newsFeedMarginAlignTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "newsFeedMarginAlignDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "margin-align"
+              },
+              {
+                "name": "newsFeedMarginTop",
+                "default": "0px",
+                "columns": 6,
+                "logic": "newsFeedMarginAlign",
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='news-feed']",
+                    "properties": ["margin-top"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "newsFeedMarginTopTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "newsFeedMarginTopDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "size",
+                "subtype": "margin",
+                "label": "Top",
+                "allowNegative": true
+              },
+              {
+                "name": "newsFeedMarginRight",
+                "default": "auto",
+                "columns": 6,
+                "logic": "newsFeedMarginAlign",
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='news-feed']",
+                    "properties": ["margin-right"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "newsFeedMarginRightTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "newsFeedMarginRightDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "size",
+                "subtype": "margin",
+                "label": "Right",
+                "allowNegative": true
+              },
+              {
+                "name": "newsFeedMarginBottom",
+                "default": "0px",
+                "columns": 6,
+                "logic": "newsFeedMarginAlign",
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='news-feed']",
+                    "properties": ["margin-bottom"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "newsFeedMarginBottomTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "newsFeedMarginBottomDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "size",
+                "subType": "margin",
+                "label": "Bottom",
+                "allowNegative": true
+              },
+              {
+                "name": "newsFeedMarginLeft",
+                "default": "auto",
+                "columns": 6,
+                "logic": "chartMarginAlign",
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='news-feed']",
+                    "properties": ["margin-left"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "newsFeedMarginLeftTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "newsFeedMarginLeftDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "size",
+                "subType": "margin",
+                "label": "Left",
+                "allowNegative": true
+              }
+            ]
+          },
+          {
+            "description": "Padding",
+            "fields": [
+              {
+                "name": "newsFeedPaddingTop",
+                "default": "0px",
+                "columns": 6,
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='news-feed']",
+                    "properties": ["padding-top"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "newsFeedPaddingTopTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "newsFeedPaddingTopDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "size",
+                "subType": "padding",
+                "label": "Top"
+              },
+              {
+                "name": "newsFeedPaddingRight",
+                "default": "0px",
+                "columns": 6,
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='news-feed']",
+                    "properties": ["padding-right"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "newsFeedPaddingRightTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "newsFeedPaddingRightDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "size",
+                "subType": "padding",
+                "label": "Right"
+              },
+              {
+                "name": "newsFeedPaddingBottom",
+                "default": "0px",
+                "columns": 6,
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='news-feed']",
+                    "properties": ["padding-bottom"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "newsFeedPaddingBottomTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "newsFeedPaddingBottomDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "size",
+                "subType": "padding",
+                "label": "Bottom"
+              },
+              {
+                "name": "newsFeedPaddingLeft",
+                "default": "0px",
+                "columns": 6,
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='news-feed']",
+                    "properties": ["padding-left"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "newsFeedPaddingLeftTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "newsFeedPaddingLeftDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "size",
+                "subType": "padding",
+                "label": "Left"
+              }
+            ]
+          },
+          {
+            "description": "List item title",
+            "fields": [
+              {
+                "name": "newsFeedTitleFontFamily",
+                "default": "$bodyFontFamily",
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='news-feed']",
+                    "selectors": ".new-news-feed-list-container .news-feed-list-wrapper .news-feed-item-content h2.news-feed-item-title",
+                    "properties": ["font-family"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "newsFeedTitleFontFamilyTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "newsFeedTitleFontFamilyDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "font",
+                "label": "Font"
+              },
+              {
+                "name": "newsFeedTitleFontSize",
+                "default": "30px",
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='news-feed']",
+                    "selectors": ".new-news-feed-list-container .news-feed-list-wrapper .news-feed-item-content h2.news-feed-item-title",
+                    "properties": ["font-size"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "newsFeedTitleFontSizeTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "newsFeedTitleFontSizeDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "size",
+                "subType": "font",
+                "label": "Font size"
+              },
+              {
+                "name": "newsFeedTitleFontColor",
+                "default": "$bodyTextColor",
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='news-feed']",
+                    "selectors": ".new-news-feed-list-container .news-feed-list-wrapper .news-feed-item-content h2.news-feed-item-title",
+                    "properties": ["color"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "newsFeedTitleFontColorTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "newsFeedTitleFontColorDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "color",
+                "label": "Font color"
+              },
+              {
+                "name": "newsFeedTitleFontWeight",
+                "default": "bold",
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='news-feed']",
+                    "selectors": ".new-news-feed-list-container .news-feed-list-wrapper .news-feed-item-content h2.news-feed-item-title",
+                    "properties": ["font-weight"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "newsFeedTitleFontWeightTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "newsFeedTitleFontWeightDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "font-style",
+                "properties": "weight"
+              },
+              {
+                "name": "newsFeedTitleItalic",
+                "default": "normal",
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='news-feed']",
+                    "selectors": ".new-news-feed-list-container .news-feed-list-wrapper .news-feed-item-content h2.news-feed-item-title",
+                    "properties": ["font-style"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "newsFeedTitleItalicTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "newsFeedTitleItalicDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "font-style",
+                "properties": "italic"
+              },
+              {
+                "name": "newsFeedTitleUnderline",
+                "default": "none",
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='news-feed']",
+                    "selectors": ".new-news-feed-list-container .news-feed-list-wrapper .news-feed-item-content h2.news-feed-item-title",
+                    "properties": ["text-decaration"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "newsFeedTitleUnderlineTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "newsFeedTitleUnderlineDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "font-style",
+                "subType": "decoration",
+                "properties": "underline"
+              },
+              {
+                "name": "newsFeedTitleLineHeight",
+                "default": "$bodyLineHeight",
+                "columns": 12,
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='news-feed']",
+                    "selectors": ".new-news-feed-list-container .news-feed-list-wrapper .news-feed-item-content h2.news-feed-item-title",
+                    "properties": ["line-height"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "newsFeedTitleLineHeightTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "newsFeedTitleLineHeightDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "size",
+                "subType": "line-height",
+                "label": "Line height"
+              },
+              {
+                "name": "newsFeedTitleMarginTop",
+                "default": "0px",
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='news-feed']",
+                    "selectors": ".new-news-feed-list-container .news-feed-list-wrapper .news-feed-item-content h2.news-feed-item-title",
+                    "properties": ["margin-top"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "newsFeedTitleMarginTopTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "newsFeedTitleMarginTopDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "label": "Margin top",
+                "type": "size",
+                "subType": "margin"
+              },
+              {
+                "name": "newsFeedTitleMarginBottom",
+                "default": "0px",
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='news-feed']",
+                    "selectors": ".new-news-feed-list-container .news-feed-list-wrapper .news-feed-item-content h2.news-feed-item-title",
+                    "properties": ["margin-bottom"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "newsFeedTitleMarginBottomTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "newsFeedTitleMarginBottomDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "label": "Margin bottom",
+                "type": "size",
+                "subType": "margin"
+              }
+            ]
+          },
+          {
+            "description": "List item description",
+            "fields": [
+              {
+                "name": "newsFeedDescriptionFontFamily",
+                "default": "$bodyFontFamily",
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='news-feed']",
+                    "selectors": ".new-news-feed-list-container .news-feed-list-wrapper .news-feed-item-content .news-feed-item-description",
+                    "properties": ["font-family"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "newsFeedDescriptionFontFamilyTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "newsFeedDescriptionFontFamilyDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "font",
+                "label": "Font"
+              },
+              {
+                "name": "newsFeedDescriptionFontSize",
+                "default": "16px",
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='news-feed']",
+                    "selectors": ".new-news-feed-list-container .news-feed-list-wrapper .news-feed-item-content .news-feed-item-description",
+                    "properties": ["font-size"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "newsFeedDescriptionFontSizeTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "newsFeedDescriptionFontSizeDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "size",
+                "subType": "font",
+                "label": "Font size"
+              },
+              {
+                "name": "newsFeedDescriptionFontColor",
+                "default": "$bodyTextColor",
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='news-feed']",
+                    "selectors": ".new-news-feed-list-container .news-feed-list-wrapper .news-feed-item-content .news-feed-item-description",
+                    "properties": ["color"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "newsFeedDescriptionFontColorTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "newsFeedDescriptionFontColorDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "color",
+                "label": "Font color"
+              },
+              {
+                "name": "newsFeedDescriptionFontWeight",
+                "default": "normal",
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='news-feed']",
+                    "selectors": ".new-news-feed-list-container .news-feed-list-wrapper .news-feed-item-content .news-feed-item-description",
+                    "properties": ["font-weight"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "newsFeedDescriptionFontWeightTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "newsFeedDescriptionFontWeightDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "font-style",
+                "properties": "weight"
+              },
+              {
+                "name": "newsFeedDescriptionItalic",
+                "default": "normal",
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='news-feed']",
+                    "selectors": ".new-news-feed-list-container .news-feed-list-wrapper .news-feed-item-content .news-feed-item-description",
+                    "properties": ["font-style"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "newsFeedDescriptionItalicTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "newsFeedDescriptionItalicDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "font-style",
+                "properties": "italic"
+              },
+              {
+                "name": "newsFeedDescriptionUnderline",
+                "default": "none",
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='news-feed']",
+                    "selectors": ".new-news-feed-list-container .news-feed-list-wrapper .news-feed-item-content .news-feed-item-description",
+                    "properties": ["text-decoration"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "newsFeedDescriptionUnderlineTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "newsFeedDescriptionUnderlineDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "font-style",
+                "subType": "decoration",
+                "properties": "underline"
+              },
+              {
+                "name": "newsFeedDescriptionLineHeight",
+                "default": "1.4",
+                "columns": 12,
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='news-feed']",
+                    "selectors": ".new-news-feed-list-container .news-feed-list-wrapper .news-feed-item-content .news-feed-item-description",
+                    "properties": ["line-height"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "newsFeedDescriptionLineHeightTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "newsFeedDescriptionLineHeightDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "size",
+                "subType": "line-height",
+                "label": "Line height"
+              },
+              {
+                "name": "newsFeedDescriptionMarginTop",
+                "default": "0px",
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='news-feed']",
+                    "selectors": ".new-news-feed-list-container .news-feed-list-wrapper .news-feed-item-content .news-feed-item-description",
+                    "properties": ["margin-top"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "newsFeedDescriptionMarginTopTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "newsFeedDescriptionMarginTopDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "label": "Margin top",
+                "type": "size",
+                "subType": "margin"
+              },
+              {
+                "name": "newsFeedDescriptionMarginBottom",
+                "default": "0px",
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='news-feed']",
+                    "selectors": ".new-news-feed-list-container .news-feed-list-wrapper .news-feed-item-content .news-feed-item-description",
+                    "properties": ["margin-bottom"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "newsFeedDescriptionMarginBottomTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "newsFeedDescriptionMarginBottomDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "label": "Margin bottom",
+                "type": "size",
+                "subType": "margin"
+              }
+            ]
+          },
+          {
+            "description": "List item second description",
+            "fields": [
+              {
+                "name": "newsFeedSecondDescriptionFontFamily",
+                "default": "$bodyFontFamily",
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='news-feed']",
+                    "selectors": ".new-news-feed-list-container .news-feed-list-wrapper .news-feed-item-content .news-feed-info-holder .news-feed-date-category",
+                    "properties": ["font-family"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "newsFeedSecondDescriptionFontFamilyTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "newsFeedSecondDescriptionFontFamilyDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "font",
+                "label": "Font"
+              },
+              {
+                "name": "newsFeedSecondDescriptionFontSize",
+                "default": "12px",
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='news-feed']",
+                    "selectors": ".new-news-feed-list-container .news-feed-list-wrapper .news-feed-item-content .news-feed-info-holder .news-feed-date-category",
+                    "properties": ["font-size"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "newsFeedSecondDescriptionFontSizeTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "newsFeedSecondDescriptionFontSizeDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "size",
+                "subType": "font",
+                "label": "Font size"
+              },
+              {
+                "name": "newsFeedSecondDescriptionFontColor",
+                "default": "rgba(51, 51, 51, 0.5)",
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='news-feed']",
+                    "selectors": ".new-news-feed-list-container .news-feed-list-wrapper .news-feed-item-content .news-feed-info-holder .news-feed-date-category",
+                    "properties": ["color"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "newsFeedSecondDescriptionFontColorTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "newsFeedSecondDescriptionFontColorDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "color",
+                "label": "Font color"
+              },
+              {
+                "name": "newsFeedSecondDescriptionFontWeight",
+                "default": "normal",
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='news-feed']",
+                    "selectors": ".new-news-feed-list-container .news-feed-list-wrapper .news-feed-item-content .news-feed-info-holder .news-feed-date-category",
+                    "properties": ["font-weight"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "newsFeedSecondDescriptionFontWeightTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "newsFeedSecondDescriptionFontWeightDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "font-style",
+                "properties": "weight"
+              },
+              {
+                "name": "newsFeedSecondDescriptionItalic",
+                "default": "normal",
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='news-feed']",
+                    "selectors": ".new-news-feed-list-container .news-feed-list-wrapper .news-feed-item-content .news-feed-info-holder .news-feed-date-category",
+                    "properties": ["font-style"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "newsFeedSecondDescriptionItalicTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "newsFeedSecondDescriptionItalicDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "font-style",
+                "properties": "italic"
+              },
+              {
+                "name": "newsFeedSecondDescriptionUnderline",
+                "default": "none",
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='news-feed']",
+                    "selectors": ".new-news-feed-list-container .news-feed-list-wrapper .news-feed-item-content .news-feed-info-holder .news-feed-date-category",
+                    "properties": ["text-decaration"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "newsFeedSecondDescriptionUnderlineTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "newsFeedSecondDescriptionUnderlineDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "font-style",
+                "subType": "decoration",
+                "properties": "underline"
+              },
+              {
+                "name": "newsFeedSecondDescriptionLineHeight",
+                "default": "1.6",
+                "columns": 12,
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='news-feed']",
+                    "selectors": ".new-news-feed-list-container .news-feed-list-wrapper .news-feed-item-content .news-feed-info-holder .news-feed-date-category",
+                    "properties": ["line-height"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "newsFeedSecondDescriptionLineHeightTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "newsFeedSecondDescriptionLineHeightDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "size",
+                "subType": "line-height",
+                "label": "Line height"
+              },
+              {
+                "name": "newsFeedSecondDescriptionMarginTop",
+                "default": "0px",
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='news-feed']",
+                    "selectors": ".new-news-feed-list-container .news-feed-list-wrapper .news-feed-item-content .news-feed-info-holder .news-feed-date-category",
+                    "properties": ["margin-top"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "newsFeedSecondDescriptionMarginTopTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "newsFeedSecondDescriptionMarginTopDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "label": "Margin top",
+                "type": "size",
+                "subType": "margin"
+              },
+              {
+                "name": "newsFeedSecondDescriptionMarginBottom",
+                "default": "0px",
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='news-feed']",
+                    "selectors": ".new-news-feed-list-container .news-feed-list-wrapper .news-feed-item-content .news-feed-info-holder .news-feed-date-category",
+                    "properties": ["margin-bottom"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "newsFeedSecondDescriptionMarginBottomTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "newsFeedSecondDescriptionMarginBottomDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "label": "Margin bottom",
+                "type": "size",
+                "subType": "margin"
+              }
+            ]
+          },
+          {
+            "description": "Detail overlay title",
+            "fields": [
+              {
+                "name": "newsFeedDetailTitleFontFamily",
+                "default": "$newsFeedTitleFontFamily",
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='news-feed']",
+                    "selectors": ".news-feed-detail-overlay .news-feed-item-inner-content h2.news-feed-item-title",
+                    "properties": ["font-family"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "newsFeedDetailTitleFontFamilyTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "newsFeedDetailTitleFontFamilyDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "font",
+                "label": "Font"
+              },
+              {
+                "name": "newsFeedDetailTitleFontSize",
+                "default": "$newsFeedTitleFontSize",
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='news-feed']",
+                    "selectors": ".news-feed-detail-overlay .news-feed-item-inner-content h2.news-feed-item-title",
+                    "properties": ["font-size"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "newsFeedDetailTitleFontSizeTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "newsFeedDetailTitleFontSizeDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "size",
+                "subType": "font",
+                "label": "Font size"
+              },
+              {
+                "name": "newsFeedDetailTitleFontColor",
+                "default": "$newsFeedTitleFontColor",
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='news-feed']",
+                    "selectors": ".news-feed-detail-overlay .news-feed-item-inner-content h2.news-feed-item-title",
+                    "properties": ["color"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "newsFeedDetailTitleFontColorTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "newsFeedDetailTitleFontColorDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "color",
+                "label": "Font color"
+              },
+              {
+                "name": "newsFeedDetailTitleFontWeight",
+                "default": "$newsFeedTitleFontWeight",
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='news-feed']",
+                    "selectors": ".news-feed-detail-overlay .news-feed-item-inner-content h2.news-feed-item-title",
+                    "properties": ["font-weight"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "newsFeedDetailTitleFontWeightTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "newsFeedDetailTitleFontWeightDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "font-style",
+                "properties": "weight"
+              },
+              {
+                "name": "newsFeedDetailTitleItalic",
+                "default": "$newsFeedTitleItalic",
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='news-feed']",
+                    "selectors": ".news-feed-detail-overlay .news-feed-item-inner-content h2.news-feed-item-title",
+                    "properties": ["font-style"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "newsFeedDetailTitleItalicTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "newsFeedDetailTitleItalicDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "font-style",
+                "properties": "italic"
+              },
+              {
+                "name": "newsFeedDetailTitleUnderline",
+                "default": "$newsFeedTitleUnderline",
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='news-feed']",
+                    "selectors": ".news-feed-detail-overlay .news-feed-item-inner-content h2.news-feed-item-title",
+                    "properties": ["text-decaration"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "newsFeedDetailTitleUnderlineTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "newsFeedDetailTitleUnderlineDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "font-style",
+                "subType": "decoration",
+                "properties": "underline"
+              },
+              {
+                "name": "newsFeedDetailTitleLineHeight",
+                "default": "1.3",
+                "columns": 12,
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='news-feed']",
+                    "selectors": ".news-feed-detail-overlay .news-feed-item-inner-content h2.news-feed-item-title",
+                    "properties": ["line-height"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "newsFeedDetailTitleLineHeightTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "newsFeedDetailTitleLineHeightDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "size",
+                "subType": "line-height",
+                "label": "Line height"
+              }
+            ]
+          },
+          {
+            "description": "Detail overlay description !",
+            "fields": [
+              {
+                "name": "newsFeedDetailDescriptionFontFamily",
+                "default": "$newsFeedDescriptionFontFamily",
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='news-feed']",
+                    "selectors": ".small-card-detail-overlay .small-card-detail-overlay-wrapper .small-card-list-detail-role",
+                    "properties": ["font-family"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "newsFeedDetailDescriptionFontFamilyTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "newsFeedDetailDescriptionFontFamilyDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "font",
+                "label": "Font"
+              },
+              {
+                "name": "newsFeedDetailDescriptionFontSize",
+                "default": "24px",
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='news-feed']",
+                    "selectors": ".small-card-detail-overlay .small-card-detail-overlay-wrapper .small-card-list-detail-role",
+                    "properties": ["font-size"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "newsFeedDetailDescriptionFontSizeTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "newsFeedDetailDescriptionFontSizeDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "size",
+                "subType": "font",
+                "label": "Font size"
+              },
+              {
+                "name": "newsFeedDetailDescriptionFontColor",
+                "default": "rgba(51, 51, 51, 0.6)",
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='news-feed']",
+                    "selectors": ".small-card-detail-overlay .small-card-detail-overlay-wrapper .small-card-list-detail-role",
+                    "properties": ["color"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "newsFeedDetailDescriptionFontColorTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "newsFeedDetailDescriptionFontColorDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "color",
+                "label": "Font color"
+              },
+              {
+                "name": "newsFeedDetailDescriptionFontWeight",
+                "default": "$newsFeedDescriptionFontWeight",
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='news-feed']",
+                    "selectors": ".small-card-detail-overlay .small-card-detail-overlay-wrapper .small-card-list-detail-role",
+                    "properties": ["font-weight"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "newsFeedDetailDescriptionFontWeightTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "newsFeedDetailDescriptionFontWeightDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "font-style",
+                "properties": "weight"
+              },
+              {
+                "name": "newsFeedDetailDescriptionItalic",
+                "default": "$newsFeedDescriptionItalic",
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='news-feed']",
+                    "selectors": ".small-card-detail-overlay .small-card-detail-overlay-wrapper .small-card-list-detail-role",
+                    "properties": ["font-style"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "newsFeedDetailDescriptionItalicTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "newsFeedDetailDescriptionItalicDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "font-style",
+                "properties": "italic"
+              },
+              {
+                "name": "newsFeedDetailDescriptionUnderline",
+                "default": "$newsFeedDescriptionUnderline",
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='news-feed']",
+                    "selectors": ".small-card-detail-overlay .small-card-detail-overlay-wrapper .small-card-list-detail-role",
+                    "properties": ["text-decaration"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "newsFeedDetailDescriptionUnderlineTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "newsFeedDetailDescriptionUnderlineDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "font-style",
+                "subType": "decoration",
+                "properties": "underline"
+              },
+              {
+                "name": "newsFeedDetailDescriptionLineHeight",
+                "default": "$bodyLineHeight",
+                "columns": 12,
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='news-feed']",
+                    "selectors": ".small-card-detail-overlay .small-card-detail-overlay-wrapper .small-card-list-detail-role",
+                    "properties": ["line-height"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "newsFeedDetailDescriptionLineHeightTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "newsFeedDetailDescriptionLineHeightDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "size",
+                "subType": "line-height",
+                "label": "Line height"
+              },
+              {
+                "name": "newsFeedDetailDescriptionMarginTop",
+                "default": "0px",
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='news-feed']",
+                    "selectors": ".small-card-detail-overlay .small-card-detail-overlay-wrapper .small-card-list-detail-role",
+                    "properties": ["margin-top"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "newsFeedDetailDescriptionMarginTopTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "newsFeedDetailDescriptionMarginTopDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "label": "Margin top",
+                "type": "size",
+                "subType": "margin"
+              },
+              {
+                "name": "newsFeedDetailDescriptionMarginBottom",
+                "default": "5px",
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='news-feed']",
+                    "selectors": ".small-card-detail-overlay .small-card-detail-overlay-wrapper .small-card-list-detail-role",
+                    "properties": ["margin-bottom"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "newsFeedDetailDescriptionMarginBottomTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "newsFeedDetailDescriptionMarginBottomDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "label": "Margin bottom",
+                "type": "size",
+                "subType": "margin"
+              }
+            ]
+          },
+          {
+            "description": "Detail overlay second description",
+            "fields": [
+              {
+                "name": "newsFeedDetailSecondDescriptionFontFamily",
+                "default": "$newsFeedSecondDescriptionFontFamily",
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='news-feed']",
+                    "selectors": ".news-feed-detail-overlay .news-feed-item-inner-content .news-feed-info-holder .news-feed-date-category",
+                    "properties": ["font-family"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "newsFeedDetailSecondDescriptionFontFamilyTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "newsFeedDetailSecondDescriptionFontFamilyDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "font",
+                "label": "Font"
+              },
+              {
+                "name": "newsFeedDetailSecondDescriptionFontSize",
+                "default": "16px",
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='news-feed']",
+                    "selectors": ".news-feed-detail-overlay .news-feed-item-inner-content .news-feed-info-holder .news-feed-date-category",
+                    "properties": ["font-size"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "newsFeedDetailSecondDescriptionFontSizeTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "newsFeedDetailSecondDescriptionFontSizeDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "size",
+                "subType": "font",
+                "label": "Font size"
+              },
+              {
+                "name": "newsFeedDetailSecondDescriptionFontColor",
+                "default": "rgba(51, 51, 51, 0.4)",
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='news-feed']",
+                    "selectors": ".news-feed-detail-overlay .news-feed-item-inner-content .news-feed-info-holder .news-feed-date-category",
+                    "properties": ["color"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "newsFeedDetailSecondDescriptionFontColorTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "newsFeedDetailSecondDescriptionFontColorDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "color",
+                "label": "Font color"
+              },
+              {
+                "name": "newsFeedDetailSecondDescriptionFontWeight",
+                "default": "$newsFeedSecondDescriptionFontWeight",
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='news-feed']",
+                    "selectors": ".news-feed-detail-overlay .news-feed-item-inner-content .news-feed-info-holder .news-feed-date-category",
+                    "properties": ["font-weight"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "newsFeedDetailSecondDescriptionFontWeightTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "newsFeedDetailSecondDescriptionFontWeightDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "font-style",
+                "properties": "weight"
+              },
+              {
+                "name": "newsFeedDetailSecondDescriptionItalic",
+                "default": "$newsFeedSecondDescriptionItalic",
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='news-feed']",
+                    "selectors": ".news-feed-detail-overlay .news-feed-item-inner-content .news-feed-info-holder .news-feed-date-category",
+                    "properties": ["font-style"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "newsFeedDetailSecondDescriptionItalicTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "newsFeedDetailSecondDescriptionItalicDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "font-style",
+                "properties": "italic"
+              },
+              {
+                "name": "newsFeedDetailSecondDescriptionUnderline",
+                "default": "$newsFeedSecondDescriptionUnderline",
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='news-feed']",
+                    "selectors": ".news-feed-detail-overlay .news-feed-item-inner-content .news-feed-info-holder .news-feed-date-category",
+                    "properties": ["text-decaration"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "newsFeedDetailSecondDescriptionUnderlineTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "newsFeedDetailSecondDescriptionUnderlineDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "font-style",
+                "subType": "decoration",
+                "properties": "underline"
+              },
+              {
+                "name": "newsFeedDetailSecondDescriptionLineHeight",
+                "default": "$bodyLineHeight",
+                "columns": 12,
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='news-feed']",
+                    "selectors": ".news-feed-detail-overlay .news-feed-item-inner-content .news-feed-info-holder .news-feed-date-category",
+                    "properties": ["line-height"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "newsFeedDetailSecondDescriptionLineHeightTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "newsFeedDetailSecondDescriptionLineHeightDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "size",
+                "subType": "line-height",
+                "label": "Line height"
+              },
+              {
+                "name": "newsFeedDetailSecondDescriptionMarginTop",
+                "default": "0px",
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='news-feed']",
+                    "selectors": ".news-feed-detail-overlay .news-feed-item-inner-content .news-feed-info-holder .news-feed-date-category",
+                    "properties": ["margin-top"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "newsFeedDetailSecondDescriptionMarginTopTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "newsFeedDetailSecondDescriptionMarginTopDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "label": "Margin top",
+                "type": "size",
+                "subType": "margin"
+              },
+              {
+                "name": "newsFeedDetailSecondDescriptionMarginBottom",
+                "default": "10px",
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='news-feed']",
+                    "selectors": ".news-feed-detail-overlay .news-feed-item-inner-content .news-feed-info-holder .news-feed-date-category",
+                    "properties": ["margin-bottom"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "newsFeedDetailSecondDescriptionMarginBottomTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "newsFeedDetailSecondDescriptionMarginBottomDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "label": "Margin bottom",
+                "type": "size",
+                "subType": "margin"
+              }
+            ]
+          },
+          {
+            "description": "Detail overlay text",
+            "fields": [
+              {
+                "name": "newsFeedDetailTextFontFamily",
+                "default": "$newsFeedDescriptionFontFamily",
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='news-feed']",
+                    "selectors": [
+                      ".news-feed-detail-overlay .news-feed-item-inner-content .news-feed-item-description > p"
+                    ],
+                    "properties": ["font-family"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "newsFeedDetailTextFontFamilyTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "newsFeedDetailTextFontFamilyDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "font",
+                "label": "Font"
+              },
+              {
+                "name": "newsFeedDetailTextFontSize",
+                "default": "$newsFeedDescriptionFontSize",
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='news-feed']",
+                    "selectors": ".news-feed-detail-overlay .news-feed-item-inner-content .news-feed-item-description > p",
+                    "properties": ["font-size"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "newsFeedDetailTextFontSizeTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "newsFeedDetailTextFontSizeDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "size",
+                "subType": "font",
+                "label": "Font size"
+              },
+              {
+                "name": "newsFeedDetailTextFontColor",
+                "default": "$newsFeedDescriptionFontColor",
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='news-feed']",
+                    "selectors": ".news-feed-detail-overlay .news-feed-item-inner-content .news-feed-item-description > p",
+                    "properties": ["color"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "newsFeedDetailTextFontColorTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "newsFeedDetailTextFontColorDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "color",
+                "label": "Font color"
+              },
+              {
+                "name": "newsFeedDetailTextFontWeight",
+                "default": "$newsFeedDescriptionFontWeight",
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='news-feed']",
+                    "selectors": ".news-feed-detail-overlay .news-feed-item-inner-content .news-feed-item-description > p",
+                    "properties": ["font-weight"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "newsFeedDetailTextFontWeightTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "newsFeedDetailTextFontWeightDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "font-style",
+                "properties": "weight"
+              },
+              {
+                "name": "newsFeedDetailTextItalic",
+                "default": "$newsFeedDescriptionItalic",
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='news-feed']",
+                    "selectors": ".news-feed-detail-overlay .news-feed-item-inner-content .news-feed-item-description > p",
+                    "properties": ["font-style"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "newsFeedDetailTextItalicTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "newsFeedDetailTextItalicDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "font-style",
+                "properties": "italic"
+              },
+              {
+                "name": "newsFeedDetailTextUnderline",
+                "default": "$newsFeedDescriptionUnderline",
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='news-feed']",
+                    "selectors": ".news-feed-detail-overlay .news-feed-item-inner-content .news-feed-item-description > p",
+                    "properties": ["text-decaration"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "newsFeedDetailTextUnderlineTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "newsFeedDetailTextUnderlineDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "font-style",
+                "subType": "decoration",
+                "properties": "underline"
+              },
+              {
+                "name": "newsFeedDetailTextLineHeight",
+                "default": "$bodyLineHeight",
+                "columns": 12,
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='news-feed']",
+                    "selectors": ".news-feed-detail-overlay .news-feed-item-inner-content .news-feed-item-description > p",
+                    "properties": ["line-height"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "newsFeedDetailTextLineHeightTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "newsFeedDetailTextLineHeightDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "size",
+                "subType": "line-height",
+                "label": "Line height"
+              },
+              {
+                "name": "newsFeedDetailTextMarginTop",
+                "default": "0px",
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='news-feed']",
+                    "selectors": ".news-feed-detail-overlay .news-feed-item-inner-content .news-feed-item-description > p",
+                    "properties": ["margin-top"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "newsFeedDetailTextMarginTopTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "newsFeedDetailTextMarginTopDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "label": "Margin top",
+                "type": "size",
+                "subType": "margin"
+              },
+              {
+                "name": "newsFeedDetailTextMarginBottom",
+                "default": "10px",
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='news-feed']",
+                    "selectors": ".news-feed-detail-overlay .news-feed-item-inner-content .news-feed-item-description > p",
+                    "properties": ["margin-bottom"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "newsFeedDetailTextMarginBottomTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "newsFeedDetailTextMarginBottomDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "label": "Margin bottom",
+                "type": "size",
+                "subType": "margin"
+              }
+            ]
+          },
+          {
+            "description": "Colors",
+            "fields": [
+              {
+                "name": "newsFeedListItemBackground",
+                "default": "$bodyBackground",
+                "column": 12,
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='news-feed']",
+                    "selectors": ".news-feed-list-wrapper .news-feed-item-inner-content",
+                    "properties": ["background-color"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "newsFeedListItemBackgroundTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "newsFeedListItemBackgroundDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "color",
+                "label": "List item background"
+              },
+              {
+                "name": "newsFeedListDetailOverlayBackground",
+                "default": "rgba(255, 255, 255, 1)",
+                "column": 12,
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='news-feed']",
+                    "selectors": ".news-feed-detail-overlay .news-feed-details-content-holder .news-feed-item-inner-content",
+                    "properties": ["background-color"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "newsFeedListDetailOverlayTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "newsFeedListDetailOverlayDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "color",
+                "label": "Details overlay background "
+              },
+              {
+                "name": "newsFeedListDetailOverlayLineUnderTitleColor",
+                "default": "$highlightColor",
+                "column": 12,
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='news-feed']",
+                    "selectors": ".news-feed-detail-overlay .news-feed-details-content-holder .news-feed-item-inner-content .news-feed-item-title::after",
+                    "properties": ["background-color"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "newsFeedListDetailOverlayLineUnderTitleColorTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "newsFeedListDetailOverlayLineUnderTitleColorDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "color",
+                "label": "Details overlay line under title "
+              },
+              {
+                "name": "newsFeedListDetailOverlayIconsColor",
+                "default": "rgba(51, 51, 51, 0.3)",
+                "column": 12,
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='news-feed']",
+                    "selectors": [
+                      ".news-feed-detail-overlay .news-feed-details-content-holder .news-feed-item-inner-content .news-feed-info-holder .news-feed-like-holder",
+                      ".news-feed-detail-overlay .news-feed-details-content-holder .news-feed-item-inner-content .news-feed-info-holder .news-feed-bookmark-holder"
+                    ],
+                    "properties": ["color"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "newsFeedListDetailOverlayIconsColorTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "newsFeedListDetailOverlayIconsColorDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "color",
+                "label": "Details overlay icons"
+              },
+              {
+                "name": "newsFeedFiltersOverlayBackground",
+                "default": "$bodyTextColor",
+                "column": 12,
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='news-feed']",
+                    "selectors": [
+                      ".new-news-feed-list-container .news-feed-search-filter-overlay .news-feed-overlay-wrapper",
+                      ".new-news-feed-list-container .news-feed-search-filter-overlay .news-feed-overlay-header",
+                      ".new-news-feed-list-container .filter-holder .panel-default > .panel-heading",
+                      ".news-feed-list-container .filter-holder .panel-default > .panel-heading"
+                    ],
+                    "properties": ["background-color"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "newsFeedFiltersOverlayBackgroundTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "newsFeedFiltersOverlayBackgroundDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "color",
+                "label": "Filters overlay background"
+              },
+              {
+                "name": "newsFeedOverlayFontColor",
+                "default": "$bodyBackground",
+                "columns": 12,
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='news-feed']",
+                    "selectors": [
+                      ".new-news-feed-list-container .news-feed-search-filter-overlay .news-feed-overlay-wrapper",
+                      ".new-news-feed-list-container .news-feed-search-filter-overlay .news-feed-overlay-header",
+                      ".new-news-feed-list-container .filter-holder .panel-default > .panel-heading",
+                      ".news-feed-list-container .filter-holder .panel-default > .panel-heading"
+                    ],
+                    "properties": ["color"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "newsFeedOverlayFontColorTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "newsFeedOverlayFontColorDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "label": "Filters overlay text",
+                "type": "color"
+              },
+              {
+                "name": "newsFeedFilterIconColor",
+                "default": "$highlightColor",
+                "columns": 12,
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='news-feed']",
+                    "selectors": [
+                      ".new-news-feed-list-container .section-top-wrapper .list-search-icon .fa-sliders",
+                      ".new-news-feed-list-container .section-top-wrapper .list-search-icon .list-search-cancel .fa-times"
+                    ],
+                    "properties": ["color"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "newsFeedFilterIconColorTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "newsFeedFilterIconColorDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "label": "Filter icon",
+                "type": "color"
+              },
+              {
+                "name": "newsFeedSearchIconColor",
+                "default": "$highlightColor",
+                "columns": 12,
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='news-feed']",
+                    "selectors": [".new-news-feed-list-container .section-top-wrapper .search-holder .fa"],
+                    "properties": ["color"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "newsFeedSearchIconColorTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "newsFeedSearchIconColorDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "label": "Search icon",
+                "type": "color"
+              },
+              {
+                "name": "newsFeedBookmarkIconColor",
+                "default": "$highlightColor",
+                "columns": 12,
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='news-feed']",
+                    "selectors": [".new-news-feed-list-container .section-top-wrapper .list-search-icon .toggle-bookmarks .fa"],
+                    "properties": ["color"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "newsFeedBookmarkIconColorTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "newsFeedBookmarkIconColorDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "label": "Bookmark icon",
+                "type": "color"
+              },
+              {
+                "name": "newsFeedImageBackground",
+                "default": "rgba(51, 51, 51, 0.05)",
+                "columns": 12,
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='news-feed']",
+                    "selectors": [
+                      ".new-news-feed-list-container .news-feed-list-wrapper .news-feed-list-item .news-feed-item-content .slide-under",
+                      ".news-feed-detail-overlay .news-feed-detail-overlay-wrapper .news-feed-list-detail-image-wrapper"
+                    ],
+                    "properties": ["background-color"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "newsFeedImageBackgroundTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "newsFeedImageBackgroundDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "label": "Image area background",
+                "type": "color"
+              }
+            ]
+          },
+          {
+            "description": "List item border",
+            "fields": [
+              {
+                "name": "newsFeedListItemBorderSides",
+                "default": "none",
+                "logic": {
+                  "none": {
+                    "hide": [
+                      "newsFeedListItemBorderWidth",
+                      "newsFeedListItemBorderStyle",
+                      "newsFeedListItemBorder"
+                    ]
+                  },
+                  "all": {
+                    "show": [
+                      "newsFeedListItemBorderWidth",
+                      "newsFeedListItemBorderStyle",
+                      "newsFeedListItemBorder"
+                    ]
+                  },
+                  "left": {
+                    "show": [
+                      "newsFeedListItemBorderWidth",
+                      "newsFeedListItemBorderStyle",
+                      "newsFeedListItemBorder"
+                    ]
+                  },
+                  "right": {
+                    "show": [
+                      "newsFeedListItemBorderWidth",
+                      "newsFeedListItemBorderStyle",
+                      "newsFeedListItemBorder"
+                    ]
+                  },
+                  "bottom": {
+                    "show": [
+                      "newsFeedListItemBorderWidth",
+                      "newsFeedListItemBorderStyle",
+                      "newsFeedListItemBorder"
+                    ]
+                  },
+                  "top": {
+                    "show": [
+                      "newsFeedListItemBorderWidth",
+                      "newsFeedListItemBorderStyle",
+                      "newsFeedListItemBorder"
+                    ]
+                  }
+                },
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='news-feed']",
+                    "selectors": [".new-news-feed-list-container .news-feed-list-wrapper .news-feed-list-item"],
+                    "properties": ["border"],
+                    "type": "border",
+                    "siblings": {
+                      "sides": "newsFeedListItemBorderSides",
+                      "width": "newsFeedListItemBorderWidth",
+                      "style": "newsFeedListItemBorderStyle",
+                      "color": "newsFeedListItemBorder"
+                    }
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "newsFeedListItemBorderSidesTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "newsFeedListItemBorderSidesDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "select",
+                "subtype": "border-sides"
+              },
+              {
+                "name": "newsFeedListItemBorder",
+                "default":"$bodyTextColor",
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='news-feed']",
+                    "selectors": [".new-news-feed-list-container .news-feed-list-wrapper .news-feed-list-item"],
+                    "properties": ["border"],
+                    "type": "border",
+                    "siblings": {
+                      "sides": "newsFeedListItemBorderSides",
+                      "width": "newsFeedListItemBorderWidth",
+                      "style": "newsFeedListItemBorderStyle",
+                      "color": "newsFeedListItemBorder"
+                    }
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "newsFeedListItemBorderTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "newsFeedListItemBorderDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "color"
+              },
+              {
+                "name": "newsFeedListItemBorderWidth",
+                "default": "1px",
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='news-feed']",
+                    "selectors": [".new-news-feed-list-container .news-feed-list-wrapper .news-feed-list-item"],
+                    "properties": ["border"],
+                    "type": "border",
+                    "siblings": {
+                      "sides": "newsFeedListItemBorderSides",
+                      "width": "newsFeedListItemBorderWidth",
+                      "style": "newsFeedListItemBorderStyle",
+                      "color": "newsFeedListItemBorder"
+                    }
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "newsFeedListItemBorderWidthTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "newsFeedListItemBorderWidthDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "size",
+                "subtype": "border"
+              },
+              {
+                "name": "newsFeedListItemBorderStyle",
+                "default": "solid",
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='news-feed']",
+                    "selectors": [".new-news-feed-list-container .news-feed-list-wrapper .news-feed-list-item"],
+                    "properties": ["border"],
+                    "type": "border",
+                    "siblings": {
+                      "sides": "newsFeedListItemBorderSides",
+                      "width": "newsFeedListItemBorderWidth",
+                      "style": "newsFeedListItemBorderStyle",
+                      "color": "newsFeedListItemBorder"
+                    }
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "newsFeedListItemBorderStyleTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "newsFeedListItemBorderStyleDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "border-style"
+              },
+              {
+                "name": "newsFeedListItemBorderRadius",
+                "default": "15px",
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='news-feed']",
+                    "selectors": [".new-news-feed-list-container .news-feed-list-wrapper .news-feed-list-item"],
+                    "properties": ["border-radius"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "newsFeedListItemBorderRadiusTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "newsFeedListItemBorderRadiusDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "size",
+                "label": "Border radius"
+              }
+            ]
+          },
+          {
+            "description": "List item shadow",
+            "fields": [
+              {
+                "name": "newsFeedListItemShadowStyle",
+                "default": "outset",
+                "logic": {
+                  "none": {
+                    "hide": [
+                      "newsFeedListItemShadowXoffset",
+                      "newsFeedListItemShadowYoffset",
+                      "newsFeedListItemShadowBlur",
+                      "newsFeedListItemShadowSpread",
+                      "newsFeedListItemShadowColor"
+                    ]
+                  },
+                  "outset": {
+                    "show": [
+                      "newsFeedListItemShadowXoffset",
+                      "newsFeedListItemShadowYoffset",
+                      "newsFeedListItemShadowBlur",
+                      "newsFeedListItemShadowSpread",
+                      "newsFeedListItemShadowColor"
+                    ]
+                  },
+                  "inset": {
+                    "show": [
+                      "newsFeedListItemShadowXoffset",
+                      "newsFeedListItemShadowYoffset",
+                      "newsFeedListItemShadowBlur",
+                      "newsFeedListItemShadowSpread",
+                      "newsFeedListItemShadowColor"
+                    ]
+                  }
+                },
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='news-feed']",
+                    "selectors": [".new-news-feed-list-container .news-feed-list-wrapper .news-feed-list-item"],
+                    "properties": ["box-shadow"],
+                    "type": "shadow",
+                    "siblings": {
+                      "style": "newsFeedListItemShadowStyle",
+                      "xoffset": "newsFeedListItemShadowXoffset",
+                      "yoffset": "newsFeedListItemShadowYoffset",
+                      "blur": "newsFeedListItemShadowBlur",
+                      "spread": "newsFeedListItemShadowSpread",
+                      "color": "newsFeedListItemShadowColor"
+                    }
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "newsFeedListItemShadowStyleTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "newsFeedListItemShadowStyleDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "select",
+                "subtype": "shadow-style"
+              },
+              {
+                "name": "newsFeedListItemShadowXoffset",
+                "default": "0px",
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='news-feed']",
+                    "selectors": [".new-news-feed-list-container .news-feed-list-wrapper .news-feed-list-item"],
+                    "properties": ["box-shadow"],
+                    "type": "shadow",
+                    "siblings": {
+                      "style": "newsFeedListItemShadowStyle",
+                      "xoffset": "newsFeedListItemShadowXoffset",
+                      "yoffset": "newsFeedListItemShadowYoffset",
+                      "blur": "newsFeedListItemShadowBlur",
+                      "spread": "newsFeedListItemShadowSpread",
+                      "color": "newsFeedListItemShadowColor"
+                    }
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "newsFeedListItemShadowXoffsetTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "newsFeedListItemShadowXoffsetDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "label": "X offset",
+                "type": "size",
+                "subtype": "shadow",
+                "allowNegative": true
+              },
+              {
+                "name": "newsFeedListItemShadowYoffset",
+                "default": "10px",
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='news-feed']",
+                    "selectors": [".new-news-feed-list-container .news-feed-list-wrapper .news-feed-list-item"],
+                    "properties": ["box-shadow"],
+                    "type": "shadow",
+                    "siblings": {
+                      "style": "newsFeedListItemShadowStyle",
+                      "xoffset": "newsFeedListItemShadowXoffset",
+                      "yoffset": "newsFeedListItemShadowYoffset",
+                      "blur": "newsFeedListItemShadowBlur",
+                      "spread": "newsFeedListItemShadowSpread",
+                      "color": "newsFeedListItemShadowColor"
+                    }
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "newsFeedListItemShadowYoffsetTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "newsFeedListItemShadowYoffsetDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "label": "Y offset",
+                "type": "size",
+                "subtype": "shadow",
+                "allowNegative": true
+              },
+              {
+                "name": "panelShadowBlur",
+                "default": "20px",
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='news-feed']",
+                    "selectors": [".new-news-feed-list-container .news-feed-list-wrapper .news-feed-list-item"],
+                    "properties": ["box-shadow"],
+                    "type": "shadow",
+                    "siblings": {
+                      "style": "newsFeedListItemShadowStyle",
+                      "xoffset": "newsFeedListItemShadowXoffset",
+                      "yoffset": "newsFeedListItemShadowYoffset",
+                      "blur": "newsFeedListItemShadowBlur",
+                      "spread": "newsFeedListItemShadowSpread",
+                      "color": "newsFeedListItemShadowColor"
+                    }
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "newsFeedListItemShadowBlurTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "newsFeedListItemShadowBlurDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "label": "Blur",
+                "type": "size",
+                "subtype": "shadow"
+              },
+              {
+                "name": "newsFeedListItemShadowSpread",
+                "default": "0px",
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='news-feed']",
+                    "selectors": [".new-news-feed-list-container .news-feed-list-wrapper .news-feed-list-item"],
+                    "properties": ["box-shadow"],
+                    "type": "shadow",
+                    "siblings": {
+                      "style": "newsFeedListItemShadowStyle",
+                      "xoffset": "newsFeedListItemShadowXoffset",
+                      "yoffset": "newsFeedListItemShadowYoffset",
+                      "blur": "newsFeedListItemShadowBlur",
+                      "spread": "newsFeedListItemShadowSpread",
+                      "color": "newsFeedListItemShadowColor"
+                    }
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "newsFeedListItemShadowSpreadTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "newsFeedListItemShadowSpreadDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "label": "Spread",
+                "type": "size",
+                "subtype": "shadow"
+              },
+              {
+                "name": "newsFeedListItemShadowColor",
+                "default": "rgba(51, 51, 51, 0.2)",
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='news-feed']",
+                    "selectors": [".new-news-feed-list-container .news-feed-list-wrapper .news-feed-list-item"],
+                    "properties": ["box-shadow"],
+                    "type": "shadow",
+                    "siblings": {
+                      "style": "newsFeedListItemShadowStyle",
+                      "xoffset": "newsFeedListItemShadowXoffset",
+                      "yoffset": "newsFeedListItemShadowYoffset",
+                      "blur": "newsFeedListItemShadowBlur",
+                      "spread": "newsFeedListItemShadowSpread",
+                      "color": "newsFeedListItemShadowColor"
+                    }
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "newsFeedListItemShadowColorTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "newsFeedListItemShadowColorDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "color"
+              }
+            ]
+          },
+          {
+            "description": "Visibility",
+            "appSupportsContainers": true,
+            "fields": [
+              {
+                "name": "listLargeVisibility",
+                "default": "visible",
+                "columns": 12,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "listLargeVisibilityTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "listLargeVisibilityDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "toggle",
+                "subtype": "visibility"
+              }
+            ]
+          }
+        ]
+      },
+      {
         "name": "Lock",
         "packages": ["com.fliplet.lock"],
         "variables": [
