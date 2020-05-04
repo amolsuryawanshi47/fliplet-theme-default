@@ -1,6 +1,6 @@
 {
-  "name": "Fliplet theme",
-  "package": "com.fliplet.theme.default",
+  "name": "Fliplet theme-yaroslav",
+  "package": "com.fliplet.theme.default-yaroslav",
   "version": "2.0.0",
   "icon": "img/icon.png",
   "tags": ["engineVersion:2"],
@@ -28424,7 +28424,7 @@
               },
               {
                 "name": "lfdDetailBackgroundColor",
-                "default": "$lfdBackgroundColor",
+                "default": "$bodyBackground",
                 "columns": 12,
                 "styles": [
                   {
@@ -32176,16 +32176,16 @@
                 "columns": 12,
                 "logic": {
                   "left": {
-                    "chartMarginRight": "auto",
-                    "chartMarginLeft": "0px"
+                    "newsFeedMarginRight": "auto",
+                    "newsFeedMarginLeft": "0px"
                   },
                   "center": {
-                    "chartMarginRight": "auto",
-                    "chartMarginLeft": "auto"
+                    "newsFeedMarginRight": "auto",
+                    "newsFeedMarginLeft": "auto"
                   },
                   "right": {
-                    "chartMarginRight": "0px",
-                    "chartMarginLeft": "auto"
+                    "newsFeedMarginRight": "0px",
+                    "newsFeedMarginLeft": "auto"
                   },
                   "custom": [
                     "newsFeedMarginTop",
@@ -34892,16 +34892,16 @@
                 "columns": 12,
                 "logic": {
                   "left": {
-                    "chartMarginRight": "auto",
-                    "chartMarginLeft": "0px"
+                    "agendaMarginRight": "auto",
+                    "agendaMarginLeft": "0px"
                   },
                   "center": {
-                    "chartMarginRight": "auto",
-                    "chartMarginLeft": "auto"
+                    "agendaMarginRight": "auto",
+                    "agendaMarginLeft": "auto"
                   },
                   "right": {
-                    "chartMarginRight": "0px",
-                    "chartMarginLeft": "auto"
+                    "agendaMarginRight": "0px",
+                    "agendaMarginLeft": "auto"
                   },
                   "custom": [
                     "agendaMarginTop",
@@ -36848,7 +36848,7 @@
               },
               {
                 "name": "agendaTopBarBackground",
-                "default": "$lfdBackgroundColor",
+                "default": "$bodyBackground",
                 "columns": 12,
                 "styles": [
                   {
@@ -37410,6 +37410,2370 @@
                   },
                   "desktop": {
                     "name": "agendaVisibilityDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "toggle",
+                "subtype": "visibility"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Featured List - List (from data source)",
+        "packages": ["com.fliplet.dynamic-lists"],
+        "variables": [
+          {
+            "description": "Width",
+            "fields": [
+              {
+                "name": "smallHCardWidth",
+                "default": "100%",
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='small-h-card']",
+                    "properties": ["width"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "smallHCardWidthTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "smallHCardWidthDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "size",
+                "subtype": "width",
+                "label": "Width"
+              },
+              {
+                "name": "smallHCardMaxWidth",
+                "default": "600px",
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='small-h-card']",
+                    "properties": ["max-width"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "smallHCardMaxWidthTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "smallHCardMaxWidthDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "size",
+                "subtype": "max-width",
+                "label": "Max-width"
+              }
+            ]
+          },
+          {
+            "description": "Positioning",
+            "fields": [
+              {
+                "name": "smallHCardPosition",
+                "default": "relative",
+                "columns": 12,
+                "logic": {
+                  "relative": {
+                    "hide": [
+                      "smallHCardPositionTop",
+                      "smallHCardPositionRight",
+                      "smallHCardPositionBottom",
+                      "smallHCardPositionLeft"
+                    ]
+                  },
+                  "absolute": {
+                    "show": [
+                      "smallHCardPositionTop",
+                      "smallHCardPositionRight",
+                      "smallHCardPositionBottom",
+                      "smallHCardPositionLeft"
+                    ]
+                  },
+                  "fixed": {
+                    "show": [
+                      "smallHCardPositionTop",
+                      "smallHCardPositionRight",
+                      "smallHCardPositionBottom",
+                      "smallHCardPositionLeft"
+                    ]
+                  }
+                },
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='small-h-card']",
+                    "properties": ["position"],
+                    "type": "position",
+                    "siblings": {
+                      "top": "smallHCardPositionTop",
+                      "right": "smallHCardPositionRight",
+                      "bottom": "smallHCardPositionBottom",
+                      "left": "smallHCardPositionLeft"
+                    }
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "smallHCardPositionTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "smallHCardPositionDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "position"
+              },
+              {
+                "name": "smallHCardDisplay",
+                "default": "block",
+                "columns": 12,
+                "logic": {
+                  "block": {
+                    "show": ["smallHCardMarginAlign"]
+                  },
+                  "inline-block": {
+                    "hide": ["smallHCardMarginAlign"]
+                  }
+                },
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='small-h-card']",
+                    "properties": ["display"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "smallHCardDisplayTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "smallHCardDisplayDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "display"
+              },
+              {
+                "name": "smallHCardPositionTop",
+                "default": "auto",
+                "columns": 6,
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='small-h-card']",
+                    "properties": ["top"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "smallHCardPositionTopTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "smallHCardPositionTopDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "label": "Top",
+                "type": "size",
+                "subtype": "position",
+                "allowNegative": true
+              },
+              {
+                "name": "smallHCardPositionRight",
+                "default": "auto",
+                "columns": 6,
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='small-h-card']",
+                    "properties": ["right"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "smallHCardPositionRightTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "smallHCardPositionRightDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "label": "Right",
+                "type": "size",
+                "subtype": "position",
+                "allowNegative": true
+              },
+              {
+                "name": "smallHCardPositionBottom",
+                "default": "auto",
+                "columns": 6,
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='small-h-card']",
+                    "properties": ["bottom"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "smallHCardPositionBottomTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "smallHCardPositionBottomDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "label": "Bottom",
+                "type": "size",
+                "subtype": "position",
+                "allowNegative": true
+              },
+              {
+                "name": "smallHCardPositionLeft",
+                "default": "auto",
+                "columns": 6,
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='small-h-card']",
+                    "properties": ["left"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "smallHCardPositionLeftTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "smallHCardPositionLeftDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "label": "Left",
+                "type": "size",
+                "subtype": "position",
+                "allowNegative": true
+              }
+            ]
+          },
+          {
+            "description": "Layer order",
+            "fields": [
+              {
+                "name": "smallHCardIndex",
+                "default": "auto",
+                "columns": 12,
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='small-h-card']",
+                    "properties": ["z-index"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "smallHCardIndexTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "smallHCardIndexDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "size",
+                "subtype": "z-index"
+              }
+            ]
+          },
+          {
+            "description": "Margin",
+            "fields": [
+              {
+                "name": "smallHCardMarginAlign",
+                "default": "center",
+                "columns": 12,
+                "logic": {
+                  "left": {
+                    "smallHCardMarginRight": "auto",
+                    "smallHCardMarginLeft": "0px"
+                  },
+                  "center": {
+                    "smallHCardMarginRight": "auto",
+                    "smallHCardMarginLeft": "auto"
+                  },
+                  "right": {
+                    "smallHCardMarginRight": "0px",
+                    "smallHCardMarginLeft": "auto"
+                  },
+                  "custom": [
+                    "smallHCardMarginTop",
+                    "smallHCardMarginRight",
+                    "smallHCardMarginBottom",
+                    "smallHCardMarginLeft"
+                  ]
+                },
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='small-h-card']",
+                    "properties": ["margin"],
+                    "type": "margin"
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "smallHCardMarginAlignTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "smallHCardMarginAlignDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "margin-align"
+              },
+              {
+                "name": "smallHCardMarginTop",
+                "default": "0px",
+                "columns": 6,
+                "logic": "smallHCardMarginAlign",
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='small-h-card']",
+                    "properties": ["margin-top"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "smallHCardMarginTopTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "smallHCardMarginTopDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "size",
+                "subtype": "margin",
+                "label": "Top",
+                "allowNegative": true
+              },
+              {
+                "name": "smallHCardMarginRight",
+                "default": "auto",
+                "columns": 6,
+                "logic": "smallHCardMarginAlign",
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='small-h-card']",
+                    "properties": ["margin-right"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "smallHCardMarginRightTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "smallHCardMarginRightDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "size",
+                "subtype": "margin",
+                "label": "Right",
+                "allowNegative": true
+              },
+              {
+                "name": "smallHCardMarginBottom",
+                "default": "0px",
+                "columns": 6,
+                "logic": "smallHCardMarginAlign",
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='small-h-card']",
+                    "properties": ["margin-bottom"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "smallHCardMarginBottomTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "smallHCardMarginBottomDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "size",
+                "subType": "margin",
+                "label": "Bottom",
+                "allowNegative": true
+              },
+              {
+                "name": "smallHCardMarginLeft",
+                "default": "auto",
+                "columns": 6,
+                "logic": "chartMarginAlign",
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='small-h-card']",
+                    "properties": ["margin-left"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "smallHCardMarginLeftTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "smallHCardMarginLeftDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "size",
+                "subType": "margin",
+                "label": "Left",
+                "allowNegative": true
+              }
+            ]
+          },
+          {
+            "description": "Padding",
+            "fields": [
+              {
+                "name": "smallHCardPaddingTop",
+                "default": "0px",
+                "columns": 6,
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='small-h-card']",
+                    "properties": ["padding-top"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "smallHCardPaddingTopTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "smallHCardPaddingTopDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "size",
+                "subType": "padding",
+                "label": "Top"
+              },
+              {
+                "name": "smallHCardPaddingRight",
+                "default": "0px",
+                "columns": 6,
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='small-h-card']",
+                    "properties": ["padding-right"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "smallHCardPaddingRightTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "smallHCardPaddingRightDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "size",
+                "subType": "padding",
+                "label": "Right"
+              },
+              {
+                "name": "smallHCardPaddingBottom",
+                "default": "0px",
+                "columns": 6,
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='small-h-card']",
+                    "properties": ["padding-bottom"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "smallHCardPaddingBottomTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "smallHCardPaddingBottomDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "size",
+                "subType": "padding",
+                "label": "Bottom"
+              },
+              {
+                "name": "smallHCardPaddingLeft",
+                "default": "0px",
+                "columns": 6,
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='small-h-card']",
+                    "properties": ["padding-left"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "smallHCardPaddingLeftTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "smallHCardPaddingLeftDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "size",
+                "subType": "padding",
+                "label": "Left"
+              }
+            ]
+          },
+          {
+            "description": "List item title",
+            "fields": [
+              {
+                "name": "smallHCardTitleFontFamily",
+                "default": "$bodyFontFamily",
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='small-h-card']",
+                    "selectors": ".new-small-h-card-list-container .small-h-card-list-item .small-h-card-list-item-text",
+                    "properties": ["font-family"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "smallHCardTitleFontFamilyTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "smallHCardTitleFontFamilyDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "font",
+                "label": "Font"
+              },
+              {
+                "name": "smallHCardTitleFontSize",
+                "default": "30px",
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='small-h-card']",
+                    "selectors": ".new-small-h-card-list-container .small-h-card-list-item .small-h-card-list-item-text",
+                    "properties": ["font-size"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "smallHCardTitleFontSizeTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "smallHCardTitleFontSizeDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "size",
+                "subType": "font",
+                "label": "Font size"
+              },
+              {
+                "name": "smallHCardTitleFontColor",
+                "default": "$bodyTextColor",
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='small-h-card']",
+                    "selectors": ".new-small-h-card-list-container .small-h-card-list-item .small-h-card-list-item-text",
+                    "properties": ["color"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "smallHCardTitleFontColorTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "smallHCardTitleFontColorDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "color",
+                "label": "Font color"
+              },
+              {
+                "name": "smallHCardTitleFontWeight",
+                "default": "bold",
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='small-h-card']",
+                    "selectors": ".new-small-h-card-list-container .small-h-card-list-item .small-h-card-list-item-text",
+                    "properties": ["font-weight"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "smallHCardTitleFontWeightTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "smallHCardTitleFontWeightDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "font-style",
+                "properties": "weight"
+              },
+              {
+                "name": "smallHCardTitleItalic",
+                "default": "normal",
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='small-h-card']",
+                    "selectors": ".new-small-h-card-list-container .small-h-card-list-item .small-h-card-list-item-text",
+                    "properties": ["font-style"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "smallHCardTitleItalicTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "smallHCardTitleItalicDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "font-style",
+                "properties": "italic"
+              },
+              {
+                "name": "smallHCardTitleUnderline",
+                "default": "none",
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='small-h-card']",
+                    "selectors": ".new-small-h-card-list-container .small-h-card-list-item .small-h-card-list-item-text",
+                    "properties": ["text-decoration"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "smallHCardTitleUnderlineTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "smallHCardTitleUnderlineDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "font-style",
+                "subType": "decoration",
+                "properties": "underline"
+              },
+              {
+                "name": "smallHCardTitleLineHeight",
+                "default": "$bodyLineHeight",
+                "columns": 12,
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='small-h-card']",
+                    "selectors": ".new-small-h-card-list-container .small-h-card-list-item .small-h-card-list-item-text",
+                    "properties": ["line-height"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "smallHCardTitleLineHeightTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "smallHCardTitleLineHeightDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "size",
+                "subType": "line-height",
+                "label": "Line height"
+              },
+              {
+                "name": "smallHCardTitleMarginTop",
+                "default": "0px",
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='small-h-card']",
+                    "selectors": ".new-small-h-card-list-container .small-h-card-list-item .small-h-card-list-item-text",
+                    "properties": ["margin-top"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "smallHCardTitleMarginTopTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "smallHCardTitleMarginTopDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "label": "Margin top",
+                "type": "size",
+                "subType": "margin"
+              },
+              {
+                "name": "smallHCardTitleMarginBottom",
+                "default": "0px",
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='small-h-card']",
+                    "selectors": ".new-small-h-card-list-container .small-h-card-list-item .small-h-card-list-item-text",
+                    "properties": ["margin-bottom"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "smallHCardTitleMarginBottomTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "smallHCardTitleMarginBottomDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "label": "Margin bottom",
+                "type": "size",
+                "subType": "margin"
+              }
+            ]
+          },
+          {
+            "description": "Detail overlay title",
+            "fields": [
+              {
+                "name": "smallHCardDetailTitleFontFamily",
+                "default": "$smallHCardTitleFontFamily",
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='small-h-card']",
+                    "selectors": ".small-h-card-detail-overlay .small-h-card-detail-overlay-panel .small-h-card-detail-overlay-content .small-h-card-list-detail-name",
+                    "properties": ["font-family"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "smallHCardDetailTitleFontFamilyTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "smallHCardDetailTitleFontFamilyDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "font",
+                "label": "Font"
+              },
+              {
+                "name": "smallHCardDetailTitleFontSize",
+                "default": "$smallHCardTitleFontSize",
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='small-h-card']",
+                    "selectors": ".small-h-card-detail-overlay .small-h-card-detail-overlay-panel .small-h-card-detail-overlay-content .small-h-card-list-detail-name",
+                    "properties": ["font-size"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "smallHCardDetailTitleFontSizeTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "smallHCardDetailTitleFontSizeDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "size",
+                "subType": "font",
+                "label": "Font size"
+              },
+              {
+                "name": "smallHCardDetailTitleFontColor",
+                "default": "$smallHCardTitleFontColor",
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='small-h-card']",
+                    "selectors": ".small-h-card-detail-overlay .small-h-card-detail-overlay-panel .small-h-card-detail-overlay-content .small-h-card-list-detail-name",
+                    "properties": ["color"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "smallHCardDetailTitleFontColorTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "smallHCardDetailTitleFontColorDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "color",
+                "label": "Font color"
+              },
+              {
+                "name": "smallHCardDetailTitleFontWeight",
+                "default": "$smallHCardTitleFontWeight",
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='small-h-card']",
+                    "selectors": ".small-h-card-detail-overlay .small-h-card-detail-overlay-panel .small-h-card-detail-overlay-content .small-h-card-list-detail-name",
+                    "properties": ["font-weight"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "smallHCardDetailTitleFontWeightTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "smallHCardDetailTitleFontWeightDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "font-style",
+                "properties": "weight"
+              },
+              {
+                "name": "smallHCardDetailTitleItalic",
+                "default": "$smallHCardTitleItalic",
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='small-h-card']",
+                    "selectors": ".small-h-card-detail-overlay .small-h-card-detail-overlay-panel .small-h-card-detail-overlay-content .small-h-card-list-detail-name",
+                    "properties": ["font-style"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "smallHCardDetailTitleItalicTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "smallHCardDetailTitleItalicDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "font-style",
+                "properties": "italic"
+              },
+              {
+                "name": "smallHCardDetailTitleUnderline",
+                "default": "$smallHCardTitleUnderline",
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='small-h-card']",
+                    "selectors": ".small-h-card-detail-overlay .small-h-card-detail-overlay-panel .small-h-card-detail-overlay-content .small-h-card-list-detail-name",
+                    "properties": ["text-decoration"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "smallHCardDetailTitleUnderlineTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "smallHCardDetailTitleUnderlineDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "font-style",
+                "subType": "decoration",
+                "properties": "underline"
+              },
+              {
+                "name": "smallHCardDetailTitleLineHeight",
+                "default": "1.3",
+                "columns": 12,
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='small-h-card']",
+                    "selectors": ".small-h-card-detail-overlay .small-h-card-detail-overlay-panel .small-h-card-detail-overlay-content .small-h-card-list-detail-name",
+                    "properties": ["line-height"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "smallHCardDetailTitleLineHeightTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "smallHCardDetailTitleLineHeightDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "size",
+                "subType": "line-height",
+                "label": "Line height"
+              }
+            ]
+          },
+          {
+            "description": "Detail overlay description",
+            "fields": [
+              {
+                "name": "smallHCardDetailDescriptionFontFamily",
+                "default": "$bodyFontFamily",
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='small-h-card']",
+                    "selectors": ".small-h-card-detail-overlay .small-h-card-detail-overlay-panel .small-h-card-detail-overlay-content .small-h-card-list-detail-role",
+                    "properties": ["font-family"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "smallHCardDetailDescriptionFontFamilyTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "smallHCardDetailDescriptionFontFamilyDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "font",
+                "label": "Font"
+              },
+              {
+                "name": "smallHCardDetailDescriptionFontSize",
+                "default": "24px",
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='small-h-card']",
+                    "selectors": ".small-h-card-detail-overlay .small-h-card-detail-overlay-panel .small-h-card-detail-overlay-content .small-h-card-list-detail-role",
+                    "properties": ["font-size"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "smallHCardDetailDescriptionFontSizeTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "smallHCardDetailDescriptionFontSizeDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "size",
+                "subType": "font",
+                "label": "Font size"
+              },
+              {
+                "name": "smallHCardDetailDescriptionFontColor",
+                "default": "rgba(51, 51, 51, 0.6)",
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='small-h-card']",
+                    "selectors": ".small-h-card-detail-overlay .small-h-card-detail-overlay-panel .small-h-card-detail-overlay-content .small-h-card-list-detail-role",
+                    "properties": ["color"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "smallHCardDetailDescriptionFontColorTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "smallHCardDetailDescriptionFontColorDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "color",
+                "label": "Font color"
+              },
+              {
+                "name": "smallHCardDetailDescriptionFontWeight",
+                "default": "normal",
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='small-h-card']",
+                    "selectors": ".small-h-card-detail-overlay .small-h-card-detail-overlay-panel .small-h-card-detail-overlay-content .small-h-card-list-detail-role",
+                    "properties": ["font-weight"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "smallHCardDetailDescriptionFontWeightTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "smallHCardDetailDescriptionFontWeightDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "font-style",
+                "properties": "weight"
+              },
+              {
+                "name": "smallHCardDetailDescriptionItalic",
+                "default": "normal",
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='small-h-card']",
+                    "selectors": ".small-h-card-detail-overlay .small-h-card-detail-overlay-panel .small-h-card-detail-overlay-content .small-h-card-list-detail-role",
+                    "properties": ["font-style"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "smallHCardDetailDescriptionItalicTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "smallHCardDetailDescriptionItalicDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "font-style",
+                "properties": "italic"
+              },
+              {
+                "name": "smallHCardDetailDescriptionUnderline",
+                "default": "none",
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='small-h-card']",
+                    "selectors": ".small-h-card-detail-overlay .small-h-card-detail-overlay-panel .small-h-card-detail-overlay-content .small-h-card-list-detail-role",
+                    "properties": ["text-decoration"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "smallHCardDetailDescriptionUnderlineTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "smallHCardDetailDescriptionUnderlineDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "font-style",
+                "subType": "decoration",
+                "properties": "underline"
+              },
+              {
+                "name": "smallHCardDetailDescriptionLineHeight",
+                "default": "$bodyLineHeight",
+                "columns": 12,
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='small-h-card']",
+                    "selectors": ".small-h-card-detail-overlay .small-h-card-detail-overlay-panel .small-h-card-detail-overlay-content .small-h-card-list-detail-role",
+                    "properties": ["line-height"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "smallHCardDetailDescriptionLineHeightTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "smallHCardDetailDescriptionLineHeightDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "size",
+                "subType": "line-height",
+                "label": "Line height"
+              },
+              {
+                "name": "smallHCardDetailDescriptionMarginTop",
+                "default": "0px",
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='small-h-card']",
+                    "selectors": ".small-h-card-detail-overlay .small-h-card-detail-overlay-panel .small-h-card-detail-overlay-content .small-h-card-list-detail-role",
+                    "properties": ["margin-top"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "smallHCardDetailDescriptionMarginTopTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "smallHCardDetailDescriptionMarginTopDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "label": "Margin top",
+                "type": "size",
+                "subType": "margin"
+              },
+              {
+                "name": "smallHCardDetailDescriptionMarginBottom",
+                "default": "5px",
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='small-h-card']",
+                    "selectors": ".small-h-card-detail-overlay .small-h-card-detail-overlay-panel .small-h-card-detail-overlay-content .small-h-card-list-detail-role",
+                    "properties": ["margin-bottom"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "smallHCardDetailDescriptionMarginBottomTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "smallHCardDetailDescriptionMarginBottomDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "label": "Margin bottom",
+                "type": "size",
+                "subType": "margin"
+              }
+            ]
+          },
+          {
+            "description": "Detail overlay second description",
+            "fields": [
+              {
+                "name": "smallHCardDetailSecondDescriptionFontFamily",
+                "default": "$bodyFontFamily",
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='small-h-card']",
+                    "selectors": ".small-h-card-detail-overlay .small-h-card-detail-overlay-panel .small-h-card-detail-overlay-content .small-h-card-list-detail-location",
+                    "properties": ["font-family"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "smallHCardDetailSecondDescriptionFontFamilyTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "smallHCardDetailSecondDescriptionFontFamilyDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "font",
+                "label": "Font"
+              },
+              {
+                "name": "smallHCardDetailSecondDescriptionFontSize",
+                "default": "16px",
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='small-h-card']",
+                    "selectors": ".small-h-card-detail-overlay .small-h-card-detail-overlay-panel .small-h-card-detail-overlay-content .small-h-card-list-detail-location",
+                    "properties": ["font-size"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "smallHCardDetailSecondDescriptionFontSizeTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "smallHCardDetailSecondDescriptionFontSizeDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "size",
+                "subType": "font",
+                "label": "Font size"
+              },
+              {
+                "name": "smallHCardDetailSecondDescriptionFontColor",
+                "default": "rgba(51, 51, 51, 0.4)",
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='small-h-card']",
+                    "selectors": ".small-h-card-detail-overlay .small-h-card-detail-overlay-panel .small-h-card-detail-overlay-content .small-h-card-list-detail-location",
+                    "properties": ["color"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "smallHCardDetailSecondDescriptionFontColorTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "smallHCardDetailSecondDescriptionFontColorDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "color",
+                "label": "Font color"
+              },
+              {
+                "name": "smallHCardDetailSecondDescriptionFontWeight",
+                "default": "normal",
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='small-h-card']",
+                    "selectors": ".small-h-card-detail-overlay .small-h-card-detail-overlay-panel .small-h-card-detail-overlay-content .small-h-card-list-detail-location",
+                    "properties": ["font-weight"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "smallHCardDetailSecondDescriptionFontWeightTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "smallHCardDetailSecondDescriptionFontWeightDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "font-style",
+                "properties": "weight"
+              },
+              {
+                "name": "smallHCardDetailSecondDescriptionItalic",
+                "default": "normal",
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='small-h-card']",
+                    "selectors": ".small-h-card-detail-overlay .small-h-card-detail-overlay-panel .small-h-card-detail-overlay-content .small-h-card-list-detail-location",
+                    "properties": ["font-style"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "smallHCardDetailSecondDescriptionItalicTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "smallHCardDetailSecondDescriptionItalicDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "font-style",
+                "properties": "italic"
+              },
+              {
+                "name": "smallHCardDetailSecondDescriptionUnderline",
+                "default": "none",
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='small-h-card']",
+                    "selectors": ".small-h-card-detail-overlay .small-h-card-detail-overlay-panel .small-h-card-detail-overlay-content .small-h-card-list-detail-location",
+                    "properties": ["text-decoration"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "smallHCardDetailSecondDescriptionUnderlineTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "smallHCardDetailSecondDescriptionUnderlineDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "font-style",
+                "subType": "decoration",
+                "properties": "underline"
+              },
+              {
+                "name": "smallHCardDetailSecondDescriptionLineHeight",
+                "default": "$bodyLineHeight",
+                "columns": 12,
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='small-h-card']",
+                    "selectors": ".small-h-card-detail-overlay .small-h-card-detail-overlay-panel .small-h-card-detail-overlay-content .small-h-card-list-detail-location",
+                    "properties": ["line-height"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "smallHCardDetailSecondDescriptionLineHeightTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "smallHCardDetailSecondDescriptionLineHeightDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "size",
+                "subType": "line-height",
+                "label": "Line height"
+              },
+              {
+                "name": "smallHCardDetailSecondDescriptionMarginTop",
+                "default": "0px",
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='small-h-card']",
+                    "selectors": ".small-h-card-detail-overlay .small-h-card-detail-overlay-panel .small-h-card-detail-overlay-content .small-h-card-list-detail-location",
+                    "properties": ["margin-top"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "smallHCardDetailSecondDescriptionMarginTopTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "smallHCardDetailSecondDescriptionMarginTopDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "label": "Margin top",
+                "type": "size",
+                "subType": "margin"
+              },
+              {
+                "name": "smallHCardDetailSecondDescriptionMarginBottom",
+                "default": "10px",
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='small-h-card']",
+                    "selectors": ".small-h-card-detail-overlay .small-h-card-detail-overlay-panel .small-h-card-detail-overlay-content .small-h-card-list-detail-location",
+                    "properties": ["margin-bottom"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "smallHCardDetailSecondDescriptionMarginBottomTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "smallHCardDetailSecondDescriptionMarginBottomDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "label": "Margin bottom",
+                "type": "size",
+                "subType": "margin"
+              }
+            ]
+          },
+          {
+            "description": "Detail overlay text",
+            "fields": [
+              {
+                "name": "smallHCardDetailTextFontFamily",
+                "default": "$bodyFontFamily",
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='small-h-card']",
+                    "selectors": [
+                      ".small-h-card-detail-overlay .small-h-card-detail-overlay-panel .small-h-card-detail-overlay-content .small-h-card-details-holder .small-h-card-list-detail-body-text"
+                    ],
+                    "properties": ["font-family"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "smallHCardDetailTextFontFamilyTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "smallHCardDetailTextFontFamilyDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "font",
+                "label": "Font"
+              },
+              {
+                "name": "smallHCardDetailTextFontSize",
+                "default": "16px",
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='small-h-card']",
+                    "selectors": ".small-h-card-detail-overlay .small-h-card-detail-overlay-panel .small-h-card-detail-overlay-content .small-h-card-details-holder .small-h-card-list-detail-body-text",
+                    "properties": ["font-size"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "smallHCardDetailTextFontSizeTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "smallHCardDetailTextFontSizeDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "size",
+                "subType": "font",
+                "label": "Font size"
+              },
+              {
+                "name": "smallHCardDetailTextFontColor",
+                "default": "$bodyTextColor",
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='small-h-card']",
+                    "selectors": ".small-h-card-detail-overlay .small-h-card-detail-overlay-panel .small-h-card-detail-overlay-content .small-h-card-details-holder .small-h-card-list-detail-body-text",
+                    "properties": ["color"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "smallHCardDetailTextFontColorTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "smallHCardDetailTextFontColorDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "color",
+                "label": "Font color"
+              },
+              {
+                "name": "smallHCardDetailTextFontWeight",
+                "default": "normal",
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='small-h-card']",
+                    "selectors": ".small-h-card-detail-overlay .small-h-card-detail-overlay-panel .small-h-card-detail-overlay-content .small-h-card-details-holder .small-h-card-list-detail-body-text",
+                    "properties": ["font-weight"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "smallHCardDetailTextFontWeightTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "smallHCardDetailTextFontWeightDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "font-style",
+                "properties": "weight"
+              },
+              {
+                "name": "smallHCardDetailTextItalic",
+                "default": "normal",
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='small-h-card']",
+                    "selectors": ".small-h-card-detail-overlay .small-h-card-detail-overlay-panel .small-h-card-detail-overlay-content .small-h-card-details-holder .small-h-card-list-detail-body-text",
+                    "properties": ["font-style"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "smallHCardDetailTextItalicTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "smallHCardDetailTextItalicDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "font-style",
+                "properties": "italic"
+              },
+              {
+                "name": "smallHCardDetailTextUnderline",
+                "default": "none",
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='small-h-card']",
+                    "selectors": ".small-h-card-detail-overlay .small-h-card-detail-overlay-panel .small-h-card-detail-overlay-content .small-h-card-details-holder .small-h-card-list-detail-body-text",
+                    "properties": ["text-decoration"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "smallHCardDetailTextUnderlineTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "smallHCardDetailTextUnderlineDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "font-style",
+                "subType": "decoration",
+                "properties": "underline"
+              },
+              {
+                "name": "smallHCardDetailTextLineHeight",
+                "default": "$bodyLineHeight",
+                "columns": 12,
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='small-h-card']",
+                    "selectors": ".small-h-card-detail-overlay .small-h-card-detail-overlay-panel .small-h-card-detail-overlay-content .small-h-card-details-holder .small-h-card-list-detail-body-text",
+                    "properties": ["line-height"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "smallHCardDetailTextLineHeightTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "smallHCardDetailTextLineHeightDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "size",
+                "subType": "line-height",
+                "label": "Line height"
+              },
+              {
+                "name": "smallHCardDetailTextMarginTop",
+                "default": "0px",
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='small-h-card']",
+                    "selectors": ".small-h-card-detail-overlay .small-h-card-detail-overlay-panel .small-h-card-detail-overlay-content .small-h-card-details-holder .small-h-card-list-detail-body-text",
+                    "properties": ["margin-top"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "smallHCardDetailTextMarginTopTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "smallHCardDetailTextMarginTopDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "label": "Margin top",
+                "type": "size",
+                "subType": "margin"
+              },
+              {
+                "name": "smallHCardDetailTextMarginBottom",
+                "default": "10px",
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='small-h-card']",
+                    "selectors": ".small-h-card-detail-overlay .small-h-card-detail-overlay-panel .small-h-card-detail-overlay-content .small-h-card-details-holder .small-h-card-list-detail-body-text",
+                    "properties": ["margin-bottom"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "smallHCardDetailTextMarginBottomTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "smallHCardDetailTextMarginBottomDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "label": "Margin bottom",
+                "type": "size",
+                "subType": "margin"
+              }
+            ]
+          },
+          {
+            "description": "Detail overlay labels",
+            "fields": [
+              {
+                "name": "smallHCardDetailLabelsFontFamily",
+                "default": "$bodyFontFamily",
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='small-h-card']",
+                    "selectors": [
+                      ".small-h-card-detail-overlay .small-h-card-detail-overlay-panel .small-h-card-detail-overlay-content .small-h-card-details-holder .small-h-card-list-detail-body-label"
+                    ],
+                    "properties": ["font-family"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "smallHCardDetailLabelsFontFamilyTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "smallHCardDetailLabelsFontFamilyDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "font",
+                "label": "Font"
+              },
+              {
+                "name": "smallHCardDetailLabelsFontSize",
+                "default": "12px",
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='small-h-card']",
+                    "selectors": ".small-h-card-detail-overlay .small-h-card-detail-overlay-panel .small-h-card-detail-overlay-content .small-h-card-details-holder .small-h-card-list-detail-body-label",
+                    "properties": ["font-size"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "smallHCardDetailLabelsFontSizeTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "smallHCardDetailLabelsFontSizeDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "size",
+                "subType": "font",
+                "label": "Font size"
+              },
+              {
+                "name": "smallHCardDetailLabelsFontColor",
+                "default": "rgba(51, 51, 51, 0.5)",
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='small-h-card']",
+                    "selectors": ".small-h-card-detail-overlay .small-h-card-detail-overlay-panel .small-h-card-detail-overlay-content .small-h-card-details-holder .small-h-card-list-detail-body-label",
+                    "properties": ["color"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "smallHCardDetailLabelsFontColorTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "smallHCardDetailLabelsFontColorDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "color",
+                "label": "Font color"
+              },
+              {
+                "name": "smallHCardDetailLabelsFontWeight",
+                "default": "normal",
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='small-h-card']",
+                    "selectors": ".small-h-card-detail-overlay .small-h-card-detail-overlay-panel .small-h-card-detail-overlay-content .small-h-card-details-holder .small-h-card-list-detail-body-label",
+                    "properties": ["font-weight"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "smallHCardDetailLabelsFontWeightTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "smallHCardDetailLabelsFontWeightDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "font-style",
+                "properties": "weight"
+              },
+              {
+                "name": "smallHCardDetailLabelsItalic",
+                "default": "normal",
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='small-h-card']",
+                    "selectors": ".small-h-card-detail-overlay .small-h-card-detail-overlay-panel .small-h-card-detail-overlay-content .small-h-card-details-holder .small-h-card-list-detail-body-label",
+                    "properties": ["font-style"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "smallHCardDetailLabelsItalicTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "smallHCardDetailLabelsItalicDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "font-style",
+                "properties": "italic"
+              },
+              {
+                "name": "smallHCardDetailLabelsUnderline",
+                "default": "none",
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='small-h-card']",
+                    "selectors": ".small-h-card-detail-overlay .small-h-card-detail-overlay-panel .small-h-card-detail-overlay-content .small-h-card-details-holder .small-h-card-list-detail-body-label",
+                    "properties": ["text-decoration"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "smallHCardDetailLabelsUnderlineTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "smallHCardDetailLabelsUnderlineDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "font-style",
+                "subType": "decoration",
+                "properties": "underline"
+              },
+              {
+                "name": "smallHCardDetailLabelsLineHeight",
+                "default": "$bodyLineHeight",
+                "columns": 12,
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='small-h-card']",
+                    "selectors": ".small-h-card-detail-overlay .small-h-card-detail-overlay-panel .small-h-card-detail-overlay-content .small-h-card-details-holder .small-h-card-list-detail-body-label",
+                    "properties": ["line-height"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "smallHCardDetailLabelsLineHeightTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "smallHCardDetailLabelsLineHeightDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "size",
+                "subType": "line-height",
+                "label": "Line height"
+              },
+              {
+                "name": "smallHCardDetailLabelsMarginTop",
+                "default": "0px",
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='small-h-card']",
+                    "selectors": ".small-h-card-detail-overlay .small-h-card-detail-overlay-panel .small-h-card-detail-overlay-content .small-h-card-details-holder .small-h-card-list-detail-body-label",
+                    "properties": ["margin-top"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "smallHCardDetailLabelsMarginTopTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "smallHCardDetailLabelsMarginTopDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "label": "Margin top",
+                "type": "size",
+                "subType": "margin"
+              },
+              {
+                "name": "smallHCardDetailLabelsMarginBottom",
+                "default": "10px",
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='small-h-card']",
+                    "selectors": ".small-h-card-detail-overlay .small-h-card-detail-overlay-panel .small-h-card-detail-overlay-content .small-h-card-details-holder .small-h-card-list-detail-body-label",
+                    "properties": ["margin-bottom"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "smallHCardDetailLabelsMarginBottomTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "smallHCardDetailLabelsMarginBottomDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "label": "Margin bottom",
+                "type": "size",
+                "subType": "margin"
+              }
+            ]
+          },
+          {
+            "description": "Colors",
+            "fields": [
+              {
+                "name": "smallHCardListItemBackground",
+                "default": "$bodyBackground",
+                "column": 12,
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='small-h-card']",
+                    "selectors": ".new-small-h-card-list-container .small-h-card-list-item",
+                    "properties": ["background-color"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "smallHCardListItemBackgroundTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "smallHCardListItemBackgroundDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "color",
+                "label": "List item background"
+              },
+              {
+                "name": "smallHCardListDetailOverlayBackground",
+                "default": "$lfdBackgroundColor",
+                "column": 12,
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='small-h-card']",
+                    "selectors": ".small-h-card-detail-overlay .small-h-card-detail-overlay-wrapper .small-h-card-list-detail-content-wrapper",
+                    "properties": ["background-color"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "smallHCardListDetailOverlayTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "smallHCardListDetailOverlayDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "color",
+                "label": "Details overlay background "
+              },
+              {
+                "name": "smallHCardListDetailOverlayLineUnderTitleColor",
+                "default": "$highlightColor",
+                "column": 12,
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='small-h-card']",
+                    "selectors": ".small-h-card-detail-overlay .small-h-card-detail-overlay-wrapper .small-h-card-list-detail-content-wrapper .small-h-card-list-detail-name::after",
+                    "properties": ["background-color"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "smallHCardListDetailOverlayLineUnderTitleColorTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "smallHCardListDetailOverlayLineUnderTitleColorDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "color",
+                "label": "Details overlay line under title "
+              },
+              {
+                "name": "smallHCardListDetailOverlayIconsColor",
+                "default": "rgba(51, 51, 51, 0.3)",
+                "column": 12,
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='small-h-card']",
+                    "selectors": ".small-h-card-detail-overlay .small-h-card-detail-overlay-wrapper .small-h-card-detail-overlay-panel .small-h-card-detail-wrapper .small-h-card-list-detail-content-wrapper .small-h-card-list-detail-button a",
+                    "properties": ["color"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "smallHCardListDetailOverlayIconsColorTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "smallHCardListDetailOverlayIconsColorDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "color",
+                "label": "Details overlay icons"
+              },
+              {
+                "name": "smallHCardListImageBackground",
+                "default": "rgba(51, 51, 51, 0.05)",
+                "columns": 12,
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='small-card']",
+                    "selectors": [
+                      ".new-small-h-card-list-container .small-h-card-list-detail-image-wrapper",
+                      ".small-h-card-detail-overlay .small-h-card-detail-overlay-wrapper .small-h-card-detail-overlay-panel .small-h-card-detail-wrapper .small-h-card-list-detail-image-wrapper"
+                    ],
+                    "properties": ["background-color"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "smallHCardListImageBackgroundTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "smallHCardListImageBackgroundDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "label": "Image area background",
+                "type": "color"
+              }
+            ]
+          },
+          {
+            "description": "List item border",
+            "fields": [
+              {
+                "name": "smallHCardListItemBorderSides",
+                "default": "none",
+                "logic": {
+                  "none": {
+                    "hide": [
+                      "smallHCardListItemBorderWidth",
+                      "smallHCardListItemBorderStyle",
+                      "smallHCardListItemBorder"
+                    ]
+                  },
+                  "all": {
+                    "show": [
+                      "smallHCardListItemBorderWidth",
+                      "smallHCardListItemBorderStyle",
+                      "smallHCardListItemBorder"
+                    ]
+                  },
+                  "left": {
+                    "show": [
+                      "smallHCardListItemBorderWidth",
+                      "smallHCardListItemBorderStyle",
+                      "smallHCardListItemBorder"
+                    ]
+                  },
+                  "right": {
+                    "show": [
+                      "smallHCardListItemBorderWidth",
+                      "smallHCardListItemBorderStyle",
+                      "smallHCardListItemBorder"
+                    ]
+                  },
+                  "bottom": {
+                    "show": [
+                      "smallHCardListItemBorderWidth",
+                      "smallHCardListItemBorderStyle",
+                      "smallHCardListItemBorder"
+                    ]
+                  },
+                  "top": {
+                    "show": [
+                      "smallHCardListItemBorderWidth",
+                      "smallHCardListItemBorderStyle",
+                      "smallHCardListItemBorder"
+                    ]
+                  }
+                },
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='small-h-card']",
+                    "selectors": [".new-smallHCard-list-container .smallHCard-cards-wrapper .smallHCard-list-card-holder .smallHCard-list-item"],
+                    "properties": ["border"],
+                    "type": "border",
+                    "siblings": {
+                      "sides": "smallHCardListItemBorderSides",
+                      "width": "smallHCardListItemBorderWidth",
+                      "style": "smallHCardListItemBorderStyle",
+                      "color": "smallHCardListItemBorder"
+                    }
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "smallHCardListItemBorderSidesTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "smallHCardListItemBorderSidesDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "select",
+                "subtype": "border-sides"
+              },
+              {
+                "name": "smallHCardListItemBorder",
+                "default":"$bodyTextColor",
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='small-h-card']",
+                    "selectors": [".new-smallHCard-list-container .smallHCard-cards-wrapper .smallHCard-list-card-holder .smallHCard-list-item"],
+                    "properties": ["border"],
+                    "type": "border",
+                    "siblings": {
+                      "sides": "smallHCardListItemBorderSides",
+                      "width": "smallHCardListItemBorderWidth",
+                      "style": "smallHCardListItemBorderStyle",
+                      "color": "smallHCardListItemBorder"
+                    }
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "smallHCardListItemBorderTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "smallHCardListItemBorderDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "color"
+              },
+              {
+                "name": "smallHCardListItemBorderWidth",
+                "default": "1px",
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='small-h-card']",
+                    "selectors": [".new-smallHCard-list-container .smallHCard-cards-wrapper .smallHCard-list-card-holder .smallHCard-list-item"],
+                    "properties": ["border"],
+                    "type": "border",
+                    "siblings": {
+                      "sides": "smallHCardListItemBorderSides",
+                      "width": "smallHCardListItemBorderWidth",
+                      "style": "smallHCardListItemBorderStyle",
+                      "color": "smallHCardListItemBorder"
+                    }
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "smallHCardListItemBorderWidthTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "smallHCardListItemBorderWidthDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "size",
+                "subtype": "border"
+              },
+              {
+                "name": "smallHCardListItemBorderStyle",
+                "default": "solid",
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='small-h-card']",
+                    "selectors": [".new-smallHCard-list-container .smallHCard-cards-wrapper .smallHCard-list-card-holder .smallHCard-list-item"],
+                    "properties": ["border"],
+                    "type": "border",
+                    "siblings": {
+                      "sides": "smallHCardListItemBorderSides",
+                      "width": "smallHCardListItemBorderWidth",
+                      "style": "smallHCardListItemBorderStyle",
+                      "color": "smallHCardListItemBorder"
+                    }
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "smallHCardListItemBorderStyleTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "smallHCardListItemBorderStyleDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "border-style"
+              },
+              {
+                "name": "smallHCardListItemBorderRadius",
+                "default": "15px",
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='small-h-card']",
+                    "selectors": [".new-smallHCard-list-container .smallHCard-cards-wrapper .smallHCard-list-card-holder .smallHCard-list-item"],
+                    "properties": ["border-radius"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "smallHCardListItemBorderRadiusTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "smallHCardListItemBorderRadiusDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "size",
+                "label": "Border radius"
+              }
+            ]
+          },
+          {
+            "description": "List item shadow",
+            "fields": [
+              {
+                "name": "smallHCardListItemShadowStyle",
+                "default": "outset",
+                "logic": {
+                  "none": {
+                    "hide": [
+                      "smallHCardListItemShadowXoffset",
+                      "smallHCardListItemShadowYoffset",
+                      "smallHCardListItemShadowBlur",
+                      "smallHCardListItemShadowSpread",
+                      "smallHCardListItemShadowColor"
+                    ]
+                  },
+                  "outset": {
+                    "show": [
+                      "smallHCardListItemShadowXoffset",
+                      "smallHCardListItemShadowYoffset",
+                      "smallHCardListItemShadowBlur",
+                      "smallHCardListItemShadowSpread",
+                      "smallHCardListItemShadowColor"
+                    ]
+                  },
+                  "inset": {
+                    "show": [
+                      "smallHCardListItemShadowXoffset",
+                      "smallHCardListItemShadowYoffset",
+                      "smallHCardListItemShadowBlur",
+                      "smallHCardListItemShadowSpread",
+                      "smallHCardListItemShadowColor"
+                    ]
+                  }
+                },
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='small-h-card']",
+                    "selectors": [".new-smallHCard-list-container .smallHCard-cards-wrapper .smallHCard-list-card-holder .smallHCard-list-item"],
+                    "properties": ["box-shadow"],
+                    "type": "shadow",
+                    "siblings": {
+                      "style": "smallHCardListItemShadowStyle",
+                      "xoffset": "smallHCardListItemShadowXoffset",
+                      "yoffset": "smallHCardListItemShadowYoffset",
+                      "blur": "smallHCardListItemShadowBlur",
+                      "spread": "smallHCardListItemShadowSpread",
+                      "color": "smallHCardListItemShadowColor"
+                    }
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "smallHCardListItemShadowStyleTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "smallHCardListItemShadowStyleDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "select",
+                "subtype": "shadow-style"
+              },
+              {
+                "name": "smallHCardListItemShadowXoffset",
+                "default": "0px",
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='small-h-card']",
+                    "selectors": [".new-smallHCard-list-container .smallHCard-cards-wrapper .smallHCard-list-card-holder .smallHCard-list-item"],
+                    "properties": ["box-shadow"],
+                    "type": "shadow",
+                    "siblings": {
+                      "style": "smallHCardListItemShadowStyle",
+                      "xoffset": "smallHCardListItemShadowXoffset",
+                      "yoffset": "smallHCardListItemShadowYoffset",
+                      "blur": "smallHCardListItemShadowBlur",
+                      "spread": "smallHCardListItemShadowSpread",
+                      "color": "smallHCardListItemShadowColor"
+                    }
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "smallHCardListItemShadowXoffsetTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "smallHCardListItemShadowXoffsetDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "label": "X offset",
+                "type": "size",
+                "subtype": "shadow",
+                "allowNegative": true
+              },
+              {
+                "name": "smallHCardListItemShadowYoffset",
+                "default": "10px",
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='small-h-card']",
+                    "selectors": [".new-smallHCard-list-container .smallHCard-cards-wrapper .smallHCard-list-card-holder .smallHCard-list-item"],
+                    "properties": ["box-shadow"],
+                    "type": "shadow",
+                    "siblings": {
+                      "style": "smallHCardListItemShadowStyle",
+                      "xoffset": "smallHCardListItemShadowXoffset",
+                      "yoffset": "smallHCardListItemShadowYoffset",
+                      "blur": "smallHCardListItemShadowBlur",
+                      "spread": "smallHCardListItemShadowSpread",
+                      "color": "smallHCardListItemShadowColor"
+                    }
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "smallHCardListItemShadowYoffsetTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "smallHCardListItemShadowYoffsetDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "label": "Y offset",
+                "type": "size",
+                "subtype": "shadow",
+                "allowNegative": true
+              },
+              {
+                "name": "panelShadowBlur",
+                "default": "20px",
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='small-h-card']",
+                    "selectors": [".new-smallHCard-list-container .smallHCard-cards-wrapper .smallHCard-list-card-holder .smallHCard-list-item"],
+                    "properties": ["box-shadow"],
+                    "type": "shadow",
+                    "siblings": {
+                      "style": "smallHCardListItemShadowStyle",
+                      "xoffset": "smallHCardListItemShadowXoffset",
+                      "yoffset": "smallHCardListItemShadowYoffset",
+                      "blur": "smallHCardListItemShadowBlur",
+                      "spread": "smallHCardListItemShadowSpread",
+                      "color": "smallHCardListItemShadowColor"
+                    }
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "smallHCardListItemShadowBlurTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "smallHCardListItemShadowBlurDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "label": "Blur",
+                "type": "size",
+                "subtype": "shadow"
+              },
+              {
+                "name": "smallHCardListItemShadowSpread",
+                "default": "0px",
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='small-h-card']",
+                    "selectors": [".new-smallHCard-list-container .smallHCard-cards-wrapper .smallHCard-list-card-holder .smallHCard-list-item"],
+                    "properties": ["box-shadow"],
+                    "type": "shadow",
+                    "siblings": {
+                      "style": "smallHCardListItemShadowStyle",
+                      "xoffset": "smallHCardListItemShadowXoffset",
+                      "yoffset": "smallHCardListItemShadowYoffset",
+                      "blur": "smallHCardListItemShadowBlur",
+                      "spread": "smallHCardListItemShadowSpread",
+                      "color": "smallHCardListItemShadowColor"
+                    }
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "smallHCardListItemShadowSpreadTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "smallHCardListItemShadowSpreadDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "label": "Spread",
+                "type": "size",
+                "subtype": "shadow"
+              },
+              {
+                "name": "smallHCardListItemShadowColor",
+                "default": "rgba(51, 51, 51, 0.2)",
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='small-h-card']",
+                    "selectors": [".new-smallHCard-list-container .smallHCard-cards-wrapper .smallHCard-list-card-holder .smallHCard-list-item"],
+                    "properties": ["box-shadow"],
+                    "type": "shadow",
+                    "siblings": {
+                      "style": "smallHCardListItemShadowStyle",
+                      "xoffset": "smallHCardListItemShadowXoffset",
+                      "yoffset": "smallHCardListItemShadowYoffset",
+                      "blur": "smallHCardListItemShadowBlur",
+                      "spread": "smallHCardListItemShadowSpread",
+                      "color": "smallHCardListItemShadowColor"
+                    }
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "smallHCardListItemShadowColorTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "smallHCardListItemShadowColorDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "color"
+              }
+            ]
+          },
+          {
+            "description": "Visibility",
+            "appSupportsContainers": true,
+            "fields": [
+              {
+                "name": "smallHCardVisibility",
+                "default": "visible",
+                "columns": 12,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "smallHCardVisibilityTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "smallHCardVisibilityDesktop",
                     "default": "inherit-tablet"
                   }
                 },
