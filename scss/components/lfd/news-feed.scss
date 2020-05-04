@@ -490,7 +490,6 @@
       .slide-over {
         .news-feed-item-inner-content {
           background-color: map-get($configuration, newsFeedListItemBackground);
-          // color: map-get($configuration, newsFeedFontColor);
 
           h2.news-feed-item-title {
             @include fontOnly((
@@ -564,7 +563,6 @@
         }
 
         .slide-under {
-          // color: rgba(map-get($configuration, newsFeedFontColor), 0.1);
           background-color: map-get($configuration, newsFeedImageBackground);
         }
       }
@@ -574,7 +572,6 @@
         .slide-over {
           .news-feed-item-inner-content {
             background-color: map-get($configuration, newsFeedListItemBackgroundTablet);
-            // color: map-get($configuration, newsFeedFontColorTablet);
 
             h2.news-feed-item-title {
               @include fontOnly((
@@ -644,7 +641,6 @@
           }
 
           .slide-under {
-            // color: rgba(map-get($configuration, newsFeedFontColorTablet), 0.1);
             background-color: map-get($configuration, newsFeedImageBackgroundTablet);
           }
         }
@@ -655,7 +651,6 @@
         .slide-over {
           .news-feed-item-inner-content {
             background-color: map-get($configuration, newsFeedListItemBackgroundDesktop);
-            // color: map-get($configuration, newsFeedFontColorDesktop);
 
             h2.news-feed-item-title {
               @include fontOnly((
@@ -725,7 +720,6 @@
           }
 
           .slide-under {
-            // color: rgba(map-get($configuration, newsFeedFontColorDesktop), 0.1);
             background-color: map-get($configuration, newsFeedImageBackgroundDesktop);
           }
         }
@@ -734,13 +728,8 @@
 
     .news-feed-detail-overlay {
       .news-feed-detail-overlay-wrapper {
-        .news-feed-detail-overlay-panel {
-          // background-color: map-get($configuration, newsFeedDetailBackgroundColor);
-        }
-
         .news-feed-item-inner-content {
           background-color: map-get($configuration, newsFeedListDetailOverlayBackground);
-          // color: map-get($configuration, newsFeedDetailTitleFontColor);
 
           h2.news-feed-item-title {
             @include fontOnly((
@@ -819,19 +808,13 @@
         }
 
         .news-feed-detail-overlay-close {
-          // background-color: rgba(map-get($configuration, newsFeedDetailBackgroundColor), 0.5);
           color: map-get($configuration, newsFeedDetailTitleFontColor);
         }
 
         // Styles for tablet
         @include above($tabletBreakpoint) {
-          .news-feed-detail-overlay-panel {
-            // background-color: map-get($configuration, newsFeedDetailBackgroundColorTablet);
-          }
-
           .news-feed-item-inner-content {
             background-color: map-get($configuration, newsFeedListDetailOverlayBackgroundTablet);
-            // color: map-get($configuration, newsFeedDetailTitleFontColorTablet);
 
             h2.news-feed-item-title {
               @include fontOnly((
@@ -910,20 +893,14 @@
           }
 
           .news-feed-detail-overlay-close {
-            // background-color: rgba(map-get($configuration, newsFeedDetailBackgroundColorTablet), 0.5);
             color: map-get($configuration, newsFeedDetailTitleFontColorTablet);
           }
         }
 
         // Styles for desktop
         @include above($desktopBreakpoint) {
-          .news-feed-detail-overlay-panel {
-            // background-color: map-get($configuration, newsFeedDetailBackgroundColorDesktop);
-          }
-
           .news-feed-item-inner-content {
             background-color: map-get($configuration, newsFeedListDetailOverlayBackgroundDesktop);
-            // color: map-get($configuration, newsFeedDetailTitleFontColorDesktop);
 
             h2.news-feed-item-title {
               @include fontOnly((
@@ -1002,256 +979,13 @@
           }
 
           .news-feed-detail-overlay-close {
-            // background-color: rgba(map-get($configuration, newsFeedDetailBackgroundColorDesktop), 0.5);
             color: map-get($configuration, newsFeedDetailTitleFontColorDesktop);
           }
         }
       }
     }
 
-    /* COMMENTS */
-    // .news-feed-comment-panel,
-    // .new-news-feed-comment-panel,
-    // .simple-list-comment-panel {
-    //   background: map-get($configuration, newsFeedCommentsBackgroundColor);
-    //
-    //   .loading-holder {
-    //     // color: rgba(map-get($configuration, newsFeedCommentsFontColor), 0.4);
-    //   }
-    //
-    //   .comments-offline {
-    //     // background-color: rgba(map-get($configuration, newsFeedCommentsFontColor), 0.4);
-    //     // color: map-get($configuration, newsFeedCommentsFontColor);
-    //   }
-    //
-    //   .news-feed-comment-panel-header,
-    //   .simple-list-comment-panel-header {
-    //     background-color: map-get($configuration, newsFeedCommentsBackgroundColor);
-    //     // color: map-get($configuration, newsFeedCommentsFontColor);
-    //   }
-    //
-    //   .news-feed-comment-input-holder,
-    //   .simple-list-comment-input-holder {
-    //     background: map-get($configuration, newsFeedCommentsBackgroundColor);
-    //     border-color: rgba(map-get($configuration, newsFeedCommentsFontColor), 0.1);
-    //
-    //     .cancel {
-    //       color: rgba(map-get($configuration, newsFeedCommentsFontColor), 0.7);
-    //
-    //       &:hover,
-    //       &:focus,
-    //       &:active:hover,
-    //       &:active:focus {
-    //         color: rgba(map-get($configuration, newsFeedCommentsFontColor), 0.7);
-    //       }
-    //     }
-    //
-    //     .btn.comment,
-    //     .btn.save {
-    //       border-color: rgba(map-get($configuration, newsFeedCommentsFontColor), 0.3);
-    //       color: rgba(map-get($configuration, newsFeedCommentsFontColor),0.3);
-    //     }
-    //
-    //     &.ready {
-    //       .btn.comment,
-    //       .btn.save {
-    //         border-color: $highlightColor;
-    //         background-color: $highlightColor;
-    //         color: $primaryButtonTextColor;
-    //       }
-    //     }
-    //   }
-    //
-    //   .top-comment-holder {
-    //     background-color: map-get($configuration, newsFeedCommentsBackgroundColor);
-    //   }
-    //
-    //   .fl-individual-comment.editing .top-comment-holder {
-    //     background-color: rgba(map-get($configuration, newsFeedCommentsFontColor), 0.08);
-    //   }
-    //
-    //   .fl-comment-thumb {
-    //     background-color: rgba(map-get($configuration, newsFeedCommentsFontColor), 0.04);
-    //   }
-    //
-    //   textarea[data-comment-body] {
-    //     background-color: transparent;
-    //     color: map-get($configuration, newsFeedCommentsFontColor);
-    //
-    //     ~ .typeahead.dropdown-menu {
-    //       border-color: rgba(map-get($configuration, newsFeedCommentsFontColor),0.1);
-    //
-    //       > .active > a {
-    //         background-color: $highlightColor;
-    //         color: $primaryButtonTextColor;
-    //       }
-    //     }
-    //   }
-    //
-    //   .active .mention_username{
-    //     color: $primaryButtonTextColor;
-    //   }
-    //
-    //   // Styles for tablet
-    //   @include above($tabletBreakpoint) {
-    //     background: map-get($configuration, newsFeedCommentsBackgroundColorTablet);
-    //
-    //     .loading-holder {
-    //       color: rgba(map-get($configuration, newsFeedCommentsFontColorTablet), 0.4);
-    //     }
-    //
-    //     .comments-offline {
-    //       background-color: rgba(map-get($configuration, newsFeedCommentsFontColorTablet), 0.4);
-    //       color: map-get($configuration, newsFeedCommentsFontColorTablet);
-    //     }
-    //
-    //     .news-feed-comment-panel-header,
-    //     .simple-list-comment-panel-header {
-    //       background-color: map-get($configuration, newsFeedCommentsBackgroundColorTablet);
-    //       color: map-get($configuration, newsFeedCommentsFontColorTablet);
-    //     }
-    //
-    //     .news-feed-comment-input-holder,
-    //     .simple-list-comment-input-holder {
-    //       background: map-get($configuration, newsFeedCommentsBackgroundColorTablet);
-    //       border-color: rgba(map-get($configuration, newsFeedCommentsFontColorTablet), 0.1);
-    //
-    //       .cancel {
-    //         color: rgba(map-get($configuration, newsFeedCommentsFontColorTablet), 0.7);
-    //
-    //         &:hover,
-    //         &:focus,
-    //         &:active:hover,
-    //         &:active:focus {
-    //           color: rgba(map-get($configuration, newsFeedCommentsFontColorTablet), 0.7);
-    //         }
-    //       }
-    //
-    //       .btn.comment,
-    //       .btn.save {
-    //         border-color: rgba(map-get($configuration, newsFeedCommentsFontColorTablet), 0.3);
-    //         color: rgba(map-get($configuration, newsFeedCommentsFontColorTablet),0.3);
-    //       }
-    //
-    //       &.ready {
-    //         .btn.comment,
-    //         .btn.save {
-    //           color: $primaryButtonTextColorTablet;
-    //         }
-    //       }
-    //     }
-    //
-    //     .top-comment-holder {
-    //       background-color: map-get($configuration, newsFeedCommentsBackgroundColorTablet);
-    //     }
-    //
-    //     .fl-individual-comment.editing .top-comment-holder {
-    //       background-color: rgba(map-get($configuration, newsFeedCommentsFontColorTablet), 0.08);
-    //     }
-    //
-    //     .fl-comment-thumb {
-    //       background-color: rgba(map-get($configuration, newsFeedCommentsFontColorTablet), 0.04);
-    //     }
-    //
-    //     textarea[data-comment-body] {
-    //       background-color: transparent;
-    //       color: map-get($configuration, newsFeedCommentsFontColorTablet);
-    //
-    //       ~ .typeahead.dropdown-menu {
-    //         border-color: rgba(map-get($configuration, newsFeedCommentsFontColorTablet),0.1);
-    //
-    //         > .active > a {
-    //           color: $primaryButtonTextColorTablet;
-    //         }
-    //       }
-    //     }
-    //
-    //     .active .mention_username{
-    //       color: $primaryButtonTextColorTablet;
-    //     }
-    //   }
-    //
-    //   // Styles for desktop
-    //   @include above($desktopBreakpoint) {
-    //     background: map-get($configuration, newsFeedCommentsBackgroundColorDesktop);
-    //
-    //     .loading-holder {
-    //       color: rgba(map-get($configuration, newsFeedCommentsFontColorDesktop), 0.4);
-    //     }
-    //
-    //     .comments-offline {
-    //       background-color: rgba(map-get($configuration, newsFeedCommentsFontColorDesktop), 0.4);
-    //       color: map-get($configuration, newsFeedCommentsFontColorDesktop);
-    //     }
-    //
-    //     .news-feed-comment-panel-header,
-    //     .simple-list-comment-panel-header {
-    //       background-color: map-get($configuration, newsFeedCommentsBackgroundColorDesktop);
-    //       color: map-get($configuration, newsFeedCommentsFontColorDesktop);
-    //     }
-    //
-    //     .news-feed-comment-input-holder,
-    //     .simple-list-comment-input-holder {
-    //       background: map-get($configuration, newsFeedCommentsBackgroundColorDesktop);
-    //       border-color: rgba(map-get($configuration, newsFeedCommentsFontColorDesktop), 0.1);
-    //
-    //       .cancel {
-    //         color: rgba(map-get($configuration, newsFeedCommentsFontColorDesktop), 0.7);
-    //
-    //         &:hover,
-    //         &:focus,
-    //         &:active:hover,
-    //         &:active:focus {
-    //           color: rgba(map-get($configuration, newsFeedCommentsFontColorDesktop), 0.7);
-    //         }
-    //       }
-    //
-    //       .btn.comment,
-    //       .btn.save {
-    //         border-color: rgba(map-get($configuration, newsFeedCommentsFontColorDesktop), 0.3);
-    //         color: rgba(map-get($configuration, newsFeedCommentsFontColorDesktop),0.3);
-    //       }
-    //
-    //       &.ready {
-    //         .btn.comment,
-    //         .btn.save {
-    //           color: $primaryButtonTextColorDesktop;
-    //         }
-    //       }
-    //     }
-    //
-    //     .top-comment-holder {
-    //       background-color: map-get($configuration, newsFeedCommentsBackgroundColorDesktop);
-    //     }
-    //
-    //     .fl-individual-comment.editing .top-comment-holder {
-    //       background-color: rgba(map-get($configuration, newsFeedCommentsFontColorDesktop), 0.08);
-    //     }
-    //
-    //     .fl-comment-thumb {
-    //       background-color: rgba(map-get($configuration, newsFeedCommentsFontColorDesktop), 0.04);
-    //     }
-    //
-    //     textarea[data-comment-body] {
-    //       background-color: transparent;
-    //       color: map-get($configuration, newsFeedCommentsFontColorDesktop);
-    //
-    //       ~ .typeahead.dropdown-menu {
-    //         border-color: rgba(map-get($configuration, newsFeedCommentsFontColorDesktop),0.1);
-    //
-    //         > .active > a {
-    //           color: $primaryButtonTextColorDesktop;
-    //         }
-    //       }
-    //     }
-    //
-    //     .active .mention_username {
-    //       color: $primaryButtonTextColorDesktop;
-    //     }
-    //   }
-    // }
-
-    // filter/search defaults
+    // filter/search
     .new-news-feed-list-container,
     .news-feed-list-container {
       width: map-get($configuration, newsFeedWidth);
@@ -1276,12 +1010,8 @@
           background-color: map-get($configuration, newsFeedFiltersOverlayBackground);
           border-bottom: 1px solid rgba(map-get($configuration, newsFeedOverlayFontColor), 0.2);
         }
-        .panel-group .panel {
-          // background-color: lighten(map-get($configuration, newsFeedOverlayBackgroundColor), 10%);
-
-          .panel-body {
-            background-color: transparent;
-          }
+        .panel-group .panel .panel-body {
+          background-color: transparent;
         }
       }
 
@@ -1383,12 +1113,8 @@
             background-color: map-get($configuration, newsFeedFiltersOverlayBackgroundTablet);
             border-bottom: 1px solid rgba(map-get($configuration, newsFeedOverlayFontColorTablet), 0.2);
           }
-          .panel-group .panel {
-            // background-color: lighten(map-get($configuration, newsFeedOverlayBackgroundColorTablet), 10%);
-
-            .panel-body {
-              background-color: transparent;
-            }
+          .panel-group .panel .panel-body {
+            background-color: transparent;
           }
         }
 
@@ -1483,12 +1209,8 @@
             background-color: map-get($configuration, newsFeedFiltersOverlayBackgroundDesktop);
             border-bottom: 1px solid rgba(map-get($configuration, newsFeedOverlayFontColorDesktop), 0.2);
           }
-          .panel-group .panel {
-            // background-color: lighten(map-get($configuration, newsFeedOverlayBackgroundColorDesktop), 10%);
-
-            .panel-body {
-              background-color: transparent;
-            }
+          .panel-group .panel .panel-body {
+            background-color: transparent;
           }
         }
 
