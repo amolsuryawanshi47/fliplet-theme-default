@@ -27,7 +27,7 @@
 @import "components/lists-data-source";
 @import "components/lfd/small-card";
 // @import "components/lfd/small-h-card";
-// @import "components/lfd/news-feed";
+@import "components/lfd/news-feed";
 // @import "components/lfd/simple-list";
 // @import "components/lfd/agenda";
 @import "components/lock";
@@ -109,9 +109,9 @@
     @if nth($widgetInstance, 2) == 'lfd' {
       @include smallCard(nth($widgetInstance, 3), nth($widgetInstance, 1), nth($widgetInstance, 4));
     }
-    // @if nth($widgetInstance, 2) == 'lfd' {
-    //   @include feedList(nth($widgetInstance, 3), nth($widgetInstance, 1), nth($widgetInstance, 4));
-    // }
+    @if nth($widgetInstance, 2) == 'lfd' {
+      @include newsFeed(nth($widgetInstance, 3), nth($widgetInstance, 1), nth($widgetInstance, 4));
+    }
     // @if nth($widgetInstance, 2) == 'lfd' {
     //   @include agendaList(nth($widgetInstance, 3), nth($widgetInstance, 1), nth($widgetInstance, 4));
     // }
