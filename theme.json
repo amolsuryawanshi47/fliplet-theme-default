@@ -1,6 +1,6 @@
 {
-  "name": "Fliplet theme-feature",
-  "package": "com.fliplet.theme.default-feature",
+  "name": "Fliplet theme",
+  "package": "com.fliplet.theme.default",
   "version": "2.0.0",
   "icon": "img/icon.png",
   "tags": ["engineVersion:2"],
@@ -39774,6 +39774,2336 @@
                   },
                   "desktop": {
                     "name": "smallHCardVisibilityDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "toggle",
+                "subtype": "visibility"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Simple List - List (from data source)",
+        "packages": ["com.fliplet.dynamic-lists"],
+        "variables": [
+          {
+            "description": "Width",
+            "fields": [
+              {
+                "name": "simpleListWidth",
+                "default": "100%",
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='simple-list']",
+                    "properties": ["width"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "simpleListWidthTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "simpleListWidthDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "size",
+                "subtype": "width",
+                "label": "Width"
+              },
+              {
+                "name": "simpleListMaxWidth",
+                "default": "600px",
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='simple-list']",
+                    "properties": ["max-width"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "simpleListMaxWidthTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "simpleListMaxWidthDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "size",
+                "subtype": "max-width",
+                "label": "Max-width"
+              }
+            ]
+          },
+          {
+            "description": "Positioning",
+            "fields": [
+              {
+                "name": "simpleListPosition",
+                "default": "relative",
+                "columns": 12,
+                "logic": {
+                  "relative": {
+                    "hide": [
+                      "simpleListPositionTop",
+                      "simpleListPositionRight",
+                      "simpleListPositionBottom",
+                      "simpleListPositionLeft"
+                    ]
+                  },
+                  "absolute": {
+                    "show": [
+                      "simpleListPositionTop",
+                      "simpleListPositionRight",
+                      "simpleListPositionBottom",
+                      "simpleListPositionLeft"
+                    ]
+                  },
+                  "fixed": {
+                    "show": [
+                      "simpleListPositionTop",
+                      "simpleListPositionRight",
+                      "simpleListPositionBottom",
+                      "simpleListPositionLeft"
+                    ]
+                  }
+                },
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='simple-list']",
+                    "properties": ["position"],
+                    "type": "position",
+                    "siblings": {
+                      "top": "simpleListPositionTop",
+                      "right": "simpleListPositionRight",
+                      "bottom": "simpleListPositionBottom",
+                      "left": "simpleListPositionLeft"
+                    }
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "simpleListPositionTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "simpleListPositionDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "position"
+              },
+              {
+                "name": "simpleListDisplay",
+                "default": "block",
+                "columns": 12,
+                "logic": {
+                  "block": {
+                    "show": ["simpleListMarginAlign"]
+                  },
+                  "inline-block": {
+                    "hide": ["simpleListMarginAlign"]
+                  }
+                },
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='simple-list']",
+                    "properties": ["display"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "simpleListDisplayTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "simpleListDisplayDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "display"
+              },
+              {
+                "name": "simpleListPositionTop",
+                "default": "auto",
+                "columns": 6,
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='simple-list']",
+                    "properties": ["top"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "simpleListPositionTopTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "simpleListPositionTopDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "label": "Top",
+                "type": "size",
+                "subtype": "position",
+                "allowNegative": true
+              },
+              {
+                "name": "simpleListPositionRight",
+                "default": "auto",
+                "columns": 6,
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='simple-list']",
+                    "properties": ["right"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "simpleListPositionRightTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "simpleListPositionRightDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "label": "Right",
+                "type": "size",
+                "subtype": "position",
+                "allowNegative": true
+              },
+              {
+                "name": "simpleListPositionBottom",
+                "default": "auto",
+                "columns": 6,
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='simple-list']",
+                    "properties": ["bottom"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "simpleListPositionBottomTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "simpleListPositionBottomDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "label": "Bottom",
+                "type": "size",
+                "subtype": "position",
+                "allowNegative": true
+              },
+              {
+                "name": "simpleListPositionLeft",
+                "default": "auto",
+                "columns": 6,
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='simple-list']",
+                    "properties": ["left"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "simpleListPositionLeftTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "simpleListPositionLeftDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "label": "Left",
+                "type": "size",
+                "subtype": "position",
+                "allowNegative": true
+              }
+            ]
+          },
+          {
+            "description": "Layer order",
+            "fields": [
+              {
+                "name": "simpleListIndex",
+                "default": "auto",
+                "columns": 12,
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='simple-list']",
+                    "properties": ["z-index"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "simpleListIndexTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "simpleListIndexDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "size",
+                "subtype": "z-index"
+              }
+            ]
+          },
+          {
+            "description": "Margin",
+            "fields": [
+              {
+                "name": "simpleListMarginAlign",
+                "default": "center",
+                "columns": 12,
+                "logic": {
+                  "left": {
+                    "simpleListMarginRight": "auto",
+                    "simpleListMarginLeft": "0px"
+                  },
+                  "center": {
+                    "simpleListMarginRight": "auto",
+                    "simpleListMarginLeft": "auto"
+                  },
+                  "right": {
+                    "simpleListMarginRight": "0px",
+                    "simpleListMarginLeft": "auto"
+                  },
+                  "custom": [
+                    "simpleListMarginTop",
+                    "simpleListMarginRight",
+                    "simpleListMarginBottom",
+                    "simpleListMarginLeft"
+                  ]
+                },
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='simple-list']",
+                    "properties": ["margin"],
+                    "type": "margin"
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "simpleListMarginAlignTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "simpleListMarginAlignDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "margin-align"
+              },
+              {
+                "name": "simpleListMarginTop",
+                "default": "0px",
+                "columns": 6,
+                "logic": "simpleListMarginAlign",
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='simple-list']",
+                    "properties": ["margin-top"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "simpleListMarginTopTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "simpleListMarginTopDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "size",
+                "subtype": "margin",
+                "label": "Top",
+                "allowNegative": true
+              },
+              {
+                "name": "simpleListMarginRight",
+                "default": "auto",
+                "columns": 6,
+                "logic": "simpleListMarginAlign",
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='simple-list']",
+                    "properties": ["margin-right"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "simpleListMarginRightTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "simpleListMarginRightDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "size",
+                "subtype": "margin",
+                "label": "Right",
+                "allowNegative": true
+              },
+              {
+                "name": "simpleListMarginBottom",
+                "default": "0px",
+                "columns": 6,
+                "logic": "simpleListMarginAlign",
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='simple-list']",
+                    "properties": ["margin-bottom"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "simpleListMarginBottomTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "simpleListMarginBottomDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "size",
+                "subType": "margin",
+                "label": "Bottom",
+                "allowNegative": true
+              },
+              {
+                "name": "simpleListMarginLeft",
+                "default": "auto",
+                "columns": 6,
+                "logic": "simpleListMarginAlign",
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='simple-list']",
+                    "properties": ["margin-left"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "simpleListMarginLeftTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "simpleListMarginLeftDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "size",
+                "subType": "margin",
+                "label": "Left",
+                "allowNegative": true
+              }
+            ]
+          },
+          {
+            "description": "Padding",
+            "fields": [
+              {
+                "name": "simpleListPaddingTop",
+                "default": "0px",
+                "columns": 6,
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='simple-list']",
+                    "properties": ["padding-top"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "simpleListPaddingTopTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "simpleListPaddingTopDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "size",
+                "subType": "padding",
+                "label": "Top"
+              },
+              {
+                "name": "simpleListPaddingRight",
+                "default": "0px",
+                "columns": 6,
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='simple-list']",
+                    "properties": ["padding-right"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "simpleListPaddingRightTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "simpleListPaddingRightDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "size",
+                "subType": "padding",
+                "label": "Right"
+              },
+              {
+                "name": "simpleListPaddingBottom",
+                "default": "0px",
+                "columns": 6,
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='simple-list']",
+                    "properties": ["padding-bottom"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "simpleListPaddingBottomTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "simpleListPaddingBottomDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "size",
+                "subType": "padding",
+                "label": "Bottom"
+              },
+              {
+                "name": "simpleListPaddingLeft",
+                "default": "0px",
+                "columns": 6,
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='simple-list']",
+                    "properties": ["padding-left"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "simpleListPaddingLeftTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "simpleListPaddingLeftDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "size",
+                "subType": "padding",
+                "label": "Left"
+              }
+            ]
+          },
+          {
+            "description": "List item title",
+            "fields": [
+              {
+                "name": "simpleListTitleFontFamily",
+                "default": "$quickTextFontFamily",
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='simple-list']",
+                    "selectors": ".simple-list-container .simple-list-wrapper .simple-list-item .list-item-body .list-item-title",
+                    "properties": ["font-family"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "simpleListTitleFontFamilyTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "simpleListTitleFontFamilyDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "font",
+                "label": "Font"
+              },
+              {
+                "name": "simpleListTitleFontSize",
+                "default": "18px",
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='simple-list']",
+                    "selectors": ".simple-list-container .simple-list-wrapper .simple-list-item .list-item-body .list-item-title",
+                    "properties": ["font-size"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "simpleListTitleFontSizeTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "simpleListTitleFontSizeDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "size",
+                "subType": "font",
+                "label": "Font size"
+              },
+              {
+                "name": "simpleListTitleFontColor",
+                "default": "$bodyTextColor",
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='simple-list']",
+                    "selectors": ".simple-list-container .simple-list-wrapper .simple-list-item .list-item-body .list-item-title",
+                    "properties": ["color"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "simpleListTitleFontColorTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "simpleListTitleFontColorDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "color",
+                "label": "Font color"
+              },
+              {
+                "name": "simpleListTitleFontWeight",
+                "default": "bold",
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='simple-list']",
+                    "selectors": ".simple-list-container .simple-list-wrapper .simple-list-item .list-item-body .list-item-title",
+                    "properties": ["font-weight"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "simpleListTitleFontWeightTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "simpleListTitleFontWeightDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "font-style",
+                "properties": "weight"
+              },
+              {
+                "name": "simpleListTitleItalic",
+                "default": "normal",
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='simple-list']",
+                    "selectors": ".simple-list-container .simple-list-wrapper .simple-list-item .list-item-body .list-item-title",
+                    "properties": ["font-style"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "simpleListTitleItalicTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "simpleListTitleItalicDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "font-style",
+                "properties": "italic"
+              },
+              {
+                "name": "simpleListTitleUnderline",
+                "default": "none",
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='simple-list']",
+                    "selectors": ".simple-list-container .simple-list-wrapper .simple-list-item .list-item-body .list-item-title",
+                    "properties": ["text-decoration"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "simpleListTitleUnderlineTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "simpleListTitleUnderlineDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "font-style",
+                "subType": "decoration",
+                "properties": "underline"
+              },
+              {
+                "name": "simpleListTitleLineHeight",
+                "default": "$bodyLineHeight",
+                "columns": 12,
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='simple-list']",
+                    "selectors": ".simple-list-container .simple-list-wrapper .simple-list-item .list-item-body .list-item-title",
+                    "properties": ["line-height"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "simpleListTitleLineHeightTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "simpleListTitleLineHeightDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "size",
+                "subType": "line-height",
+                "label": "Line height"
+              },
+              {
+                "name": "simpleListTitleMarginTop",
+                "default": "0px",
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='simple-list']",
+                    "selectors": ".simple-list-container .simple-list-wrapper .simple-list-item .list-item-body .list-item-title",
+                    "properties": ["margin-top"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "simpleListTitleMarginTopTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "simpleListTitleMarginTopDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "label": "Margin top",
+                "type": "size",
+                "subType": "margin"
+              },
+              {
+                "name": "simpleListTitleMarginBottom",
+                "default": "0px",
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='simple-list']",
+                    "selectors": ".simple-list-container .simple-list-wrapper .simple-list-item .list-item-body .list-item-title",
+                    "properties": ["margin-bottom"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "simpleListTitleMarginBottomTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "simpleListTitleMarginBottomDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "label": "Margin bottom",
+                "type": "size",
+                "subType": "margin"
+              }
+            ]
+          },
+          {
+            "description": "List item description",
+            "fields": [
+              {
+                "name": "simpleListDescriptionFontFamily",
+                "default": "$bodyFontFamily",
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='simple-list']",
+                    "selectors": ".simple-list-container .simple-list-wrapper .simple-list-item .list-item-body .list-item-description",
+                    "properties": ["font-family"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "simpleListDescriptionFontFamilyTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "simpleListDescriptionFontFamilyDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "font",
+                "label": "Font"
+              },
+              {
+                "name": "simpleListDescriptionFontSize",
+                "default": "14px",
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='simple-list']",
+                    "selectors": ".simple-list-container .simple-list-wrapper .simple-list-item .list-item-body .list-item-description",
+                    "properties": ["font-size"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "simpleListDescriptionFontSizeTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "simpleListDescriptionFontSizeDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "size",
+                "subType": "font",
+                "label": "Font size"
+              },
+              {
+                "name": "simpleListDescriptionFontColor",
+                "default": "rgba(51, 51, 51, 0.7)",
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='simple-list']",
+                    "selectors": ".simple-list-container .simple-list-wrapper .simple-list-item .list-item-body .list-item-description",
+                    "properties": ["color"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "simpleListDescriptionFontColorTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "simpleListDescriptionFontColorDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "color",
+                "label": "Font color"
+              },
+              {
+                "name": "simpleListDescriptionFontWeight",
+                "default": "normal",
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='simple-list']",
+                    "selectors": ".simple-list-container .simple-list-wrapper .simple-list-item .list-item-body .list-item-description",
+                    "properties": ["font-weight"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "simpleListDescriptionFontWeightTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "simpleListDescriptionFontWeightDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "font-style",
+                "properties": "weight"
+              },
+              {
+                "name": "simpleListDescriptionItalic",
+                "default": "normal",
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='simple-list']",
+                    "selectors": ".simple-list-container .simple-list-wrapper .simple-list-item .list-item-body .list-item-description",
+                    "properties": ["font-style"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "simpleListDescriptionItalicTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "simpleListDescriptionItalicDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "font-style",
+                "properties": "italic"
+              },
+              {
+                "name": "simpleListDescriptionUnderline",
+                "default": "none",
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='simple-list']",
+                    "selectors": ".simple-list-container .simple-list-wrapper .simple-list-item .list-item-body .list-item-description",
+                    "properties": ["text-decoration"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "simpleListDescriptionUnderlineTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "simpleListDescriptionUnderlineDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "font-style",
+                "subType": "decoration",
+                "properties": "underline"
+              },
+              {
+                "name": "simpleListDescriptionLineHeight",
+                "default": "1.4",
+                "columns": 12,
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='simple-list']",
+                    "selectors": ".simple-list-container .simple-list-wrapper .simple-list-item .list-item-body .list-item-description",
+                    "properties": ["line-height"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "simpleListDescriptionLineHeightTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "simpleListDescriptionLineHeightDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "size",
+                "subType": "line-height",
+                "label": "Line height"
+              },
+              {
+                "name": "simpleListDescriptionMarginTop",
+                "default": "0px",
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='simple-list']",
+                    "selectors": ".simple-list-container .simple-list-wrapper .simple-list-item .list-item-body .list-item-description",
+                    "properties": ["margin-top"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "simpleListDescriptionMarginTopTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "simpleListDescriptionMarginTopDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "label": "Margin top",
+                "type": "size",
+                "subType": "margin"
+              },
+              {
+                "name": "simpleListDescriptionMarginBottom",
+                "default": "0px",
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='simple-list']",
+                    "selectors": ".simple-list-container .simple-list-wrapper .simple-list-item .list-item-body .list-item-description",
+                    "properties": ["margin-bottom"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "simpleListDescriptionMarginBottomTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "simpleListDescriptionMarginBottomDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "label": "Margin bottom",
+                "type": "size",
+                "subType": "margin"
+              }
+            ]
+          },
+          {
+            "description": "List item second description",
+            "fields": [
+              {
+                "name": "simpleListSecondDescriptionFontFamily",
+                "default": "$bodyFontFamily",
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='simple-list']",
+                    "selectors": ".simple-list-container .simple-list-wrapper .simple-list-item .list-item-body .list-item-subtitle",
+                    "properties": ["font-family"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "simpleListSecondDescriptionFontFamilyTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "simpleListSecondDescriptionFontFamilyDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "font",
+                "label": "Font"
+              },
+              {
+                "name": "simpleListSecondDescriptionFontSize",
+                "default": "12px",
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='simple-list']",
+                    "selectors": ".simple-list-container .simple-list-wrapper .simple-list-item .list-item-body .list-item-subtitle",
+                    "properties": ["font-size"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "simpleListSecondDescriptionFontSizeTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "simpleListSecondDescriptionFontSizeDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "size",
+                "subType": "font",
+                "label": "Font size"
+              },
+              {
+                "name": "simpleListSecondDescriptionFontColor",
+                "default": "rgba(51, 51, 51, 0.4)",
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='simple-list']",
+                    "selectors": ".simple-list-container .simple-list-wrapper .simple-list-item .list-item-body .list-item-subtitle",
+                    "properties": ["color"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "simpleListSecondDescriptionFontColorTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "simpleListSecondDescriptionFontColorDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "color",
+                "label": "Font color"
+              },
+              {
+                "name": "simpleListSecondDescriptionFontWeight",
+                "default": "normal",
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='simple-list']",
+                    "selectors": ".simple-list-container .simple-list-wrapper .simple-list-item .list-item-body .list-item-subtitle",
+                    "properties": ["font-weight"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "simpleListSecondDescriptionFontWeightTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "simpleListSecondDescriptionFontWeightDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "font-style",
+                "properties": "weight"
+              },
+              {
+                "name": "simpleListSecondDescriptionItalic",
+                "default": "normal",
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='simple-list']",
+                    "selectors": ".simple-list-container .simple-list-wrapper .simple-list-item .list-item-body .list-item-subtitle",
+                    "properties": ["font-style"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "simpleListSecondDescriptionItalicTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "simpleListSecondDescriptionItalicDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "font-style",
+                "properties": "italic"
+              },
+              {
+                "name": "simpleListSecondDescriptionUnderline",
+                "default": "none",
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='simple-list']",
+                    "selectors": ".simple-list-container .simple-list-wrapper .simple-list-item .list-item-body .list-item-subtitle",
+                    "properties": ["text-decoration"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "simpleListSecondDescriptionUnderlineTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "simpleListSecondDescriptionUnderlineDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "font-style",
+                "subType": "decoration",
+                "properties": "underline"
+              },
+              {
+                "name": "simpleListSecondDescriptionLineHeight",
+                "default": "1.6",
+                "columns": 12,
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='simple-list']",
+                    "selectors": ".simple-list-container .simple-list-wrapper .simple-list-item .list-item-body .list-item-subtitle",
+                    "properties": ["line-height"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "simpleListSecondDescriptionLineHeightTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "simpleListSecondDescriptionLineHeightDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "size",
+                "subType": "line-height",
+                "label": "Line height"
+              },
+              {
+                "name": "simpleListSecondDescriptionMarginTop",
+                "default": "0px",
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='simple-list']",
+                    "selectors": ".simple-list-container .simple-list-wrapper .simple-list-item .list-item-body .list-item-subtitle",
+                    "properties": ["margin-top"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "simpleListSecondDescriptionMarginTopTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "simpleListSecondDescriptionMarginTopDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "label": "Margin top",
+                "type": "size",
+                "subType": "margin"
+              },
+              {
+                "name": "simpleListSecondDescriptionMarginBottom",
+                "default": "0px",
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='simple-list']",
+                    "selectors": ".simple-list-container .simple-list-wrapper .simple-list-item .list-item-body .list-item-subtitle",
+                    "properties": ["margin-bottom"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "simpleListSecondDescriptionMarginBottomTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "simpleListSecondDescriptionMarginBottomDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "label": "Margin bottom",
+                "type": "size",
+                "subType": "margin"
+              }
+            ]
+          },
+          {
+            "description": "Detail overlay text",
+            "fields": [
+              {
+                "name": "simpleListDetailTextFontFamily",
+                "default": "$simpleListDescriptionFontFamily",
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='simple-list']",
+                    "selectors": ".simple-list-detail-overlay .simple-list-details-holder .simple-list-detail-value",
+                    "properties": ["font-family"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "simpleListDetailTextFontFamilyTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "simpleListDetailTextFontFamilyDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "font",
+                "label": "Font"
+              },
+              {
+                "name": "simpleListDetailTextFontSize",
+                "default": "18px",
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='simple-list']",
+                    "selectors": ".simple-list-detail-overlay .simple-list-details-holder .simple-list-detail-value",
+                    "properties": ["font-size"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "simpleListDetailTextFontSizeTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "simpleListDetailTextFontSizeDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "size",
+                "subType": "font",
+                "label": "Font size"
+              },
+              {
+                "name": "simpleListDetailTextFontColor",
+                "default": "$simpleListDescriptionFontColor",
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='simple-list']",
+                    "selectors": ".simple-list-detail-overlay .simple-list-details-holder .simple-list-detail-value",
+                    "properties": ["color"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "simpleListDetailTextFontColorTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "simpleListDetailTextFontColorDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "color",
+                "label": "Font color"
+              },
+              {
+                "name": "simpleListDetailTextFontWeight",
+                "default": "$simpleListDescriptionFontWeight",
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='simple-list']",
+                    "selectors": ".simple-list-detail-overlay .simple-list-details-holder .simple-list-detail-value",
+                    "properties": ["font-weight"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "simpleListDetailTextFontWeightTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "simpleListDetailTextFontWeightDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "font-style",
+                "properties": "weight"
+              },
+              {
+                "name": "simpleListDetailTextItalic",
+                "default": "$simpleListDescriptionItalic",
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='simple-list']",
+                    "selectors": ".simple-list-detail-overlay .simple-list-details-holder .simple-list-detail-value",
+                    "properties": ["font-style"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "simpleListDetailTextItalicTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "simpleListDetailTextItalicDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "font-style",
+                "properties": "italic"
+              },
+              {
+                "name": "simpleListDetailTextUnderline",
+                "default": "$simpleListDescriptionUnderline",
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='simple-list']",
+                    "selectors": ".simple-list-detail-overlay .simple-list-details-holder .simple-list-detail-value",
+                    "properties": ["text-decoration"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "simpleListDetailTextUnderlineTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "simpleListDetailTextUnderlineDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "font-style",
+                "subType": "decoration",
+                "properties": "underline"
+              },
+              {
+                "name": "simpleListDetailTextLineHeight",
+                "default": "$bodyLineHeight",
+                "columns": 12,
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='simple-list']",
+                    "selectors": ".simple-list-detail-overlay .simple-list-details-holder .simple-list-detail-value",
+                    "properties": ["line-height"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "simpleListDetailTextLineHeightTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "simpleListDetailTextLineHeightDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "size",
+                "subType": "line-height",
+                "label": "Line height"
+              },
+              {
+                "name": "simpleListDetailTextMarginTop",
+                "default": "0px",
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='simple-list']",
+                    "selectors": ".simple-list-detail-overlay .simple-list-details-holder .simple-list-detail-value",
+                    "properties": ["margin-top"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "simpleListDetailTextMarginTopTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "simpleListDetailTextMarginTopDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "label": "Margin top",
+                "type": "size",
+                "subType": "margin"
+              },
+              {
+                "name": "simpleListDetailTextMarginBottom",
+                "default": "10px",
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='simple-list']",
+                    "selectors": ".simple-list-detail-overlay .simple-list-details-holder .simple-list-detail-value",
+                    "properties": ["margin-bottom"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "simpleListDetailTextMarginBottomTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "simpleListDetailTextMarginBottomDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "label": "Margin bottom",
+                "type": "size",
+                "subType": "margin"
+              }
+            ]
+          },
+          {
+            "description": "Detail overlay labels",
+            "fields": [
+              {
+                "name": "simpleListDetailLabelsFontFamily",
+                "default": "$simpleListDescriptionFontFamily",
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='simple-list']",
+                    "selectors": ".simple-list-detail-overlay .simple-list-details-holder .simple-list-detail-label",
+                    "properties": ["font-family"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "simpleListDetailLabelsFontFamilyTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "simpleListDetailLabelsFontFamilyDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "font",
+                "label": "Font"
+              },
+              {
+                "name": "simpleListDetailLabelsFontSize",
+                "default": "16px",
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='simple-list']",
+                    "selectors": ".simple-list-detail-overlay .simple-list-details-holder .simple-list-detail-label",
+                    "properties": ["font-size"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "simpleListDetailLabelsFontSizeTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "simpleListDetailLabelsFontSizeDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "size",
+                "subType": "font",
+                "label": "Font size"
+              },
+              {
+                "name": "simpleListDetailLabelsFontColor",
+                "default": "rgba(51, 51, 51, 0.5)",
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='simple-list']",
+                    "selectors": ".simple-list-detail-overlay .simple-list-details-holder .simple-list-detail-label",
+                    "properties": ["color"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "simpleListDetailLabelsFontColorTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "simpleListDetailLabelsFontColorDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "color",
+                "label": "Font color"
+              },
+              {
+                "name": "simpleListDetailLabelsFontWeight",
+                "default": "$simpleListDetailTextFontWeight",
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='simple-list']",
+                    "selectors": ".simple-list-detail-overlay .simple-list-details-holder .simple-list-detail-label",
+                    "properties": ["font-weight"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "simpleListDetailLabelsFontWeightTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "simpleListDetailLabelsFontWeightDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "font-style",
+                "properties": "weight"
+              },
+              {
+                "name": "simpleListDetailLabelsItalic",
+                "default": "$simpleListDetailTextItalic",
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='simple-list']",
+                    "selectors": ".simple-list-detail-overlay .simple-list-details-holder .simple-list-detail-label",
+                    "properties": ["font-style"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "simpleListDetailLabelsItalicTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "simpleListDetailLabelsItalicDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "font-style",
+                "properties": "italic"
+              },
+              {
+                "name": "simpleListDetailLabelsUnderline",
+                "default": "$simpleListDetailTextUnderline",
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='simple-list']",
+                    "selectors": ".simple-list-detail-overlay .simple-list-details-holder .simple-list-detail-label",
+                    "properties": ["text-decoration"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "simpleListDetailLabelsUnderlineTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "simpleListDetailLabelsUnderlineDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "font-style",
+                "subType": "decoration",
+                "properties": "underline"
+              },
+              {
+                "name": "simpleListDetailLabelsLineHeight",
+                "default": "$bodyLineHeight",
+                "columns": 12,
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='simple-list']",
+                    "selectors": ".simple-list-detail-overlay .simple-list-details-holder .simple-list-detail-label",
+                    "properties": ["line-height"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "simpleListDetailLabelsLineHeightTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "simpleListDetailLabelsLineHeightDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "size",
+                "subType": "line-height",
+                "label": "Line height"
+              },
+              {
+                "name": "simpleListDetailLabelsMarginTop",
+                "default": "0px",
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='simple-list']",
+                    "selectors": ".simple-list-detail-overlay .simple-list-details-holder .simple-list-detail-label",
+                    "properties": ["margin-top"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "simpleListDetailLabelsMarginTopTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "simpleListDetailLabelsMarginTopDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "label": "Margin top",
+                "type": "size",
+                "subType": "margin"
+              },
+              {
+                "name": "simpleListDetailLabelsMarginBottom",
+                "default": "10px",
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='simple-list']",
+                    "selectors": ".simple-list-detail-overlay .simple-list-details-holder .simple-list-detail-label",
+                    "properties": ["margin-bottom"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "simpleListDetailLabelsMarginBottomTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "simpleListDetailLabelsMarginBottomDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "label": "Margin bottom",
+                "type": "size",
+                "subType": "margin"
+              }
+            ]
+          },
+          {
+            "description": "Colors",
+            "fields": [
+              {
+                "name": "simpleListItemBackground",
+                "default": "$bodyBackground",
+                "column": 12,
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='simple-list']",
+                    "selectors": ".simple-list-container .simple-list-item",
+                    "properties": ["background-color"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "simpleListItemBackgroundTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "simpleListItemBackgroundDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "color",
+                "label": "List item background"
+              },
+              {
+                "name": "simpleListDetailOverlayBackground",
+                "default": "$lfdBackgroundColor",
+                "column": 12,
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='simple-list']",
+                    "selectors": ".simple-list-detail-overlay-panel .simple-list-detail-overlay-content",
+                    "properties": ["background-color"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "simpleListDetailOverlayBackgroundTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "simpleListDetailOverlayBackgroundDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "color",
+                "label": "Details overlay background "
+              },
+              {
+                "name": "simpleListDetailOverlayIconsColor",
+                "default": "rgba(51, 51, 51, 0.3)",
+                "column": 12,
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='simple-list']",
+                    "selectors": [
+                      ".simple-list-detail-overlay .simple-list-like-holder .fa", 
+                      ".simple-list-detail-overlay .simple-list-like-wrapper .fa",
+                      ".simple-list-detail-overlay .simple-list-bookmark-holder .fa", 
+                      ".simple-list-detail-overlay .simple-list-bookmark-wrapper .fa"
+                    ],
+                    "properties": ["color"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "simpleListDetailOverlayIconsColorTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "simpleListDetailOverlayIconsColorDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "color",
+                "label": "Details overlay icons"
+              },
+              {
+                "name": "simpleListFiltersOverlayBackground",
+                "default": "$bodyTextColor",
+                "column": 12,
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='simple-list']",
+                    "selectors": [
+                      ".simple-list-search-filter-overlay .simple-list-overlay-wrapper",
+                      ".simple-list-search-filter-overlay .simple-list-overlay-header",
+                      ".simple-list-container .filter-holder .panel-default > .panel-heading"
+                    ],
+                    "properties": ["background-color"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "simpleListFiltersOverlayBackgroundTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "simpleListFiltersOverlayBackgroundDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "color",
+                "label": "Filters overlay background"
+              },
+              {
+                "name": "simpleListOverlayFontColor",
+                "default": "$bodyBackground",
+                "columns": 12,
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='simple-list']",
+                    "selectors": [
+                      ".simple-list-search-filter-overlay .simple-list-overlay-wrapper",
+                      ".simple-list-search-filter-overlay .simple-list-overlay-header",
+                      ".simple-list-container .filter-holder .panel-default > .panel-heading"
+                    ],
+                    "properties": ["color"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "simpleListOverlayFontColorTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "simpleListOverlayFontColorDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "label": "Filters overlay text",
+                "type": "color"
+              },
+              {
+                "name": "simpleListFilterIconColor",
+                "default": "$highlightColor",
+                "columns": 12,
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='simple-list']",
+                    "selectors": [
+                      ".simple-list-container .section-top-wrapper .list-search-icon .fa-sliders",
+                      ".simple-list-container .section-top-wrapper .list-search-icon .fa-times"
+                    ],
+                    "properties": ["color"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "simpleListFilterIconColorTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "simpleListFilterIconColorDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "label": "Filter icon",
+                "type": "color"
+              },
+              {
+                "name": "simpleListSearchIconColor",
+                "default": "$highlightColor",
+                "columns": 12,
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='simple-list']",
+                    "selectors": ".simple-list-container .section-top-wrapper .search-holder .fa",
+                    "properties": ["color"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "simpleListSearchIconColorTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "simpleListSearchIconColorDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "label": "Search icon",
+                "type": "color"
+              },
+              {
+                "name": "simpleListBookmarkIconColor",
+                "default": "$highlightColor",
+                "columns": 12,
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='simple-list']",
+                    "selectors": [".simple-list-container .section-top-wrapper .list-search-icon .toggle-bookmarks .fa"],
+                    "properties": ["color"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "simpleListBookmarkIconColorTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "simpleListBookmarkIconColorDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "label": "Bookmark icon",
+                "type": "color"
+              },
+              {
+                "name": "simpleListLikeIconColor",
+                "default": "#ed4956",
+                "columns": 12,
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='simple-list']",
+                    "selectors": [
+                      ".simple-list-container .simple-list-like-holder .fa", 
+                      ".simple-list-container .simple-list-like-wrapper .fa"
+                    ],
+                    "properties": ["color"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "simpleListBookmarkIconColorTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "simpleListBookmarkIconColorDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "label": "Like icon",
+                "type": "color"
+              },
+              {
+                "name": "simpleListImageBackground",
+                "default": "rgba(51, 51, 51, 0.05)",
+                "columns": 12,
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='simple-list']",
+                    "selectors": [
+                      ".simple-list-item .list-item-image",
+                      ".simple-list-detail-overlay .simple-list-details-holder .simple-list-detail-value img"
+                    ],
+                    "properties": ["background-color"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "simpleListImageBackgroundTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "simpleListImageBackgroundDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "label": "Image area background",
+                "type": "color"
+              }
+            ]
+          },
+          {
+            "description": "List item border",
+            "fields": [
+              {
+                "name": "simpleListItemBorderSides",
+                "default": "none",
+                "logic": {
+                  "none": {
+                    "hide": [
+                      "simpleListItemBorderWidth",
+                      "simpleListItemBorderStyle",
+                      "simpleListItemBorder"
+                    ]
+                  },
+                  "all": {
+                    "show": [
+                      "simpleListItemBorderWidth",
+                      "simpleListItemBorderStyle",
+                      "simpleListItemBorder"
+                    ]
+                  },
+                  "left": {
+                    "show": [
+                      "simpleListItemBorderWidth",
+                      "simpleListItemBorderStyle",
+                      "simpleListItemBorder"
+                    ]
+                  },
+                  "right": {
+                    "show": [
+                      "simpleListItemBorderWidth",
+                      "simpleListItemBorderStyle",
+                      "simpleListItemBorder"
+                    ]
+                  },
+                  "bottom": {
+                    "show": [
+                      "simpleListItemBorderWidth",
+                      "simpleListItemBorderStyle",
+                      "simpleListItemBorder"
+                    ]
+                  },
+                  "top": {
+                    "show": [
+                      "simpleListItemBorderWidth",
+                      "simpleListItemBorderStyle",
+                      "simpleListItemBorder"
+                    ]
+                  }
+                },
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='simple-list']",
+                    "selectors": ".simple-list-container .simple-list-item",
+                    "properties": ["border"],
+                    "type": "border",
+                    "siblings": {
+                      "sides": "simpleListItemBorderSides",
+                      "width": "simpleListItemBorderWidth",
+                      "style": "simpleListItemBorderStyle",
+                      "color": "simpleListItemBorder"
+                    }
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "simpleListItemBorderSidesTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "simpleListItemBorderSidesDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "select",
+                "subtype": "border-sides"
+              },
+              {
+                "name": "simpleListItemBorder",
+                "default":"$bodyTextColor",
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='simple-list']",
+                    "selectors": ".simple-list-container .simple-list-item",
+                    "properties": ["border"],
+                    "type": "border",
+                    "siblings": {
+                      "sides": "simpleListItemBorderSides",
+                      "width": "simpleListItemBorderWidth",
+                      "style": "simpleListItemBorderStyle",
+                      "color": "simpleListItemBorder"
+                    }
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "simpleListItemBorderTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "simpleListItemBorderDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "color"
+              },
+              {
+                "name": "simpleListItemBorderWidth",
+                "default": "1px",
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='simple-list']",
+                    "selectors": ".simple-list-container .simple-list-item",
+                    "properties": ["border"],
+                    "type": "border",
+                    "siblings": {
+                      "sides": "simpleListItemBorderSides",
+                      "width": "simpleListItemBorderWidth",
+                      "style": "simpleListItemBorderStyle",
+                      "color": "simpleListItemBorder"
+                    }
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "simpleListItemBorderWidthTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "simpleListItemBorderWidthDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "size",
+                "subtype": "border"
+              },
+              {
+                "name": "simpleListItemBorderStyle",
+                "default": "solid",
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='simple-list']",
+                    "selectors": ".simple-list-container .simple-list-item",
+                    "properties": ["border"],
+                    "type": "border",
+                    "siblings": {
+                      "sides": "simpleListItemBorderSides",
+                      "width": "simpleListItemBorderWidth",
+                      "style": "simpleListItemBorderStyle",
+                      "color": "simpleListItemBorder"
+                    }
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "simpleListItemBorderStyleTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "simpleListItemBorderStyleDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "border-style"
+              },
+              {
+                "name": "simpleListItemBorderRadius",
+                "default": "15px",
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='simple-list']",
+                    "selectors": ".simple-list-container .simple-list-item",
+                    "properties": ["border-radius"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "simpleListItemBorderRadiusTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "simpleListItemBorderRadiusDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "size",
+                "label": "Border radius"
+              }
+
+            ]
+          },
+          {
+            "description": "List item shadow",
+            "fields": [
+              {
+                "name": "simpleListItemShadowStyle",
+                "default": "outset",
+                "logic": {
+                  "none": {
+                    "hide": [
+                      "simpleListItemShadowXoffset",
+                      "simpleListItemShadowYoffset",
+                      "simpleListItemShadowBlur",
+                      "simpleListItemShadowSpread",
+                      "simpleListItemShadowColor"
+                    ]
+                  },
+                  "outset": {
+                    "show": [
+                      "simpleListItemShadowXoffset",
+                      "simpleListItemShadowYoffset",
+                      "simpleListItemShadowBlur",
+                      "simpleListItemShadowSpread",
+                      "simpleListItemShadowColor"
+                    ]
+                  },
+                  "inset": {
+                    "show": [
+                      "simpleListItemShadowXoffset",
+                      "simpleListItemShadowYoffset",
+                      "simpleListItemShadowBlur",
+                      "simpleListItemShadowSpread",
+                      "simpleListItemShadowColor"
+                    ]
+                  }
+                },
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='simple-list']",
+                    "selectors": ".simple-list-container .simple-list-item",
+                    "properties": ["box-shadow"],
+                    "type": "shadow",
+                    "siblings": {
+                      "style": "simpleListItemShadowStyle",
+                      "xoffset": "simpleListItemShadowXoffset",
+                      "yoffset": "simpleListItemShadowYoffset",
+                      "blur": "simpleListItemShadowBlur",
+                      "spread": "simpleListItemShadowSpread",
+                      "color": "simpleListItemShadowColor"
+                    }
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "simpleListItemShadowStyleTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "simpleListItemShadowStyleDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "select",
+                "subtype": "shadow-style"
+              },
+              {
+                "name": "simpleListItemShadowXoffset",
+                "default": "0px",
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='simple-list']",
+                    "selectors": ".simple-list-container .simple-list-item",
+                    "properties": ["box-shadow"],
+                    "type": "shadow",
+                    "siblings": {
+                      "style": "simpleListItemShadowStyle",
+                      "xoffset": "simpleListItemShadowXoffset",
+                      "yoffset": "simpleListItemShadowYoffset",
+                      "blur": "simpleListItemShadowBlur",
+                      "spread": "simpleListItemShadowSpread",
+                      "color": "simpleListItemShadowColor"
+                    }
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "simpleListItemShadowXoffsetTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "simpleListItemShadowXoffsetDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "label": "X offset",
+                "type": "size",
+                "subtype": "shadow",
+                "allowNegative": true
+              },
+              {
+                "name": "simpleListItemShadowYoffset",
+                "default": "10px",
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='simple-list']",
+                    "selectors": ".simple-list-container .simple-list-item",
+                    "properties": ["box-shadow"],
+                    "type": "shadow",
+                    "siblings": {
+                      "style": "simpleListItemShadowStyle",
+                      "xoffset": "simpleListItemShadowXoffset",
+                      "yoffset": "simpleListItemShadowYoffset",
+                      "blur": "simpleListItemShadowBlur",
+                      "spread": "simpleListItemShadowSpread",
+                      "color": "simpleListItemShadowColor"
+                    }
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "simpleListItemShadowYoffsetTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "simpleListItemShadowYoffsetDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "label": "Y offset",
+                "type": "size",
+                "subtype": "shadow",
+                "allowNegative": true
+              },
+              {
+                "name": "simpleListItemShadowBlur",
+                "default": "20px",
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='simple-list']",
+                    "selectors": ".simple-list-container .simple-list-item",
+                    "properties": ["box-shadow"],
+                    "type": "shadow",
+                    "siblings": {
+                      "style": "simpleListItemShadowStyle",
+                      "xoffset": "simpleListItemShadowXoffset",
+                      "yoffset": "simpleListItemShadowYoffset",
+                      "blur": "simpleListItemShadowBlur",
+                      "spread": "simpleListItemShadowSpread",
+                      "color": "simpleListItemShadowColor"
+                    }
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "simpleListItemShadowBlurTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "simpleListItemShadowBlurDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "label": "Blur",
+                "type": "size",
+                "subtype": "shadow"
+              },
+              {
+                "name": "simpleListItemShadowSpread",
+                "default": "0px",
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='simple-list']",
+                    "selectors": ".simple-list-container .simple-list-item",
+                    "properties": ["box-shadow"],
+                    "type": "shadow",
+                    "siblings": {
+                      "style": "simpleListItemShadowStyle",
+                      "xoffset": "simpleListItemShadowXoffset",
+                      "yoffset": "simpleListItemShadowYoffset",
+                      "blur": "simpleListItemShadowBlur",
+                      "spread": "simpleListItemShadowSpread",
+                      "color": "simpleListItemShadowColor"
+                    }
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "simpleListItemShadowSpreadTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "simpleListItemShadowSpreadDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "label": "Spread",
+                "type": "size",
+                "subtype": "shadow"
+              },
+              {
+                "name": "simpleListItemShadowColor",
+                "default": "rgba(51, 51, 51, 0.2)",
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='simple-list']",
+                    "selectors": ".simple-list-container .simple-list-item",
+                    "properties": ["box-shadow"],
+                    "type": "shadow",
+                    "siblings": {
+                      "style": "simpleListItemShadowStyle",
+                      "xoffset": "simpleListItemShadowXoffset",
+                      "yoffset": "simpleListItemShadowYoffset",
+                      "blur": "simpleListItemShadowBlur",
+                      "spread": "simpleListItemShadowSpread",
+                      "color": "simpleListItemShadowColor"
+                    }
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "simpleListItemShadowColorTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "simpleListItemShadowColorDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "type": "color"
+              }
+            ]
+          },
+          {
+            "description": "Visibility",
+            "appSupportsContainers": true,
+            "fields": [
+              {
+                "name": "simpleListVisibility",
+                "default": "visible",
+                "columns": 12,
+                "breakpoints": {
+                  "tablet": {
+                    "name": "simpleListVisibilityTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "simpleListVisibilityDesktop",
                     "default": "inherit-tablet"
                   }
                 },
