@@ -668,6 +668,18 @@
     }
 
     .new-agenda-list-container {
+      .new-agenda-search-filter-overlay {
+        .agenda-overlay-wrapper {
+          background-color: map-get($configuration, agendaFiltersOverlayBackground);
+          color: map-get($configuration, agendaOverlayFontColor);
+        }
+
+        .agenda-overlay-header {
+          background-color: map-get($configuration, agendaFiltersOverlayBackground);
+          color: map-get($configuration, agendaOverlayFontColor);
+        }
+      }
+
       ~ .dynamic-list-add-item {
         background-color: map-get($configuration, agendaMyButtonBackground);
 
@@ -830,7 +842,22 @@
         }
       }
 
-      .section-top-wrapper,
+      .section-top-wrapper {
+        max-width: map-get($configuration, agendaMaxWidth);
+
+        .fa-sliders, .list-search-cancel .fa-times {
+          color: map-get($configuration, agendaFilterIconColor) !important;
+        }
+
+        .toggle-bookmarks .fa {
+          color: map-get($configuration, agendaBookmarkIconColor) !important;
+        }
+
+        .search-holder .fa {
+          color: map-get($configuration, agendaSearchIconColor);
+        }
+      }
+
       .hidden-controls,
       .agenda-list-card-holder,
       .agenda-list-item-content .container-fluid,
@@ -841,6 +868,16 @@
 
       // Styles for tablet
       @include above($tabletBreakpoint) {
+        .agenda-overlay-wrapper {
+          background-color: map-get($configuration, agendaFiltersOverlayBackgroundTablet);
+          color: map-get($configuration, agendaOverlayFontColorTablet);
+        }
+
+        .agenda-overlay-header {
+          background-color: map-get($configuration, agendaFiltersOverlayBackgroundTablet);
+          color: map-get($configuration, agendaOverlayFontColorTablet);
+        }
+
         ~ .dynamic-list-add-item {
           background-color: map-get($configuration, agendaMyButtonBackgroundTablet);
 
@@ -963,7 +1000,23 @@
           }
         }
 
-        .section-top-wrapper,
+        .section-top-wrapper {
+          max-width: map-get($configuration, agendaMaxWidthTablet);
+
+          .fa-sliders, .list-search-cancel .fa-times {
+            color: map-get($configuration, agendaFilterIconColorTablet) !important;
+          }
+
+          .toggle-bookmarks .fa {
+            color: map-get($configuration, agendaBookmarkIconColorTablet) !important;
+          }
+
+          .search-holder .fa {
+            color: map-get($configuration, agendaSearchIconColorTablet);
+          }
+        }
+
+
         .hidden-controls,
         .agenda-list-card-holder,
         .agenda-list-item-content .container-fluid,
@@ -975,6 +1028,16 @@
 
       // Styles for desktop
       @include above($desktopBreakpoint) {
+        .agenda-overlay-wrapper {
+          background-color: map-get($configuration, agendaFiltersOverlayBackgroundDesktop);
+          color: map-get($configuration, agendaOverlayFontColorDesktop);
+        }
+
+        .agenda-overlay-header {
+          background-color: map-get($configuration, agendaFiltersOverlayBackgroundDesktop);
+          color: map-get($configuration, agendaOverlayFontColorDesktop);
+        }
+
         ~ .dynamic-list-add-item {
           background-color: map-get($configuration, agendaMyButtonBackgroundDesktop);
 
@@ -1115,7 +1178,22 @@
           }
         }
 
-        .section-top-wrapper,
+        .section-top-wrapper {
+          max-width: map-get($configuration, agendaMaxWidthTablet);
+
+          .fa-sliders, .list-search-cancel .fa-times {
+            color: map-get($configuration, agendaFilterIconColorDesktop) !important;
+          }
+
+          .toggle-bookmarks .fa {
+            color: map-get($configuration, agendaBookmarkIconColorDesktop) !important;
+          }
+
+          .search-holder .fa {
+            color: map-get($configuration, agendaSearchIconColorDesktop);
+          }
+        }
+
         .hidden-controls,
         .agenda-list-card-holder,
         .agenda-list-item-content .container-fluid,
