@@ -1,425 +1,418 @@
-@mixin lfd($options: (), $widgetInstanceId: '', $widgetInstanceUUID: '') {
+@mixin smallHCard($options: (), $widgetInstanceId: '', $widgetInstanceUUID: '') {
   $configuration: map-merge((
-  newsFeedOverlayFontColor: $newsFeedOverlayFontColor,
-  newsFeedOverlayFontColorTablet: $newsFeedOverlayFontColorTablet,
-  newsFeedOverlayFontColorDesktop: $newsFeedOverlayFontColorDesktop,
-  newsFeedWidth: $newsFeedWidth,
-  newsFeedWidthTablet: $newsFeedWidthTablet,
-  newsFeedWidthDesktop: $newsFeedWidthDesktop,
-  newsFeedMaxWidth: $newsFeedMaxWidth,
-  newsFeedMaxWidthTablet: $newsFeedMaxWidthTablet,
-  newsFeedMaxWidthDesktop: $newsFeedMaxWidthDesktop,
-  newsFeedMarginTop: $newsFeedMarginTop,
-  newsFeedMarginTopTablet: $newsFeedMarginTopTablet,
-  newsFeedMarginTopDesktop: $newsFeedMarginTopDesktop,
-  newsFeedMarginRight: $newsFeedMarginRight,
-  newsFeedMarginRightTablet: $newsFeedMarginRightTablet,
-  newsFeedMarginRightDesktop: $newsFeedMarginRightDesktop,
-  newsFeedMarginBottom: $newsFeedMarginBottom,
-  newsFeedMarginBottomTablet: $newsFeedMarginBottomTablet,
-  newsFeedMarginBottomDesktop: $newsFeedMarginBottomDesktop,
-  newsFeedMarginLeft: $newsFeedMarginLeft,
-  newsFeedMarginLeftTablet: $newsFeedMarginLeftTablet,
-  newsFeedMarginLeftDesktop: $newsFeedMarginLeftDesktop,
-  newsFeedVisibility: $newsFeedVisibility,
-  newsFeedVisibilityTablet: $newsFeedVisibilityTablet,
-  newsFeedVisibilityDesktop: $newsFeedVisibilityDesktop,
-  newsFeedTitleFontFamily: $newsFeedTitleFontFamily,
-  newsFeedTitleFontFamilyTablet: $newsFeedTitleFontFamilyTablet,
-  newsFeedTitleFontFamilyDesktop: $newsFeedTitleFontFamilyDesktop,
-  newsFeedTitleFontSize: $newsFeedTitleFontSize,
-  newsFeedTitleFontSizeTablet: $newsFeedTitleFontSizeTablet,
-  newsFeedTitleFontSizeDesktop: $newsFeedTitleFontSizeDesktop,
-  newsFeedTitleFontColor: $newsFeedTitleFontColor,
-  newsFeedTitleFontColorTablet: $newsFeedTitleFontColorTablet,
-  newsFeedTitleFontColorDesktop: $newsFeedTitleFontColorDesktop,
-  newsFeedTitleFontWeight: $newsFeedTitleFontWeight,
-  newsFeedTitleFontWeightTablet: $newsFeedTitleFontWeightTablet,
-  newsFeedTitleFontWeightDesktop: $newsFeedTitleFontWeightDesktop,
-  newsFeedTitleItalic: $newsFeedTitleItalic,
-  newsFeedTitleItalicTablet: $newsFeedTitleItalicTablet,
-  newsFeedTitleItalicDesktop: $newsFeedTitleItalicDesktop,
-  newsFeedTitleUnderline: $newsFeedTitleUnderline,
-  newsFeedTitleUnderlineTablet: $newsFeedTitleUnderlineTablet,
-  newsFeedTitleUnderlineDesktop: $newsFeedTitleUnderlineDesktop,
-  newsFeedTitleLineHeight: $newsFeedTitleLineHeight,
-  newsFeedTitleLineHeightTablet: $newsFeedTitleLineHeightTablet,
-  newsFeedTitleLineHeightDesktop: $newsFeedTitleLineHeightDesktop,
-  newsFeedTitleMarginTop: $newsFeedTitleMarginTop,
-  newsFeedTitleMarginTopTablet: $newsFeedTitleMarginTopTablet,
-  newsFeedTitleMarginTopDesktop: $newsFeedTitleMarginTopDesktop,
-  newsFeedTitleMarginBottom: $newsFeedTitleMarginBottom,
-  newsFeedTitleMarginBottomTablet: $newsFeedTitleMarginBottomTablet,
-  newsFeedTitleMarginBottomDesktop: $newsFeedTitleMarginBottomDesktop,
-  newsFeedDescriptionFontFamily: $newsFeedDescriptionFontFamily,
-  newsFeedDescriptionFontFamilyTablet: $newsFeedDescriptionFontFamilyTablet,
-  newsFeedDescriptionFontFamilyDesktop: $newsFeedDescriptionFontFamilyDesktop,
-  newsFeedDescriptionFontSize: $newsFeedDescriptionFontSize,
-  newsFeedDescriptionFontSizeTablet: $newsFeedDescriptionFontSizeTablet,
-  newsFeedDescriptionFontSizeDesktop: $newsFeedDescriptionFontSizeDesktop,
-  newsFeedDescriptionFontColor: $newsFeedDescriptionFontColor,
-  newsFeedDescriptionFontColorTablet: $newsFeedDescriptionFontColorTablet,
-  newsFeedDescriptionFontColorDesktop: $newsFeedDescriptionFontColorDesktop,
-  newsFeedDescriptionFontWeight: $newsFeedDescriptionFontWeight,
-  newsFeedDescriptionFontWeightTablet: $newsFeedDescriptionFontWeightTablet,
-  newsFeedDescriptionFontWeightDesktop: $newsFeedDescriptionFontWeightDesktop,
-  newsFeedDescriptionItalic: $newsFeedDescriptionItalic,
-  newsFeedDescriptionItalicTablet: $newsFeedDescriptionItalicTablet,
-  newsFeedDescriptionItalicDesktop: $newsFeedDescriptionItalicDesktop,
-  newsFeedDescriptionUnderline: $newsFeedDescriptionUnderline,
-  newsFeedDescriptionUnderlineTablet: $newsFeedDescriptionUnderlineTablet,
-  newsFeedDescriptionUnderlineDesktop: $newsFeedDescriptionUnderlineDesktop,
-  newsFeedDescriptionLineHeight: $newsFeedDescriptionLineHeight,
-  newsFeedDescriptionLineHeightTablet: $newsFeedDescriptionLineHeightTablet,
-  newsFeedDescriptionLineHeightDesktop: $newsFeedDescriptionLineHeightDesktop,
-  newsFeedDescriptionMarginTop: $newsFeedDescriptionMarginTop,
-  newsFeedDescriptionMarginTopTablet: $newsFeedDescriptionMarginTopTablet,
-  newsFeedDescriptionMarginTopDesktop: $newsFeedDescriptionMarginTopDesktop,
-  newsFeedDescriptionMarginBottom: $newsFeedDescriptionMarginBottom,
-  newsFeedDescriptionMarginBottomTablet: $newsFeedDescriptionMarginBottomTablet,
-  newsFeedDescriptionMarginBottomDesktop: $newsFeedDescriptionMarginBottomDesktop,
-  newsFeedSecondDescriptionFontFamily: $newsFeedSecondDescriptionFontFamily,
-  newsFeedSecondDescriptionFontFamilyTablet: $newsFeedSecondDescriptionFontFamilyTablet,
-  newsFeedSecondDescriptionFontFamilyDesktop: $newsFeedSecondDescriptionFontFamilyDesktop,
-  newsFeedSecondDescriptionFontSize: $newsFeedSecondDescriptionFontSize,
-  newsFeedSecondDescriptionFontSizeTablet: $newsFeedSecondDescriptionFontSizeTablet,
-  newsFeedSecondDescriptionFontSizeDesktop: $newsFeedSecondDescriptionFontSizeDesktop,
-  newsFeedSecondDescriptionFontColor: $newsFeedSecondDescriptionFontColor,
-  newsFeedSecondDescriptionFontColorTablet: $newsFeedSecondDescriptionFontColorTablet,
-  newsFeedSecondDescriptionFontColorDesktop: $newsFeedSecondDescriptionFontColorDesktop,
-  newsFeedSecondDescriptionFontWeight: $newsFeedSecondDescriptionFontWeight,
-  newsFeedSecondDescriptionFontWeightTablet: $newsFeedSecondDescriptionFontWeightTablet,
-  newsFeedSecondDescriptionFontWeightDesktop: $newsFeedSecondDescriptionFontWeightDesktop,
-  newsFeedSecondDescriptionItalic: $newsFeedSecondDescriptionItalic,
-  newsFeedSecondDescriptionItalicTablet: $newsFeedSecondDescriptionItalicTablet,
-  newsFeedSecondDescriptionItalicDesktop: $newsFeedSecondDescriptionItalicDesktop,
-  newsFeedSecondDescriptionUnderline: $newsFeedSecondDescriptionUnderline,
-  newsFeedSecondDescriptionUnderlineTablet: $newsFeedSecondDescriptionUnderlineTablet,
-  newsFeedSecondDescriptionUnderlineDesktop: $newsFeedSecondDescriptionUnderlineDesktop,
-  newsFeedSecondDescriptionLineHeight: $newsFeedSecondDescriptionLineHeight,
-  newsFeedSecondDescriptionLineHeightTablet: $newsFeedSecondDescriptionLineHeightTablet,
-  newsFeedSecondDescriptionLineHeightDesktop: $newsFeedSecondDescriptionLineHeightDesktop,
-  newsFeedSecondDescriptionMarginTop: $newsFeedSecondDescriptionMarginTop,
-  newsFeedSecondDescriptionMarginTopTablet: $newsFeedSecondDescriptionMarginTopTablet,
-  newsFeedSecondDescriptionMarginTopDesktop: $newsFeedSecondDescriptionMarginTopDesktop,
-  newsFeedSecondDescriptionMarginBottom: $newsFeedSecondDescriptionMarginBottom,
-  newsFeedSecondDescriptionMarginBottomTablet: $newsFeedSecondDescriptionMarginBottomTablet,
-  newsFeedSecondDescriptionMarginBottomDesktop: $newsFeedSecondDescriptionMarginBottomDesktop,
-  newsFeedDetailTitleFontFamily: $newsFeedDetailTitleFontFamily,
-  newsFeedDetailTitleFontFamilyTablet: $newsFeedDetailTitleFontFamilyTablet,
-  newsFeedDetailTitleFontFamilyDesktop: $newsFeedDetailTitleFontFamilyDesktop,
-  newsFeedDetailTitleFontSize: $newsFeedDetailTitleFontSize,
-  newsFeedDetailTitleFontSizeTablet: $newsFeedDetailTitleFontSizeTablet,
-  newsFeedDetailTitleFontSizeDesktop: $newsFeedDetailTitleFontSizeDesktop,
-  newsFeedDetailTitleFontColor: $newsFeedDetailTitleFontColor,
-  newsFeedDetailTitleFontColorTablet: $newsFeedDetailTitleFontColorTablet,
-  newsFeedDetailTitleFontColorDesktop: $newsFeedDetailTitleFontColorDesktop,
-  newsFeedDetailTitleFontWeight: $newsFeedDetailTitleFontWeight,
-  newsFeedDetailTitleFontWeightTablet: $newsFeedDetailTitleFontWeightTablet,
-  newsFeedDetailTitleFontWeightDesktop: $newsFeedDetailTitleFontWeightDesktop,
-  newsFeedDetailTitleItalic: $newsFeedDetailTitleItalic,
-  newsFeedDetailTitleItalicTablet: $newsFeedDetailTitleItalicTablet,
-  newsFeedDetailTitleItalicDesktop: $newsFeedDetailTitleItalicDesktop,
-  newsFeedDetailTitleUnderline: $newsFeedDetailTitleUnderline,
-  newsFeedDetailTitleUnderlineTablet: $newsFeedDetailTitleUnderlineTablet,
-  newsFeedDetailTitleUnderlineDesktop: $newsFeedDetailTitleUnderlineDesktop,
-  newsFeedDetailTitleLineHeight: $newsFeedDetailTitleLineHeight,
-  newsFeedDetailTitleLineHeightTablet: $newsFeedDetailTitleLineHeightTablet,
-  newsFeedDetailTitleLineHeightDesktop: $newsFeedDetailTitleLineHeightDesktop,
-  newsFeedDetailDescriptionFontFamily: $newsFeedDetailDescriptionFontFamily,
-  newsFeedDetailDescriptionFontFamilyTablet: $newsFeedDetailDescriptionFontFamilyTablet,
-  newsFeedDetailDescriptionFontFamilyDesktop: $newsFeedDetailDescriptionFontFamilyDesktop,
-  newsFeedDetailDescriptionFontSize: $newsFeedDetailDescriptionFontSize,
-  newsFeedDetailDescriptionFontSizeTablet: $newsFeedDetailDescriptionFontSizeTablet,
-  newsFeedDetailDescriptionFontSizeDesktop: $newsFeedDetailDescriptionFontSizeDesktop,
-  newsFeedDetailDescriptionFontColor: $newsFeedDetailDescriptionFontColor,
-  newsFeedDetailDescriptionFontColorTablet: $newsFeedDetailDescriptionFontColorTablet,
-  newsFeedDetailDescriptionFontColorDesktop: $newsFeedDetailDescriptionFontColorDesktop,
-  newsFeedDetailDescriptionFontWeight: $newsFeedDetailDescriptionFontWeight,
-  newsFeedDetailDescriptionFontWeightTablet: $newsFeedDetailDescriptionFontWeightTablet,
-  newsFeedDetailDescriptionFontWeightDesktop: $newsFeedDetailDescriptionFontWeightDesktop,
-  newsFeedDetailDescriptionItalic: $newsFeedDetailDescriptionItalic,
-  newsFeedDetailDescriptionItalicTablet: $newsFeedDetailDescriptionItalicTablet,
-  newsFeedDetailDescriptionItalicDesktop: $newsFeedDetailDescriptionItalicDesktop,
-  newsFeedDetailDescriptionUnderline: $newsFeedDetailDescriptionUnderline,
-  newsFeedDetailDescriptionUnderlineTablet: $newsFeedDetailDescriptionUnderlineTablet,
-  newsFeedDetailDescriptionUnderlineDesktop: $newsFeedDetailDescriptionUnderlineDesktop,
-  newsFeedDetailDescriptionLineHeight: $newsFeedDetailDescriptionLineHeight,
-  newsFeedDetailDescriptionLineHeightTablet: $newsFeedDetailDescriptionLineHeightTablet,
-  newsFeedDetailDescriptionLineHeightDesktop: $newsFeedDetailDescriptionLineHeightDesktop,
-  newsFeedDetailDescriptionMarginTop: $newsFeedDetailDescriptionMarginTop,
-  newsFeedDetailDescriptionMarginTopTablet: $newsFeedDetailDescriptionMarginTopTablet,
-  newsFeedDetailDescriptionMarginTopDesktop: $newsFeedDetailDescriptionMarginTopDesktop,
-  newsFeedDetailDescriptionMarginBottom: $newsFeedDetailDescriptionMarginBottom,
-  newsFeedDetailDescriptionMarginBottomTablet: $newsFeedDetailDescriptionMarginBottomTablet,
-  newsFeedDetailDescriptionMarginBottomDesktop: $newsFeedDetailDescriptionMarginBottomDesktop,
-  newsFeedDetailSecondDescriptionFontFamily: $newsFeedDetailSecondDescriptionFontFamily,
-  newsFeedDetailSecondDescriptionFontFamilyTablet: $newsFeedDetailSecondDescriptionFontFamilyTablet,
-  newsFeedDetailSecondDescriptionFontFamilyDesktop: $newsFeedDetailSecondDescriptionFontFamilyDesktop,
-  newsFeedDetailSecondDescriptionFontSize: $newsFeedDetailSecondDescriptionFontSize,
-  newsFeedDetailSecondDescriptionFontSizeTablet: $newsFeedDetailSecondDescriptionFontSizeTablet,
-  newsFeedDetailSecondDescriptionFontSizeDesktop: $newsFeedDetailSecondDescriptionFontSizeDesktop,
-  newsFeedDetailSecondDescriptionFontColor: $newsFeedDetailSecondDescriptionFontColor,
-  newsFeedDetailSecondDescriptionFontColorTablet: $newsFeedDetailSecondDescriptionFontColorTablet,
-  newsFeedDetailSecondDescriptionFontColorDesktop: $newsFeedDetailSecondDescriptionFontColorDesktop,
-  newsFeedDetailSecondDescriptionFontWeight: $newsFeedDetailSecondDescriptionFontWeight,
-  newsFeedDetailSecondDescriptionFontWeightTablet: $newsFeedDetailSecondDescriptionFontWeightTablet,
-  newsFeedDetailSecondDescriptionFontWeightDesktop: $newsFeedDetailSecondDescriptionFontWeightDesktop,
-  newsFeedDetailSecondDescriptionItalic: $newsFeedDetailSecondDescriptionItalic,
-  newsFeedDetailSecondDescriptionItalicTablet: $newsFeedDetailSecondDescriptionItalicTablet,
-  newsFeedDetailSecondDescriptionItalicDesktop: $newsFeedDetailSecondDescriptionItalicDesktop,
-  newsFeedDetailSecondDescriptionUnderline: $newsFeedDetailSecondDescriptionUnderline,
-  newsFeedDetailSecondDescriptionUnderlineTablet: $newsFeedDetailSecondDescriptionUnderlineTablet,
-  newsFeedDetailSecondDescriptionUnderlineDesktop: $newsFeedDetailSecondDescriptionUnderlineDesktop,
-  newsFeedDetailSecondDescriptionLineHeight: $newsFeedDetailSecondDescriptionLineHeight,
-  newsFeedDetailSecondDescriptionLineHeightTablet: $newsFeedDetailSecondDescriptionLineHeightTablet,
-  newsFeedDetailSecondDescriptionLineHeightDesktop: $newsFeedDetailSecondDescriptionLineHeightDesktop,
-  newsFeedDetailSecondDescriptionMarginTop: $newsFeedDetailSecondDescriptionMarginTop,
-  newsFeedDetailSecondDescriptionMarginTopTablet: $newsFeedDetailSecondDescriptionMarginTopTablet,
-  newsFeedDetailSecondDescriptionMarginTopDesktop: $newsFeedDetailSecondDescriptionMarginTopDesktop,
-  newsFeedDetailSecondDescriptionMarginBottom: $newsFeedDetailSecondDescriptionMarginBottom,
-  newsFeedDetailSecondDescriptionMarginBottomTablet: $newsFeedDetailSecondDescriptionMarginBottomTablet,
-  newsFeedDetailSecondDescriptionMarginBottomDesktop: $newsFeedDetailSecondDescriptionMarginBottomDesktop,
-  newsFeedDetailTextFontFamily: $newsFeedDetailTextFontFamily,
-  newsFeedDetailTextFontFamilyTablet: $newsFeedDetailTextFontFamilyTablet,
-  newsFeedDetailTextFontFamilyDesktop: $newsFeedDetailTextFontFamilyDesktop,
-  newsFeedDetailTextFontSize: $newsFeedDetailTextFontSize,
-  newsFeedDetailTextFontSizeTablet: $newsFeedDetailTextFontSizeTablet,
-  newsFeedDetailTextFontSizeDesktop: $newsFeedDetailTextFontSizeDesktop,
-  newsFeedDetailTextFontColor: $newsFeedDetailTextFontColor,
-  newsFeedDetailTextFontColorTablet: $newsFeedDetailTextFontColorTablet,
-  newsFeedDetailTextFontColorDesktop: $newsFeedDetailTextFontColorDesktop,
-  newsFeedDetailTextFontWeight: $newsFeedDetailTextFontWeight,
-  newsFeedDetailTextFontWeightTablet: $newsFeedDetailTextFontWeightTablet,
-  newsFeedDetailTextFontWeightDesktop: $newsFeedDetailTextFontWeightDesktop,
-  newsFeedDetailTextItalic: $newsFeedDetailTextItalic,
-  newsFeedDetailTextItalicTablet: $newsFeedDetailTextItalicTablet,
-  newsFeedDetailTextItalicDesktop: $newsFeedDetailTextItalicDesktop,
-  newsFeedDetailTextUnderline: $newsFeedDetailTextUnderline,
-  newsFeedDetailTextUnderlineTablet: $newsFeedDetailTextUnderlineTablet,
-  newsFeedDetailTextUnderlineDesktop: $newsFeedDetailTextUnderlineDesktop,
-  newsFeedDetailTextLineHeight: $newsFeedDetailTextLineHeight,
-  newsFeedDetailTextLineHeightTablet: $newsFeedDetailTextLineHeightTablet,
-  newsFeedDetailTextLineHeightDesktop: $newsFeedDetailTextLineHeightDesktop,
-  newsFeedDetailTextMarginTop: $newsFeedDetailTextMarginTop,
-  newsFeedDetailTextMarginTopTablet: $newsFeedDetailTextMarginTopTablet,
-  newsFeedDetailTextMarginTopDesktop: $newsFeedDetailTextMarginTopDesktop,
-  newsFeedDetailTextMarginBottom: $newsFeedDetailTextMarginBottom,
-  newsFeedDetailTextMarginBottomTablet: $newsFeedDetailTextMarginBottomTablet,
-  newsFeedDetailTextMarginBottomDesktop: $newsFeedDetailTextMarginBottomDesktop,
-  newsFeedListItemBackground: $newsFeedListItemBackground,
-  newsFeedListItemBackgroundTablet: $newsFeedListItemBackgroundTablet,
-  newsFeedListItemBackgroundDesktop: $newsFeedListItemBackgroundDesktop,
-  newsFeedListDetailOverlayBackground: $newsFeedListDetailOverlayBackground,
-  newsFeedListDetailOverlayBackgroundTablet: $newsFeedListDetailOverlayBackgroundTablet,
-  newsFeedListDetailOverlayBackgroundDesktop: $newsFeedListDetailOverlayBackgroundDesktop,
-  newsFeedListDetailOverlayLineUnderTitleColor: $newsFeedListDetailOverlayLineUnderTitleColor,
-  newsFeedListDetailOverlayLineUnderTitleColorTablet: $newsFeedListDetailOverlayLineUnderTitleColorTablet,
-  newsFeedListDetailOverlayLineUnderTitleColorDesktop: $newsFeedListDetailOverlayLineUnderTitleColorDesktop,
-  newsFeedListDetailOverlayIconsColor: $newsFeedListDetailOverlayIconsColor,
-  newsFeedListDetailOverlayIconsColorTablet: $newsFeedListDetailOverlayIconsColorTablet,
-  newsFeedListDetailOverlayIconsColorDesktop: $newsFeedListDetailOverlayIconsColorDesktop,
-  newsFeedFiltersOverlayBackground: $newsFeedFiltersOverlayBackground,
-  newsFeedFiltersOverlayBackgroundTablet: $newsFeedFiltersOverlayBackgroundTablet,
-  newsFeedFiltersOverlayBackgroundDesktop: $newsFeedFiltersOverlayBackgroundDesktop,
-  newsFeedFilterIconColor: $newsFeedFilterIconColor,
-  newsFeedFilterIconColorTablet: $newsFeedFilterIconColorTablet,
-  newsFeedFilterIconColorDesktop: $newsFeedFilterIconColorDesktop,
-  newsFeedSearchIconColor: $newsFeedSearchIconColor,
-  newsFeedSearchIconColorTablet: $newsFeedSearchIconColorTablet,
-  newsFeedSearchIconColorDesktop: $newsFeedSearchIconColorDesktop,
-  newsFeedBookmarkIconColor: $newsFeedBookmarkIconColor,
-  newsFeedBookmarkIconColorTablet: $newsFeedBookmarkIconColorTablet,
-  newsFeedBookmarkIconColorDesktop: $newsFeedBookmarkIconColorDesktop,
-  newsFeedImageBackground: $newsFeedImageBackground,
-  newsFeedImageBackgroundTablet: $newsFeedImageBackgroundTablet,
-  newsFeedImageBackgroundDesktop: $newsFeedImageBackgroundDesktop,
-  newsFeedPaddingTop: $newsFeedPaddingTop,
-  newsFeedPaddingRight: $newsFeedPaddingRight,
-  newsFeedPaddingBottom: $newsFeedPaddingBottom,
-  newsFeedPaddingLeft: $newsFeedPaddingLeft,
-  newsFeedPaddingTopTablet: $newsFeedPaddingTopTablet,
-  newsFeedPaddingRightTablet: $newsFeedPaddingRightTablet,
-  newsFeedPaddingBottomTablet: $newsFeedPaddingBottomTablet,
-  newsFeedPaddingLeftTablet: $newsFeedPaddingLeftTablet,
-  newsFeedPaddingTopDesktop: $newsFeedPaddingTopDesktop,
-  newsFeedPaddingRightDesktop: $newsFeedPaddingRightDesktop,
-  newsFeedPaddingBottomDesktop: $newsFeedPaddingBottomDesktop,
-  newsFeedPaddingLeftDesktop: $newsFeedPaddingLeftDesktop,
-  newsFeedListItemBorderSides: $newsFeedListItemBorderSides,
-  newsFeedListItemBorderSidesTablet: $newsFeedListItemBorderSidesTablet,
-  newsFeedListItemBorderSidesDesktop: $newsFeedListItemBorderSidesDesktop,
-  newsFeedListItemBorderWidth: $newsFeedListItemBorderWidth,
-  newsFeedListItemBorderWidthTablet: $newsFeedListItemBorderWidthTablet,
-  newsFeedListItemBorderWidthDesktop: $newsFeedListItemBorderWidthDesktop,
-  newsFeedListItemBorderStyle: $newsFeedListItemBorderStyle,
-  newsFeedListItemBorderStyleTablet: $newsFeedListItemBorderStyleTablet,
-  newsFeedListItemBorderStyleDesktop: $newsFeedListItemBorderStyleDesktop,
-  newsFeedListItemBorder: $newsFeedListItemBorder,
-  newsFeedListItemBorderTablet: $newsFeedListItemBorderTablet,
-  newsFeedListItemBorderDesktop: $newsFeedListItemBorderDesktop,
-  newsFeedListItemBorderRadius: $newsFeedListItemBorderRadius,
-  newsFeedListItemBorderRadiusTablet: $newsFeedListItemBorderRadiusTablet,
-  newsFeedListItemBorderRadiusDesktop: $newsFeedListItemBorderRadiusDesktop,
-  newsFeedListItemShadowStyle: $newsFeedListItemShadowStyle,
-  newsFeedListItemShadowStyleTablet: $newsFeedListItemShadowStyleTablet,
-  newsFeedListItemShadowStyleDesktop: $newsFeedListItemShadowStyleDesktop,
-  newsFeedListItemShadowXoffset: $newsFeedListItemShadowXoffset,
-  newsFeedListItemShadowXoffsetTablet: $newsFeedListItemShadowXoffsetTablet,
-  newsFeedListItemShadowXoffsetDesktop: $newsFeedListItemShadowXoffsetDesktop,
-  newsFeedListItemShadowYoffset: $newsFeedListItemShadowYoffset,
-  newsFeedListItemShadowYoffsetTablet: $newsFeedListItemShadowYoffsetTablet,
-  newsFeedListItemShadowYoffsetDesktop: $newsFeedListItemShadowYoffsetDesktop,
-  newsFeedListItemShadowBlur: $newsFeedListItemShadowBlur,
-  newsFeedListItemShadowBlurTablet: $newsFeedListItemShadowBlurTablet,
-  newsFeedListItemShadowBlurDesktop: $newsFeedListItemShadowBlurDesktop,
-  newsFeedListItemShadowSpread: $newsFeedListItemShadowSpread,
-  newsFeedListItemShadowSpreadTablet: $newsFeedListItemShadowSpreadTablet,
-  newsFeedListItemShadowSpreadDesktop: $newsFeedListItemShadowSpreadDesktop,
-  newsFeedListItemShadowColor: $newsFeedListItemShadowColor,
-  newsFeedListItemShadowColorTablet: $newsFeedListItemShadowColorTablet,
-  newsFeedListItemShadowColorDesktop: $newsFeedListItemShadowColorDesktop,
-  newsFeedPosition: $newsFeedPosition,
-  newsFeedPositionTop: $newsFeedPositionTop,
-  newsFeedPositionRight: $newsFeedPositionRight,
-  newsFeedPositionBottom: $newsFeedPositionBottom,
-  newsFeedPositionLeft: $newsFeedPositionLeft,
-  newsFeedIndex: $newsFeedIndex,
-  newsFeedDisplay: $newsFeedDisplay,
-  newsFeedPositionTablet: $newsFeedPositionTablet,
-  newsFeedPositionTopTablet: $newsFeedPositionTopTablet,
-  newsFeedPositionRightTablet: $newsFeedPositionRightTablet,
-  newsFeedPositionBottomTablet: $newsFeedPositionBottomTablet,
-  newsFeedPositionLeftTablet: $newsFeedPositionLeftTablet,
-  newsFeedIndexTablet: $newsFeedIndexTablet,
-  newsFeedDisplayTablet: $newsFeedDisplayTablet,
-  newsFeedPositionDesktop: $newsFeedPositionDesktop,
-  newsFeedPositionTopDesktop: $newsFeedPositionTopDesktop,
-  newsFeedPositionRightDesktop: $newsFeedPositionRightDesktop,
-  newsFeedPositionBottomDesktop: $newsFeedPositionBottomDesktop,
-  newsFeedPositionLeftDesktop: $newsFeedPositionLeftDesktop,
-  newsFeedIndexDesktop: $newsFeedIndexDesktop,
-  newsFeedDisplayDesktop: $newsFeedDisplayDesktop
+  smallHCardWidth: $smallHCardWidth,
+  smallHCardWidthTablet: $smallHCardWidthTablet,
+  smallHCardWidthDesktop: $smallHCardWidthDesktop,
+  smallHCardMaxWidth: $smallHCardMaxWidth,
+  smallHCardMaxWidthTablet: $smallHCardMaxWidthTablet,
+  smallHCardMaxWidthDesktop: $smallHCardMaxWidthDesktop,
+  smallHCardMarginTop: $smallHCardMarginTop,
+  smallHCardMarginTopTablet: $smallHCardMarginTopTablet,
+  smallHCardMarginTopDesktop: $smallHCardMarginTopDesktop,
+  smallHCardMarginRight: $smallHCardMarginRight,
+  smallHCardMarginRightTablet: $smallHCardMarginRightTablet,
+  smallHCardMarginRightDesktop: $smallHCardMarginRightDesktop,
+  smallHCardMarginBottom: $smallHCardMarginBottom,
+  smallHCardMarginBottomTablet: $smallHCardMarginBottomTablet,
+  smallHCardMarginBottomDesktop: $smallHCardMarginBottomDesktop,
+  smallHCardMarginLeft: $smallHCardMarginLeft,
+  smallHCardMarginLeftTablet: $smallHCardMarginLeftTablet,
+  smallHCardMarginLeftDesktop: $smallHCardMarginLeftDesktop,
+  smallHCardVisibility: $smallHCardVisibility,
+  smallHCardVisibilityTablet: $smallHCardVisibilityTablet,
+  smallHCardVisibilityDesktop: $smallHCardVisibilityDesktop,
+  smallHCardTitleFontFamily: $smallHCardTitleFontFamily,
+  smallHCardTitleFontFamilyTablet: $smallHCardTitleFontFamilyTablet,
+  smallHCardTitleFontFamilyDesktop: $smallHCardTitleFontFamilyDesktop,
+  smallHCardTitleFontSize: $smallHCardTitleFontSize,
+  smallHCardTitleFontSizeTablet: $smallHCardTitleFontSizeTablet,
+  smallHCardTitleFontSizeDesktop: $smallHCardTitleFontSizeDesktop,
+  smallHCardTitleFontColor: $smallHCardTitleFontColor,
+  smallHCardTitleFontColorTablet: $smallHCardTitleFontColorTablet,
+  smallHCardTitleFontColorDesktop: $smallHCardTitleFontColorDesktop,
+  smallHCardTitleFontWeight: $smallHCardTitleFontWeight,
+  smallHCardTitleFontWeightTablet: $smallHCardTitleFontWeightTablet,
+  smallHCardTitleFontWeightDesktop: $smallHCardTitleFontWeightDesktop,
+  smallHCardTitleItalic: $smallHCardTitleItalic,
+  smallHCardTitleItalicTablet: $smallHCardTitleItalicTablet,
+  smallHCardTitleItalicDesktop: $smallHCardTitleItalicDesktop,
+  smallHCardTitleUnderline: $smallHCardTitleUnderline,
+  smallHCardTitleUnderlineTablet: $smallHCardTitleUnderlineTablet,
+  smallHCardTitleUnderlineDesktop: $smallHCardTitleUnderlineDesktop,
+  smallHCardTitleLineHeight: $smallHCardTitleLineHeight,
+  smallHCardTitleLineHeightTablet: $smallHCardTitleLineHeightTablet,
+  smallHCardTitleLineHeightDesktop: $smallHCardTitleLineHeightDesktop,
+  smallHCardTitleMarginTop: $smallHCardTitleMarginTop,
+  smallHCardTitleMarginTopTablet: $smallHCardTitleMarginTopTablet,
+  smallHCardTitleMarginTopDesktop: $smallHCardTitleMarginTopDesktop,
+  smallHCardTitleMarginBottom: $smallHCardTitleMarginBottom,
+  smallHCardTitleMarginBottomTablet: $smallHCardTitleMarginBottomTablet,
+  smallHCardTitleMarginBottomDesktop: $smallHCardTitleMarginBottomDesktop,
+  smallHCardDetailTitleFontFamily: $smallHCardDetailTitleFontFamily,
+  smallHCardDetailTitleFontFamilyTablet: $smallHCardDetailTitleFontFamilyTablet,
+  smallHCardDetailTitleFontFamilyDesktop: $smallHCardDetailTitleFontFamilyDesktop,
+  smallHCardDetailTitleFontSize: $smallHCardDetailTitleFontSize,
+  smallHCardDetailTitleFontSizeTablet: $smallHCardDetailTitleFontSizeTablet,
+  smallHCardDetailTitleFontSizeDesktop: $smallHCardDetailTitleFontSizeDesktop,
+  smallHCardDetailTitleFontColor: $smallHCardDetailTitleFontColor,
+  smallHCardDetailTitleFontColorTablet: $smallHCardDetailTitleFontColorTablet,
+  smallHCardDetailTitleFontColorDesktop: $smallHCardDetailTitleFontColorDesktop,
+  smallHCardDetailTitleFontWeight: $smallHCardDetailTitleFontWeight,
+  smallHCardDetailTitleFontWeightTablet: $smallHCardDetailTitleFontWeightTablet,
+  smallHCardDetailTitleFontWeightDesktop: $smallHCardDetailTitleFontWeightDesktop,
+  smallHCardDetailTitleItalic: $smallHCardDetailTitleItalic,
+  smallHCardDetailTitleItalicTablet: $smallHCardDetailTitleItalicTablet,
+  smallHCardDetailTitleItalicDesktop: $smallHCardDetailTitleItalicDesktop,
+  smallHCardDetailTitleUnderline: $smallHCardDetailTitleUnderline,
+  smallHCardDetailTitleUnderlineTablet: $smallHCardDetailTitleUnderlineTablet,
+  smallHCardDetailTitleUnderlineDesktop: $smallHCardDetailTitleUnderlineDesktop,
+  smallHCardDetailTitleLineHeight: $smallHCardDetailTitleLineHeight,
+  smallHCardDetailTitleLineHeightTablet: $smallHCardDetailTitleLineHeightTablet,
+  smallHCardDetailTitleLineHeightDesktop: $smallHCardDetailTitleLineHeightDesktop,
+  smallHCardDetailDescriptionFontFamily: $smallHCardDetailDescriptionFontFamily,
+  smallHCardDetailDescriptionFontFamilyTablet: $smallHCardDetailDescriptionFontFamilyTablet,
+  smallHCardDetailDescriptionFontFamilyDesktop: $smallHCardDetailDescriptionFontFamilyDesktop,
+  smallHCardDetailDescriptionFontSize: $smallHCardDetailDescriptionFontSize,
+  smallHCardDetailDescriptionFontSizeTablet: $smallHCardDetailDescriptionFontSizeTablet,
+  smallHCardDetailDescriptionFontSizeDesktop: $smallHCardDetailDescriptionFontSizeDesktop,
+  smallHCardDetailDescriptionFontColor: $smallHCardDetailDescriptionFontColor,
+  smallHCardDetailDescriptionFontColorTablet: $smallHCardDetailDescriptionFontColorTablet,
+  smallHCardDetailDescriptionFontColorDesktop: $smallHCardDetailDescriptionFontColorDesktop,
+  smallHCardDetailDescriptionFontWeight: $smallHCardDetailDescriptionFontWeight,
+  smallHCardDetailDescriptionFontWeightTablet: $smallHCardDetailDescriptionFontWeightTablet,
+  smallHCardDetailDescriptionFontWeightDesktop: $smallHCardDetailDescriptionFontWeightDesktop,
+  smallHCardDetailDescriptionItalic: $smallHCardDetailDescriptionItalic,
+  smallHCardDetailDescriptionItalicTablet: $smallHCardDetailDescriptionItalicTablet,
+  smallHCardDetailDescriptionItalicDesktop: $smallHCardDetailDescriptionItalicDesktop,
+  smallHCardDetailDescriptionUnderline: $smallHCardDetailDescriptionUnderline,
+  smallHCardDetailDescriptionUnderlineTablet: $smallHCardDetailDescriptionUnderlineTablet,
+  smallHCardDetailDescriptionUnderlineDesktop: $smallHCardDetailDescriptionUnderlineDesktop,
+  smallHCardDetailDescriptionLineHeight: $smallHCardDetailDescriptionLineHeight,
+  smallHCardDetailDescriptionLineHeightTablet: $smallHCardDetailDescriptionLineHeightTablet,
+  smallHCardDetailDescriptionLineHeightDesktop: $smallHCardDetailDescriptionLineHeightDesktop,
+  smallHCardDetailDescriptionMarginTop: $smallHCardDetailDescriptionMarginTop,
+  smallHCardDetailDescriptionMarginTopTablet: $smallHCardDetailDescriptionMarginTopTablet,
+  smallHCardDetailDescriptionMarginTopDesktop: $smallHCardDetailDescriptionMarginTopDesktop,
+  smallHCardDetailDescriptionMarginBottom: $smallHCardDetailDescriptionMarginBottom,
+  smallHCardDetailDescriptionMarginBottomTablet: $smallHCardDetailDescriptionMarginBottomTablet,
+  smallHCardDetailDescriptionMarginBottomDesktop: $smallHCardDetailDescriptionMarginBottomDesktop,
+  smallHCardDetailSecondDescriptionFontFamily: $smallHCardDetailSecondDescriptionFontFamily,
+  smallHCardDetailSecondDescriptionFontFamilyTablet: $smallHCardDetailSecondDescriptionFontFamilyTablet,
+  smallHCardDetailSecondDescriptionFontFamilyDesktop: $smallHCardDetailSecondDescriptionFontFamilyDesktop,
+  smallHCardDetailSecondDescriptionFontSize: $smallHCardDetailSecondDescriptionFontSize,
+  smallHCardDetailSecondDescriptionFontSizeTablet: $smallHCardDetailSecondDescriptionFontSizeTablet,
+  smallHCardDetailSecondDescriptionFontSizeDesktop: $smallHCardDetailSecondDescriptionFontSizeDesktop,
+  smallHCardDetailSecondDescriptionFontColor: $smallHCardDetailSecondDescriptionFontColor,
+  smallHCardDetailSecondDescriptionFontColorTablet: $smallHCardDetailSecondDescriptionFontColorTablet,
+  smallHCardDetailSecondDescriptionFontColorDesktop: $smallHCardDetailSecondDescriptionFontColorDesktop,
+  smallHCardDetailSecondDescriptionFontWeight: $smallHCardDetailSecondDescriptionFontWeight,
+  smallHCardDetailSecondDescriptionFontWeightTablet: $smallHCardDetailSecondDescriptionFontWeightTablet,
+  smallHCardDetailSecondDescriptionFontWeightDesktop: $smallHCardDetailSecondDescriptionFontWeightDesktop,
+  smallHCardDetailSecondDescriptionItalic: $smallHCardDetailSecondDescriptionItalic,
+  smallHCardDetailSecondDescriptionItalicTablet: $smallHCardDetailSecondDescriptionItalicTablet,
+  smallHCardDetailSecondDescriptionItalicDesktop: $smallHCardDetailSecondDescriptionItalicDesktop,
+  smallHCardDetailSecondDescriptionUnderline: $smallHCardDetailSecondDescriptionUnderline,
+  smallHCardDetailSecondDescriptionUnderlineTablet: $smallHCardDetailSecondDescriptionUnderlineTablet,
+  smallHCardDetailSecondDescriptionUnderlineDesktop: $smallHCardDetailSecondDescriptionUnderlineDesktop,
+  smallHCardDetailSecondDescriptionLineHeight: $smallHCardDetailSecondDescriptionLineHeight,
+  smallHCardDetailSecondDescriptionLineHeightTablet: $smallHCardDetailSecondDescriptionLineHeightTablet,
+  smallHCardDetailSecondDescriptionLineHeightDesktop: $smallHCardDetailSecondDescriptionLineHeightDesktop,
+  smallHCardDetailSecondDescriptionMarginTop: $smallHCardDetailSecondDescriptionMarginTop,
+  smallHCardDetailSecondDescriptionMarginTopTablet: $smallHCardDetailSecondDescriptionMarginTopTablet,
+  smallHCardDetailSecondDescriptionMarginTopDesktop: $smallHCardDetailSecondDescriptionMarginTopDesktop,
+  smallHCardDetailSecondDescriptionMarginBottom: $smallHCardDetailSecondDescriptionMarginBottom,
+  smallHCardDetailSecondDescriptionMarginBottomTablet: $smallHCardDetailSecondDescriptionMarginBottomTablet,
+  smallHCardDetailSecondDescriptionMarginBottomDesktop: $smallHCardDetailSecondDescriptionMarginBottomDesktop,
+  smallHCardDetailLabelsFontFamily: $smallHCardDetailLabelsFontFamily,
+  smallHCardDetailLabelsFontFamilyTablet: $smallHCardDetailLabelsFontFamilyTablet,
+  smallHCardDetailLabelsFontFamilyDesktop: $smallHCardDetailLabelsFontFamilyDesktop,
+  smallHCardDetailLabelsFontSize: $smallHCardDetailLabelsFontSize,
+  smallHCardDetailLabelsFontSizeTablet: $smallHCardDetailLabelsFontSizeTablet,
+  smallHCardDetailLabelsFontSizeDesktop: $smallHCardDetailLabelsFontSizeDesktop,
+  smallHCardDetailLabelsFontColor: $smallHCardDetailLabelsFontColor,
+  smallHCardDetailLabelsFontColorTablet: $smallHCardDetailLabelsFontColorTablet,
+  smallHCardDetailLabelsFontColorDesktop: $smallHCardDetailLabelsFontColorDesktop,
+  smallHCardDetailLabelsFontWeight: $smallHCardDetailLabelsFontWeight,
+  smallHCardDetailLabelsFontWeightTablet: $smallHCardDetailLabelsFontWeightTablet,
+  smallHCardDetailLabelsFontWeightDesktop: $smallHCardDetailLabelsFontWeightDesktop,
+  smallHCardDetailLabelsItalic: $smallHCardDetailLabelsItalic,
+  smallHCardDetailLabelsItalicTablet: $smallHCardDetailLabelsItalicTablet,
+  smallHCardDetailLabelsItalicDesktop: $smallHCardDetailLabelsItalicDesktop,
+  smallHCardDetailLabelsUnderline: $smallHCardDetailLabelsUnderline,
+  smallHCardDetailLabelsUnderlineTablet: $smallHCardDetailLabelsUnderlineTablet,
+  smallHCardDetailLabelsUnderlineDesktop: $smallHCardDetailLabelsUnderlineDesktop,
+  smallHCardDetailLabelsLineHeight: $smallHCardDetailLabelsLineHeight,
+  smallHCardDetailLabelsLineHeightTablet: $smallHCardDetailLabelsLineHeightTablet,
+  smallHCardDetailLabelsLineHeightDesktop: $smallHCardDetailLabelsLineHeightDesktop,
+  smallHCardDetailLabelsMarginTop: $smallHCardDetailLabelsMarginTop,
+  smallHCardDetailLabelsMarginTopTablet: $smallHCardDetailLabelsMarginTopTablet,
+  smallHCardDetailLabelsMarginTopDesktop: $smallHCardDetailLabelsMarginTopDesktop,
+  smallHCardDetailLabelsMarginBottom: $smallHCardDetailLabelsMarginBottom,
+  smallHCardDetailLabelsMarginBottomTablet: $smallHCardDetailLabelsMarginBottomTablet,
+  smallHCardDetailLabelsMarginBottomDesktop: $smallHCardDetailLabelsMarginBottomDesktop,
+  smallHCardDetailTextFontFamily: $smallHCardDetailTextFontFamily,
+  smallHCardDetailTextFontFamilyTablet: $smallHCardDetailTextFontFamilyTablet,
+  smallHCardDetailTextFontFamilyDesktop: $smallHCardDetailTextFontFamilyDesktop,
+  smallHCardDetailTextFontSize: $smallHCardDetailTextFontSize,
+  smallHCardDetailTextFontSizeTablet: $smallHCardDetailTextFontSizeTablet,
+  smallHCardDetailTextFontSizeDesktop: $smallHCardDetailTextFontSizeDesktop,
+  smallHCardDetailTextFontColor: $smallHCardDetailTextFontColor,
+  smallHCardDetailTextFontColorTablet: $smallHCardDetailTextFontColorTablet,
+  smallHCardDetailTextFontColorDesktop: $smallHCardDetailTextFontColorDesktop,
+  smallHCardDetailTextFontWeight: $smallHCardDetailTextFontWeight,
+  smallHCardDetailTextFontWeightTablet: $smallHCardDetailTextFontWeightTablet,
+  smallHCardDetailTextFontWeightDesktop: $smallHCardDetailTextFontWeightDesktop,
+  smallHCardDetailTextItalic: $smallHCardDetailTextItalic,
+  smallHCardDetailTextItalicTablet: $smallHCardDetailTextItalicTablet,
+  smallHCardDetailTextItalicDesktop: $smallHCardDetailTextItalicDesktop,
+  smallHCardDetailTextUnderline: $smallHCardDetailTextUnderline,
+  smallHCardDetailTextUnderlineTablet: $smallHCardDetailTextUnderlineTablet,
+  smallHCardDetailTextUnderlineDesktop: $smallHCardDetailTextUnderlineDesktop,
+  smallHCardDetailTextLineHeight: $smallHCardDetailTextLineHeight,
+  smallHCardDetailTextLineHeightTablet: $smallHCardDetailTextLineHeightTablet,
+  smallHCardDetailTextLineHeightDesktop: $smallHCardDetailTextLineHeightDesktop,
+  smallHCardDetailTextMarginTop: $smallHCardDetailTextMarginTop,
+  smallHCardDetailTextMarginTopTablet: $smallHCardDetailTextMarginTopTablet,
+  smallHCardDetailTextMarginTopDesktop: $smallHCardDetailTextMarginTopDesktop,
+  smallHCardDetailTextMarginBottom: $smallHCardDetailTextMarginBottom,
+  smallHCardDetailTextMarginBottomTablet: $smallHCardDetailTextMarginBottomTablet,
+  smallHCardDetailTextMarginBottomDesktop: $smallHCardDetailTextMarginBottomDesktop,
+  smallHCardListItemBackground: $smallHCardListItemBackground,
+  smallHCardListItemBackgroundTablet: $smallHCardListItemBackgroundTablet,
+  smallHCardListItemBackgroundDesktop: $smallHCardListItemBackgroundDesktop,
+  smallHCardListDetailOverlayBackground: $smallHCardListDetailOverlayBackground,
+  smallHCardListDetailOverlayBackgroundTablet: $smallHCardListDetailOverlayBackgroundTablet,
+  smallHCardListDetailOverlayBackgroundDesktop: $smallHCardListDetailOverlayBackgroundDesktop,
+  smallHCardListDetailOverlayLineUnderTitleColor: $smallHCardListDetailOverlayLineUnderTitleColor,
+  smallHCardListDetailOverlayLineUnderTitleColorTablet: $smallHCardListDetailOverlayLineUnderTitleColorTablet,
+  smallHCardListDetailOverlayLineUnderTitleColorDesktop: $smallHCardListDetailOverlayLineUnderTitleColorDesktop,
+  smallHCardListDetailOverlayIconsColor: $smallHCardListDetailOverlayIconsColor,
+  smallHCardListDetailOverlayIconsColorTablet: $smallHCardListDetailOverlayIconsColorTablet,
+  smallHCardListDetailOverlayIconsColorDesktop: $smallHCardListDetailOverlayIconsColorDesktop,
+  smallHCardPaddingTop: $smallHCardPaddingTop,
+  smallHCardPaddingRight: $smallHCardPaddingRight,
+  smallHCardPaddingBottom: $smallHCardPaddingBottom,
+  smallHCardPaddingLeft: $smallHCardPaddingLeft,
+  smallHCardPaddingTopTablet: $smallHCardPaddingTopTablet,
+  smallHCardPaddingRightTablet: $smallHCardPaddingRightTablet,
+  smallHCardPaddingBottomTablet: $smallHCardPaddingBottomTablet,
+  smallHCardPaddingLeftTablet: $smallHCardPaddingLeftTablet,
+  smallHCardPaddingTopDesktop: $smallHCardPaddingTopDesktop,
+  smallHCardPaddingRightDesktop: $smallHCardPaddingRightDesktop,
+  smallHCardPaddingBottomDesktop: $smallHCardPaddingBottomDesktop,
+  smallHCardPaddingLeftDesktop: $smallHCardPaddingLeftDesktop,
+  smallHCardListItemBorderSides: $smallHCardListItemBorderSides,
+  smallHCardListItemBorderSidesTablet: $smallHCardListItemBorderSidesTablet,
+  smallHCardListItemBorderSidesDesktop: $smallHCardListItemBorderSidesDesktop,
+  smallHCardListItemBorderWidth: $smallHCardListItemBorderWidth,
+  smallHCardListItemBorderWidthTablet: $smallHCardListItemBorderWidthTablet,
+  smallHCardListItemBorderWidthDesktop: $smallHCardListItemBorderWidthDesktop,
+  smallHCardListItemBorderStyle: $smallHCardListItemBorderStyle,
+  smallHCardListItemBorderStyleTablet: $smallHCardListItemBorderStyleTablet,
+  smallHCardListItemBorderStyleDesktop: $smallHCardListItemBorderStyleDesktop,
+  smallHCardListItemBorder: $smallHCardListItemBorder,
+  smallHCardListItemBorderTablet: $smallHCardListItemBorderTablet,
+  smallHCardListItemBorderDesktop: $smallHCardListItemBorderDesktop,
+  smallHCardListItemBorderRadius: $smallHCardListItemBorderRadius,
+  smallHCardListItemBorderRadiusTablet: $smallHCardListItemBorderRadiusTablet,
+  smallHCardListItemBorderRadiusDesktop: $smallHCardListItemBorderRadiusDesktop,
+  smallHCardListItemShadowStyle: $smallHCardListItemShadowStyle,
+  smallHCardListItemShadowStyleTablet: $smallHCardListItemShadowStyleTablet,
+  smallHCardListItemShadowStyleDesktop: $smallHCardListItemShadowStyleDesktop,
+  smallHCardListItemShadowXoffset: $smallHCardListItemShadowXoffset,
+  smallHCardListItemShadowXoffsetTablet: $smallHCardListItemShadowXoffsetTablet,
+  smallHCardListItemShadowXoffsetDesktop: $smallHCardListItemShadowXoffsetDesktop,
+  smallHCardListItemShadowYoffset: $smallHCardListItemShadowYoffset,
+  smallHCardListItemShadowYoffsetTablet: $smallHCardListItemShadowYoffsetTablet,
+  smallHCardListItemShadowYoffsetDesktop: $smallHCardListItemShadowYoffsetDesktop,
+  smallHCardListItemShadowBlur: $smallHCardListItemShadowBlur,
+  smallHCardListItemShadowBlurTablet: $smallHCardListItemShadowBlurTablet,
+  smallHCardListItemShadowBlurDesktop: $smallHCardListItemShadowBlurDesktop,
+  smallHCardListItemShadowSpread: $smallHCardListItemShadowSpread,
+  smallHCardListItemShadowSpreadTablet: $smallHCardListItemShadowSpreadTablet,
+  smallHCardListItemShadowSpreadDesktop: $smallHCardListItemShadowSpreadDesktop,
+  smallHCardListItemShadowColor: $smallHCardListItemShadowColor,
+  smallHCardListItemShadowColorTablet: $smallHCardListItemShadowColorTablet,
+  smallHCardListItemShadowColorDesktop: $smallHCardListItemShadowColorDesktop,
+  smallHCardListImageBackground: $smallHCardListImageBackground,
+  smallHCardListImageBackgroundTablet: $smallHCardListImageBackgroundTablet,
+  smallHCardListImageBackgroundDesktop: $smallHCardListImageBackgroundDesktop,
+  smallHCardPosition: $smallHCardPosition,
+  smallHCardPositionTop: $smallHCardPositionTop,
+  smallHCardPositionRight: $smallHCardPositionRight,
+  smallHCardPositionBottom: $smallHCardPositionBottom,
+  smallHCardPositionLeft: $smallHCardPositionLeft,
+  smallHCardIndex: $smallHCardIndex,
+  smallHCardDisplay: $smallHCardDisplay,
+  smallHCardPositionTablet: $smallHCardPositionTablet,
+  smallHCardPositionTopTablet: $smallHCardPositionTopTablet,
+  smallHCardPositionRightTablet: $smallHCardPositionRightTablet,
+  smallHCardPositionBottomTablet: $smallHCardPositionBottomTablet,
+  smallHCardPositionLeftTablet: $smallHCardPositionLeftTablet,
+  smallHCardIndexTablet: $smallHCardIndexTablet,
+  smallHCardDisplayTablet: $smallHCardDisplayTablet,
+  smallHCardPositionDesktop: $smallHCardPositionDesktop,
+  smallHCardPositionTopDesktop: $smallHCardPositionTopDesktop,
+  smallHCardPositionRightDesktop: $smallHCardPositionRightDesktop,
+  smallHCardPositionBottomDesktop: $smallHCardPositionBottomDesktop,
+  smallHCardPositionLeftDesktop: $smallHCardPositionLeftDesktop,
+  smallHCardIndexDesktop: $smallHCardIndexDesktop,
+  smallHCardDisplayDesktop: $smallHCardDisplayDesktop
   ), $options);
 
   $instanceSelector: '[data-widget-package="com.fliplet.dynamic-lists"]';
+  $layoutSelector: '#{$instanceSelector} [data-dynamic-lists-layout="small-h-card"]';
   @if $widgetInstanceUUID != '' {
-    $instanceSelector: '#{$instanceSelector}[data-uuid="#{$widgetInstanceUUID}"]';
+    $layoutSelector: '#{$instanceSelector}[data-uuid="#{$widgetInstanceUUID}"] [data-dynamic-lists-layout="small-h-card"]';
   } @else if $widgetInstanceId != '' {
-    $instanceSelector: '#{$instanceSelector}[data-id="#{$widgetInstanceId}"]';
+    $layoutSelector: '#{$instanceSelector}[data-id="#{$widgetInstanceId}"] [data-dynamic-lists-layout="small-h-card"]';
   }
 
-  #{$instanceSelector} {
-    position: map-get($configuration, lfdPosition) !important;
-    z-index: map-get($configuration, lfdIndex);
+  #{$layoutSelector} {
+    position: map-get($configuration, smallHCardPosition) !important;
+    z-index: map-get($configuration, smallHCardIndex);
 
-    @if map-get($configuration, lfdPosition) == 'relative' {
-      @if map-get($configuration, lfdVisibility) == 'visible' {
-        display: map-get($configuration, lfdDisplay) !important;
+    @if map-get($configuration, smallHCardPosition) == 'relative' {
+      @if map-get($configuration, smallHCardVisibility) == 'visible' {
+        display: map-get($configuration, smallHCardDisplay) !important;
       } @else {
         display: none !important;
       }
     } @else {
-      @if map-get($configuration, lfdVisibility) == 'visible' {
+      @if map-get($configuration, smallHCardVisibility) == 'visible' {
         display: block !important;
       } @else {
         display: none !important;
       }
 
-      top: map-get($configuration, lfdPositionTop);
-      right: map-get($configuration, lfdPositionRight);
-      bottom: map-get($configuration, lfdPositionBottom);
-      left: map-get($configuration, lfdPositionLeft);
+      top: map-get($configuration, smallHCardPositionTop);
+      right: map-get($configuration, smallHCardPositionRight);
+      bottom: map-get($configuration, smallHCardPositionBottom);
+      left: map-get($configuration, smallHCardPositionLeft);
     }
 
-    width: map-get($configuration, lfdWidth);
-    max-width: map-get($configuration, lfdMaxWidth);
-    margin: map-get($configuration, lfdMarginTop)
-      map-get($configuration, lfdMarginRight)
-      map-get($configuration, lfdMarginBottom)
-      map-get($configuration, lfdMarginLeft);
+    width: map-get($configuration, smallHCardWidth);
+    max-width: map-get($configuration, smallHCardMaxWidth);
+    margin: map-get($configuration, smallHCardMarginTop)
+      map-get($configuration, smallHCardMarginRight)
+      map-get($configuration, smallHCardMarginBottom)
+      map-get($configuration, smallHCardMarginLeft);
 
     // Styles for tablet
     @include above($tabletBreakpoint) {
-      position: map-get($configuration, lfdPositionTablet) !important;
-      z-index: map-get($configuration, lfdIndexTablet);
+      position: map-get($configuration, smallHCardPositionTablet) !important;
+      z-index: map-get($configuration, smallHCardIndexTablet);
 
-      @if map-get($configuration, lfdPositionTablet) == 'relative' {
-        @if map-get($configuration, lfdVisibilityTablet) == 'visible' {
-          display: map-get($configuration, lfdDisplayTablet) !important;
+      @if map-get($configuration, smallHCardPositionTablet) == 'relative' {
+        @if map-get($configuration, smallHCardVisibilityTablet) == 'visible' {
+          display: map-get($configuration, smallHCardDisplayTablet) !important;
         } @else {
           display: none !important;
         }
       } @else {
-        @if map-get($configuration, lfdVisibilityTablet) == 'visible' {
+        @if map-get($configuration, smallHCardVisibilityTablet) == 'visible' {
           display: block !important;
         } @else {
           display: none !important;
         }
 
-        top: map-get($configuration, lfdPositionTopTablet);
-        right: map-get($configuration, lfdPositionRightTablet);
-        bottom: map-get($configuration, lfdPositionBottomTablet);
-        left: map-get($configuration, lfdPositionLeftTablet);
+        top: map-get($configuration, smallHCardPositionTopTablet);
+        right: map-get($configuration, smallHCardPositionRightTablet);
+        bottom: map-get($configuration, smallHCardPositionBottomTablet);
+        left: map-get($configuration, smallHCardPositionLeftTablet);
       }
 
-      width: map-get($configuration, lfdWidthTablet);
-      max-width: map-get($configuration, lfdMaxWidthTablet);
-      margin: map-get($configuration, lfdMarginTopTablet)
-        map-get($configuration, lfdMarginRightTablet)
-        map-get($configuration, lfdMarginBottomTablet)
-        map-get($configuration, lfdMarginLeftTablet);
+      width: map-get($configuration, smallHCardWidthTablet);
+      max-width: map-get($configuration, smallHCardMaxWidthTablet);
+      margin: map-get($configuration, smallHCardMarginTopTablet)
+        map-get($configuration, smallHCardMarginRightTablet)
+        map-get($configuration, smallHCardMarginBottomTablet)
+        map-get($configuration, smallHCardMarginLeftTablet);
     }
 
     // Styles for desktop
     @include above($desktopBreakpoint) {
-      position: map-get($configuration, lfdPositionDesktop) !important;
-      z-index: map-get($configuration, lfdIndexDesktop);
+      position: map-get($configuration, smallHCardPositionDesktop) !important;
+      z-index: map-get($configuration, smallHCardIndexDesktop);
 
-      @if map-get($configuration, lfdPositionDesktop) == 'relative' {
-        @if map-get($configuration, lfdVisibilityDesktop) == 'visible' {
-          display: map-get($configuration, lfdDisplayDesktop) !important;
+      @if map-get($configuration, smallHCardPositionDesktop) == 'relative' {
+        @if map-get($configuration, smallHCardVisibilityDesktop) == 'visible' {
+          display: map-get($configuration, smallHCardDisplayDesktop) !important;
         } @else {
           display: none !important;
         }
       } @else {
-        @if map-get($configuration, lfdVisibilityDesktop) == 'visible' {
+        @if map-get($configuration, smallHCardVisibilityDesktop) == 'visible' {
           display: block !important;
         } @else {
           display: none !important;
         }
 
-        top: map-get($configuration, lfdPositionTopDesktop);
-        right: map-get($configuration, lfdPositionRightDesktop);
-        bottom: map-get($configuration, lfdPositionBottomDesktop);
-        left: map-get($configuration, lfdPositionLeftDesktop);
+        top: map-get($configuration, smallHCardPositionTopDesktop);
+        right: map-get($configuration, smallHCardPositionRightDesktop);
+        bottom: map-get($configuration, smallHCardPositionBottomDesktop);
+        left: map-get($configuration, smallHCardPositionLeftDesktop);
       }
 
-      width: map-get($configuration, lfdWidthDesktop);
-      max-width: map-get($configuration, lfdMaxWidthDesktop);
-      margin: map-get($configuration, lfdMarginTopDesktop)
-        map-get($configuration, lfdMarginRightDesktop)
-        map-get($configuration, lfdMarginBottomDesktop)
-        map-get($configuration, lfdMarginLeftDesktop);
+      width: map-get($configuration, smallHCardWidthDesktop);
+      max-width: map-get($configuration, smallHCardMaxWidthDesktop);
+      margin: map-get($configuration, smallHCardMarginTopDesktop)
+        map-get($configuration, smallHCardMarginRightDesktop)
+        map-get($configuration, smallHCardMarginBottomDesktop)
+        map-get($configuration, smallHCardMarginLeftDesktop);
     }
 
     /* SMALL HORIZONTAL CARDS */
     .new-small-h-card-list-container,
     .small-h-card-list-container {
-      .loading-data {
-        color: map-get($configuration, lfdFontColor);
+      .small-h-card-cards-wrapper .small-h-card-list-card-holder .small-h-card-list-item {
+        @include borderOnly((
+          borderSides: map-get($configuration, smallHCardListItemBorderSides),
+          borderWidth: map-get($configuration, smallHCardListItemBorderWidth),
+          borderStyle: map-get($configuration, smallHCardListItemBorderStyle),
+          borderColor: map-get($configuration, smallHCardListItemBorder)
+        ));
+        border-radius: map-get($configuration, smallHCardListItemBorderRadius);
+
+        @include shadowOnly((
+          shadowStyle: map-get($configuration, smallHCardListItemShadowStyle),
+          shadowXOffset: map-get($configuration, smallHCardListItemShadowXoffset),
+          shadowYOffset: map-get($configuration, smallHCardListItemShadowYoffset),
+          shadowBlur: map-get($configuration, smallHCardListItemShadowBlur),
+          shadowSpread: map-get($configuration, smallHCardListItemShadowSpread),
+          shadowColor: map-get($configuration, smallHCardListItemShadowColor)
+        ))
       }
 
-      .small-h-card-list-item-text {
-        color: map-get($configuration, lfdFontColor);
+      .loading-data {
+        color: map-get($configuration, smallHCardFontColor);
+      }
+
+      .small-h-card-list-item {
+        background-color: map-get($configuration, smallHCardListItemBackground);
+
+        .small-h-card-list-item-text {
+          @include fontOnly((
+            fontFamily: map-get($configuration, smallHCardTitleFontFamily),
+            fontSize: map-get($configuration, smallHCardTitleFontSize),
+            fontLineHeight: map-get($configuration, smallHCardTitleLineHeight),
+            fontWeight: map-get($configuration, smallHCardTitleFontWeight),
+            fontStyle: map-get($configuration, smallHCardTitleItalic),
+            fontDecoration: map-get($configuration, smallHCardTitleUnderline)
+          ));
+
+          margin-top: map-get($configuration, smallHCardTitleMarginTop);
+          margin-bottom: map-get($configuration, smallHCardTitleMarginBottom);
+          color: map-get($configuration, smallHCardTitleFontColor);
+        }
       }
 
       .small-h-card-list-detail-content-wrapper {
-        background-color: map-get($configuration, lfdBackgroundColor);
+        background-color: map-get($configuration, smallHCardBackgroundColor);
       }
 
       .small-h-card-list-detail-name {
-        color: map-get($configuration, lfdFontColor);
+        color: map-get($configuration, smallHCardFontColor);
 
         &:after {
           background-color: $highlightColor;
@@ -428,150 +421,211 @@
 
       .small-h-card-list-detail-role,
       .small-h-card-list-detail-location {
-        color: map-get($configuration, lfdFontColor);
+        color: map-get($configuration, smallHCardFontColor);
       }
 
       .small-h-card-list-detail-button {
         a {
-          color: map-get($configuration, lfdFontColor);
+          color: map-get($configuration, smallHCardFontColor);
 
           &:hover,
           &:focus,
           &:active,
           &:active:hover,
           &:active:focus {
-            color: map-get($configuration, lfdFontColor);
+            color: map-get($configuration, smallHCardFontColor);
           }
         }
       }
 
       .small-h-card-list-detail-wrapper {
-        background-color: map-get($configuration, lfdBackgroundColor);
+        background-color: map-get($configuration, smallHCardBackgroundColor);
       }
 
       .small-h-card-list-detail-image-wrapper {
         color: rgba($bodyTextColor, 0.1);
-        background-color: rgba(map-get($configuration, lfdFontColor), 0.04);
-      }
-
-      .small-h-card-list-detail-close-btn {
-        background-color: rgba(map-get($configuration, lfdBackgroundColor), 0.5);
-        color: map-get($configuration, lfdFontColor);
+        background-color: map-get($configuration, smallHCardListImageBackground);
       }
 
       // Styles for tablet
       @include above($tabletBreakpoint) {
+        .small-h-card-cards-wrapper .small-h-card-list-card-holder .small-h-card-list-item {
+          @include borderOnly((
+            borderSides: map-get($configuration, smallHCardListItemBorderSidesTablet),
+            borderWidth: map-get($configuration, smallHCardListItemBorderWidthTablet),
+            borderStyle: map-get($configuration, smallHCardListItemBorderStyleTablet),
+            borderColor: map-get($configuration, smallHCardListItemBorderTablet)
+          ));
+          border-radius: map-get($configuration, smallHCardListItemBorderRadiusTablet);
+
+          @include shadowOnly((
+            shadowStyle: map-get($configuration, smallHCardListItemShadowStyleTablet),
+            shadowXOffset: map-get($configuration, smallHCardListItemShadowXoffsetTablet),
+            shadowYOffset: map-get($configuration, smallHCardListItemShadowYoffsetTablet),
+            shadowBlur: map-get($configuration, smallHCardListItemShadowBlurTablet),
+            shadowSpread: map-get($configuration, smallHCardListItemShadowSpreadTablet),
+            shadowColor: map-get($configuration, smallHCardListItemShadowColorTablet)
+          ))
+        }
+
         .loading-data {
-          color: map-get($configuration, lfdFontColorTablet);
+          color: map-get($configuration, smallHCardFontColorTablet);
+        }
+
+        .small-h-card-list-item {
+          background-color: map-get($configuration, smallHCardListItemBackgroundTablet);
+
+          .small-h-card-list-item-text {
+            @include fontOnly((
+              fontFamily: map-get($configuration, smallHCardTitleFontFamilyTablet),
+              fontSize: map-get($configuration, smallHCardTitleFontSizeTablet),
+              fontLineHeight: map-get($configuration, smallHCardTitleLineHeightTablet),
+              fontWeight: map-get($configuration, smallHCardTitleFontWeightTablet),
+              fontStyle: map-get($configuration, smallHCardTitleItalicTablet),
+              fontDecoration: map-get($configuration, smallHCardTitleUnderlineTablet)
+            ));
+
+            margin-top: map-get($configuration, smallHCardTitleMarginTopTablet);
+            margin-bottom: map-get($configuration, smallHCardTitleMarginBottomTablet);
+            color: map-get($configuration, smallHCardTitleFontColorTablet);
+          }
         }
 
         .small-h-card-list-detail-content-wrapper {
-          background-color: map-get($configuration, lfdBackgroundColorTablet);
+          background-color: map-get($configuration, smallHCardBackgroundColorTablet);
         }
 
         .small-h-card-list-detail-name {
-          color: map-get($configuration, lfdFontColorTablet);
+          color: map-get($configuration, smallHCardFontColorTablet);
         }
 
         .small-h-card-list-detail-role,
         .small-h-card-list-detail-location {
-          color: map-get($configuration, lfdFontColorTablet);
+          color: map-get($configuration, smallHCardFontColorTablet);
         }
 
         .small-h-card-list-detail-button {
           a {
-            color: map-get($configuration, lfdFontColorTablet);
+            color: map-get($configuration, smallHCardFontColorTablet);
 
             &:hover,
             &:focus,
             &:active,
             &:active:hover,
             &:active:focus {
-              color: map-get($configuration, lfdFontColorTablet);
+              color: map-get($configuration, smallHCardFontColorTablet);
             }
           }
         }
 
         .small-h-card-list-detail-wrapper {
-          background-color: map-get($configuration, lfdBackgroundColorTablet);
+          background-color: map-get($configuration, smallHCardBackgroundColorTablet);
         }
 
         .small-h-card-list-detail-image-wrapper {
           color: rgba($bodyTextColorTablet, 0.1);
-          background-color: rgba(map-get($configuration, lfdFontColorTablet), 0.04);
-        }
-
-        .small-h-card-list-detail-close-btn {
-          background-color: rgba(map-get($configuration, lfdBackgroundColorTablet), 0.5);
-          color: map-get($configuration, lfdFontColorTablet);
+          background-color: map-get($configuration, smallHCardListImageBackgroundTablet);
         }
       }
 
       // Styles for desktop
       @include above($desktopBreakpoint) {
+        .small-h-card-cards-wrapper .small-h-card-list-card-holder .small-h-card-list-item {
+          @include borderOnly((
+            borderSides: map-get($configuration, smallHCardListItemBorderSidesDesktop),
+            borderWidth: map-get($configuration, smallHCardListItemBorderWidthDesktop),
+            borderStyle: map-get($configuration, smallHCardListItemBorderStyleDesktop),
+            borderColor: map-get($configuration, smallHCardListItemBorderDesktop)
+          ));
+          border-radius: map-get($configuration, smallHCardListItemBorderRadiusDesktop);
+
+          @include shadowOnly((
+            shadowStyle: map-get($configuration, smallHCardListItemShadowStyleDesktop),
+            shadowXOffset: map-get($configuration, smallHCardListItemShadowXoffsetDesktop),
+            shadowYOffset: map-get($configuration, smallHCardListItemShadowYoffsetDesktop),
+            shadowBlur: map-get($configuration, smallHCardListItemShadowBlurDesktop),
+            shadowSpread: map-get($configuration, smallHCardListItemShadowSpreadDesktop),
+            shadowColor: map-get($configuration, smallHCardListItemShadowColorDesktop)
+          ))
+        }
+
         .loading-data {
-          color: map-get($configuration, lfdFontColorDesktop);
+          color: map-get($configuration, smallHCardFontColorDesktop);
+        }
+
+        .small-h-card-list-item {
+          background-color: map-get($configuration, smallHCardListItemBackgroundDesktop);
+
+          .small-h-card-list-item-text {
+            @include fontOnly((
+              fontFamily: map-get($configuration, smallHCardTitleFontFamilyDesktop),
+              fontSize: map-get($configuration, smallHCardTitleFontSizeDesktop),
+              fontLineHeight: map-get($configuration, smallHCardTitleLineHeightDesktop),
+              fontWeight: map-get($configuration, smallHCardTitleFontWeightDesktop),
+              fontStyle: map-get($configuration, smallHCardTitleItalicDesktop),
+              fontDecoration: map-get($configuration, smallHCardTitleUnderlineDesktop)
+            ));
+
+            margin-top: map-get($configuration, smallHCardTitleMarginTopDesktop);
+            margin-bottom: map-get($configuration, smallHCardTitleMarginBottomDesktop);
+            color: map-get($configuration, smallHCardTitleFontColorDesktop);
+          }
         }
 
         .small-h-card-list-detail-content-wrapper {
-          background-color: map-get($configuration, lfdBackgroundColorDesktop);
+          background-color: map-get($configuration, smallHCardBackgroundColorDesktop);
         }
 
         .small-h-card-list-detail-name {
-          color: map-get($configuration, lfdFontColorDesktop);
+          color: map-get($configuration, smallHCardFontColorDesktop);
         }
 
         .small-h-card-list-detail-role,
         .small-h-card-list-detail-location {
-          color: map-get($configuration, lfdFontColorDesktop);
+          color: map-get($configuration, smallHCardFontColorDesktop);
         }
 
         .small-h-card-list-detail-button {
           a {
-            color: map-get($configuration, lfdFontColorDesktop);
+            color: map-get($configuration, smallHCardFontColorDesktop);
 
             &:hover,
             &:focus,
             &:active,
             &:active:hover,
             &:active:focus {
-              color: map-get($configuration, lfdFontColorDesktop);
+              color: map-get($configuration, smallHCardFontColorDesktop);
             }
           }
         }
 
         .small-h-card-list-detail-wrapper {
-          background-color: map-get($configuration, lfdBackgroundColorDesktop);
+          background-color: map-get($configuration, smallHCardBackgroundColorDesktop);
         }
 
         .small-h-card-list-detail-image-wrapper {
           color: rgba($bodyTextColorDesktop, 0.1);
-          background-color: rgba(map-get($configuration, lfdFontColorDesktop), 0.04);
-        }
-
-        .small-h-card-list-detail-close-btn {
-          background-color: rgba(map-get($configuration, lfdBackgroundColorDesktop), 0.5);
-          color: map-get($configuration, lfdFontColorDesktop);
+          background-color: map-get($configuration, smallHCardListImageBackgroundDesktop);
         }
       }
     }
 
     .new-small-h-card-list-container {
       .small-h-card-list-detail-wrapper.open {
-        background-color: map-get($configuration, lfdDetailBackgroundColor);
+        background-color: map-get($configuration, smallHCardDetailBackgroundColor);
       }
 
       // Styles for tablet
       @include above($tabletBreakpoint) {
         .small-h-card-list-detail-wrapper.open {
-          background-color: map-get($configuration, lfdDetailBackgroundColorTablet);
+          background-color: map-get($configuration, smallHCardDetailBackgroundColorTablet);
         }
       }
 
       // Styles for desktop
       @include above($desktopBreakpoint) {
         .small-h-card-list-detail-wrapper.open {
-          background-color: map-get($configuration, lfdDetailBackgroundColorDesktop);
+          background-color: map-get($configuration, smallHCardDetailBackgroundColorDesktop);
         }
       }
     }
@@ -579,226 +633,350 @@
     .small-h-card-detail-overlay {
       .small-h-card-detail-overlay-wrapper {
         .small-h-card-detail-overlay-panel {
-          background-color: map-get($configuration, lfdDetailBackgroundColor);
-          color: map-get($configuration, lfdDetailFontColor);
+          background-color: map-get($configuration, smallHCardDetailBackgroundColor);
+          color: map-get($configuration, smallHCardDetailFontColor);
+
+          .small-h-card-detail-overlay-content .small-h-card-details-holder {
+            .small-h-card-list-detail-body-text {
+              @include fontOnly((
+                fontFamily: map-get($configuration, smallHCardDetailTextFontFamily),
+                fontSize: map-get($configuration, smallHCardDetailTextFontSize),
+                fontLineHeight: map-get($configuration, smallHCardDetailTextLineHeight),
+                fontWeight: map-get($configuration, smallHCardDetailTextFontWeight),
+                fontStyle: map-get($configuration, smallHCardDetailTextItalic),
+                fontDecoration: map-get($configuration, smallHCardDetailTextUnderline)
+              ));
+
+              margin-top: map-get($configuration, smallHCardDetailTextMarginTop);
+              margin-bottom: map-get($configuration, smallHCardDetailTextMarginBottom);
+              color: map-get($configuration, smallHCardDetailTextFontColor);
+
+            }
+
+            .small-h-card-list-detail-body-label {
+              @include fontOnly((
+                fontFamily: map-get($configuration, smallHCardDetailLabelsFontFamily),
+                fontSize: map-get($configuration, smallHCardDetailLabelsFontSize),
+                fontLineHeight: map-get($configuration, smallHCardDetailLabelsLineHeight),
+                fontWeight: map-get($configuration, smallHCardDetailLabelsFontWeight),
+                fontStyle: map-get($configuration, smallHCardDetailLabelsItalic),
+                fontDecoration: map-get($configuration, smallHCardDetailLabelsUnderline)
+              ));
+
+              margin-top: map-get($configuration, smallHCardDetailLabelsMarginTop);
+              margin-bottom: map-get($configuration, smallHCardDetailLabelsMarginBottom);
+              color: map-get($configuration, smallHCardDetailLabelsFontColor);
+            }
+          }
 
           .small-h-card-detail-wrapper {
             .small-h-card-list-detail-content-wrapper {
-              background-color: map-get($configuration, lfdDetailBackgroundColor);
+              background-color: map-get($configuration, smallHCardListDetailOverlayBackground);
 
               .small-h-card-list-name,
               .small-h-card-list-role,
-              .small-h-card-list-location,
-              .small-h-card-list-detail-role,
-              .small-h-card-list-detail-location {
-                color: map-get($configuration, lfdDetailFontColor);
+              .small-h-card-list-location {
+                color: map-get($configuration, smallHCardDetailFontColor);
               }
 
               .small-h-card-list-detail-name {
-                color: map-get($configuration, lfdDetailFontColor);
+                @include fontOnly((
+                  fontFamily: map-get($configuration, smallHCardDetailTitleFontFamily),
+                  fontSize: map-get($configuration, smallHCardDetailTitleFontSize),
+                  fontLineHeight: map-get($configuration, smallHCardDetailTitleLineHeight),
+                  fontWeight: map-get($configuration, smallHCardDetailTitleFontWeight),
+                  fontStyle: map-get($configuration, smallHCardDetailTitleItalic),
+                  fontDecoration: map-get($configuration, smallHCardDetailTitleUnderline)
+                ));
+
+                color: map-get($configuration, smallHCardDetailTitleFontColor);
 
                 &:after {
-                  background-color: $highlightColor;
+                  background-color: map-get($configuration, smallHCardListDetailOverlayLineUnderTitleColor);
                 }
               }
 
+              .small-h-card-list-detail-role {
+                @include fontOnly((
+                  fontFamily: map-get($configuration, smallHCardDetailDescriptionFontFamily),
+                  fontSize: map-get($configuration, smallHCardDetailDescriptionFontSize),
+                  fontLineHeight: map-get($configuration, smallHCardDetailDescriptionLineHeight),
+                  fontWeight: map-get($configuration, smallHCardDetailDescriptionFontWeight),
+                  fontStyle: map-get($configuration, smallHCardDetailDescriptionItalic),
+                  fontDecoration: map-get($configuration, smallHCardDetailDescriptionUnderline)
+                ));
+
+                margin-top: map-get($configuration, smallHCardDetailDescriptionMarginTop);
+                margin-bottom: map-get($configuration, smallHCardDetailDescriptionMarginBottom);
+                color: map-get($configuration, smallHCardDetailDescriptionFontColor);
+              }
+
+              .small-h-card-list-detail-location {
+                @include fontOnly((
+                  fontFamily: map-get($configuration, smallHCardDetailSecondDescriptionFontFamily),
+                  fontSize: map-get($configuration, smallHCardDetailSecondDescriptionFontSize),
+                  fontLineHeight: map-get($configuration, smallHCardDetailSecondDescriptionLineHeight),
+                  fontWeight: map-get($configuration, smallHCardDetailSecondDescriptionFontWeight),
+                  fontStyle: map-get($configuration, smallHCardDetailSecondDescriptionItalic),
+                  fontDecoration: map-get($configuration, smallHCardDetailSecondDescriptionUnderline)
+                ));
+
+                margin-top: map-get($configuration, smallHCardDetailSecondDescriptionMarginTop);
+                margin-bottom: map-get($configuration, smallHCardDetailSecondDescriptionMarginBottom);
+                color: map-get($configuration, smallHCardDetailSecondDescriptionFontColor);
+              }
+
               .small-h-card-list-detail-button a {
-                color: map-get($configuration, lfdDetailFontColor);
+                color: map-get($configuration, smallHCardListDetailOverlayIconsColor);
 
                 &:hover,
                 &:focus,
                 &:active,
                 &:active:hover,
                 &:active:focus {
-                  color: map-get($configuration, lfdDetailFontColor);
+                  color: map-get($configuration, smallHCardListDetailOverlayIconsColor);
                 }
-              }
-
-              .small-h-card-detail-overlay-close {
-                background-color: rgba(map-get($configuration, lfdDetailBackgroundColor), 0.5);
-                color: map-get($configuration, lfdDetailFontColor);
               }
             }
 
             .small-h-card-list-detail-image-wrapper {
-              color: rgba(map-get($configuration, lfdDetailFontColor), 0.1);
-              background-color: rgba(map-get($configuration, lfdDetailFontColor), 0.04);
+              background-color: map-get($configuration, smallHCardListImageBackground);
             }
           }
-        }
-
-        .small-h-card-detail-overlay-close {
-          background-color: rgba(map-get($configuration, lfdDetailBackgroundColor), 0.5);
-          color: map-get($configuration, lfdDetailFontColor);
         }
 
         // Styles for tablet
         @include above($tabletBreakpoint) {
           .small-h-card-detail-overlay-panel {
-            background-color: map-get($configuration, lfdDetailBackgroundColorTablet);
-            color: map-get($configuration, lfdDetailFontColorTablet);
+            background-color: map-get($configuration, smallHCardDetailBackgroundColorTablet);
+            color: map-get($configuration, smallHCardDetailFontColorTablet);
+
+            .small-h-card-detail-overlay-content .small-h-card-details-holder {
+              .small-h-card-list-detail-body-text {
+                @include fontOnly((
+                  fontFamily: map-get($configuration, smallHCardDetailTextFontFamilyTablet),
+                  fontSize: map-get($configuration, smallHCardDetailTextFontSizeTablet),
+                  fontLineHeight: map-get($configuration, smallHCardDetailTextLineHeightTablet),
+                  fontWeight: map-get($configuration, smallHCardDetailTextFontWeightTablet),
+                  fontStyle: map-get($configuration, smallHCardDetailTextItalicTablet),
+                  fontDecoration: map-get($configuration, smallHCardDetailTextUnderlineTablet)
+                ));
+
+                margin-top: map-get($configuration, smallHCardDetailTextMarginTopTablet);
+                margin-bottom: map-get($configuration, smallHCardDetailTextMarginBottomTablet);
+                color: map-get($configuration, smallHCardDetailTextFontColorTablet);
+              }
+
+              .small-h-card-list-detail-body-label {
+                @include fontOnly((
+                  fontFamily: map-get($configuration, smallHCardDetailLabelsFontFamilyTablet),
+                  fontSize: map-get($configuration, smallHCardDetailLabelsFontSizeTablet),
+                  fontLineHeight: map-get($configuration, smallHCardDetailLabelsLineHeightTablet),
+                  fontWeight: map-get($configuration, smallHCardDetailLabelsFontWeightTablet),
+                  fontStyle: map-get($configuration, smallHCardDetailLabelsItalicTablet),
+                  fontDecoration: map-get($configuration, smallHCardDetailLabelsUnderlineTablet)
+                ));
+
+                margin-top: map-get($configuration, smallHCardDetailLabelsMarginTopTablet);
+                margin-bottom: map-get($configuration, smallHCardDetailLabelsMarginBottomTablet);
+                color: map-get($configuration, smallHCardDetailLabelsFontColorTablet);
+              }
+            }
 
             .small-h-card-detail-wrapper {
               .small-h-card-list-detail-content-wrapper {
-                background-color: map-get($configuration, lfdDetailBackgroundColorTablet);
+                background-color: map-get($configuration, smallHCardListDetailOverlayBackgroundTablet);
 
                 .small-h-card-list-name,
                 .small-h-card-list-role,
-                .small-h-card-list-location,
-                .small-h-card-list-detail-role,
-                .small-h-card-list-detail-location {
-                  color: map-get($configuration, lfdDetailFontColorTablet);
+                .small-h-card-list-location {
+                  color: map-get($configuration, smallHCardDetailFontColorTablet);
                 }
 
                 .small-h-card-list-detail-name {
-                  color: map-get($configuration, lfdDetailFontColorTablet);
+                  @include fontOnly((
+                    fontFamily: map-get($configuration, smallHCardDetailTitleFontFamilyTablet),
+                    fontSize: map-get($configuration, smallHCardDetailTitleFontSizeTablet),
+                    fontLineHeight: map-get($configuration, smallHCardDetailTitleLineHeightTablet),
+                    fontWeight: map-get($configuration, smallHCardDetailTitleFontWeightTablet),
+                    fontStyle: map-get($configuration, smallHCardDetailTitleItalicTablet),
+                    fontDecoration: map-get($configuration, smallHCardDetailTitleUnderlineTablet)
+                  ));
+
+                  color: map-get($configuration, smallHCardDetailTitleFontColorTablet);
+
+                  &:after {
+                    background-color: map-get($configuration, smallHCardListDetailOverlayLineUnderTitleColorTablet);
+                  }
+                }
+
+                .small-h-card-list-detail-role {
+                  @include fontOnly((
+                    fontFamily: map-get($configuration, smallHCardDetailDescriptionFontFamilyTablet),
+                    fontSize: map-get($configuration, smallHCardDetailDescriptionFontSizeTablet),
+                    fontLineHeight: map-get($configuration, smallHCardDetailDescriptionLineHeightTablet),
+                    fontWeight: map-get($configuration, smallHCardDetailDescriptionFontWeightTablet),
+                    fontStyle: map-get($configuration, smallHCardDetailDescriptionItalicTablet),
+                    fontDecoration: map-get($configuration, smallHCardDetailDescriptionUnderlineTablet)
+                  ));
+
+                  margin-top: map-get($configuration, smallHCardDetailDescriptionMarginTopTablet);
+                  margin-bottom: map-get($configuration, smallHCardDetailDescriptionMarginBottomTablet);
+                  color: map-get($configuration, smallHCardDetailDescriptionFontColorTablet);
+                }
+
+                .small-h-card-list-detail-location {
+                  @include fontOnly((
+                    fontFamily: map-get($configuration, smallHCardDetailSecondDescriptionFontFamilyTablet),
+                    fontSize: map-get($configuration, smallHCardDetailSecondDescriptionFontSizeTablet),
+                    fontLineHeight: map-get($configuration, smallHCardDetailSecondDescriptionLineHeightTablet),
+                    fontWeight: map-get($configuration, smallHCardDetailSecondDescriptionFontWeightTablet),
+                    fontStyle: map-get($configuration, smallHCardDetailSecondDescriptionItalicTablet),
+                    fontDecoration: map-get($configuration, smallHCardDetailSecondDescriptionUnderlineTablet)
+                  ));
+
+                  margin-top: map-get($configuration, smallHCardDetailSecondDescriptionMarginTopTablet);
+                  margin-bottom: map-get($configuration, smallHCardDetailSecondDescriptionMarginBottomTablet);
+                  color: map-get($configuration, smallHCardDetailSecondDescriptionFontColorTablet);
                 }
 
                 .small-h-card-list-detail-button a {
-                  color: map-get($configuration, lfdDetailFontColorTablet);
+                  color: map-get($configuration, smallHCardListDetailOverlayIconsColorTablet);
 
                   &:hover,
                   &:focus,
                   &:active,
                   &:active:hover,
                   &:active:focus {
-                    color: map-get($configuration, lfdDetailFontColorTablet);
+                    color: map-get($configuration, smallHCardListDetailOverlayIconsColorTablet);
                   }
-                }
-
-                .small-h-card-detail-overlay-close {
-                  background-color: rgba(map-get($configuration, lfdDetailBackgroundColorTablet), 0.5);
-                  color: map-get($configuration, lfdDetailFontColorTablet);
                 }
               }
 
               .small-h-card-list-detail-image-wrapper {
-                color: rgba(map-get($configuration, lfdDetailFontColorTablet), 0.1);
-                background-color: rgba(map-get($configuration, lfdDetailFontColorTablet), 0.04);
+                background-color: map-get($configuration, smallHCardListImageBackgroundTablet);
               }
             }
-          }
-
-          .small-h-card-detail-overlay-close {
-            background-color: rgba(map-get($configuration, lfdDetailBackgroundColorTablet), 0.5);
-            color: map-get($configuration, lfdDetailFontColorTablet);
           }
         }
 
         // Styles for desktop
         @include above($desktopBreakpoint) {
           .small-h-card-detail-overlay-panel {
-            background-color: map-get($configuration, lfdDetailBackgroundColorDesktop);
-            color: map-get($configuration, lfdDetailFontColorDesktop);
+            background-color: map-get($configuration, smallHCardDetailBackgroundColorDesktop);
+            color: map-get($configuration, smallHCardDetailFontColorDesktop);
+
+            .small-h-card-detail-overlay-content .small-h-card-details-holder {
+              .small-h-card-list-detail-body-text {
+                @include fontOnly((
+                  fontFamily: map-get($configuration, smallHCardDetailTextFontFamilyDesktop),
+                  fontSize: map-get($configuration, smallHCardDetailTextFontSizeDesktop),
+                  fontLineHeight: map-get($configuration, smallHCardDetailTextLineHeightDesktop),
+                  fontWeight: map-get($configuration, smallHCardDetailTextFontWeightDesktop),
+                  fontStyle: map-get($configuration, smallHCardDetailTextItalicDesktop),
+                  fontDecoration: map-get($configuration, smallHCardDetailTextUnderlineDesktop)
+                ));
+
+                margin-top: map-get($configuration, smallHCardDetailTextMarginTopDesktop);
+                margin-bottom: map-get($configuration, smallHCardDetailTextMarginBottomDesktop);
+                color: map-get($configuration, smallHCardDetailTextFontColorDesktop);
+              }
+
+              .small-h-card-list-detail-body-label {
+                @include fontOnly((
+                  fontFamily: map-get($configuration, smallHCardDetailLabelsFontFamilyDesktop),
+                  fontSize: map-get($configuration, smallHCardDetailLabelsFontSizeDesktop),
+                  fontLineHeight: map-get($configuration, smallHCardDetailLabelsLineHeightDesktop),
+                  fontWeight: map-get($configuration, smallHCardDetailLabelsFontWeightDesktop),
+                  fontStyle: map-get($configuration, smallHCardDetailLabelsItalicDesktop),
+                  fontDecoration: map-get($configuration, smallHCardDetailLabelsUnderlineDesktop)
+                ));
+
+                margin-top: map-get($configuration, smallHCardDetailLabelsMarginTopDesktop);
+                margin-bottom: map-get($configuration, smallHCardDetailLabelsMarginBottomDesktop);
+                color: map-get($configuration, smallHCardDetailLabelsFontColorDesktop);
+              }
+            }
 
             .small-h-card-detail-wrapper {
               .small-h-card-list-detail-content-wrapper {
-                background-color: map-get($configuration, lfdDetailBackgroundColorDesktop);
+                background-color: map-get($configuration, smallHCardListDetailOverlayBackgroundDesktop);
 
                 .small-h-card-list-name,
                 .small-h-card-list-role,
-                .small-h-card-list-location,
-                .small-h-card-list-detail-role,
-                .small-h-card-list-detail-location {
-                  color: map-get($configuration, lfdDetailFontColorDesktop);
+                .small-h-card-list-location {
+                  color: map-get($configuration, smallHCardDetailFontColorDesktop);
                 }
 
                 .small-h-card-list-detail-name {
-                  color: map-get($configuration, lfdDetailFontColorDesktop);
+                  @include fontOnly((
+                    fontFamily: map-get($configuration, smallHCardDetailTitleFontFamilyDesktop),
+                    fontSize: map-get($configuration, smallHCardDetailTitleFontSizeDesktop),
+                    fontLineHeight: map-get($configuration, smallHCardDetailTitleLineHeightDesktop),
+                    fontWeight: map-get($configuration, smallHCardDetailTitleFontWeightDesktop),
+                    fontStyle: map-get($configuration, smallHCardDetailTitleItalicDesktop),
+                    fontDecoration: map-get($configuration, smallHCardDetailTitleUnderlineDesktop)
+                  ));
+
+                  color: map-get($configuration, smallHCardDetailTitleFontColorDesktop);
+
+                  &:after {
+                    background-color: map-get($configuration, smallHCardListDetailOverlayLineUnderTitleColorDesktop);
+                  }
+                }
+
+                .small-h-card-list-detail-role {
+                  @include fontOnly((
+                    fontFamily: map-get($configuration, smallHCardDetailDescriptionFontFamilyDesktop),
+                    fontSize: map-get($configuration, smallHCardDetailDescriptionFontSizeDesktop),
+                    fontLineHeight: map-get($configuration, smallHCardDetailDescriptionLineHeightDesktop),
+                    fontWeight: map-get($configuration, smallHCardDetailDescriptionFontWeightDesktop),
+                    fontStyle: map-get($configuration, smallHCardDetailDescriptionItalicDesktop),
+                    fontDecoration: map-get($configuration, smallHCardDetailDescriptionUnderlineDesktop)
+                  ));
+
+                  margin-top: map-get($configuration, smallHCardDetailDescriptionMarginTopDesktop);
+                  margin-bottom: map-get($configuration, smallHCardDetailDescriptionMarginBottomDesktop);
+                  color: map-get($configuration, smallHCardDetailDescriptionFontColorDesktop);
+                }
+
+                .small-h-card-list-detail-location {
+                  @include fontOnly((
+                    fontFamily: map-get($configuration, smallHCardDetailSecondDescriptionFontFamilyDesktop),
+                    fontSize: map-get($configuration, smallHCardDetailSecondDescriptionFontSizeDesktop),
+                    fontLineHeight: map-get($configuration, smallHCardDetailSecondDescriptionLineHeightDesktop),
+                    fontWeight: map-get($configuration, smallHCardDetailSecondDescriptionFontWeightDesktop),
+                    fontStyle: map-get($configuration, smallHCardDetailSecondDescriptionItalicDesktop),
+                    fontDecoration: map-get($configuration, smallHCardDetailSecondDescriptionUnderlineDesktop)
+                  ));
+
+                  margin-top: map-get($configuration, smallHCardDetailSecondDescriptionMarginTopDesktop);
+                  margin-bottom: map-get($configuration, smallHCardDetailSecondDescriptionMarginBottomDesktop);
+                  color: map-get($configuration, smallHCardDetailSecondDescriptionFontColorDesktop);
                 }
 
                 .small-h-card-list-detail-button a {
-                  color: map-get($configuration, lfdDetailFontColorDesktop);
+                  color: map-get($configuration, smallHCardListDetailOverlayIconsColorDesktop);
 
                   &:hover,
                   &:focus,
                   &:active,
                   &:active:hover,
                   &:active:focus {
-                    color: map-get($configuration, lfdDetailFontColorDesktop);
+                    color: map-get($configuration, smallHCardListDetailOverlayIconsColorDesktop);
                   }
-                }
-
-                .small-h-card-detail-overlay-close {
-                  background-color: rgba(map-get($configuration, lfdDetailBackgroundColorDesktop), 0.5);
-                  color: map-get($configuration, lfdDetailFontColorDesktop);
                 }
               }
 
               .small-h-card-list-detail-image-wrapper {
-                color: rgba(map-get($configuration, lfdDetailFontColorDesktop), 0.1);
-                background-color: rgba(map-get($configuration, lfdDetailFontColorDesktop), 0.04);
+                background-color: map-get($configuration, smallHCardListImageBackgroundDesktop);
               }
             }
           }
-
-          .small-h-card-detail-overlay-close {
-            background-color: rgba(map-get($configuration, lfdDetailBackgroundColorDesktop), 0.5);
-            color: map-get($configuration, lfdDetailFontColorDesktop);
-          }
         }
-      }
-    }
-
-    .dynamic-list-add-item {
-      background-color: $highlightColor;
-      color: $primaryButtonTextColor;
-
-      // Styles for tablet
-      @include above($tabletBreakpoint) {
-        color: $primaryButtonTextColorTablet;
-      }
-
-      // Styles for desktop
-      @include above($desktopBreakpoint) {
-        color: $primaryButtonTextColorDesktop;
-      }
-    }
-
-    .btn.dynamic-list-edit-item {
-      border: 1px solid rgba(map-get($configuration, lfdDetailFontColor), 0.3);
-      background-color: map-get($configuration, lfdDetailBackgroundColor);
-      color: rgba(map-get($configuration, lfdDetailFontColor), 0.5);
-      border-radius: 40px;
-
-      @include above($tabletBreakpoint) {
-        border: 1px solid rgba(map-get($configuration, lfdDetailFontColorTablet), 0.3);
-        background-color: map-get($configuration, lfdDetailBackgroundColorTablet);
-        color: rgba(map-get($configuration, lfdDetailFontColorTablet), 0.5);
-        border-radius: 40px;
-      }
-
-      // Styles for desktop
-      @include above($desktopBreakpoint) {
-        border: 1px solid rgba(map-get($configuration, lfdDetailFontColorDesktop), 0.3);
-        background-color: map-get($configuration, lfdDetailBackgroundColorDesktop);
-        color: rgba(map-get($configuration, lfdDetailFontColorDesktop), 0.5);
-        border-radius: 40px;
-      }
-    }
-
-    .btn.dynamic-list-edit-item:hover,
-    .btn.dynamic-list-edit-item:active,
-    .btn.dynamic-list-edit-item:active:focus {
-      border: 1px solid rgba(map-get($configuration, lfdDetailFontColor), 0.3);
-      background-color: rgba(map-get($configuration, lfdDetailFontColor), 0.1);
-      color: map-get($configuration, lfdDetailFontColor);
-
-      // Styles for tablet
-      @include above($tabletBreakpoint) {
-        border: 1px solid rgba(map-get($configuration, lfdDetailFontColorTablet), 0.3);
-        background-color: rgba(map-get($configuration, lfdDetailFontColorTablet), 0.1);
-        color: map-get($configuration, lfdDetailFontColorTablet);
-      }
-
-      // Styles for desktop
-      @include above($desktopBreakpoint) {
-        border: 1px solid rgba(map-get($configuration, lfdDetailFontColorDesktop), 0.3);
-        background-color: rgba(map-get($configuration, lfdDetailFontColorDesktop), 0.1);
-        color: map-get($configuration, lfdDetailFontColorDesktop);
       }
     }
   }
 }
 
-@include lfd();
+@include smallHCard();
