@@ -78,33 +78,6 @@
   agendaDescriptionMarginBottom: $agendaDescriptionMarginBottom,
   agendaDescriptionMarginBottomTablet: $agendaDescriptionMarginBottomTablet,
   agendaDescriptionMarginBottomDesktop: $agendaDescriptionMarginBottomDesktop,
-  agendaSecondDescriptionFontFamily: $agendaSecondDescriptionFontFamily,
-  agendaSecondDescriptionFontFamilyTablet: $agendaSecondDescriptionFontFamilyTablet,
-  agendaSecondDescriptionFontFamilyDesktop: $agendaSecondDescriptionFontFamilyDesktop,
-  agendaSecondDescriptionFontSize: $agendaSecondDescriptionFontSize,
-  agendaSecondDescriptionFontSizeTablet: $agendaSecondDescriptionFontSizeTablet,
-  agendaSecondDescriptionFontSizeDesktop: $agendaSecondDescriptionFontSizeDesktop,
-  agendaSecondDescriptionFontColor: $agendaSecondDescriptionFontColor,
-  agendaSecondDescriptionFontColorTablet: $agendaSecondDescriptionFontColorTablet,
-  agendaSecondDescriptionFontColorDesktop: $agendaSecondDescriptionFontColorDesktop,
-  agendaSecondDescriptionFontWeight: $agendaSecondDescriptionFontWeight,
-  agendaSecondDescriptionFontWeightTablet: $agendaSecondDescriptionFontWeightTablet,
-  agendaSecondDescriptionFontWeightDesktop: $agendaSecondDescriptionFontWeightDesktop,
-  agendaSecondDescriptionItalic: $agendaSecondDescriptionItalic,
-  agendaSecondDescriptionItalicTablet: $agendaSecondDescriptionItalicTablet,
-  agendaSecondDescriptionItalicDesktop: $agendaSecondDescriptionItalicDesktop,
-  agendaSecondDescriptionUnderline: $agendaSecondDescriptionUnderline,
-  agendaSecondDescriptionUnderlineTablet: $agendaSecondDescriptionUnderlineTablet,
-  agendaSecondDescriptionUnderlineDesktop: $agendaSecondDescriptionUnderlineDesktop,
-  agendaSecondDescriptionLineHeight: $agendaSecondDescriptionLineHeight,
-  agendaSecondDescriptionLineHeightTablet: $agendaSecondDescriptionLineHeightTablet,
-  agendaSecondDescriptionLineHeightDesktop: $agendaSecondDescriptionLineHeightDesktop,
-  agendaSecondDescriptionMarginTop: $agendaSecondDescriptionMarginTop,
-  agendaSecondDescriptionMarginTopTablet: $agendaSecondDescriptionMarginTopTablet,
-  agendaSecondDescriptionMarginTopDesktop: $agendaSecondDescriptionMarginTopDesktop,
-  agendaSecondDescriptionMarginBottom: $agendaSecondDescriptionMarginBottom,
-  agendaSecondDescriptionMarginBottomTablet: $agendaSecondDescriptionMarginBottomTablet,
-  agendaSecondDescriptionMarginBottomDesktop: $agendaSecondDescriptionMarginBottomDesktop,
   agendaDetailTitleFontFamily: $agendaDetailTitleFontFamily,
   agendaDetailTitleFontFamilyTablet: $agendaDetailTitleFontFamilyTablet,
   agendaDetailTitleFontFamilyDesktop: $agendaDetailTitleFontFamilyDesktop,
@@ -258,9 +231,6 @@
   agendaBookmarkIconColor: $agendaBookmarkIconColor,
   agendaBookmarkIconColorTablet: $agendaBookmarkIconColorTablet,
   agendaBookmarkIconColorDesktop: $agendaBookmarkIconColorDesktop,
-  agendaImageBackground: $agendaImageBackground,
-  agendaImageBackgroundTablet: $agendaImageBackgroundTablet,
-  agendaImageBackgroundDesktop: $agendaImageBackgroundDesktop,
   agendaPaddingTop: $agendaPaddingTop,
   agendaPaddingRight: $agendaPaddingRight,
   agendaPaddingBottom: $agendaPaddingBottom,
@@ -367,6 +337,11 @@
       map-get($configuration, agendaMarginBottom)
       map-get($configuration, agendaMarginLeft);
 
+    padding: map-get($configuration, agendaPaddingTop)
+      map-get($configuration, agendaPaddingRight)
+      map-get($configuration, agendaPaddingBottom)
+      map-get($configuration, agendaPaddingLeft);
+
     // Styles for tablet
     @include above($tabletBreakpoint) {
       position: map-get($configuration, agendaPositionTablet) !important;
@@ -397,6 +372,11 @@
         map-get($configuration, agendaMarginRightTablet)
         map-get($configuration, agendaMarginBottomTablet)
         map-get($configuration, agendaMarginLeftTablet);
+
+      padding: map-get($configuration, agendaPaddingTopTablet)
+        map-get($configuration, agendaPaddingRightTablet)
+        map-get($configuration, agendaPaddingBottomTablet)
+        map-get($configuration, agendaPaddingLeftTablet);
     }
 
     // Styles for desktop
@@ -429,164 +409,175 @@
         map-get($configuration, agendaMarginRightDesktop)
         map-get($configuration, agendaMarginBottomDesktop)
         map-get($configuration, agendaMarginLeftDesktop);
+
+      padding: map-get($configuration, agendaPaddingTopDesktop)
+        map-get($configuration, agendaPaddingRightDesktop)
+        map-get($configuration, agendaPaddingBottomDesktop)
+        map-get($configuration, agendaPaddingLeftDesktop);
     }
 
     /* AGENDA */
     .agenda-detail-overlay {
+      .agenda-detail-overlay-wrapper .agenda-detail-overlay-content {
+        background-color: map-get($configuration, agendaListDetailOverlayBackground);
+      }
+
       .agenda-detail-overlay-panel {
         background-color: map-get($configuration, agendaDetailBackgroundColor);
-        color: map-get($configuration, agendaDetailFontColor);
-
-        .agenda-detail-overlay-close {
-          background-color: rgba(map-get($configuration, agendaDetailBackgroundColor), 0.5);
-          color: map-get($configuration, agendaDetailFontColor);
-        }
 
         .agenda-item-content-holder {
-          .agenda-item-time {
+          .agenda-item-description .agenda-item-detail-body-text > p {
             @include fontOnly((
-              fontFamily: map-get($configuration, agendaItemTimeFontFamily),
-              fontSize: map-get($configuration, agendaItemTimeFontSize),
-              fontLineHeight: map-get($configuration, agendaItemTimeLineHeight),
-              fontWeight: map-get($configuration, agendaItemTimeFontWeight),
-              fontStyle: map-get($configuration, agendaItemTimeItalic),
-              fontDecoration: map-get($configuration, agendaItemTimeUnderline)
+              fontFamily: map-get($configuration, agendaDetailTextFontFamily),
+              fontSize: map-get($configuration, agendaDetailTextFontSize),
+              fontLineHeight: map-get($configuration, agendaDetailTextLineHeight),
+              fontWeight: map-get($configuration, agendaDetailTextFontWeight),
+              fontStyle: map-get($configuration, agendaDetailTextItalic),
+              fontDecoration: map-get($configuration, agendaDetailTextUnderline)
             ));
 
-            margin-top: map-get($configuration, agendaItemTimeMarginTop);
-            margin-bottom: map-get($configuration, agendaItemTimeMarginBottom);
-            color: map-get($configuration, agendaItemTimeFontColor);
+            margin-top: map-get($configuration, agendaDetailTextMarginTop);
+            margin-bottom: map-get($configuration, agendaDetailTextMarginBottom);
+            color: map-get($configuration, agendaDetailTextFontColor);
           }
 
-          .agenda-item-session-location .agenda-item-location {
-            @include fontOnly((
-              fontFamily: map-get($configuration, agendaDescriptionFontFamily),
-              fontSize: map-get($configuration, agendaDescriptionFontSize),
-              fontLineHeight: map-get($configuration, agendaDescriptionLineHeight),
-              fontWeight: map-get($configuration, agendaDescriptionFontWeight),
-              fontStyle: map-get($configuration, agendaDescriptionItalic),
-              fontDecoration: map-get($configuration, agendaDescriptionUnderline)
-            ));
+          .agenda-item-time {
 
-            margin-top: map-get($configuration, agendaDescriptionMarginTop);
-            margin-bottom: map-get($configuration, agendaDescriptionMarginBottom);
-            color: map-get($configuration, agendaDescriptionFontColor);
+          }
+
+          .agenda-item-session-location {
+            .agenda-item-start-date-time {
+              @include fontOnly((
+                fontFamily: map-get($configuration, agendaDetailSecondDescriptionFontFamily),
+                fontSize: map-get($configuration, agendaDetailSecondDescriptionFontSize),
+                fontLineHeight: map-get($configuration, agendaDetailSecondDescriptionLineHeight),
+                fontWeight: map-get($configuration, agendaDetailSecondDescriptionFontWeight),
+                fontStyle: map-get($configuration, agendaDetailSecondDescriptionItalic),
+                fontDecoration: map-get($configuration, agendaDetailSecondDescriptionUnderline)
+              ));
+
+              margin-top: map-get($configuration, agendaDetailSecondDescriptionMarginTop);
+              margin-bottom: map-get($configuration, agendaDetailSecondDescriptionMarginBottom);
+              color: map-get($configuration, agendaDetailSecondDescriptionFontColor);
+            }
+
+            .agenda-item-location {
+              @include fontOnly((
+                fontFamily: map-get($configuration, agendaDetailDescriptionFontFamily),
+                fontSize: map-get($configuration, agendaDetailDescriptionFontSize),
+                fontLineHeight: map-get($configuration, agendaDetailDescriptionLineHeight),
+                fontWeight: map-get($configuration, agendaDetailDescriptionFontWeight),
+                fontStyle: map-get($configuration, agendaDetailDescriptionItalic),
+                fontDecoration: map-get($configuration, agendaDetailDescriptionUnderline)
+              ));
+
+              margin-top: map-get($configuration, agendaDetailDescriptionMarginTop);
+              margin-bottom: map-get($configuration, agendaDetailDescriptionMarginBottom);
+              color: map-get($configuration, agendaDetailDescriptionFontColor);
+            }
           }
 
           h2.agenda-item-title {
             @include fontOnly((
-              fontFamily: map-get($configuration, agendaTitleFontFamily),
-              fontSize: map-get($configuration, agendaTitleFontSize),
-              fontLineHeight: map-get($configuration, agendaTitleLineHeight),
-              fontWeight: map-get($configuration, agendaTitleFontWeight),
-              fontStyle: map-get($configuration, agendaTitleItalic),
-              fontDecoration: map-get($configuration, agendaTitleUnderline)
+              fontFamily: map-get($configuration, agendaDetailTitleFontFamily),
+              fontSize: map-get($configuration, agendaDetailTitleFontSize),
+              fontLineHeight: map-get($configuration, agendaDetailTitleLineHeight),
+              fontWeight: map-get($configuration, agendaDetailTitleFontWeight),
+              fontStyle: map-get($configuration, agendaDetailTitleItalic),
+              fontDecoration: map-get($configuration, agendaDetailTitleUnderline)
             ));
 
-            margin-top: map-get($configuration, agendaTitleMarginTop);
-            margin-bottom: map-get($configuration, agendaTitleMarginBottom);
-            color: map-get($configuration, agendaTitleFontColor);
+            color: map-get($configuration, agendaDetailTitleFontColor);
 
             &:after {
-              background-color: $highlightColor;
+              background-color: map-get($configuration, agendaListDetailOverlayLineUnderTitleColor);
             }
           }
 
-          .agenda-item-bookmark-holder {
-            .fa-bookmark-o {
-              color: rgba(map-get($configuration, agendaDetailFontColor), 0.2);
-
-              &:after {
-                color: rgba(map-get($configuration, agendaDetailFontColor), 0.5);
-              }
-            }
-          }
-
-          .bookmark-wrapper {
-            .fa-bookmark-o {
-              color: rgba(map-get($configuration, agendaDetailFontColor), 0.2);
-
-              &:after {
-                color: rgba(map-get($configuration, agendaDetailFontColor), 0.5);
-              }
-            }
+          .agenda-item-bookmark .fa {
+            color: map-get($configuration, agendaListDetailOverlayIconsColor);
           }
         }
 
         // Styles for tablet
         @include above($tabletBreakpoint) {
           background-color: map-get($configuration, agendaDetailBackgroundColorTablet);
-          color: map-get($configuration, agendaDetailFontColorTablet);
 
-          .agenda-detail-overlay-close {
-            background-color: rgba(map-get($configuration, agendaDetailBackgroundColorTablet), 0.5);
-            color: map-get($configuration, agendaDetailFontColorTablet);
+          .agenda-detail-overlay-wrapper .agenda-detail-overlay-content {
+            background-color: map-get($configuration, agendaListDetailOverlayBackgroundTablet);
           }
 
           .agenda-item-content-holder {
-            .agenda-item-time {
+            .agenda-item-description .agenda-item-detail-body-text > p {
               @include fontOnly((
-                fontFamily: map-get($configuration, agendaItemTimeFontFamilyTablet),
-                fontSize: map-get($configuration, agendaItemTimeFontSizeTablet),
-                fontLineHeight: map-get($configuration, agendaItemTimeLineHeightTablet),
-                fontWeight: map-get($configuration, agendaItemTimeFontWeightTablet),
-                fontStyle: map-get($configuration, agendaItemTimeItalicTablet),
-                fontDecoration: map-get($configuration, agendaItemTimeUnderlineTablet)
+                fontFamily: map-get($configuration, agendaDetailTextFontFamilyTablet),
+                fontSize: map-get($configuration, agendaDetailTextFontSizeTablet),
+                fontLineHeight: map-get($configuration, agendaDetailTextLineHeightTablet),
+                fontWeight: map-get($configuration, agendaDetailTextFontWeightTablet),
+                fontStyle: map-get($configuration, agendaDetailTextItalicTablet),
+                fontDecoration: map-get($configuration, agendaDetailTextUnderlineTablet)
               ));
 
-              margin-top: map-get($configuration, agendaItemTimeMarginTopTablet);
-              margin-bottom: map-get($configuration, agendaItemTimeMarginBottomTablet);
-              color: map-get($configuration, agendaItemTimeFontColorTablet);
+              margin-top: map-get($configuration, agendaDetailTextMarginTopTablet);
+              margin-bottom: map-get($configuration, agendaDetailTextMarginBottomTablet);
+              color: map-get($configuration, agendaDetailTextFontColorTablet);
             }
 
-            .agenda-item-session-location .agenda-item-location {
-              @include fontOnly((
-                fontFamily: map-get($configuration, agendaDescriptionFontFamilyTablet),
-                fontSize: map-get($configuration, agendaDescriptionFontSizeTablet),
-                fontLineHeight: map-get($configuration, agendaDescriptionLineHeightTablet),
-                fontWeight: map-get($configuration, agendaDescriptionFontWeightTablet),
-                fontStyle: map-get($configuration, agendaDescriptionItalicTablet),
-                fontDecoration: map-get($configuration, agendaDescriptionUnderlineTablet)
-              ));
+            .agenda-item-time {
 
-              margin-top: map-get($configuration, agendaDescriptionMarginTopTablet);
-              margin-bottom: map-get($configuration, agendaDescriptionMarginBottomTablet);
-              color: map-get($configuration, agendaDescriptionFontColorTablet);
+            }
+
+            .agenda-item-session-location {
+              .agenda-item-start-date-time {
+                @include fontOnly((
+                  fontFamily: map-get($configuration, agendaDetailSecondDescriptionFontFamilyTablet),
+                  fontSize: map-get($configuration, agendaDetailSecondDescriptionFontSizeTablet),
+                  fontLineHeight: map-get($configuration, agendaDetailSecondDescriptionLineHeightTablet),
+                  fontWeight: map-get($configuration, agendaDetailSecondDescriptionFontWeightTablet),
+                  fontStyle: map-get($configuration, agendaDetailSecondDescriptionItalicTablet),
+                  fontDecoration: map-get($configuration, agendaDetailSecondDescriptionUnderlineTablet)
+                ));
+
+                margin-top: map-get($configuration, agendaDetailSecondDescriptionMarginTopTablet);
+                margin-bottom: map-get($configuration, agendaDetailSecondDescriptionMarginBottomTablet);
+                color: map-get($configuration, agendaDetailSecondDescriptionFontColorTablet);
+              }
+
+              .agenda-item-location {
+                @include fontOnly((
+                  fontFamily: map-get($configuration, agendaDetailDescriptionFontFamilyTablet),
+                  fontSize: map-get($configuration, agendaDetailDescriptionFontSizeTablet),
+                  fontLineHeight: map-get($configuration, agendaDetailDescriptionLineHeightTablet),
+                  fontWeight: map-get($configuration, agendaDetailDescriptionFontWeightTablet),
+                  fontStyle: map-get($configuration, agendaDetailDescriptionItalicTablet),
+                  fontDecoration: map-get($configuration, agendaDetailDescriptionUnderlineTablet)
+                ));
+
+                margin-top: map-get($configuration, agendaDetailDescriptionMarginTopTablet);
+                margin-bottom: map-get($configuration, agendaDetailDescriptionMarginBottomTablet);
+                color: map-get($configuration, agendaDetailDescriptionFontColorTablet);
+              }
             }
 
             h2.agenda-item-title {
               @include fontOnly((
-                fontFamily: map-get($configuration, agendaTitleFontFamilyTablet),
-                fontSize: map-get($configuration, agendaTitleFontSizeTablet),
-                fontLineHeight: map-get($configuration, agendaTitleLineHeightTablet),
-                fontWeight: map-get($configuration, agendaTitleFontWeightTablet),
-                fontStyle: map-get($configuration, agendaTitleItalicTablet),
-                fontDecoration: map-get($configuration, agendaTitleUnderlineTablet)
+                fontFamily: map-get($configuration, agendaDetailTitleFontFamilyTablet),
+                fontSize: map-get($configuration, agendaDetailTitleFontSizeTablet),
+                fontLineHeight: map-get($configuration, agendaDetailTitleLineHeightTablet),
+                fontWeight: map-get($configuration, agendaDetailTitleFontWeightTablet),
+                fontStyle: map-get($configuration, agendaDetailTitleItalicTablet),
+                fontDecoration: map-get($configuration, agendaDetailTitleUnderlineTablet)
               ));
 
-              margin-top: map-get($configuration, agendaTitleMarginTopTablet);
-              margin-bottom: map-get($configuration, agendaTitleMarginBottomTablet);
-              color: map-get($configuration, agendaTitleFontColorTablet);
-            }
+              color: map-get($configuration, agendaDetailTitleFontColorTablet);
 
-            .agenda-item-bookmark-holder {
-              .fa-bookmark-o {
-                color: rgba(map-get($configuration, agendaDetailFontColorTablet), 0.2);
-
-                &:after {
-                  color: rgba(map-get($configuration, agendaDetailFontColorTablet), 0.5);
-                }
+              &:after {
+                background-color: map-get($configuration, agendaListDetailOverlayLineUnderTitleColorTablet);
               }
             }
 
-            .bookmark-wrapper {
-              .fa-bookmark-o {
-                color: rgba(map-get($configuration, agendaDetailFontColorTablet), 0.2);
-
-                &:after {
-                  color: rgba(map-get($configuration, agendaDetailFontColorTablet), 0.5);
-                }
-              }
+            .agenda-item-bookmark .fa {
+              color: map-get($configuration, agendaListDetailOverlayIconsColorTablet);
             }
           }
         }
@@ -594,66 +585,82 @@
         // Styles for desktop
         @include above($desktopBreakpoint) {
           background-color: map-get($configuration, agendaDetailBackgroundColorDesktop);
-          color: map-get($configuration, agendaDetailFontColorDesktop);
 
-          .agenda-detail-overlay-close {
-            background-color: rgba(map-get($configuration, agendaDetailBackgroundColorDesktop), 0.5);
-            color: map-get($configuration, agendaDetailFontColorDesktop);
+          .agenda-detail-overlay-wrapper .agenda-detail-overlay-content {
+            background-color: map-get($configuration, agendaListDetailOverlayBackgroundDesktop);
           }
 
           .agenda-item-content-holder {
-            .agenda-item-time {
+            .agenda-item-description .agenda-item-detail-body-text > p {
               @include fontOnly((
-                fontFamily: map-get($configuration, agendaItemTimeFontFamilyDesktop),
-                fontSize: map-get($configuration, agendaItemTimeFontSizeDesktop),
-                fontLineHeight: map-get($configuration, agendaItemTimeLineHeightDesktop),
-                fontWeight: map-get($configuration, agendaItemTimeFontWeightDesktop),
-                fontStyle: map-get($configuration, agendaItemTimeItalicDesktop),
-                fontDecoration: map-get($configuration, agendaItemTimeUnderlineDesktop)
+                fontFamily: map-get($configuration, agendaDetailTextFontFamilyDesktop),
+                fontSize: map-get($configuration, agendaDetailTextFontSizeDesktop),
+                fontLineHeight: map-get($configuration, agendaDetailTextLineHeightDesktop),
+                fontWeight: map-get($configuration, agendaDetailTextFontWeightDesktop),
+                fontStyle: map-get($configuration, agendaDetailTextItalicDesktop),
+                fontDecoration: map-get($configuration, agendaDetailTextUnderlineDesktop)
               ));
 
-              margin-top: map-get($configuration, agendaItemTimeMarginTopDesktop);
-              margin-bottom: map-get($configuration, agendaItemTimeMarginBottomDesktop);
-              color: map-get($configuration, agendaItemTimeFontColorDesktop);
+              margin-top: map-get($configuration, agendaDetailTextMarginTopDesktop);
+              margin-bottom: map-get($configuration, agendaDetailTextMarginBottomDesktop);
+              color: map-get($configuration, agendaDetailTextFontColorDesktop);
             }
 
-            .agenda-item-session-location .agenda-item-location {
-              @include fontOnly((
-                fontFamily: map-get($configuration, agendaDescriptionFontFamilyDesktop),
-                fontSize: map-get($configuration, agendaDescriptionFontSizeDesktop),
-                fontLineHeight: map-get($configuration, agendaDescriptionLineHeightDesktop),
-                fontWeight: map-get($configuration, agendaDescriptionFontWeightDesktop),
-                fontStyle: map-get($configuration, agendaDescriptionItalicDesktop),
-                fontDecoration: map-get($configuration, agendaDescriptionUnderlineDesktop)
-              ));
+            .agenda-item-time {
 
-              margin-top: map-get($configuration, agendaDescriptionMarginTopDesktop);
-              margin-bottom: map-get($configuration, agendaDescriptionMarginBottomDesktop);
-              color: map-get($configuration, agendaDescriptionFontColorDesktop);
+            }
+
+            .agenda-item-session-location {
+              .agenda-item-start-date-time {
+                @include fontOnly((
+                  fontFamily: map-get($configuration, agendaDetailSecondDescriptionFontFamilyDesktop),
+                  fontSize: map-get($configuration, agendaDetailSecondDescriptionFontSizeDesktop),
+                  fontLineHeight: map-get($configuration, agendaDetailSecondDescriptionLineHeightDesktop),
+                  fontWeight: map-get($configuration, agendaDetailSecondDescriptionFontWeightDesktop),
+                  fontStyle: map-get($configuration, agendaDetailSecondDescriptionItalicDesktop),
+                  fontDecoration: map-get($configuration, agendaDetailSecondDescriptionUnderlineDesktop)
+                ));
+
+                margin-top: map-get($configuration, agendaDetailSecondDescriptionMarginTopDesktop);
+                margin-bottom: map-get($configuration, agendaDetailSecondDescriptionMarginBottomDesktop);
+                color: map-get($configuration, agendaDetailSecondDescriptionFontColorDesktop);
+              }
+
+              .agenda-item-location {
+                @include fontOnly((
+                  fontFamily: map-get($configuration, agendaDetailDescriptionFontFamilyDesktop),
+                  fontSize: map-get($configuration, agendaDetailDescriptionFontSizeDesktop),
+                  fontLineHeight: map-get($configuration, agendaDetailDescriptionLineHeightDesktop),
+                  fontWeight: map-get($configuration, agendaDetailDescriptionFontWeightDesktop),
+                  fontStyle: map-get($configuration, agendaDetailDescriptionItalicDesktop),
+                  fontDecoration: map-get($configuration, agendaDetailDescriptionUnderlineDesktop)
+                ));
+
+                margin-top: map-get($configuration, agendaDetailDescriptionMarginTopDesktop);
+                margin-bottom: map-get($configuration, agendaDetailDescriptionMarginBottomDesktop);
+                color: map-get($configuration, agendaDetailDescriptionFontColorDesktop);
+              }
             }
 
             h2.agenda-item-title {
+              @include fontOnly((
+                fontFamily: map-get($configuration, agendaDetailTitleFontFamilyDesktop),
+                fontSize: map-get($configuration, agendaDetailTitleFontSizeDesktop),
+                fontLineHeight: map-get($configuration, agendaDetailTitleLineHeightDesktop),
+                fontWeight: map-get($configuration, agendaDetailTitleFontWeightDesktop),
+                fontStyle: map-get($configuration, agendaDetailTitleItalicDesktop),
+                fontDecoration: map-get($configuration, agendaDetailTitleUnderlineDesktop)
+              ));
 
-            }
+              color: map-get($configuration, agendaDetailTitleFontColorDesktop);
 
-            .agenda-item-bookmark-holder {
-              .fa-bookmark-o {
-                color: rgba(map-get($configuration, agendaDetailFontColorDesktop), 0.2);
-
-                &:after {
-                  color: rgba(map-get($configuration, agendaDetailFontColorDesktop), 0.5);
-                }
+              &:after {
+                background-color: map-get($configuration, agendaListDetailOverlayLineUnderTitleColorDesktop);
               }
             }
 
-            .bookmark-wrapper {
-              .fa-bookmark-o {
-                color: rgba(map-get($configuration, agendaDetailFontColorDesktop), 0.2);
-
-                &:after {
-                  color: rgba(map-get($configuration, agendaDetailFontColorDesktop), 0.5);
-                }
-              }
+            .agenda-item-bookmark .fa {
+              color: map-get($configuration, agendaListDetailOverlayIconsColorDesktop);
             }
           }
         }
@@ -661,54 +668,97 @@
     }
 
     .new-agenda-list-container {
+      ~ .dynamic-list-add-item {
+        background-color: map-get($configuration, agendaMyButtonBackground);
+
+        .fa {
+          color: map-get($configuration, agendaMyButtonText);
+        }
+      }
+
       .agenda-date-selector {
-        background-color: map-get($configuration, agendaAgendaTopBackgroundColor);
+        background-color: map-get($configuration, agendaTopBarBackground);
 
-        ul {
-          li {
-            color: rgba(map-get($configuration, agendaAgendaTopTextColor), 0.5);
+        ul li {
+          color: map-get($configuration, agendaTopBarText);
+          .day {
+            color: map-get($configuration, agendaTopBarText);
+          }
 
+          &.active {
+            color: map-get($configuration, agendaTopBarActiveText);
             .day {
-              color: rgba(map-get($configuration, agendaAgendaTopTextColor), 0.7);
-            }
-
-            &.placeholder {
-              color: rgba(map-get($configuration, agendaAgendaTopTextColor), 0.1);
-
-              .day {
-                color: rgba(map-get($configuration, agendaAgendaTopTextColor), 0.1);
-              }
-            }
-            &.active {
-              color: rgba(map-get($configuration, agendaAgendaTopTextActiveColor), 0.5);
-
-              .day {
-                color: rgba(map-get($configuration, agendaAgendaTopTextActiveColor), 1);
-              }
+              color: map-get($configuration, agendaTopBarActiveText);
             }
           }
         }
       }
 
-      .search-results-list-date {
-        color: rgba(map-get($configuration, agendaAgendaTopTextActiveColor), 1);
-      }
-
       .agenda-list-item {
+        @include borderOnly((
+          borderSides: map-get($configuration, agendaListItemBorderSides),
+          borderWidth: map-get($configuration, agendaListItemBorderWidth),
+          borderStyle: map-get($configuration, agendaListItemBorderStyle),
+          borderColor: map-get($configuration, agendaListItemBorder)
+        ));
+        border-radius: map-get($configuration, agendaListItemBorderRadius);
+
+        @include shadowOnly((
+          shadowStyle: map-get($configuration, agendaListItemShadowStyle),
+          shadowXOffset: map-get($configuration, agendaListItemShadowXoffset),
+          shadowYOffset: map-get($configuration, agendaListItemShadowYoffset),
+          shadowBlur: map-get($configuration, agendaListItemShadowBlur),
+          shadowSpread: map-get($configuration, agendaListItemShadowSpread),
+          shadowColor: map-get($configuration, agendaListItemShadowColor)
+        ))
+
         .slide-over {
           .agenda-item-inner-content {
-            background-color: map-get($configuration, agendaBackgroundColor);
+            background-color: map-get($configuration, agendaListItemBackground);
 
             .agenda-item-time {
-              color: map-get($configuration, agendaFontColor);
+              @include fontOnly((
+                fontFamily: map-get($configuration, agendaItemTimeFontFamily),
+                fontSize: map-get($configuration, agendaItemTimeFontSize),
+                fontLineHeight: map-get($configuration, agendaItemTimeLineHeight),
+                fontWeight: map-get($configuration, agendaItemTimeFontWeight),
+                fontStyle: map-get($configuration, agendaItemTimeItalic),
+                fontDecoration: map-get($configuration, agendaItemTimeUnderline)
+              ));
+
+              margin-top: map-get($configuration, agendaItemTimeMarginTop);
+              margin-bottom: map-get($configuration, agendaItemTimeMarginBottom);
+              color: map-get($configuration, agendaItemTimeFontColor);
             }
 
-            .agenda-item-session-location {
-              color: map-get($configuration, agendaFontColor);
+            .agenda-item-session-location .agenda-item-location {
+              @include fontOnly((
+                fontFamily: map-get($configuration, agendaDescriptionFontFamily),
+                fontSize: map-get($configuration, agendaDescriptionFontSize),
+                fontLineHeight: map-get($configuration, agendaDescriptionLineHeight),
+                fontWeight: map-get($configuration, agendaDescriptionFontWeight),
+                fontStyle: map-get($configuration, agendaDescriptionItalic),
+                fontDecoration: map-get($configuration, agendaDescriptionUnderline)
+              ));
+
+              margin-top: map-get($configuration, agendaDescriptionMarginTop);
+              margin-bottom: map-get($configuration, agendaDescriptionMarginBottom);
+              color: map-get($configuration, agendaDescriptionFontColor);
             }
 
             h2.agenda-item-title {
-              color: map-get($configuration, agendaFontColor);
+              @include fontOnly((
+                fontFamily: map-get($configuration, agendaTitleFontFamily),
+                fontSize: map-get($configuration, agendaTitleFontSize),
+                fontLineHeight: map-get($configuration, agendaTitleLineHeight),
+                fontWeight: map-get($configuration, agendaTitleFontWeight),
+                fontStyle: map-get($configuration, agendaTitleItalic),
+                fontDecoration: map-get($configuration, agendaTitleUnderline)
+              ));
+
+              margin-top: map-get($configuration, agendaTitleMarginTop);
+              margin-bottom: map-get($configuration, agendaTitleMarginBottom);
+              color: map-get($configuration, agendaTitleFontColor);
             }
           }
         }
@@ -726,22 +776,22 @@
         }
       }
 
-      .agenda-item-bookmark-holder {
-        color: map-get($configuration, agendaFontColor);
-
-        .fa-bookmark-o {
-          color: rgba(map-get($configuration, agendaFontColor), 0.2);
-        }
-      }
+      // .agenda-item-bookmark-holder {
+      //   color: map-get($configuration, agendaFontColor);
+      //
+      //   .fa-bookmark-o {
+      //     color: rgba(map-get($configuration, agendaFontColor), 0.2);
+      //   }
+      // }
 
       .bookmark-wrapper {
-        .fa-bookmark-o {
-          color: rgba(map-get($configuration, agendaFontColor), 0.2);
-
-          &:after {
-            color: rgba(map-get($configuration, agendaFontColor), 0.5);
-          }
-        }
+        // .fa-bookmark-o {
+        //   color: rgba(map-get($configuration, agendaFontColor), 0.2);
+        //
+        //   &:after {
+        //     color: rgba(map-get($configuration, agendaFontColor), 0.5);
+        //   }
+        // }
 
         .fa-bookmark {
           color: $highlightColor;
@@ -776,20 +826,8 @@
 
       .agenda-list-item {
         .agenda-item-close-btn {
-          background-color: rgba(map-get($configuration, agendaDetailBackgroundColor), 0.5);
-          color: map-get($configuration, agendaDetailFontColor);
+          // background-color: rgba(map-get($configuration, agendaDetailBackgroundColor), 0.5);
         }
-      }
-
-      .agenda-state-messages {
-        .loading-holder,
-        .offline-holder {
-          color: map-get($configuration, agendaDetailFontColor);
-        }
-      }
-
-      .agenda-list-card-holder.empty + .agenda-item-empty-state {
-        color: map-get($configuration, agendaDetailFontColor);
       }
 
       .section-top-wrapper,
@@ -803,74 +841,98 @@
 
       // Styles for tablet
       @include above($tabletBreakpoint) {
-        .agenda-date-selector {
-          background-color: map-get($configuration, agendaAgendaTopBackgroundColorTablet);
+        ~ .dynamic-list-add-item {
+          background-color: map-get($configuration, agendaMyButtonBackgroundTablet);
 
-          ul {
-            li {
-              color: rgba(map-get($configuration, agendaAgendaTopTextColorTablet), 0.5);
-
-              .day {
-                color: rgba(map-get($configuration, agendaAgendaTopTextColorTablet), 0.7);
-              }
-
-              &.placeholder {
-                color: rgba(map-get($configuration, agendaAgendaTopTextColorTablet), 0.1);
-
-                .day {
-                  color: rgba(map-get($configuration, agendaAgendaTopTextColorTablet), 0.1);
-                }
-              }
-
-              &.active {
-                color: rgba(map-get($configuration, agendaAgendaTopTextActiveColorTablet), 0.5);
-
-                .day {
-                  color: rgba(map-get($configuration, agendaAgendaTopTextActiveColorTablet), 1);
-                }
-              }
-            }
+          .fa {
+            color: map-get($configuration, agendaMyButtonTextTablet);
           }
         }
 
-        .search-results-list-date {
-          color: rgba(map-get($configuration, agendaAgendaTopTextActiveColorTablet), 1);
+        .agenda-date-selector {
+          background-color: map-get($configuration, agendaTopBarBackgroundTablet);
+
+          ul li {
+            color: map-get($configuration, agendaTopBarTextTablet);
+            .day {
+              color: map-get($configuration, agendaTopBarTextTablet);
+            }
+
+            &.active {
+              color: map-get($configuration, agendaTopBarActiveTextTablet);
+              .day {
+                color: map-get($configuration, agendaTopBarActiveTextTablet);
+              }
+            }
+          }
         }
 
         .agenda-list-item {
+          @include borderOnly((
+            borderSides: map-get($configuration, agendaListItemBorderSidesTablet),
+            borderWidth: map-get($configuration, agendaListItemBorderWidthTablet),
+            borderStyle: map-get($configuration, agendaListItemBorderStyleTablet),
+            borderColor: map-get($configuration, agendaListItemBorderTablet)
+          ));
+          border-radius: map-get($configuration, agendaListItemBorderRadiusTablet);
+
+          @include shadowOnly((
+            shadowStyle: map-get($configuration, agendaListItemShadowStyleTablet),
+            shadowXOffset: map-get($configuration, agendaListItemShadowXoffsetTablet),
+            shadowYOffset: map-get($configuration, agendaListItemShadowYoffsetTablet),
+            shadowBlur: map-get($configuration, agendaListItemShadowBlurTablet),
+            shadowSpread: map-get($configuration, agendaListItemShadowSpreadTablet),
+            shadowColor: map-get($configuration, agendaListItemShadowColorTablet)
+          ))
+
           .slide-over {
             .agenda-item-inner-content {
-              background-color: map-get($configuration, agendaBackgroundColorTablet);
+              background-color: map-get($configuration, agendaListItemBackgroundTablet);
 
               .agenda-item-time {
-                color: map-get($configuration, agendaFontColorTablet);
+                @include fontOnly((
+                  fontFamily: map-get($configuration, agendaItemTimeFontFamilyTablet),
+                  fontSize: map-get($configuration, agendaItemTimeFontSizeTablet),
+                  fontLineHeight: map-get($configuration, agendaItemTimeLineHeightTablet),
+                  fontWeight: map-get($configuration, agendaItemTimeFontWeightTablet),
+                  fontStyle: map-get($configuration, agendaItemTimeItalicTablet),
+                  fontDecoration: map-get($configuration, agendaItemTimeUnderlineTablet)
+                ));
+
+                margin-top: map-get($configuration, agendaItemTimeMarginTopTablet);
+                margin-bottom: map-get($configuration, agendaItemTimeMarginBottomTablet);
+                color: map-get($configuration, agendaItemTimeFontColorTablet);
               }
 
-              .agenda-item-session-location {
-                color: map-get($configuration, agendaFontColorTablet);
+              .agenda-item-session-location .agenda-item-location {
+                @include fontOnly((
+                  fontFamily: map-get($configuration, agendaDescriptionFontFamilyTablet),
+                  fontSize: map-get($configuration, agendaDescriptionFontSizeTablet),
+                  fontLineHeight: map-get($configuration, agendaDescriptionLineHeightTablet),
+                  fontWeight: map-get($configuration, agendaDescriptionFontWeightTablet),
+                  fontStyle: map-get($configuration, agendaDescriptionItalicTablet),
+                  fontDecoration: map-get($configuration, agendaDescriptionUnderlineTablet)
+                ));
+
+                margin-top: map-get($configuration, agendaDescriptionMarginTopTablet);
+                margin-bottom: map-get($configuration, agendaDescriptionMarginBottomTablet);
+                color: map-get($configuration, agendaDescriptionFontColorTablet);
               }
 
               h2.agenda-item-title {
-                color: map-get($configuration, agendaFontColorTablet);
+                @include fontOnly((
+                  fontFamily: map-get($configuration, agendaTitleFontFamilyTablet),
+                  fontSize: map-get($configuration, agendaTitleFontSizeTablet),
+                  fontLineHeight: map-get($configuration, agendaTitleLineHeightTablet),
+                  fontWeight: map-get($configuration, agendaTitleFontWeightTablet),
+                  fontStyle: map-get($configuration, agendaTitleItalicTablet),
+                  fontDecoration: map-get($configuration, agendaTitleUnderlineTablet)
+                ));
+
+                margin-top: map-get($configuration, agendaTitleMarginTopTablet);
+                margin-bottom: map-get($configuration, agendaTitleMarginBottomTablet);
+                color: map-get($configuration, agendaTitleFontColorTablet);
               }
-            }
-          }
-        }
-
-        .agenda-item-bookmark-holder {
-          color: map-get($configuration, agendaFontColorTablet);
-
-          .fa-bookmark-o {
-            color: rgba(map-get($configuration, agendaFontColorTablet), 0.2);
-          }
-        }
-
-        .bookmark-wrapper {
-          .fa-bookmark-o {
-            color: rgba(map-get($configuration, agendaFontColorTablet), 0.2);
-
-            &:after {
-              color: rgba(map-get($configuration, agendaFontColorTablet), 0.5);
             }
           }
         }
@@ -897,20 +959,8 @@
 
         .agenda-list-item {
           .agenda-item-close-btn {
-            background-color: rgba(map-get($configuration, agendaDetailBackgroundColorTablet), 0.5);
-            color: map-get($configuration, agendaDetailFontColorTablet);
+            // background-color: rgba(map-get($configuration, agendaDetailBackgroundColorTablet), 0.5);
           }
-        }
-
-        .agenda-state-messages {
-          .loading-holder,
-          .offline-holder {
-            color: map-get($configuration, agendaDetailFontColorTablet);
-          }
-        }
-
-        .agenda-list-card-holder.empty + .agenda-item-empty-state {
-          color: map-get($configuration, agendaDetailFontColorTablet);
         }
 
         .section-top-wrapper,
@@ -925,47 +975,67 @@
 
       // Styles for desktop
       @include above($desktopBreakpoint) {
+        ~ .dynamic-list-add-item {
+          background-color: map-get($configuration, agendaMyButtonBackgroundDesktop);
+
+          .fa {
+            color: map-get($configuration, agendaMyButtonTextDesktop);
+          }
+        }
+
         .agenda-date-selector {
-          background-color: map-get($configuration, agendaAgendaTopBackgroundColorDesktop);
+          background-color: map-get($configuration, agendaTopBarBackgroundDesktop);
 
-          ul {
-            li {
-              color: rgba(map-get($configuration, agendaAgendaTopTextColorDesktop), 0.5);
+          ul li {
+            color: map-get($configuration, agendaTopBarTextDesktop);
+            .day {
+              color: map-get($configuration, agendaTopBarTextDesktop);
+            }
 
+            &.active {
+              color: map-get($configuration, agendaTopBarActiveTextDesktop);
               .day {
-                color: rgba(map-get($configuration, agendaAgendaTopTextColorDesktop), 0.7);
-              }
-
-              &.placeholder {
-                color: rgba(map-get($configuration, agendaAgendaTopTextColorDesktop), 0.1);
-
-                .day {
-                  color: rgba(map-get($configuration, agendaAgendaTopTextColorDesktop), 0.1);
-                }
-              }
-
-              &.active {
-                color: rgba(map-get($configuration, agendaAgendaTopTextActiveColorDesktop), 0.5);
-
-                .day {
-                  color: rgba(map-get($configuration, agendaAgendaTopTextActiveColorDesktop), 1);
-                }
+                color: map-get($configuration, agendaTopBarActiveTextDesktop);
               }
             }
           }
         }
 
-        .search-results-list-date {
-          color: rgba(map-get($configuration, agendaAgendaTopTextActiveColorDesktop), 1);
-        }
-
         .agenda-list-item {
+          @include borderOnly((
+            borderSides: map-get($configuration, agendaListItemBorderSidesDesktop),
+            borderWidth: map-get($configuration, agendaListItemBorderWidthDesktop),
+            borderStyle: map-get($configuration, agendaListItemBorderStyleDesktop),
+            borderColor: map-get($configuration, agendaListItemBorderDesktop)
+          ));
+          border-radius: map-get($configuration, agendaListItemBorderRadiusDesktop);
+
+          @include shadowOnly((
+            shadowStyle: map-get($configuration, agendaListItemShadowStyleDesktop),
+            shadowXOffset: map-get($configuration, agendaListItemShadowXoffsetDesktop),
+            shadowYOffset: map-get($configuration, agendaListItemShadowYoffsetDesktop),
+            shadowBlur: map-get($configuration, agendaListItemShadowBlurDesktop),
+            shadowSpread: map-get($configuration, agendaListItemShadowSpreadDesktop),
+            shadowColor: map-get($configuration, agendaListItemShadowColorDesktop)
+          ))
+
           .slide-over {
             .agenda-item-inner-content {
-              background-color: map-get($configuration, agendaBackgroundColorDesktop);
+              background-color: map-get($configuration, agendaListItemBackgroundDesktop);
 
               .agenda-item-time {
-                color: map-get($configuration, agendaFontColorDesktop);
+                @include fontOnly((
+                  fontFamily: map-get($configuration, agendaItemTimeFontFamilyDesktop),
+                  fontSize: map-get($configuration, agendaItemTimeFontSizeDesktop),
+                  fontLineHeight: map-get($configuration, agendaItemTimeLineHeightDesktop),
+                  fontWeight: map-get($configuration, agendaItemTimeFontWeightDesktop),
+                  fontStyle: map-get($configuration, agendaItemTimeItalicDesktop),
+                  fontDecoration: map-get($configuration, agendaItemTimeUnderlineDesktop)
+                ));
+
+                margin-top: map-get($configuration, agendaItemTimeMarginTopDesktop);
+                margin-bottom: map-get($configuration, agendaItemTimeMarginBottomDesktop);
+                color: map-get($configuration, agendaItemTimeFontColorDesktop);
               }
 
               .agenda-item-session-location .agenda-item-location {
@@ -1002,19 +1072,19 @@
         }
 
         .agenda-item-bookmark-holder {
-          color: map-get($configuration, agendaFontColorDesktop);
+          // color: map-get($configuration, agendaFontColorDesktop);
 
           .fa-bookmark-o {
-            color: rgba(map-get($configuration, agendaFontColorDesktop), 0.2);
+            // color: rgba(map-get($configuration, agendaFontColorDesktop), 0.2);
           }
         }
 
         .bookmark-wrapper {
           .fa-bookmark-o {
-            color: rgba(map-get($configuration, agendaFontColorDesktop), 0.2);
+            // color: rgba(map-get($configuration, agendaFontColorDesktop), 0.2);
 
             &:after {
-              color: rgba(map-get($configuration, agendaFontColorDesktop), 0.5);
+              // color: rgba(map-get($configuration, agendaFontColorDesktop), 0.5);
             }
           }
         }
@@ -1041,20 +1111,8 @@
 
         .agenda-list-item {
           .agenda-item-close-btn {
-            background-color: rgba(map-get($configuration, agendaDetailBackgroundColorDesktop), 0.5);
-            color: map-get($configuration, agendaDetailFontColorDesktop);
+            // background-color: rgba(map-get($configuration, agendaDetailBackgroundColorDesktop), 0.5);
           }
-        }
-
-        .agenda-state-messages {
-          .loading-holder,
-          .offline-holder {
-            color: map-get($configuration, agendaDetailFontColorDesktop);
-          }
-        }
-
-        .agenda-list-card-holder.empty + .agenda-item-empty-state {
-          color: map-get($configuration, agendaDetailFontColorDesktop);
         }
 
         .section-top-wrapper,
@@ -1069,742 +1127,699 @@
     }
 
     /* Old Agenda */
-    .agenda-date-selector {
-      background-color: map-get($configuration, agendaAgendaTopBackgroundColor);
-
-      ul {
-        li {
-          color: rgba(map-get($configuration, agendaAgendaTopTextColor), 0.5);
-
-          .day {
-            color: rgba(map-get($configuration, agendaAgendaTopTextColor), 0.7);
-          }
-
-          &.placeholder {
-            color: rgba(map-get($configuration, agendaAgendaTopTextColor), 0.1);
-
-            .day {
-              color: rgba(map-get($configuration, agendaAgendaTopTextColor), 0.1);
-            }
-          }
-
-          &.active {
-            color: rgba(map-get($configuration, agendaAgendaTopTextActiveColor), 0.5);
-
-            .day {
-              color: rgba(map-get($configuration, agendaAgendaTopTextActiveColor), 1);
-            }
-          }
-        }
-      }
-
-      // Styles for tablet
-      @include above($tabletBreakpoint) {
-        background-color: map-get($configuration, agendaAgendaTopBackgroundColorTablet);
-
-        ul {
-          li {
-            color: rgba(map-get($configuration, agendaAgendaTopTextColorTablet), 0.5);
-
-            .day {
-              color: rgba(map-get($configuration, agendaAgendaTopTextColorTablet), 0.7);
-            }
-
-            &.placeholder {
-              color: rgba(map-get($configuration, agendaAgendaTopTextColorTablet), 0.1);
-
-              .day {
-                color: rgba(map-get($configuration, agendaAgendaTopTextColorTablet), 0.1);
-              }
-            }
-
-            &.active {
-              color: rgba(map-get($configuration, agendaAgendaTopTextActiveColorTablet), 0.5);
-
-              .day {
-                color: rgba(map-get($configuration, agendaAgendaTopTextActiveColorTablet), 1);
-              }
-            }
-          }
-        }
-      }
-
-      // Styles for desktop
-      @include above($desktopBreakpoint) {
-        background-color: map-get($configuration, agendaAgendaTopBackgroundColorDesktop);
-
-        ul {
-          li {
-            color: rgba(map-get($configuration, agendaAgendaTopTextColorDesktop), 0.5);
-
-            .day {
-              color: rgba(map-get($configuration, agendaAgendaTopTextColorDesktop), 0.7);
-            }
-
-            &.placeholder {
-              color: rgba(map-get($configuration, agendaAgendaTopTextColorDesktop), 0.1);
-
-              .day {
-                color: rgba(map-get($configuration, agendaAgendaTopTextColorDesktop), 0.1);
-              }
-            }
-
-            &.active {
-              color: rgba(map-get($configuration, agendaAgendaTopTextActiveColorDesktop), 0.5);
-
-              .day {
-                color: rgba(map-get($configuration, agendaAgendaTopTextActiveColorDesktop), 1);
-              }
-            }
-          }
-        }
-      }
-    }
-
-    .agenda-list-item {
-      .slide-over {
-        .agenda-item-inner-content {
-          background-color: map-get($configuration, agendaBackgroundColor);
-
-          .agenda-item-time {
-            color: map-get($configuration, agendaFontColor);
-          }
-
-          .agenda-item-session-location {
-            color: map-get($configuration, agendaFontColor);
-          }
-
-          h2.agenda-item-title {
-            color: map-get($configuration, agendaFontColor);
-          }
-        }
-      }
-
-      &.open {
-        .slide-over {
-          .agenda-item-inner-content {
-            h2.agenda-item-title {
-              &:after {
-                background-color: $highlightColor;
-              }
-            }
-          }
-        }
-      }
-
-      // Styles for tablet
-      @include above($tabletBreakpoint) {
-        .slide-over {
-          .agenda-item-inner-content {
-            background-color: map-get($configuration, agendaBackgroundColorTablet);
-
-            .agenda-item-time {
-              color: map-get($configuration, agendaFontColorTablet);
-            }
-
-            .agenda-item-session-location {
-              color: map-get($configuration, agendaFontColorTablet);
-            }
-
-            h2.agenda-item-title {
-              color: map-get($configuration, agendaFontColorTablet);
-            }
-          }
-        }
-      }
-
-      // Styles for desktop
-      @include above($desktopBreakpoint) {
-        .slide-over {
-          .agenda-item-inner-content {
-            background-color: map-get($configuration, agendaBackgroundColorDesktop);
-
-            .agenda-item-time {
-              color: map-get($configuration, agendaFontColorDesktop);
-            }
-
-            .agenda-item-session-location {
-              color: map-get($configuration, agendaFontColorDesktop);
-            }
-
-            h2.agenda-item-title {
-              color: map-get($configuration, agendaFontColorDesktop);
-            }
-          }
-        }
-      }
-    }
-
-    .agenda-item-bookmark-holder {
-      color: map-get($configuration, agendaFontColor);
-
-      .fa-bookmark-o {
-        color: rgba(map-get($configuration, agendaFontColor), 0.2);
-      }
-
-      // Styles for tablet
-      @include above($tabletBreakpoint) {
-        color: map-get($configuration, agendaFontColorTablet);
-
-        .fa-bookmark-o {
-          color: rgba(map-get($configuration, agendaFontColorTablet), 0.2);
-        }
-      }
-
-      // Styles for desktop
-      @include above($desktopBreakpoint) {
-        color: map-get($configuration, agendaFontColorDesktop);
-
-        .fa-bookmark-o {
-          color: rgba(map-get($configuration, agendaFontColorDesktop), 0.2);
-        }
-      }
-    }
-
-    .bookmark-wrapper {
-      .fa-bookmark-o {
-        color: rgba(map-get($configuration, agendaFontColor), 0.2);
-
-        &:after {
-          color: rgba(map-get($configuration, agendaFontColor), 0.5);
-        }
-      }
-
-      .fa-bookmark {
-        color: $highlightColor;
-      }
-
-      // Styles for tablet
-      @include above($tabletBreakpoint) {
-        .fa-bookmark-o {
-          color: rgba(map-get($configuration, agendaFontColorTablet), 0.2);
-
-          &:after {
-            color: rgba(map-get($configuration, agendaFontColorTablet), 0.5);
-          }
-        }
-      }
-
-      // Styles for desktop
-      @include above($desktopBreakpoint) {
-        .fa-bookmark-o {
-          color: rgba(map-get($configuration, agendaFontColorDesktop), 0.2);
-
-          &:after {
-            color: rgba(map-get($configuration, agendaFontColorDesktop), 0.5);
-          }
-        }
-      }
-    }
-
-    .agenda-list-item-content {
-      .slide-over {
-        background-color: map-get($configuration, agendaBackgroundColor);
-      }
-
-      // Styles for tablet
-      @include above($tabletBreakpoint) {
-        .slide-over {
-          background-color: map-get($configuration, agendaBackgroundColorTablet);
-        }
-      }
-
-      // Styles for desktop
-      @include above($desktopBreakpoint) {
-        .slide-over {
-          background-color: map-get($configuration, agendaBackgroundColorDesktop);
-        }
-      }
-    }
-
-    .agenda-list-controls {
-      background-color: map-get($configuration, agendaAgendaDatesBackgroundColor);
-
-      .toggle-agenda {
-        .fa {
-          color: map-get($configuration, agendaAgendaDatesFontColor);
-        }
-
-        &.mixitup-control-active {
-          .fa {
-            color: map-get($configuration, agendaAgendaDatesFontColor);
-          }
-        }
-      }
-
-      .agenda-list-label {
-        color: map-get($configuration, agendaDetailFontColor);
-      }
-
-      // Styles for tablet
-      @include above($tabletBreakpoint) {
-        background-color: map-get($configuration, agendaAgendaDatesBackgroundColorTablet);
-
-        .toggle-agenda {
-          .fa {
-            color: map-get($configuration, agendaAgendaDatesFontColorTablet);
-          }
-
-          &.mixitup-control-active {
-            .fa {
-              color: map-get($configuration, agendaAgendaDatesFontColorTablet);
-            }
-          }
-        }
-
-        .agenda-list-label {
-          color: map-get($configuration, agendaDetailFontColorTablet);
-        }
-      }
-
-      // Styles for desktop
-      @include above($desktopBreakpoint) {
-        background-color: map-get($configuration, agendaAgendaDatesBackgroundColorDesktop);
-
-        .toggle-agenda {
-          .fa {
-            color: map-get($configuration, agendaAgendaDatesFontColorDesktop);
-          }
-
-          &.mixitup-control-active {
-            .fa {
-              color: map-get($configuration, agendaAgendaDatesFontColorDesktop);
-            }
-          }
-        }
-
-        .agenda-list-label {
-          color: map-get($configuration, agendaDetailFontColorDesktop);
-        }
-      }
-    }
-
-    .agenda-list-item {
-      .agenda-item-close-btn {
-        background-color: rgba(map-get($configuration, agendaDetailBackgroundColor), 0.5);
-        color: map-get($configuration, agendaDetailFontColor);
-      }
-
-      // Styles for tablet
-      @include above($tabletBreakpoint) {
-        .agenda-item-close-btn {
-          background-color: rgba(map-get($configuration, agendaDetailBackgroundColorTablet), 0.5);
-          color: map-get($configuration, agendaDetailFontColorTablet);
-        }
-      }
-
-      // Styles for desktop
-      @include above($desktopBreakpoint) {
-        .agenda-item-close-btn {
-          background-color: rgba(map-get($configuration, agendaDetailBackgroundColorDesktop), 0.5);
-          color: map-get($configuration, agendaDetailFontColorDesktop);
-        }
-      }
-    }
-
-    .agenda-state-messages {
-      .loading-holder,
-      .offline-holder {
-        color: map-get($configuration, agendaFontColor);
-      }
-
-      // Styles for tablet
-      @include above($tabletBreakpoint) {
-        .loading-holder,
-        .offline-holder {
-          color: map-get($configuration, agendaFontColorTablet);
-        }
-      }
-
-      // Styles for desktop
-      @include above($desktopBreakpoint) {
-        .loading-holder,
-        .offline-holder {
-          color: map-get($configuration, agendaFontColorDesktop);
-        }
-      }
-    }
-
-    .agenda-list-card-holder.empty + .agenda-item-empty-state {
-      color: map-get($configuration, agendaFontColor);
-
-      // Styles for tablet
-      @include above($tabletBreakpoint) {
-        color: map-get($configuration, agendaFontColorTablet);
-      }
-
-      // Styles for desktop
-      @include above($desktopBreakpoint) {
-        color: map-get($configuration, agendaFontColorDesktop);
-      }
-    }
-
-    .new-agenda-list-container .new-agenda-search-filter-overlay {
-      .agenda-overlay-wrapper {
-        background-color: map-get($configuration, agendaOverlayBackgroundColor);
-        color: map-get($configuration, agendaOverlayFontColor);
-      }
-
-      .agenda-overlay-header {
-        background-color: map-get($configuration, agendaOverlayBackgroundColor);
-      }
-
-      .hidden-filter-controls-filter {
-        border-color: rgba(map-get($configuration, agendaOverlayFontColor), 0.8);
-
-        &:hover,
-        &:focus {
-          color: rgba(map-get($configuration, agendaOverlayFontColor), 0.7);
-        }
-      }
-
-      // Styles for tablet
-      @include above($tabletBreakpoint) {
-        .agenda-overlay-wrapper {
-          background-color: map-get($configuration, agendaOverlayBackgroundColorTablet);
-          color: map-get($configuration, agendaOverlayFontColorTablet);
-        }
-
-        .agenda-overlay-header {
-          background-color: map-get($configuration, agendaOverlayBackgroundColorTablet);
-        }
-
-        .hidden-filter-controls-filter {
-          border-color: rgba(map-get($configuration, agendaOverlayFontColorTablet), 0.8);
-
-          &:hover,
-          &:focus {
-            color: rgba(map-get($configuration, agendaOverlayFontColorTablet), 0.7);
-          }
-        }
-      }
-
-      // Styles for desktop
-      @include above($desktopBreakpoint) {
-        .agenda-overlay-wrapper {
-          background-color: map-get($configuration, agendaOverlayBackgroundColorDesktop);
-          color: map-get($configuration, agendaOverlayFontColorDesktop);
-        }
-
-        .agenda-overlay-header {
-          background-color: map-get($configuration, agendaOverlayBackgroundColorDesktop);
-        }
-
-        .hidden-filter-controls-filter {
-          border-color: rgba(map-get($configuration, agendaOverlayFontColorDesktop), 0.8);
-
-          &:hover,
-          &:focus {
-            color: rgba(map-get($configuration, agendaOverlayFontColorDesktop), 0.7);
-          }
-        }
-      }
-    }
-
-    .new-agenda-list-container {
-      width: map-get($configuration, agendaWidth);
-      max-width: map-get($configuration, agendaMaxWidth);
-      margin: map-get($configuration, agendaMarginTop)
-        map-get($configuration, agendaMarginRight)
-        map-get($configuration, agendaMarginBottom)
-        map-get($configuration, agendaMarginLeft);
-
-      .new-agenda-search-filter-overlay {
-        .apply-filters,
-        .hidden-filter-controls-filter.mixitup-control-active {
-          background-color: $highlightColor;
-          color: $primaryButtonTextColor;
-          border-color: $highlightColor;
-        }
-      }
-
-      .filter-holder {
-        .panel-default > .panel-heading {
-          color: map-get($configuration, agendaOverlayFontColor);
-          background-color: map-get($configuration, agendaOverlayBackgroundColor);
-          border-bottom: 1px solid rgba(map-get($configuration, agendaOverlayFontColor), 0.2);
-        }
-        .panel-group .panel {
-          background-color: lighten(map-get($configuration, agendaOverlayBackgroundColor), 10%);
-
-          .panel-body {
-            background-color: transparent;
-          }
-        }
-      }
-
-      // The use of !important in this case is to avoid CSS repetion
-      // Some layouts on the agenda component have more specific targets
-
-      .section-top-wrapper {
-        .fa {
-          color: $highlightColor;
-        }
-        .form-control {
-          background-color: $bodyBackground;
-          color: $bodyTextColor;
-
-          &:focus {
-            border-color: $highlightColor;
-          }
-        }
-        .btn.search-btn {
-          border: none;
-          background-color: rgba($bodyTextColor, 0.1);
-          color: $bodyTextColor;
-
-          &:hover,
-          &:active,
-          &:active:hover {
-            border: none;
-          }
-        }
-
-        .search-feed:focus ~ .btn.search-btn {
-          border: none;
-        }
-
-        .list-search-icon .fa {
-          opacity: 1;
-          color: $highlightColor !important;
-        }
-
-        & ~ .list-search-icon .fa {
-          opacity: 1;
-          color: $highlightColor !important;
-        }
-      }
-
-      .hidden-search-controls .current-query-wrapper {
-        border-color: $highlightColor;
-        background-color: $highlightColor;
-        color: $primaryButtonTextColor;
-
-        &:hover,
-        &:focus {
-          color: rgba($primaryButtonTextColor, 0.7);
-        }
-      }
-
-      .hidden-filter-controls-label,
-      .search-query-holder {
-        color: rgba($bodyTextColor, 0.5);
-      }
-
-      .hidden-filter-controls-filter {
-        border-color: rgba($bodyTextColor, 0.8);
-
-        &:hover,
-        &:focus {
-          color: rgba($bodyTextColor, 0.7);
-        }
-
-        &.mixitup-control-active {
-          border-color: $highlightColor;
-          background-color: $highlightColor;
-          color: $primaryButtonTextColor;
-
-          &:hover,
-          &:focus {
-            color: rgba($primaryButtonTextColor, 0.7);
-          }
-        }
-      }
-
-      // Styles for tablet
-      @include above($tabletBreakpoint) {
-        width: map-get($configuration, agendaWidthTablet);
-        max-width: map-get($configuration, agendaMaxWidthTablet);
-        margin: map-get($configuration, agendaMarginTopTablet)
-          map-get($configuration, agendaMarginRightTablet)
-          map-get($configuration, agendaMarginBottomTablet)
-          map-get($configuration, agendaMarginLeftTablet);
-
-        .new-agenda-search-filter-overlay {
-          .apply-filters,
-          .hidden-filter-controls-filter.mixitup-control-active {
-            color: $primaryButtonTextColorTablet;
-          }
-        }
-
-        .filter-holder {
-          .panel-default > .panel-heading {
-            color: map-get($configuration, agendaOverlayFontColorTablet);
-            background-color: map-get($configuration, agendaOverlayBackgroundColorTablet);
-            border-bottom: 1px solid rgba(map-get($configuration, agendaOverlayFontColorTablet), 0.2);
-          }
-          .panel-group .panel {
-            background-color: lighten(map-get($configuration, agendaOverlayBackgroundColorTablet), 10%);
-
-            .panel-body {
-              background-color: transparent;
-            }
-          }
-        }
-
-        // The use of !important in this case is to avoid CSS repetion
-        // Some layouts on the agenda component have more specific targets
-
-        .search-holder {
-          .form-control {
-            background-color: $bodyBackgroundTablet;
-            color: $bodyTextColorTablet;
-          }
-          .btn.search-btn {
-            border: none;
-            background-color: rgba($bodyTextColorTablet, 0.1);
-            color: $bodyTextColorTablet;
-
-            &:hover,
-            &:active,
-            &:active:hover {
-              border: none;
-            }
-          }
-
-          .search-feed:focus ~ .btn.search-btn {
-            border: none;
-          }
-
-          .list-search-icon .fa {
-            opacity: 1;
-          }
-
-          & ~ .list-search-icon .fa {
-            opacity: 1;
-          }
-        }
-
-        .hidden-search-controls .current-query-wrapper {
-          color: $primaryButtonTextColorTablet;
-
-          &:hover,
-          &:focus {
-            color: rgba($primaryButtonTextColorTablet, 0.7);
-          }
-        }
-
-        .hidden-filter-controls-label,
-        .search-query-holder {
-          color: rgba($bodyTextColorTablet, 0.5);
-        }
-
-        .hidden-filter-controls-filter {
-          border-color: rgba($bodyTextColorTablet, 0.8);
-
-          &:hover,
-          &:focus {
-            color: rgba($bodyTextColorTablet, 0.7);
-          }
-
-          &.mixitup-control-active {
-            color: $primaryButtonTextColorTablet;
-
-            &:hover,
-            &:focus {
-              color: rgba($primaryButtonTextColorTablet, 0.7);
-            }
-          }
-        }
-      }
-
-      // Styles for desktop
-      @include above($desktopBreakpoint) {
-        width: map-get($configuration, agendaWidthDesktop);
-        max-width: map-get($configuration, agendaMaxWidthDesktop);
-        margin: map-get($configuration, agendaMarginTopDesktop)
-          map-get($configuration, agendaMarginRightDesktop)
-          map-get($configuration, agendaMarginBottomDesktop)
-          map-get($configuration, agendaMarginLeftDesktop);
-
-        .new-agenda-search-filter-overlay {
-          .apply-filters,
-          .hidden-filter-controls-filter.mixitup-control-active {
-            color: $primaryButtonTextColorDesktop;
-          }
-        }
-
-        .filter-holder {
-          .panel-default > .panel-heading {
-            color: map-get($configuration, agendaOverlayFontColorDesktop);
-            background-color: map-get($configuration, agendaOverlayBackgroundColorDesktop);
-            border-bottom: 1px solid rgba(map-get($configuration, agendaOverlayFontColorDesktop), 0.2);
-          }
-          .panel-group .panel {
-            background-color: lighten(map-get($configuration, agendaOverlayBackgroundColorDesktop), 10%);
-
-            .panel-body {
-              background-color: transparent;
-            }
-          }
-        }
-
-        // The use of !important in this case is to avoid CSS repetion
-        // Some layouts on the agenda component have more specific targets
-
-        .search-holder {
-          .form-control {
-            background-color: $bodyBackgroundDesktop;
-            color: $bodyTextColorDesktop;
-          }
-          .btn.search-btn {
-            border: none;
-            background-color: rgba($bodyTextColorDesktop, 0.1);
-            color: $bodyTextColorDesktop;
-
-            &:hover,
-            &:active,
-            &:active:hover {
-              border: none;
-            }
-          }
-
-          .search-feed:focus ~ .btn.search-btn {
-            border: none;
-          }
-
-          .list-search-icon .fa {
-            opacity: 1;
-          }
-
-          & ~ .list-search-icon .fa {
-            opacity: 1;
-          }
-        }
-
-        .hidden-search-controls .current-query-wrapper {
-          color: $primaryButtonTextColorDesktop;
-
-          &:hover,
-          &:focus {
-            color: rgba($primaryButtonTextColorDesktop, 0.7);
-          }
-        }
-
-        .hidden-filter-controls-label,
-        .search-query-holder {
-          color: rgba($bodyTextColorDesktop, 0.5);
-        }
-
-        .hidden-filter-controls-filter {
-          border-color: rgba($bodyTextColorDesktop, 0.8);
-
-          &:hover,
-          &:focus {
-            color: rgba($bodyTextColorDesktop, 0.7);
-          }
-
-          &.mixitup-control-active {
-            color: $primaryButtonTextColorDesktop;
-
-            &:hover,
-            &:focus {
-              color: rgba($primaryButtonTextColorDesktop, 0.7);
-            }
-          }
-        }
-      }
-    }
+    // .agenda-date-selector {
+    //   background-color: map-get($configuration, agendaTopBarBackground);
+    //
+    //   ul li {
+    //     color: map-get($configuration, agendaTopBarText);
+    //     .day {
+    //       color: map-get($configuration, agendaTopBarText);
+    //     }
+    //
+    //     &.active {
+    //       color: map-get($configuration, agendaTopBarActiveText);
+    //       .day {
+    //         color: map-get($configuration, agendaTopBarActiveText);
+    //       }
+    //     }
+    //   }
+    //
+    //   // Styles for tablet
+    //   @include above($tabletBreakpoint) {
+    //     background-color: map-get($configuration, agendaAgendaTopBackgroundColorTablet);
+    //
+    //     ul li {
+    //       color: map-get($configuration, agendaTopBarTextTablet);
+    //       .day {
+    //         color: map-get($configuration, agendaTopBarTextTablet);
+    //       }
+    //
+    //       &.active {
+    //         color: map-get($configuration, agendaTopBarActiveTextTablet);
+    //         .day {
+    //           color: map-get($configuration, agendaTopBarActiveTextTablet);
+    //         }
+    //       }
+    //     }
+    //   }
+    //
+    //   // Styles for desktop
+    //   @include above($desktopBreakpoint) {
+    //     background-color: map-get($configuration, agendaAgendaTopBackgroundColorDesktop);
+    //
+    //     ul li {
+    //       color: map-get($configuration, agendaTopBarTextDesktop);
+    //       .day {
+    //         color: map-get($configuration, agendaTopBarTextDesktop);
+    //       }
+    //
+    //       &.active {
+    //         color: map-get($configuration, agendaTopBarActiveTextDesktop);
+    //         .day {
+    //           color: map-get($configuration, agendaTopBarActiveTextDesktop);
+    //         }
+    //       }
+    //     }
+    //   }
+    // }
+    //
+    // .agenda-list-item {
+    //   .slide-over {
+    //     .agenda-item-inner-content {
+    //       background-color: map-get($configuration, agendaBackgroundColor);
+    //
+    //       .agenda-item-time {
+    //         color: map-get($configuration, agendaFontColor);
+    //       }
+    //
+    //       .agenda-item-session-location {
+    //         color: map-get($configuration, agendaFontColor);
+    //       }
+    //
+    //       h2.agenda-item-title {
+    //         color: map-get($configuration, agendaFontColor);
+    //       }
+    //     }
+    //   }
+    //
+    //   &.open {
+    //     .slide-over {
+    //       .agenda-item-inner-content {
+    //         h2.agenda-item-title {
+    //           &:after {
+    //             background-color: $highlightColor;
+    //           }
+    //         }
+    //       }
+    //     }
+    //   }
+    //
+    //   // Styles for tablet
+    //   @include above($tabletBreakpoint) {
+    //     .slide-over {
+    //       .agenda-item-inner-content {
+    //         background-color: map-get($configuration, agendaBackgroundColorTablet);
+    //
+    //         // .agenda-item-time {
+    //         //   color: map-get($configuration, agendaFontColorTablet);
+    //         // }
+    //         //
+    //         // .agenda-item-session-location {
+    //         //   color: map-get($configuration, agendaFontColorTablet);
+    //         // }
+    //         //
+    //         // h2.agenda-item-title {
+    //         //   color: map-get($configuration, agendaFontColorTablet);
+    //         // }
+    //       }
+    //     }
+    //   }
+    //
+    //   // Styles for desktop
+    //   @include above($desktopBreakpoint) {
+    //     .slide-over {
+    //       .agenda-item-inner-content {
+    //         background-color: map-get($configuration, agendaBackgroundColorDesktop);
+    //
+    //         .agenda-item-time {
+    //           color: map-get($configuration, agendaFontColorDesktop);
+    //         }
+    //
+    //         .agenda-item-session-location {
+    //           color: map-get($configuration, agendaFontColorDesktop);
+    //         }
+    //
+    //         h2.agenda-item-title {
+    //           color: map-get($configuration, agendaFontColorDesktop);
+    //         }
+    //       }
+    //     }
+    //   }
+    // }
+    //
+    // .agenda-item-bookmark-holder {
+    //   color: map-get($configuration, agendaFontColor);
+    //
+    //   .fa-bookmark-o {
+    //     color: rgba(map-get($configuration, agendaFontColor), 0.2);
+    //   }
+    //
+    //   // Styles for tablet
+    //   @include above($tabletBreakpoint) {
+    //     // color: map-get($configuration, agendaFontColorTablet);
+    //     //
+    //     // .fa-bookmark-o {
+    //     //   color: rgba(map-get($configuration, agendaFontColorTablet), 0.2);
+    //     // }
+    //   }
+    //
+    //   // Styles for desktop
+    //   @include above($desktopBreakpoint) {
+    //     color: map-get($configuration, agendaFontColorDesktop);
+    //
+    //     .fa-bookmark-o {
+    //       color: rgba(map-get($configuration, agendaFontColorDesktop), 0.2);
+    //     }
+    //   }
+    // }
+    //
+    // .bookmark-wrapper {
+    //   .fa-bookmark-o {
+    //     color: rgba(map-get($configuration, agendaFontColor), 0.2);
+    //
+    //     &:after {
+    //       color: rgba(map-get($configuration, agendaFontColor), 0.5);
+    //     }
+    //   }
+    //
+    //   .fa-bookmark {
+    //     color: $highlightColor;
+    //   }
+    //
+    //   // Styles for tablet
+    //   @include above($tabletBreakpoint) {
+    //     // .fa-bookmark-o {
+    //     //   color: rgba(map-get($configuration, agendaFontColorTablet), 0.2);
+    //     //
+    //     //   &:after {
+    //     //     color: rgba(map-get($configuration, agendaFontColorTablet), 0.5);
+    //     //   }
+    //     // }
+    //   }
+    //
+    //   // Styles for desktop
+    //   @include above($desktopBreakpoint) {
+    //     .fa-bookmark-o {
+    //       color: rgba(map-get($configuration, agendaFontColorDesktop), 0.2);
+    //
+    //       &:after {
+    //         color: rgba(map-get($configuration, agendaFontColorDesktop), 0.5);
+    //       }
+    //     }
+    //   }
+    // }
+    //
+    // .agenda-list-item-content {
+    //   .slide-over {
+    //     background-color: map-get($configuration, agendaBackgroundColor);
+    //   }
+    //
+    //   // Styles for tablet
+    //   @include above($tabletBreakpoint) {
+    //     .slide-over {
+    //       background-color: map-get($configuration, agendaBackgroundColorTablet);
+    //     }
+    //   }
+    //
+    //   // Styles for desktop
+    //   @include above($desktopBreakpoint) {
+    //     .slide-over {
+    //       background-color: map-get($configuration, agendaBackgroundColorDesktop);
+    //     }
+    //   }
+    // }
+    //
+    // .agenda-list-controls {
+    //   background-color: map-get($configuration, agendaAgendaDatesBackgroundColor);
+    //
+    //   .toggle-agenda {
+    //     .fa {
+    //       color: map-get($configuration, agendaAgendaDatesFontColor);
+    //     }
+    //
+    //     &.mixitup-control-active {
+    //       .fa {
+    //         color: map-get($configuration, agendaAgendaDatesFontColor);
+    //       }
+    //     }
+    //   }
+    //
+    //   // Styles for tablet
+    //   @include above($tabletBreakpoint) {
+    //     background-color: map-get($configuration, agendaAgendaDatesBackgroundColorTablet);
+    //
+    //     .toggle-agenda {
+    //       .fa {
+    //         color: map-get($configuration, agendaAgendaDatesFontColorTablet);
+    //       }
+    //
+    //       &.mixitup-control-active {
+    //         .fa {
+    //           color: map-get($configuration, agendaAgendaDatesFontColorTablet);
+    //         }
+    //       }
+    //     }
+    //   }
+    //
+    //   // Styles for desktop
+    //   @include above($desktopBreakpoint) {
+    //     background-color: map-get($configuration, agendaAgendaDatesBackgroundColorDesktop);
+    //
+    //     .toggle-agenda {
+    //       .fa {
+    //         color: map-get($configuration, agendaAgendaDatesFontColorDesktop);
+    //       }
+    //
+    //       &.mixitup-control-active {
+    //         .fa {
+    //           color: map-get($configuration, agendaAgendaDatesFontColorDesktop);
+    //         }
+    //       }
+    //     }
+    //   }
+    // }
+    //
+    // .agenda-list-item {
+    //   .agenda-item-close-btn {
+    //     background-color: rgba(map-get($configuration, agendaDetailBackgroundColor), 0.5);
+    //   }
+    //
+    //   // Styles for tablet
+    //   @include above($tabletBreakpoint) {
+    //     .agenda-item-close-btn {
+    //       background-color: rgba(map-get($configuration, agendaDetailBackgroundColorTablet), 0.5);
+    //     }
+    //   }
+    //
+    //   // Styles for desktop
+    //   @include above($desktopBreakpoint) {
+    //     .agenda-item-close-btn {
+    //       background-color: rgba(map-get($configuration, agendaDetailBackgroundColorDesktop), 0.5);
+    //     }
+    //   }
+    // }
+    //
+    // .agenda-state-messages {
+    //   .loading-holder,
+    //   .offline-holder {
+    //     color: map-get($configuration, agendaFontColor);
+    //   }
+    //
+    //   // Styles for tablet
+    //   @include above($tabletBreakpoint) {
+    //     .loading-holder,
+    //     .offline-holder {
+    //       // color: map-get($configuration, agendaFontColorTablet);
+    //     }
+    //   }
+    //
+    //   // Styles for desktop
+    //   @include above($desktopBreakpoint) {
+    //     .loading-holder,
+    //     .offline-holder {
+    //       color: map-get($configuration, agendaFontColorDesktop);
+    //     }
+    //   }
+    // }
+    //
+    // .agenda-list-card-holder.empty + .agenda-item-empty-state {
+    //   color: map-get($configuration, agendaFontColor);
+    //
+    //   // Styles for tablet
+    //   @include above($tabletBreakpoint) {
+    //     color: map-get($configuration, agendaFontColorTablet);
+    //   }
+    //
+    //   // Styles for desktop
+    //   @include above($desktopBreakpoint) {
+    //     color: map-get($configuration, agendaFontColorDesktop);
+    //   }
+    // }
+    //
+    // .new-agenda-list-container .new-agenda-search-filter-overlay {
+    //   .agenda-overlay-wrapper {
+    //     background-color: map-get($configuration, agendaFiltersOverlayBackground);
+    //     color: map-get($configuration, agendaOverlayFontColor);
+    //   }
+    //
+    //   .agenda-overlay-header {
+    //     background-color: map-get($configuration, agendaFiltersOverlayBackground);
+    //     color: map-get($configuration, agendaOverlayFontColor);
+    //   }
+    //
+    //   .hidden-filter-controls-filter {
+    //     border-color: rgba(map-get($configuration, agendaOverlayFontColor), 0.8);
+    //
+    //     &:hover,
+    //     &:focus {
+    //       color: rgba(map-get($configuration, agendaOverlayFontColor), 0.7);
+    //     }
+    //   }
+    //
+    //   // Styles for tablet
+    //   @include above($tabletBreakpoint) {
+    //     .agenda-overlay-wrapper {
+    //       background-color: map-get($configuration, agendaFiltersOverlayBackgroundTablet);
+    //       color: map-get($configuration, agendaOverlayFontColorTablet);
+    //     }
+    //
+    //     .agenda-overlay-header {
+    //       background-color: map-get($configuration, agendaFiltersOverlayBackgroundTablet);
+    //       color: map-get($configuration, agendaOverlayFontColorTablet);
+    //     }
+    //
+    //     .hidden-filter-controls-filter {
+    //       border-color: rgba(map-get($configuration, agendaOverlayFontColorTablet), 0.8);
+    //
+    //       &:hover,
+    //       &:focus {
+    //         color: rgba(map-get($configuration, agendaOverlayFontColorTablet), 0.7);
+    //       }
+    //     }
+    //   }
+    //
+    //   // Styles for desktop
+    //   @include above($desktopBreakpoint) {
+    //     .agenda-overlay-wrapper {
+    //       background-color: map-get($configuration, agendaFiltersOverlayBackgroundDesktop);
+    //       color: map-get($configuration, agendaOverlayFontColorDesktop);
+    //     }
+    //
+    //     .agenda-overlay-header {
+    //       background-color: map-get($configuration, agendaFiltersOverlayBackgroundDesktop);
+    //       color: map-get($configuration, agendaOverlayFontColorDesktop);
+    //     }
+    //
+    //     .hidden-filter-controls-filter {
+    //       border-color: rgba(map-get($configuration, agendaOverlayFontColorDesktop), 0.8);
+    //
+    //       &:hover,
+    //       &:focus {
+    //         color: rgba(map-get($configuration, agendaOverlayFontColorDesktop), 0.7);
+    //       }
+    //     }
+    //   }
+    // }
+    //
+    // .new-agenda-list-container {
+    //   width: map-get($configuration, agendaWidth);
+    //   max-width: map-get($configuration, agendaMaxWidth);
+    //   margin: map-get($configuration, agendaMarginTop)
+    //     map-get($configuration, agendaMarginRight)
+    //     map-get($configuration, agendaMarginBottom)
+    //     map-get($configuration, agendaMarginLeft);
+    //
+    //   .new-agenda-search-filter-overlay {
+    //     .apply-filters,
+    //     .hidden-filter-controls-filter.mixitup-control-active {
+    //       background-color: $highlightColor;
+    //       color: $primaryButtonTextColor;
+    //       border-color: $highlightColor;
+    //     }
+    //   }
+    //
+    //   .filter-holder {
+    //     .panel-default > .panel-heading {
+    //       color: map-get($configuration, agendaOverlayFontColor);
+    //       background-color: map-get($configuration, agendaFiltersOverlayBackground);
+    //       border-bottom: 1px solid rgba(map-get($configuration, agendaOverlayFontColor), 0.2);
+    //     }
+    //     .panel-group .panel {
+    //       background-color: lighten(map-get($configuration, agendaOverlayBackgroundColor), 10%);
+    //
+    //       .panel-body {
+    //         background-color: transparent;
+    //       }
+    //     }
+    //   }
+    //
+    //   .section-top-wrapper {
+    //     .search-holder .fa {
+    //       color: map-get($configuration, agendaSearchIconColor) !important;
+    //     }
+    //
+    //     .form-control {
+    //       background-color: $bodyBackground;
+    //       color: $bodyTextColor;
+    //
+    //       &:focus {
+    //         border-color: $highlightColor;
+    //       }
+    //     }
+    //
+    //     .btn.search-btn {
+    //       border: none;
+    //       background-color: rgba($bodyTextColor, 0.1);
+    //       color: $bodyTextColor;
+    //
+    //       &:hover,
+    //       &:active,
+    //       &:active:hover {
+    //         border: none;
+    //       }
+    //     }
+    //
+    //     .search-feed:focus ~ .btn.search-btn {
+    //       border: none;
+    //     }
+    //
+    //     .list-search-icon {
+    //       .fa-sliders, .list-search-cancel .fa-times {
+    //         color: map-get($configuration, agendaFilterIconColor) !important;
+    //       }
+    //
+    //       .toggle-bookmarks .fa {
+    //         color: map-get($configuration, agendaBookmarkIconColor) !important;
+    //       }
+    //     }
+    //   }
+    //
+    //   .hidden-search-controls .current-query-wrapper {
+    //     border-color: $highlightColor;
+    //     background-color: $highlightColor;
+    //     color: $primaryButtonTextColor;
+    //
+    //     &:hover,
+    //     &:focus {
+    //       color: rgba($primaryButtonTextColor, 0.7);
+    //     }
+    //   }
+    //
+    //   .hidden-filter-controls-label,
+    //   .search-query-holder {
+    //     color: rgba($bodyTextColor, 0.5);
+    //   }
+    //
+    //   .hidden-filter-controls-filter {
+    //     border-color: rgba($bodyTextColor, 0.8);
+    //
+    //     &:hover,
+    //     &:focus {
+    //       color: rgba($bodyTextColor, 0.7);
+    //     }
+    //
+    //     &.mixitup-control-active {
+    //       border-color: $highlightColor;
+    //       background-color: $highlightColor;
+    //       color: $primaryButtonTextColor;
+    //
+    //       &:hover,
+    //       &:focus {
+    //         color: rgba($primaryButtonTextColor, 0.7);
+    //       }
+    //     }
+    //   }
+    //
+    //   // Styles for tablet
+    //   @include above($tabletBreakpoint) {
+    //     width: map-get($configuration, agendaWidthTablet);
+    //     max-width: map-get($configuration, agendaMaxWidthTablet);
+    //     margin: map-get($configuration, agendaMarginTopTablet)
+    //       map-get($configuration, agendaMarginRightTablet)
+    //       map-get($configuration, agendaMarginBottomTablet)
+    //       map-get($configuration, agendaMarginLeftTablet);
+    //
+    //     .new-agenda-search-filter-overlay {
+    //       .apply-filters,
+    //       .hidden-filter-controls-filter.mixitup-control-active {
+    //         color: $primaryButtonTextColorTablet;
+    //       }
+    //     }
+    //
+    //     .filter-holder {
+    //       .panel-default > .panel-heading {
+    //         color: map-get($configuration, agendaOverlayFontColorTablet);
+    //         background-color: map-get($configuration, agendaFiltersOverlayBackgroundTablet);
+    //         border-bottom: 1px solid rgba(map-get($configuration, agendaOverlayFontColorTablet), 0.2);
+    //       }
+    //       .panel-group .panel {
+    //         background-color: lighten(map-get($configuration, agendaOverlayBackgroundColorTablet), 10%);
+    //
+    //         .panel-body {
+    //           background-color: transparent;
+    //         }
+    //       }
+    //     }
+    //
+    //     .search-holder {
+    //       .fa {
+    //         color: map-get($configuration, agendaSearchIconColorTablet) !important;
+    //       }
+    //
+    //       .form-control {
+    //         background-color: $bodyBackgroundTablet;
+    //         color: $bodyTextColorTablet;
+    //       }
+    //       .btn.search-btn {
+    //         border: none;
+    //         background-color: rgba($bodyTextColorTablet, 0.1);
+    //         color: $bodyTextColorTablet;
+    //
+    //         &:hover,
+    //         &:active,
+    //         &:active:hover {
+    //           border: none;
+    //         }
+    //       }
+    //
+    //       .search-feed:focus ~ .btn.search-btn {
+    //         border: none;
+    //       }
+    //
+    //       .list-search-icon {
+    //         .fa-sliders, .list-search-cancel .fa-times {
+    //           color: map-get($configuration, agendaFilterIconColorTablet) !important;
+    //         }
+    //
+    //         .toggle-bookmarks .fa {
+    //           color: map-get($configuration, agendaBookmarkIconColorTablet) !important;
+    //         }
+    //       }
+    //     }
+    //
+    //     .hidden-search-controls .current-query-wrapper {
+    //       color: $primaryButtonTextColorTablet;
+    //
+    //       &:hover,
+    //       &:focus {
+    //         color: rgba($primaryButtonTextColorTablet, 0.7);
+    //       }
+    //     }
+    //
+    //     .hidden-filter-controls-label,
+    //     .search-query-holder {
+    //       color: rgba($bodyTextColorTablet, 0.5);
+    //     }
+    //
+    //     .hidden-filter-controls-filter {
+    //       border-color: rgba($bodyTextColorTablet, 0.8);
+    //
+    //       &:hover,
+    //       &:focus {
+    //         color: rgba($bodyTextColorTablet, 0.7);
+    //       }
+    //
+    //       &.mixitup-control-active {
+    //         color: $primaryButtonTextColorTablet;
+    //
+    //         &:hover,
+    //         &:focus {
+    //           color: rgba($primaryButtonTextColorTablet, 0.7);
+    //         }
+    //       }
+    //     }
+    //   }
+    //
+    //   // Styles for desktop
+    //   @include above($desktopBreakpoint) {
+    //     width: map-get($configuration, agendaWidthDesktop);
+    //     max-width: map-get($configuration, agendaMaxWidthDesktop);
+    //     margin: map-get($configuration, agendaMarginTopDesktop)
+    //       map-get($configuration, agendaMarginRightDesktop)
+    //       map-get($configuration, agendaMarginBottomDesktop)
+    //       map-get($configuration, agendaMarginLeftDesktop);
+    //
+    //     .new-agenda-search-filter-overlay {
+    //       .apply-filters,
+    //       .hidden-filter-controls-filter.mixitup-control-active {
+    //         color: $primaryButtonTextColorDesktop;
+    //       }
+    //     }
+    //
+    //     .filter-holder {
+    //       .panel-default > .panel-heading {
+    //         color: map-get($configuration, agendaOverlayFontColorDesktop);
+    //         background-color: map-get($configuration, agendaFiltersOverlayBackgroundDesktop);
+    //         border-bottom: 1px solid rgba(map-get($configuration, agendaOverlayFontColorDesktop), 0.2);
+    //       }
+    //       .panel-group .panel {
+    //         background-color: lighten(map-get($configuration, agendaOverlayBackgroundColorDesktop), 10%);
+    //
+    //         .panel-body {
+    //           background-color: transparent;
+    //         }
+    //       }
+    //     }
+    //
+    //     .search-holder {
+    //       .fa {
+    //         color: map-get($configuration, agendaSearchIconColorDesktop) !important;
+    //       }
+    //
+    //       .form-control {
+    //         background-color: $bodyBackgroundDesktop;
+    //         color: $bodyTextColorDesktop;
+    //       }
+    //       .btn.search-btn {
+    //         border: none;
+    //         background-color: rgba($bodyTextColorDesktop, 0.1);
+    //         color: $bodyTextColorDesktop;
+    //
+    //         &:hover,
+    //         &:active,
+    //         &:active:hover {
+    //           border: none;
+    //         }
+    //       }
+    //
+    //       .search-feed:focus ~ .btn.search-btn {
+    //         border: none;
+    //       }
+    //
+    //       .list-search-icon {
+    //         .fa-sliders, .list-search-cancel .fa-times {
+    //           color: map-get($configuration, agendaFilterIconColorDesktop) !important;
+    //         }
+    //
+    //         .toggle-bookmarks .fa {
+    //           color: map-get($configuration, agendaBookmarkIconColorDesktop) !important;
+    //         }
+    //       }
+    //     }
+    //
+    //     .hidden-search-controls .current-query-wrapper {
+    //       color: $primaryButtonTextColorDesktop;
+    //
+    //       &:hover,
+    //       &:focus {
+    //         color: rgba($primaryButtonTextColorDesktop, 0.7);
+    //       }
+    //     }
+    //
+    //     .hidden-filter-controls-label,
+    //     .search-query-holder {
+    //       color: rgba($bodyTextColorDesktop, 0.5);
+    //     }
+    //
+    //     .hidden-filter-controls-filter {
+    //       border-color: rgba($bodyTextColorDesktop, 0.8);
+    //
+    //       &:hover,
+    //       &:focus {
+    //         color: rgba($bodyTextColorDesktop, 0.7);
+    //       }
+    //
+    //       &.mixitup-control-active {
+    //         color: $primaryButtonTextColorDesktop;
+    //
+    //         &:hover,
+    //         &:focus {
+    //           color: rgba($primaryButtonTextColorDesktop, 0.7);
+    //         }
+    //       }
+    //     }
+    //   }
+    // }
   }
 }
 
