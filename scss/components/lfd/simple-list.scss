@@ -1,0 +1,813 @@
+@mixin simpleList($options: (), $widgetInstanceId: '', $widgetInstanceUUID: '') {
+  $configuration: map-merge((
+    simpleListOverlayFontColor: $simpleListOverlayFontColor,
+    simpleListOverlayFontColorTablet: $simpleListOverlayFontColorTablet,
+    simpleListOverlayFontColorDesktop: $simpleListOverlayFontColorDesktop,
+    simpleListWidth: $simpleListWidth,
+    simpleListWidthTablet: $simpleListWidthTablet,
+    simpleListWidthDesktop: $simpleListWidthDesktop,
+    simpleListMaxWidth: $simpleListMaxWidth,
+    simpleListMaxWidthTablet: $simpleListMaxWidthTablet,
+    simpleListMaxWidthDesktop: $simpleListMaxWidthDesktop,
+    simpleListMarginTop: $simpleListMarginTop,
+    simpleListMarginTopTablet: $simpleListMarginTopTablet,
+    simpleListMarginTopDesktop: $simpleListMarginTopDesktop,
+    simpleListMarginRight: $simpleListMarginRight,
+    simpleListMarginRightTablet: $simpleListMarginRightTablet,
+    simpleListMarginRightDesktop: $simpleListMarginRightDesktop,
+    simpleListMarginBottom: $simpleListMarginBottom,
+    simpleListMarginBottomTablet: $simpleListMarginBottomTablet,
+    simpleListMarginBottomDesktop: $simpleListMarginBottomDesktop,
+    simpleListMarginLeft: $simpleListMarginLeft,
+    simpleListMarginLeftTablet: $simpleListMarginLeftTablet,
+    simpleListMarginLeftDesktop: $simpleListMarginLeftDesktop,
+    simpleListVisibility: $simpleListVisibility,
+    simpleListVisibilityTablet: $simpleListVisibilityTablet,
+    simpleListVisibilityDesktop: $simpleListVisibilityDesktop,
+    simpleListTitleFontFamily: $simpleListTitleFontFamily,
+    simpleListTitleFontFamilyTablet: $simpleListTitleFontFamilyTablet,
+    simpleListTitleFontFamilyDesktop: $simpleListTitleFontFamilyDesktop,
+    simpleListTitleFontSize: $simpleListTitleFontSize,
+    simpleListTitleFontSizeTablet: $simpleListTitleFontSizeTablet,
+    simpleListTitleFontSizeDesktop: $simpleListTitleFontSizeDesktop,
+    simpleListTitleFontColor: $simpleListTitleFontColor,
+    simpleListTitleFontColorTablet: $simpleListTitleFontColorTablet,
+    simpleListTitleFontColorDesktop: $simpleListTitleFontColorDesktop,
+    simpleListTitleFontWeight: $simpleListTitleFontWeight,
+    simpleListTitleFontWeightTablet: $simpleListTitleFontWeightTablet,
+    simpleListTitleFontWeightDesktop: $simpleListTitleFontWeightDesktop,
+    simpleListTitleItalic: $simpleListTitleItalic,
+    simpleListTitleItalicTablet: $simpleListTitleItalicTablet,
+    simpleListTitleItalicDesktop: $simpleListTitleItalicDesktop,
+    simpleListTitleUnderline: $simpleListTitleUnderline,
+    simpleListTitleUnderlineTablet: $simpleListTitleUnderlineTablet,
+    simpleListTitleUnderlineDesktop: $simpleListTitleUnderlineDesktop,
+    simpleListTitleLineHeight: $simpleListTitleLineHeight,
+    simpleListTitleLineHeightTablet: $simpleListTitleLineHeightTablet,
+    simpleListTitleLineHeightDesktop: $simpleListTitleLineHeightDesktop,
+    simpleListTitleMarginTop: $simpleListTitleMarginTop,
+    simpleListTitleMarginTopTablet: $simpleListTitleMarginTopTablet,
+    simpleListTitleMarginTopDesktop: $simpleListTitleMarginTopDesktop,
+    simpleListTitleMarginBottom: $simpleListTitleMarginBottom,
+    simpleListTitleMarginBottomTablet: $simpleListTitleMarginBottomTablet,
+    simpleListTitleMarginBottomDesktop: $simpleListTitleMarginBottomDesktop,
+    simpleListDescriptionFontFamily: $simpleListDescriptionFontFamily,
+    simpleListDescriptionFontFamilyTablet: $simpleListDescriptionFontFamilyTablet,
+    simpleListDescriptionFontFamilyDesktop: $simpleListDescriptionFontFamilyDesktop,
+    simpleListDescriptionFontSize: $simpleListDescriptionFontSize,
+    simpleListDescriptionFontSizeTablet: $simpleListDescriptionFontSizeTablet,
+    simpleListDescriptionFontSizeDesktop: $simpleListDescriptionFontSizeDesktop,
+    simpleListDescriptionFontColor: $simpleListDescriptionFontColor,
+    simpleListDescriptionFontColorTablet: $simpleListDescriptionFontColorTablet,
+    simpleListDescriptionFontColorDesktop: $simpleListDescriptionFontColorDesktop,
+    simpleListDescriptionFontWeight: $simpleListDescriptionFontWeight,
+    simpleListDescriptionFontWeightTablet: $simpleListDescriptionFontWeightTablet,
+    simpleListDescriptionFontWeightDesktop: $simpleListDescriptionFontWeightDesktop,
+    simpleListDescriptionItalic: $simpleListDescriptionItalic,
+    simpleListDescriptionItalicTablet: $simpleListDescriptionItalicTablet,
+    simpleListDescriptionItalicDesktop: $simpleListDescriptionItalicDesktop,
+    simpleListDescriptionUnderline: $simpleListDescriptionUnderline,
+    simpleListDescriptionUnderlineTablet: $simpleListDescriptionUnderlineTablet,
+    simpleListDescriptionUnderlineDesktop: $simpleListDescriptionUnderlineDesktop,
+    simpleListDescriptionLineHeight: $simpleListDescriptionLineHeight,
+    simpleListDescriptionLineHeightTablet: $simpleListDescriptionLineHeightTablet,
+    simpleListDescriptionLineHeightDesktop: $simpleListDescriptionLineHeightDesktop,
+    simpleListDescriptionMarginTop: $simpleListDescriptionMarginTop,
+    simpleListDescriptionMarginTopTablet: $simpleListDescriptionMarginTopTablet,
+    simpleListDescriptionMarginTopDesktop: $simpleListDescriptionMarginTopDesktop,
+    simpleListDescriptionMarginBottom: $simpleListDescriptionMarginBottom,
+    simpleListDescriptionMarginBottomTablet: $simpleListDescriptionMarginBottomTablet,
+    simpleListDescriptionMarginBottomDesktop: $simpleListDescriptionMarginBottomDesktop,
+    simpleListSecondDescriptionFontFamily: $simpleListSecondDescriptionFontFamily,
+    simpleListSecondDescriptionFontFamilyTablet: $simpleListSecondDescriptionFontFamilyTablet,
+    simpleListSecondDescriptionFontFamilyDesktop: $simpleListSecondDescriptionFontFamilyDesktop,
+    simpleListSecondDescriptionFontSize: $simpleListSecondDescriptionFontSize,
+    simpleListSecondDescriptionFontSizeTablet: $simpleListSecondDescriptionFontSizeTablet,
+    simpleListSecondDescriptionFontSizeDesktop: $simpleListSecondDescriptionFontSizeDesktop,
+    simpleListSecondDescriptionFontColor: $simpleListSecondDescriptionFontColor,
+    simpleListSecondDescriptionFontColorTablet: $simpleListSecondDescriptionFontColorTablet,
+    simpleListSecondDescriptionFontColorDesktop: $simpleListSecondDescriptionFontColorDesktop,
+    simpleListSecondDescriptionFontWeight: $simpleListSecondDescriptionFontWeight,
+    simpleListSecondDescriptionFontWeightTablet: $simpleListSecondDescriptionFontWeightTablet,
+    simpleListSecondDescriptionFontWeightDesktop: $simpleListSecondDescriptionFontWeightDesktop,
+    simpleListSecondDescriptionItalic: $simpleListSecondDescriptionItalic,
+    simpleListSecondDescriptionItalicTablet: $simpleListSecondDescriptionItalicTablet,
+    simpleListSecondDescriptionItalicDesktop: $simpleListSecondDescriptionItalicDesktop,
+    simpleListSecondDescriptionUnderline: $simpleListSecondDescriptionUnderline,
+    simpleListSecondDescriptionUnderlineTablet: $simpleListSecondDescriptionUnderlineTablet,
+    simpleListSecondDescriptionUnderlineDesktop: $simpleListSecondDescriptionUnderlineDesktop,
+    simpleListSecondDescriptionLineHeight: $simpleListSecondDescriptionLineHeight,
+    simpleListSecondDescriptionLineHeightTablet: $simpleListSecondDescriptionLineHeightTablet,
+    simpleListSecondDescriptionLineHeightDesktop: $simpleListSecondDescriptionLineHeightDesktop,
+    simpleListSecondDescriptionMarginTop: $simpleListSecondDescriptionMarginTop,
+    simpleListSecondDescriptionMarginTopTablet: $simpleListSecondDescriptionMarginTopTablet,
+    simpleListSecondDescriptionMarginTopDesktop: $simpleListSecondDescriptionMarginTopDesktop,
+    simpleListSecondDescriptionMarginBottom: $simpleListSecondDescriptionMarginBottom,
+    simpleListSecondDescriptionMarginBottomTablet: $simpleListSecondDescriptionMarginBottomTablet,
+    simpleListSecondDescriptionMarginBottomDesktop: $simpleListSecondDescriptionMarginBottomDesktop,
+    simpleListDetailLabelsFontColor: $simpleListDetailLabelsFontColor,
+    simpleListDetailLabelsFontColorTablet: $simpleListDetailLabelsFontColorTablet,
+    simpleListDetailLabelsFontColorDesktop: $simpleListDetailLabelsFontColorDesktop,
+    simpleListDetailLabelsFontWeight: $simpleListDetailLabelsFontWeight,
+    simpleListDetailLabelsFontWeightTablet: $simpleListDetailLabelsFontWeightTablet,
+    simpleListDetailLabelsFontWeightDesktop: $simpleListDetailLabelsFontWeightDesktop,
+    simpleListDetailLabelsItalic: $simpleListDetailLabelsItalic,
+    simpleListDetailLabelsItalicTablet: $simpleListDetailLabelsItalicTablet,
+    simpleListDetailLabelsItalicDesktop: $simpleListDetailLabelsItalicDesktop,
+    simpleListDetailLabelsUnderline: $simpleListDetailLabelsUnderline,
+    simpleListDetailLabelsUnderlineTablet: $simpleListDetailLabelsUnderlineTablet,
+    simpleListDetailLabelsUnderlineDesktop: $simpleListDetailLabelsUnderlineDesktop,
+    simpleListDetailLabelsLineHeight: $simpleListDetailLabelsLineHeight,
+    simpleListDetailLabelsLineHeightTablet: $simpleListDetailLabelsLineHeightTablet,
+    simpleListDetailLabelsLineHeightDesktop: $simpleListDetailLabelsLineHeightDesktop,
+    simpleListDetailLabelsMarginTop: $simpleListDetailLabelsMarginTop,
+    simpleListDetailLabelsMarginTopTablet: $simpleListDetailLabelsMarginTopTablet,
+    simpleListDetailLabelsMarginTopDesktop: $simpleListDetailLabelsMarginTopDesktop,
+    simpleListDetailLabelsMarginBottom: $simpleListDetailLabelsMarginBottom,
+    simpleListDetailLabelsMarginBottomTablet: $simpleListDetailLabelsMarginBottomTablet,
+    simpleListDetailLabelsMarginBottomDesktop: $simpleListDetailLabelsMarginBottomDesktop,
+    simpleListDetailTextFontFamily: $simpleListDetailTextFontFamily,
+    simpleListDetailTextFontFamilyTablet: $simpleListDetailTextFontFamilyTablet,
+    simpleListDetailTextFontFamilyDesktop: $simpleListDetailTextFontFamilyDesktop,
+    simpleListDetailTextFontSize: $simpleListDetailTextFontSize,
+    simpleListDetailTextFontSizeTablet: $simpleListDetailTextFontSizeTablet,
+    simpleListDetailTextFontSizeDesktop: $simpleListDetailTextFontSizeDesktop,
+    simpleListDetailTextFontColor: $simpleListDetailTextFontColor,
+    simpleListDetailTextFontColorTablet: $simpleListDetailTextFontColorTablet,
+    simpleListDetailTextFontColorDesktop: $simpleListDetailTextFontColorDesktop,
+    simpleListDetailTextFontWeight: $simpleListDetailTextFontWeight,
+    simpleListDetailTextFontWeightTablet: $simpleListDetailTextFontWeightTablet,
+    simpleListDetailTextFontWeightDesktop: $simpleListDetailTextFontWeightDesktop,
+    simpleListDetailTextItalic: $simpleListDetailTextItalic,
+    simpleListDetailTextItalicTablet: $simpleListDetailTextItalicTablet,
+    simpleListDetailTextItalicDesktop: $simpleListDetailTextItalicDesktop,
+    simpleListDetailTextUnderline: $simpleListDetailTextUnderline,
+    simpleListDetailTextUnderlineTablet: $simpleListDetailTextUnderlineTablet,
+    simpleListDetailTextUnderlineDesktop: $simpleListDetailTextUnderlineDesktop,
+    simpleListDetailTextLineHeight: $simpleListDetailTextLineHeight,
+    simpleListDetailTextLineHeightTablet: $simpleListDetailTextLineHeightTablet,
+    simpleListDetailTextLineHeightDesktop: $simpleListDetailTextLineHeightDesktop,
+    simpleListDetailTextMarginTop: $simpleListDetailTextMarginTop,
+    simpleListDetailTextMarginTopTablet: $simpleListDetailTextMarginTopTablet,
+    simpleListDetailTextMarginTopDesktop: $simpleListDetailTextMarginTopDesktop,
+    simpleListDetailTextMarginBottom: $simpleListDetailTextMarginBottom,
+    simpleListDetailTextMarginBottomTablet: $simpleListDetailTextMarginBottomTablet,
+    simpleListDetailTextMarginBottomDesktop: $simpleListDetailTextMarginBottomDesktop,
+    simpleListItemBackground: $simpleListItemBackground,
+    simpleListItemBackgroundTablet: $simpleListItemBackgroundTablet,
+    simpleListItemBackgroundDesktop: $simpleListItemBackgroundDesktop,
+    simpleListDetailOverlayBackground: $simpleListDetailOverlayBackground,
+    simpleListDetailOverlayBackgroundTablet: $simpleListDetailOverlayBackgroundTablet,
+    simpleListDetailOverlayBackgroundDesktop: $simpleListDetailOverlayBackgroundDesktop,
+    simpleListDetailOverlayIconsColor: $simpleListDetailOverlayIconsColor,
+    simpleListDetailOverlayIconsColorTablet: $simpleListDetailOverlayIconsColorTablet,
+    simpleListDetailOverlayIconsColorDesktop: $simpleListDetailOverlayIconsColorDesktop,
+    simpleListFiltersOverlayBackground: $simpleListFiltersOverlayBackground,
+    simpleListFiltersOverlayBackgroundTablet: $simpleListFiltersOverlayBackgroundTablet,
+    simpleListFiltersOverlayBackgroundDesktop: $simpleListFiltersOverlayBackgroundDesktop,
+    simpleListFilterIconColor: $simpleListFilterIconColor,
+    simpleListFilterIconColorTablet: $simpleListFilterIconColorTablet,
+    simpleListFilterIconColorDesktop: $simpleListFilterIconColorDesktop,
+    simpleListSearchIconColor: $simpleListSearchIconColor,
+    simpleListSearchIconColorTablet: $simpleListSearchIconColorTablet,
+    simpleListSearchIconColorDesktop: $simpleListSearchIconColorDesktop,
+    simpleListBookmarkIconColor: $simpleListBookmarkIconColor,
+    simpleListBookmarkIconColorTablet: $simpleListBookmarkIconColorTablet,
+    simpleListBookmarkIconColorDesktop: $simpleListBookmarkIconColorDesktop,
+    simpleListImageBackground: $simpleListImageBackground,
+    simpleListImageBackgroundTablet: $simpleListImageBackgroundTablet,
+    simpleListImageBackgroundDesktop: $simpleListImageBackgroundDesktop,
+    simpleListPaddingTop: $simpleListPaddingTop,
+    simpleListPaddingRight: $simpleListPaddingRight,
+    simpleListPaddingBottom: $simpleListPaddingBottom,
+    simpleListPaddingLeft: $simpleListPaddingLeft,
+    simpleListPaddingTopTablet: $simpleListPaddingTopTablet,
+    simpleListPaddingRightTablet: $simpleListPaddingRightTablet,
+    simpleListPaddingBottomTablet: $simpleListPaddingBottomTablet,
+    simpleListPaddingLeftTablet: $simpleListPaddingLeftTablet,
+    simpleListPaddingTopDesktop: $simpleListPaddingTopDesktop,
+    simpleListPaddingRightDesktop: $simpleListPaddingRightDesktop,
+    simpleListPaddingBottomDesktop: $simpleListPaddingBottomDesktop,
+    simpleListPaddingLeftDesktop: $simpleListPaddingLeftDesktop,
+    simpleListItemBorderSides: $simpleListItemBorderSides,
+    simpleListItemBorderSidesTablet: $simpleListItemBorderSidesTablet,
+    simpleListItemBorderSidesDesktop: $simpleListItemBorderSidesDesktop,
+    simpleListItemBorderWidth: $simpleListItemBorderWidth,
+    simpleListItemBorderWidthTablet: $simpleListItemBorderWidthTablet,
+    simpleListItemBorderWidthDesktop: $simpleListItemBorderWidthDesktop,
+    simpleListItemBorderStyle: $simpleListItemBorderStyle,
+    simpleListItemBorderStyleTablet: $simpleListItemBorderStyleTablet,
+    simpleListItemBorderStyleDesktop: $simpleListItemBorderStyleDesktop,
+    simpleListItemBorder: $simpleListItemBorder,
+    simpleListItemBorderTablet: $simpleListItemBorderTablet,
+    simpleListItemBorderDesktop: $simpleListItemBorderDesktop,
+    simpleListItemBorderRadius: $simpleListItemBorderRadius,
+    simpleListItemBorderRadiusTablet: $simpleListItemBorderRadiusTablet,
+    simpleListItemBorderRadiusDesktop: $simpleListItemBorderRadiusDesktop,
+    simpleListItemShadowStyle: $simpleListItemShadowStyle,
+    simpleListItemShadowStyleTablet: $simpleListItemShadowStyleTablet,
+    simpleListItemShadowStyleDesktop: $simpleListItemShadowStyleDesktop,
+    simpleListItemShadowXoffset: $simpleListItemShadowXoffset,
+    simpleListItemShadowXoffsetTablet: $simpleListItemShadowXoffsetTablet,
+    simpleListItemShadowXoffsetDesktop: $simpleListItemShadowXoffsetDesktop,
+    simpleListItemShadowYoffset: $simpleListItemShadowYoffset,
+    simpleListItemShadowYoffsetTablet: $simpleListItemShadowYoffsetTablet,
+    simpleListItemShadowYoffsetDesktop: $simpleListItemShadowYoffsetDesktop,
+    simpleListItemShadowBlur: $simpleListItemShadowBlur,
+    simpleListItemShadowBlurTablet: $simpleListItemShadowBlurTablet,
+    simpleListItemShadowBlurDesktop: $simpleListItemShadowBlurDesktop,
+    simpleListItemShadowSpread: $simpleListItemShadowSpread,
+    simpleListItemShadowSpreadTablet: $simpleListItemShadowSpreadTablet,
+    simpleListItemShadowSpreadDesktop: $simpleListItemShadowSpreadDesktop,
+    simpleListItemShadowColor: $simpleListItemShadowColor,
+    simpleListItemShadowColorTablet: $simpleListItemShadowColorTablet,
+    simpleListItemShadowColorDesktop: $simpleListItemShadowColorDesktop,
+    simpleListPosition: $simpleListPosition,
+    simpleListPositionTop: $simpleListPositionTop,
+    simpleListPositionRight: $simpleListPositionRight,
+    simpleListPositionBottom: $simpleListPositionBottom,
+    simpleListPositionLeft: $simpleListPositionLeft,
+    simpleListIndex: $simpleListIndex,
+    simpleListDisplay: $simpleListDisplay,
+    simpleListPositionTablet: $simpleListPositionTablet,
+    simpleListPositionTopTablet: $simpleListPositionTopTablet,
+    simpleListPositionRightTablet: $simpleListPositionRightTablet,
+    simpleListPositionBottomTablet: $simpleListPositionBottomTablet,
+    simpleListPositionLeftTablet: $simpleListPositionLeftTablet,
+    simpleListIndexTablet: $simpleListIndexTablet,
+    simpleListDisplayTablet: $simpleListDisplayTablet,
+    simpleListPositionDesktop: $simpleListPositionDesktop,
+    simpleListPositionTopDesktop: $simpleListPositionTopDesktop,
+    simpleListPositionRightDesktop: $simpleListPositionRightDesktop,
+    simpleListPositionBottomDesktop: $simpleListPositionBottomDesktop,
+    simpleListPositionLeftDesktop: $simpleListPositionLeftDesktop,
+    simpleListIndexDesktop: $simpleListIndexDesktop,
+    simpleListDisplayDesktop: $simpleListDisplayDesktop
+  ), $options);
+
+  $instanceSelector: '[data-widget-package="com.fliplet.dynamic-lists"]';
+  $layoutSelector: '#{$instanceSelector} [data-dynamic-lists-layout="simple-list"]';
+  @if $widgetInstanceUUID != '' {
+    $layoutSelector: '#{$instanceSelector}[data-uuid="#{$widgetInstanceUUID}"] [data-dynamic-lists-layout="simple-list"]';
+  } @else if $widgetInstanceId != '' {
+    $layoutSelector: '#{$instanceSelector}[data-id="#{$widgetInstanceId}"] [data-dynamic-lists-layout="simple-list"]';
+  }
+
+  #{$layoutSelector} {
+    position: map-get($configuration, simpleListPosition) !important;
+    z-index: map-get($configuration, simpleListIndex);
+
+    @if map-get($configuration, simpleListPosition) == 'relative' {
+      @if map-get($configuration, simpleListVisibility) == 'visible' {
+        display: map-get($configuration, simpleListDisplay) !important;
+      } @else {
+        display: none !important;
+      }
+    } @else {
+      @if map-get($configuration, simpleListVisibility) == 'visible' {
+        display: block !important;
+      } @else {
+        display: none !important;
+      }
+
+      top: map-get($configuration, simpleListPositionTop);
+      right: map-get($configuration, simpleListPositionRight);
+      bottom: map-get($configuration, simpleListPositionBottom);
+      left: map-get($configuration, simpleListPositionLeft);
+    }
+
+    width: map-get($configuration, simpleListWidth);
+    max-width: map-get($configuration, simpleListMaxWidth);
+    margin: map-get($configuration, simpleListMarginTop)
+      map-get($configuration, simpleListMarginRight)
+      map-get($configuration, simpleListMarginBottom)
+      map-get($configuration, simpleListMarginLeft);
+
+    padding: map-get($configuration, simpleListPaddingTop)
+      map-get($configuration, simpleListPaddingRight)
+      map-get($configuration, simpleListPaddingBottom)
+      map-get($configuration, simpleListPaddingLeft);
+
+    // Styles for tablet
+    @include above($tabletBreakpoint) {
+      position: map-get($configuration, simpleListPositionTablet) !important;
+      z-index: map-get($configuration, simpleListIndexTablet);
+
+      @if map-get($configuration, simpleListPositionTablet) == 'relative' {
+        @if map-get($configuration, simpleListVisibilityTablet) == 'visible' {
+          display: map-get($configuration, simpleListDisplayTablet) !important;
+        } @else {
+          display: none !important;
+        }
+      } @else {
+        @if map-get($configuration, simpleListVisibilityTablet) == 'visible' {
+          display: block !important;
+        } @else {
+          display: none !important;
+        }
+
+        top: map-get($configuration, simpleListPositionTopTablet);
+        right: map-get($configuration, simpleListPositionRightTablet);
+        bottom: map-get($configuration, simpleListPositionBottomTablet);
+        left: map-get($configuration, simpleListPositionLeftTablet);
+      }
+
+      width: map-get($configuration, simpleListWidthTablet);
+      max-width: map-get($configuration, simpleListMaxWidthTablet);
+      margin: map-get($configuration, simpleListMarginTopTablet)
+        map-get($configuration, simpleListMarginRightTablet)
+        map-get($configuration, simpleListMarginBottomTablet)
+        map-get($configuration, simpleListMarginLeftTablet);
+
+      padding: map-get($configuration, simpleListPaddingTopTablet)
+        map-get($configuration, simpleListPaddingRightTablet)
+        map-get($configuration, simpleListPaddingBottomTablet)
+        map-get($configuration, simpleListPaddingLeftTablet);
+    }
+
+    // Styles for desktop
+    @include above($desktopBreakpoint) {
+      position: map-get($configuration, simpleListPositionDesktop) !important;
+      z-index: map-get($configuration, simpleListIndexDesktop);
+
+      @if map-get($configuration, simpleListPositionDesktop) == 'relative' {
+        @if map-get($configuration, simpleListVisibilityDesktop) == 'visible' {
+          display: map-get($configuration, simpleListDisplayDesktop) !important;
+        } @else {
+          display: none !important;
+        }
+      } @else {
+        @if map-get($configuration, simpleListVisibilityDesktop) == 'visible' {
+          display: block !important;
+        } @else {
+          display: none !important;
+        }
+
+        top: map-get($configuration, simpleListPositionTopDesktop);
+        right: map-get($configuration, simpleListPositionRightDesktop);
+        bottom: map-get($configuration, simpleListPositionBottomDesktop);
+        left: map-get($configuration, simpleListPositionLeftDesktop);
+      }
+
+      width: map-get($configuration, simpleListWidthDesktop);
+      max-width: map-get($configuration, simpleListMaxWidthDesktop);
+      margin: map-get($configuration, simpleListMarginTopDesktop)
+        map-get($configuration, simpleListMarginRightDesktop)
+        map-get($configuration, simpleListMarginBottomDesktop)
+        map-get($configuration, simpleListMarginLeftDesktop);
+
+      padding: map-get($configuration, simpleListPaddingTopDesktop)
+        map-get($configuration, simpleListPaddingRightDesktop)
+        map-get($configuration, simpleListPaddingBottomDesktop)
+        map-get($configuration, simpleListPaddingLeftDesktop);
+    }
+
+    .simple-list-container {
+
+      .section-top-wrapper {
+
+        .search-holder .fa {
+          color: map-get($configuration, simpleListSearchIconColor);
+        }
+
+        .list-search-icon {
+          .toggle-bookmarks .fa {
+            color: map-get($configuration, simpleListBookmarkIconColor) !important;
+          }
+
+          .fa-sliders,
+          .list-search-cancel .fa {
+            color: map-get($configuration, simpleListFilterIconColor) !important;
+          }
+        }
+
+        // Styles for tablet
+        @include above($tabletBreakpoint) {
+          .search-holder .fa {
+            color: map-get($configuration, simpleListSearchIconColorTablet);
+          }
+  
+          .list-search-icon {
+            .toggle-bookmarks .fa {
+              color: map-get($configuration, simpleListBookmarkIconColorTablet);
+            }
+  
+            .fa-sliders,
+            .list-search-cancel .fa {
+              color: map-get($configuration, simpleListFilterIconColorTablet);
+            }
+          }
+        }
+
+        // Styles for desktop
+        @include above($desktopBreakpoint) {
+          .search-holder .fa {
+            color: map-get($configuration, simpleListSearchIconColorDesktop);
+          }
+  
+          .list-search-icon {
+            .toggle-bookmarks .fa {
+              color: map-get($configuration, simpleListBookmarkIconColorDesktop);
+            }
+  
+            .fa-sliders,
+            .list-search-cancel .fa {
+              color: map-get($configuration, simpleListFilterIconColorDesktop);
+            }
+          }
+        }
+      }
+
+      .simple-list-wrapper {
+
+        .simple-list-item {
+          background-color: map-get($configuration, simpleListItemBackground);
+          @include borderOnly((
+            borderSides: map-get($configuration, simpleListItemBorderSides),
+            borderWidth: map-get($configuration, simpleListItemBorderWidth),
+            borderStyle: map-get($configuration, simpleListItemBorderStyle),
+            borderColor: map-get($configuration, simpleListItemBorder)
+          ));
+          border-radius: map-get($configuration, simpleListItemBorderRadius);
+
+          @include shadowOnly((
+            shadowStyle: map-get($configuration, simpleListItemShadowStyle),
+            shadowXOffset: map-get($configuration, simpleListItemShadowXoffset),
+            shadowYOffset: map-get($configuration, simpleListItemShadowYoffset),
+            shadowBlur: map-get($configuration, simpleListItemShadowBlur),
+            shadowSpread: map-get($configuration, simpleListItemShadowSpread),
+            shadowColor: map-get($configuration, simpleListItemShadowColor)
+          ))
+        }
+
+        .list-item-image {
+          background-color: map-get($configuration, simpleListImageBackground);
+        }
+
+        .list-item-title {
+          @include fontOnly((
+            fontFamily: map-get($configuration, simpleListTitleFontFamily),
+            fontSize: map-get($configuration, simpleListTitleFontSize),
+            fontLineHeight: map-get($configuration, simpleListTitleLineHeight),
+            fontWeight: map-get($configuration, simpleListTitleFontWeight),
+            fontStyle: map-get($configuration, simpleListTitleItalic),
+            fontDecoration: map-get($configuration, simpleListTitleUnderline)
+          ));
+
+          margin-top: map-get($configuration, simpleListTitleMarginTop);
+          margin-bottom: map-get($configuration, simpleListTitleMarginBottom);
+          color: map-get($configuration, simpleListTitleFontColor);
+        }
+
+        .list-item-description {
+          @include fontOnly((
+            fontFamily: map-get($configuration, simpleListDescriptionFontFamily),
+            fontSize: map-get($configuration, simpleListDescriptionFontSize),
+            fontLineHeight: map-get($configuration, simpleListDescriptionLineHeight),
+            fontWeight: map-get($configuration, simpleListDescriptionFontWeight),
+            fontStyle: map-get($configuration, simpleListDescriptionItalic),
+            fontDecoration: map-get($configuration, simpleListDescriptionUnderline)
+          ));
+
+          margin-top: map-get($configuration, simpleListDescriptionMarginTop);
+          margin-bottom: map-get($configuration, simpleListDescriptionMarginBottom);
+          color: map-get($configuration, simpleListDescriptionFontColor);
+        }
+
+        .list-item-subtitle {
+          @include fontOnly((
+            fontFamily: map-get($configuration, simpleListSecondDescriptionFontFamily),
+            fontSize: map-get($configuration, simpleListSecondDescriptionFontSize),
+            fontLineHeight: map-get($configuration, simpleListSecondDescriptionLineHeight),
+            fontWeight: map-get($configuration, simpleListSecondDescriptionFontWeight),
+            fontStyle: map-get($configuration, simpleListSecondDescriptionItalic),
+            fontDecoration: map-get($configuration, simpleListSecondDescriptionUnderline)
+          ));
+
+          margin-top: map-get($configuration, simpleListTitleMarginTop);
+          margin-bottom: map-get($configuration, simpleListTitleMarginBottom);
+          color: map-get($configuration, simpleListTitleFontColor);
+        }
+
+        // Styles for tablet
+        @include above($tabletBreakpoint) {
+          .simple-list-item {
+            background-color: map-get($configuration, simpleListItemBackgroundTablet);
+            @include borderOnly((
+              borderSides: map-get($configuration, simpleListItemBorderSidesTablet),
+              borderWidth: map-get($configuration, simpleListItemBorderWidthTablet),
+              borderStyle: map-get($configuration, simpleListItemBorderStyleTablet),
+              borderColor: map-get($configuration, simpleListItemBorderTablet)
+            ));
+            border-radius: map-get($configuration, simpleListItemBorderRadiusTablet);
+  
+            @include shadowOnly((
+              shadowStyle: map-get($configuration, simpleListItemShadowStyleTablet),
+              shadowXOffset: map-get($configuration, simpleListItemShadowXoffsetTablet),
+              shadowYOffset: map-get($configuration, simpleListItemShadowYoffsetTablet),
+              shadowBlur: map-get($configuration, simpleListItemShadowBlurTablet),
+              shadowSpread: map-get($configuration, simpleListItemShadowSpreadTablet),
+              shadowColor: map-get($configuration, simpleListItemShadowColorTablet)
+            ))
+          }
+
+          .list-item-image {
+            background-color: map-get($configuration, simpleListImageBackgroundTablet);
+          }
+  
+          .list-item-title {
+            @include fontOnly((
+              fontFamily: map-get($configuration, simpleListTitleFontFamilyTablet),
+              fontSize: map-get($configuration, simpleListTitleFontSizeTablet),
+              fontLineHeight: map-get($configuration, simpleListTitleLineHeightTablet),
+              fontWeight: map-get($configuration, simpleListTitleFontWeightTablet),
+              fontStyle: map-get($configuration, simpleListTitleItalicTablet),
+              fontDecoration: map-get($configuration, simpleListTitleUnderlineTablet)
+            ));
+
+            margin-top: map-get($configuration, simpleListTitleMarginTop);
+            margin-bottom: map-get($configuration, simpleListTitleMarginBottom);
+            color: map-get($configuration, simpleListTitleFontColor);
+          }
+  
+          .list-item-description {
+            @include fontOnly((
+              fontFamily: map-get($configuration, simpleListDescriptionFontFamilyTablet),
+              fontSize: map-get($configuration, simpleListDescriptionFontSizeTablet),
+              fontLineHeight: map-get($configuration, simpleListDescriptionLineHeightTablet),
+              fontWeight: map-get($configuration, simpleListDescriptionFontWeightTablet),
+              fontStyle: map-get($configuration, simpleListDescriptionItalicTablet),
+              fontDecoration: map-get($configuration, simpleListDescriptionUnderlineTablet)
+            ));
+
+            margin-top: map-get($configuration, simpleListDescriptionMarginTop);
+            margin-bottom: map-get($configuration, simpleListDescriptionMarginBottom);
+            color: map-get($configuration, simpleListDescriptionFontColor);
+          }
+  
+          .list-item-subtitle {
+            @include fontOnly((
+              fontFamily: map-get($configuration, simpleListSecondDescriptionFontFamilyTablet),
+              fontSize: map-get($configuration, simpleListSecondDescriptionFontSizeTablet),
+              fontLineHeight: map-get($configuration, simpleListSecondDescriptionLineHeightTablet),
+              fontWeight: map-get($configuration, simpleListSecondDescriptionFontWeightTablet),
+              fontStyle: map-get($configuration, simpleListSecondDescriptionItalicTablet),
+              fontDecoration: map-get($configuration, simpleListSecondDescriptionUnderlineTablet)
+            ));
+
+            margin-top: map-get($configuration, simpleListSecondDescriptionMarginTop);
+            margin-bottom: map-get($configuration, simpleListSecondDescriptionMarginBottom);
+            color: map-get($configuration, simpleListSecondDescriptionFontColor);
+          }
+        }
+
+        // Styles for desktop
+        @include above($desktopBreakpoint) {
+          .simple-list-item {
+            background-color: map-get($configuration, simpleListItemBackgroundDesktop);
+            @include borderOnly((
+              borderSides: map-get($configuration, simpleListItemBorderSidesDesktop),
+              borderWidth: map-get($configuration, simpleListItemBorderWidthDesktop),
+              borderStyle: map-get($configuration, simpleListItemBorderStyleDesktop),
+              borderColor: map-get($configuration, simpleListItemBorderDesktop)
+            ));
+            border-radius: map-get($configuration, simpleListItemBorderRadiusDesktop);
+  
+            @include shadowOnly((
+              shadowStyle: map-get($configuration, simpleListItemShadowStyleDesktop),
+              shadowXOffset: map-get($configuration, simpleListItemShadowXoffsetDesktop),
+              shadowYOffset: map-get($configuration, simpleListItemShadowYoffsetDesktop),
+              shadowBlur: map-get($configuration, simpleListItemShadowBlurDesktop),
+              shadowSpread: map-get($configuration, simpleListItemShadowSpreadDesktop),
+              shadowColor: map-get($configuration, simpleListItemShadowColorDesktop)
+            ))
+          }
+
+          .list-item-image {
+            background-color: map-get($configuration, simpleListImageBackgroundDesktop);
+          }
+  
+          .list-item-title {
+            @include fontOnly((
+              fontFamily: map-get($configuration, simpleListTitleFontFamilyDesktop),
+              fontSize: map-get($configuration, simpleListTitleFontSizeDesktop),
+              fontLineHeight: map-get($configuration, simpleListTitleLineHeightDesktop),
+              fontWeight: map-get($configuration, simpleListTitleFontWeightDesktop),
+              fontStyle: map-get($configuration, simpleListTitleItalicDesktop),
+              fontDecoration: map-get($configuration, simpleListTitleUnderlineDesktop)
+            ));
+
+            margin-top: map-get($configuration, simpleListSecondDescriptionMarginTop);
+            margin-bottom: map-get($configuration, simpleListSecondDescriptionMarginBottom);
+            color: map-get($configuration, simpleListSecondDescriptionFontColor);
+          }
+  
+          .list-item-description {
+            @include fontOnly((
+              fontFamily: map-get($configuration, simpleListDescriptionFontFamilyDesktop),
+              fontSize: map-get($configuration, simpleListDescriptionFontSizeDesktop),
+              fontLineHeight: map-get($configuration, simpleListDescriptionLineHeightDesktop),
+              fontWeight: map-get($configuration, simpleListDescriptionFontWeightDesktop),
+              fontStyle: map-get($configuration, simpleListDescriptionItalicDesktop),
+              fontDecoration: map-get($configuration, simpleListDescriptionUnderlineDesktop)
+            ));
+
+            margin-top: map-get($configuration, simpleListDescriptionMarginTop);
+            margin-bottom: map-get($configuration, simpleListDescriptionMarginBottom);
+            color: map-get($configuration, simpleListDescriptionFontColor);
+          }
+  
+          .list-item-subtitle {
+            @include fontOnly((
+              fontFamily: map-get($configuration, simpleListSecondDescriptionFontFamilyDesktop),
+              fontSize: map-get($configuration, simpleListSecondDescriptionFontSizeDesktop),
+              fontLineHeight: map-get($configuration, simpleListSecondDescriptionLineHeightDesktop),
+              fontWeight: map-get($configuration, simpleListSecondDescriptionFontWeightDesktop),
+              fontStyle: map-get($configuration, simpleListSecondDescriptionItalicDesktop),
+              fontDecoration: map-get($configuration, simpleListSecondDescriptionUnderlineDesktop)
+            ));
+
+            margin-top: map-get($configuration, simpleListSecondDescriptionMarginTop);
+            margin-bottom: map-get($configuration, simpleListSecondDescriptionMarginBottom);
+            color: map-get($configuration, simpleListSecondDescriptionFontColor);
+          }
+        }
+      }
+
+      .simple-list-search-filter-overlay {
+        .simple-list-overlay-wrapper,
+        .simple-list-overlay-header,
+        .filter-holder .panel-default > .panel-heading {
+          color: map-get($configuration, simpleListOverlayFontColor);
+          background-color: map-get($configuration, simpleListFiltersOverlayBackground);
+        }
+
+        // Styles for tablet
+        @include above($tabletBreakpoint) {
+          .simple-list-overlay-wrapper,
+          .simple-list-overlay-header,
+          .filter-holder .panel-default > .panel-heading {
+            color: map-get($configuration, simpleListOverlayFontColorTablet);
+            background-color: map-get($configuration, simpleListFiltersOverlayBackgroundTablet);
+          }
+        }
+
+        // Styles for desktop
+        @include above($desktopBreakpoint) {
+          .simple-list-overlay-wrapper,
+          .simple-list-overlay-header,
+          .filter-holder .panel-default > .panel-heading {
+            color: map-get($configuration, simpleListOverlayFontColorDesktop);
+            background-color: map-get($configuration, simpleListFiltersOverlayBackgroundDesktop);
+          }
+        }
+      }
+    }
+
+    .simple-list-detail-overlay {
+      .simple-list-detail-overlay-content {
+        background-color: map-get($configuration, simpleListDetailOverlayBackground);
+      }
+
+      .simple-list-like-holder .fa,
+      .simple-list-like-wrapper .fa
+      .simple-list-bookmark-holder .fa,
+      .simple-list-bookmark-wrapper .fa {
+        color: map-get($configuration, simpleListDetailOverlayIconsColor);
+      }
+
+      .simple-list-detail-value img {
+        background-color: map-get($configuration, simpleListImageBackground);
+      }
+
+      .simple-list-detail-value {
+        @include fontOnly((
+          fontFamily: map-get($configuration, simpleListDetailTextFontFamily),
+          fontSize: map-get($configuration, simpleListDetailTextFontSize),
+          fontLineHeight: map-get($configuration, simpleListDetailTextLineHeight),
+          fontWeight: map-get($configuration, simpleListDetailTextFontWeight),
+          fontStyle: map-get($configuration, simpleListDetailTextItalic),
+          fontDecoration: map-get($configuration, simpleListDetailTextUnderline)
+        ));
+
+        margin-top: map-get($configuration, simpleListDetailTextMarginTop);
+        margin-bottom: map-get($configuration, simpleListDetailTextMarginBottom);
+        color: map-get($configuration, simpleListDetailTextFontColor);
+      }
+
+      .simple-list-detail-label {
+        @include fontOnly((
+          fontFamily: map-get($configuration, simpleListDetailLabelsFontFamily),
+          fontSize: map-get($configuration, simpleListDetailLabelsFontSize),
+          fontLineHeight: map-get($configuration, simpleListDetailLabelsLineHeight),
+          fontWeight: map-get($configuration, simpleListDetailLabelsFontWeight),
+          fontStyle: map-get($configuration, simpleListDetailLabelsItalic),
+          fontDecoration: map-get($configuration, simpleListDetailLabelsUnderline)
+        ));
+
+        margin-top: map-get($configuration, simpleListDetailLabelsMarginTop);
+        margin-bottom: map-get($configuration, simpleListDetailLabelsMarginBottom);
+        color: map-get($configuration, simpleListDetailLabelsFontColor);
+      }
+
+      // Styles for tablet
+      @include above($tabletBreakpoint) {
+        .simple-list-detail-overlay-content {
+          background-color: map-get($configuration, simpleListDetailOverlayBackgroundTablet);
+        }
+
+        .simple-list-like-holder .fa,
+        .simple-list-like-wrapper .fa
+        .simple-list-bookmark-holder .fa,
+        .simple-list-bookmark-wrapper .fa {
+          color: map-get($configuration, simpleListDetailOverlayIconsColorTablet);
+        }
+
+        .simple-list-detail-value img {
+          background-color: map-get($configuration, simpleListImageBackgroundTablet);
+        }
+
+        .simple-list-detail-value {
+          @include fontOnly((
+            fontFamily: map-get($configuration, simpleListDetailTextFontFamilyTablet),
+            fontSize: map-get($configuration, simpleListDetailTextFontSizeTablet),
+            fontLineHeight: map-get($configuration, simpleListDetailTextLineHeightTablet),
+            fontWeight: map-get($configuration, simpleListDetailTextFontWeightTablet),
+            fontStyle: map-get($configuration, simpleListDetailTextItalicTablet),
+            fontDecoration: map-get($configuration, simpleListDetailTextUnderlineTablet)
+          ));
+
+          margin-top: map-get($configuration, simpleListDetailTextMarginTopTablet);
+          margin-bottom: map-get($configuration, simpleListDetailTextMarginBottomTablet);
+          color: map-get($configuration, simpleListDetailTextFontColorTablet);
+        }
+
+        .simple-list-detail-label {
+          @include fontOnly((
+            fontFamily: map-get($configuration, simpleListDetailLabelsFontFamilyTablet),
+            fontSize: map-get($configuration, simpleListDetailLabelsFontSizeTablet),
+            fontLineHeight: map-get($configuration, simpleListDetailLabelsLineHeightTablet),
+            fontWeight: map-get($configuration, simpleListDetailLabelsFontWeightTablet),
+            fontStyle: map-get($configuration, simpleListDetailLabelsItalicTablet),
+            fontDecoration: map-get($configuration, simpleListDetailLabelsUnderlineTablet)
+          ));
+
+          margin-top: map-get($configuration, simpleListDetailLabelsMarginTopTablet);
+          margin-bottom: map-get($configuration, simpleListDetailLabelsMarginBottomTablet);
+          color: map-get($configuration, simpleListDetailLabelsFontColorTablet);
+        }
+      }
+
+      // Styles for desktop
+      @include above($desktopBreakpoint) {
+        .simple-list-detail-overlay-content {
+          background-color: map-get($configuration, simpleListDetailOverlayBackgroundDesktop);
+        }
+
+        .simple-list-like-holder .fa,
+        .simple-list-like-wrapper .fa
+        .simple-list-bookmark-holder .fa,
+        .simple-list-bookmark-wrapper .fa {
+          color: map-get($configuration, simpleListDetailOverlayIconsColorDesktop);
+        }
+
+        .simple-list-detail-value img {
+          background-color: map-get($configuration, simpleListImageBackgroundDesktop);
+        }
+
+        .simple-list-detail-value {
+          @include fontOnly((
+            fontFamily: map-get($configuration, simpleListDetailTextFontFamilyDesktop),
+            fontSize: map-get($configuration, simpleListDetailTextFontSizeDesktop),
+            fontLineHeight: map-get($configuration, simpleListDetailTextLineHeightDesktop),
+            fontWeight: map-get($configuration, simpleListDetailTextFontWeightDesktop),
+            fontStyle: map-get($configuration, simpleListDetailTextItalicDesktop),
+            fontDecoration: map-get($configuration, simpleListDetailTextUnderlineDesktop)
+          ));
+
+          margin-top: map-get($configuration, simpleListDetailTextMarginTopDesktop);
+          margin-bottom: map-get($configuration, simpleListDetailTextMarginBottomDesktop);
+          color: map-get($configuration, simpleListDetailTextFontColorDesktop);
+        }
+
+        .simple-list-detail-label {
+          @include fontOnly((
+            fontFamily: map-get($configuration, simpleListDetailLabelsFontFamilyDesktop),
+            fontSize: map-get($configuration, simpleListDetailLabelsFontSizeDesktop),
+            fontLineHeight: map-get($configuration, simpleListDetailLabelsLineHeightDesktop),
+            fontWeight: map-get($configuration, simpleListDetailLabelsFontWeightDesktop),
+            fontStyle: map-get($configuration, simpleListDetailLabelsItalicDesktop),
+            fontDecoration: map-get($configuration, simpleListDetailLabelsUnderlineDesktop)
+          ));
+
+          margin-top: map-get($configuration, simpleListDetailLabelsMarginTopDesktop);
+          margin-bottom: map-get($configuration, simpleListDetailLabelsMarginBottomDesktop);
+          color: map-get($configuration, simpleListDetailLabelsFontColorDesktop);
+        }
+      }
+
+    }
+  }
+}
+
+@include simpleList();

@@ -28,7 +28,7 @@
 @import "components/lfd/small-card";
 @import "components/lfd/news-feed";
 @import "components/lfd/agenda";
-// @import "components/lfd/simple-list";
+@import "components/lfd/simple-list";
 // @import "components/lfd/small-h-card";
 @import "components/lock";
 @import "components/login-registration";
@@ -118,9 +118,9 @@
     // @if nth($widgetInstance, 2) == 'lfd' {
     //   @include featuredList(nth($widgetInstance, 3), nth($widgetInstance, 1), nth($widgetInstance, 4));
     // }
-    // @if nth($widgetInstance, 2) == 'lfd' {
-    //   @include simpleList(nth($widgetInstance, 3), nth($widgetInstance, 1), nth($widgetInstance, 4));
-    // }
+    @if nth($widgetInstance, 2) == 'lfd' {
+      @include simpleList(nth($widgetInstance, 3), nth($widgetInstance, 1), nth($widgetInstance, 4));
+    }
     @if nth($widgetInstance, 2) == 'lock' {
       @include lock(nth($widgetInstance, 3), nth($widgetInstance, 1), nth($widgetInstance, 4));
     }
