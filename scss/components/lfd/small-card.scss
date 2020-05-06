@@ -670,7 +670,7 @@
 
     .new-small-card-list-container {
       .small-card-list-wrapper .small-card-list-image .small-card-list-detail-wrapper {
-        background-color: map-get($configuration, smallCardImageBackground)
+        background-color: map-get($configuration, smallCardImageBackground);
       }
 
       .small-card-list-wrapper .small-card-list-item {
@@ -695,7 +695,7 @@
       // Styles for tablet
       @include above($tabletBreakpoint) {
         .small-card-list-wrapper .small-card-list .small-card-list-image {
-          background-color: map-get($configuration, smallCardImageBackgroundTablet)
+          background-color: map-get($configuration, smallCardImageBackgroundTablet);
         }
 
         .small-card-list-wrapper .small-card-list-item {
@@ -765,7 +765,7 @@
             color: map-get($configuration, smallCardDetailTitleFontColor);
 
             &:after {
-              background-color: $smallCardListDetailOverlayLineUnderTitleColor;
+              background-color: map-get($configuration, smallCardListDetailOverlayLineUnderTitleColor);
             }
           }
 
@@ -1115,19 +1115,9 @@
             color: map-get($configuration, smallCardBookmarkIconColor) !important;
           }
 
-          .fa {
-          opacity: 1;
-          color: $highlightColor !important;
-          }
-
           .fa-sliders, .fa-times {
             color: map-get($configuration, smallCardFilterIconColor) !important;
           }
-        }
-
-        & ~ .list-search-icon .fa {
-          opacity: 1;
-          color: $highlightColor !important;
         }
       }
 
@@ -1176,12 +1166,6 @@
           map-get($configuration, smallCardMarginBottomTablet)
           map-get($configuration, smallCardMarginLeftTablet);
 
-        .section-top-wrapper .list-search-icon {
-          .fa-sliders, .fa-times {
-            color: map-get($configuration, smallCardFilterIconColorTablet) !important;
-          }
-        }
-
         .small-card-search-filter-overlay {
           .apply-filters,
           .hidden-filter-controls-filter.mixitup-control-active {
@@ -1227,17 +1211,13 @@
           }
 
           .list-search-icon {
-            .fa {
-              opacity: 1;
+            .fa-sliders, .fa-times {
+              color: map-get($configuration, smallCardFilterIconColorTablet) !important;
             }
 
             .toggle-bookmarks .fa {
               color: map-get($configuration, smallCardBookmarkIconColorTablet) !important;
             }
-          }
-
-          & ~ .list-search-icon .fa {
-            opacity: 1;
           }
         }
 
@@ -1283,18 +1263,6 @@
           map-get($configuration, smallCardMarginBottomDesktop)
           map-get($configuration, smallCardMarginLeftDesktop);
 
-        .section-top-wrapper {
-          .list-search-icon {
-            .fa-sliders, .fa-times {
-              color: map-get($configuration, smallCardFilterIconColorDesktop) !important;
-            }
-
-            .toggle-bookmarks .fa {
-              color: map-get($configuration, smallCardBookmarkIconColorDesktop) !important;
-            }
-          }
-        }
-
         .small-card-search-filter-overlay {
           .apply-filters,
           .hidden-filter-controls-filter.mixitup-control-active {
@@ -1338,12 +1306,14 @@
             border: none;
           }
 
-          .list-search-icon .fa {
-            opacity: 1;
-          }
+          .list-search-icon {
+            .fa-sliders, .fa-times {
+              color: map-get($configuration, smallCardFilterIconColorDesktop) !important;
+            }
 
-          & ~ .list-search-icon .fa {
-            opacity: 1;
+            .toggle-bookmarks .fa {
+              color: map-get($configuration, smallCardBookmarkIconColorDesktop) !important;
+            }
           }
         }
 
