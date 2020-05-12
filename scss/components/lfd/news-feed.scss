@@ -303,11 +303,12 @@
   ), $options);
 
   $instanceSelector: '[data-widget-package="com.fliplet.dynamic-lists"]';
-  $layoutSelector: '#{$instanceSelector} [data-dynamic-lists-layout="news-feed"]';
+  $layout: '[data-dynamic-lists-layout="news-feed"]';
+  $layoutSelector: '#{$instanceSelector} #{$layout}';
   @if $widgetInstanceUUID != '' {
-    $layoutSelector: '#{$instanceSelector}[data-uuid="#{$widgetInstanceUUID}"] [data-dynamic-lists-layout="news-feed"]';
+    $layoutSelector: '#{$instanceSelector}[data-uuid="#{$widgetInstanceUUID}"] #{$layout}';
   } @else if $widgetInstanceId != '' {
-    $layoutSelector: '#{$instanceSelector}[data-id="#{$widgetInstanceId}"] [data-dynamic-lists-layout="news-feed"]';
+    $layoutSelector: '#{$instanceSelector}[data-id="#{$widgetInstanceId}"] #{$layout}';
   }
 
   #{$layoutSelector} {
@@ -988,13 +989,6 @@
     // filter/search
     .new-news-feed-list-container,
     .news-feed-list-container {
-      width: map-get($configuration, newsFeedWidth);
-      max-width: map-get($configuration, newsFeedMaxWidth);
-      margin: map-get($configuration, newsFeedMarginTop)
-        map-get($configuration, newsFeedMarginRight)
-        map-get($configuration, newsFeedMarginBottom)
-        map-get($configuration, newsFeedMarginLeft);
-
       .news-feed-search-filter-overlay {
         .apply-filters,
         .hidden-filter-controls-filter.mixitup-control-active {
@@ -1028,7 +1022,7 @@
             border-color: $highlightColor;
           }
         }
-        
+
         .btn.search-btn {
           border: none;
           background-color: rgba($bodyTextColor, 0.1);
@@ -1094,13 +1088,6 @@
 
       // Styles for tablet
       @include above($tabletBreakpoint) {
-        width: map-get($configuration, newsFeedWidthTablet);
-        max-width: map-get($configuration, newsFeedMaxWidthTablet);
-        margin: map-get($configuration, newsFeedMarginTopTablet)
-          map-get($configuration, newsFeedMarginRightTablet)
-          map-get($configuration, newsFeedMarginBottomTablet)
-          map-get($configuration, newsFeedMarginLeftTablet);
-
         .news-feed-search-filter-overlay {
           .apply-filters,
           .hidden-filter-controls-filter.mixitup-control-active {
@@ -1151,7 +1138,7 @@
             }
 
             .toggle-bookmarks .fa {
-              color: map-get($configuration, newsFeedBookmarkIconColor) !important;
+              color: map-get($configuration, newsFeedBookmarkIconColorTablet) !important;
             }
           }
         }
@@ -1191,13 +1178,6 @@
 
       // Styles for desktop
       @include above($desktopBreakpoint) {
-        width: map-get($configuration, newsFeedWidthDesktop);
-        max-width: map-get($configuration, newsFeedMaxWidthDesktop);
-        margin: map-get($configuration, newsFeedMarginTopDesktop)
-          map-get($configuration, newsFeedMarginRightDesktop)
-          map-get($configuration, newsFeedMarginBottomDesktop)
-          map-get($configuration, newsFeedMarginLeftDesktop);
-
         .news-feed-search-filter-overlay {
           .apply-filters,
           .hidden-filter-controls-filter.mixitup-control-active {
