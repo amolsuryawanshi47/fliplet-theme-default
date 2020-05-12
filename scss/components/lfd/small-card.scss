@@ -336,11 +336,12 @@
   ), $options);
 
   $instanceSelector: '[data-widget-package="com.fliplet.dynamic-lists"]';
-  $layoutSelector: '#{$instanceSelector} [data-dynamic-lists-layout="small-card"]';
+  $layout: '[data-dynamic-lists-layout="small-card"]';
+  $layoutSelector: '#{$instanceSelector} #{$layout}';
   @if $widgetInstanceUUID != '' {
-    $layoutSelector: '#{$instanceSelector}[data-uuid="#{$widgetInstanceUUID}"] [data-dynamic-lists-layout="small-card"]';
+    $layoutSelector: '#{$instanceSelector}[data-uuid="#{$widgetInstanceUUID}"] #{$layout}';
   } @else if $widgetInstanceId != '' {
-    $layoutSelector: '#{$instanceSelector}[data-id="#{$widgetInstanceId}"] [data-dynamic-lists-layout="small-card"]';
+    $layoutSelector: '#{$instanceSelector}[data-id="#{$widgetInstanceId}"] #{$layout}';
   }
 
   #{$layoutSelector} {

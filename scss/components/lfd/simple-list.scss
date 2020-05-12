@@ -246,11 +246,12 @@
   ), $options);
 
   $instanceSelector: '[data-widget-package="com.fliplet.dynamic-lists"]';
-  $layoutSelector: '#{$instanceSelector} [data-dynamic-lists-layout="simple-list"]';
+  $layout: '[data-dynamic-lists-layout="simple-list"]';
+  $layoutSelector: '#{$instanceSelector} #{$layout}';
   @if $widgetInstanceUUID != '' {
-    $layoutSelector: '#{$instanceSelector}[data-uuid="#{$widgetInstanceUUID}"] [data-dynamic-lists-layout="simple-list"]';
+    $layoutSelector: '#{$instanceSelector}[data-uuid="#{$widgetInstanceUUID}"] #{$layout}';
   } @else if $widgetInstanceId != '' {
-    $layoutSelector: '#{$instanceSelector}[data-id="#{$widgetInstanceId}"] [data-dynamic-lists-layout="simple-list"]';
+    $layoutSelector: '#{$instanceSelector}[data-id="#{$widgetInstanceId}"] #{$layout}';
   }
 
   #{$layoutSelector} {
@@ -386,12 +387,12 @@
           .search-holder .fa {
             color: map-get($configuration, simpleListSearchIconColorTablet);
           }
-  
+
           .list-search-icon {
             .toggle-bookmarks .fa {
               color: map-get($configuration, simpleListBookmarkIconColorTablet);
             }
-  
+
             .fa-sliders,
             .list-search-cancel .fa {
               color: map-get($configuration, simpleListFilterIconColorTablet);
@@ -404,12 +405,12 @@
           .search-holder .fa {
             color: map-get($configuration, simpleListSearchIconColorDesktop);
           }
-  
+
           .list-search-icon {
             .toggle-bookmarks .fa {
               color: map-get($configuration, simpleListBookmarkIconColorDesktop);
             }
-  
+
             .fa-sliders,
             .list-search-cancel .fa {
               color: map-get($configuration, simpleListFilterIconColorDesktop);
@@ -500,7 +501,7 @@
               borderColor: map-get($configuration, simpleListItemBorderTablet)
             ));
             border-radius: map-get($configuration, simpleListItemBorderRadiusTablet);
-  
+
             @include shadowOnly((
               shadowStyle: map-get($configuration, simpleListItemShadowStyleTablet),
               shadowXOffset: map-get($configuration, simpleListItemShadowXoffsetTablet),
@@ -514,7 +515,7 @@
           .list-item-image {
             background-color: map-get($configuration, simpleListImageBackgroundTablet);
           }
-  
+
           .list-item-title {
             @include fontOnly((
               fontFamily: map-get($configuration, simpleListTitleFontFamilyTablet),
@@ -529,7 +530,7 @@
             margin-bottom: map-get($configuration, simpleListTitleMarginBottom);
             color: map-get($configuration, simpleListTitleFontColor);
           }
-  
+
           .list-item-description {
             @include fontOnly((
               fontFamily: map-get($configuration, simpleListDescriptionFontFamilyTablet),
@@ -544,7 +545,7 @@
             margin-bottom: map-get($configuration, simpleListDescriptionMarginBottom);
             color: map-get($configuration, simpleListDescriptionFontColor);
           }
-  
+
           .list-item-subtitle {
             @include fontOnly((
               fontFamily: map-get($configuration, simpleListSecondDescriptionFontFamilyTablet),
@@ -572,7 +573,7 @@
               borderColor: map-get($configuration, simpleListItemBorderDesktop)
             ));
             border-radius: map-get($configuration, simpleListItemBorderRadiusDesktop);
-  
+
             @include shadowOnly((
               shadowStyle: map-get($configuration, simpleListItemShadowStyleDesktop),
               shadowXOffset: map-get($configuration, simpleListItemShadowXoffsetDesktop),
@@ -586,7 +587,7 @@
           .list-item-image {
             background-color: map-get($configuration, simpleListImageBackgroundDesktop);
           }
-  
+
           .list-item-title {
             @include fontOnly((
               fontFamily: map-get($configuration, simpleListTitleFontFamilyDesktop),
@@ -601,7 +602,7 @@
             margin-bottom: map-get($configuration, simpleListSecondDescriptionMarginBottom);
             color: map-get($configuration, simpleListSecondDescriptionFontColor);
           }
-  
+
           .list-item-description {
             @include fontOnly((
               fontFamily: map-get($configuration, simpleListDescriptionFontFamilyDesktop),
@@ -616,7 +617,7 @@
             margin-bottom: map-get($configuration, simpleListDescriptionMarginBottom);
             color: map-get($configuration, simpleListDescriptionFontColor);
           }
-  
+
           .list-item-subtitle {
             @include fontOnly((
               fontFamily: map-get($configuration, simpleListSecondDescriptionFontFamilyDesktop),

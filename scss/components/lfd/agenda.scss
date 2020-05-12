@@ -315,11 +315,12 @@
   ), $options);
 
   $instanceSelector: '[data-widget-package="com.fliplet.dynamic-lists"]';
-  $layoutSelector: '#{$instanceSelector} [data-dynamic-lists-layout="agenda"]';
+  $layout: '[data-dynamic-lists-layout="agenda"]';
+  $layoutSelector: '#{$instanceSelector} #{$layout}';
   @if $widgetInstanceUUID != '' {
-    $layoutSelector: '#{$instanceSelector}[data-uuid="#{$widgetInstanceUUID}"] [data-dynamic-lists-layout="agenda"]';
+    $layoutSelector: '#{$instanceSelector}[data-uuid="#{$widgetInstanceUUID}"] #{$layout}';
   } @else if $widgetInstanceId != '' {
-    $layoutSelector: '#{$instanceSelector}[data-id="#{$widgetInstanceId}"] [data-dynamic-lists-layout="agenda"]';
+    $layoutSelector: '#{$instanceSelector}[data-id="#{$widgetInstanceId}"] #{$layout}';
   }
 
   #{$layoutSelector} {
@@ -432,8 +433,7 @@
           map-get($configuration, agendaPaddingLeftDesktop);
       }
     }
-
-    /* AGENDA */
+    
     .agenda-detail-overlay {
       .agenda-detail-overlay-wrapper .agenda-detail-overlay-content {
         background-color: map-get($configuration, agendaListDetailOverlayBackground);
