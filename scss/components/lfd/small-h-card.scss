@@ -261,11 +261,12 @@
   ), $options);
 
   $instanceSelector: '[data-widget-package="com.fliplet.dynamic-lists"]';
-  $layoutSelector: '#{$instanceSelector} [data-dynamic-lists-layout="small-h-card"]';
+  $layout: '[data-dynamic-lists-layout="small-h-card"]';
+  $layoutSelector: '#{$instanceSelector} #{$layout}';
   @if $widgetInstanceUUID != '' {
-    $layoutSelector: '#{$instanceSelector}[data-uuid="#{$widgetInstanceUUID}"] [data-dynamic-lists-layout="small-h-card"]';
+    $layoutSelector: '#{$instanceSelector}[data-uuid="#{$widgetInstanceUUID}"] #{$layout}';
   } @else if $widgetInstanceId != '' {
-    $layoutSelector: '#{$instanceSelector}[data-id="#{$widgetInstanceId}"] [data-dynamic-lists-layout="small-h-card"]';
+    $layoutSelector: '#{$instanceSelector}[data-id="#{$widgetInstanceId}"] #{$layout}';
   }
 
   #{$layoutSelector} {
@@ -653,7 +654,7 @@
 
             }
 
-            .small-h-card-list-detail-body-label {
+            .small-h-card-list-detail-label {
               @include fontOnly((
                 fontFamily: map-get($configuration, smallHCardDetailLabelsFontFamily),
                 fontSize: map-get($configuration, smallHCardDetailLabelsFontSize),
@@ -767,7 +768,7 @@
                 color: map-get($configuration, smallHCardDetailTextFontColorTablet);
               }
 
-              .small-h-card-list-detail-body-label {
+              .small-h-card-list-detail-label {
                 @include fontOnly((
                   fontFamily: map-get($configuration, smallHCardDetailLabelsFontFamilyTablet),
                   fontSize: map-get($configuration, smallHCardDetailLabelsFontSizeTablet),
@@ -882,7 +883,7 @@
                 color: map-get($configuration, smallHCardDetailTextFontColorDesktop);
               }
 
-              .small-h-card-list-detail-body-label {
+              .small-h-card-list-detail-label {
                 @include fontOnly((
                   fontFamily: map-get($configuration, smallHCardDetailLabelsFontFamilyDesktop),
                   fontSize: map-get($configuration, smallHCardDetailLabelsFontSizeDesktop),

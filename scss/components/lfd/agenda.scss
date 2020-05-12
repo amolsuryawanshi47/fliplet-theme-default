@@ -1,5 +1,20 @@
 @mixin agenda($options: (), $widgetInstanceId: '', $widgetInstanceUUID: '') {
   $configuration: map-merge((
+  agendaTopBarBackground: $agendaTopBarBackground,
+  agendaTopBarBackgroundTablet: $agendaTopBarBackgroundTablet,
+  agendaTopBarBackgroundDesktop: $agendaTopBarBackgroundDesktop,
+  agendaTopBarText: $agendaTopBarText,
+  agendaTopBarTextTablet: $agendaTopBarTextTablet,
+  agendaTopBarTextDesktop: $agendaTopBarTextDesktop,
+  agendaMyButtonText: $agendaMyButtonText,
+  agendaMyButtonTextTablet: $agendaMyButtonTextTablet,
+  agendaMyButtonTextDesktop: $agendaMyButtonTextDesktop,
+  agendaTopBarActiveText: $agendaTopBarActiveText,
+  agendaTopBarActiveTextTablet: $agendaTopBarActiveTextTablet,
+  agendaTopBarActiveTextDesktop: $agendaTopBarActiveTextDesktop,
+  agendaMyButtonBackground: $agendaMyButtonBackground,
+  agendaMyButtonBackgroundTablet: $agendaMyButtonBackgroundTablet,
+  agendaMyButtonBackgroundDesktop: $agendaMyButtonBackgroundDesktop,
   agendaOverlayFontColor: $agendaOverlayFontColor,
   agendaOverlayFontColorTablet: $agendaOverlayFontColorTablet,
   agendaOverlayFontColorDesktop: $agendaOverlayFontColorDesktop,
@@ -300,11 +315,12 @@
   ), $options);
 
   $instanceSelector: '[data-widget-package="com.fliplet.dynamic-lists"]';
-  $layoutSelector: '#{$instanceSelector} [data-dynamic-lists-layout="agenda"]';
+  $layout: '[data-dynamic-lists-layout="agenda"]';
+  $layoutSelector: '#{$instanceSelector} #{$layout}';
   @if $widgetInstanceUUID != '' {
-    $layoutSelector: '#{$instanceSelector}[data-uuid="#{$widgetInstanceUUID}"] [data-dynamic-lists-layout="agenda"]';
+    $layoutSelector: '#{$instanceSelector}[data-uuid="#{$widgetInstanceUUID}"] #{$layout}';
   } @else if $widgetInstanceId != '' {
-    $layoutSelector: '#{$instanceSelector}[data-id="#{$widgetInstanceId}"] [data-dynamic-lists-layout="agenda"]';
+    $layoutSelector: '#{$instanceSelector}[data-id="#{$widgetInstanceId}"] #{$layout}';
   }
 
   #{$layoutSelector} {
@@ -417,8 +433,7 @@
           map-get($configuration, agendaPaddingLeftDesktop);
       }
     }
-
-    /* AGENDA */
+    
     .agenda-detail-overlay {
       .agenda-detail-overlay-wrapper .agenda-detail-overlay-content {
         background-color: map-get($configuration, agendaListDetailOverlayBackground);
@@ -681,16 +696,12 @@
       .agenda-date-selector {
         background-color: map-get($configuration, agendaTopBarBackground);
 
-        ul li {
-          color: map-get($configuration, agendaTopBarText);
-          .day {
+        ul {
+          li:not(.active):not(.placeholder), li:not(.active):not(.placeholder) .day {
             color: map-get($configuration, agendaTopBarText);
           }
-        }
 
-        &.active {
-          color: map-get($configuration, agendaTopBarActiveText);
-          .day {
+          li.active, li.active .day {
             color: map-get($configuration, agendaTopBarActiveText);
           }
         }
@@ -773,12 +784,11 @@
       }
 
       .agenda-list-controls {
-        background-color: map-get($configuration, agendaAgendaDatesBackgroundColor);
+        background-color: map-get($configuration, agendaMyButtonBackground);
 
         .toggle-agenda {
           .fa {
             color: map-get($configuration, agendaMyButtonText);
-            background-color: map-get($configuration, agendaMyButtonBackground);
           }
 
           &.mixitup-control-active {
@@ -934,12 +944,11 @@
         }
 
         .agenda-list-controls {
-          background-color: map-get($configuration, agendaAgendaDatesBackgroundColorTablet);
+            background-color: map-get($configuration, agendaMyButtonBackgroundTablet);
 
           .toggle-agenda {
             .fa {
               color: map-get($configuration, agendaMyButtonTextTablet);
-              background-color: map-get($configuration, agendaMyButtonBackgroundTablet);
             }
 
             &.mixitup-control-active {
@@ -1097,12 +1106,11 @@
         }
 
         .agenda-list-controls {
-          background-color: map-get($configuration, agendaAgendaDatesBackgroundColorDesktop);
+          background-color: map-get($configuration, agendaMyButtonBackgroundDesktop);
 
           .toggle-agenda {
             .fa {
               color: map-get($configuration, agendaMyButtonTextDesktop);
-              background-color: map-get($configuration, agendaMyButtonBackgroundDesktop);
             }
 
             &.mixitup-control-active {
