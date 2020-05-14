@@ -697,11 +697,19 @@
         background-color: map-get($configuration, agendaTopBarBackground);
 
         ul {
-          li:not(.active):not(.placeholder), li:not(.active):not(.placeholder) .day {
+          li:not(.active):not(.placeholder) {
+            color: rgba(map-get($configuration, agendaTopBarText), 0.5);
+          }
+
+          li:not(.active):not(.placeholder) .day {
             color: map-get($configuration, agendaTopBarText);
           }
 
-          li.active, li.active .day {
+          li.active {
+            color:rgba(map-get($configuration, agendaTopBarActiveText), 0.5) ;
+          }
+          
+          li.active .day {
             color: map-get($configuration, agendaTopBarActiveText);
           }
         }
@@ -729,7 +737,7 @@
           .agenda-item-inner-content {
             background-color: map-get($configuration, agendaListItemBackground);
 
-            .agenda-item-time {
+            .agenda-item-time:not(.line) {
               @include fontOnly((
                 fontFamily: map-get($configuration, agendaItemTimeFontFamily),
                 fontSize: map-get($configuration, agendaItemTimeFontSize),
@@ -889,7 +897,7 @@
             .agenda-item-inner-content {
               background-color: map-get($configuration, agendaListItemBackgroundTablet);
 
-              .agenda-item-time {
+              .agenda-item-time:not(.line) {
                 @include fontOnly((
                   fontFamily: map-get($configuration, agendaItemTimeFontFamilyTablet),
                   fontSize: map-get($configuration, agendaItemTimeFontSizeTablet),
@@ -1051,7 +1059,7 @@
             .agenda-item-inner-content {
               background-color: map-get($configuration, agendaListItemBackgroundDesktop);
 
-              .agenda-item-time {
+              .agenda-item-time:not(.line) {
                 @include fontOnly((
                   fontFamily: map-get($configuration, agendaItemTimeFontFamilyDesktop),
                   fontSize: map-get($configuration, agendaItemTimeFontSizeDesktop),
