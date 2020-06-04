@@ -24,7 +24,6 @@
 @import "components/list-small";
 @import "components/list-large";
 @import "components/rss";
-@import "components/lists-data-source";
 @import "components/lfd/small-card";
 @import "components/lfd/news-feed";
 @import "components/lfd/agenda";
@@ -102,9 +101,6 @@
     }
     @if nth($widgetInstance, 2) == 'rss' {
       @include rss(nth($widgetInstance, 3), nth($widgetInstance, 1), nth($widgetInstance, 4));
-    }
-    @if nth($widgetInstance, 2) == 'lfd' {
-      @include lfd(nth($widgetInstance, 3), nth($widgetInstance, 1), nth($widgetInstance, 4));
     }
     @if nth($widgetInstance, 2) == 'lfdSmallCard' {
       @include smallCard(nth($widgetInstance, 3), nth($widgetInstance, 1), nth($widgetInstance, 4));
