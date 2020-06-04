@@ -1,8 +1,8 @@
 @mixin smallCard($options: (), $widgetInstanceId: '', $widgetInstanceUUID: '') {
   $configuration: map-merge((
-    smallCardOverlayFontColor: $smallCardOverlayFontColor,
-    smallCardOverlayFontColorTablet: $smallCardOverlayFontColorTablet,
-    smallCardOverlayFontColorDesktop: $smallCardOverlayFontColorDesktop,
+    lfdOverlayFontColor: $lfdOverlayFontColor,
+    lfdOverlayFontColorTablet: $lfdOverlayFontColorTablet,
+    lfdOverlayFontColorDesktop: $lfdOverlayFontColorDesktop,
     lfdWidth: $lfdWidth,
     lfdWidthTablet: $lfdWidthTablet,
     lfdWidthDesktop: $lfdWidthDesktop,
@@ -21,18 +21,18 @@
     lfdMarginLeft: $lfdMarginLeft,
     lfdMarginLeftTablet: $lfdMarginLeftTablet,
     lfdMarginLeftDesktop: $lfdMarginLeftDesktop,
-    smallCardVisibility: $smallCardVisibility,
-    smallCardVisibilityTablet: $smallCardVisibilityTablet,
-    smallCardVisibilityDesktop: $smallCardVisibilityDesktop,
+    lfdVisibility: $lfdVisibility,
+    lfdVisibilityTablet: $lfdVisibilityTablet,
+    lfdVisibilityDesktop: $lfdVisibilityDesktop,
     smallCardTitleFontFamily: $smallCardTitleFontFamily,
     smallCardTitleFontFamilyTablet: $smallCardTitleFontFamilyTablet,
     smallCardTitleFontFamilyDesktop: $smallCardTitleFontFamilyDesktop,
     smallCardTitleFontSize: $smallCardTitleFontSize,
     smallCardTitleFontSizeTablet: $smallCardTitleFontSizeTablet,
     smallCardTitleFontSizeDesktop: $smallCardTitleFontSizeDesktop,
-    smallCardTitleFontColor: $smallCardTitleFontColor,
-    smallCardTitleFontColorTablet: $smallCardTitleFontColorTablet,
-    smallCardTitleFontColorDesktop: $smallCardTitleFontColorDesktop,
+    lfdFontColor: $lfdFontColor,
+    lfdFontColorTablet: $lfdFontColorTablet,
+    lfdFontColorDesktop: $lfdFontColorDesktop,
     smallCardTitleFontWeight: $smallCardTitleFontWeight,
     smallCardTitleFontWeightTablet: $smallCardTitleFontWeightTablet,
     smallCardTitleFontWeightDesktop: $smallCardTitleFontWeightDesktop,
@@ -111,9 +111,9 @@
     smallCardDetailTitleFontSize: $smallCardDetailTitleFontSize,
     smallCardDetailTitleFontSizeTablet: $smallCardDetailTitleFontSizeTablet,
     smallCardDetailTitleFontSizeDesktop: $smallCardDetailTitleFontSizeDesktop,
-    smallCardDetailTitleFontColor: $smallCardDetailTitleFontColor,
-    smallCardDetailTitleFontColorTablet: $smallCardDetailTitleFontColorTablet,
-    smallCardDetailTitleFontColorDesktop: $smallCardDetailTitleFontColorDesktop,
+    lfdDetailFontColor: $lfdDetailFontColor,
+    lfdDetailFontColorTablet: $lfdDetailFontColorTablet,
+    lfdDetailFontColorDesktop: $lfdDetailFontColorDesktop,
     smallCardDetailTitleFontWeight: $smallCardDetailTitleFontWeight,
     smallCardDetailTitleFontWeightTablet: $smallCardDetailTitleFontWeightTablet,
     smallCardDetailTitleFontWeightDesktop: $smallCardDetailTitleFontWeightDesktop,
@@ -243,18 +243,18 @@
     lfdBackgroundColor: $lfdBackgroundColor,
     lfdBackgroundColorTablet: $lfdBackgroundColorTablet,
     lfdBackgroundColorDesktop: $lfdBackgroundColorDesktop,
-    smallCardListDetailOverlayBackground: $smallCardListDetailOverlayBackground,
-    smallCardListDetailOverlayBackgroundTablet: $smallCardListDetailOverlayBackgroundTablet,
-    smallCardListDetailOverlayBackgroundDesktop: $smallCardListDetailOverlayBackgroundDesktop,
+    lfdDetailBackgroundColor: $lfdDetailBackgroundColor,
+    lfdDetailBackgroundColorTablet: $lfdDetailBackgroundColorTablet,
+    lfdDetailBackgroundColorDesktop: $lfdDetailBackgroundColorDesktop,
     smallCardListDetailOverlayLineUnderTitleColor: $smallCardListDetailOverlayLineUnderTitleColor,
     smallCardListDetailOverlayLineUnderTitleColorTablet: $smallCardListDetailOverlayLineUnderTitleColorTablet,
     smallCardListDetailOverlayLineUnderTitleColorDesktop: $smallCardListDetailOverlayLineUnderTitleColorDesktop,
     smallCardListDetailOverlayIconsColor: $smallCardListDetailOverlayIconsColor,
     smallCardListDetailOverlayIconsColorTablet: $smallCardListDetailOverlayIconsColorTablet,
     smallCardListDetailOverlayIconsColorDesktop: $smallCardListDetailOverlayIconsColorDesktop,
-    smallCardFiltersOverlayBackground: $smallCardFiltersOverlayBackground,
-    smallCardFiltersOverlayBackgroundTablet: $smallCardFiltersOverlayBackgroundTablet,
-    smallCardFiltersOverlayBackgroundDesktop: $smallCardFiltersOverlayBackgroundDesktop,
+    lfdOverlayBackgroundColor: $lfdOverlayBackgroundColor,
+    lfdOverlayBackgroundColorTablet: $lfdOverlayBackgroundColorTablet,
+    lfdOverlayBackgroundColorDesktop: $lfdOverlayBackgroundColorDesktop,
     smallCardFilterIconColor: $smallCardFilterIconColor,
     smallCardFilterIconColorTablet: $smallCardFilterIconColorTablet,
     smallCardFilterIconColorDesktop: $smallCardFilterIconColorDesktop,
@@ -349,13 +349,13 @@
     z-index: map-get($configuration, lfdIndex);
 
     @if map-get($configuration, lfdPosition) == 'relative' {
-      @if map-get($configuration, smallCardVisibility) == 'visible' {
+      @if map-get($configuration, lfdVisibility) == 'visible' {
         display: map-get($configuration, lfdDisplay) !important;
       } @else {
         display: none !important;
       }
     } @else {
-      @if map-get($configuration, smallCardVisibility) == 'visible' {
+      @if map-get($configuration, lfdVisibility) == 'visible' {
         display: block !important;
       } @else {
         display: none !important;
@@ -385,13 +385,13 @@
       z-index: map-get($configuration, lfdIndexTablet);
 
       @if map-get($configuration, lfdPositionTablet) == 'relative' {
-        @if map-get($configuration, smallCardVisibilityTablet) == 'visible' {
+        @if map-get($configuration, lfdVisibilityTablet) == 'visible' {
           display: map-get($configuration, lfdDisplayTablet) !important;
         } @else {
           display: none !important;
         }
       } @else {
-        @if map-get($configuration, smallCardVisibilityTablet) == 'visible' {
+        @if map-get($configuration, lfdVisibilityTablet) == 'visible' {
           display: block !important;
         } @else {
           display: none !important;
@@ -422,13 +422,13 @@
       z-index: map-get($configuration, lfdIndexDesktop);
 
       @if map-get($configuration, lfdPositionDesktop) == 'relative' {
-        @if map-get($configuration, smallCardVisibilityDesktop) == 'visible' {
+        @if map-get($configuration, lfdVisibilityDesktop) == 'visible' {
           display: map-get($configuration, lfdDisplayDesktop) !important;
         } @else {
           display: none !important;
         }
       } @else {
-        @if map-get($configuration, smallCardVisibilityDesktop) == 'visible' {
+        @if map-get($configuration, lfdVisibilityDesktop) == 'visible' {
           display: block !important;
         } @else {
           display: none !important;
@@ -457,20 +457,20 @@
     .small-card-list-container {
       .small-card-search-filter-overlay {
         .small-card-overlay-header {
-          background-color: map-get($configuration, smallCardFiltersOverlayBackground);
+          background-color: map-get($configuration, lfdOverlayBackgroundColor);
         }
 
         .small-card-overlay-wrapper {
-          background-color: map-get($configuration, smallCardFiltersOverlayBackground);
-          color: map-get($configuration, smallCardOverlayFontColor);
+          background-color: map-get($configuration, lfdOverlayBackgroundColor);
+          color: map-get($configuration, lfdOverlayFontColor);
         }
 
         .hidden-filter-controls-filter {
-          border-color: rgba(map-get($configuration, smallCardOverlayFontColor), 0.8);
+          border-color: rgba(map-get($configuration, lfdOverlayFontColor), 0.8);
 
           &:hover,
           &:focus {
-            color: rgba(map-get($configuration, smallCardOverlayFontColor), 0.7);
+            color: rgba(map-get($configuration, lfdOverlayFontColor), 0.7);
           }
         }
       }
@@ -491,7 +491,7 @@
 
         margin-top: map-get($configuration, smallCardTitleMarginTop);
         margin-bottom: map-get($configuration, smallCardTitleMarginBottom);
-        color: map-get($configuration, smallCardTitleFontColor);
+        color: map-get($configuration, lfdFontColor);
       }
 
       .small-card-list-role {
@@ -528,20 +528,20 @@
       @include above($tabletBreakpoint) {
         .small-card-search-filter-overlay {
           .small-card-overlay-header {
-            background-color: map-get($configuration, smallCardFiltersOverlayBackgroundTablet);
+            background-color: map-get($configuration, lfdOverlayBackgroundColorTablet);
           }
 
           .small-card-overlay-wrapper {
-            background-color: map-get($configuration, smallCardFiltersOverlayBackgroundTablet);
-            color: map-get($configuration, smallCardOverlayFontColorTablet);
+            background-color: map-get($configuration, lfdOverlayBackgroundColorTablet);
+            color: map-get($configuration, lfdOverlayFontColorTablet);
           }
 
           .hidden-filter-controls-filter {
-            border-color: rgba(map-get($configuration, smallCardOverlayFontColorTablet), 0.8);
+            border-color: rgba(map-get($configuration, lfdOverlayFontColorTablet), 0.8);
 
             &:hover,
             &:focus {
-              color: rgba(map-get($configuration, smallCardOverlayFontColorTablet), 0.7);
+              color: rgba(map-get($configuration, lfdOverlayFontColorTablet), 0.7);
             }
           }
         }
@@ -562,7 +562,7 @@
 
           margin-top: map-get($configuration, smallCardTitleMarginTopTablet);
           margin-bottom: map-get($configuration, smallCardTitleMarginBottomTablet);
-          color: map-get($configuration, smallCardTitleFontColorTablet);
+          color: map-get($configuration, lfdFontColorTablet);
         }
 
         .small-card-list-role {
@@ -600,20 +600,20 @@
       @include above($desktopBreakpoint) {
         .small-card-search-filter-overlay {
           .small-card-overlay-header {
-            background-color: map-get($configuration, smallCardFiltersOverlayBackgroundDesktop);
+            background-color: map-get($configuration, lfdOverlayBackgroundColorDesktop);
           }
 
           .small-card-overlay-wrapper {
-            background-color: map-get($configuration, smallCardFiltersOverlayBackgroundDesktop);
-            color: map-get($configuration, smallCardOverlayFontColorDesktop);
+            background-color: map-get($configuration, lfdOverlayBackgroundColorDesktop);
+            color: map-get($configuration, lfdOverlayFontColorDesktop);
           }
 
           .hidden-filter-controls-filter {
-            border-color: rgba(map-get($configuration, smallCardOverlayFontColorDesktop), 0.8);
+            border-color: rgba(map-get($configuration, lfdOverlayFontColorDesktop), 0.8);
 
             &:hover,
             &:focus {
-              color: rgba(map-get($configuration, smallCardOverlayFontColorDesktop), 0.7);
+              color: rgba(map-get($configuration, lfdOverlayFontColorDesktop), 0.7);
             }
           }
         }
@@ -634,7 +634,7 @@
 
           margin-top: map-get($configuration, smallCardTitleMarginTopDesktop);
           margin-bottom: map-get($configuration, smallCardTitleMarginBottomDesktop);
-          color: map-get($configuration, smallCardTitleFontColorDesktop);
+          color: map-get($configuration, lfdFontColorDesktop);
         }
 
         .small-card-list-role {
@@ -749,7 +749,7 @@
     .small-card-detail-overlay .small-card-detail-overlay-wrapper {
       .small-card-detail-overlay-panel .small-card-detail-wrapper {
         .small-card-list-detail-content-wrapper {
-          background-color: map-get($configuration, smallCardListDetailOverlayBackground);
+          background-color: map-get($configuration, lfdDetailBackgroundColor);
 
           .small-card-list-detail-name {
             @include fontOnly((
@@ -763,7 +763,7 @@
 
             margin-top: map-get($configuration, smallCardDetailTitleMarginTop);
             margin-bottom: map-get($configuration, smallCardDetailTitleMarginBottom);
-            color: map-get($configuration, smallCardDetailTitleFontColor);
+            color: map-get($configuration, lfdDetailFontColor);
 
             &:after {
               background-color: map-get($configuration, smallCardListDetailOverlayLineUnderTitleColor);
@@ -852,7 +852,7 @@
       @include above($tabletBreakpoint) {
         .small-card-detail-overlay-panel .small-card-detail-wrapper {
           .small-card-list-detail-content-wrapper {
-            background-color: map-get($configuration, smallCardListDetailOverlayBackgroundTablet);
+            background-color: map-get($configuration, lfdDetailBackgroundColorTablet);
 
             .small-card-list-detail-name {
               @include fontOnly((
@@ -866,7 +866,7 @@
 
               margin-top: map-get($configuration, smallCardDetailTitleMarginTopTablet);
               margin-bottom: map-get($configuration, smallCardDetailTitleMarginBottomTablet);
-              color: map-get($configuration, smallCardDetailTitleFontColorTablet);
+              color: map-get($configuration, lfdDetailFontColorTablet);
 
               &:after {
                 background-color: map-get($configuration, smallCardListDetailOverlayLineUnderTitleColorTablet);
@@ -956,7 +956,7 @@
       @include above($desktopBreakpoint) {
         .small-card-detail-overlay-panel .small-card-detail-wrapper {
           .small-card-list-detail-content-wrapper {
-            background-color: map-get($configuration, smallCardListDetailOverlayBackgroundDesktop);
+            background-color: map-get($configuration, lfdDetailBackgroundColorDesktop);
 
             .small-card-list-detail-name {
               @include fontOnly((
@@ -970,7 +970,7 @@
 
               margin-top: map-get($configuration, smallCardDetailTitleMarginTopDesktop);
               margin-bottom: map-get($configuration, smallCardDetailTitleMarginBottomDesktop);
-              color: map-get($configuration, smallCardDetailTitleFontColorDesktop);
+              color: map-get($configuration, lfdDetailFontColorDesktop);
 
               &:after {
                 background-color: map-get($configuration, smallCardListDetailOverlayLineUnderTitleColorDesktop);
@@ -1070,9 +1070,9 @@
 
       .filter-holder {
         .panel-default > .panel-heading {
-          color: map-get($configuration, smallCardOverlayFontColor);
-          background-color: map-get($configuration, smallCardFiltersOverlayBackground);
-          border-bottom: 1px solid rgba(map-get($configuration, smallCardOverlayFontColor), 0.2);
+          color: map-get($configuration, lfdOverlayFontColor);
+          background-color: map-get($configuration, lfdOverlayBackgroundColor);
+          border-bottom: 1px solid rgba(map-get($configuration, lfdOverlayFontColor), 0.2);
         }
         .panel-group .panel .panel-body {
           background-color: transparent;
@@ -1176,9 +1176,9 @@
 
         .filter-holder {
           .panel-default > .panel-heading {
-            color: map-get($configuration, smallCardOverlayFontColorTablet);
-            background-color: map-get($configuration, smallCardFiltersOverlayBackgroundTablet);
-            border-bottom: 1px solid rgba(map-get($configuration, smallCardOverlayFontColorTablet), 0.2);
+            color: map-get($configuration, lfdOverlayFontColorTablet);
+            background-color: map-get($configuration, lfdOverlayBackgroundColorTablet);
+            border-bottom: 1px solid rgba(map-get($configuration, lfdOverlayFontColorTablet), 0.2);
           }
 
           .panel-group .panel .panel-body {
@@ -1273,9 +1273,9 @@
 
         .filter-holder {
           .panel-default > .panel-heading {
-            color: map-get($configuration, smallCardOverlayFontColorDesktop);
-            background-color: map-get($configuration, smallCardFiltersOverlayBackgroundDesktop);
-            border-bottom: 1px solid rgba(map-get($configuration, smallCardOverlayFontColorDesktop), 0.2);
+            color: map-get($configuration, lfdOverlayFontColorDesktop);
+            background-color: map-get($configuration, lfdOverlayBackgroundColorDesktop);
+            border-bottom: 1px solid rgba(map-get($configuration, lfdOverlayFontColorDesktop), 0.2);
           }
           .panel-group .panel .panel-body {
             background-color: transparent;
