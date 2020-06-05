@@ -162,6 +162,15 @@
     simpleListDetailOverlayIconsColor: $simpleListDetailOverlayIconsColor,
     simpleListDetailOverlayIconsColorTablet: $simpleListDetailOverlayIconsColorTablet,
     simpleListDetailOverlayIconsColorDesktop: $simpleListDetailOverlayIconsColorDesktop,
+    simpleListCommentsBackgroundColor: $simpleListCommentsBackgroundColor,
+    simpleListCommentsBackgroundColorTablet: $simpleListCommentsBackgroundColorTablet,
+    simpleListCommentsBackgroundColorDesktop: $simpleListCommentsBackgroundColorDesktop,
+    simpleListCommentsFontColor: $simpleListCommentsFontColor,
+    simpleListCommentsFontColorTablet: $simpleListCommentsFontColorTablet,
+    simpleListCommentsFontColorDesktop: $simpleListCommentsFontColorDesktop,
+    lfdChevronColor: $lfdChevronColor,
+    lfdChevronColorTablet: $lfdChevronColorTablet,
+    lfdChevronColorDesktop: $lfdChevronColorDesktop,
     simpleListFiltersOverlayBackground: $simpleListFiltersOverlayBackground,
     simpleListFiltersOverlayBackgroundTablet: $simpleListFiltersOverlayBackgroundTablet,
     simpleListFiltersOverlayBackgroundDesktop: $simpleListFiltersOverlayBackgroundDesktop,
@@ -289,6 +298,240 @@
       map-get($configuration, simpleListPaddingBottom)
       map-get($configuration, simpleListPaddingLeft);
 
+     /* COMMENTS */
+     .simple-list-comment-panel {
+       background: map-get($configuration, simpleListCommentsBackgroundColor);
+ 
+       .loading-holder {
+         color: rgba(map-get($configuration, simpleListCommentsFontColor), 0.4);
+       }
+ 
+       .comments-offline {
+         background-color: rgba(map-get($configuration, simpleListCommentsFontColor), 0.4);
+         color: map-get($configuration, simpleListCommentsFontColor);
+       }
+ 
+       .simple-list-comment-panel-header {
+         background-color: map-get($configuration, simpleListCommentsBackgroundColor);
+         color: map-get($configuration, simpleListCommentsFontColor);
+       }
+ 
+       .simple-list-comment-input-holder {
+         background: map-get($configuration, simpleListCommentsBackgroundColor);
+         border-color: rgba(map-get($configuration, simpleListCommentsFontColor), 0.1);
+ 
+         .cancel {
+           color: rgba(map-get($configuration, simpleListCommentsFontColor), 0.7);
+ 
+           &:hover,
+           &:focus,
+           &:active:hover,
+           &:active:focus {
+             color: rgba(map-get($configuration, simpleListCommentsFontColor), 0.7);
+           }
+         }
+ 
+         .btn.comment,
+         .btn.save {
+           border-color: rgba(map-get($configuration, simpleListCommentsFontColor), 0.3);
+           color: rgba(map-get($configuration, simpleListCommentsFontColor),0.3);
+         }
+ 
+         &.ready {
+           .btn.comment,
+           .btn.save {
+             border-color: $highlightColor;
+             background-color: $highlightColor;
+             color: $primaryButtonTextColor;
+           }
+         }
+       }
+ 
+       .top-comment-holder {
+         background-color: map-get($configuration, simpleListCommentsBackgroundColor);
+       }
+ 
+       .fl-individual-comment.editing .top-comment-holder {
+         background-color: rgba(map-get($configuration, simpleListCommentsFontColor), 0.08);
+       }
+ 
+       .fl-comment-thumb {
+         background-color: rgba(map-get($configuration, simpleListCommentsFontColor), 0.04);
+       }
+ 
+       textarea[data-comment-body] {
+         background-color: transparent;
+         color: map-get($configuration, simpleListCommentsFontColor);
+ 
+         ~ .typeahead.dropdown-menu {
+           border-color: rgba(map-get($configuration, simpleListCommentsFontColor),0.1);
+ 
+           > .active > a {
+             background-color: $highlightColor;
+             color: $primaryButtonTextColor;
+           }
+         }
+       }
+ 
+       .active .mention_username {
+         color: $primaryButtonTextColor;
+       }
+ 
+       // Styles for tablet
+       @include above($tabletBreakpoint) {
+         background: map-get($configuration, simpleListCommentsBackgroundColorTablet);
+ 
+         .loading-holder {
+           color: rgba(map-get($configuration, simpleListCommentsFontColorTablet), 0.4);
+         }
+ 
+         .comments-offline {
+           background-color: rgba(map-get($configuration, simpleListCommentsFontColorTablet), 0.4);
+           color: map-get($configuration, simpleListCommentsFontColorTablet);
+         }
+ 
+         .simple-list-comment-panel-header {
+           background-color: map-get($configuration, simpleListCommentsBackgroundColorTablet);
+           color: map-get($configuration, simpleListCommentsFontColorTablet);
+         }
+ 
+         .simple-list-comment-input-holder {
+           background: map-get($configuration, simpleListCommentsBackgroundColorTablet);
+           border-color: rgba(map-get($configuration, simpleListCommentsFontColorTablet), 0.1);
+ 
+           .cancel {
+             color: rgba(map-get($configuration, simpleListCommentsFontColorTablet), 0.7);
+ 
+             &:hover,
+             &:focus,
+             &:active:hover,
+             &:active:focus {
+               color: rgba(map-get($configuration, simpleListCommentsFontColorTablet), 0.7);
+             }
+           }
+ 
+           .btn.comment,
+           .btn.save {
+             border-color: rgba(map-get($configuration, simpleListCommentsFontColorTablet), 0.3);
+             color: rgba(map-get($configuration, simpleListCommentsFontColorTablet), 0.3);
+           }
+ 
+           &.ready {
+             .btn.comment,
+             .btn.save {
+               color: $primaryButtonTextColorTablet;
+             }
+           }
+         }
+ 
+         .top-comment-holder {
+           background-color: map-get($configuration, simpleListCommentsBackgroundColorTablet);
+         }
+ 
+         .fl-individual-comment.editing .top-comment-holder {
+           background-color: rgba(map-get($configuration, simpleListCommentsFontColorTablet), 0.08);
+         }
+ 
+         .fl-comment-thumb {
+           background-color: rgba(map-get($configuration, simpleListCommentsFontColorTablet), 0.04);
+         }
+ 
+         textarea[data-comment-body] {
+           background-color: transparent;
+           color: map-get($configuration, simpleListCommentsFontColorTablet);
+ 
+           ~ .typeahead.dropdown-menu {
+             border-color: rgba(map-get($configuration, simpleListCommentsFontColorTablet), 0.1);
+ 
+             > .active > a {
+               color: $primaryButtonTextColorTablet;
+             }
+           }
+         }
+ 
+         .active .mention_username {
+           color: $primaryButtonTextColorTablet;
+         }
+       }
+ 
+       // Styles for desktop
+       @include above($desktopBreakpoint) {
+         background: map-get($configuration, simpleListCommentsBackgroundColorDesktop);
+ 
+         .loading-holder {
+           color: rgba(map-get($configuration, simpleListCommentsFontColorDesktop), 0.4);
+         }
+ 
+         .comments-offline {
+           background-color: rgba(map-get($configuration, simpleListCommentsFontColorDesktop), 0.4);
+           color: map-get($configuration, simpleListCommentsFontColorDesktop);
+         }
+ 
+         .simple-list-comment-panel-header {
+           background-color: map-get($configuration, simpleListCommentsBackgroundColorDesktop);
+           color: map-get($configuration, simpleListCommentsFontColorDesktop);
+         }
+ 
+         .simple-list-comment-input-holder {
+           background: map-get($configuration, simpleListCommentsBackgroundColorDesktop);
+           border-color: rgba(map-get($configuration, simpleListCommentsFontColorDesktop), 0.1);
+ 
+           .cancel {
+             color: rgba(map-get($configuration, simpleListCommentsFontColorDesktop), 0.7);
+ 
+             &:hover,
+             &:focus,
+             &:active:hover,
+             &:active:focus {
+               color: rgba(map-get($configuration, simpleListCommentsFontColorDesktop), 0.7);
+             }
+           }
+ 
+           .btn.comment,
+           .btn.save {
+             border-color: rgba(map-get($configuration, simpleListCommentsFontColorDesktop), 0.3);
+             color: rgba(map-get($configuration, simpleListCommentsFontColorDesktop),0.3);
+           }
+ 
+           &.ready {
+             .btn.comment,
+             .btn.save {
+               color: $primaryButtonTextColorDesktop;
+             }
+           }
+         }
+ 
+         .top-comment-holder {
+           background-color: map-get($configuration, simpleListCommentsBackgroundColorDesktop);
+         }
+ 
+         .fl-individual-comment.editing .top-comment-holder {
+           background-color: rgba(map-get($configuration, simpleListCommentsFontColorDesktop), 0.08);
+         }
+ 
+         .fl-comment-thumb {
+           background-color: rgba(map-get($configuration, simpleListCommentsFontColorDesktop), 0.04);
+         }
+ 
+         textarea[data-comment-body] {
+           background-color: transparent;
+           color: map-get($configuration, simpleListCommentsFontColorDesktop);
+ 
+           ~ .typeahead.dropdown-menu {
+             border-color: rgba(map-get($configuration, simpleListCommentsFontColorDesktop),0.1);
+ 
+             > .active > a {
+               color: $primaryButtonTextColorDesktop;
+             }
+           }
+         }
+ 
+         .active .mention_username {
+           color: $primaryButtonTextColorDesktop;
+         }
+       }
+     }
+
     // Styles for tablet
     @include above($tabletBreakpoint) {
       position: map-get($configuration, simpleListPositionTablet) !important;
@@ -364,9 +607,11 @@
     }
 
     .simple-list-container {
+      .list-item-arrow {
+        color: map-get($configuration, lfdChevronColor);
+      }
 
       .section-top-wrapper {
-
         .search-holder .fa {
           color: map-get($configuration, simpleListSearchIconColor);
         }
@@ -384,6 +629,10 @@
 
         // Styles for tablet
         @include above($tabletBreakpoint) {
+          .list-item-arrow {
+            color: map-get($configuration, lfdChevronColorTablet);
+          }
+
           .search-holder .fa {
             color: map-get($configuration, simpleListSearchIconColorTablet);
           }
@@ -402,6 +651,10 @@
 
         // Styles for desktop
         @include above($desktopBreakpoint) {
+          .list-item-arrow {
+            color: map-get($configuration, lfdChevronColorDesktop);
+          }
+
           .search-holder .fa {
             color: map-get($configuration, simpleListSearchIconColorDesktop);
           }

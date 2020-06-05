@@ -234,6 +234,12 @@
   newsFeedImageBackground: $newsFeedImageBackground,
   newsFeedImageBackgroundTablet: $newsFeedImageBackgroundTablet,
   newsFeedImageBackgroundDesktop: $newsFeedImageBackgroundDesktop,
+  lfdCommentsBackgroundColor: $lfdCommentsBackgroundColor,
+  lfdCommentsBackgroundColorTablet: $lfdCommentsBackgroundColorTablet,
+  lfdCommentsBackgroundColorDesktop: $lfdCommentsBackgroundColorDesktop,
+  lfdCommentsFontColor: $lfdCommentsFontColor,
+  lfdCommentsFontColorTablet: $lfdCommentsFontColorTablet,
+  lfdCommentsFontColorDesktop: $lfdCommentsFontColorDesktop,
   newsFeedPaddingTop: $newsFeedPaddingTop,
   newsFeedPaddingRight: $newsFeedPaddingRight,
   newsFeedPaddingBottom: $newsFeedPaddingBottom,
@@ -419,6 +425,241 @@
         map-get($configuration, newsFeedPaddingBottomDesktop)
         map-get($configuration, newsFeedPaddingLeftDesktop);
     }
+
+    /* COMMENTS */
+    .news-feed-comment-panel,
+    .new-news-feed-comment-panel {
+      background: map-get($configuration, lfdCommentsBackgroundColor);
+
+      .loading-holder {
+        color: rgba(map-get($configuration, lfdCommentsFontColor), 0.4);
+      }
+
+      .comments-offline {
+        background-color: rgba(map-get($configuration, lfdCommentsFontColor), 0.4);
+        color: map-get($configuration, lfdCommentsFontColor);
+      }
+
+      .news-feed-comment-panel-header {
+        background-color: map-get($configuration, lfdCommentsBackgroundColor);
+        color: map-get($configuration, lfdCommentsFontColor);
+      }
+
+      .news-feed-comment-input-holder {
+        background: map-get($configuration, lfdCommentsBackgroundColor);
+        border-color: rgba(map-get($configuration, lfdCommentsFontColor), 0.1);
+
+        .cancel {
+          color: rgba(map-get($configuration, lfdCommentsFontColor), 0.7);
+
+          &:hover,
+          &:focus,
+          &:active:hover,
+          &:active:focus {
+            color: rgba(map-get($configuration, lfdCommentsFontColor), 0.7);
+          }
+        }
+
+        .btn.comment,
+        .btn.save {
+          border-color: rgba(map-get($configuration, lfdCommentsFontColor), 0.3);
+          color: rgba(map-get($configuration, lfdCommentsFontColor),0.3);
+        }
+
+        &.ready {
+          .btn.comment,
+          .btn.save {
+            border-color: $highlightColor;
+            background-color: $highlightColor;
+            color: $primaryButtonTextColor;
+          }
+        }
+      }
+
+      .top-comment-holder {
+        background-color: map-get($configuration, lfdCommentsBackgroundColor);
+      }
+
+      .fl-individual-comment.editing .top-comment-holder {
+        background-color: rgba(map-get($configuration, lfdCommentsFontColor), 0.08);
+      }
+
+      .fl-comment-thumb {
+        background-color: rgba(map-get($configuration, lfdCommentsFontColor), 0.04);
+      }
+
+      textarea[data-comment-body] {
+        background-color: transparent;
+        color: map-get($configuration, lfdCommentsFontColor);
+
+        ~ .typeahead.dropdown-menu {
+          border-color: rgba(map-get($configuration, lfdCommentsFontColor),0.1);
+
+          > .active > a {
+            background-color: $highlightColor;
+            color: $primaryButtonTextColor;
+          }
+        }
+      }
+
+      .active .mention_username {
+        color: $primaryButtonTextColor;
+      }
+
+      // Styles for tablet
+      @include above($tabletBreakpoint) {
+        background: map-get($configuration, lfdCommentsBackgroundColorTablet);
+
+        .loading-holder {
+          color: rgba(map-get($configuration, lfdCommentsFontColorTablet), 0.4);
+        }
+
+        .comments-offline {
+          background-color: rgba(map-get($configuration, lfdCommentsFontColorTablet), 0.4);
+          color: map-get($configuration, lfdCommentsFontColorTablet);
+        }
+
+        .news-feed-comment-panel-header {
+          background-color: map-get($configuration, lfdCommentsBackgroundColorTablet);
+          color: map-get($configuration, lfdCommentsFontColorTablet);
+        }
+
+        .news-feed-comment-input-holder {
+          background: map-get($configuration, lfdCommentsBackgroundColorTablet);
+          border-color: rgba(map-get($configuration, lfdCommentsFontColorTablet), 0.1);
+
+          .cancel {
+            color: rgba(map-get($configuration, lfdCommentsFontColorTablet), 0.7);
+
+            &:hover,
+            &:focus,
+            &:active:hover,
+            &:active:focus {
+              color: rgba(map-get($configuration, lfdCommentsFontColorTablet), 0.7);
+            }
+          }
+
+          .btn.comment,
+          .btn.save {
+            border-color: rgba(map-get($configuration, lfdCommentsFontColorTablet), 0.3);
+            color: rgba(map-get($configuration, lfdCommentsFontColorTablet),0.3);
+          }
+
+          &.ready {
+            .btn.comment,
+            .btn.save {
+              color: $primaryButtonTextColorTablet;
+            }
+          }
+        }
+
+        .top-comment-holder {
+          background-color: map-get($configuration, lfdCommentsBackgroundColorTablet);
+        }
+
+        .fl-individual-comment.editing .top-comment-holder {
+          background-color: rgba(map-get($configuration, lfdCommentsFontColorTablet), 0.08);
+        }
+
+        .fl-comment-thumb {
+          background-color: rgba(map-get($configuration, lfdCommentsFontColorTablet), 0.04);
+        }
+
+        textarea[data-comment-body] {
+          background-color: transparent;
+          color: map-get($configuration, lfdCommentsFontColorTablet);
+
+          ~ .typeahead.dropdown-menu {
+            border-color: rgba(map-get($configuration, lfdCommentsFontColorTablet),0.1);
+
+            > .active > a {
+              color: $primaryButtonTextColorTablet;
+            }
+          }
+        }
+
+        .active .mention_username {
+          color: $primaryButtonTextColorTablet;
+        }
+      }
+
+      // Styles for desktop
+      @include above($desktopBreakpoint) {
+        background: map-get($configuration, lfdCommentsBackgroundColorDesktop);
+
+        .loading-holder {
+          color: rgba(map-get($configuration, lfdCommentsFontColorDesktop), 0.4);
+        }
+
+        .comments-offline {
+          background-color: rgba(map-get($configuration, lfdCommentsFontColorDesktop), 0.4);
+          color: map-get($configuration, lfdCommentsFontColorDesktop);
+        }
+
+        .news-feed-comment-panel-header {
+          background-color: map-get($configuration, lfdCommentsBackgroundColorDesktop);
+          color: map-get($configuration, lfdCommentsFontColorDesktop);
+        }
+
+        .news-feed-comment-input-holder {
+          background: map-get($configuration, lfdCommentsBackgroundColorDesktop);
+          border-color: rgba(map-get($configuration, lfdCommentsFontColorDesktop), 0.1);
+
+          .cancel {
+            color: rgba(map-get($configuration, lfdCommentsFontColorDesktop), 0.7);
+
+            &:hover,
+            &:focus,
+            &:active:hover,
+            &:active:focus {
+              color: rgba(map-get($configuration, lfdCommentsFontColorDesktop), 0.7);
+            }
+          }
+
+          .btn.comment,
+          .btn.save {
+            border-color: rgba(map-get($configuration, lfdCommentsFontColorDesktop), 0.3);
+            color: rgba(map-get($configuration, lfdCommentsFontColorDesktop),0.3);
+          }
+
+          &.ready {
+            .btn.comment,
+            .btn.save {
+              color: $primaryButtonTextColorDesktop;
+            }
+          }
+        }
+
+        .top-comment-holder {
+          background-color: map-get($configuration, lfdCommentsBackgroundColorDesktop);
+        }
+
+        .fl-individual-comment.editing .top-comment-holder {
+          background-color: rgba(map-get($configuration, lfdCommentsFontColorDesktop), 0.08);
+        }
+
+        .fl-comment-thumb {
+          background-color: rgba(map-get($configuration, lfdCommentsFontColorDesktop), 0.04);
+        }
+
+        textarea[data-comment-body] {
+          background-color: transparent;
+          color: map-get($configuration, lfdCommentsFontColorDesktop);
+
+          ~ .typeahead.dropdown-menu {
+            border-color: rgba(map-get($configuration, lfdCommentsFontColorDesktop),0.1);
+
+            > .active > a {
+              color: $primaryButtonTextColorDesktop;
+            }
+          }
+        }
+
+        .active .mention_username {
+          color: $primaryButtonTextColorDesktop;
+        }
+      }
+    } 
 
 
     .new-news-feed-list-container .news-feed-search-filter-overlay {
