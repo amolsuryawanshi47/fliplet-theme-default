@@ -27873,1048 +27873,6 @@
         ]
       },
       {
-        "name": "List (from data source)",
-        "packages": ["com.fliplet.dynamic-lists"],
-        "variables": [
-          {
-            "description": "Width",
-            "fields": [
-              {
-                "name": "lfdWidth",
-                "default": "100%",
-                "styles": [
-                  {
-                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists']",
-                    "properties": ["width"]
-                  }
-                ],
-                "breakpoints": {
-                  "tablet": {
-                    "name": "lfdWidthTablet",
-                    "default": "inherit-mobile"
-                  },
-                  "desktop": {
-                    "name": "lfdWidthDesktop",
-                    "default": "inherit-tablet"
-                  }
-                },
-                "type": "size",
-                "subtype": "width",
-                "label": "Width"
-              },
-              {
-                "name": "lfdMaxWidth",
-                "default": "600px",
-                "styles": [
-                  {
-                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists']",
-                    "properties": ["max-width"]
-                  }
-                ],
-                "breakpoints": {
-                  "tablet": {
-                    "name": "lfdMaxWidthTablet",
-                    "default": "inherit-mobile"
-                  },
-                  "desktop": {
-                    "name": "lfdMaxWidthDesktop",
-                    "default": "inherit-tablet"
-                  }
-                },
-                "type": "size",
-                "subtype": "width",
-                "label": "Max"
-              }
-            ]
-          },
-          {
-            "description": "Positioning",
-            "fields": [
-              {
-                "name": "lfdPosition",
-                "default": "relative",
-                "columns": 12,
-                "logic": {
-                  "relative": {
-                    "hide": [
-                      "lfdPositionTop",
-                      "lfdPositionRight",
-                      "lfdPositionBottom",
-                      "lfdPositionLeft"
-                    ]
-                  },
-                  "absolute": {
-                    "show": [
-                      "lfdPositionTop",
-                      "lfdPositionRight",
-                      "lfdPositionBottom",
-                      "lfdPositionLeft"
-                    ]
-                  },
-                  "fixed": {
-                    "show": [
-                      "lfdPositionTop",
-                      "lfdPositionRight",
-                      "lfdPositionBottom",
-                      "lfdPositionLeft"
-                    ]
-                  }
-                },
-                "styles": [
-                  {
-                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists']",
-                    "properties": ["position"],
-                    "type": "position",
-                    "siblings": {
-                      "top": "lfdPositionTop",
-                      "right": "lfdPositionRight",
-                      "bottom": "lfdPositionBottom",
-                      "left": "lfdPositionLeft"
-                    }
-                  }
-                ],
-                "breakpoints": {
-                  "tablet": {
-                    "name": "lfdPositionTablet",
-                    "default": "inherit-mobile"
-                  },
-                  "desktop": {
-                    "name": "lfdPositionDesktop",
-                    "default": "inherit-tablet"
-                  }
-                },
-                "type": "position"
-              },
-              {
-                "name": "lfdDisplay",
-                "default": "block",
-                "columns": 12,
-                "logic": {
-                  "block": {
-                    "show": ["lfdMarginAlign"]
-                  },
-                  "inline-block": {
-                    "hide": ["lfdMarginAlign"]
-                  }
-                },
-                "styles": [
-                  {
-                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists']",
-                    "properties": ["display"]
-                  }
-                ],
-                "breakpoints": {
-                  "tablet": {
-                    "name": "lfdDisplayTablet",
-                    "default": "inherit-mobile"
-                  },
-                  "desktop": {
-                    "name": "lfdDisplayDesktop",
-                    "default": "inherit-tablet"
-                  }
-                },
-                "type": "display"
-              },
-              {
-                "name": "lfdPositionTop",
-                "default": "auto",
-                "columns": 6,
-                "styles": [
-                  {
-                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists']",
-                    "properties": ["top"]
-                  }
-                ],
-                "breakpoints": {
-                  "tablet": {
-                    "name": "lfdPositionTopTablet",
-                    "default": "inherit-mobile"
-                  },
-                  "desktop": {
-                    "name": "lfdPositionTopDesktop",
-                    "default": "inherit-tablet"
-                  }
-                },
-                "label": "Top",
-                "type": "size",
-                "subtype": "position",
-                "allowNegative": true
-              },
-              {
-                "name": "lfdPositionRight",
-                "default": "auto",
-                "columns": 6,
-                "styles": [
-                  {
-                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists']",
-                    "properties": ["right"]
-                  }
-                ],
-                "breakpoints": {
-                  "tablet": {
-                    "name": "lfdPositionRightTablet",
-                    "default": "inherit-mobile"
-                  },
-                  "desktop": {
-                    "name": "lfdPositionRightDesktop",
-                    "default": "inherit-tablet"
-                  }
-                },
-                "label": "Right",
-                "type": "size",
-                "subtype": "position",
-                "allowNegative": true
-              },
-              {
-                "name": "lfdPositionBottom",
-                "default": "auto",
-                "columns": 6,
-                "styles": [
-                  {
-                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists']",
-                    "properties": ["bottom"]
-                  }
-                ],
-                "breakpoints": {
-                  "tablet": {
-                    "name": "lfdPositionBottomTablet",
-                    "default": "inherit-mobile"
-                  },
-                  "desktop": {
-                    "name": "lfdPositionBottomDesktop",
-                    "default": "inherit-tablet"
-                  }
-                },
-                "label": "Bottom",
-                "type": "size",
-                "subtype": "position",
-                "allowNegative": true
-              },
-              {
-                "name": "lfdPositionLeft",
-                "default": "auto",
-                "columns": 6,
-                "styles": [
-                  {
-                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists']",
-                    "properties": ["left"]
-                  }
-                ],
-                "breakpoints": {
-                  "tablet": {
-                    "name": "lfdPositionLeftTablet",
-                    "default": "inherit-mobile"
-                  },
-                  "desktop": {
-                    "name": "lfdPositionLeftDesktop",
-                    "default": "inherit-tablet"
-                  }
-                },
-                "label": "Left",
-                "type": "size",
-                "subtype": "position",
-                "allowNegative": true
-              }
-            ]
-          },
-          {
-            "description": "Layer order",
-            "fields": [
-              {
-                "name": "lfdIndex",
-                "default": "auto",
-                "columns": 12,
-                "styles": [
-                  {
-                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists']",
-                    "properties": ["z-index"]
-                  }
-                ],
-                "breakpoints": {
-                  "tablet": {
-                    "name": "lfdIndexTablet",
-                    "default": "inherit-mobile"
-                  },
-                  "desktop": {
-                    "name": "lfdIndexDesktop",
-                    "default": "inherit-tablet"
-                  }
-                },
-                "type": "size",
-                "subtype": "z-index"
-              }
-            ]
-          },
-          {
-            "description": "Margin",
-            "fields": [
-              {
-                "name": "lfdMarginAlign",
-                "default": "center",
-                "columns": 12,
-                "logic": {
-                  "left": {
-                    "lfdMarginRight": "auto",
-                    "lfdMarginLeft": "0px"
-                  },
-                  "center": {
-                    "lfdMarginRight": "auto",
-                    "lfdMarginLeft": "auto"
-                  },
-                  "right": {
-                    "lfdMarginRight": "0px",
-                    "lfdMarginLeft": "auto"
-                  },
-                  "custom": [
-                    "lfdMarginTop",
-                    "lfdMarginRight",
-                    "lfdMarginBottom",
-                    "lfdMarginLeft"
-                  ]
-                },
-                "styles": [
-                  {
-                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists']",
-                    "properties": ["margin"],
-                    "type": "margin"
-                  }
-                ],
-                "breakpoints": {
-                  "tablet": {
-                    "name": "lfdMarginAlignTablet",
-                    "default": "inherit-mobile"
-                  },
-                  "desktop": {
-                    "name": "lfdMarginAlignDesktop",
-                    "default": "inherit-tablet"
-                  }
-                },
-                "type": "margin-align"
-              },
-              {
-                "name": "lfdMarginTop",
-                "default": "0",
-                "columns": 6,
-                "logic": "lfdMarginAlign",
-                "styles": [
-                  {
-                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists']",
-                    "properties": ["margin-top"]
-                  }
-                ],
-                "breakpoints": {
-                  "tablet": {
-                    "name": "lfdMarginTopTablet",
-                    "default": "inherit-mobile"
-                  },
-                  "desktop": {
-                    "name": "lfdMarginTopDesktop",
-                    "default": "inherit-tablet"
-                  }
-                },
-                "type": "size",
-                "subtype": "margin",
-                "label": "Top",
-                "allowNegative": true
-              },
-              {
-                "name": "lfdMarginRight",
-                "default": "auto",
-                "columns": 6,
-                "logic": "lfdMarginAlign",
-                "styles": [
-                  {
-                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists']",
-                    "properties": ["margin-right"]
-                  }
-                ],
-                "breakpoints": {
-                  "tablet": {
-                    "name": "lfdMarginRightTablet",
-                    "default": "inherit-mobile"
-                  },
-                  "desktop": {
-                    "name": "lfdMarginRightDesktop",
-                    "default": "inherit-tablet"
-                  }
-                },
-                "type": "size",
-                "subtype": "margin",
-                "label": "Right",
-                "allowNegative": true
-              },
-              {
-                "name": "lfdMarginBottom",
-                "default": "0px",
-                "columns": 6,
-                "logic": "lfdMarginAlign",
-                "styles": [
-                  {
-                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists']",
-                    "properties": ["margin-bottom"]
-                  }
-                ],
-                "breakpoints": {
-                  "tablet": {
-                    "name": "lfdMarginBottomTablet",
-                    "default": "inherit-mobile"
-                  },
-                  "desktop": {
-                    "name": "lfdMarginBottomDesktop",
-                    "default": "inherit-tablet"
-                  }
-                },
-                "type": "size",
-                "subtype": "margin",
-                "label": "Bottom",
-                "allowNegative": true
-              },
-              {
-                "name": "lfdMarginLeft",
-                "default": "auto",
-                "columns": 6,
-                "logic": "lfdMarginAlign",
-                "styles": [
-                  {
-                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists']",
-                    "properties": ["margin-left"]
-                  }
-                ],
-                "breakpoints": {
-                  "tablet": {
-                    "name": "lfdMarginLeftTablet",
-                    "default": "inherit-mobile"
-                  },
-                  "desktop": {
-                    "name": "lfdMarginLeftDesktop",
-                    "default": "inherit-tablet"
-                  }
-                },
-                "type": "size",
-                "subtype": "margin",
-                "label": "Left",
-                "allowNegative": true
-              }
-            ]
-          },
-          {
-            "description": "Colors",
-            "fields": [
-              {
-                "name": "lfdBackgroundColor",
-                "default": "$bodyBackground",
-                "columns": 12,
-                "styles": [
-                  {
-                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists']",
-                    "selectors": [
-                      ".new-small-card-list-container .small-card-list-detail-wrapper",
-                      ".small-card-list-container .small-card-list-detail-wrapper",
-                      ".new-small-card-list-container .small-card-list-text-wrapper",
-                      ".small-card-list-container .small-card-list-text-wrapper",
-                      ".new-small-card-list-container .small-card-list-detail-content-wrapper",
-                      ".small-card-list-container .small-card-list-detail-content-wrapper",
-                      ".new-news-feed-list-container .slide-over .news-feed-item-inner-content",
-                      ".news-feed-list-container .slide-over .news-feed-item-inner-content",
-                      ".new-news-feed-list-container .news-feed-list-item.open .news-feed-item-content",
-                      ".news-feed-list-container .news-feed-list-item.open .news-feed-item-content",
-                      ".new-agenda-list-container .agenda-list-item .slide-over .agenda-item-inner-content",
-                      ".agenda-list-item .slide-over .agenda-item-inner-content",
-                      ".agenda-list-item-content .slide-over",
-                      ".new-small-h-card-list-container .small-h-card-list-detail-content-wrapper",
-                      ".small-h-card-list-container .small-h-card-list-detail-content-wrapper",
-                      ".new-small-h-card-list-container .small-h-card-list-detail-wrapper",
-                      "small-h-card-list-container .small-h-card-list-detail-wrapper",
-                      ".simple-list-container .simple-list-item"
-                    ],
-                    "properties": ["background-color"]
-                  }
-                ],
-                "breakpoints": {
-                  "tablet": {
-                    "name": "lfdBackgroundColorTablet",
-                    "default": "inherit-mobile"
-                  },
-                  "desktop": {
-                    "name": "lfdBackgroundColorDesktop",
-                    "default": "inherit-tablet"
-                  }
-                },
-                "label": "Background",
-                "type": "color"
-              },
-              {
-                "name": "lfdFontColor",
-                "default": "$bodyTextColor",
-                "columns": 12,
-                "styles": [
-                  {
-                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists']",
-                    "selectors": [
-                      ".new-small-card-list-container .small-card-list-text-wrapper",
-                      ".small-card-list-container .small-card-list-text-wrapper",
-                      ".new-small-card-list-container .small-card-list-detail-content-wrapper",
-                      ".small-card-list-container .small-card-list-detail-content-wrapper",
-                      ".new-small-card-list-container small-card-list-name",
-                      ".small-card-list-container small-card-list-name",
-                      ".new-small-card-list-container small-card-list-role",
-                      ".small-card-list-container small-card-list-role",
-                      ".new-small-card-list-container small-card-list-location",
-                      ".small-card-list-container small-card-list-location",
-                      ".new-small-card-list-container small-card-list-detail-role",
-                      ".small-card-list-container small-card-list-detail-role",
-                      ".new-small-card-list-container small-card-list-detail-location",
-                      ".small-card-list-container small-card-list-detail-location",
-                      ".new-small-card-list-container .small-card-list-detail-name",
-                      ".small-card-list-container .small-card-list-detail-name",
-                      ".new-small-card-list-container .small-card-list-detail-button a",
-                      ".small-card-list-container .small-card-list-detail-button a",
-                      ".new-small-card-list-container .small-card-list-detail-close-btn",
-                      ".small-card-list-container .small-card-list-detail-close-btn",
-                      ".new-news-feed-list-container .slide-over .news-feed-item-inner-content",
-                      ".news-feed-list-container .slide-over .news-feed-item-inner-content",
-                      ".new-news-feed-list-container .slide-over .news-feed-item-inner-content h2.news-feed-item-title",
-                      ".news-feed-list-container .slide-over .news-feed-item-inner-content h2.news-feed-item-title",
-                      ".new-news-feed-list-container .news-feed-list-item .news-feed-item-close-btn",
-                      ".news-feed-list-container .news-feed-list-item .news-feed-item-close-btn",
-                      ".new-agenda-list-container .agenda-list-item .slide-over .agenda-item-inner-content .agenda-item-time",
-                      ".new-agenda-list-container .agenda-list-item .slide-over .agenda-item-inner-content .agenda-item-session-location",
-                      ".new-agenda-list-container .agenda-list-item .slide-over .agenda-item-inner-content h2.agenda-item-title",
-                      ".new-agenda-list-container .agenda-item-bookmark-holder",
-                      ".agenda-list-item .slide-over .agenda-item-inner-content .agenda-item-time",
-                      ".agenda-list-item .slide-over .agenda-item-inner-content .agenda-item-session-location",
-                      ".agenda-list-item .slide-over .agenda-item-inner-content h2.agenda-item-title",
-                      ".agenda-item-bookmark-holder",
-                      ".agenda-state-messages .loading-holder",
-                      ".agenda-state-messages .offline-holder",
-                      ".agenda-list-card-holder.empty + .agenda-item-empty-state",
-                      ".new-small-h-card-list-container .loading-data",
-                      ".small-h-card-list-container .loading-data",
-                      ".new-small-h-card-list-container .small-h-card-list-item-text",
-                      ".small-h-card-list-container .small-h-card-list-item-text",
-                      ".new-small-h-card-list-container .small-h-card-list-detail-name",
-                      ".small-h-card-list-container .small-h-card-list-detail-name",
-                      ".new-small-h-card-list-container .small-h-card-list-detail-role",
-                      ".small-h-card-list-container .small-h-card-list-detail-role",
-                      ".new-small-h-card-list-container .small-h-card-list-detail-location",
-                      ".small-h-card-list-container .small-h-card-list-detail-location",
-                      ".new-small-h-card-list-container .small-h-card-list-detail-button a",
-                      ".small-h-card-list-container .small-h-card-list-detail-button a",
-                      ".new-small-h-card-list-container .small-h-card-list-detail-close-btn",
-                      ".small-h-card-list-container .small-h-card-list-detail-close-btn",
-                      ".simple-list-container",
-                      ".simple-list-container .simple-list-item .list-item-description",
-                      ".simple-list-container .simple-list-item .list-item-subtitle"
-                    ],
-                    "properties": ["color"]
-                  }
-                ],
-                "breakpoints": {
-                  "tablet": {
-                    "name": "lfdFontColorTablet",
-                    "default": "inherit-mobile"
-                  },
-                  "desktop": {
-                    "name": "lfdFontColorDesktop",
-                    "default": "inherit-tablet"
-                  }
-                },
-                "label": "Text",
-                "type": "color"
-              },
-              {
-                "name": "lfdDetailBackgroundColor",
-                "default": "$bodyBackground",
-                "columns": 12,
-                "styles": [
-                  {
-                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists']",
-                    "selectors": [
-                      ".new-small-card-list-container .small-card-list-detail-wrapper.open",
-                      ".small-card-detail-overlay .small-card-detail-overlay-wrapper .small-card-detail-overlay-panel",
-                      ".small-card-detail-overlay .small-card-detail-overlay-wrapper .small-card-detail-overlay-panel .small-card-detail-wrapper .small-card-list-detail-content-wrapper",
-                      ".news-feed-detail-overlay .news-feed-detail-overlay-wrapper .news-feed-detail-overlay-panel",
-                      ".news-feed-detail-overlay .news-feed-detail-overlay-wrapper .news-feed-item-inner-content",
-                      ".agenda-detail-overlay .agenda-detail-overlay-panel",
-                      ".new-agenda-list-container .agenda-list-item-content .slide-over",
-                      ".new-small-h-card-list-container .small-h-card-list-detail-wrapper.open",
-                      ".small-h-card-detail-overlay .small-h-card-detail-overlay-wrapper .small-h-card-detail-overlay-panel",
-                      ".small-h-card-detail-overlay .small-h-card-detail-overlay-wrapper .small-h-card-detail-overlay-panel .small-h-card-detail-wrapper .small-h-card-list-detail-content-wrapper",
-                      ".btn.dynamic-list-edit-item",
-                      ".simple-list-detail-overlay-panel .simple-list-detail-overlay-heading",
-                      ".simple-list-detail-overlay .simple-list-detail-overlay-panel"
-                    ],
-                    "properties": ["background-color"]
-                  }
-                ],
-                "breakpoints": {
-                  "tablet": {
-                    "name": "lfdDetailBackgroundColorTablet",
-                    "default": "inherit-mobile"
-                  },
-                  "desktop": {
-                    "name": "lfdDetailBackgroundColorDesktop",
-                    "default": "inherit-tablet"
-                  }
-                },
-                "label": "Details overlay background",
-                "type": "color"
-              },
-              {
-                "name": "lfdDetailFontColor",
-                "default": "$lfdFontColor",
-                "columns": 12,
-                "styles": [
-                  {
-                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists']",
-                    "selectors": [
-                      ".small-card-detail-overlay .small-card-detail-overlay-wrapper .small-card-detail-overlay-panel .small-card-detail-wrapper .small-card-list-detail-content-wrapper",
-                      ".small-card-detail-overlay .small-card-detail-overlay-wrapper .small-card-detail-overlay-panel .small-card-detail-wrapper .small-card-list-detail-content-wrapper .small-card-list-name",
-                      ".small-card-detail-overlay .small-card-detail-overlay-wrapper .small-card-detail-overlay-panel .small-card-detail-wrapper .small-card-list-detail-content-wrapper .small-card-list-role",
-                      ".small-card-detail-overlay .small-card-detail-overlay-wrapper .small-card-detail-overlay-panel .small-card-detail-wrapper .small-card-list-detail-content-wrapper .small-card-list-location",
-                      ".small-card-detail-overlay .small-card-detail-overlay-wrapper .small-card-detail-overlay-panel .small-card-detail-wrapper .small-card-list-detail-content-wrapper .small-card-list-detail-role",
-                      ".small-card-detail-overlay .small-card-detail-overlay-wrapper .small-card-detail-overlay-panel .small-card-detail-wrapper .small-card-list-detail-content-wrapper .small-card-list-detail-location",
-                      ".small-card-detail-overlay .small-card-detail-overlay-wrapper .small-card-detail-overlay-panel .small-card-detail-wrapper .small-card-list-detail-content-wrapper .small-card-list-detail-name",
-                      ".small-card-detail-overlay .small-card-detail-overlay-wrapper .small-card-detail-overlay-panel .small-card-detail-wrapper .small-card-list-detail-content-wrapper .small-card-list-detail-button a",
-                      ".small-card-detail-overlay .small-card-detail-overlay-wrapper .small-card-detail-overlay-panel .small-card-detail-wrapper .small-card-list-detail-content-wrapper .small-card-detail-overlay-close",
-                      ".small-card-detail-overlay .small-card-detail-overlay-wrapper .small-card-detail-overlay-close",
-                      ".news-feed-detail-overlay .news-feed-detail-overlay-wrapper .news-feed-item-inner-content",
-                      ".news-feed-detail-overlay .news-feed-detail-overlay-wrapper .news-feed-item-inner-content h2.news-feed-item-title",
-                      ".news-feed-detail-overlay .news-feed-detail-overlay-wrapper .news-feed-detail-overlay-close",
-                      ".agenda-detail-overlay .agenda-detail-overlay-panel",
-                      ".agenda-detail-overlay .agenda-detail-overlay-panel .agenda-detail-overlay-close",
-                      ".agenda-detail-overlay .agenda-detail-overlay-panel .agenda-item-content-holder .agenda-item-time",
-                      ".agenda-detail-overlay .agenda-detail-overlay-panel .agenda-item-content-holder .agenda-item-session-location",
-                      ".agenda-detail-overlay .agenda-detail-overlay-panel .agenda-item-content-holder h2.agenda-item-title",
-                      ".new-agenda-list-container .agenda-list-item .agenda-item-close-btn",
-                      ".new-agenda-list-container .agenda-state-messages .loading-holder",
-                      ".new-agenda-list-container .agenda-state-messages .offline-holder",
-                      ".new-agenda-list-container .agenda-list-card-holder.empty + .agenda-item-empty-state",
-                      ".agenda-list-controls .agenda-list-label",
-                      ".agenda-list-item .agenda-item-close-btn",
-                      ".small-h-card-detail-overlay .small-h-card-detail-overlay-wrapper .small-h-card-detail-overlay-panel",
-                      ".small-h-card-detail-overlay .small-h-card-detail-overlay-wrapper .small-h-card-detail-overlay-panel .small-h-card-detail-wrapper .small-h-card-list-detail-content-wrapper .small-h-card-list-name",
-                      ".small-h-card-detail-overlay .small-h-card-detail-overlay-wrapper .small-h-card-detail-overlay-panel .small-h-card-detail-wrapper .small-h-card-list-detail-content-wrapper .small-h-card-list-role",
-                      ".small-h-card-detail-overlay .small-h-card-detail-overlay-wrapper .small-h-card-detail-overlay-panel .small-h-card-detail-wrapper .small-h-card-list-detail-content-wrapper .small-h-card-list-location",
-                      ".small-h-card-detail-overlay .small-h-card-detail-overlay-wrapper .small-h-card-detail-overlay-panel .small-h-card-detail-wrapper .small-h-card-list-detail-content-wrapper .small-h-card-list-detail-role",
-                      ".small-h-card-detail-overlay .small-h-card-detail-overlay-wrapper .small-h-card-detail-overlay-panel .small-h-card-detail-wrapper .small-h-card-list-detail-content-wrapper .small-h-card-list-detail-location",
-                      ".small-h-card-detail-overlay .small-h-card-detail-overlay-wrapper .small-h-card-detail-overlay-panel .small-h-card-detail-wrapper .small-h-card-list-detail-content-wrapper .small-h-card-list-detail-name",
-                      ".small-h-card-detail-overlay .small-h-card-detail-overlay-wrapper .small-h-card-detail-overlay-panel .small-h-card-detail-wrapper .small-h-card-list-detail-content-wrapper .small-h-card-list-detail-button a",
-                      ".small-h-card-detail-overlay .small-h-card-detail-overlay-wrapper .small-h-card-detail-overlay-panel .small-h-card-detail-wrapper .small-h-card-list-detail-content-wrapper .small-h-card-detail-overlay-close",
-                      ".small-h-card-detail-overlay .small-h-card-detail-overlay-wrapper .small-h-card-detail-overlay-panel .small-h-card-detail-overlay-close",
-                      ".simple-list-detail-overlay-panel .simple-list-detail-overlay-heading",
-                      ".simple-list-detail-overlay .simple-list-detail-overlay-panel"
-                    ],
-                    "properties": ["color"]
-                  }
-                ],
-                "breakpoints": {
-                  "tablet": {
-                    "name": "lfdDetailFontColorTablet",
-                    "default": "inherit-mobile"
-                  },
-                  "desktop": {
-                    "name": "lfdDetailFontColorDesktop",
-                    "default": "inherit-tablet"
-                  }
-                },
-                "label": "Details overlay text",
-                "type": "color"
-              },
-              {
-                "name": "lfdOverlayBackgroundColor",
-                "default": "$lfdFontColor",
-                "columns": 12,
-                "styles": [
-                  {
-                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists']",
-                    "selectors": [
-                      ".new-small-card-list-container .small-card-search-filter-overlay .small-card-overlay-header",
-                      ".small-card-list-container .small-card-search-filter-overlay .small-card-overlay-header",
-                      ".new-small-card-list-container .small-card-search-filter-overlay .small-card-overlay-wrapper",
-                      ".small-card-list-container .small-card-search-filter-overlay .small-card-overlay-wrapper",
-                      ".new-news-feed-list-container .news-feed-search-filter-overlay .news-feed-overlay-wrapper",
-                      ".simple-list-search-filter-overlay .simple-list-overlay-wrapper",
-                      ".new-news-feed-list-container .news-feed-search-filter-overlay .news-feed-overlay-header",
-                      ".simple-list-search-filter-overlay .simple-list-overlay-header",
-                      ".new-small-card-list-container .filter-holder .panel-default > .panel-heading",
-                      ".small-card-list-container .filter-holder .panel-default > .panel-heading",
-                      ".new-news-feed-list-container .filter-holder .panel-default > .panel-heading",
-                      ".news-feed-list-container .filter-holder .panel-default > .panel-heading",
-                      ".simple-list-container .filter-holder .panel-default > .panel-heading"
-                    ],
-                    "properties": ["background-color"]
-                  }
-                ],
-                "breakpoints": {
-                  "tablet": {
-                    "name": "lfdOverlayBackgroundColorTablet",
-                    "default": "inherit-mobile"
-                  },
-                  "desktop": {
-                    "name": "lfdOverlayBackgroundColorDesktop",
-                    "default": "inherit-tablet"
-                  }
-                },
-                "label": "Filters overlay background",
-                "type": "color"
-              },
-              {
-                "name": "lfdOverlayFontColor",
-                "default": "$lfdBackgroundColor",
-                "columns": 12,
-                "styles": [
-                  {
-                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists']",
-                    "selectors": [
-                      ".new-small-card-list-container .small-card-search-filter-overlay .small-card-overlay-wrapper",
-                      ".small-card-list-container .small-card-search-filter-overlay .small-card-overlay-wrapper",
-                      ".new-news-feed-list-container .news-feed-search-filter-overlay .news-feed-overlay-wrapper",
-                      ".simple-list-search-filter-overlay .simple-list-overlay-wrapper",
-                      ".new-small-card-list-container .filter-holder .panel-default > .panel-heading",
-                      ".small-card-list-container .filter-holder .panel-default > .panel-heading",
-                      ".new-news-feed-list-container .filter-holder .panel-default > .panel-heading",
-                      ".news-feed-list-container .filter-holder .panel-default > .panel-heading",
-                      ".simple-list-container .filter-holder .panel-default > .panel-heading"
-                    ],
-                    "properties": ["color"]
-                  }
-                ],
-                "breakpoints": {
-                  "tablet": {
-                    "name": "lfdOverlayFontColorTablet",
-                    "default": "inherit-mobile"
-                  },
-                  "desktop": {
-                    "name": "lfdOverlayFontColorDesktop",
-                    "default": "inherit-tablet"
-                  }
-                },
-                "label": "Filters overlay text",
-                "type": "color"
-              },
-              {
-                "name": "lfdCommentsBackgroundColor",
-                "default": "$lfdBackgroundColor",
-                "columns": 12,
-                "styles": [
-                  {
-                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists']",
-                    "selectors": [
-                      ".news-feed-comment-panel",
-                      ".new-news-feed-comment-panel",
-                      ".simple-list-comment-panel",
-                      ".news-feed-comment-panel .news-feed-comment-panel-header",
-                      ".new-news-feed-comment-panel .news-feed-comment-panel-header",
-                      ".simple-list-comment-panel .simple-list-comment-panel-header",
-                      ".news-feed-comment-panel .news-feed-comment-input-holder",
-                      ".new-news-feed-comment-panel .news-feed-comment-input-holder",
-                      ".simple-list-comment-panel .simple-list-comment-input-holder",
-                      ".news-feed-comment-panel .top-comment-holder",
-                      ".new-news-feed-comment-panel .top-comment-holder",
-                      ".simple-list-comment-panel .top-comment-holder"
-                    ],
-                    "properties": ["background-color"]
-                  }
-                ],
-                "breakpoints": {
-                  "tablet": {
-                    "name": "lfdCommentsBackgroundColorTablet",
-                    "default": "inherit-mobile"
-                  },
-                  "desktop": {
-                    "name": "lfdCommentsBackgroundColorDesktop",
-                    "default": "inherit-tablet"
-                  }
-                },
-                "label": "Comments overlay background",
-                "type": "color"
-              },
-              {
-                "name": "lfdCommentsFontColor",
-                "default": "$lfdFontColor",
-                "columns": 12,
-                "styles": [
-                  {
-                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists']",
-                    "selectors": [
-                      ".news-feed-comment-panel .comments-offline",
-                      ".new-news-feed-comment-panel .comments-offline",
-                      ".simple-list-comment-panel .comments-offline",
-                      ".news-feed-comment-panel .news-feed-comment-panel-header",
-                      ".new-news-feed-comment-panel .news-feed-comment-panel-header",
-                      ".simple-list-comment-panel .simple-list-comment-panel-header",
-                      ".news-feed-comment-panel textarea[data-comment-body]",
-                      ".new-news-feed-comment-panel textarea[data-comment-body]",
-                      ".simple-list-comment-panel .textarea[data-comment-body]"
-                    ],
-                    "properties": ["color"]
-                  }
-                ],
-                "breakpoints": {
-                  "tablet": {
-                    "name": "lfdCommentsFontColorTablet",
-                    "default": "inherit-mobile"
-                  },
-                  "desktop": {
-                    "name": "lfdCommentsFontColorDesktop",
-                    "default": "inherit-tablet"
-                  }
-                },
-                "label": "Comments overlay text",
-                "type": "color"
-              },
-              {
-                "name": "lfdAgendaTopBackgroundColor",
-                "default": "$lfdBackgroundColor",
-                "columns": 12,
-                "styles": [
-                  {
-                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists']",
-                    "selectors": [
-                      ".new-agenda-list-container .agenda-date-selector",
-                      ".agenda-date-selector"
-                    ],
-                    "properties": ["background-color"]
-                  }
-                ],
-                "breakpoints": {
-                  "tablet": {
-                    "name": "lfdAgendaTopBackgroundColorTablet",
-                    "default": "inherit-mobile"
-                  },
-                  "desktop": {
-                    "name": "lfdAgendaTopBackgroundColorDesktop",
-                    "default": "inherit-tablet"
-                  }
-                },
-                "label": "Agenda top bar background",
-                "type": "color"
-              },
-              {
-                "name": "lfdAgendaTopTextColor",
-                "default": "$lfdFontColor",
-                "columns": 12,
-                "breakpoints": {
-                  "tablet": {
-                    "name": "lfdAgendaTopTextColorTablet",
-                    "default": "inherit-mobile"
-                  },
-                  "desktop": {
-                    "name": "lfdAgendaTopTextColorDesktop",
-                    "default": "inherit-tablet"
-                  }
-                },
-                "label": "Agenda top bar text",
-                "type": "color"
-              },
-              {
-                "name": "lfdAgendaTopTextActiveColor",
-                "default": "$highlightColor",
-                "columns": 12,
-                "styles": [
-                  {
-                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists']",
-                    "selectors": [
-                      ".new-agenda-list-container .agenda-date-selector ul li.active .day",
-                      ".agenda-date-selector ul li.active .day"
-                    ],
-                    "properties": ["color"]
-                  }
-                ],
-                "breakpoints": {
-                  "tablet": {
-                    "name": "lfdAgendaTopTextActiveColorTablet",
-                    "default": "inherit-mobile"
-                  },
-                  "desktop": {
-                    "name": "lfdAgendaTopTextActiveColorDesktop",
-                    "default": "inherit-tablet"
-                  }
-                },
-                "label": "Agenda top bar active text",
-                "type": "color"
-              },
-              {
-                "name": "lfdAgendaDatesBackgroundColor",
-                "default": "$lfdBackgroundColor",
-                "columns": 12,
-                "styles": [
-                  {
-                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists']",
-                    "selectors": [
-                      ".new-agenda-list-container .agenda-list-controls",
-                      ".agenda-list-controls"
-                    ],
-                    "properties": ["background-color"]
-                  }
-                ],
-                "breakpoints": {
-                  "tablet": {
-                    "name": "lfdAgendaDatesBackgroundColorTablet",
-                    "default": "inherit-mobile"
-                  },
-                  "desktop": {
-                    "name": "lfdAgendaDatesBackgroundColorDesktop",
-                    "default": "inherit-tablet"
-                  }
-                },
-                "label": "My agenda button background",
-                "type": "color"
-              },
-              {
-                "name": "lfdAgendaDatesFontColor",
-                "default": "$lfdFontColor",
-                "columns": 12,
-                "styles": [
-                  {
-                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists']",
-                    "selectors": [
-                      ".new-agenda-list-container .agenda-list-controls .toggle-agenda .fa",
-                      ".new-agenda-list-container .agenda-list-controls .agenda-list-label",
-                      ".agenda-list-controls .toggle-agenda .fa",
-                      ".agenda-list-controls .toggle-agenda.mixitup-control-active .fa"
-                    ],
-                    "properties": ["color"]
-                  }
-                ],
-                "breakpoints": {
-                  "tablet": {
-                    "name": "lfdAgendaDatesFontColorTablet",
-                    "default": "inherit-mobile"
-                  },
-                  "desktop": {
-                    "name": "lfdAgendaDatesFontColorDesktop",
-                    "default": "inherit-tablet"
-                  }
-                },
-                "label": "My agenda button text",
-                "type": "color"
-              },
-              {
-                "name": "lfdChevronColor",
-                "default": "$lfdFontColor",
-                "columns": 12,
-                "styles": [
-                  {
-                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists']",
-                    "selectors": ".simple-list-container .list-item-arrow",
-                    "properties": ["color"]
-                  }
-                ],
-                "breakpoints": {
-                  "tablet": {
-                    "name": "lfdChevronColorTablet",
-                    "default": "inherit-mobile"
-                  },
-                  "desktop": {
-                    "name": "lfdChevronColorDesktop",
-                    "default": "inherit-tablet"
-                  }
-                },
-                "label": "Link arrow",
-                "type": "color"
-              }
-            ]
-          },
-          {
-            "description": "Simple list items' border",
-            "fields": [
-              {
-                "name": "lfdSeparatorWidth",
-                "default": "1px",
-                "styles": [
-                  {
-                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists']",
-                    "selectors": ".simple-list-container .simple-list-item",
-                    "properties": ["border-bottom-width"]
-                  }
-                ],
-                "breakpoints": {
-                  "tablet": {
-                    "name": "lfdSeparatorWidthTablet",
-                    "default": "inherit-mobile"
-                  },
-                  "desktop": {
-                    "name": "lfdSeparatorWidthDesktop",
-                    "default": "inherit-tablet"
-                  }
-                },
-                "type": "size",
-                "subtype": "border"
-              },
-              {
-                "name": "lfdSeparatorStyle",
-                "default": "solid",
-                "styles": [
-                  {
-                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists']",
-                    "selectors": ".simple-list-container .simple-list-item",
-                    "properties": ["border-bottom-style"]
-                  }
-                ],
-                "breakpoints": {
-                  "tablet": {
-                    "name": "lfdSeparatorStyleTablet",
-                    "default": "inherit-mobile"
-                  },
-                  "desktop": {
-                    "name": "lfdSeparatorStyleDesktop",
-                    "default": "inherit-tablet"
-                  }
-                },
-                "type": "border-style"
-              },
-              {
-                "name": "lfdSeparatorColor",
-                "default": "rgba(51, 51, 51, 0.2)",
-                "styles": [
-                  {
-                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists']",
-                    "selectors": ".simple-list-container .simple-list-item",
-                    "properties": ["border-bottom-color"]
-                  }
-                ],
-                "breakpoints": {
-                  "tablet": {
-                    "name": "lfdSeparatorColorTablet",
-                    "default": "inherit-mobile"
-                  },
-                  "desktop": {
-                    "name": "lfdSeparatorColorDesktop",
-                    "default": "inherit-tablet"
-                  }
-                },
-                "type": "color"
-              }
-            ]
-          },
-          {
-            "description": "Visibility",
-            "appSupportsContainers": true,
-            "fields": [
-              {
-                "name": "lfdVisibility",
-                "default": "visible",
-                "columns": 12,
-                "breakpoints": {
-                  "tablet": {
-                    "name": "lfdVisibilityTablet",
-                    "default": "inherit-mobile"
-                  },
-                  "desktop": {
-                    "name": "lfdVisibilityDesktop",
-                    "default": "inherit-tablet"
-                  }
-                },
-                "type": "toggle",
-                "subtype": "visibility"
-              }
-            ]
-          }
-        ]
-      },
-      {
         "name": "List (from data source) - Agenda",
         "packages": ["com.fliplet.dynamic-lists:agenda"],
         "variables": [
@@ -31168,7 +30126,7 @@
                 "type": "color"
               },
               {
-                "name": "agendaTopBarBackground",
+                "name": "lfdAgendaTopBackgroundColor",
                 "default": "$bodyBackground",
                 "columns": 12,
                 "styles": [
@@ -31180,11 +30138,11 @@
                 ],
                 "breakpoints": {
                   "tablet": {
-                    "name": "agendaTopBarBackgroundTablet",
+                    "name": "lfdAgendaTopBackgroundColorTablet",
                     "default": "inherit-mobile"
                   },
                   "desktop": {
-                    "name": "agendaTopBarBackgroundDesktop",
+                    "name": "lfdAgendaTopBackgroundColorDesktop",
                     "default": "inherit-tablet"
                   }
                 },
@@ -31192,7 +30150,7 @@
                 "type": "color"
               },
               {
-                "name": "agendaTopBarText",
+                "name": "lfdAgendaTopTextColor",
                 "default": "rgba(102,102,102,0.7)",
                 "columns": 12,
                 "styles": [
@@ -31207,11 +30165,11 @@
                 ],
                 "breakpoints": {
                   "tablet": {
-                    "name": "agendaTopBarTextTablet",
+                    "name": "lfdAgendaTopTextColorTablet",
                     "default": "inherit-mobile"
                   },
                   "desktop": {
-                    "name": "agendaTopBarTextDesktop",
+                    "name": "lfdAgendaTopTextColorDesktop",
                     "default": "inherit-tablet"
                   }
                 },
@@ -31219,7 +30177,7 @@
                 "type": "color"
               },
               {
-                "name": "agendaTopBarActiveText",
+                "name": "lfdAgendaTopTextActiveColor",
                 "default": "$highlightColor",
                 "columns": 12,
                 "styles": [
@@ -31234,11 +30192,11 @@
                 ],
                 "breakpoints": {
                   "tablet": {
-                    "name": "agendaTopBarActiveTextTablet",
+                    "name": "lfdAgendaTopTextActiveColorTablet",
                     "default": "inherit-mobile"
                   },
                   "desktop": {
-                    "name": "agendaTopBarActiveTextDesktop",
+                    "name": "lfdAgendaTopTextActiveColorDesktop",
                     "default": "inherit-tablet"
                   }
                 },
@@ -31246,7 +30204,7 @@
                 "type": "color"
               },
               {
-                "name": "agendaMyButtonBackground",
+                "name": "lfdAgendaDatesBackgroundColor",
                 "default": "rgba(255, 255, 255, 1)",
                 "columns": 12,
                 "styles": [
@@ -31263,11 +30221,11 @@
                 ],
                 "breakpoints": {
                   "tablet": {
-                    "name": "agendaMyButtonBackgroundTablet",
+                    "name": "lfdAgendaDatesBackgroundColorTablet",
                     "default": "inherit-mobile"
                   },
                   "desktop": {
-                    "name": "agendaMyButtonBackgroundDesktop",
+                    "name": "lfdAgendaDatesBackgroundColorDesktop",
                     "default": "inherit-tablet"
                   }
                 },
@@ -31275,7 +30233,7 @@
                 "type": "color"
               },
               {
-                "name": "agendaMyButtonText",
+                "name": "lfdAgendaDatesFontColor",
                 "default": "$highlightColor",
                 "columns": 12,
                 "styles": [
@@ -31291,11 +30249,11 @@
                 ],
                 "breakpoints": {
                   "tablet": {
-                    "name": "agendaMyButtonTextTablet",
+                    "name": "lfdAgendaDatesFontColorTablet",
                     "default": "inherit-mobile"
                   },
                   "desktop": {
-                    "name": "agendaMyButtonTextDesktop",
+                    "name": "lfdAgendaDatesFontColorDesktop",
                     "default": "inherit-tablet"
                   }
                 },
@@ -31758,7 +30716,7 @@
             "description": "Width",
             "fields": [
               {
-                "name": "smallCardWidth",
+                "name": "lfdWidth",
                 "default": "100%",
                 "styles": [
                   {
@@ -31768,11 +30726,11 @@
                 ],
                 "breakpoints": {
                   "tablet": {
-                    "name": "smallCardWidthTablet",
+                    "name": "lfdWidthTablet",
                     "default": "inherit-mobile"
                   },
                   "desktop": {
-                    "name": "smallCardWidthDesktop",
+                    "name": "lfdWidthDesktop",
                     "default": "inherit-tablet"
                   }
                 },
@@ -31781,7 +30739,7 @@
                 "label": "Width"
               },
               {
-                "name": "smallCardMaxWidth",
+                "name": "lfdMaxWidth",
                 "default": "600px",
                 "styles": [
                   {
@@ -31791,11 +30749,11 @@
                 ],
                 "breakpoints": {
                   "tablet": {
-                    "name": "smallCardMaxWidthTablet",
+                    "name": "lfdMaxWidthTablet",
                     "default": "inherit-mobile"
                   },
                   "desktop": {
-                    "name": "smallCardMaxWidthDesktop",
+                    "name": "lfdMaxWidthDesktop",
                     "default": "inherit-tablet"
                   }
                 },
@@ -31809,32 +30767,32 @@
             "description": "Positioning",
             "fields": [
               {
-                "name": "smallCardPosition",
+                "name": "lfdPosition",
                 "default": "relative",
                 "columns": 12,
                 "logic": {
                   "relative": {
                     "hide": [
-                      "smallCardPositionTop",
-                      "smallCardPositionRight",
-                      "smallCardPositionBottom",
-                      "smallCardPositionLeft"
+                      "lfdPositionTop",
+                      "lfdPositionRight",
+                      "lfdPositionBottom",
+                      "lfdPositionLeft"
                     ]
                   },
                   "absolute": {
                     "show": [
-                      "smallCardPositionTop",
-                      "smallCardPositionRight",
-                      "smallCardPositionBottom",
-                      "smallCardPositionLeft"
+                      "lfdPositionTop",
+                      "lfdPositionRight",
+                      "lfdPositionBottom",
+                      "lfdPositionLeft"
                     ]
                   },
                   "fixed": {
                     "show": [
-                      "smallCardPositionTop",
-                      "smallCardPositionRight",
-                      "smallCardPositionBottom",
-                      "smallCardPositionLeft"
+                      "lfdPositionTop",
+                      "lfdPositionRight",
+                      "lfdPositionBottom",
+                      "lfdPositionLeft"
                     ]
                   }
                 },
@@ -31844,35 +30802,35 @@
                     "properties": ["position"],
                     "type": "position",
                     "siblings": {
-                      "top": "smallCardPositionTop",
-                      "right": "smallCardPositionRight",
-                      "bottom": "smallCardPositionBottom",
-                      "left": "smallCardPositionLeft"
+                      "top": "lfdPositionTop",
+                      "right": "lfdPositionRight",
+                      "bottom": "lfdPositionBottom",
+                      "left": "lfdPositionLeft"
                     }
                   }
                 ],
                 "breakpoints": {
                   "tablet": {
-                    "name": "smallCardPositionTablet",
+                    "name": "lfdPositionTablet",
                     "default": "inherit-mobile"
                   },
                   "desktop": {
-                    "name": "smallCardPositionDesktop",
+                    "name": "lfdPositionDesktop",
                     "default": "inherit-tablet"
                   }
                 },
                 "type": "position"
               },
               {
-                "name": "smallCardDisplay",
+                "name": "lfdDisplay",
                 "default": "block",
                 "columns": 12,
                 "logic": {
                   "block": {
-                    "show": ["smallCardMarginAlign"]
+                    "show": ["lfdMarginAlign"]
                   },
                   "inline-block": {
-                    "hide": ["smallCardMarginAlign"]
+                    "hide": ["lfdMarginAlign"]
                   }
                 },
                 "styles": [
@@ -31883,18 +30841,18 @@
                 ],
                 "breakpoints": {
                   "tablet": {
-                    "name": "smallCardDisplayTablet",
+                    "name": "lfdDisplayTablet",
                     "default": "inherit-mobile"
                   },
                   "desktop": {
-                    "name": "smallCardDisplayDesktop",
+                    "name": "lfdDisplayDesktop",
                     "default": "inherit-tablet"
                   }
                 },
                 "type": "display"
               },
               {
-                "name": "smallCardPositionTop",
+                "name": "lfdPositionTop",
                 "default": "auto",
                 "columns": 6,
                 "styles": [
@@ -31905,11 +30863,11 @@
                 ],
                 "breakpoints": {
                   "tablet": {
-                    "name": "smallCardPositionTopTablet",
+                    "name": "lfdPositionTopTablet",
                     "default": "inherit-mobile"
                   },
                   "desktop": {
-                    "name": "smallCardPositionTopDesktop",
+                    "name": "lfdPositionTopDesktop",
                     "default": "inherit-tablet"
                   }
                 },
@@ -31919,7 +30877,7 @@
                 "allowNegative": true
               },
               {
-                "name": "smallCardPositionRight",
+                "name": "lfdPositionRight",
                 "default": "auto",
                 "columns": 6,
                 "styles": [
@@ -31930,11 +30888,11 @@
                 ],
                 "breakpoints": {
                   "tablet": {
-                    "name": "smallCardPositionRightTablet",
+                    "name": "lfdPositionRightTablet",
                     "default": "inherit-mobile"
                   },
                   "desktop": {
-                    "name": "smallCardPositionRightDesktop",
+                    "name": "lfdPositionRightDesktop",
                     "default": "inherit-tablet"
                   }
                 },
@@ -31944,7 +30902,7 @@
                 "allowNegative": true
               },
               {
-                "name": "smallCardPositionBottom",
+                "name": "lfdPositionBottom",
                 "default": "auto",
                 "columns": 6,
                 "styles": [
@@ -31955,11 +30913,11 @@
                 ],
                 "breakpoints": {
                   "tablet": {
-                    "name": "smallCardPositionBottomTablet",
+                    "name": "lfdPositionBottomTablet",
                     "default": "inherit-mobile"
                   },
                   "desktop": {
-                    "name": "smallCardPositionBottomDesktop",
+                    "name": "lfdPositionBottomDesktop",
                     "default": "inherit-tablet"
                   }
                 },
@@ -31969,7 +30927,7 @@
                 "allowNegative": true
               },
               {
-                "name": "smallCardPositionLeft",
+                "name": "lfdPositionLeft",
                 "default": "auto",
                 "columns": 6,
                 "styles": [
@@ -31980,11 +30938,11 @@
                 ],
                 "breakpoints": {
                   "tablet": {
-                    "name": "smallCardPositionLeftTablet",
+                    "name": "lfdPositionLeftTablet",
                     "default": "inherit-mobile"
                   },
                   "desktop": {
-                    "name": "smallCardPositionLeftDesktop",
+                    "name": "lfdPositionLeftDesktop",
                     "default": "inherit-tablet"
                   }
                 },
@@ -31999,7 +30957,7 @@
             "description": "Layer order",
             "fields": [
               {
-                "name": "smallCardIndex",
+                "name": "lfdIndex",
                 "default": "auto",
                 "columns": 12,
                 "styles": [
@@ -32010,11 +30968,11 @@
                 ],
                 "breakpoints": {
                   "tablet": {
-                    "name": "smallCardIndexTablet",
+                    "name": "lfdIndexTablet",
                     "default": "inherit-mobile"
                   },
                   "desktop": {
-                    "name": "smallCardIndexDesktop",
+                    "name": "lfdIndexDesktop",
                     "default": "inherit-tablet"
                   }
                 },
@@ -32027,27 +30985,27 @@
             "description": "Margin",
             "fields": [
               {
-                "name": "smallCardMarginAlign",
+                "name": "lfdMarginAlign",
                 "default": "center",
                 "columns": 12,
                 "logic": {
                   "left": {
-                    "smallCardMarginRight": "auto",
-                    "smallCardMarginLeft": "0px"
+                    "lfdMarginRight": "auto",
+                    "lfdMarginLeft": "0px"
                   },
                   "center": {
-                    "smallCardMarginRight": "auto",
-                    "smallCardMarginLeft": "auto"
+                    "lfdMarginRight": "auto",
+                    "lfdMarginLeft": "auto"
                   },
                   "right": {
-                    "smallCardMarginRight": "0px",
-                    "smallCardMarginLeft": "auto"
+                    "lfdMarginRight": "0px",
+                    "lfdMarginLeft": "auto"
                   },
                   "custom": [
-                    "smallCardMarginTop",
-                    "smallCardMarginRight",
-                    "smallCardMarginBottom",
-                    "smallCardMarginLeft"
+                    "lfdMarginTop",
+                    "lfdMarginRight",
+                    "lfdMarginBottom",
+                    "lfdMarginLeft"
                   ]
                 },
                 "styles": [
@@ -32059,21 +31017,21 @@
                 ],
                 "breakpoints": {
                   "tablet": {
-                    "name": "smallCardMarginAlignTablet",
+                    "name": "lfdMarginAlignTablet",
                     "default": "inherit-mobile"
                   },
                   "desktop": {
-                    "name": "smallCardMarginAlignDesktop",
+                    "name": "lfdMarginAlignDesktop",
                     "default": "inherit-tablet"
                   }
                 },
                 "type": "margin-align"
               },
               {
-                "name": "smallCardMarginTop",
+                "name": "lfdMarginTop",
                 "default": "0px",
                 "columns": 6,
-                "logic": "smallCardMarginAlign",
+                "logic": "lfdMarginAlign",
                 "styles": [
                   {
                     "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='small-card']",
@@ -32082,11 +31040,11 @@
                 ],
                 "breakpoints": {
                   "tablet": {
-                    "name": "smallCardMarginTopTablet",
+                    "name": "lfdMarginTopTablet",
                     "default": "inherit-mobile"
                   },
                   "desktop": {
-                    "name": "smallCardMarginTopDesktop",
+                    "name": "lfdMarginTopDesktop",
                     "default": "inherit-tablet"
                   }
                 },
@@ -32096,10 +31054,10 @@
                 "allowNegative": true
               },
               {
-                "name": "smallCardMarginRight",
+                "name": "lfdMarginRight",
                 "default": "auto",
                 "columns": 6,
-                "logic": "smallCardMarginAlign",
+                "logic": "lfdMarginAlign",
                 "styles": [
                   {
                     "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='small-card']",
@@ -32108,11 +31066,11 @@
                 ],
                 "breakpoints": {
                   "tablet": {
-                    "name": "smallCardMarginRightTablet",
+                    "name": "lfdMarginRightTablet",
                     "default": "inherit-mobile"
                   },
                   "desktop": {
-                    "name": "smallCardMarginRightDesktop",
+                    "name": "lfdMarginRightDesktop",
                     "default": "inherit-tablet"
                   }
                 },
@@ -32122,10 +31080,10 @@
                 "allowNegative": true
               },
               {
-                "name": "smallCardMarginBottom",
+                "name": "lfdMarginBottom",
                 "default": "0px",
                 "columns": 6,
-                "logic": "smallCardMarginAlign",
+                "logic": "lfdMarginAlign",
                 "styles": [
                   {
                     "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='small-card']",
@@ -32134,11 +31092,11 @@
                 ],
                 "breakpoints": {
                   "tablet": {
-                    "name": "smallCardMarginBottomTablet",
+                    "name": "lfdMarginBottomTablet",
                     "default": "inherit-mobile"
                   },
                   "desktop": {
-                    "name": "smallCardMarginBottomDesktop",
+                    "name": "lfdMarginBottomDesktop",
                     "default": "inherit-tablet"
                   }
                 },
@@ -32148,10 +31106,10 @@
                 "allowNegative": true
               },
               {
-                "name": "smallCardMarginLeft",
+                "name": "lfdMarginLeft",
                 "default": "auto",
                 "columns": 6,
-                "logic": "smallCardMarginAlign",
+                "logic": "lfdMarginAlign",
                 "styles": [
                   {
                     "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='small-card']",
@@ -32160,11 +31118,11 @@
                 ],
                 "breakpoints": {
                   "tablet": {
-                    "name": "smallCardMarginLeftTablet",
+                    "name": "lfdMarginLeftTablet",
                     "default": "inherit-mobile"
                   },
                   "desktop": {
-                    "name": "smallCardMarginLeftDesktop",
+                    "name": "lfdMarginLeftDesktop",
                     "default": "inherit-tablet"
                   }
                 },
@@ -32281,7 +31239,7 @@
             "fields": [
               {
                 "name": "smallCardTitleFontFamily",
-                "default": "$quickTextFontFamily",
+                "default": "$bodyFontFamily",
                 "styles": [
                   {
                     "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='small-card']",
@@ -32327,7 +31285,7 @@
                 "label": "Font size"
               },
               {
-                "name": "smallCardTitleFontColor",
+                "name": "lfdFontColor",
                 "default": "$bodyTextColor",
                 "styles": [
                   {
@@ -32338,11 +31296,11 @@
                 ],
                 "breakpoints": {
                   "tablet": {
-                    "name": "smallCardTitleFontColorTablet",
+                    "name": "lfdFontColorTablet",
                     "default": "inherit-mobile"
                   },
                   "desktop": {
-                    "name": "smallCardTitleFontColorDesktop",
+                    "name": "lfdFontColorDesktop",
                     "default": "inherit-tablet"
                   }
                 },
@@ -32981,8 +31939,8 @@
                 "label": "Font size"
               },
               {
-                "name": "smallCardDetailTitleFontColor",
-                "default": "$smallCardTitleFontColor",
+                "name": "lfdDetailFontColor",
+                "default": "$lfdFontColor",
                 "styles": [
                   {
                     "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='small-card']",
@@ -32992,11 +31950,11 @@
                 ],
                 "breakpoints": {
                   "tablet": {
-                    "name": "smallCardDetailTitleFontColorTablet",
+                    "name": "lfdDetailFontColorTablet",
                     "default": "inherit-mobile"
                   },
                   "desktop": {
-                    "name": "smallCardDetailTitleFontColorDesktop",
+                    "name": "lfdDetailFontColorDesktop",
                     "default": "inherit-tablet"
                   }
                 },
@@ -34024,7 +32982,7 @@
             "description": "Colors",
             "fields": [
               {
-                "name": "smallCardListItemBackground",
+                "name": "lfdBackgroundColor",
                 "default": "$bodyBackground",
                 "column": 12,
                 "styles": [
@@ -34036,11 +32994,11 @@
                 ],
                 "breakpoints": {
                   "tablet": {
-                    "name": "smallCardListItemBackgroundTablet",
+                    "name": "lfdBackgroundColorTablet",
                     "default": "inherit-mobile"
                   },
                   "desktop": {
-                    "name": "smallCardListItemBackgroundDesktop",
+                    "name": "lfdBackgroundColorDesktop",
                     "default": "inherit-tablet"
                   }
                 },
@@ -34048,7 +33006,7 @@
                 "label": "List item background"
               },
               {
-                "name": "smallCardListDetailOverlayBackground",
+                "name": "lfdDetailBackgroundColor",
                 "default": "rgba(255, 255, 255, 1)",
                 "column": 12,
                 "styles": [
@@ -34060,11 +33018,11 @@
                 ],
                 "breakpoints": {
                   "tablet": {
-                    "name": "smallCardListDetailOverlayBackgroundTablet",
+                    "name": "lfdDetailBackgroundColorTablet",
                     "default": "inherit-mobile"
                   },
                   "desktop": {
-                    "name": "smallCardListDetailOverlayBackgroundDesktop",
+                    "name": "lfdDetailBackgroundColorDesktop",
                     "default": "inherit-tablet"
                   }
                 },
@@ -34120,7 +33078,7 @@
                 "label": "Details overlay icons"
               },
               {
-                "name": "smallCardFiltersOverlayBackground",
+                "name": "lfdOverlayBackgroundColor",
                 "default": "$bodyTextColor",
                 "column": 12,
                 "styles": [
@@ -34139,11 +33097,11 @@
                 ],
                 "breakpoints": {
                   "tablet": {
-                    "name": "smallCardFiltersOverlayBackgroundTablet",
+                    "name": "lfdOverlayBackgroundColorTablet",
                     "default": "inherit-mobile"
                   },
                   "desktop": {
-                    "name": "smallCardFiltersOverlayBackgroundDesktop",
+                    "name": "lfdOverlayBackgroundColorDesktop",
                     "default": "inherit-tablet"
                   }
                 },
@@ -34151,7 +33109,7 @@
                 "label": "Filters overlay background"
               },
               {
-                "name": "smallCardOverlayFontColor",
+                "name": "lfdOverlayFontColor",
                 "default": "$bodyBackground",
                 "columns": 12,
                 "styles": [
@@ -34168,11 +33126,11 @@
                 ],
                 "breakpoints": {
                   "tablet": {
-                    "name": "smallCardOverlayFontColorTablet",
+                    "name": "lfdOverlayFontColorTablet",
                     "default": "inherit-mobile"
                   },
                   "desktop": {
-                    "name": "smallCardOverlayFontColorDesktop",
+                    "name": "lfdOverlayFontColorDesktop",
                     "default": "inherit-tablet"
                   }
                 },
@@ -34710,16 +33668,16 @@
             "appSupportsContainers": true,
             "fields": [
               {
-                "name": "smallCardVisibility",
+                "name": "lfdVisibility",
                 "default": "visible",
                 "columns": 12,
                 "breakpoints": {
                   "tablet": {
-                    "name": "smallCardVisibilityTablet",
+                    "name": "lfdVisibilityTablet",
                     "default": "inherit-mobile"
                   },
                   "desktop": {
-                    "name": "smallCardVisibilityDesktop",
+                    "name": "lfdVisibilityDesktop",
                     "default": "inherit-tablet"
                   }
                 },
@@ -39261,6 +38219,70 @@
                 "type": "color"
               },
               {
+                "name": "lfdCommentsBackgroundColor",
+                "default": "$lfdBackgroundColor",
+                "columns": 12,
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='news-feed']",
+                    "selectors": [
+                      ".news-feed-comment-panel",
+                      ".new-news-feed-comment-panel",
+                      ".news-feed-comment-panel .news-feed-comment-panel-header",
+                      ".new-news-feed-comment-panel .news-feed-comment-panel-header",
+                      ".news-feed-comment-panel .news-feed-comment-input-holder",
+                      ".new-news-feed-comment-panel .news-feed-comment-input-holder",
+                      ".news-feed-comment-panel .top-comment-holder",
+                      ".new-news-feed-comment-panel .top-comment-holder"
+                    ],
+                    "properties": ["background-color"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "lfdCommentsBackgroundColorTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "lfdCommentsBackgroundColorDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "label": "Comments overlay background",
+                "type": "color"
+              },
+              {
+                "name": "lfdCommentsFontColor",
+                "default": "$lfdFontColor",
+                "columns": 12,
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='news-feed']",
+                    "selectors": [
+                      ".news-feed-comment-panel .comments-offline",
+                      ".new-news-feed-comment-panel .comments-offline",
+                      ".news-feed-comment-panel .news-feed-comment-panel-header",
+                      ".new-news-feed-comment-panel .news-feed-comment-panel-header",
+                      ".news-feed-comment-panel textarea[data-comment-body]",
+                      ".new-news-feed-comment-panel textarea[data-comment-body]"
+                    ],
+                    "properties": ["color"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "lfdCommentsFontColorTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "lfdCommentsFontColorDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "label": "Comments overlay text",
+                "type": "color"
+              },
+              {
                 "name": "newsFeedFilterIconColor",
                 "default": "$highlightColor",
                 "columns": 12,
@@ -40341,7 +39363,7 @@
             "fields": [
               {
                 "name": "simpleListTitleFontFamily",
-                "default": "$quickTextFontFamily",
+                "default": "$bodyFontFamily",
                 "styles": [
                   {
                     "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='simple-list']",
@@ -41665,6 +40687,63 @@
                 "type": "color"
               },
               {
+                "name": "simpleListCommentsBackgroundColor",
+                "default": "$simpleListDetailOverlayBackground",
+                "columns": 12,
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='simple-list']",
+                    "selectors": [
+                      ".simple-list-comment-panel",
+                      ".simple-list-comment-panel .simple-list-comment-panel-header",
+                      ".simple-list-comment-panel .simple-list-comment-input-holder",
+                      ".simple-list-comment-panel .top-comment-holder"
+                    ],
+                    "properties": ["background-color"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "simpleListCommentsBackgroundColorTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "simpleListCommentsBackgroundColorDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "label": "Comments overlay background",
+                "type": "color"
+              },
+              {
+                "name": "simpleListCommentsFontColor",
+                "default": "$simpleListDetailTextFontColor",
+                "columns": 12,
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='simple-list']",
+                    "selectors": [
+                      ".simple-list-comment-panel .comments-offline",
+                      ".simple-list-comment-panel .simple-list-comment-panel-header",
+                      ".simple-list-comment-panel .textarea[data-comment-body]"
+                    ],
+                    "properties": ["color"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "simpleListCommentsFontColorTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "simpleListCommentsFontColorDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "label": "Comments overlay text",
+                "type": "color"
+              },
+              {
                 "name": "simpleListImageBackground",
                 "default": "rgba(51, 51, 51, 0.05)",
                 "columns": 12,
@@ -41690,6 +40769,30 @@
                 },
                 "label": "Image area background",
                 "type": "color"
+              },
+              {
+                "name": "lfdChevronColor",
+                "default": "$lfdFontColor",
+                "columns": 12,
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='simple-list']",
+                    "selectors": ".simple-list-container .list-item-arrow",
+                    "properties": ["color"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "lfdChevronColorTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "lfdChevronColorDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "label": "Link arrow",
+                "type": "color"
               }
             ]
           },
@@ -41697,49 +40800,49 @@
             "description": "List item border",
             "fields": [
               {
-                "name": "simpleListItemBorderSides",
+                "name": "lfdSeparatorColorSides",
                 "default": "bottom",
                 "logic": {
                   "none": {
                     "hide": [
-                      "simpleListItemBorderWidth",
-                      "simpleListItemBorderStyle",
-                      "simpleListItemBorder"
+                      "lfdSeparatorWidth",
+                      "lfdSeparatorStyle",
+                      "lfdSeparatorColor"
                     ]
                   },
                   "all": {
                     "show": [
-                      "simpleListItemBorderWidth",
-                      "simpleListItemBorderStyle",
-                      "simpleListItemBorder"
+                      "lfdSeparatorWidth",
+                      "lfdSeparatorStyle",
+                      "lfdSeparatorColor"
                     ]
                   },
                   "left": {
                     "show": [
-                      "simpleListItemBorderWidth",
-                      "simpleListItemBorderStyle",
-                      "simpleListItemBorder"
+                      "lfdSeparatorWidth",
+                      "lfdSeparatorStyle",
+                      "lfdSeparatorColor"
                     ]
                   },
                   "right": {
                     "show": [
-                      "simpleListItemBorderWidth",
-                      "simpleListItemBorderStyle",
-                      "simpleListItemBorder"
+                      "lfdSeparatorWidth",
+                      "lfdSeparatorStyle",
+                      "lfdSeparatorColor"
                     ]
                   },
                   "bottom": {
                     "show": [
-                      "simpleListItemBorderWidth",
-                      "simpleListItemBorderStyle",
-                      "simpleListItemBorder"
+                      "lfdSeparatorWidth",
+                      "lfdSeparatorStyle",
+                      "lfdSeparatorColor"
                     ]
                   },
                   "top": {
                     "show": [
-                      "simpleListItemBorderWidth",
-                      "simpleListItemBorderStyle",
-                      "simpleListItemBorder"
+                      "lfdSeparatorWidth",
+                      "lfdSeparatorStyle",
+                      "lfdSeparatorColor"
                     ]
                   }
                 },
@@ -41750,20 +40853,20 @@
                     "properties": ["border"],
                     "type": "border",
                     "siblings": {
-                      "sides": "simpleListItemBorderSides",
-                      "width": "simpleListItemBorderWidth",
-                      "style": "simpleListItemBorderStyle",
-                      "color": "simpleListItemBorder"
+                      "sides": "lfdSeparatorColorSides",
+                      "width": "lfdSeparatorWidth",
+                      "style": "lfdSeparatorStyle",
+                      "color": "lfdSeparatorColor"
                     }
                   }
                 ],
                 "breakpoints": {
                   "tablet": {
-                    "name": "simpleListItemBorderSidesTablet",
+                    "name": "lfdSeparatorColorSidesTablet",
                     "default": "inherit-mobile"
                   },
                   "desktop": {
-                    "name": "simpleListItemBorderSidesDesktop",
+                    "name": "lfdSeparatorColorSidesDesktop",
                     "default": "inherit-tablet"
                   }
                 },
@@ -41771,7 +40874,7 @@
                 "subtype": "border-sides"
               },
               {
-                "name": "simpleListItemBorder",
+                "name": "lfdSeparatorColor",
                 "default":"rgba(51, 51, 51, 0.2)",
                 "styles": [
                   {
@@ -41780,27 +40883,27 @@
                     "properties": ["border"],
                     "type": "border",
                     "siblings": {
-                      "sides": "simpleListItemBorderSides",
-                      "width": "simpleListItemBorderWidth",
-                      "style": "simpleListItemBorderStyle",
-                      "color": "simpleListItemBorder"
+                      "sides": "lfdSeparatorColorSides",
+                      "width": "lfdSeparatorWidth",
+                      "style": "lfdSeparatorStyle",
+                      "color": "lfdSeparatorColor"
                     }
                   }
                 ],
                 "breakpoints": {
                   "tablet": {
-                    "name": "simpleListItemBorderTablet",
+                    "name": "lfdSeparatorColorTablet",
                     "default": "inherit-mobile"
                   },
                   "desktop": {
-                    "name": "simpleListItemBorderDesktop",
+                    "name": "lfdSeparatorColorDesktop",
                     "default": "inherit-tablet"
                   }
                 },
                 "type": "color"
               },
               {
-                "name": "simpleListItemBorderWidth",
+                "name": "lfdSeparatorWidth",
                 "default": "1px",
                 "styles": [
                   {
@@ -41809,20 +40912,20 @@
                     "properties": ["border"],
                     "type": "border",
                     "siblings": {
-                      "sides": "simpleListItemBorderSides",
-                      "width": "simpleListItemBorderWidth",
-                      "style": "simpleListItemBorderStyle",
-                      "color": "simpleListItemBorder"
+                      "sides": "lfdSeparatorColorSides",
+                      "width": "lfdSeparatorWidth",
+                      "style": "lfdSeparatorStyle",
+                      "color": "lfdSeparatorColor"
                     }
                   }
                 ],
                 "breakpoints": {
                   "tablet": {
-                    "name": "simpleListItemBorderWidthTablet",
+                    "name": "lfdSeparatorWidthTablet",
                     "default": "inherit-mobile"
                   },
                   "desktop": {
-                    "name": "simpleListItemBorderWidthDesktop",
+                    "name": "lfdSeparatorWidthDesktop",
                     "default": "inherit-tablet"
                   }
                 },
@@ -41830,7 +40933,7 @@
                 "subtype": "border"
               },
               {
-                "name": "simpleListItemBorderStyle",
+                "name": "lfdSeparatorStyle",
                 "default": "solid",
                 "styles": [
                   {
@@ -41839,27 +40942,27 @@
                     "properties": ["border"],
                     "type": "border",
                     "siblings": {
-                      "sides": "simpleListItemBorderSides",
-                      "width": "simpleListItemBorderWidth",
-                      "style": "simpleListItemBorderStyle",
-                      "color": "simpleListItemBorder"
+                      "sides": "lfdSeparatorColorSides",
+                      "width": "lfdSeparatorWidth",
+                      "style": "lfdSeparatorStyle",
+                      "color": "lfdSeparatorColor"
                     }
                   }
                 ],
                 "breakpoints": {
                   "tablet": {
-                    "name": "simpleListItemBorderStyleTablet",
+                    "name": "lfdSeparatorStyleTablet",
                     "default": "inherit-mobile"
                   },
                   "desktop": {
-                    "name": "simpleListItemBorderStyleDesktop",
+                    "name": "lfdSeparatorStyleDesktop",
                     "default": "inherit-tablet"
                   }
                 },
                 "type": "border-style"
               },
               {
-                "name": "simpleListItemBorderRadius",
+                "name": "lfdSeparatorColorRadius",
                 "default": "0px",
                 "styles": [
                   {
@@ -41870,11 +40973,11 @@
                 ],
                 "breakpoints": {
                   "tablet": {
-                    "name": "simpleListItemBorderRadiusTablet",
+                    "name": "lfdSeparatorColorRadiusTablet",
                     "default": "inherit-mobile"
                   },
                   "desktop": {
-                    "name": "simpleListItemBorderRadiusDesktop",
+                    "name": "lfdSeparatorColorRadiusDesktop",
                     "default": "inherit-tablet"
                   }
                 },
