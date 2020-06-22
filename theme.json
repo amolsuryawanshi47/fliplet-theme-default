@@ -29103,7 +29103,7 @@
                 "label": "Font size"
               },
               {
-                "name": "lfdDetailFontColor",
+                "name": "smallCardDetailTitleFontSizeColor",
                 "default": "$lfdFontColor",
                 "styles": [
                   {
@@ -29114,11 +29114,11 @@
                 ],
                 "breakpoints": {
                   "tablet": {
-                    "name": "lfdDetailFontColorTablet",
+                    "name": "smallCardDetailTitleFontSizeColorTablet",
                     "default": "inherit-mobile"
                   },
                   "desktop": {
-                    "name": "lfdDetailFontColorDesktop",
+                    "name": "smallCardDetailTitleFontSizeColorDesktop",
                     "default": "inherit-tablet"
                   }
                 },
@@ -29758,7 +29758,7 @@
               },
               {
                 "name": "lfdDetailFontColor",
-                "default": "$smallCardTitleFontColor",
+                "default": "$lfdFontColor",
                 "styles": [
                   {
                     "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='small-card']",
@@ -30303,7 +30303,7 @@
               },
               {
                 "name": "smallCardFilterIconColor",
-                "default": "$highlightColor",
+                "default": "$smallCardDetailLabelsFontColor",
                 "columns": 12,
                 "styles": [
                   {
@@ -30327,10 +30327,36 @@
                 },
                 "label": "Filter icon",
                 "type": "color"
+              }, {
+                "name": "smallCardFilterIconActiveColor",
+                "default": "$highlightColor",
+                "columns": 12,
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='small-card']",
+                    "selectors": [
+                      ".new-small-card-list-container .section-top-wrapper .list-search-icon.active .fa-sliders",
+                      ".new-small-card-list-container .section-top-wrapper .list-search-icon.active .fa-times"
+                    ],
+                    "properties": ["color"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "smallCardFilterIconActiveColorTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "smallCardFilterIconActiveColorDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "label": "Filter icon active",
+                "type": "color"
               },
               {
                 "name": "smallCardSearchIconColor",
-                "default": "$highlightColor",
+                "default": "$smallCardDetailLabelsFontColor",
                 "columns": 12,
                 "styles": [
                   {
@@ -30353,8 +30379,56 @@
                 "type": "color"
               },
               {
+                "name": "smallCardSearchFieldBorderColor",
+                "default": "$formInputBorderColor",
+                "columns": 12,
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='small-card']",
+                    "selectors": [".new-small-card-list-container .section-top-wrapper .search-holder input[type='search']"],
+                    "properties": ["border-color"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "smallCardSearchFieldBorderColorTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "smallCardSearchFieldBorderColorDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "label": "Search field border color",
+                "type": "color"
+              },
+              {
+                "name": "smallCardSearchFieldBorderActiveColor",
+                "default": "$formInputBorderFocusColor",
+                "columns": 12,
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='small-card']",
+                    "selectors": [".new-small-card-list-container .section-top-wrapper .search-holder input[type='search']:focus"],
+                    "properties": ["border-color"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "smallCardSearchFieldBorderActiveColorTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "smallCardSearchFieldBorderActiveColorDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "label": "Search field border color active",
+                "type": "color"
+              },
+              {
                 "name": "smallCardBookmarkIconColor",
-                "default": "$highlightColor",
+                "default": "$smallCardDetailLabelsFontColor",
                 "columns": 12,
                 "styles": [
                   {
@@ -30370,6 +30444,30 @@
                   },
                   "desktop": {
                     "name": "smallCardBookmarkIconColorDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "label": "Bookmark icon",
+                "type": "color"
+              },
+              {
+                "name": "smallCardBookmarkIconActiveColor",
+                "default": "$highlightColor",
+                "columns": 12,
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='small-card']",
+                    "selectors": [".new-small-card-list-container .section-top-wrapper .list-search-icon .toggle-bookmarks.mixitup-control-active .fa"],
+                    "properties": ["color"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "smallCardBookmarkIconActiveColorTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "smallCardBookmarkIconActiveColorDesktop",
                     "default": "inherit-tablet"
                   }
                 },
@@ -32590,7 +32688,7 @@
               },
               {
                 "name": "newsFeedDetailSecondDescriptionMarginTop",
-                "default": "$newsFeedDetailSecondDescriptionMarginTop",
+                "default": "$newsFeedSecondDescriptionMarginTop",
                 "styles": [
                   {
                     "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='news-feed']",
@@ -32614,7 +32712,7 @@
               },
               {
                 "name": "newsFeedDetailSecondDescriptionMarginBottom",
-                "default": "$newsFeedDetailSecondDescriptionMarginBottom",
+                "default": "$newsFeedSecondDescriptionMarginBottom",
                 "styles": [
                   {
                     "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='news-feed']",
@@ -33110,6 +33208,33 @@
                 "type": "color"
               },
               {
+                "name": "newsFeedFilterIconActiveColor",
+                "default": "$smallCardFilterIconActiveColor",
+                "columns": 12,
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='news-feed']",
+                    "selectors": [
+                      ".new-news-feed-list-container .section-top-wrapper .list-search-icon.active .fa-sliders",
+                      ".new-news-feed-list-container .section-top-wrapper .list-search-icon.active .list-search-cancel .fa-times"
+                    ],
+                    "properties": ["color"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "newsFeedFilterIconActiveColorTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "newsFeedFilterIconActiveColorDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "label": "Filter icon active",
+                "type": "color"
+              },
+              {
                 "name": "newsFeedSearchIconColor",
                 "default": "$smallCardSearchIconColor",
                 "columns": 12,
@@ -33134,6 +33259,54 @@
                 "type": "color"
               },
               {
+                "name": "newsFeedSearchFieldBorderColor",
+                "default": "$smallCardSearchFieldBorderColor",
+                "columns": 12,
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='news-feed']",
+                    "selectors": [".new-news-feed-list-container .section-top-wrapper .search-holder input[type='search']"],
+                    "properties": ["border-color"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "newsFeedSearchFieldBorderColorTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "newsFeedSearchFieldBorderColorDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "label": "Search field border color",
+                "type": "color"
+              },
+              {
+                "name": "newsFeedSearchFieldBorderActiveColor",
+                "default": "$smallCardSearchFieldBorderActiveColor",
+                "columns": 12,
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='news-feed']",
+                    "selectors": [".new-news-feed-list-container .section-top-wrapper .search-holder input[type='search']:focus"],
+                    "properties": ["border-color"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "newsFeedSearchFieldBorderActiveColorTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "newsFeedSearchFieldBorderActiveColorDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "label": "Search field border color active",
+                "type": "color"
+              },
+              {
                 "name": "newsFeedBookmarkIconColor",
                 "default": "$smallCardBookmarkIconColor",
                 "columns": 12,
@@ -33151,6 +33324,30 @@
                   },
                   "desktop": {
                     "name": "newsFeedBookmarkIconColorDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "label": "Bookmark icon",
+                "type": "color"
+              },
+              {
+                "name": "newsFeedBookmarkIconActiveColor",
+                "default": "$smallCardBookmarkIconActiveColor",
+                "columns": 12,
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='news-feed']",
+                    "selectors": [".new-news-feed-list-container .section-top-wrapper .list-search-icon .toggle-bookmarks.mixitup-control-active .fa"],
+                    "properties": ["color"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "newsFeedBookmarkIconActiveColorTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "newsFeedBookmarkIconActiveColorDesktop",
                     "default": "inherit-tablet"
                   }
                 },
@@ -33294,7 +33491,7 @@
               },
               {
                 "name": "newsFeedListItemBorderWidth",
-                "default": "$newsFeedListItemBorderWidth",
+                "default": "$smallCardListItemBorderWidth",
                 "styles": [
                   {
                     "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='news-feed']",
@@ -33613,7 +33810,7 @@
             "fields": [
               {
                 "name": "newsFeedVisibility",
-                "default": "$smallCardVisibility",
+                "default": "$lfdVisibility",
                 "columns": 12,
                 "breakpoints": {
                   "tablet": {
@@ -35292,7 +35489,7 @@
               },
               {
                 "name": "agendaDetailSecondDescriptionFontWeight",
-                "default": "$smallCardDescriptionFontWeigth",
+                "default": "$smallCardDescriptionFontWeight",
                 "styles": [
                   {
                     "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='agenda']",
@@ -35512,7 +35709,7 @@
               },
               {
                 "name": "agendaDetailTextFontWeight",
-                "default": "$smallCardDetailTextFontWeigth",
+                "default": "$smallCardDetailTextFontWeight",
                 "styles": [
                   {
                     "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='agenda']",
@@ -35838,6 +36035,33 @@
                 "type": "color"
               },
               {
+                "name": "agendaFilterIconActiveColor",
+                "default": "$smallCardFilterIconActiveColor",
+                "columns": 12,
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='agenda']",
+                    "selectors": [
+                      ".new-agenda-list-container .section-top-wrapper .list-search-icon.active .fa-sliders",
+                      ".new-agenda-list-container .section-top-wrapper .list-search-icon.active .list-search-cancel .fa-times"
+                    ],
+                    "properties": ["color"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "agendaFilterIconActiveColorTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "agendaFilterIconActiveColorDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "label": "Filter icon active",
+                "type": "color"
+              },
+              {
                 "name": "agendaSearchIconColor",
                 "default": "$smallCardSearchIconColor",
                 "columns": 12,
@@ -35862,6 +36086,54 @@
                 "type": "color"
               },
               {
+                "name": "agendaSearchFieldBorderColor",
+                "default": "$smallCardSearchFieldBorderColor",
+                "columns": 12,
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='agenda']",
+                    "selectors": [".new-agenda-list-container .section-top-wrapper .search-holder input[type='search']"],
+                    "properties": ["border-color"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "agendaSearchFieldBorderColorTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "agendaSearchFieldBorderColorDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "label": "Search field border color",
+                "type": "color"
+              },
+              {
+                "name": "agendaSearchFieldBorderActiveColor",
+                "default": "$smallCardSearchFieldBorderActiveColor",
+                "columns": 12,
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='agenda']",
+                    "selectors": [".new-agenda-list-container .section-top-wrapper .search-holder input[type='search']:focus"],
+                    "properties": ["border-color"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "agendaSearchFieldBorderActiveColorTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "agendaSearchFieldBorderActiveColorDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "label": "Search field border active color",
+                "type": "color"
+              },
+              {
                 "name": "agendaBookmarkIconColor",
                 "default": "$smallCardBookmarkIconColor",
                 "columns": 12,
@@ -35883,6 +36155,30 @@
                   }
                 },
                 "label": "Bookmark icon",
+                "type": "color"
+              },
+              {
+                "name": "agendaBookmarkIconActiveColor",
+                "default": "$smallCardBookmarkIconActiveColor",
+                "columns": 12,
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='agenda']",
+                    "selectors": [".new-agenda-list-container .section-top-wrapper .list-search-icon .toggle-bookmarks.mixitup-control-active .fa"],
+                    "properties": ["color"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "agendaBookmarkIconActiveColorTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "agendaBookmarkIconActiveColorDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "label": "Bookmark icon active",
                 "type": "color"
               },
               {
@@ -37046,7 +37342,7 @@
               },
               {
                 "name": "smallHCardTitleFontColor",
-                "default": "$smallCardTitleFontColor",
+                "default": "$lfdFontColor",
                 "styles": [
                   {
                     "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='small-h-card']",
@@ -37069,7 +37365,7 @@
               },
               {
                 "name": "smallHCardTitleFontWeight",
-                "default": "$smallCardTitleFontWeigth",
+                "default": "$smallCardTitleFontWeight",
                 "styles": [
                   {
                     "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='small-h-card']",
@@ -37264,7 +37560,7 @@
               },
               {
                 "name": "smallHCardDetailTitleFontColor",
-                "default": "$smallCardDetailTitleFontColor",
+                "default": "$lfdDetailFontColor",
                 "styles": [
                   {
                     "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='small-h-card']",
@@ -37287,7 +37583,7 @@
               },
               {
                 "name": "smallHCardDetailTitleFontWeight",
-                "default": "$smallCardDetailTitleFontWeigth",
+                "default": "$smallCardDetailTitleFontWeight",
                 "styles": [
                   {
                     "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='small-h-card']",
@@ -39410,7 +39706,7 @@
               },
               {
                 "name": "simpleListTitleFontColor",
-                "default": "$smallCardTitleFontColor",
+                "default": "$lfdFontColor",
                 "styles": [
                   {
                     "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='simple-list']",
@@ -40612,6 +40908,33 @@
                 "type": "color"
               },
               {
+                "name": "simpleListFilterIconActiveColor",
+                "default": "$smallCardFilterIconActiveColor",
+                "columns": 12,
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='simple-list']",
+                    "selectors": [
+                      ".simple-list-container .section-top-wrapper .list-search-icon.active .fa-sliders",
+                      ".simple-list-container .section-top-wrapper .list-search-icon.active .fa-times"
+                    ],
+                    "properties": ["color"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "simpleListFilterIconActiveColorTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "simpleListFilterIconActiveColorDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "label": "Filter icon active",
+                "type": "color"
+              },
+              {
                 "name": "simpleListSearchIconColor",
                 "default": "$smallCardSearchIconColor",
                 "columns": 12,
@@ -40636,8 +40959,56 @@
                 "type": "color"
               },
               {
-                "name": "smallCardBookmarkIconColor",
-                "default": "$highlightColor",
+                "name": "simpleListSearchFieldBorderColor",
+                "default": "$smallCardSearchFieldBorderColor",
+                "columns": 12,
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='simple-list']",
+                    "selectors": ".simple-list-container .section-top-wrapper .search-holder .fa",
+                    "properties": ["border-color"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "simpleListSearchFieldBorderColorTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "simpleListSearchFieldBorderColorDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "label": "Search field border color",
+                "type": "color"
+              },
+              {
+                "name": "simpleListSearchFieldBorderActiveColor",
+                "default": "$smallCardSearchFieldBorderActiveColor",
+                "columns": 12,
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='simple-list']",
+                    "selectors": ".simple-list-container .section-top-wrapper .search-holder .fa",
+                    "properties": ["border-color"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "simpleListSearchFieldBorderActiveColorTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "simpleListSearchFieldBorderActiveColorDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "label": "Search field border color active",
+                "type": "color"
+              },
+              {
+                "name": "simpleListBookmarkIconColor",
+                "default": "$smallCardBookmarkIconColor",
                 "columns": 12,
                 "styles": [
                   {
@@ -40660,8 +41031,32 @@
                 "type": "color"
               },
               {
+                "name": "simpleListBookmarkIconActiveColor",
+                "default": "$highlightColor",
+                "columns": 12,
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='simple-list']",
+                    "selectors": [".simple-list-container .section-top-wrapper .list-search-icon .toggle-bookmarks.mixitup-control-active .fa"],
+                    "properties": ["color"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "simpleListBookmarkIconActiveColorTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "simpleListBookmarkIconActiveColorDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "label": "Bookmark icon active",
+                "type": "color"
+              },
+              {
                 "name": "simpleListLikeIconColor",
-                "default": "#ed4956",
+                "default": "$simpleListBookmarkIconColor",
                 "columns": 12,
                 "styles": [
                   {
@@ -40675,15 +41070,42 @@
                 ],
                 "breakpoints": {
                   "tablet": {
-                    "name": "simpleListBookmarkIconColorTablet",
+                    "name": "simpleListLikeIconColorTablet",
                     "default": "inherit-mobile"
                   },
                   "desktop": {
-                    "name": "simpleListBookmarkIconColorDesktop",
+                    "name": "simpleListLikeIconColorDesktop",
                     "default": "inherit-tablet"
                   }
                 },
                 "label": "Like icon",
+                "type": "color"
+              },
+              {
+                "name": "simpleListLikeIconActiveColor",
+                "default": "#ed4956",
+                "columns": 12,
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='simple-list']",
+                    "selectors": [
+                      ".simple-list-container .simple-list-like-holder .fa.animated",
+                      ".simple-list-container .simple-list-like-wrapper .fa.animated"
+                    ],
+                    "properties": ["color"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "simpleListLikeIconActiveColorTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "simpleListLikeIconActiveColorDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "label": "Like icon active",
                 "type": "color"
               },
               {

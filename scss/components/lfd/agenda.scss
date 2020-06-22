@@ -240,12 +240,24 @@
   agendaFilterIconColor: $agendaFilterIconColor,
   agendaFilterIconColorTablet: $agendaFilterIconColorTablet,
   agendaFilterIconColorDesktop: $agendaFilterIconColorDesktop,
+  agendaFilterIconActiveColor: $agendaFilterIconActiveColor,
+  agendaFilterIconActiveColorTablet: $agendaFilterIconActiveColorTablet,
+  agendaFilterIconActiveColorDesktop: $agendaFilterIconActiveColorDesktop,
   agendaSearchIconColor: $agendaSearchIconColor,
   agendaSearchIconColorTablet: $agendaSearchIconColorTablet,
   agendaSearchIconColorDesktop: $agendaSearchIconColorDesktop,
+  agendaSearchFieldBorderColor: $agendaSearchFieldBorderColor,
+  agendaSearchFieldBorderColorTablet: $agendaSearchFieldBorderColorTablet,
+  agendaSearchFieldBorderColorDesktop: $agendaSearchFieldBorderColorDesktop,
+  agendaSearchFieldBorderActiveColor: $agendaSearchFieldBorderActiveColor,
+  agendaSearchFieldBorderActiveColorTablet: $agendaSearchFieldBorderActiveColorTablet,
+  agendaSearchFieldBorderActiveColorDesktop: $agendaSearchFieldBorderActiveColorDesktop,
   agendaBookmarkIconColor: $agendaBookmarkIconColor,
   agendaBookmarkIconColorTablet: $agendaBookmarkIconColorTablet,
   agendaBookmarkIconColorDesktop: $agendaBookmarkIconColorDesktop,
+  agendaBookmarkIconActiveColor: $agendaBookmarkIconActiveColor,
+  agendaBookmarkIconActiveColorTablet: $agendaBookmarkIconActiveColorTablet,
+  agendaBookmarkIconActiveColorDesktop: $agendaBookmarkIconActiveColorDesktop,
   agendaPaddingTop: $agendaPaddingTop,
   agendaPaddingRight: $agendaPaddingRight,
   agendaPaddingBottom: $agendaPaddingBottom,
@@ -820,12 +832,28 @@
           color: map-get($configuration, agendaFilterIconColor) !important;
         }
 
-        .toggle-bookmarks .fa {
-          color: map-get($configuration, agendaBookmarkIconColor) !important;
+        &.active .fa-sliders, .list-search-cancel .fa-times {
+          color: map-get($configuration, agendaFilterIconActiveColor) !important;
         }
 
-        .search-holder .fa {
-          color: map-get($configuration, agendaSearchIconColor);
+        .toggle-bookmarks {
+          &.mixitup-control-active .fa {
+            color: map-get($configuration, agendaBookmarkIconActiveColor) !important;
+          }
+
+          .fa {
+            color: map-get($configuration, agendaBookmarkIconColor) !important;
+          }
+        }
+
+        .search-holder {
+          input[type="search"] {
+            border-color: map-get($configuration, agendaSearchFieldBorderColor);
+
+            &:focus {
+              border-color: map-get($configuration, agendaSearchFieldBorderActiveColor);
+            }
+          }
         }
       }
 
@@ -979,13 +1007,29 @@
           .fa-sliders, .list-search-cancel .fa-times {
             color: map-get($configuration, agendaFilterIconColorTablet) !important;
           }
-
-          .toggle-bookmarks .fa {
-            color: map-get($configuration, agendaBookmarkIconColorTablet) !important;
+  
+          &.active .fa-sliders, .list-search-cancel .fa-times {
+            color: map-get($configuration, agendaFilterIconActiveColorTablet) !important;
           }
 
-          .search-holder .fa {
-            color: map-get($configuration, agendaSearchIconColorTablet);
+          .toggle-bookmarks {
+            &.mixitup-control-active .fa {
+              color: map-get($configuration, agendaBookmarkIconActiveColorTablet) !important;
+            }
+  
+            .fa {
+              color: map-get($configuration, agendaBookmarkIconColorTablet) !important;
+            }
+          }
+
+          .search-holder {
+            input[type="search"] {
+              border-color: map-get($configuration, agendaSearchFieldBorderColorTablet);
+  
+              &:focus {
+                border-color: map-get($configuration, agendaSearchFieldBorderActiveColorTablet);
+              }
+            }
           }
         }
 
@@ -1141,13 +1185,29 @@
           .fa-sliders, .list-search-cancel .fa-times {
             color: map-get($configuration, agendaFilterIconColorDesktop) !important;
           }
-
-          .toggle-bookmarks .fa {
-            color: map-get($configuration, agendaBookmarkIconColorDesktop) !important;
+  
+          &.active .fa-sliders, .list-search-cancel .fa-times {
+            color: map-get($configuration, agendaFilterIconActiveColorDesktop) !important;
           }
 
-          .search-holder .fa {
-            color: map-get($configuration, agendaSearchIconColorDesktop);
+          .toggle-bookmarks {
+            &.mixitup-control-active .fa {
+              color: map-get($configuration, agendaBookmarkIconActiveColorDesktop) !important;
+            }
+  
+            .fa {
+              color: map-get($configuration, agendaBookmarkIconColorDesktop) !important;
+            }
+          }
+
+          .search-holder {
+            input[type="search"] {
+              border-color: map-get($configuration, agendaSearchFieldBorderColorDesktop);
+  
+              &:focus {
+                border-color: map-get($configuration, agendaSearchFieldBorderActiveColorDesktop);
+              }
+            }
           }
         }
 

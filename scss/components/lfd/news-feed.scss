@@ -225,12 +225,24 @@
   newsFeedFilterIconColor: $newsFeedFilterIconColor,
   newsFeedFilterIconColorTablet: $newsFeedFilterIconColorTablet,
   newsFeedFilterIconColorDesktop: $newsFeedFilterIconColorDesktop,
+  newsFeedFilterIconActiveColor: $newsFeedFilterIconActiveColor,
+  newsFeedFilterIconActiveColorTablet: $newsFeedFilterIconActiveColorTablet,
+  newsFeedFilterIconActiveColorDesktop: $newsFeedFilterIconActiveColorDesktop,
   newsFeedSearchIconColor: $newsFeedSearchIconColor,
   newsFeedSearchIconColorTablet: $newsFeedSearchIconColorTablet,
   newsFeedSearchIconColorDesktop: $newsFeedSearchIconColorDesktop,
+  newsFeedSearchFieldBorderColor: $newsFeedSearchFieldBorderColor,
+  newsFeedSearchFieldBorderColorTablet: $newsFeedSearchFieldBorderColorTablet,
+  newsFeedSearchFieldBorderColorDesktop: $newsFeedSearchFieldBorderColorDesktop,
+  newsFeedSearchFieldBorderActiveColor: $newsFeedSearchFieldBorderActiveColor,
+  newsFeedSearchFieldBorderActiveColorTablet: $newsFeedSearchFieldBorderActiveColorTablet,
+  newsFeedSearchFieldBorderActiveColorDesktop: $newsFeedSearchFieldBorderActiveColorDesktop,
   newsFeedBookmarkIconColor: $newsFeedBookmarkIconColor,
   newsFeedBookmarkIconColorTablet: $newsFeedBookmarkIconColorTablet,
   newsFeedBookmarkIconColorDesktop: $newsFeedBookmarkIconColorDesktop,
+  newsFeedBookmarkIconActiveColor: $newsFeedBookmarkIconActiveColor,
+  newsFeedBookmarkIconActiveColorTablet: $newsFeedBookmarkIconActiveColorTablet,
+  newsFeedBookmarkIconActiveColorDesktop: $newsFeedBookmarkIconActiveColorDesktop,
   newsFeedImageBackground: $newsFeedImageBackground,
   newsFeedImageBackgroundTablet: $newsFeedImageBackgroundTablet,
   newsFeedImageBackgroundDesktop: $newsFeedImageBackgroundDesktop,
@@ -1251,8 +1263,18 @@
       }
 
       .section-top-wrapper {
-        .search-holder .fa {
-          color: map-get($configuration, newsFeedSearchIconColor) !important;
+        .search-holder {
+          input[type="search"] {
+            border-color: map-get($configuration, newsFeedSearchFieldBorderColor);
+
+            &:focus {
+              border-color: map-get($configuration, newsFeedSearchFieldBorderActiveColor);
+            }
+          }
+
+          .fa {
+            color: map-get($configuration, newsFeedSearchIconColor);
+          }
         }
 
         .form-control {
@@ -1285,8 +1307,18 @@
             color: map-get($configuration, newsFeedFilterIconColor) !important;
           }
 
-          .toggle-bookmarks .fa {
-            color: map-get($configuration, newsFeedBookmarkIconColor) !important;
+          &.active .fa-sliders, .list-search-cancel .fa-times {
+            color: map-get($configuration, newsFeedFilterIconActiveColor) !important;
+          }
+
+          .toggle-bookmarks {
+            &.mixitup-control-active .fa {
+              color: map-get($configuration, newsFeedBookmarkIconActiveColor) !important;
+            }
+
+            .fa {
+              color: map-get($configuration, newsFeedBookmarkIconColor) !important;
+            }
           }
         }
       }
@@ -1348,8 +1380,16 @@
         }
 
         .search-holder {
+          input[type="search"] {
+            border-color: map-get($configuration, newsFeedSearchFieldBorderColorTablet);
+
+            &:focus {
+              border-color: map-get($configuration, newsFeedSearchFieldBorderActiveColorTablet);
+            }
+          }
+
           .fa {
-            color: map-get($configuration, newsFeedSearchIconColorTablet) !important;
+            color: map-get($configuration, newsFeedSearchIconColorTablet);
           }
 
           .form-control {
@@ -1377,9 +1417,19 @@
             .fa-sliders, .list-search-cancel .fa-times {
               color: map-get($configuration, newsFeedFilterIconColorTablet) !important;
             }
-
-            .toggle-bookmarks .fa {
-              color: map-get($configuration, newsFeedBookmarkIconColorTablet) !important;
+  
+            &.active .fa-sliders, .list-search-cancel .fa-times {
+              color: map-get($configuration, newsFeedFilterIconActiveColorTablet) !important;
+            }
+  
+            .toggle-bookmarks {
+              &.mixitup-control-active .fa {
+                color: map-get($configuration, newsFeedBookmarkIconActiveColorTablet) !important;
+              }
+  
+              .fa {
+                color: map-get($configuration, newsFeedBookmarkIconColorTablet) !important;
+              }
             }
           }
         }
@@ -1438,8 +1488,16 @@
         }
 
         .search-holder {
+          input[type="search"] {
+            border-color: map-get($configuration, newsFeedSearchFieldBorderColorDesktop);
+
+            &:focus {
+              border-color: map-get($configuration, newsFeedSearchFieldBorderActiveColorDesktop);
+            }
+          }
+
           .fa {
-            color: map-get($configuration, newsFeedSearchIconColorDesktop) !important;
+            color: map-get($configuration, newsFeedSearchIconColorDesktop);
           }
 
           .form-control {
@@ -1467,9 +1525,19 @@
             .fa-sliders, .list-search-cancel .fa-times {
               color: map-get($configuration, newsFeedFilterIconColorDesktop) !important;
             }
-
-            .toggle-bookmarks .fa {
-              color: map-get($configuration, newsFeedBookmarkIconColorDesktop) !important;
+  
+            &.active .fa-sliders, .list-search-cancel .fa-times {
+              color: map-get($configuration, newsFeedFilterIconActiveColorDesktop) !important;
+            }
+  
+            .toggle-bookmarks {
+              &.mixitup-control-active .fa {
+                color: map-get($configuration, newsFeedBookmarkIconActiveColorDesktop) !important;
+              }
+  
+              .fa {
+                color: map-get($configuration, newsFeedBookmarkIconColorDesktop) !important;
+              }
             }
           }
         }
