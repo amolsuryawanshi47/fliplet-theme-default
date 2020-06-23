@@ -1,6 +1,6 @@
 {
-  "name": "Fliplet theme-upplabs",
-  "package": "com.fliplet.theme.default-upplabs",
+  "name": "Fliplet theme",
+  "package": "com.fliplet.theme.default",
   "version": "2.0.0",
   "icon": "img/icon.png",
   "tags": ["engineVersion:2"],
@@ -30356,7 +30356,7 @@
               },
               {
                 "name": "smallCardSearchIconColor",
-                "default": "$smallCardDetailLabelsFontColor",
+                "default": "$highlightColor",
                 "columns": 12,
                 "styles": [
                   {
@@ -33009,7 +33009,7 @@
               },
               {
                 "name": "newsFeedListDetailOverlayLineUnderTitleColor",
-                "default": "$highlightColor",
+                "default": "$smallCardListDetailOverlayLineUnderTitleColor",
                 "column": 12,
                 "styles": [
                   {
@@ -33033,7 +33033,7 @@
               },
               {
                 "name": "newsFeedListDetailOverlayIconsColor",
-                "default": "rgba(51, 51, 51, 0.3)",
+                "default": "$smallCardListDetailOverlayIconsColor",
                 "column": 12,
                 "styles": [
                   {
@@ -33114,70 +33114,6 @@
                   }
                 },
                 "label": "Filters overlay text",
-                "type": "color"
-              },
-              {
-                "name": "lfdCommentsBackgroundColor",
-                "default": "$lfdBackgroundColor",
-                "columns": 12,
-                "styles": [
-                  {
-                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='news-feed']",
-                    "selectors": [
-                      ".news-feed-comment-panel",
-                      ".new-news-feed-comment-panel",
-                      ".news-feed-comment-panel .news-feed-comment-panel-header",
-                      ".new-news-feed-comment-panel .news-feed-comment-panel-header",
-                      ".news-feed-comment-panel .news-feed-comment-input-holder",
-                      ".new-news-feed-comment-panel .news-feed-comment-input-holder",
-                      ".news-feed-comment-panel .top-comment-holder",
-                      ".new-news-feed-comment-panel .top-comment-holder"
-                    ],
-                    "properties": ["background-color"]
-                  }
-                ],
-                "breakpoints": {
-                  "tablet": {
-                    "name": "lfdCommentsBackgroundColorTablet",
-                    "default": "inherit-mobile"
-                  },
-                  "desktop": {
-                    "name": "lfdCommentsBackgroundColorDesktop",
-                    "default": "inherit-tablet"
-                  }
-                },
-                "label": "Comments overlay background",
-                "type": "color"
-              },
-              {
-                "name": "lfdCommentsFontColor",
-                "default": "$lfdFontColor",
-                "columns": 12,
-                "styles": [
-                  {
-                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='news-feed']",
-                    "selectors": [
-                      ".news-feed-comment-panel .comments-offline",
-                      ".new-news-feed-comment-panel .comments-offline",
-                      ".news-feed-comment-panel .news-feed-comment-panel-header",
-                      ".new-news-feed-comment-panel .news-feed-comment-panel-header",
-                      ".news-feed-comment-panel textarea[data-comment-body]",
-                      ".new-news-feed-comment-panel textarea[data-comment-body]"
-                    ],
-                    "properties": ["color"]
-                  }
-                ],
-                "breakpoints": {
-                  "tablet": {
-                    "name": "lfdCommentsFontColorTablet",
-                    "default": "inherit-mobile"
-                  },
-                  "desktop": {
-                    "name": "lfdCommentsFontColorDesktop",
-                    "default": "inherit-tablet"
-                  }
-                },
-                "label": "Comments overlay text",
                 "type": "color"
               },
               {
@@ -33351,7 +33287,61 @@
                     "default": "inherit-tablet"
                   }
                 },
-                "label": "Bookmark icon",
+                "label": "Bookmark icon active",
+                "type": "color"
+              },
+              {
+                "name": "newsFeedLikeIconColor",
+                "default": "$newsFeedBookmarkIconColor",
+                "columns": 12,
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='news-feed']",
+                    "selectors": [
+                      ".news-feed-like-holder .fa",
+                      ".news-feed-like-wrapper .fa"
+                    ],
+                    "properties": ["color"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "newsFeedLikeIconColorTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "newsFeedLikeIconColorDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "label": "Like icon",
+                "type": "color"
+              },
+              {
+                "name": "newsFeedLikeIconActiveColor",
+                "default": "#ed4956",
+                "columns": 12,
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='news-feed']",
+                    "selectors": [
+                      ".news-feed-like-holder .fa.animated",
+                      ".news-feed-like-wrapper .fa.animated"
+                    ],
+                    "properties": ["color"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "newsFeedLikeIconActiveColorTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "newsFeedLikeIconActiveColorDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "label": "Like icon active",
                 "type": "color"
               },
               {
@@ -33379,6 +33369,70 @@
                   }
                 },
                 "label": "Image area background",
+                "type": "color"
+              },
+              {
+                "name": "lfdCommentsBackgroundColor",
+                "default": "$lfdBackgroundColor",
+                "columns": 12,
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='news-feed']",
+                    "selectors": [
+                      ".news-feed-comment-panel",
+                      ".new-news-feed-comment-panel",
+                      ".news-feed-comment-panel .news-feed-comment-panel-header",
+                      ".new-news-feed-comment-panel .news-feed-comment-panel-header",
+                      ".news-feed-comment-panel .news-feed-comment-input-holder",
+                      ".new-news-feed-comment-panel .news-feed-comment-input-holder",
+                      ".news-feed-comment-panel .top-comment-holder",
+                      ".new-news-feed-comment-panel .top-comment-holder"
+                    ],
+                    "properties": ["background-color"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "lfdCommentsBackgroundColorTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "lfdCommentsBackgroundColorDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "label": "Comments overlay background",
+                "type": "color"
+              },
+              {
+                "name": "lfdCommentsFontColor",
+                "default": "$lfdFontColor",
+                "columns": 12,
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='news-feed']",
+                    "selectors": [
+                      ".news-feed-comment-panel .comments-offline",
+                      ".new-news-feed-comment-panel .comments-offline",
+                      ".news-feed-comment-panel .news-feed-comment-panel-header",
+                      ".new-news-feed-comment-panel .news-feed-comment-panel-header",
+                      ".news-feed-comment-panel textarea[data-comment-body]",
+                      ".new-news-feed-comment-panel textarea[data-comment-body]"
+                    ],
+                    "properties": ["color"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "lfdCommentsFontColorTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "lfdCommentsFontColorDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "label": "Comments overlay text",
                 "type": "color"
               }
             ]
@@ -34517,7 +34571,7 @@
               },
               {
                 "name": "agendaTitleLineHeight",
-                "default": "1.2",
+                "default": "1.2em",
                 "columns": 12,
                 "styles": [
                   {
@@ -35779,7 +35833,7 @@
               },
               {
                 "name": "agendaDetailTextLineHeight",
-                "default": "1.6",
+                "default": "$smallCardDetailTextLineHeight",
                 "columns": 12,
                 "styles": [
                   {
@@ -35804,7 +35858,7 @@
               },
               {
                 "name": "agendaDetailTextMarginTop",
-                "default": "0px",
+                "default": "$smallCardDetailTextMarginTop",
                 "styles": [
                   {
                     "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='agenda']",
@@ -35828,7 +35882,7 @@
               },
               {
                 "name": "agendaDetailTextMarginBottom",
-                "default": "10px",
+                "default": "$smallCardDetailTextMarginBottom",
                 "styles": [
                   {
                     "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='agenda']",
@@ -40797,7 +40851,7 @@
               },
               {
                 "name": "simpleListDetailOverlayIconsColor",
-                "default": "rgba(51, 51, 51, 0.3)",
+                "default": "$smallCardListDetailOverlayIconsColor",
                 "column": 12,
                 "styles": [
                   {
@@ -40965,7 +41019,7 @@
                 "styles": [
                   {
                     "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='simple-list']",
-                    "selectors": ".simple-list-container .section-top-wrapper .search-holder .fa",
+                    "selectors": ".simple-list-container .section-top-wrapper .search-holder input[type='search']",
                     "properties": ["border-color"]
                   }
                 ],
@@ -40989,7 +41043,7 @@
                 "styles": [
                   {
                     "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='simple-list']",
-                    "selectors": ".simple-list-container .section-top-wrapper .search-holder .fa",
+                    "selectors": ".simple-list-container .section-top-wrapper .search-holder input[type='search']:focus",
                     "properties": ["border-color"]
                   }
                 ],
@@ -41109,6 +41163,57 @@
                 "type": "color"
               },
               {
+                "name": "simpleListImageBackground",
+                "default": "$smallCardImageBackground",
+                "columns": 12,
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='simple-list']",
+                    "selectors": [
+                      ".simple-list-item .list-item-image",
+                      ".simple-list-detail-overlay .simple-list-details-holder .simple-list-detail-value img"
+                    ],
+                    "properties": ["background-color"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "simpleListImageBackgroundTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "simpleListImageBackgroundDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "label": "Image area background",
+                "type": "color"
+              },
+              {
+                "name": "lfdChevronColor",
+                "default": "$lfdFontColor",
+                "columns": 12,
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='simple-list']",
+                    "selectors": ".simple-list-container .list-item-arrow",
+                    "properties": ["color"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "lfdChevronColorTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "lfdChevronColorDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "label": "Link arrow",
+                "type": "color"
+              },
+              {
                 "name": "simpleListCommentsBackgroundColor",
                 "default": "$lfdCommentsBackgroundColor",
                 "columns": 12,
@@ -41163,57 +41268,6 @@
                   }
                 },
                 "label": "Comments overlay text",
-                "type": "color"
-              },
-              {
-                "name": "simpleListImageBackground",
-                "default": "$smallCardImageBackground",
-                "columns": 12,
-                "styles": [
-                  {
-                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='simple-list']",
-                    "selectors": [
-                      ".simple-list-item .list-item-image",
-                      ".simple-list-detail-overlay .simple-list-details-holder .simple-list-detail-value img"
-                    ],
-                    "properties": ["background-color"]
-                  }
-                ],
-                "breakpoints": {
-                  "tablet": {
-                    "name": "simpleListImageBackgroundTablet",
-                    "default": "inherit-mobile"
-                  },
-                  "desktop": {
-                    "name": "simpleListImageBackgroundDesktop",
-                    "default": "inherit-tablet"
-                  }
-                },
-                "label": "Image area background",
-                "type": "color"
-              },
-              {
-                "name": "lfdChevronColor",
-                "default": "$lfdFontColor",
-                "columns": 12,
-                "styles": [
-                  {
-                    "parentSelector": "[data-widget-package='com.fliplet.dynamic-lists'] [data-dynamic-lists-layout='simple-list']",
-                    "selectors": ".simple-list-container .list-item-arrow",
-                    "properties": ["color"]
-                  }
-                ],
-                "breakpoints": {
-                  "tablet": {
-                    "name": "lfdChevronColorTablet",
-                    "default": "inherit-mobile"
-                  },
-                  "desktop": {
-                    "name": "lfdChevronColorDesktop",
-                    "default": "inherit-tablet"
-                  }
-                },
-                "label": "Link arrow",
                 "type": "color"
               }
             ]
