@@ -111,6 +111,9 @@
     smallCardDetailTitleFontSize: $smallCardDetailTitleFontSize,
     smallCardDetailTitleFontSizeTablet: $smallCardDetailTitleFontSizeTablet,
     smallCardDetailTitleFontSizeDesktop: $smallCardDetailTitleFontSizeDesktop,
+    smallCardDetailTitleFontSizeColor: $smallCardDetailTitleFontSizeColor,
+    smallCardDetailTitleFontSizeColorTablet: $smallCardDetailTitleFontSizeColorTablet,
+    smallCardDetailTitleFontSizeColorDesktop: $smallCardDetailTitleFontSizeColorDesktop,
     lfdDetailFontColor: $lfdDetailFontColor,
     lfdDetailFontColorTablet: $lfdDetailFontColorTablet,
     lfdDetailFontColorDesktop: $lfdDetailFontColorDesktop,
@@ -126,12 +129,6 @@
     smallCardDetailTitleLineHeight: $smallCardDetailTitleLineHeight,
     smallCardDetailTitleLineHeightTablet: $smallCardDetailTitleLineHeightTablet,
     smallCardDetailTitleLineHeightDesktop: $smallCardDetailTitleLineHeightDesktop,
-    smallCardDetailTitleMarginTop: $smallCardDetailTitleMarginTop,
-    smallCardDetailTitleMarginTopTablet: $smallCardDetailTitleMarginTopTablet,
-    smallCardDetailTitleMarginTopDesktop: $smallCardDetailTitleMarginTopDesktop,
-    smallCardDetailTitleMarginBottom: $smallCardDetailTitleMarginBottom,
-    smallCardDetailTitleMarginBottomTablet: $smallCardDetailTitleMarginBottomTablet,
-    smallCardDetailTitleMarginBottomDesktop: $smallCardDetailTitleMarginBottomDesktop,
     smallCardDetailDescriptionFontFamily: $smallCardDetailDescriptionFontFamily,
     smallCardDetailDescriptionFontFamilyTablet: $smallCardDetailDescriptionFontFamilyTablet,
     smallCardDetailDescriptionFontFamilyDesktop: $smallCardDetailDescriptionFontFamilyDesktop,
@@ -219,9 +216,6 @@
     smallCardDetailTextFontSize: $smallCardDetailTextFontSize,
     smallCardDetailTextFontSizeTablet: $smallCardDetailTextFontSizeTablet,
     smallCardDetailTextFontSizeDesktop: $smallCardDetailTextFontSizeDesktop,
-    smallCardDetailTextFontColor: $smallCardDetailTextFontColor,
-    smallCardDetailTextFontColorTablet: $smallCardDetailTextFontColorTablet,
-    smallCardDetailTextFontColorDesktop: $smallCardDetailTextFontColorDesktop,
     smallCardDetailTextFontWeight: $smallCardDetailTextFontWeight,
     smallCardDetailTextFontWeightTablet: $smallCardDetailTextFontWeightTablet,
     smallCardDetailTextFontWeightDesktop: $smallCardDetailTextFontWeightDesktop,
@@ -258,12 +252,24 @@
     smallCardFilterIconColor: $smallCardFilterIconColor,
     smallCardFilterIconColorTablet: $smallCardFilterIconColorTablet,
     smallCardFilterIconColorDesktop: $smallCardFilterIconColorDesktop,
+    smallCardFilterIconActiveColor: $smallCardFilterIconActiveColor,
+    smallCardFilterIconActiveColorTablet: $smallCardFilterIconActiveColorTablet,
+    smallCardFilterIconActiveColorDesktop: $smallCardFilterIconActiveColorDesktop,
     smallCardSearchIconColor: $smallCardSearchIconColor,
     smallCardSearchIconColorTablet: $smallCardSearchIconColorTablet,
     smallCardSearchIconColorDesktop: $smallCardSearchIconColorDesktop,
+    smallCardSearchFieldBorderColor: $smallCardSearchFieldBorderColor,
+    smallCardSearchFieldBorderColorTablet: $smallCardSearchFieldBorderColorTablet,
+    smallCardSearchFieldBorderColorDesktop: $smallCardSearchFieldBorderColorDesktop,
+    smallCardSearchFieldBorderActiveColor: $smallCardSearchFieldBorderActiveColor,
+    smallCardSearchFieldBorderActiveColorTablet: $smallCardSearchFieldBorderActiveColorTablet,
+    smallCardSearchFieldBorderActiveColorDesktop: $smallCardSearchFieldBorderActiveColorDesktop,
     smallCardBookmarkIconColor: $smallCardBookmarkIconColor,
     smallCardBookmarkIconColorTablet: $smallCardBookmarkIconColorTablet,
     smallCardBookmarkIconColorDesktop: $smallCardBookmarkIconColorDesktop,
+    smallCardBookmarkIconActiveColor: $smallCardBookmarkIconActiveColor,
+    smallCardBookmarkIconActiveColorTablet: $smallCardBookmarkIconActiveColorTablet,
+    smallCardBookmarkIconActiveColorDesktop: $smallCardBookmarkIconActiveColorDesktop,
     smallCardImageBackground: $smallCardImageBackground,
     smallCardImageBackgroundTablet: $smallCardImageBackgroundTablet,
     smallCardImageBackgroundDesktop: $smallCardImageBackgroundDesktop,
@@ -761,9 +767,7 @@
               fontDecoration: map-get($configuration, smallCardDetailTitleUnderline)
             ));
 
-            margin-top: map-get($configuration, smallCardDetailTitleMarginTop);
-            margin-bottom: map-get($configuration, smallCardDetailTitleMarginBottom);
-            color: map-get($configuration, lfdDetailFontColor);
+            color: map-get($configuration, smallCardDetailTitleFontSizeColor);
 
             &:after {
               background-color: map-get($configuration, smallCardListDetailOverlayLineUnderTitleColor);
@@ -824,7 +828,7 @@
 
             margin-top: map-get($configuration, smallCardDetailTextMarginTop);
             margin-bottom: map-get($configuration, smallCardDetailTextMarginBottom);
-            color: map-get($configuration, smallCardDetailTextFontColor);
+            color: map-get($configuration, lfdDetailFontColor);
           }
 
           .small-card-list-detail-label {
@@ -864,9 +868,7 @@
                 fontDecoration: map-get($configuration, smallCardDetailTitleUnderlineTablet)
               ));
 
-              margin-top: map-get($configuration, smallCardDetailTitleMarginTopTablet);
-              margin-bottom: map-get($configuration, smallCardDetailTitleMarginBottomTablet);
-              color: map-get($configuration, lfdDetailFontColorTablet);
+              color: map-get($configuration, smallCardDetailTitleFontSizeColorTablet);
 
               &:after {
                 background-color: map-get($configuration, smallCardListDetailOverlayLineUnderTitleColorTablet);
@@ -927,7 +929,7 @@
 
               margin-top: map-get($configuration, smallCardDetailTextMarginTopTablet);
               margin-bottom: map-get($configuration, smallCardDetailTextMarginBottomTablet);
-              color: map-get($configuration, smallCardDetailTextFontColorTablet);
+              color: map-get($configuration, lfdDetailFontColorTablet);
             }
 
             .small-card-list-detail-label {
@@ -968,9 +970,7 @@
                 fontDecoration: map-get($configuration, smallCardDetailTitleUnderlineDesktop)
               ));
 
-              margin-top: map-get($configuration, smallCardDetailTitleMarginTopDesktop);
-              margin-bottom: map-get($configuration, smallCardDetailTitleMarginBottomDesktop);
-              color: map-get($configuration, lfdDetailFontColorDesktop);
+              color: map-get($configuration, smallCardDetailTitleFontSizeColorDesktop);
 
               &:after {
                 background-color: map-get($configuration, smallCardListDetailOverlayLineUnderTitleColorDesktop);
@@ -1031,7 +1031,7 @@
 
               margin-top: map-get($configuration, smallCardDetailTextMarginTopDesktop);
               margin-bottom: map-get($configuration, smallCardDetailTextMarginBottomDesktop);
-              color: map-get($configuration, smallCardDetailTextFontColorDesktop);
+              color: map-get($configuration, lfdDetailFontColorDesktop);
             }
 
             .small-card-list-detail-label {
@@ -1103,8 +1103,18 @@
           }
         }
 
-        .search-holder .fa {
-          color: map-get($configuration, smallCardSearchIconColor);
+        .search-holder {
+          input[type="search"] {
+            border-color: map-get($configuration, smallCardSearchFieldBorderColor);
+
+            &:focus {
+              border-color: map-get($configuration, smallCardSearchFieldBorderActiveColor);
+            }
+          }
+
+          .fa {
+            color: map-get($configuration, smallCardSearchIconColor);
+          }
         }
 
         .search-feed:focus ~ .btn.search-btn {
@@ -1112,12 +1122,22 @@
         }
 
         .list-search-icon {
-          .toggle-bookmarks .fa {
-            color: map-get($configuration, smallCardBookmarkIconColor) !important;
-          }
-
           .fa-sliders, .fa-times {
             color: map-get($configuration, smallCardFilterIconColor) !important;
+          }
+
+          &.active .fa-sliders, .fa-times {
+            color: map-get($configuration, smallCardFilterIconActiveColor) !important;
+          }
+
+          .toggle-bookmarks {
+            &.mixitup-control-active .fa {
+              color: map-get($configuration, smallCardBookmarkIconActiveColor) !important;
+            }
+
+            .fa {
+              color: map-get($configuration, smallCardBookmarkIconColor) !important;
+            }
           }
         }
       }
@@ -1187,6 +1207,14 @@
         }
 
         .search-holder {
+          input[type="search"] {
+            border-color: map-get($configuration, smallCardSearchFieldBorderColorTablet);
+
+            &:focus {
+              border-color: map-get($configuration, smallCardSearchFieldBorderActiveColorTablet);
+            }
+          }
+
           .fa {
             color: map-get($configuration, smallCardSearchIconColorTablet);
           }
@@ -1216,8 +1244,18 @@
               color: map-get($configuration, smallCardFilterIconColorTablet) !important;
             }
 
-            .toggle-bookmarks .fa {
-              color: map-get($configuration, smallCardBookmarkIconColorTablet) !important;
+            &.active .fa-sliders, .fa-times {
+              color: map-get($configuration, smallCardFilterIconActiveColorTablet) !important;
+            }
+
+            .toggle-bookmarks {
+              &.mixitup-control-active .fa {
+                color: map-get($configuration, smallCardBookmarkIconActiveColorTablet) !important;
+              }
+  
+              .fa {
+                color: map-get($configuration, smallCardBookmarkIconColorTablet) !important;
+              }
             }
           }
         }
@@ -1283,6 +1321,14 @@
         }
 
         .search-holder {
+          input[type="search"] {
+            border-color: map-get($configuration, smallCardSearchFieldBorderColorDesktop);
+
+            &:focus {
+              border-color: map-get($configuration, smallCardSearchFieldBorderActiveColorDesktop);
+            }
+          }
+
           .fa {
             color: map-get($configuration, smallCardSearchIconColorDesktop);
           }
@@ -1312,8 +1358,18 @@
               color: map-get($configuration, smallCardFilterIconColorDesktop) !important;
             }
 
-            .toggle-bookmarks .fa {
-              color: map-get($configuration, smallCardBookmarkIconColorDesktop) !important;
+            &.active .fa-sliders, .fa-times {
+              color: map-get($configuration, smallCardFilterIconActiveColorDesktop) !important;
+            }
+
+            .toggle-bookmarks {
+              &.mixitup-control-active .fa {
+                color: map-get($configuration, smallCardBookmarkIconActiveColorDesktop) !important;
+              }
+  
+              .fa {
+                color: map-get($configuration, smallCardBookmarkIconColorDesktop) !important;
+              }
             }
           }
         }

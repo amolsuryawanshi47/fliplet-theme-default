@@ -171,18 +171,36 @@
     lfdChevronColor: $lfdChevronColor,
     lfdChevronColorTablet: $lfdChevronColorTablet,
     lfdChevronColorDesktop: $lfdChevronColorDesktop,
+    simpleListLikeIconColor: $simpleListLikeIconColor,
+    simpleListLikeIconColorTablet: $simpleListLikeIconColorTablet,
+    simpleListLikeIconColorDesktop: $simpleListLikeIconColorDesktop,
+    simpleListLikeIconActiveColor: $simpleListLikeIconActiveColor,
+    simpleListLikeIconActiveColorTablet: $simpleListLikeIconActiveColorTablet,
+    simpleListLikeIconActiveColorDesktop: $simpleListLikeIconActiveColorDesktop,
     simpleListFiltersOverlayBackground: $simpleListFiltersOverlayBackground,
     simpleListFiltersOverlayBackgroundTablet: $simpleListFiltersOverlayBackgroundTablet,
     simpleListFiltersOverlayBackgroundDesktop: $simpleListFiltersOverlayBackgroundDesktop,
     simpleListFilterIconColor: $simpleListFilterIconColor,
     simpleListFilterIconColorTablet: $simpleListFilterIconColorTablet,
     simpleListFilterIconColorDesktop: $simpleListFilterIconColorDesktop,
+    simpleListFilterIconActiveColor: $simpleListFilterIconActiveColor,
+    simpleListFilterIconActiveColorTablet: $simpleListFilterIconActiveColorTablet,
+    simpleListFilterIconActiveColorDesktop: $simpleListFilterIconActiveColorDesktop,
     simpleListSearchIconColor: $simpleListSearchIconColor,
     simpleListSearchIconColorTablet: $simpleListSearchIconColorTablet,
     simpleListSearchIconColorDesktop: $simpleListSearchIconColorDesktop,
+    simpleListSearchFieldBorderColor: $simpleListSearchFieldBorderColor,
+    simpleListSearchFieldBorderColorTablet: $simpleListSearchFieldBorderColorTablet,
+    simpleListSearchFieldBorderColorDesktop: $simpleListSearchFieldBorderColorDesktop,
+    simpleListSearchFieldBorderActiveColor: $simpleListSearchFieldBorderActiveColor,
+    simpleListSearchFieldBorderActiveColorTablet: $simpleListSearchFieldBorderActiveColorTablet,
+    simpleListSearchFieldBorderActiveColorDesktop: $simpleListSearchFieldBorderActiveColorDesktop,
     simpleListBookmarkIconColor: $simpleListBookmarkIconColor,
     simpleListBookmarkIconColorTablet: $simpleListBookmarkIconColorTablet,
     simpleListBookmarkIconColorDesktop: $simpleListBookmarkIconColorDesktop,
+    simpleListBookmarkIconActiveColor: $simpleListBookmarkIconActiveColor,
+    simpleListBookmarkIconActiveColorTablet: $simpleListBookmarkIconActiveColorTablet,
+    simpleListBookmarkIconActiveColorDesktop: $simpleListBookmarkIconActiveColorDesktop,
     simpleListImageBackground: $simpleListImageBackground,
     simpleListImageBackgroundTablet: $simpleListImageBackgroundTablet,
     simpleListImageBackgroundDesktop: $simpleListImageBackgroundDesktop,
@@ -612,18 +630,37 @@
       }
 
       .section-top-wrapper {
-        .search-holder .fa {
-          color: map-get($configuration, simpleListSearchIconColor);
+        .search-holder {
+          input[type="search"] {
+            border-color: map-get($configuration, simpleListSearchFieldBorderColor);
+
+            &:focus {
+              border-color: map-get($configuration, simpleListSearchFieldBorderActiveColor);
+            }
+          }
+
+          .fa {
+            color: map-get($configuration, simpleListSearchIconColor);
+          }
         }
 
         .list-search-icon {
-          .toggle-bookmarks .fa {
-            color: map-get($configuration, simpleListBookmarkIconColor) !important;
+          .fa-sliders, .list-search-cancel .fa {
+            color: map-get($configuration, simpleListFilterIconColor) !important;
           }
 
-          .fa-sliders,
-          .list-search-cancel .fa {
-            color: map-get($configuration, simpleListFilterIconColor) !important;
+          &.active .fa-sliders, .list-search-cancel .fa {
+            color: map-get($configuration, simpleListFilterIconActiveColor) !important;
+          }
+
+          .toggle-bookmarks {
+            &.mixitup-control-active .fa {
+              color: map-get($configuration, simpleListBookmarkIconActiveColor) !important;
+            }
+
+            .fa {
+              color: map-get($configuration, simpleListBookmarkIconColor) !important;
+            }
           }
         }
 
@@ -633,18 +670,37 @@
             color: map-get($configuration, lfdChevronColorTablet);
           }
 
-          .search-holder .fa {
-            color: map-get($configuration, simpleListSearchIconColorTablet);
+          .search-holder {
+            input[type="search"] {
+              border-color: map-get($configuration, simpleListSearchFieldBorderColorTablet);
+  
+              &:focus {
+                border-color: map-get($configuration, simpleListSearchFieldBorderActiveColorTablet);
+              }
+            }
+  
+            .fa {
+              color: map-get($configuration, simpleListSearchIconColorTablet);
+            }
           }
 
           .list-search-icon {
-            .toggle-bookmarks .fa {
-              color: map-get($configuration, simpleListBookmarkIconColorTablet);
+            .fa-sliders, .list-search-cancel .fa {
+              color: map-get($configuration, simpleListFilterIconColorTablet) !important;
             }
-
-            .fa-sliders,
-            .list-search-cancel .fa {
-              color: map-get($configuration, simpleListFilterIconColorTablet);
+  
+            &.active .fa-sliders, .list-search-cancel .fa {
+              color: map-get($configuration, simpleListFilterIconActiveColorTablet) !important;
+            }
+  
+            .toggle-bookmarks {
+              &.mixitup-control-active .fa {
+                color: map-get($configuration, simpleListBookmarkIconActiveColorTablet) !important;
+              }
+  
+              .fa {
+                color: map-get($configuration, simpleListBookmarkIconColorTablet) !important;
+              }
             }
           }
         }
@@ -655,18 +711,37 @@
             color: map-get($configuration, lfdChevronColorDesktop);
           }
 
-          .search-holder .fa {
-            color: map-get($configuration, simpleListSearchIconColorDesktop);
+          .search-holder {
+            input[type="search"] {
+              border-color: map-get($configuration, simpleListSearchFieldBorderColorDesktop);
+  
+              &:focus {
+                border-color: map-get($configuration, simpleListSearchFieldBorderActiveColorDesktop);
+              }
+            }
+  
+            .fa {
+              color: map-get($configuration, simpleListSearchIconColorDesktop);
+            }
           }
 
           .list-search-icon {
-            .toggle-bookmarks .fa {
-              color: map-get($configuration, simpleListBookmarkIconColorDesktop);
+            .fa-sliders, .list-search-cancel .fa {
+              color: map-get($configuration, simpleListFilterIconColorDesktop) !important;
             }
-
-            .fa-sliders,
-            .list-search-cancel .fa {
-              color: map-get($configuration, simpleListFilterIconColorDesktop);
+  
+            &.active .fa-sliders, .list-search-cancel .fa {
+              color: map-get($configuration, simpleListFilterIconActiveColorDesktop) !important;
+            }
+  
+            .toggle-bookmarks {
+              &.mixitup-control-active .fa {
+                color: map-get($configuration, simpleListBookmarkIconActiveColorDesktop) !important;
+              }
+  
+              .fa {
+                color: map-get($configuration, simpleListBookmarkIconColorDesktop) !important;
+              }
             }
           }
         }
@@ -676,6 +751,22 @@
 
         .simple-list-item {
           background-color: map-get($configuration, simpleListItemBackground);
+
+          .simple-list-like-holder .fa,
+          .simple-list-like-wrapper .fa {
+            color: map-get($configuration, simpleListLikeIconColor);
+          }
+
+          .simple-list-like-holder .fa.animated,
+          .simple-list-like-wrapper .fa.animated {
+            color: map-get($configuration, simpleListLikeIconActiveColor);
+          }
+
+          .simple-list-bookmark-holder .fa,
+          .simple-list-bookmark-wrapper .fa {
+            color: map-get($configuration, simpleListDetailOverlayIconsColor);
+          }
+
           @include borderOnly((
             borderSides: map-get($configuration, lfdSeparatorColorSides),
             borderWidth: map-get($configuration, lfdSeparatorWidth),
@@ -770,6 +861,22 @@
           }
 
           .list-item-title {
+            
+          .simple-list-like-holder .fa,
+          .simple-list-like-wrapper .fa {
+            color: map-get($configuration, simpleListLikeIconColorTablet);
+          }
+
+          .simple-list-like-holder .fa.animated,
+          .simple-list-like-wrapper .fa.animated {
+            color: map-get($configuration, simpleListLikeIconActiveColorTablet);
+          }
+
+          .simple-list-bookmark-holder .fa,
+          .simple-list-bookmark-wrapper .fa {
+            color: map-get($configuration, simpleListDetailOverlayIconsColorTablet);
+          }
+
             @include fontOnly((
               fontFamily: map-get($configuration, simpleListTitleFontFamilyTablet),
               fontSize: map-get($configuration, simpleListTitleFontSizeTablet),
@@ -819,6 +926,22 @@
         @include above($desktopBreakpoint) {
           .simple-list-item {
             background-color: map-get($configuration, simpleListItemBackgroundDesktop);
+
+            .simple-list-like-holder .fa,
+            .simple-list-like-wrapper .fa {
+              color: map-get($configuration, simpleListLikeIconColorDesktop);
+            }
+
+            .simple-list-like-holder .fa.animated,
+            .simple-list-like-wrapper .fa.animated {
+              color: map-get($configuration, simpleListLikeIconActiveColorDesktop);
+            }
+
+            .simple-list-bookmark-holder .fa,
+            .simple-list-bookmark-wrapper .fa {
+              color: map-get($configuration, simpleListDetailOverlayIconsColorDesktop);
+            }
+
             @include borderOnly((
               borderSides: map-get($configuration, lfdSeparatorColorSidesDesktop),
               borderWidth: map-get($configuration, lfdSeparatorWidthDesktop),
@@ -924,7 +1047,15 @@
       }
 
       .simple-list-like-holder .fa,
-      .simple-list-like-wrapper .fa
+      .simple-list-like-wrapper .fa {
+        color: map-get($configuration, simpleListLikeIconColor);
+      }
+
+      .simple-list-like-holder .fa.animated,
+      .simple-list-like-wrapper .fa.animated {
+        color: map-get($configuration, simpleListLikeIconActiveColor);
+      }
+
       .simple-list-bookmark-holder .fa,
       .simple-list-bookmark-wrapper .fa {
         color: map-get($configuration, simpleListDetailOverlayIconsColor);
@@ -971,7 +1102,15 @@
         }
 
         .simple-list-like-holder .fa,
-        .simple-list-like-wrapper .fa
+        .simple-list-like-wrapper .fa {
+          color: map-get($configuration, simpleListLikeIconColorTablet);
+        }
+
+        .simple-list-like-holder .fa.animated,
+        .simple-list-like-wrapper .fa.animated {
+          color: map-get($configuration, simpleListLikeIconActiveColorTablet);
+        }
+
         .simple-list-bookmark-holder .fa,
         .simple-list-bookmark-wrapper .fa {
           color: map-get($configuration, simpleListDetailOverlayIconsColorTablet);
@@ -1019,7 +1158,15 @@
         }
 
         .simple-list-like-holder .fa,
-        .simple-list-like-wrapper .fa
+        .simple-list-like-wrapper .fa {
+          color: map-get($configuration, simpleListLikeIconColorDesktop);
+        }
+
+        .simple-list-like-holder .fa.animated,
+        .simple-list-like-wrapper .fa.animated {
+          color: map-get($configuration, simpleListLikeIconActiveColorDesktop);
+        }
+
         .simple-list-bookmark-holder .fa,
         .simple-list-bookmark-wrapper .fa {
           color: map-get($configuration, simpleListDetailOverlayIconsColorDesktop);

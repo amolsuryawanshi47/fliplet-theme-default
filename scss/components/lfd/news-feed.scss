@@ -99,12 +99,6 @@
   newsFeedSecondDescriptionLineHeight: $newsFeedSecondDescriptionLineHeight,
   newsFeedSecondDescriptionLineHeightTablet: $newsFeedSecondDescriptionLineHeightTablet,
   newsFeedSecondDescriptionLineHeightDesktop: $newsFeedSecondDescriptionLineHeightDesktop,
-  newsFeedSecondDescriptionMarginTop: $newsFeedSecondDescriptionMarginTop,
-  newsFeedSecondDescriptionMarginTopTablet: $newsFeedSecondDescriptionMarginTopTablet,
-  newsFeedSecondDescriptionMarginTopDesktop: $newsFeedSecondDescriptionMarginTopDesktop,
-  newsFeedSecondDescriptionMarginBottom: $newsFeedSecondDescriptionMarginBottom,
-  newsFeedSecondDescriptionMarginBottomTablet: $newsFeedSecondDescriptionMarginBottomTablet,
-  newsFeedSecondDescriptionMarginBottomDesktop: $newsFeedSecondDescriptionMarginBottomDesktop,
   newsFeedDetailTitleFontFamily: $newsFeedDetailTitleFontFamily,
   newsFeedDetailTitleFontFamilyTablet: $newsFeedDetailTitleFontFamilyTablet,
   newsFeedDetailTitleFontFamilyDesktop: $newsFeedDetailTitleFontFamilyDesktop,
@@ -174,12 +168,6 @@
   newsFeedDetailSecondDescriptionLineHeight: $newsFeedDetailSecondDescriptionLineHeight,
   newsFeedDetailSecondDescriptionLineHeightTablet: $newsFeedDetailSecondDescriptionLineHeightTablet,
   newsFeedDetailSecondDescriptionLineHeightDesktop: $newsFeedDetailSecondDescriptionLineHeightDesktop,
-  newsFeedDetailSecondDescriptionMarginTop: $newsFeedDetailSecondDescriptionMarginTop,
-  newsFeedDetailSecondDescriptionMarginTopTablet: $newsFeedDetailSecondDescriptionMarginTopTablet,
-  newsFeedDetailSecondDescriptionMarginTopDesktop: $newsFeedDetailSecondDescriptionMarginTopDesktop,
-  newsFeedDetailSecondDescriptionMarginBottom: $newsFeedDetailSecondDescriptionMarginBottom,
-  newsFeedDetailSecondDescriptionMarginBottomTablet: $newsFeedDetailSecondDescriptionMarginBottomTablet,
-  newsFeedDetailSecondDescriptionMarginBottomDesktop: $newsFeedDetailSecondDescriptionMarginBottomDesktop,
   newsFeedDetailTextFontFamily: $newsFeedDetailTextFontFamily,
   newsFeedDetailTextFontFamilyTablet: $newsFeedDetailTextFontFamilyTablet,
   newsFeedDetailTextFontFamilyDesktop: $newsFeedDetailTextFontFamilyDesktop,
@@ -225,12 +213,30 @@
   newsFeedFilterIconColor: $newsFeedFilterIconColor,
   newsFeedFilterIconColorTablet: $newsFeedFilterIconColorTablet,
   newsFeedFilterIconColorDesktop: $newsFeedFilterIconColorDesktop,
+  newsFeedFilterIconActiveColor: $newsFeedFilterIconActiveColor,
+  newsFeedFilterIconActiveColorTablet: $newsFeedFilterIconActiveColorTablet,
+  newsFeedFilterIconActiveColorDesktop: $newsFeedFilterIconActiveColorDesktop,
   newsFeedSearchIconColor: $newsFeedSearchIconColor,
   newsFeedSearchIconColorTablet: $newsFeedSearchIconColorTablet,
   newsFeedSearchIconColorDesktop: $newsFeedSearchIconColorDesktop,
+  newsFeedSearchFieldBorderColor: $newsFeedSearchFieldBorderColor,
+  newsFeedSearchFieldBorderColorTablet: $newsFeedSearchFieldBorderColorTablet,
+  newsFeedSearchFieldBorderColorDesktop: $newsFeedSearchFieldBorderColorDesktop,
+  newsFeedSearchFieldBorderActiveColor: $newsFeedSearchFieldBorderActiveColor,
+  newsFeedSearchFieldBorderActiveColorTablet: $newsFeedSearchFieldBorderActiveColorTablet,
+  newsFeedSearchFieldBorderActiveColorDesktop: $newsFeedSearchFieldBorderActiveColorDesktop,
   newsFeedBookmarkIconColor: $newsFeedBookmarkIconColor,
   newsFeedBookmarkIconColorTablet: $newsFeedBookmarkIconColorTablet,
   newsFeedBookmarkIconColorDesktop: $newsFeedBookmarkIconColorDesktop,
+  newsFeedBookmarkIconActiveColor: $newsFeedBookmarkIconActiveColor,
+  newsFeedBookmarkIconActiveColorTablet: $newsFeedBookmarkIconActiveColorTablet,
+  newsFeedBookmarkIconActiveColorDesktop: $newsFeedBookmarkIconActiveColorDesktop,
+  newsFeedLikeIconColor: $newsFeedLikeIconColor,
+  newsFeedLikeIconColorTablet: $newsFeedLikeIconColorTablet,
+  newsFeedLikeIconColorDesktop: $newsFeedLikeIconColorDesktop,
+  newsFeedLikeIconActiveColor: $newsFeedLikeIconActiveColor,
+  newsFeedLikeIconActiveColorTablet: $newsFeedLikeIconActiveColorTablet,
+  newsFeedLikeIconActiveColorDesktop: $newsFeedLikeIconActiveColorDesktop,
   newsFeedImageBackground: $newsFeedImageBackground,
   newsFeedImageBackgroundTablet: $newsFeedImageBackgroundTablet,
   newsFeedImageBackgroundDesktop: $newsFeedImageBackgroundDesktop,
@@ -799,9 +805,15 @@
             fontDecoration: map-get($configuration, newsFeedSecondDescriptionUnderline)
           ));
 
-          margin-top: map-get($configuration, newsFeedSecondDescriptionMarginTop);
-          margin-bottom: map-get($configuration, newsFeedSecondDescriptionMarginBottom);
           color: map-get($configuration, newsFeedSecondDescriptionFontColor);
+        }
+
+        .news-feed-like-holder .fa, .news-feed-like-wrapper .fa {
+          color: map-get($configuration, newsFeedLikeIconColor);
+        }
+
+        .news-feed-like-holder .fa.animated, .news-feed-like-wrapper .fa.animated {
+          color: map-get($configuration, newsFeedLikeIconActiveColor);
         }
 
         .slide-under {
@@ -877,9 +889,15 @@
               fontDecoration: map-get($configuration, newsFeedSecondDescriptionUnderlineTablet)
             ));
 
-            margin-top: map-get($configuration, newsFeedSecondDescriptionMarginTopTablet);
-            margin-bottom: map-get($configuration, newsFeedSecondDescriptionMarginBottomTablet);
             color: map-get($configuration, newsFeedSecondDescriptionFontColorTablet);
+          }
+
+          .news-feed-like-holder .fa, .news-feed-like-wrapper .fa {
+            color: map-get($configuration, newsFeedLikeIconColorTablet);
+          }
+
+          .news-feed-like-holder .fa.animated, .news-feed-like-wrapper .fa.animated {
+            color: map-get($configuration, newsFeedLikeIconActiveColorTablet);
           }
 
           .slide-under {
@@ -956,9 +974,15 @@
               fontDecoration: map-get($configuration, newsFeedSecondDescriptionUnderlineDesktop)
             ));
 
-            margin-top: map-get($configuration, newsFeedSecondDescriptionMarginTopDesktop);
-            margin-bottom: map-get($configuration, newsFeedSecondDescriptionMarginBottomDesktop);
             color: map-get($configuration, newsFeedSecondDescriptionFontColorDesktop);
+          }
+
+          .news-feed-like-holder .fa, .news-feed-like-wrapper .fa {
+            color: map-get($configuration, newsFeedLikeIconColorDesktop);
+          }
+
+          .news-feed-like-holder .fa.animated, .news-feed-like-wrapper .fa.animated {
+            color: map-get($configuration, newsFeedLikeIconActiveColorDesktop);
           }
 
           .slide-under {
@@ -1033,12 +1057,18 @@
                 fontDecoration: map-get($configuration, newsFeedDetailSecondDescriptionUnderline)
               ));
 
-              margin-top: map-get($configuration, newsFeedDetailSecondDescriptionMarginTop);
-              margin-bottom: map-get($configuration, newsFeedDetailSecondDescriptionMarginBottom);
               color: map-get($configuration, newsFeedDetailSecondDescriptionFontColor);
             }
 
-            .news-feed-like-holder, .news-feed-bookmark-holder {
+            .news-feed-like-holder .fa, .news-feed-like-wrapper .fa {
+              color: map-get($configuration, newsFeedLikeIconColor);
+            }
+
+            .news-feed-like-holder .fa.animated, .news-feed-like-wrapper .fa.animated {
+              color: map-get($configuration, newsFeedLikeIconActiveColor);
+            }
+            
+            .news-feed-bookmark-holder {
               color: map-get($configuration, newsFeedListDetailOverlayIconsColor);
             }
           }
@@ -1118,12 +1148,18 @@
                   fontDecoration: map-get($configuration, newsFeedDetailSecondDescriptionUnderlineTablet)
                 ));
 
-                margin-top: map-get($configuration, newsFeedDetailSecondDescriptionMarginTopTablet);
-                margin-bottom: map-get($configuration, newsFeedDetailSecondDescriptionMarginBottomTablet);
                 color: map-get($configuration, newsFeedDetailSecondDescriptionFontColorTablet);
               }
 
-              .news-feed-like-holder, .news-feed-bookmark-holder {
+              .news-feed-like-holder .fa, .news-feed-like-wrapper .fa {
+                color: map-get($configuration, newsFeedLikeIconColorTablet);
+              }
+  
+              .news-feed-like-holder .fa.animated, .news-feed-like-wrapper .fa.animated {
+                color: map-get($configuration, newsFeedLikeIconActiveColorTablet);
+              }
+              
+              .news-feed-bookmark-holder {
                 color: map-get($configuration, newsFeedListDetailOverlayIconsColorTablet);
               }
             }
@@ -1204,12 +1240,18 @@
                   fontDecoration: map-get($configuration, newsFeedDetailSecondDescriptionUnderlineDesktop)
                 ));
 
-                margin-top: map-get($configuration, newsFeedDetailSecondDescriptionMarginTopDesktop);
-                margin-bottom: map-get($configuration, newsFeedDetailSecondDescriptionMarginBottomDesktop);
                 color: map-get($configuration, newsFeedDetailSecondDescriptionFontColorDesktop);
               }
 
-              .news-feed-like-holder, .news-feed-bookmark-holder {
+              .news-feed-like-holder .fa, .news-feed-like-wrapper .fa {
+                color: map-get($configuration, newsFeedLikeIconColorDesktop);
+              }
+  
+              .news-feed-like-holder .fa.animated, .news-feed-like-wrapper .fa.animated {
+                color: map-get($configuration, newsFeedLikeIconActiveColorDesktop);
+              }
+              
+              .news-feed-bookmark-holder {
                 color: map-get($configuration, newsFeedListDetailOverlayIconsColorDesktop);
               }
             }
@@ -1251,8 +1293,18 @@
       }
 
       .section-top-wrapper {
-        .search-holder .fa {
-          color: map-get($configuration, newsFeedSearchIconColor) !important;
+        .search-holder {
+          input[type="search"] {
+            border-color: map-get($configuration, newsFeedSearchFieldBorderColor);
+
+            &:focus {
+              border-color: map-get($configuration, newsFeedSearchFieldBorderActiveColor);
+            }
+          }
+
+          .fa {
+            color: map-get($configuration, newsFeedSearchIconColor);
+          }
         }
 
         .form-control {
@@ -1285,8 +1337,18 @@
             color: map-get($configuration, newsFeedFilterIconColor) !important;
           }
 
-          .toggle-bookmarks .fa {
-            color: map-get($configuration, newsFeedBookmarkIconColor) !important;
+          &.active .fa-sliders, .list-search-cancel .fa-times {
+            color: map-get($configuration, newsFeedFilterIconActiveColor) !important;
+          }
+
+          .toggle-bookmarks {
+            &.mixitup-control-active .fa {
+              color: map-get($configuration, newsFeedBookmarkIconActiveColor) !important;
+            }
+
+            .fa {
+              color: map-get($configuration, newsFeedBookmarkIconColor) !important;
+            }
           }
         }
       }
@@ -1348,8 +1410,16 @@
         }
 
         .search-holder {
+          input[type="search"] {
+            border-color: map-get($configuration, newsFeedSearchFieldBorderColorTablet);
+
+            &:focus {
+              border-color: map-get($configuration, newsFeedSearchFieldBorderActiveColorTablet);
+            }
+          }
+
           .fa {
-            color: map-get($configuration, newsFeedSearchIconColorTablet) !important;
+            color: map-get($configuration, newsFeedSearchIconColorTablet);
           }
 
           .form-control {
@@ -1377,9 +1447,19 @@
             .fa-sliders, .list-search-cancel .fa-times {
               color: map-get($configuration, newsFeedFilterIconColorTablet) !important;
             }
-
-            .toggle-bookmarks .fa {
-              color: map-get($configuration, newsFeedBookmarkIconColorTablet) !important;
+  
+            &.active .fa-sliders, .list-search-cancel .fa-times {
+              color: map-get($configuration, newsFeedFilterIconActiveColorTablet) !important;
+            }
+  
+            .toggle-bookmarks {
+              &.mixitup-control-active .fa {
+                color: map-get($configuration, newsFeedBookmarkIconActiveColorTablet) !important;
+              }
+  
+              .fa {
+                color: map-get($configuration, newsFeedBookmarkIconColorTablet) !important;
+              }
             }
           }
         }
@@ -1438,8 +1518,16 @@
         }
 
         .search-holder {
+          input[type="search"] {
+            border-color: map-get($configuration, newsFeedSearchFieldBorderColorDesktop);
+
+            &:focus {
+              border-color: map-get($configuration, newsFeedSearchFieldBorderActiveColorDesktop);
+            }
+          }
+
           .fa {
-            color: map-get($configuration, newsFeedSearchIconColorDesktop) !important;
+            color: map-get($configuration, newsFeedSearchIconColorDesktop);
           }
 
           .form-control {
@@ -1467,9 +1555,19 @@
             .fa-sliders, .list-search-cancel .fa-times {
               color: map-get($configuration, newsFeedFilterIconColorDesktop) !important;
             }
-
-            .toggle-bookmarks .fa {
-              color: map-get($configuration, newsFeedBookmarkIconColorDesktop) !important;
+  
+            &.active .fa-sliders, .list-search-cancel .fa-times {
+              color: map-get($configuration, newsFeedFilterIconActiveColorDesktop) !important;
+            }
+  
+            .toggle-bookmarks {
+              &.mixitup-control-active .fa {
+                color: map-get($configuration, newsFeedBookmarkIconActiveColorDesktop) !important;
+              }
+  
+              .fa {
+                color: map-get($configuration, newsFeedBookmarkIconColorDesktop) !important;
+              }
             }
           }
         }
