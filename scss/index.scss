@@ -102,6 +102,13 @@
     @if nth($widgetInstance, 2) == 'rss' {
       @include rss(nth($widgetInstance, 3), nth($widgetInstance, 1), nth($widgetInstance, 4));
     }
+    @if nth($widgetInstance, 2) == 'lfd' {
+      @include smallCard(nth($widgetInstance, 3), nth($widgetInstance, 1), nth($widgetInstance, 4));
+      @include newsFeed(nth($widgetInstance, 3), nth($widgetInstance, 1), nth($widgetInstance, 4));
+      @include agenda(nth($widgetInstance, 3), nth($widgetInstance, 1), nth($widgetInstance, 4));
+      @include smallHCard(nth($widgetInstance, 3), nth($widgetInstance, 1), nth($widgetInstance, 4));
+      @include simpleList(nth($widgetInstance, 3), nth($widgetInstance, 1), nth($widgetInstance, 4));
+    }
     @if nth($widgetInstance, 2) == 'lfdSmallCard' {
       @include smallCard(nth($widgetInstance, 3), nth($widgetInstance, 1), nth($widgetInstance, 4));
     }
