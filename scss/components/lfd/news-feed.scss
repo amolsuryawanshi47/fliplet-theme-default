@@ -204,9 +204,6 @@
   newsFeedListDetailOverlayLineUnderTitleColor: $newsFeedListDetailOverlayLineUnderTitleColor,
   newsFeedListDetailOverlayLineUnderTitleColorTablet: $newsFeedListDetailOverlayLineUnderTitleColorTablet,
   newsFeedListDetailOverlayLineUnderTitleColorDesktop: $newsFeedListDetailOverlayLineUnderTitleColorDesktop,
-  newsFeedListDetailOverlayIconsColor: $newsFeedListDetailOverlayIconsColor,
-  newsFeedListDetailOverlayIconsColorTablet: $newsFeedListDetailOverlayIconsColorTablet,
-  newsFeedListDetailOverlayIconsColorDesktop: $newsFeedListDetailOverlayIconsColorDesktop,
   newsFeedFiltersOverlayBackground: $newsFeedFiltersOverlayBackground,
   newsFeedFiltersOverlayBackgroundTablet: $newsFeedFiltersOverlayBackgroundTablet,
   newsFeedFiltersOverlayBackgroundDesktop: $newsFeedFiltersOverlayBackgroundDesktop,
@@ -754,7 +751,7 @@
             color: map-get($configuration, newsFeedTitleFontColor);
 
             &:after {
-              background-color: $highlightColor;
+              background-color: map-get($configuration, newsFeedListDetailOverlayLineUnderTitleColor);
             }
           }
         }
@@ -840,6 +837,10 @@
               margin-top: map-get($configuration, newsFeedTitleMarginTopTablet);
               margin-bottom: map-get($configuration, newsFeedTitleMarginBottomTablet);
               color: map-get($configuration, newsFeedTitleFontColorTablet);
+
+              &:after {
+                background-color: map-get($configuration, newsFeedListDetailOverlayLineUnderTitleColorTablet);
+              }
             }
           }
         }
@@ -925,6 +926,10 @@
               margin-top: map-get($configuration, newsFeedTitleMarginTopDesktop);
               margin-bottom: map-get($configuration, newsFeedTitleMarginBottomDesktop);
               color: map-get($configuration, newsFeedTitleFontColorDesktop);
+
+              &:after {
+                background-color: map-get($configuration, newsFeedListDetailOverlayLineUnderTitleColorDesktop);
+              }
             }
           }
         }
@@ -1067,10 +1072,6 @@
             .news-feed-like-holder .fa.animated, .news-feed-like-wrapper .fa.animated {
               color: map-get($configuration, newsFeedLikeIconActiveColor);
             }
-            
-            .news-feed-bookmark-holder {
-              color: map-get($configuration, newsFeedListDetailOverlayIconsColor);
-            }
           }
         }
 
@@ -1157,10 +1158,6 @@
   
               .news-feed-like-holder .fa.animated, .news-feed-like-wrapper .fa.animated {
                 color: map-get($configuration, newsFeedLikeIconActiveColorTablet);
-              }
-              
-              .news-feed-bookmark-holder {
-                color: map-get($configuration, newsFeedListDetailOverlayIconsColorTablet);
               }
             }
           }
@@ -1249,10 +1246,6 @@
   
               .news-feed-like-holder .fa.animated, .news-feed-like-wrapper .fa.animated {
                 color: map-get($configuration, newsFeedLikeIconActiveColorDesktop);
-              }
-              
-              .news-feed-bookmark-holder {
-                color: map-get($configuration, newsFeedListDetailOverlayIconsColorDesktop);
               }
             }
           }
