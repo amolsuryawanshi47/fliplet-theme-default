@@ -44,6 +44,20 @@
     formInputPaddingRight: $formInputPaddingRight,
     formInputPaddingBottom: $formInputPaddingBottom,
     formInputPaddingLeft: $formInputPaddingLeft,
+    formTextInputsFontFamily: $formTextInputsFontFamily,
+    formTextInputsFontSize: $formTextInputsFontSize,
+    formTextInputsFontColor: $formTextInputsFontColor,
+    formTextInputsFontWeight: $formTextInputsFontWeight,
+    formTextInputsItalic: $formTextInputsItalic,
+    formTextInputsUnderline: $formTextInputsUnderline,
+    formTextInputsLineHeight: $formTextInputsLineHeight,
+    formTextInputsPlaceholderFontFamily: $formTextInputsPlaceholderFontFamily,
+    formTextInputsPlaceholderFontSize: $formTextInputsPlaceholderFontSize,
+    formTextInputsPlaceholderFontColor: $formTextInputsPlaceholderFontColor,
+    formTextInputsPlaceholderFontWeight: $formTextInputsPlaceholderFontWeight,
+    formTextInputsPlaceholderItalic: $formTextInputsPlaceholderItalic,
+    formTextInputsPlaceholderUnderline: $formTextInputsPlaceholderUnderline,
+    formTextInputsPlaceholderLineHeight: $formTextInputsPlaceholderLineHeight,
     formToggleBackgroundColor: $formToggleBackgroundColor,
     formToggleBorderColor: $formToggleBorderColor,
     formToggleColor: $formToggleColor,
@@ -99,6 +113,20 @@
     formInputPaddingRightTablet: $formInputPaddingRightTablet,
     formInputPaddingBottomTablet: $formInputPaddingBottomTablet,
     formInputPaddingLeftTablet: $formInputPaddingLeftTablet,
+    formTextInputsFontFamilyTablet: $formTextInputsFontFamilyTablet,
+    formTextInputsFontSizeTablet: $formTextInputsFontSizeTablet,
+    formTextInputsFontColorTablet: $formTextInputsFontColorTablet,
+    formTextInputsFontWeightTablet: $formTextInputsFontWeightTablet,
+    formTextInputsItalicTablet: $formTextInputsItalicTablet,
+    formTextInputsUnderlineTablet: $formTextInputsUnderlineTablet,
+    formTextInputsLineHeightTablet: $formTextInputsLineHeightTablet,
+    formTextInputsPlaceholderFontFamilyTablet: $formTextInputsPlaceholderFontFamilyTablet,
+    formTextInputsPlaceholderFontSizeTablet: $formTextInputsPlaceholderFontSizeTablet,
+    formTextInputsPlaceholderFontColorTablet: $formTextInputsPlaceholderFontColorTablet,
+    formTextInputsPlaceholderFontWeightTablet: $formTextInputsPlaceholderFontWeightTablet,
+    formTextInputsPlaceholderItalicTablet: $formTextInputsPlaceholderItalicTablet,
+    formTextInputsPlaceholderUnderlineTablet: $formTextInputsPlaceholderUnderlineTablet,
+    formTextInputsPlaceholderLineHeightTablet: $formTextInputsPlaceholderLineHeightTablet,
     formToggleBackgroundColorTablet: $formToggleBackgroundColorTablet,
     formToggleBorderColorTablet: $formToggleBorderColorTablet,
     formToggleColorTablet: $formToggleColorTablet,
@@ -154,6 +182,20 @@
     formInputPaddingRightDesktop: $formInputPaddingRightDesktop,
     formInputPaddingBottomDesktop: $formInputPaddingBottomDesktop,
     formInputPaddingLeftDesktop: $formInputPaddingLeftDesktop,
+    formTextInputsFontFamilyDesktop: $formTextInputsFontFamilyDesktop,
+    formTextInputsFontSizeDesktop: $formTextInputsFontSizeDesktop,
+    formTextInputsFontColorDesktop: $formTextInputsFontColorDesktop,
+    formTextInputsFontWeightDesktop: $formTextInputsFontWeightDesktop,
+    formTextInputsItalicDesktop: $formTextInputsItalicDesktop,
+    formTextInputsUnderlineDesktop: $formTextInputsUnderlineDesktop,
+    formTextInputsLineHeightDesktop: $formTextInputsLineHeightDesktop,
+    formTextInputsPlaceholderFontFamilyDesktop: $formTextInputsPlaceholderFontFamilyDesktop,
+    formTextInputsPlaceholderFontSizeDesktop: $formTextInputsPlaceholderFontSizeDesktop,
+    formTextInputsPlaceholderFontColorDesktop: $formTextInputsPlaceholderFontColorDesktop,
+    formTextInputsPlaceholderFontWeightDesktop: $formTextInputsPlaceholderFontWeightDesktop,
+    formTextInputsPlaceholderItalicDesktop: $formTextInputsPlaceholderItalicDesktop,
+    formTextInputsPlaceholderUnderlineDesktop: $formTextInputsPlaceholderUnderlineDesktop,
+    formTextInputsPlaceholderLineHeightDesktop: $formTextInputsPlaceholderLineHeightDesktop,
     formToggleBackgroundColorDesktop: $formToggleBackgroundColorDesktop,
     formToggleBorderColorDesktop: $formToggleBorderColorDesktop,
     formToggleColorDesktop: $formToggleColorDesktop,
@@ -286,6 +328,86 @@
     }
 
     .form-group {
+      input.form-control {
+        @include fontOnly((
+          fontFamily: map-get($configuration, formTextInputsFontFamily),
+          fontSize: map-get($configuration, formTextInputsFontSize),
+          fontLineHeight: map-get($configuration, formTextInputsLineHeight),
+          fontWeight: map-get($configuration, formTextInputsFontWeight),
+          fontStyle: map-get($configuration, formTextInputsItalic),
+          fontDecoration: map-get($configuration, formTextInputsUnderline)
+        ));
+  
+        color: map-get($configuration, formTextInputsFontColor);
+
+        &::placeholder {
+          @include fontOnly((
+            fontFamily: map-get($configuration, formTextInputsPlaceholderFontFamily),
+            fontSize: map-get($configuration, formTextInputsPlaceholderFontSize),
+            fontLineHeight: map-get($configuration, formTextInputsPlaceholderLineHeight),
+            fontWeight: map-get($configuration, formTextInputsPlaceholderFontWeight),
+            fontStyle: map-get($configuration, formTextInputsPlaceholderItalic),
+            fontDecoration: map-get($configuration, formTextInputsPlaceholderUnderline)
+          ));
+    
+          color: map-get($configuration, formTextInputsPlaceholderFontColor);
+        }
+  
+        // Styles for tablet
+        @include above($tabletBreakpoint) {
+          @include fontOnly((
+            fontFamily: map-get($configuration, formTextInputsFontFamilyTablet),
+            fontSize: map-get($configuration, formTextInputsFontSizeTablet),
+            fontLineHeight: map-get($configuration, formTextInputsLineHeightTablet),
+            fontWeight: map-get($configuration, formTextInputsFontWeightTablet),
+            fontStyle: map-get($configuration, formTextInputsItalicTablet),
+            fontDecoration: map-get($configuration, formTextInputsUnderlineTablet)
+          ));
+  
+          color: map-get($configuration, formTextInputsFontColorTablet);
+
+          &::placeholder {
+            @include fontOnly((
+              fontFamily: map-get($configuration, formTextInputsPlaceholderFontFamilyTablet),
+              fontSize: map-get($configuration, formTextInputsPlaceholderFontSizeTablet),
+              fontLineHeight: map-get($configuration, formTextInputsPlaceholderLineHeightTablet),
+              fontWeight: map-get($configuration, formTextInputsPlaceholderFontWeightTablet),
+              fontStyle: map-get($configuration, formTextInputsPlaceholderItalicTablet),
+              fontDecoration: map-get($configuration, formTextInputsPlaceholderUnderlineTablet)
+            ));
+      
+            color: map-get($configuration, formTextInputsPlaceholderFontColorTablet);
+          }
+        }
+  
+        // Styles for desktop
+        @include above($desktopBreakpoint) {
+          @include fontOnly((
+            fontFamily: map-get($configuration, formTextInputsFontFamilyDesktop),
+            fontSize: map-get($configuration, formTextInputsFontSizeDesktop),
+            fontLineHeight: map-get($configuration, formTextInputsLineHeightDesktop),
+            fontWeight: map-get($configuration, formTextInputsFontWeightDesktop),
+            fontStyle: map-get($configuration, formTextInputsItalicDesktop),
+            fontDecoration: map-get($configuration, formTextInputsUnderlineDesktop)
+          ));
+  
+          color: map-get($configuration, formTextInputsFontColorDesktop);
+
+          &::placeholder {
+            @include fontOnly((
+              fontFamily: map-get($configuration, formTextInputsPlaceholderFontFamilyDesktop),
+              fontSize: map-get($configuration, formTextInputsPlaceholderFontSizeDesktop),
+              fontLineHeight: map-get($configuration, formTextInputsPlaceholderLineHeightDesktop),
+              fontWeight: map-get($configuration, formTextInputsPlaceholderFontWeightDesktop),
+              fontStyle: map-get($configuration, formTextInputsPlaceholderItalicDesktop),
+              fontDecoration: map-get($configuration, formTextInputsPlaceholderUnderlineDesktop)
+            ));
+      
+            color: map-get($configuration, formTextInputsPlaceholderFontColorDesktop);
+          }
+        }
+      }
+  
       .control-label {
         label {
           color: map-get($configuration, formLabelColor);
