@@ -18,12 +18,6 @@
   agendaOverlayFontColor: $agendaOverlayFontColor,
   agendaOverlayFontColorTablet: $agendaOverlayFontColorTablet,
   agendaOverlayFontColorDesktop: $agendaOverlayFontColorDesktop,
-  agendaWidth: $agendaWidth,
-  agendaWidthTablet: $agendaWidthTablet,
-  agendaWidthDesktop: $agendaWidthDesktop,
-  agendaMaxWidth: $agendaMaxWidth,
-  agendaMaxWidthTablet: $agendaMaxWidthTablet,
-  agendaMaxWidthDesktop: $agendaMaxWidthDesktop,
   agendaMarginTop: $agendaMarginTop,
   agendaMarginTopTablet: $agendaMarginTopTablet,
   agendaMarginTopDesktop: $agendaMarginTopDesktop,
@@ -297,27 +291,9 @@
   agendaListItemShadowColor: $agendaListItemShadowColor,
   agendaListItemShadowColorTablet: $agendaListItemShadowColorTablet,
   agendaListItemShadowColorDesktop: $agendaListItemShadowColorDesktop,
-  agendaPosition: $agendaPosition,
-  agendaPositionTop: $agendaPositionTop,
-  agendaPositionRight: $agendaPositionRight,
-  agendaPositionBottom: $agendaPositionBottom,
-  agendaPositionLeft: $agendaPositionLeft,
   agendaIndex: $agendaIndex,
-  agendaDisplay: $agendaDisplay,
-  agendaPositionTablet: $agendaPositionTablet,
-  agendaPositionTopTablet: $agendaPositionTopTablet,
-  agendaPositionRightTablet: $agendaPositionRightTablet,
-  agendaPositionBottomTablet: $agendaPositionBottomTablet,
-  agendaPositionLeftTablet: $agendaPositionLeftTablet,
   agendaIndexTablet: $agendaIndexTablet,
-  agendaDisplayTablet: $agendaDisplayTablet,
-  agendaPositionDesktop: $agendaPositionDesktop,
-  agendaPositionTopDesktop: $agendaPositionTopDesktop,
-  agendaPositionRightDesktop: $agendaPositionRightDesktop,
-  agendaPositionBottomDesktop: $agendaPositionBottomDesktop,
-  agendaPositionLeftDesktop: $agendaPositionLeftDesktop,
   agendaIndexDesktop: $agendaIndexDesktop,
-  agendaDisplayDesktop: $agendaDisplayDesktop
   ), $options);
 
   $instanceSelector: '[data-widget-package="com.fliplet.dynamic-lists"]';
@@ -331,30 +307,7 @@
 
   #{$layoutSelector} {
     .agenda-list-holder {
-      position: map-get($configuration, agendaPosition) !important;
       z-index: map-get($configuration, agendaIndex);
-
-      @if map-get($configuration, agendaPosition) == 'relative' {
-        @if map-get($configuration, agendaVisibility) == 'visible' {
-          display: map-get($configuration, agendaDisplay) !important;
-        } @else {
-          display: none !important;
-        }
-      } @else {
-        @if map-get($configuration, agendaVisibility) == 'visible' {
-          display: block !important;
-        } @else {
-          display: none !important;
-        }
-
-        top: map-get($configuration, agendaPositionTop);
-        right: map-get($configuration, agendaPositionRight);
-        bottom: map-get($configuration, agendaPositionBottom);
-        left: map-get($configuration, agendaPositionLeft);
-      }
-
-      width: map-get($configuration, agendaWidth);
-      max-width: map-get($configuration, agendaMaxWidth);
       margin: map-get($configuration, agendaMarginTop)
         map-get($configuration, agendaMarginRight)
         map-get($configuration, agendaMarginBottom)
@@ -367,30 +320,7 @@
 
       // Styles for tablet
       @include above($tabletBreakpoint) {
-        position: map-get($configuration, agendaPositionTablet) !important;
         z-index: map-get($configuration, agendaIndexTablet);
-
-        @if map-get($configuration, agendaPositionTablet) == 'relative' {
-          @if map-get($configuration, agendaVisibilityTablet) == 'visible' {
-            display: map-get($configuration, agendaDisplayTablet) !important;
-          } @else {
-            display: none !important;
-          }
-        } @else {
-          @if map-get($configuration, agendaVisibilityTablet) == 'visible' {
-            display: block !important;
-          } @else {
-            display: none !important;
-          }
-
-          top: map-get($configuration, agendaPositionTopTablet);
-          right: map-get($configuration, agendaPositionRightTablet);
-          bottom: map-get($configuration, agendaPositionBottomTablet);
-          left: map-get($configuration, agendaPositionLeftTablet);
-        }
-
-        width: map-get($configuration, agendaWidthTablet);
-        max-width: map-get($configuration, agendaMaxWidthTablet);
         margin: map-get($configuration, agendaMarginTopTablet)
           map-get($configuration, agendaMarginRightTablet)
           map-get($configuration, agendaMarginBottomTablet)
@@ -404,30 +334,7 @@
 
       // Styles for desktop
       @include above($desktopBreakpoint) {
-        position: map-get($configuration, agendaPositionDesktop) !important;
         z-index: map-get($configuration, agendaIndexDesktop);
-
-        @if map-get($configuration, agendaPositionDesktop) == 'relative' {
-          @if map-get($configuration, agendaVisibilityDesktop) == 'visible' {
-            display: map-get($configuration, agendaDisplayDesktop) !important;
-          } @else {
-            display: none !important;
-          }
-        } @else {
-          @if map-get($configuration, agendaVisibilityDesktop) == 'visible' {
-            display: block !important;
-          } @else {
-            display: none !important;
-          }
-
-          top: map-get($configuration, agendaPositionTopDesktop);
-          right: map-get($configuration, agendaPositionRightDesktop);
-          bottom: map-get($configuration, agendaPositionBottomDesktop);
-          left: map-get($configuration, agendaPositionLeftDesktop);
-        }
-
-        width: map-get($configuration, agendaWidthDesktop);
-        max-width: map-get($configuration, agendaMaxWidthDesktop);
         margin: map-get($configuration, agendaMarginTopDesktop)
           map-get($configuration, agendaMarginRightDesktop)
           map-get($configuration, agendaMarginBottomDesktop)
