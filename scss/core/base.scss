@@ -350,3 +350,34 @@ table.mce-item-table {
   }
 }
 
+// Outline
+
+.outline-item-selector:focus {
+  outline: none;
+
+  &:not(:hover) {
+    outline-color: $focusOutlineColor;
+    outline-width: $focusOutlineWidth;
+    outline-style: solid;
+  }
+  
+  @include above($tabletBreakpoint) {
+    outline: none;
+
+    &:not(:hover) {
+      outline-color: $focusOutlineColorTablet;
+      outline-width: $focusOutlineWidthTablet;
+      outline-style: solid;
+    }
+  }
+
+  @include above($desktopBreakpoint) {  
+    outline: none;
+
+    &:not(:hover) {
+      outline-color: $focusOutlineColorDesktop;
+      outline-width: $focusOutlineWidthDesktop;
+      outline-style: solid;
+    }
+  }
+}
