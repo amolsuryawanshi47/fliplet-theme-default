@@ -353,31 +353,25 @@ table.mce-item-table {
 // Outline
 
 .outline-item-selector:focus {
-  outline: none;
+  box-shadow: none;
 
   &:not(:hover) {
-    outline-color: $focusOutlineColor;
-    outline-width: $focusOutlineWidth;
-    outline-style: solid;
+    box-shadow: 0px 0px 0px $focusOutlineWidth $focusOutlineColor;
   }
   
   @include above($tabletBreakpoint) {
-    outline: none;
+    box-shadow: none;
 
     &:not(:hover) {
-      outline-color: $focusOutlineColorTablet;
-      outline-width: $focusOutlineWidthTablet;
-      outline-style: solid;
+      box-shadow: 0px 0px 0px $focusOutlineWidthTablet $focusOutlineColorTablet;
     }
   }
 
   @include above($desktopBreakpoint) {  
-    outline: none;
+    box-shadow: none;
 
     &:not(:hover) {
-      outline-color: $focusOutlineColorDesktop;
-      outline-width: $focusOutlineWidthDesktop;
-      outline-style: solid;
+      box-shadow: 0px 0px 0px $focusOutlineWidthDesktop $focusOutlineColorDesktop;
     }
   }
 }
