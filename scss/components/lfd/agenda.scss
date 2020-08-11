@@ -297,12 +297,12 @@
   ), $options);
 
   $instanceSelector: '[data-widget-package="com.fliplet.dynamic-lists"]';
-  $layout: '[data-dynamic-lists-layout="agenda"]';
-  $layoutSelector: '#{$instanceSelector} #{$layout}';
+  $layout: '[data-settings-layout="agenda"]';
+  $layoutSelector: '#{$instanceSelector}#{$layout}';
   @if $widgetInstanceUUID != '' {
-    $layoutSelector: '#{$instanceSelector}[data-uuid="#{$widgetInstanceUUID}"] #{$layout}';
+    $layoutSelector: '#{$layoutSelector}[data-uuid="#{$widgetInstanceUUID}"]';
   } @else if $widgetInstanceId != '' {
-    $layoutSelector: '#{$instanceSelector}[data-id="#{$widgetInstanceId}"] #{$layout}';
+    $layoutSelector: '#{$layoutSelector}[data-id="#{$widgetInstanceId}"]';
   }
 
   #{$layoutSelector} {
