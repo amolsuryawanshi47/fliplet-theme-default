@@ -420,8 +420,12 @@
             }
           }
 
-          .agenda-item-bookmark .fa {
-            color: map-get($configuration, agendaListDetailOverlayIconsColor);
+          .agenda-item-bookmark-holder .bookmark-wrapper.btn-bookmark .fa {
+            color: map-get($configuration, agendaBookmarkIconColor);
+          }
+  
+          .agenda-item-bookmark-holder .bookmark-wrapper.btn-bookmarked .fa {
+            color: map-get($configuration, agendaBookmarkIconActiveColor);
           }
         }
 
@@ -497,10 +501,14 @@
                 background-color: map-get($configuration, agendaListDetailOverlayLineUnderTitleColorTablet);
               }
             }
+          }
 
-            .agenda-item-bookmark .fa {
-              color: map-get($configuration, agendaListDetailOverlayIconsColorTablet);
-            }
+          .agenda-item-bookmark-holder .bookmark-wrapper.btn-bookmark .fa {
+            color: map-get($configuration, agendaBookmarkIconColorTablet);
+          }
+  
+          .agenda-item-bookmark-holder .bookmark-wrapper.bookmark-wrapper.btn-bookmarked .fa {
+            color: map-get($configuration, agendaBookmarkIconActiveColorTablet);
           }
         }
 
@@ -577,8 +585,12 @@
               }
             }
 
-            .agenda-item-bookmark .fa {
-              color: map-get($configuration, agendaListDetailOverlayIconsColorDesktop);
+            .agenda-item-bookmark-holder .bookmark-wrapper.btn-bookmark .fa {
+              color: map-get($configuration, agendaBookmarkIconColorDesktop);
+            }
+    
+            .agenda-item-bookmark-holder .bookmark-wrapper.btn-bookmarked .fa {
+              color: map-get($configuration, agendaBookmarkIconActiveColorDesktop);
             }
           }
         }
@@ -700,6 +712,14 @@
         .slide-over {
           background-color: map-get($configuration, agendaDetailBackgroundColor);
         }
+
+        .agenda-item-bookmark-holder .bookmark-wrapper.btn-bookmark .fa {
+          color: map-get($configuration, agendaBookmarkIconColor);
+        }
+
+        .agenda-item-bookmark-holder .bookmark-wrapper.btn-bookmarked .fa {
+          color: map-get($configuration, agendaBookmarkIconActiveColor);
+        }
       }
 
       .agenda-list-controls {
@@ -736,12 +756,12 @@
         }
 
         .toggle-bookmarks {
-          &.mixitup-control-active .fa {
-            color: map-get($configuration, agendaBookmarkIconActiveColor) !important;
-          }
-
           .fa {
             color: map-get($configuration, agendaBookmarkIconColor) !important;
+          }
+
+          &.mixitup-control-active .fa {
+            color: map-get($configuration, agendaBookmarkIconActiveColor) !important;
           }
         }
 
@@ -753,6 +773,16 @@
               border-color: map-get($configuration, agendaSearchFieldBorderActiveColor);
             }
           }
+        }
+      }
+
+      .agenda-list-controls .toggle-agenda {
+        .fa {
+          color: map-get($configuration, agendaBookmarkIconColor) !important;
+        }
+
+        &.mixitup-control-active .fa {
+          color: map-get($configuration, agendaBookmarkIconActiveColor) !important;
         }
       }
 
@@ -874,6 +904,14 @@
           .slide-over {
             background-color: map-get($configuration, agendaDetailBackgroundColorTablet);
           }
+
+          .agenda-item-bookmark-holder .bookmark-wrapper.btn-bookmark .fa {
+            color: map-get($configuration, agendaBookmarkIconColorTablet);
+          }
+  
+          .agenda-item-bookmark-holder .bookmark-wrapper.btn-bookmarked .fa {
+            color: map-get($configuration, agendaBookmarkIconActiveColorTablet);
+          }
         }
 
         .agenda-list-controls {
@@ -927,6 +965,16 @@
                 border-color: map-get($configuration, agendaSearchFieldBorderActiveColorTablet);
               }
             }
+          }
+        }
+
+        .agenda-list-controls .toggle-agenda {
+          .fa {
+            color: map-get($configuration, agendaBookmarkIconColorTablet) !important;
+          }
+
+          &.mixitup-control-active .fa {
+            color: map-get($configuration, agendaBookmarkIconActiveColorTablet) !important;
           }
         }
 
@@ -1050,6 +1098,14 @@
           .slide-over {
             background-color: map-get($configuration, agendaDetailBackgroundColorDesktop);
           }
+
+          .agenda-item-bookmark-holder .bookmark-wrapper.btn-bookmark .fa {
+            color: map-get($configuration, agendaBookmarkIconColorDesktop);
+          }
+  
+          .agenda-item-bookmark-holder .bookmark-wrapper.btn-bookmarked .fa {
+            color: map-get($configuration, agendaBookmarkIconActiveColorDesktop);
+          }
         }
 
         .agenda-list-controls {
@@ -1103,6 +1159,16 @@
                 border-color: map-get($configuration, agendaSearchFieldBorderActiveColorDesktop);
               }
             }
+          }
+        }
+
+        .agenda-list-controls .toggle-agenda {
+          .fa {
+            color: map-get($configuration, agendaBookmarkIconColorDesktop) !important;
+          }
+  
+          &.mixitup-control-active .fa {
+            color: map-get($configuration, agendaBookmarkIconActiveColorDesktop) !important;
           }
         }
 
