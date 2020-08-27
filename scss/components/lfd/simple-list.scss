@@ -1023,6 +1023,10 @@
         }
 
         .filter-holder {
+          .panel .panel-collapse {
+            background-color: map-get($configuration, simpleListFiltersOverlayBackground);
+          }
+
           .panel-default > .panel-heading {
             color: map-get($configuration, simpleListOverlayFontColor);
             background-color: map-get($configuration, simpleListFiltersOverlayBackground);
@@ -1034,9 +1038,15 @@
         @include above($tabletBreakpoint) {
           .simple-list-overlay-wrapper,
           .simple-list-overlay-header,
-          .filter-holder .panel-default > .panel-heading {
-            color: map-get($configuration, simpleListOverlayFontColorTablet);
-            background-color: map-get($configuration, simpleListFiltersOverlayBackgroundTablet);
+          .filter-holder {
+            .panel .panel-collapse {
+              background-color: map-get($configuration, simpleListFiltersOverlayBackgroundTablet);
+            }
+
+            .panel-default > .panel-heading {
+              color: map-get($configuration, simpleListOverlayFontColorTablet);
+              background-color: map-get($configuration, simpleListFiltersOverlayBackgroundTablet);
+            }
           }
         }
 
@@ -1044,9 +1054,15 @@
         @include above($desktopBreakpoint) {
           .simple-list-overlay-wrapper,
           .simple-list-overlay-header,
-          .filter-holder .panel-default > .panel-heading {
+          .filter-holder {
+            .panel .panel-collapse {
+              background-color: map-get($configuration, simpleListFiltersOverlayBackgroundDesktop);
+            }
+
+            .panel-default > .panel-heading {
             color: map-get($configuration, simpleListOverlayFontColorDesktop);
             background-color: map-get($configuration, simpleListFiltersOverlayBackgroundDesktop);
+            }
           }
         }
       }
