@@ -269,7 +269,13 @@
     simpleListPositionBottomDesktop: $simpleListPositionBottomDesktop,
     simpleListPositionLeftDesktop: $simpleListPositionLeftDesktop,
     simpleListIndexDesktop: $simpleListIndexDesktop,
-    simpleListDisplayDesktop: $simpleListDisplayDesktop
+    simpleListDisplayDesktop: $simpleListDisplayDesktop,
+    simpleListAddButtonBackground: $simpleListAddButtonBackground,
+    simpleListAddButtonBackgroundTablet: $simpleListAddButtonBackgroundTablet,
+    simpleListAddButtonBackgroundDesktop: $simpleListAddButtonBackgroundDesktop,
+    simpleListAddButtonIcon: $simpleListAddButtonIcon,
+    simpleListAddButtonIconTablet: $simpleListAddButtonIconTablet,
+    simpleListAddButtonIconDesktop: $simpleListAddButtonIconDesktop
   ), $options);
 
   $instanceSelector: '[data-widget-package="com.fliplet.dynamic-lists"]';
@@ -622,6 +628,34 @@
         map-get($configuration, simpleListPaddingRightDesktop)
         map-get($configuration, simpleListPaddingBottomDesktop)
         map-get($configuration, simpleListPaddingLeftDesktop);
+    }
+
+    .dynamic-list-add-item {
+      background-color: map-get($configuration, simpleListAddButtonBackground);
+
+      .fa-plus {
+        color: map-get($configuration, simpleListAddButtonIcon);
+      }
+    }
+
+    @include above($tabletBreakpoint) {
+      .dynamic-list-add-item {
+        background-color: map-get($configuration, simpleListAddButtonBackgroundTablet);
+  
+        .fa-plus {
+          color: map-get($configuration, simpleListAddButtonIconTablet);
+        }
+      }
+    }
+
+    @include above($desktopBreakpoint) {
+      .dynamic-list-add-item {
+        background-color: map-get($configuration, simpleListAddButtonBackgroundDesktop);
+  
+        .fa-plus {
+          color: map-get($configuration, simpleListAddButtonIconDesktop);
+        }
+      }
     }
 
     .simple-list-container {

@@ -308,7 +308,13 @@
   newsFeedPositionBottomDesktop: $newsFeedPositionBottomDesktop,
   newsFeedPositionLeftDesktop: $newsFeedPositionLeftDesktop,
   newsFeedIndexDesktop: $newsFeedIndexDesktop,
-  newsFeedDisplayDesktop: $newsFeedDisplayDesktop
+  newsFeedDisplayDesktop: $newsFeedDisplayDesktop,
+  newsFeedAddButtonBackground: $newsFeedAddButtonBackground,
+  newsFeedAddButtonBackgroundTablet: $newsFeedAddButtonBackgroundTablet,
+  newsFeedAddButtonBackgroundDesktop: $newsFeedAddButtonBackgroundDesktop,
+  newsFeedAddButtonIcon: $newsFeedAddButtonIcon,
+  newsFeedAddButtonIconTablet: $newsFeedAddButtonIconTablet,
+  newsFeedAddButtonIconDesktop: $newsFeedAddButtonIconDesktop
   ), $options);
 
   $instanceSelector: '[data-widget-package="com.fliplet.dynamic-lists"]';
@@ -427,6 +433,34 @@
         map-get($configuration, newsFeedPaddingRightDesktop)
         map-get($configuration, newsFeedPaddingBottomDesktop)
         map-get($configuration, newsFeedPaddingLeftDesktop);
+    }
+
+    .dynamic-list-add-item {
+      background-color: map-get($configuration, newsFeedAddButtonBackground);
+
+      .fa-plus {
+        color: map-get($configuration, newsFeedAddButtonIcon);
+      }
+    }
+
+    @include above($tabletBreakpoint) {
+      .dynamic-list-add-item {
+        background-color: map-get($configuration, newsFeedAddButtonBackgroundTablet);
+  
+        .fa-plus {
+          color: map-get($configuration, newsFeedAddButtonIconTablet);
+        }
+      }
+    }
+
+    @include above($desktopBreakpoint) {
+      .dynamic-list-add-item {
+        background-color: map-get($configuration, newsFeedAddButtonBackgroundDesktop);
+  
+        .fa-plus {
+          color: map-get($configuration, newsFeedAddButtonIconDesktop);
+        }
+      }
     }
 
     /* COMMENTS */

@@ -294,6 +294,12 @@
   agendaIndex: $agendaIndex,
   agendaIndexTablet: $agendaIndexTablet,
   agendaIndexDesktop: $agendaIndexDesktop,
+  agendaAddButtonBackground: $agendaAddButtonBackground,
+  agendaAddButtonBackgroundTablet: $agendaAddButtonBackgroundTablet,
+  agendaAddButtonBackgroundDesktop: $agendaAddButtonBackgroundDesktop,
+  agendaAddButtonIcon: $agendaAddButtonIcon,
+  agendaAddButtonIconTablet: $agendaAddButtonIconTablet,
+  agendaAddButtonIconDesktop: $agendaAddButtonIconDesktop
   ), $options);
 
   $instanceSelector: '[data-widget-package="com.fliplet.dynamic-lists"]';
@@ -344,6 +350,34 @@
           map-get($configuration, agendaPaddingRightDesktop)
           map-get($configuration, agendaPaddingBottomDesktop)
           map-get($configuration, agendaPaddingLeftDesktop);
+      }
+    }
+
+    .dynamic-list-add-item {
+      background-color: map-get($configuration, agendaAddButtonBackground);
+
+      .fa-plus {
+        color: map-get($configuration, agendaAddButtonIcon);
+      }
+    }
+
+    @include above($tabletBreakpoint) {
+      .dynamic-list-add-item {
+        background-color: map-get($configuration, agendaAddButtonBackgroundTablet);
+  
+        .fa-plus {
+          color: map-get($configuration, agendaAddButtonIconTablet);
+        }
+      }
+    }
+
+    @include above($desktopBreakpoint) {
+      .dynamic-list-add-item {
+        background-color: map-get($configuration, agendaAddButtonBackgroundDesktop);
+  
+        .fa-plus {
+          color: map-get($configuration, agendaAddButtonIconDesktop);
+        }
       }
     }
 
@@ -622,14 +656,6 @@
         }
       }
 
-      ~ .dynamic-list-add-item {
-        background-color: map-get($configuration, lfdAgendaDatesBackgroundColor);
-
-        .fa {
-          color: map-get($configuration, lfdAgendaDatesFontColor);
-        }
-      }
-
       .agenda-date-selector {
         background-color: map-get($configuration, lfdAgendaTopBackgroundColor);
 
@@ -830,14 +856,6 @@
           color: map-get($configuration, agendaOverlayFontColorTablet);
         }
 
-        ~ .dynamic-list-add-item {
-          background-color: map-get($configuration, lfdAgendaDatesBackgroundColorTablet);
-
-          .fa {
-            color: map-get($configuration, lfdAgendaDatesFontColorTablet);
-          }
-        }
-
         .agenda-date-selector {
           background-color: map-get($configuration, lfdAgendaTopBackgroundColorTablet);
 
@@ -1034,14 +1052,6 @@
         .agenda-overlay-header {
           background-color: map-get($configuration, agendaFiltersOverlayBackgroundDesktop);
           color: map-get($configuration, agendaOverlayFontColorDesktop);
-        }
-
-        ~ .dynamic-list-add-item {
-          background-color: map-get($configuration, lfdAgendaDatesBackgroundColorDesktop);
-
-          .fa {
-            color: map-get($configuration, lfdAgendaDatesFontColorDesktop);
-          }
         }
 
         .agenda-date-selector {
