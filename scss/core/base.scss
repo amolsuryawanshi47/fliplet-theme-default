@@ -352,22 +352,24 @@ table.mce-item-table {
 
 // Outline
 
-html.no-touchevents .focus-outline:focus, html.no-touchevents .focus-outline:focus-within {
-  outline: none;
+html.no-touchevents {
+  .focus-outline-active, .focus-outline:focus, .focus-outline:focus-within {
+    outline: none;
 
-  &:not(:hover) {
-    box-shadow: 0px 0px 0px $focusOutlineWidth $focusOutlineColor !important;
-  }
-
-  @include above($tabletBreakpoint) {
     &:not(:hover) {
-      box-shadow: 0px 0px 0px $focusOutlineWidthTablet $focusOutlineColorTablet !important;
+      box-shadow: 0px 0px 0px $focusOutlineWidth $focusOutlineColor !important;
     }
-  }
 
-  @include above($desktopBreakpoint) {
-    &:not(:hover) {
-      box-shadow: 0px 0px 0px $focusOutlineWidthDesktop $focusOutlineColorDesktop !important;
+    @include above($tabletBreakpoint) {
+      &:not(:hover) {
+        box-shadow: 0px 0px 0px $focusOutlineWidthTablet $focusOutlineColorTablet !important;
+      }
+    }
+
+    @include above($desktopBreakpoint) {
+      &:not(:hover) {
+        box-shadow: 0px 0px 0px $focusOutlineWidthDesktop $focusOutlineColorDesktop !important;
+      }
     }
   }
 }
