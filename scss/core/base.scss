@@ -350,24 +350,58 @@ table.mce-item-table {
   }
 }
 
-// Outline
-
-html.no-touchevents {
-  .focus-outline-active, .focus-outline:focus, .focus-outline:focus-within {
+html.no-touchevents.js-focus-visible {
+  .focus-outline-active, .focus-outline {
     outline: none;
 
-    &:not(:hover) {
+    &:focus {
+      box-shadow: 0px 0px 0px $focusOutlineWidth $focusOutlineColor !important;
+    }
+
+    &:focus:not(.focus-visible) {
+      box-shadow: none !important;
+    }
+
+    &:not(:focus-visible) {
+      box-shadow: none !important;
+    }
+
+    &:focus-visible {
       box-shadow: 0px 0px 0px $focusOutlineWidth $focusOutlineColor !important;
     }
 
     @include above($tabletBreakpoint) {
-      &:not(:hover) {
+      &:focus {
+        box-shadow: 0px 0px 0px $focusOutlineWidthTablet $focusOutlineColorTablet !important;
+      }
+  
+      &:focus:not(.focus-visible) {
+        box-shadow: none !important;
+      }
+  
+      &:not(:focus-visible) {
+        box-shadow: none !important;
+      }
+  
+      &:focus-visible {
         box-shadow: 0px 0px 0px $focusOutlineWidthTablet $focusOutlineColorTablet !important;
       }
     }
 
     @include above($desktopBreakpoint) {
-      &:not(:hover) {
+      &:focus {
+        box-shadow: 0px 0px 0px $focusOutlineWidthDesktop $focusOutlineColorDesktop !important;
+      }
+  
+      &:focus:not(.focus-visible) {
+        box-shadow: none !important;
+      }
+  
+      &:not(:focus-visible) {
+        box-shadow: none !important;
+      }
+  
+      &:focus-visible {
         box-shadow: 0px 0px 0px $focusOutlineWidthDesktop $focusOutlineColorDesktop !important;
       }
     }
