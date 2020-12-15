@@ -859,17 +859,21 @@
         .agenda-date-selector {
           background-color: map-get($configuration, lfdAgendaTopBackgroundColorTablet);
 
-          ul li {
-            color: map-get($configuration, lfdAgendaTopTextColorTablet);
-            .day {
+          ul {
+            li:not(.active):not(.placeholder) {
+              color: rgba(map-get($configuration, lfdAgendaTopTextColorTablet), 0.5);
+            }
+  
+            li:not(.active):not(.placeholder) .day {
               color: map-get($configuration, lfdAgendaTopTextColorTablet);
             }
-
-            &.active {
+  
+            li.active {
+              color: rgba(map-get($configuration, lfdAgendaTopTextActiveColorTablet), 0.5) ;
+            }
+  
+            li.active .day {
               color: map-get($configuration, lfdAgendaTopTextActiveColorTablet);
-              .day {
-                color: map-get($configuration, lfdAgendaTopTextActiveColorTablet);
-              }
             }
           }
         }
@@ -1057,17 +1061,21 @@
         .agenda-date-selector {
           background-color: map-get($configuration, lfdAgendaTopBackgroundColorDesktop);
 
-          ul li {
-            color: map-get($configuration, lfdAgendaTopTextColorDesktop);
-            .day {
+          ul {
+            li:not(.active):not(.placeholder) {
+              color: rgba(map-get($configuration, lfdAgendaTopTextColorDesktop), 0.5);
+            }
+  
+            li:not(.active):not(.placeholder) .day {
               color: map-get($configuration, lfdAgendaTopTextColorDesktop);
             }
-
-            &.active {
+  
+            li.active {
+              color: rgba(map-get($configuration, lfdAgendaTopTextActiveColorDesktop), 0.5) ;
+            }
+  
+            li.active .day {
               color: map-get($configuration, lfdAgendaTopTextActiveColorDesktop);
-              .day {
-                color: map-get($configuration, lfdAgendaTopTextActiveColorDesktop);
-              }
             }
           }
         }
