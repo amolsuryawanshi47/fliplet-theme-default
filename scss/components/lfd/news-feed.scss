@@ -810,10 +810,22 @@
           shadowBlur: map-get($configuration, newsFeedListItemShadowBlur),
           shadowSpread: map-get($configuration, newsFeedListItemShadowSpread),
           shadowColor: map-get($configuration, newsFeedListItemShadowColor)
-        ))
+        ));
       }
 
       .news-feed-item-content {
+        border-radius: map-get($configuration, newsFeedListItemBorderRadius);
+
+        .slide-under {
+          border-top-left-radius: map-get($configuration, newsFeedListItemBorderRadius);
+          border-top-right-radius: map-get($configuration, newsFeedListItemBorderRadius);
+        }
+
+        .slide-over {
+          border-bottom-left-radius: map-get($configuration, newsFeedListItemBorderRadius);
+          border-bottom-right-radius: map-get($configuration, newsFeedListItemBorderRadius);
+        }
+
         .news-feed-item-description {
           @include fontOnly((
             fontFamily: map-get($configuration, newsFeedDescriptionFontFamily),
@@ -910,6 +922,18 @@
         }
 
         .news-feed-item-content {
+          border-radius: map-get($configuration, newsFeedListItemBorderRadiusTablet);
+  
+          .slide-under {
+            border-top-left-radius: map-get($configuration, newsFeedListItemBorderRadiusTablet);
+            border-top-right-radius: map-get($configuration, newsFeedListItemBorderRadiusTablet);
+          }
+  
+          .slide-over {
+            border-bottom-left-radius: map-get($configuration, newsFeedListItemBorderRadiusTablet);
+            border-bottom-right-radius: map-get($configuration, newsFeedListItemBorderRadiusTablet);
+          }
+
           .news-feed-item-description {
             @include fontOnly((
               fontFamily: map-get($configuration, newsFeedDescriptionFontFamilyTablet),
@@ -1007,6 +1031,18 @@
         }
 
         .news-feed-item-content {
+          border-radius: map-get($configuration, newsFeedListItemBorderRadiusDesktop);
+  
+          .slide-under {
+            border-top-left-radius: map-get($configuration, newsFeedListItemBorderRadiusDesktop);
+            border-top-right-radius: map-get($configuration, newsFeedListItemBorderRadiusDesktop);
+          }
+  
+          .slide-over {
+            border-bottom-left-radius: map-get($configuration, newsFeedListItemBorderRadiusDesktop);
+            border-bottom-right-radius: map-get($configuration, newsFeedListItemBorderRadiusDesktop);
+          }
+
           .news-feed-item-description {
             @include fontOnly((
               fontFamily: map-get($configuration, newsFeedDesсriptionFontFamilyDesktop),
