@@ -83,7 +83,10 @@
     accordionContentPaddingLeftDesktop: $accordionContentPaddingLeftDesktop,
     accordionBorderWidthDesktop: $accordionBorderWidthDesktop,
     accordionBorderStyleDesktop: $accordionBorderStyleDesktop,
-    accordionBorderColorDesktop: $accordionBorderColorDesktop
+    accordionBorderColorDesktop: $accordionBorderColorDesktop,
+    accordionContentBackgroundColor: $accordionContentBackgroundColor,
+    accordionContentBackgroundColorTablet: $accordionContentBackgroundColorTablet,
+    accordionContentBackgroundColorDesktop: $accordionContentBackgroundColorDesktop
   ), $options);
 
   $instanceSelector: '.panel';
@@ -371,7 +374,7 @@
       }
 
       .panel-body {
-        background-color: $bodyBackground;
+        background-color: map-get($configuration, accordionContentBackgroundColor);
         padding: map-get($configuration, accordionContentPaddingTop)
           map-get($configuration, accordionContentPaddingRight)
           map-get($configuration, accordionContentPaddingBottom)
@@ -379,7 +382,7 @@
 
         // Styles for tablet
         @include above($tabletBreakpoint) {
-          background-color: $bodyBackgroundTablet;
+          background-color: map-get($configuration, accordionContentBackgroundColorTablet);
           padding: map-get($configuration, accordionContentPaddingTopTablet)
             map-get($configuration, accordionContentPaddingRightTablet)
             map-get($configuration, accordionContentPaddingBottomTablet)
@@ -388,7 +391,7 @@
 
         // Styles for desktop
         @include above($desktopBreakpoint) {
-          background-color: $bodyBackgroundDesktop;
+          background-color: map-get($configuration, accordionContentBackgroundColorDesktop);
           padding: map-get($configuration, accordionContentPaddingTopDesktop)
             map-get($configuration, accordionContentPaddingRightDesktop)
             map-get($configuration, accordionContentPaddingBottomDesktop)
