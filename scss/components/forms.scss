@@ -809,6 +809,14 @@
         map-get($configuration, formInputPaddingBottom)
         map-get($configuration, formInputPaddingLeft);
 
+      &:focus-within {
+        box-shadow: 0px 0px 0px $focusOutlineWidth $focusOutlineColor !important;
+      }
+
+      &.input-focused {
+        box-shadow: 0px 0px 0px $focusOutlineWidth $focusOutlineColor !important;
+      }
+
       // Styles for tablet
       @include above($tabletBreakpoint) {
         @include borderOnly((
@@ -823,6 +831,14 @@
           map-get($configuration, formInputPaddingRightTablet)
           map-get($configuration, formInputPaddingBottomTablet)
           map-get($configuration, formInputPaddingLeftTablet);
+
+        &:focus-within {
+          box-shadow: 0px 0px 0px $focusOutlineWidthTablet $focusOutlineColorTablet !important;
+        }
+
+        &.input-focused {
+          box-shadow: 0px 0px 0px $focusOutlineWidthTablet $focusOutlineColorTablet !important;
+        }
       }
 
       // Styles for desktop
@@ -839,6 +855,14 @@
           map-get($configuration, formInputPaddingRightDesktop)
           map-get($configuration, formInputPaddingBottomDesktop)
           map-get($configuration, formInputPaddingLeftDesktop);
+
+        &:focus-within {
+          box-shadow: 0px 0px 0px $focusOutlineWidthDesktop $focusOutlineColorDesktop !important;
+        }
+
+        &.input-focused {
+          box-shadow: 0px 0px 0px $focusOutlineWidthDesktop $focusOutlineColorDesktop !important;
+        }
       }
     }
 
@@ -896,6 +920,39 @@
       @include above($desktopBreakpoint) {
         color: map-get($configuration, formRequiredColorDesktop);
       }
+    }
+
+    .input-group {
+      &:focus-within {
+        box-shadow: 0px 0px 0px $focusOutlineWidth $focusOutlineColor !important;
+      }
+
+      &.input-focused {
+        box-shadow: 0px 0px 0px $focusOutlineWidth $focusOutlineColor !important;
+      }
+
+      // Styles for tablet
+      @include above($tabletBreakpoint) {
+        &:focus-within {
+          box-shadow: 0px 0px 0px $focusOutlineWidthTablet $focusOutlineColorTablet !important;
+        }
+
+        &.input-focused {
+          box-shadow: 0px 0px 0px $focusOutlineWidthTablet $focusOutlineColorTablet !important;
+        }
+      }
+
+      // Styles for desktop
+      @include above($desktopBreakpoint) {
+        &:focus-within {
+          box-shadow: 0px 0px 0px $focusOutlineWidthDesktop $focusOutlineColorDesktop !important;
+        }
+        
+        &.input-focused {
+          box-shadow: 0px 0px 0px $focusOutlineWidthDesktop $focusOutlineColorDesktop !important;
+        }
+      }
+      
     }
 
     .input-group-addon {
@@ -988,6 +1045,10 @@
         &:active:hover {
           color: map-get($configuration, formSignatureClearTextColorActive);
         }
+
+        &:focus {
+          box-shadow: 0px 0px 0px $focusOutlineWidth $focusOutlineColor !important;
+        }
       }
 
       // Styles for tablet
@@ -1006,6 +1067,10 @@
           &:active:focus,
           &:active:hover {
             color: map-get($configuration, formSignatureClearTextColorActiveTablet);
+          }
+
+          &:focus {
+            box-shadow: 0px 0px 0px $focusOutlineWidthTablet $focusOutlineColorTablet !important;
           }
         }
       }
@@ -1027,6 +1092,10 @@
           &:active:hover {
             color: map-get($configuration, formSignatureClearTextColorActiveDesktop);
           }
+
+          &:focus {
+            box-shadow: 0px 0px 0px $focusOutlineWidthDesktop $focusOutlineColorDesktop !important;
+          }
         }
       }
     }
@@ -1043,6 +1112,10 @@
       border-radius: map-get($configuration, formInputBorderRadius);
       overflow: hidden;
 
+      &.focus-outline {
+        box-shadow: 0px 0px 0px $focusOutlineWidth $focusOutlineColor !important;
+      }
+
       // Styles for tablet
       @include above($tabletBreakpoint) {
         @include borderOnly((
@@ -1051,6 +1124,10 @@
           borderColor: map-get($configuration, formInputBorderColorTablet),
           borderSides: map-get($configuration, formInputBorderSidesTablet)
         ));
+
+        &.focus-outline {
+          box-shadow: 0px 0px 0px $focusOutlineWidthTablet $focusOutlineColorTablet !important;
+        }
       }
 
       // Styles for desktop
@@ -1061,6 +1138,10 @@
           borderColor: map-get($configuration, formInputBorderColorDesktop),
           borderSides: map-get($configuration, formInputBorderSidesDesktop)
         ));
+
+        &.focus-outline {
+          box-shadow: 0px 0px 0px $focusOutlineWidthDesktop $focusOutlineColorDesktop !important;
+        }
       }
     }
 
@@ -1114,4 +1195,21 @@
   ));
 
   border-radius: $formInputBorderRadius;
+}
+
+.fileUpload {
+  padding-top: $focusOutlineWidth;
+  padding-bottom: $focusOutlineWidth;
+
+  // Styles for tablet
+  @include above($tabletBreakpoint) {
+    padding-top: $focusOutlineWidthTablet;
+    padding-bottom: $focusOutlineWidthTablet;
+  }
+
+  // Styles for desktop
+  @include above($desktopBreakpoint) {
+    padding-top: $focusOutlineWidthDesktop;
+    padding-bottom: $focusOutlineWidthDesktop;
+  }
 }
