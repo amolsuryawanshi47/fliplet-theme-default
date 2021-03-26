@@ -382,20 +382,20 @@ html.no-touchevents.js-focus-visible {
   .focus-outline-active, .focus-outline {
     outline: none;
 
-    &:focus {
+    &:focus.focus-visible {
       box-shadow: 0px 0px 0px $focusOutlineWidth $focusOutlineColor !important;
     }
 
     &:focus:not(.focus-visible) {
-      box-shadow: none !important;
+      box-shadow: none;
     }
 
     &:not(:focus-visible) {
-      box-shadow: none !important;
+      box-shadow: none;
     }
 
     &:focus-visible {
-      box-shadow: 0px 0px 0px $focusOutlineWidth $focusOutlineColor !important;
+      box-shadow: 0px 0px 0px $focusOutlineWidth $focusOutlineColor;
     }
 
     @include above($tabletBreakpoint) {
