@@ -380,8 +380,18 @@ table.mce-item-table {
 
 html.no-touchevents.js-focus-visible {
   .focus-outline-active, .focus-outline {
+    outline: none;
+
     &:focus.focus-visible {
       box-shadow: 0px 0px 0px $focusOutlineWidth $focusOutlineColor !important;
+    }
+
+    &:focus:not(.focus-visible) {
+      box-shadow: none;
+    }
+
+    &:not(:focus-visible) {
+      box-shadow: none;
     }
 
     &:focus-visible {
@@ -393,8 +403,16 @@ html.no-touchevents.js-focus-visible {
         box-shadow: 0px 0px 0px $focusOutlineWidthTablet $focusOutlineColorTablet !important;
       }
   
+      &:focus:not(.focus-visible) {
+        box-shadow: none !important;
+      }
+  
+      &:not(:focus-visible) {
+        box-shadow: none !important;
+      }
+  
       &:focus-visible {
-        box-shadow: 0px 0px 0px $focusOutlineWidthTablet $focusOutlineColorTablet;
+        box-shadow: 0px 0px 0px $focusOutlineWidthTablet $focusOutlineColorTablet !important;
       }
     }
 
@@ -403,8 +421,16 @@ html.no-touchevents.js-focus-visible {
         box-shadow: 0px 0px 0px $focusOutlineWidthDesktop $focusOutlineColorDesktop !important;
       }
   
+      &:focus:not(.focus-visible) {
+        box-shadow: none !important;
+      }
+  
+      &:not(:focus-visible) {
+        box-shadow: none !important;
+      }
+  
       &:focus-visible {
-        box-shadow: 0px 0px 0px $focusOutlineWidthDesktop $focusOutlineColorDesktop;
+        box-shadow: 0px 0px 0px $focusOutlineWidthDesktop $focusOutlineColorDesktop !important;
       }
     }
   }
