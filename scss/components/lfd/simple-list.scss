@@ -666,6 +666,18 @@
         color: map-get($configuration, lfdChevronColor);
       }
 
+      @include above($tabletBreakpoint) {
+        .list-item-arrow {
+          color: map-get($configuration, lfdChevronColorTablet);
+        }
+      }
+
+      @include above($desktopBreakpoint) {
+        .list-item-arrow {
+          color: map-get($configuration, lfdChevronColorDesktop);
+        }
+      }
+
       .section-top-wrapper {
         .search-holder {
           input[type="search"] {
@@ -707,10 +719,6 @@
 
         // Styles for tablet
         @include above($tabletBreakpoint) {
-          .list-item-arrow {
-            color: map-get($configuration, lfdChevronColorTablet);
-          }
-
           .search-holder {
             input[type="search"] {
               border-color: map-get($configuration, simpleListSearchFieldBorderColorTablet);
@@ -752,10 +760,6 @@
 
         // Styles for desktop
         @include above($desktopBreakpoint) {
-          .list-item-arrow {
-            color: map-get($configuration, lfdChevronColorDesktop);
-          }
-
           .search-holder {
             input[type="search"] {
               border-color: map-get($configuration, simpleListSearchFieldBorderColorDesktop);
