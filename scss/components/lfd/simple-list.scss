@@ -835,6 +835,34 @@
         }
       }
 
+      .simple-list-search-filter-overlay {
+        .apply-filters,
+        .hidden-filter-controls-filter.mixitup-control-active {
+          background-color: $highlightColor;
+          color: $primaryButtonTextColor;
+          border-color: $highlightColor;
+        }
+
+        .hidden-filter-controls-filter {
+          border-color: rgba(map-get($configuration, simpleListOverlayFontColor), 0.8);
+
+          &:hover,
+          &:focus {
+            color: rgba(map-get($configuration, simpleListOverlayFontColor), 0.7);
+          }
+
+          &.fl-date-picker {
+            > .fa:first-child {
+              border-color: rgba(map-get($configuration, simpleListOverlayFontColor), 0.8);
+            }
+
+            &.mixitup-control-active > .fa:first-child {
+              border-color: map-get($configuration, simpleListFiltersOverlayBackground);
+            }
+          }
+        }
+      }
+
       // Styles for tablet
       @include above($tabletBreakpoint) {
         .hidden-filter-controls-label,
@@ -866,6 +894,32 @@
 
             &.mixitup-control-active > .fa:first-child {
               border-color: $primaryButtonTextColorTablet;
+            }
+          }
+        }
+
+        .simple-list-search-filter-overlay {
+          .apply-filters,
+          .hidden-filter-controls-filter.mixitup-control-active {
+            color: $primaryButtonTextColorTablet;
+          }
+
+          .hidden-filter-controls-filter {
+            border-color: rgba(map-get($configuration, simpleListOverlayFontColorTablet), 0.8);
+
+            &:hover,
+            &:focus {
+              color: rgba(map-get($configuration, simpleListOverlayFontColorTablet), 0.7);
+            }
+
+            &.fl-date-picker {
+              > .fa:first-child {
+                border-color: rgba(map-get($configuration, simpleListOverlayFontColorTablet), 0.8);
+              }
+
+              &.mixitup-control-active > .fa:first-child {
+                border-color: map-get($configuration, simpleListFiltersOverlayBackgroundTablet);
+              }
             }
           }
         }
@@ -902,6 +956,32 @@
 
             &.mixitup-control-active > .fa:first-child {
               border-color: $primaryButtonTextColorDesktop;
+            }
+          }
+        }
+
+        .simple-list-search-filter-overlay {
+          .apply-filters,
+          .hidden-filter-controls-filter.mixitup-control-active {
+            color: $primaryButtonTextColorDesktop;
+          }
+
+          .hidden-filter-controls-filter {
+            border-color: rgba(map-get($configuration, simpleListOverlayFontColorDesktop), 0.8);
+
+            &:hover,
+            &:focus {
+              color: rgba(map-get($configuration, simpleListOverlayFontColorDesktop), 0.7);
+            }
+
+            &.fl-date-picker {
+              > .fa:first-child {
+                border-color: rgba(map-get($configuration, simpleListOverlayFontColorDesktop), 0.8);
+              }
+
+              &.mixitup-control-active > .fa:first-child {
+                border-color: map-get($configuration, simpleListFiltersOverlayBackgroundDesktop);
+              }
             }
           }
         }

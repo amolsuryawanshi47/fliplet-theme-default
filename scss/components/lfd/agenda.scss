@@ -654,6 +654,84 @@
           background-color: map-get($configuration, agendaFiltersOverlayBackground);
           color: map-get($configuration, agendaOverlayFontColor);
         }
+
+        .apply-filters,
+        .hidden-filter-controls-filter.mixitup-control-active {
+          background-color: $highlightColor;
+          color: $primaryButtonTextColor;
+          border-color: $highlightColor;
+        }
+
+        .hidden-filter-controls-filter {
+          border-color: rgba(map-get($configuration, agendaOverlayFontColor), 0.8);
+
+          &:hover,
+          &:focus {
+            color: rgba(map-get($configuration, agendaOverlayFontColor), 0.7);
+          }
+
+          &.fl-date-picker {
+            > .fa:first-child {
+              border-color: rgba(map-get($configuration, agendaOverlayFontColor), 0.8);
+            }
+
+            &.mixitup-control-active > .fa:first-child {
+              border-color: map-get($configuration, agendaFiltersOverlayBackground);
+            }
+          }
+        }
+
+        @include above($tabletBreakpoint) {
+          .apply-filters,
+          .hidden-filter-controls-filter.mixitup-control-active {
+            color: $primaryButtonTextColorTablet;
+          }
+
+          .hidden-filter-controls-filter {
+            border-color: rgba(map-get($configuration, agendaOverlayFontColorTablet), 0.8);
+
+            &:hover,
+            &:focus {
+              color: rgba(map-get($configuration, agendaOverlayFontColorTablet), 0.7);
+            }
+
+            &.fl-date-picker {
+              > .fa:first-child {
+                border-color: rgba(map-get($configuration, agendaOverlayFontColorTablet), 0.8);
+              }
+
+              &.mixitup-control-active > .fa:first-child {
+                border-color: map-get($configuration, agendaFiltersOverlayBackgroundTablet);
+              }
+            }
+          }
+        }
+
+        @include above($desktopBreakpoint) {
+          .apply-filters,
+          .hidden-filter-controls-filter.mixitup-control-active {
+            color: $primaryButtonTextColorDesktop;
+          }
+
+          .hidden-filter-controls-filter {
+            border-color: rgba(map-get($configuration, agendaOverlayFontColorDesktop), 0.8);
+
+            &:hover,
+            &:focus {
+              color: rgba(map-get($configuration, agendaOverlayFontColorDesktop), 0.7);
+            }
+
+            &.fl-date-picker {
+              > .fa:first-child {
+                border-color: rgba(map-get($configuration, agendaOverlayFontColorDesktop), 0.8);
+              }
+
+              &.mixitup-control-active > .fa:first-child {
+                border-color: map-get($configuration, agendaFiltersOverlayBackgroundDesktop);
+              }
+            }
+          }
+        }
       }
 
       .agenda-date-selector {
