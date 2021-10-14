@@ -364,7 +364,7 @@
     @include above($tabletBreakpoint) {
       .dynamic-list-add-item {
         background-color: map-get($configuration, agendaAddButtonBackgroundTablet);
-  
+
         .fa-plus {
           color: map-get($configuration, agendaAddButtonIconTablet);
         }
@@ -374,7 +374,7 @@
     @include above($desktopBreakpoint) {
       .dynamic-list-add-item {
         background-color: map-get($configuration, agendaAddButtonBackgroundDesktop);
-  
+
         .fa-plus {
           color: map-get($configuration, agendaAddButtonIconDesktop);
         }
@@ -457,7 +457,7 @@
           .agenda-item-bookmark-holder .bookmark-wrapper.btn-bookmark .fa {
             color: map-get($configuration, agendaBookmarkIconColor);
           }
-  
+
           .agenda-item-bookmark-holder .bookmark-wrapper.btn-bookmarked .fa {
             color: map-get($configuration, agendaBookmarkIconActiveColor);
           }
@@ -540,7 +540,7 @@
           .agenda-item-bookmark-holder .bookmark-wrapper.btn-bookmark .fa {
             color: map-get($configuration, agendaBookmarkIconColorTablet);
           }
-  
+
           .agenda-item-bookmark-holder .bookmark-wrapper.bookmark-wrapper.btn-bookmarked .fa {
             color: map-get($configuration, agendaBookmarkIconActiveColorTablet);
           }
@@ -622,7 +622,7 @@
             .agenda-item-bookmark-holder .bookmark-wrapper.btn-bookmark .fa {
               color: map-get($configuration, agendaBookmarkIconColorDesktop);
             }
-    
+
             .agenda-item-bookmark-holder .bookmark-wrapper.btn-bookmarked .fa {
               color: map-get($configuration, agendaBookmarkIconActiveColorDesktop);
             }
@@ -636,7 +636,7 @@
         .panel .panel-collapse {
           background-color: map-get($configuration, agendaFiltersOverlayBackground);
         }
-         
+
         .panel-default > .panel-heading {
           color: map-get($configuration, agendaOverlayFontColor);
           background-color: map-get($configuration, agendaFiltersOverlayBackground);
@@ -653,6 +653,84 @@
         .agenda-overlay-header {
           background-color: map-get($configuration, agendaFiltersOverlayBackground);
           color: map-get($configuration, agendaOverlayFontColor);
+        }
+
+        .apply-filters,
+        .hidden-filter-controls-filter.mixitup-control-active {
+          background-color: $highlightColor;
+          color: $primaryButtonTextColor;
+          border-color: $highlightColor;
+        }
+
+        .hidden-filter-controls-filter {
+          border-color: rgba(map-get($configuration, agendaOverlayFontColor), 0.8);
+
+          &:hover,
+          &:focus {
+            color: rgba(map-get($configuration, agendaOverlayFontColor), 0.7);
+          }
+
+          &.fl-date-picker {
+            > .fa:first-child {
+              border-color: rgba(map-get($configuration, agendaOverlayFontColor), 0.8);
+            }
+
+            &.mixitup-control-active > .fa:first-child {
+              border-color: map-get($configuration, agendaFiltersOverlayBackground);
+            }
+          }
+        }
+
+        @include above($tabletBreakpoint) {
+          .apply-filters,
+          .hidden-filter-controls-filter.mixitup-control-active {
+            color: $primaryButtonTextColorTablet;
+          }
+
+          .hidden-filter-controls-filter {
+            border-color: rgba(map-get($configuration, agendaOverlayFontColorTablet), 0.8);
+
+            &:hover,
+            &:focus {
+              color: rgba(map-get($configuration, agendaOverlayFontColorTablet), 0.7);
+            }
+
+            &.fl-date-picker {
+              > .fa:first-child {
+                border-color: rgba(map-get($configuration, agendaOverlayFontColorTablet), 0.8);
+              }
+
+              &.mixitup-control-active > .fa:first-child {
+                border-color: map-get($configuration, agendaFiltersOverlayBackgroundTablet);
+              }
+            }
+          }
+        }
+
+        @include above($desktopBreakpoint) {
+          .apply-filters,
+          .hidden-filter-controls-filter.mixitup-control-active {
+            color: $primaryButtonTextColorDesktop;
+          }
+
+          .hidden-filter-controls-filter {
+            border-color: rgba(map-get($configuration, agendaOverlayFontColorDesktop), 0.8);
+
+            &:hover,
+            &:focus {
+              color: rgba(map-get($configuration, agendaOverlayFontColorDesktop), 0.7);
+            }
+
+            &.fl-date-picker {
+              > .fa:first-child {
+                border-color: rgba(map-get($configuration, agendaOverlayFontColorDesktop), 0.8);
+              }
+
+              &.mixitup-control-active > .fa:first-child {
+                border-color: map-get($configuration, agendaFiltersOverlayBackgroundDesktop);
+              }
+            }
+          }
         }
       }
 
@@ -816,6 +894,41 @@
         }
       }
 
+      .hidden-filter-controls-label,
+      .search-query-holder {
+        color: rgba($bodyTextColor, 0.5);
+      }
+
+      .hidden-filter-controls-filter {
+        border-color: rgba($bodyTextColor, 0.8);
+
+        &:hover,
+        &:focus {
+          color: rgba($bodyTextColor, 0.7);
+        }
+
+        &.mixitup-control-active {
+          border-color: $highlightColor;
+          background-color: $highlightColor;
+          color: $primaryButtonTextColor;
+
+          &:hover,
+          &:focus {
+            color: rgba($primaryButtonTextColor, 0.7);
+          }
+        }
+
+        &.fl-date-picker {
+          > .fa:first-child {
+            border-color: rgba($bodyTextColor, 0.8);
+          }
+
+          &.mixitup-control-active > .fa:first-child {
+            border-color: $primaryButtonTextColor;
+          }
+        }
+      }
+
       .agenda-list-controls .toggle-agenda {
         .fa {
           color: map-get($configuration, agendaBookmarkIconColor) !important;
@@ -865,15 +978,15 @@
             li:not(.active):not(.placeholder) {
               color: rgba(map-get($configuration, lfdAgendaTopTextColorTablet), 0.5);
             }
-  
+
             li:not(.active):not(.placeholder) .day {
               color: map-get($configuration, lfdAgendaTopTextColorTablet);
             }
-  
+
             li.active {
               color: rgba(map-get($configuration, lfdAgendaTopTextActiveColorTablet), 0.5) ;
             }
-  
+
             li.active .day {
               color: map-get($configuration, lfdAgendaTopTextActiveColorTablet);
             }
@@ -958,7 +1071,7 @@
           .agenda-item-bookmark-holder .bookmark-wrapper.btn-bookmark .fa {
             color: map-get($configuration, agendaBookmarkIconColorTablet);
           }
-  
+
           .agenda-item-bookmark-holder .bookmark-wrapper.btn-bookmarked .fa {
             color: map-get($configuration, agendaBookmarkIconActiveColorTablet);
           }
@@ -992,7 +1105,7 @@
           .fa-sliders, .list-search-cancel .fa-times {
             color: map-get($configuration, agendaFilterIconColorTablet) !important;
           }
-  
+
           &.active .fa-sliders, .list-search-cancel .fa-times {
             color: map-get($configuration, agendaFilterIconActiveColorTablet) !important;
           }
@@ -1001,7 +1114,7 @@
             &.mixitup-control-active .fa {
               color: map-get($configuration, agendaBookmarkIconActiveColorTablet) !important;
             }
-  
+
             .fa {
               color: map-get($configuration, agendaBookmarkIconColorTablet) !important;
             }
@@ -1010,10 +1123,43 @@
           .search-holder {
             input[type="search"] {
               border-color: map-get($configuration, agendaSearchFieldBorderColorTablet);
-  
+
               &:focus {
                 border-color: map-get($configuration, agendaSearchFieldBorderActiveColorTablet);
               }
+            }
+          }
+        }
+
+        .hidden-filter-controls-label,
+        .search-query-holder {
+          color: rgba($bodyTextColorTablet, 0.5);
+        }
+
+        .hidden-filter-controls-filter {
+          border-color: rgba($bodyTextColorTablet, 0.8);
+
+          &:hover,
+          &:focus {
+            color: rgba($bodyTextColorTablet, 0.7);
+          }
+
+          &.mixitup-control-active {
+            color: $primaryButtonTextColorTablet;
+
+            &:hover,
+            &:focus {
+              color: rgba($primaryButtonTextColorTablet, 0.7);
+            }
+          }
+
+          &.fl-date-picker {
+            > .fa:first-child {
+              border-color: rgba($bodyTextColorTablet, 0.8);
+            }
+
+            &.mixitup-control-active > .fa:first-child {
+              border-color: $primaryButtonTextColorTablet;
             }
           }
         }
@@ -1027,7 +1173,6 @@
             color: map-get($configuration, agendaBookmarkIconActiveColorTablet) !important;
           }
         }
-
 
         .hidden-controls,
         .agenda-list-card-holder,
@@ -1069,15 +1214,15 @@
             li:not(.active):not(.placeholder) {
               color: rgba(map-get($configuration, lfdAgendaTopTextColorDesktop), 0.5);
             }
-  
+
             li:not(.active):not(.placeholder) .day {
               color: map-get($configuration, lfdAgendaTopTextColorDesktop);
             }
-  
+
             li.active {
               color: rgba(map-get($configuration, lfdAgendaTopTextActiveColorDesktop), 0.5) ;
             }
-  
+
             li.active .day {
               color: map-get($configuration, lfdAgendaTopTextActiveColorDesktop);
             }
@@ -1162,7 +1307,7 @@
           .agenda-item-bookmark-holder .bookmark-wrapper.btn-bookmark .fa {
             color: map-get($configuration, agendaBookmarkIconColorDesktop);
           }
-  
+
           .agenda-item-bookmark-holder .bookmark-wrapper.btn-bookmarked .fa {
             color: map-get($configuration, agendaBookmarkIconActiveColorDesktop);
           }
@@ -1196,7 +1341,7 @@
           .fa-sliders, .list-search-cancel .fa-times {
             color: map-get($configuration, agendaFilterIconColorDesktop) !important;
           }
-  
+
           &.active .fa-sliders, .list-search-cancel .fa-times {
             color: map-get($configuration, agendaFilterIconActiveColorDesktop) !important;
           }
@@ -1205,7 +1350,7 @@
             &.mixitup-control-active .fa {
               color: map-get($configuration, agendaBookmarkIconActiveColorDesktop) !important;
             }
-  
+
             .fa {
               color: map-get($configuration, agendaBookmarkIconColorDesktop) !important;
             }
@@ -1214,10 +1359,43 @@
           .search-holder {
             input[type="search"] {
               border-color: map-get($configuration, agendaSearchFieldBorderColorDesktop);
-  
+
               &:focus {
                 border-color: map-get($configuration, agendaSearchFieldBorderActiveColorDesktop);
               }
+            }
+          }
+        }
+
+        .hidden-filter-controls-label,
+        .search-query-holder {
+          color: rgba($bodyTextColorDesktop, 0.5);
+        }
+
+        .hidden-filter-controls-filter {
+          border-color: rgba($bodyTextColorDesktop, 0.8);
+
+          &:hover,
+          &:focus {
+            color: rgba($bodyTextColorDesktop, 0.7);
+          }
+
+          &.mixitup-control-active {
+            color: $primaryButtonTextColorDesktop;
+
+            &:hover,
+            &:focus {
+              color: rgba($primaryButtonTextColorDesktop, 0.7);
+            }
+          }
+
+          &.fl-date-picker {
+            > .fa:first-child {
+              border-color: rgba($bodyTextColorDesktop, 0.8);
+            }
+
+            &.mixitup-control-active > .fa:first-child {
+              border-color: $primaryButtonTextColorDesktop;
             }
           }
         }
@@ -1226,7 +1404,7 @@
           .fa {
             color: map-get($configuration, agendaBookmarkIconColorDesktop) !important;
           }
-  
+
           &.mixitup-control-active .fa {
             color: map-get($configuration, agendaBookmarkIconActiveColorDesktop) !important;
           }

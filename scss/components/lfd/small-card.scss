@@ -479,7 +479,7 @@
     @include above($tabletBreakpoint) {
       .dynamic-list-add-item {
         background-color: map-get($configuration, smallCardAddButtonBackgroundTablet);
-  
+
         .fa-plus {
           color: map-get($configuration, smallCardAddButtonIconTablet);
         }
@@ -489,7 +489,7 @@
     @include above($desktopBreakpoint) {
       .dynamic-list-add-item {
         background-color: map-get($configuration, smallCardAddButtonBackgroundDesktop);
-  
+
         .fa-plus {
           color: map-get($configuration, smallCardAddButtonIconDesktop);
         }
@@ -514,6 +514,16 @@
           &:hover,
           &:focus {
             color: rgba(map-get($configuration, lfdOverlayFontColor), 0.7);
+          }
+
+          &.fl-date-picker {
+            > .fa:first-child {
+              border-color: rgba(map-get($configuration, lfdOverlayFontColor), 0.8);
+            }
+
+            &.mixitup-control-active > .fa:first-child {
+              border-color: map-get($configuration, lfdOverlayBackgroundColor);
+            }
           }
         }
       }
@@ -594,6 +604,16 @@
             &:focus {
               color: rgba(map-get($configuration, lfdOverlayFontColorTablet), 0.7);
             }
+
+            &.fl-date-picker {
+              > .fa:first-child {
+                border-color: rgba(map-get($configuration, lfdOverlayFontColorTablet), 0.8);
+              }
+
+              &.mixitup-control-active > .fa:first-child {
+                border-color: map-get($configuration, lfdOverlayBackgroundColorTablet);
+              }
+            }
           }
         }
 
@@ -673,6 +693,16 @@
             &:hover,
             &:focus {
               color: rgba(map-get($configuration, lfdOverlayFontColorDesktop), 0.7);
+            }
+
+            &.fl-date-picker {
+              > .fa:first-child {
+                border-color: rgba(map-get($configuration, lfdOverlayFontColorDesktop), 0.8);
+              }
+
+              &.mixitup-control-active > .fa:first-child {
+                border-color: map-get($configuration, lfdOverlayBackgroundColorDesktop);
+              }
             }
           }
         }
@@ -764,7 +794,7 @@
           border-top-left-radius: map-get($configuration, smallCardListItemBorderRadius);
           border-bottom-left-radius: map-get($configuration, smallCardListItemBorderRadius);
         }
-          
+
         .small-card-list-text-wrapper {
           border-top-right-radius: map-get($configuration, smallCardListItemBorderRadius);
           border-bottom-right-radius: map-get($configuration, smallCardListItemBorderRadius);
@@ -800,7 +830,7 @@
             border-top-left-radius: map-get($configuration, smallCardListItemBorderRadiusTablet);
             border-bottom-left-radius: map-get($configuration, smallCardListItemBorderRadiusTablet);
           }
-            
+
           .small-card-list-text-wrapper {
             border-top-right-radius: map-get($configuration, smallCardListItemBorderRadiusTablet);
             border-bottom-right-radius: map-get($configuration, smallCardListItemBorderRadiusTablet);
@@ -837,7 +867,7 @@
             border-top-left-radius: map-get($configuration, smallCardListItemBorderRadiusDesktop);
             border-bottom-left-radius: map-get($configuration, smallCardListItemBorderRadiusDesktop);
           }
-            
+
           .small-card-list-text-wrapper {
             border-top-right-radius: map-get($configuration, smallCardListItemBorderRadiusDesktop);
             border-bottom-right-radius: map-get($configuration, smallCardListItemBorderRadiusDesktop);
@@ -1043,7 +1073,7 @@
           .small-card-bookmark-holder .small-card-bookmark-wrapper .fa {
             color: map-get($configuration, smallCardBookmarkIconColorTablet);
           }
-  
+
           .small-card-bookmark-holder .small-card-bookmark-wrapper .fa.animated {
             color: map-get($configuration, smallCardBookmarkIconActiveColorTablet);
           }
@@ -1146,7 +1176,7 @@
           .small-card-bookmark-holder .small-card-bookmark-wrapper .fa {
             color: map-get($configuration, smallCardBookmarkIconColorDesktop);
           }
-  
+
           .small-card-bookmark-holder .small-card-bookmark-wrapper .fa.animated {
             color: map-get($configuration, smallCardBookmarkIconActiveColorDesktop);
           }
@@ -1278,6 +1308,16 @@
             color: rgba($primaryButtonTextColor, 0.7);
           }
         }
+
+        &.fl-date-picker {
+          > .fa:first-child {
+            border-color: rgba($bodyTextColor, 0.8);
+          }
+
+          &.mixitup-control-active > .fa:first-child {
+            border-color: $primaryButtonTextColor;
+          }
+        }
       }
 
       // Styles for tablet
@@ -1354,7 +1394,7 @@
               &.mixitup-control-active .fa {
                 color: map-get($configuration, smallCardBookmarkIconActiveColorTablet) !important;
               }
-  
+
               .fa {
                 color: map-get($configuration, smallCardBookmarkIconColorTablet) !important;
               }
@@ -1394,6 +1434,16 @@
             &:hover,
             &:focus {
               color: rgba($primaryButtonTextColorTablet, 0.7);
+            }
+          }
+
+          &.fl-date-picker {
+            > .fa:first-child {
+              border-color: rgba($bodyTextColorTablet, 0.8);
+            }
+
+            &.mixitup-control-active > .fa:first-child {
+              border-color: $primaryButtonTextColorTablet;
             }
           }
         }
@@ -1473,7 +1523,7 @@
               &.mixitup-control-active .fa {
                 color: map-get($configuration, smallCardBookmarkIconActiveColorDesktop) !important;
               }
-  
+
               .fa {
                 color: map-get($configuration, smallCardBookmarkIconColorDesktop) !important;
               }
@@ -1513,6 +1563,16 @@
             &:hover,
             &:focus {
               color: rgba($primaryButtonTextColorDesktop, 0.7);
+            }
+          }
+
+          &.fl-date-picker {
+            > .fa:first-child {
+              border-color: rgba($bodyTextColorDesktop, 0.8);
+            }
+
+            &.mixitup-control-active > .fa:first-child {
+              border-color: $primaryButtonTextColorDesktop;
             }
           }
         }
