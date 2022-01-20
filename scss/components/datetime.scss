@@ -1,0 +1,22 @@
+html.no-touchevents.js-focus-visible {
+  .fl-date-picker,
+  .fl-time-picker {
+    &.focus-outline {
+      &:focus-within {
+        box-shadow: 0px 0px 0px $focusOutlineWidth $focusOutlineColor;
+      }
+
+      @include above($tabletBreakpoint) {
+        &:focus-within {
+          box-shadow: 0px 0px 0px $focusOutlineWidthTablet $focusOutlineColorTablet;
+        }
+      }
+
+      @include above($desktopBreakpoint) {
+        &:focus-within {
+          box-shadow: 0px 0px 0px $focusOutlineWidthDesktop $focusOutlineColorDesktop;
+        }
+      }
+    }
+  }
+}
