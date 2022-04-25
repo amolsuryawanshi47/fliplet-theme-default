@@ -31,6 +31,9 @@
     panelDescriptionWeight: $panelDescriptionWeight,
     panelDescriptionStyle: $panelDescriptionStyle,
     panelDescriptionDecoration: $panelDescriptionDecoration,
+    panelImageBackgroundColor: $panelImageBackgroundColor,
+    panelImageBackgroundColorTablet: $panelImageBackgroundColorTablet,
+    panelImageBackgroundColorDesktop: $panelImageBackgroundColorDesktop,
     panelItemPaddingTop: $panelItemPaddingTop,
     panelItemPaddingRight: $panelItemPaddingRight,
     panelItemPaddingBottom: $panelItemPaddingBottom,
@@ -261,6 +264,10 @@
 
     .list-panels {
       ul > li {
+        .list-image {
+          background-color: map-get($configuration, panelImageBackgroundColor);
+        }
+
         .list-desc {
           padding: map-get($configuration, panelItemPaddingTop)
             map-get($configuration, panelItemPaddingRight)
@@ -296,6 +303,10 @@
 
         // Styles for tablet
         @include above($tabletBreakpoint) {
+          .list-image {
+            background-color: map-get($configuration, panelImageBackgroundColorTablet);
+          }
+
           .list-desc {
             padding: map-get($configuration, panelItemPaddingTopTablet)
               map-get($configuration, panelItemPaddingRightTablet)
@@ -332,6 +343,10 @@
 
         // Styles for desktop
         @include above($desktopBreakpoint) {
+          .list-image {
+            background-color: map-get($configuration, panelImageBackgroundColorDesktop);
+          }
+
           .list-desc {
             padding: map-get($configuration, panelItemPaddingTopDesktop)
               map-get($configuration, panelItemPaddingRightDesktop)
@@ -474,6 +489,9 @@
     gridDescriptionWeight: $gridDescriptionWeight,
     gridDescriptionStyle: $gridDescriptionStyle,
     gridDescriptionDecoration: $gridDescriptionDecoration,
+    gridImageBackgroundColor: $gridImageBackgroundColor,
+    gridImageBackgroundColorTablet: $gridImageBackgroundColorTablet,
+    gridImageBackgroundColorDesktop: $gridImageBackgroundColorDesktop,
     gridPaddingTop: $gridPaddingTop,
     gridPaddingRight: $gridPaddingRight,
     gridPaddingBottom: $gridPaddingBottom,
@@ -585,6 +603,10 @@
           }
         }
 
+        .metro-image {
+          background-color: map-get($configuration, gridImageBackgroundColor);
+        }
+
         .metro-desc {
           background-color: map-get($configuration, gridTextBackgroundColor);
           padding: map-get($configuration, gridPaddingTop)
@@ -654,6 +676,10 @@
                 padding-top: calc(#{map-get($configuration, gridPaddingTopTablet)} + 14px);
               }
             }
+          }
+
+          .metro-image {
+            background-color: map-get($configuration, gridImageBackgroundColorTablet);
           }
 
           .metro-desc {
@@ -726,6 +752,10 @@
                 padding-top: calc(#{map-get($configuration, gridPaddingTopDesktop)} + 14px);
               }
             }
+          }
+
+          .metro-image {
+            background-color: map-get($configuration, gridImageBackgroundColorDesktop);
           }
 
           .metro-desc {
