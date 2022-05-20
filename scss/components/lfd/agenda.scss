@@ -240,6 +240,12 @@
   agendaSearchFieldBorderActiveColor: $agendaSearchFieldBorderActiveColor,
   agendaSearchFieldBorderActiveColorTablet: $agendaSearchFieldBorderActiveColorTablet,
   agendaSearchFieldBorderActiveColorDesktop: $agendaSearchFieldBorderActiveColorDesktop,
+  agendaSearchFieldTextColor: $agendaSearchFieldTextColor,
+  agendaSearchFieldTextColorTablet: $agendaSearchFieldTextColorTablet,
+  agendaSearchFieldTextColorDesktop: $agendaSearchFieldTextColorDesktop,
+  agendaSearchFieldBackgroundColor: $agendaSearchFieldBackgroundColor,
+  agendaSearchFieldBackgroundColorTablet: $agendaSearchFieldBackgroundColorTablet,
+  agendaSearchFieldBackgroundColorDesktop: $agendaSearchFieldBackgroundColorDesktop,
   agendaBookmarkIconColor: $agendaBookmarkIconColor,
   agendaBookmarkIconColorTablet: $agendaBookmarkIconColorTablet,
   agendaBookmarkIconColorDesktop: $agendaBookmarkIconColorDesktop,
@@ -898,14 +904,38 @@
             }
           }
 
+          .search-feed {
+            background-color: rgba(map-get($configuration, agendaSearchFieldBackgroundColor), 1);
+            color: map-get($configuration, agendaSearchFieldTextColor);
+
+            &::placeholder {
+              color: rgba(map-get($configuration, agendaSearchFieldTextColor), 0.8);
+              opacity: 1;
+            }
+            
+            &:-ms-input-placeholder {
+              color: rgba(map-get($configuration, agendaSearchFieldTextColor), 0.8);
+            }
+            
+            &::-ms-input-placeholder {
+              color: rgba(map-get($configuration, agendaSearchFieldTextColor), 0.8);
+            }
+          }
+
           .fa {
             color: map-get($configuration, agendaSearchIconColor);
+          }
+
+          .btn.search-btn {
+            color: map-get($configuration, agendaSearchFieldTextColor);
+            background-color: rgba(map-get($configuration, agendaSearchFieldTextColor), 0.1);
           }
         }
       }
 
       .hidden-filter-controls-label,
-      .search-query-holder {
+      .search-query-holder,
+      .no-results-holder {
         color: rgba($bodyTextColor, 0.5);
       }
 
@@ -1139,14 +1169,40 @@
               }
             }
 
+            
+  
+            .search-feed {
+              background-color: rgba(map-get($configuration, agendaSearchFieldBackgroundColorTablet), 1);
+              color: map-get($configuration, agendaSearchFieldTextColorTablet);
+
+              &::placeholder {
+                color: rgba(map-get($configuration, agendaSearchFieldTextColorTablet), 0.8);
+                opacity: 1;
+              }
+              
+              &:-ms-input-placeholder {
+                color: rgba(map-get($configuration, agendaSearchFieldTextColorTablet), 0.8);
+              }
+              
+              &::-ms-input-placeholder {
+                color: rgba(map-get($configuration, agendaSearchFieldTextColorTablet), 0.8);
+              }
+            }
+
             .fa {
               color: map-get($configuration, agendaSearchIconColorTablet);
+            }
+
+            .btn.search-btn {
+              color: map-get($configuration, agendaSearchFieldTextColorTablet);
+              background-color: rgba(map-get($configuration, agendaSearchFieldTextColorTablet), 0.1);
             }
           }
         }
 
         .hidden-filter-controls-label,
-        .search-query-holder {
+        .search-query-holder,
+        .no-results-holder {
           color: rgba($bodyTextColorTablet, 0.5);
         }
 
@@ -1385,14 +1441,38 @@
               }
             }
 
+            .search-feed {
+              background-color: rgba(map-get($configuration, agendaSearchFieldBackgroundColorDesktop), 1);
+              color: map-get($configuration, agendaSearchFieldTextColorDesktop);
+
+              &::placeholder {
+                color: rgba(map-get($configuration, agendaSearchFieldTextColorDesktop), 0.8);
+                opacity: 1;
+              }
+              
+              &:-ms-input-placeholder {
+                color: rgba(map-get($configuration, agendaSearchFieldTextColorDesktop), 0.8);
+              }
+              
+              &::-ms-input-placeholder {
+                color: rgba(map-get($configuration, agendaSearchFieldTextColorDesktop), 0.8);
+              }
+            }
+
             .fa {
               color: map-get($configuration, agendaSearchIconColorDesktop);
+            }
+
+            .btn.search-btn {
+              color: map-get($configuration, agendaSearchFieldTextColorDesktop);
+              background-color: rgba(map-get($configuration, agendaSearchFieldTextColorDesktop), 0.1);
             }
           }
         }
 
         .hidden-filter-controls-label,
-        .search-query-holder {
+        .search-query-holder,
+        .no-results-holder {
           color: rgba($bodyTextColorDesktop, 0.5);
         }
 

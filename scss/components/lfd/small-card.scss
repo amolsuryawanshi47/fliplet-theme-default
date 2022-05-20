@@ -264,6 +264,12 @@
     smallCardSearchFieldBorderActiveColor: $smallCardSearchFieldBorderActiveColor,
     smallCardSearchFieldBorderActiveColorTablet: $smallCardSearchFieldBorderActiveColorTablet,
     smallCardSearchFieldBorderActiveColorDesktop: $smallCardSearchFieldBorderActiveColorDesktop,
+    smallCardSearchFieldTextColor: $smallCardSearchFieldTextColor,
+    smallCardSearchFieldTextColorTablet: $smallCardSearchFieldTextColorTablet,
+    smallCardSearchFieldTextColorDesktop: $smallCardSearchFieldTextColorDesktop,
+    smallCardSearchFieldBackgroundColor: $smallCardSearchFieldBackgroundColor,
+    smallCardSearchFieldBackgroundColorTablet: $smallCardSearchFieldBackgroundColorTablet,
+    smallCardSearchFieldBackgroundColorDesktop: $smallCardSearchFieldBackgroundColorDesktop,
     smallCardBookmarkIconColor: $smallCardBookmarkIconColor,
     smallCardBookmarkIconColorTablet: $smallCardBookmarkIconColorTablet,
     smallCardBookmarkIconColorDesktop: $smallCardBookmarkIconColorDesktop,
@@ -1221,8 +1227,8 @@
         }
         .btn.search-btn {
           border: none;
-          background-color: rgba($bodyTextColor, 0.1);
-          color: $bodyTextColor;
+          color: map-get($configuration, smallCardSearchFieldTextColor);
+          background-color: rgba(map-get($configuration, smallCardSearchFieldTextColor), 0.1);
 
           &:hover,
           &:active,
@@ -1237,6 +1243,24 @@
 
             &:focus {
               border-color: map-get($configuration, smallCardSearchFieldBorderActiveColor);
+            }
+          }
+
+          .search-feed {
+            background-color: rgba(map-get($configuration, smallCardSearchFieldBackgroundColor), 1);
+            color: map-get($configuration, smallCardSearchFieldTextColor);
+
+            &::placeholder {
+              color: rgba(map-get($configuration, smallCardSearchFieldTextColor), 0.8);;
+              opacity: 1;
+            }
+            
+            &:-ms-input-placeholder {
+              color: rgba(map-get($configuration, smallCardSearchFieldTextColor), 0.8);;
+            }
+            
+            &::-ms-input-placeholder {
+              color: rgba(map-get($configuration, smallCardSearchFieldTextColor), 0.8);;
             }
           }
 
@@ -1286,7 +1310,8 @@
       }
 
       .hidden-filter-controls-label,
-      .search-query-holder {
+      .search-query-holder,
+      .no-results-holder {
         color: rgba($bodyTextColor, 0.5);
       }
 
@@ -1348,60 +1373,76 @@
           }
         }
 
-        .search-holder {
-          input[type="search"] {
-            border-color: map-get($configuration, smallCardSearchFieldBorderColorTablet);
+        .section-top-wrapper {
+          .search-holder {
+            input[type="search"] {
+              border-color: map-get($configuration, smallCardSearchFieldBorderColorTablet);
 
-            &:focus {
-              border-color: map-get($configuration, smallCardSearchFieldBorderActiveColorTablet);
+              &:focus {
+                border-color: map-get($configuration, smallCardSearchFieldBorderActiveColorTablet);
+              }
             }
-          }
 
-          .fa {
-            color: map-get($configuration, smallCardSearchIconColorTablet);
-          }
+            .search-feed {
+              background-color: rgba(map-get($configuration, smallCardSearchFieldBackgroundColorTablet), 1);
+              color: map-get($configuration, smallCardSearchFieldTextColorTablet);
 
-          .form-control {
-            background-color: $bodyBackgroundTablet;
-            color: $bodyTextColorTablet;
-          }
-          .btn.search-btn {
-            border: none;
-            background-color: rgba($bodyTextColorTablet, 0.1);
-            color: $bodyTextColorTablet;
+              &::placeholder {
+                color: rgba(map-get($configuration, smallCardSearchFieldTextColorTablet), 0.8);;
+                opacity: 1;
+              }
+              
+              &:-ms-input-placeholder {
+                color: rgba(map-get($configuration, smallCardSearchFieldTextColorTablet), 0.8);;
+              }
+              
+              &::-ms-input-placeholder {
+                color: rgba(map-get($configuration, smallCardSearchFieldTextColorTablet), 0.8);;
+              }
+            }
 
-            &:hover,
-            &:active,
-            &:active:hover {
+            .fa {
+              color: map-get($configuration, smallCardSearchIconColorTablet);
+            }
+
+            .btn.search-btn {
+              border: none;
+              color: map-get($configuration, smallCardSearchFieldTextColorTablet);
+              background-color: rgba(map-get($configuration, smallCardSearchFieldTextColor), 0.1);
+
+              &:hover,
+              &:active,
+              &:active:hover {
+                border: none;
+              }
+            }
+
+            .search-feed:focus ~ .btn.search-btn {
               border: none;
             }
-          }
 
-          .search-feed:focus ~ .btn.search-btn {
-            border: none;
-          }
-
-          .list-search-icon {
-            .fa-sliders, .fa-times {
-              color: map-get($configuration, smallCardFilterIconColorTablet) !important;
-            }
-
-            &.active .fa-sliders, .fa-times {
-              color: map-get($configuration, smallCardFilterIconActiveColorTablet) !important;
-            }
-
-            .toggle-bookmarks {
-              &.mixitup-control-active .fa {
-                color: map-get($configuration, smallCardBookmarkIconActiveColorTablet) !important;
+            .list-search-icon {
+              .fa-sliders, .fa-times {
+                color: map-get($configuration, smallCardFilterIconColorTablet) !important;
               }
 
-              .fa {
-                color: map-get($configuration, smallCardBookmarkIconColorTablet) !important;
+              &.active .fa-sliders, .fa-times {
+                color: map-get($configuration, smallCardFilterIconActiveColorTablet) !important;
               }
-            }
 
-            .sort-group .fa-sort-amount-desc {
-              color: map-get($configuration, smallCardSortIconColorTablet) !important;
+              .toggle-bookmarks {
+                &.mixitup-control-active .fa {
+                  color: map-get($configuration, smallCardBookmarkIconActiveColorTablet) !important;
+                }
+
+                .fa {
+                  color: map-get($configuration, smallCardBookmarkIconColorTablet) !important;
+                }
+              }
+
+              .sort-group .fa-sort-amount-desc {
+                color: map-get($configuration, smallCardSortIconColorTablet) !important;
+              }
             }
           }
         }
@@ -1418,7 +1459,8 @@
         }
 
         .hidden-filter-controls-label,
-        .search-query-holder {
+        .search-query-holder,
+        .no-results-holder {
           color: rgba($bodyTextColorTablet, 0.5);
         }
 
@@ -1478,61 +1520,77 @@
             border-bottom: 1px solid rgba(map-get($configuration, lfdOverlayFontColorDesktop), 0.2);
           }
         }
+        
+        .section-top-wrapper {
+          .search-holder {
+            input[type="search"] {
+              border-color: map-get($configuration, smallCardSearchFieldBorderColorDesktop);
 
-        .search-holder {
-          input[type="search"] {
-            border-color: map-get($configuration, smallCardSearchFieldBorderColorDesktop);
-
-            &:focus {
-              border-color: map-get($configuration, smallCardSearchFieldBorderActiveColorDesktop);
+              &:focus {
+                border-color: map-get($configuration, smallCardSearchFieldBorderActiveColorDesktop);
+              }
             }
-          }
 
-          .fa {
-            color: map-get($configuration, smallCardSearchIconColorDesktop);
-          }
+            .search-feed {
+              background-color: rgba(map-get($configuration, smallCardSearchFieldBackgroundColorDesktop), 1);
+              color: map-get($configuration, smallCardSearchFieldTextColorDesktop);
 
-          .form-control {
-            background-color: $bodyBackgroundDesktop;
-            color: $bodyTextColorDesktop;
-          }
-          .btn.search-btn {
-            border: none;
-            background-color: rgba($bodyTextColorDesktop, 0.1);
-            color: $bodyTextColorDesktop;
+              &::placeholder {
+                color: rgba(map-get($configuration, smallCardSearchFieldTextColorDesktop), 0.8);;
+                opacity: 1;
+              }
+              
+              &:-ms-input-placeholder {
+                color: rgba(map-get($configuration, smallCardSearchFieldTextColorDesktop), 0.8);;
+              }
+              
+              &::-ms-input-placeholder {
+                color: rgba(map-get($configuration, smallCardSearchFieldTextColorDesktop), 0.8);;
+              }
+            }
 
-            &:hover,
-            &:active,
-            &:active:hover {
+            .fa {
+              color: map-get($configuration, smallCardSearchIconColorDesktop);
+            }
+            
+            .btn.search-btn {
+              border: none;
+              color: map-get($configuration, smallCardSearchFieldTextColorDesktop);
+              background-color: rgba(map-get($configuration, smallCardSearchFieldTextColorDesktop), 0.1);
+
+              &:hover,
+              &:active,
+              &:active:hover {
+                border: none;
+              }
+            }
+
+            .search-feed:focus ~ .btn.search-btn {
               border: none;
             }
-          }
 
-          .search-feed:focus ~ .btn.search-btn {
-            border: none;
-          }
-
-          .list-search-icon {
-            .fa-sliders, .fa-times {
-              color: map-get($configuration, smallCardFilterIconColorDesktop) !important;
-            }
-
-            &.active .fa-sliders, .fa-times {
-              color: map-get($configuration, smallCardFilterIconActiveColorDesktop) !important;
-            }
-
-            .toggle-bookmarks {
-              &.mixitup-control-active .fa {
-                color: map-get($configuration, smallCardBookmarkIconActiveColorDesktop) !important;
+            .list-search-icon {
+              .fa-sliders, .fa-times {
+                color: map-get($configuration, smallCardFilterIconColorDesktop) !important;
               }
 
-              .fa {
-                color: map-get($configuration, smallCardBookmarkIconColorDesktop) !important;
+              &.active .fa-sliders, .fa-times {
+                color: map-get($configuration, smallCardFilterIconActiveColorDesktop) !important;
               }
-            }
 
-            .sort-group .fa-sort-amount-desc {
-              color: map-get($configuration, smallCardSortIconColorDesktop) !important;
+              .toggle-bookmarks {
+                &.mixitup-control-active .fa {
+                  color: map-get($configuration, smallCardBookmarkIconActiveColorDesktop) !important;
+                }
+
+                .fa {
+                  color: map-get($configuration, smallCardBookmarkIconColorDesktop) !important;
+                }
+              }
+
+              .sort-group .fa-sort-amount-desc {
+                color: map-get($configuration, smallCardSortIconColorDesktop) !important;
+              }
             }
           }
         }
@@ -1549,7 +1607,8 @@
         }
 
         .hidden-filter-controls-label,
-        .search-query-holder {
+        .search-query-holder,
+        .no-results-holder {
           color: rgba($bodyTextColorDesktop, 0.5);
         }
 

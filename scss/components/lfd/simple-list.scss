@@ -195,6 +195,12 @@
     simpleListSearchFieldBorderActiveColor: $simpleListSearchFieldBorderActiveColor,
     simpleListSearchFieldBorderActiveColorTablet: $simpleListSearchFieldBorderActiveColorTablet,
     simpleListSearchFieldBorderActiveColorDesktop: $simpleListSearchFieldBorderActiveColorDesktop,
+    simpleListSearchFieldTextColor: $simpleListSearchFieldTextColor,
+    simpleListSearchFieldTextColorTablet: $simpleListSearchFieldTextColorTablet,
+    simpleListSearchFieldTextColorDesktop: $simpleListSearchFieldTextColorDesktop,
+    simpleListSearchFieldBackgroundColor: $simpleListSearchFieldBackgroundColor,
+    simpleListSearchFieldBackgroundColorTablet: $simpleListSearchFieldBackgroundColorTablet,
+    simpleListSearchFieldBackgroundColorDesktop: $simpleListSearchFieldBackgroundColorDesktop,
     simpleListBookmarkIconColor: $simpleListBookmarkIconColor,
     simpleListBookmarkIconColorTablet: $simpleListBookmarkIconColorTablet,
     simpleListBookmarkIconColorDesktop: $simpleListBookmarkIconColorDesktop,
@@ -694,8 +700,31 @@
             }
           }
 
+          .search-feed {
+            background-color: rgba(map-get($configuration, simpleListSearchFieldBackgroundColor), 1);
+            color: map-get($configuration, simpleListSearchFieldTextColor);
+
+            &::placeholder {
+              color: rgba(map-get($configuration, simpleListSearchFieldTextColor), 0.8);
+              opacity: 1;
+            }
+            
+            &:-ms-input-placeholder {
+              color: rgba(map-get($configuration, simpleListSearchFieldTextColor), 0.8);
+            }
+            
+            &::-ms-input-placeholder {
+              color: rgba(map-get($configuration, simpleListSearchFieldTextColor), 0.8);
+            }
+          }
+
           .fa {
             color: map-get($configuration, simpleListSearchIconColor);
+          }
+
+          .btn.search-btn {
+            color: map-get($configuration, simpleListSearchFieldTextColor);
+            background-color: rgba(map-get($configuration, simpleListSearchFieldTextColor), 0.1);
           }
         }
 
@@ -734,8 +763,31 @@
               }
             }
 
+            .search-feed {
+              background-color: rgba(map-get($configuration, simpleListSearchFieldBackgroundColorTablet), 1);
+              color: map-get($configuration, simpleListSearchFieldTextColorTablet);
+
+              &::placeholder {
+                color: rgba(map-get($configuration, simpleListSearchFieldTextColorTablet), 0.8);
+                opacity: 1;
+              }
+              
+              &:-ms-input-placeholder {
+                color: rgba(map-get($configuration, simpleListSearchFieldTextColorTablet), 0.8);
+              }
+              
+              &::-ms-input-placeholder {
+                color: rgba(map-get($configuration, simpleListSearchFieldTextColorTablet), 0.8);
+              }
+            }
+
             .fa {
               color: map-get($configuration, simpleListSearchIconColorTablet);
+            }
+
+            .btn.search-btn {
+              color: map-get($configuration, simpleListSearchFieldTextColorTablet);
+              background-color: rgba(map-get($configuration, simpleListSearchFieldTextColorTablet), 0.1);
             }
           }
 
@@ -775,8 +827,31 @@
               }
             }
 
+            .search-feed {
+              background-color: rgba(map-get($configuration, simpleListSearchFieldBackgroundColorDesktop), 1);
+              color: map-get($configuration, simpleListSearchFieldTextColorDesktop);
+
+              &::placeholder {
+                color: rgba(map-get($configuration, simpleListSearchFieldTextColorDesktop), 0.8);
+                opacity: 1;
+              }
+              
+              &:-ms-input-placeholder {
+                color: rgba(map-get($configuration, simpleListSearchFieldTextColorDesktop), 0.8);
+              }
+              
+              &::-ms-input-placeholder {
+                color: rgba(map-get($configuration, simpleListSearchFieldTextColorDesktop), 0.8);
+              }
+            }
+
             .fa {
               color: map-get($configuration, simpleListSearchIconColorDesktop);
+            }
+
+            .btn.search-btn {
+              color: map-get($configuration, simpleListSearchFieldTextColorDesktop);
+              background-color: rgba(map-get($configuration, simpleListSearchFieldTextColorDesktop), 0.1);
             }
           }
 
@@ -807,7 +882,8 @@
       }
 
       .hidden-filter-controls-label,
-      .search-query-holder {
+      .search-query-holder,
+      .no-results-holder {
         color: rgba($bodyTextColor, 0.5);
       }
 
@@ -878,7 +954,8 @@
       // Styles for tablet
       @include above($tabletBreakpoint) {
         .hidden-filter-controls-label,
-        .search-query-holder {
+        .search-query-holder,
+        .no-results-holder {
           color: rgba($bodyTextColorTablet, 0.5);
         }
 
@@ -946,7 +1023,8 @@
       // Styles for desktop
       @include above($desktopBreakpoint) {
         .hidden-filter-controls-label,
-        .search-query-holder {
+        .search-query-holder,
+        .no-results-holder {
           color: rgba($bodyTextColorDesktop, 0.5);
         }
 

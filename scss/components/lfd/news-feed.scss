@@ -222,6 +222,12 @@
   newsFeedSearchFieldBorderActiveColor: $newsFeedSearchFieldBorderActiveColor,
   newsFeedSearchFieldBorderActiveColorTablet: $newsFeedSearchFieldBorderActiveColorTablet,
   newsFeedSearchFieldBorderActiveColorDesktop: $newsFeedSearchFieldBorderActiveColorDesktop,
+  newsFeedSearchFieldTextColor: $newsFeedSearchFieldTextColor,
+  newsFeedSearchFieldTextColorTablet: $newsFeedSearchFieldTextColorTablet,
+  newsFeedSearchFieldTextColorDesktop: $newsFeedSearchFieldTextColorDesktop,
+  newsFeedSearchFieldBackgroundColor: $newsFeedSearchFieldBackgroundColor,
+  newsFeedSearchFieldBackgroundColorTablet: $newsFeedSearchFieldBackgroundColorTablet,
+  newsFeedSearchFieldBackgroundColorDesktop: $newsFeedSearchFieldBackgroundColorDesktop,
   newsFeedBookmarkIconColor: $newsFeedBookmarkIconColor,
   newsFeedBookmarkIconColorTablet: $newsFeedBookmarkIconColorTablet,
   newsFeedBookmarkIconColorDesktop: $newsFeedBookmarkIconColorDesktop,
@@ -1461,6 +1467,24 @@
             }
           }
 
+          .search-feed {
+            background-color: rgba(map-get($configuration, newsFeedSearchFieldBackgroundColor), 1);
+            color: map-get($configuration, newsFeedSearchFieldTextColor);
+
+            &::placeholder {
+              color: rgba(map-get($configuration, newsFeedSearchFieldTextColor), 0.8);
+              opacity: 1;
+            }
+            
+            &:-ms-input-placeholder {
+              color: rgba(map-get($configuration, newsFeedSearchFieldTextColor), 0.8);
+            }
+            
+            &::-ms-input-placeholder {
+              color: rgba(map-get($configuration, newsFeedSearchFieldTextColor), 0.8);
+            }
+          }
+
           .fa {
             color: map-get($configuration, newsFeedSearchIconColor);
           }
@@ -1475,10 +1499,12 @@
           }
         }
 
+        
+
         .btn.search-btn {
           border: none;
-          background-color: rgba($bodyTextColor, 0.1);
-          color: $bodyTextColor;
+          color: map-get($configuration, newsFeedSearchFieldTextColor);
+          background-color: rgba(map-get($configuration, newsFeedSearchFieldTextColor), 0.1);
 
           &:hover,
           &:active,
@@ -1528,7 +1554,8 @@
       }
 
       .hidden-filter-controls-label,
-      .search-query-holder {
+      .search-query-holder,
+      .no-results-holder {
         color: rgba($bodyTextColor, 0.5);
       }
 
@@ -1583,61 +1610,76 @@
           }
         }
 
-        .search-holder {
-          input[type="search"] {
-            border-color: map-get($configuration, newsFeedSearchFieldBorderColorTablet);
+        .section-top-wrapper {
+          .search-holder {
+            input[type="search"] {
+              border-color: map-get($configuration, newsFeedSearchFieldBorderColorTablet);
 
-            &:focus {
-              border-color: map-get($configuration, newsFeedSearchFieldBorderActiveColorTablet);
+              &:focus {
+                border-color: map-get($configuration, newsFeedSearchFieldBorderActiveColorTablet);
+              }
             }
-          }
 
-          .fa {
-            color: map-get($configuration, newsFeedSearchIconColorTablet);
-          }
+            .search-feed {
+              background-color: rgba(map-get($configuration, newsFeedSearchFieldBackgroundColorTablet), 1);
+              color: map-get($configuration, newsFeedSearchFieldTextColorTablet);
 
-          .form-control {
-            background-color: $bodyBackgroundTablet;
-            color: $bodyTextColorTablet;
-          }
+              &::placeholder {
+                color: rgba(map-get($configuration, newsFeedSearchFieldTextColorTablet), 0.8);
+                opacity: 1;
+              }
+              
+              &:-ms-input-placeholder {
+                color: rgba(map-get($configuration, newsFeedSearchFieldTextColorTablet), 0.8);
+              }
+              
+              &::-ms-input-placeholder {
+                color: rgba(map-get($configuration, newsFeedSearchFieldTextColorTablet), 0.8);
+              }
+            }
 
-          .btn.search-btn {
-            border: none;
-            background-color: rgba($bodyTextColorTablet, 0.1);
-            color: $bodyTextColorTablet;
+            .fa {
+              color: map-get($configuration, newsFeedSearchIconColorTablet);
+            }
 
-            &:hover,
-            &:active,
-            &:active:hover {
+            .btn.search-btn {
+              border: none;
+              color: map-get($configuration, newsFeedSearchFieldTextColorTablet);
+              background-color: rgba(map-get($configuration, newsFeedSearchFieldTextColorTablet), 0.1);
+
+              &:hover,
+              &:active,
+              &:active:hover {
+                border: none;
+              }
+            }
+
+            .search-feed:focus ~ .btn.search-btn {
               border: none;
             }
-          }
 
-          .search-feed:focus ~ .btn.search-btn {
-            border: none;
-          }
-
-          .list-search-icon {
-            .fa-sliders, .list-search-cancel .fa-times {
-              color: map-get($configuration, newsFeedFilterIconColorTablet) !important;
-            }
-
-            &.active .fa-sliders, .list-search-cancel .fa-times {
-              color: map-get($configuration, newsFeedFilterIconActiveColorTablet) !important;
-            }
-
-            .toggle-bookmarks {
-              &.mixitup-control-active .fa {
-                color: map-get($configuration, newsFeedBookmarkIconActiveColorTablet) !important;
+            .list-search-icon {
+              .fa-sliders, .list-search-cancel .fa-times {
+                color: map-get($configuration, newsFeedFilterIconColorTablet) !important;
               }
 
-              .fa {
-                color: map-get($configuration, newsFeedBookmarkIconColorTablet) !important;
+              &.active .fa-sliders, .list-search-cancel .fa-times {
+                color: map-get($configuration, newsFeedFilterIconActiveColorTablet) !important;
               }
-            }
 
-            .sort-group .fa-sort-amount-desc {
-              color: map-get($configuration, newsFeedSortIconColorTablet) !important;
+              .toggle-bookmarks {
+                &.mixitup-control-active .fa {
+                  color: map-get($configuration, newsFeedBookmarkIconActiveColorTablet) !important;
+                }
+
+                .fa {
+                  color: map-get($configuration, newsFeedBookmarkIconColorTablet) !important;
+                }
+              }
+
+              .sort-group .fa-sort-amount-desc {
+                color: map-get($configuration, newsFeedSortIconColorTablet) !important;
+              }
             }
           }
         }
@@ -1654,7 +1696,8 @@
         }
 
         .hidden-filter-controls-label,
-        .search-query-holder {
+        .search-query-holder,
+        .no-results-holder {
           color: rgba($bodyTextColorTablet, 0.5);
         }
 
@@ -1708,61 +1751,76 @@
           }
         }
 
-        .search-holder {
-          input[type="search"] {
-            border-color: map-get($configuration, newsFeedSearchFieldBorderColorDesktop);
+        .section-top-wrapper {
+          .search-holder {
+            input[type="search"] {
+              border-color: map-get($configuration, newsFeedSearchFieldBorderColorDesktop);
 
-            &:focus {
-              border-color: map-get($configuration, newsFeedSearchFieldBorderActiveColorDesktop);
+              &:focus {
+                border-color: map-get($configuration, newsFeedSearchFieldBorderActiveColorDesktop);
+              }
             }
-          }
 
-          .fa {
-            color: map-get($configuration, newsFeedSearchIconColorDesktop);
-          }
+            .search-feed {
+              background-color: rgba(map-get($configuration, newsFeedSearchFieldBackgroundColorDesktop), 1);
+              color: map-get($configuration, newsFeedSearchFieldTextColorDesktop);
 
-          .form-control {
-            background-color: $bodyBackgroundDesktop;
-            color: $bodyTextColorDesktop;
-          }
+              &::placeholder {
+                color: rgba(map-get($configuration, newsFeedSearchFieldTextColorDesktop), 0.8);
+                opacity: 1;
+              }
+              
+              &:-ms-input-placeholder {
+                color: rgba(map-get($configuration, newsFeedSearchFieldTextColorDesktop), 0.8);
+              }
+              
+              &::-ms-input-placeholder {
+                color: rgba(map-get($configuration, newsFeedSearchFieldTextColorDesktop), 0.8);
+              }
+            }
 
-          .btn.search-btn {
-            border: none;
-            background-color: rgba($bodyTextColorDesktop, 0.1);
-            color: $bodyTextColorDesktop;
+            .fa {
+              color: map-get($configuration, newsFeedSearchIconColorDesktop);
+            }
 
-            &:hover,
-            &:active,
-            &:active:hover {
+            .btn.search-btn {
+              border: none;
+              color: map-get($configuration, newsFeedSearchFieldTextColorDesktop);
+              background-color: rgba(map-get($configuration, newsFeedSearchFieldTextColorDesktop), 0.1);
+
+              &:hover,
+              &:active,
+              &:active:hover {
+                border: none;
+              }
+            }
+
+            .search-feed:focus ~ .btn.search-btn {
               border: none;
             }
-          }
 
-          .search-feed:focus ~ .btn.search-btn {
-            border: none;
-          }
-
-          .list-search-icon {
-            .fa-sliders, .list-search-cancel .fa-times {
-              color: map-get($configuration, newsFeedFilterIconColorDesktop) !important;
-            }
-
-            &.active .fa-sliders, .list-search-cancel .fa-times {
-              color: map-get($configuration, newsFeedFilterIconActiveColorDesktop) !important;
-            }
-
-            .toggle-bookmarks {
-              &.mixitup-control-active .fa {
-                color: map-get($configuration, newsFeedBookmarkIconActiveColorDesktop) !important;
+            .list-search-icon {
+              .fa-sliders, .list-search-cancel .fa-times {
+                color: map-get($configuration, newsFeedFilterIconColorDesktop) !important;
               }
 
-              .fa {
-                color: map-get($configuration, newsFeedBookmarkIconColorDesktop) !important;
+              &.active .fa-sliders, .list-search-cancel .fa-times {
+                color: map-get($configuration, newsFeedFilterIconActiveColorDesktop) !important;
               }
-            }
 
-            .sort-group .fa-sort-amount-desc {
-              color: map-get($configuration, newsFeedSortIconColorDesktop) !important;
+              .toggle-bookmarks {
+                &.mixitup-control-active .fa {
+                  color: map-get($configuration, newsFeedBookmarkIconActiveColorDesktop) !important;
+                }
+
+                .fa {
+                  color: map-get($configuration, newsFeedBookmarkIconColorDesktop) !important;
+                }
+              }
+
+              .sort-group .fa-sort-amount-desc {
+                color: map-get($configuration, newsFeedSortIconColorDesktop) !important;
+              }
             }
           }
         }
@@ -1779,7 +1837,8 @@
         }
 
         .hidden-filter-controls-label,
-        .search-query-holder {
+        .search-query-holder,
+        .no-results-holder {
           color: rgba($bodyTextColorDesktop, 0.5);
         }
 
