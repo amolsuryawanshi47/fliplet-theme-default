@@ -1,334 +1,340 @@
-@mixin agenda($options: (), $widgetInstanceId: '', $widgetInstanceUUID: '') {
-  $configuration: map-merge((
-  lfdAgendaTopBackgroundColor: $lfdAgendaTopBackgroundColor,
-  lfdAgendaTopBackgroundColorTablet: $lfdAgendaTopBackgroundColorTablet,
-  lfdAgendaTopBackgroundColorDesktop: $lfdAgendaTopBackgroundColorDesktop,
-  lfdAgendaTopTextColor: $lfdAgendaTopTextColor,
-  lfdAgendaTopTextColorTablet: $lfdAgendaTopTextColorTablet,
-  lfdAgendaTopTextColorDesktop: $lfdAgendaTopTextColorDesktop,
-  lfdAgendaDatesFontColor: $lfdAgendaDatesFontColor,
-  lfdAgendaDatesFontColorTablet: $lfdAgendaDatesFontColorTablet,
-  lfdAgendaDatesFontColorDesktop: $lfdAgendaDatesFontColorDesktop,
-  lfdAgendaTopTextActiveColor: $lfdAgendaTopTextActiveColor,
-  lfdAgendaTopTextActiveColorTablet: $lfdAgendaTopTextActiveColorTablet,
-  lfdAgendaTopTextActiveColorDesktop: $lfdAgendaTopTextActiveColorDesktop,
-  lfdAgendaDatesBackgroundColor: $lfdAgendaDatesBackgroundColor,
-  lfdAgendaDatesBackgroundColorTablet: $lfdAgendaDatesBackgroundColorTablet,
-  lfdAgendaDatesBackgroundColorDesktop: $lfdAgendaDatesBackgroundColorDesktop,
-  agendaOverlayFontColor: $agendaOverlayFontColor,
-  agendaOverlayFontColorTablet: $agendaOverlayFontColorTablet,
-  agendaOverlayFontColorDesktop: $agendaOverlayFontColorDesktop,
-  agendaMarginTop: $agendaMarginTop,
-  agendaMarginTopTablet: $agendaMarginTopTablet,
-  agendaMarginTopDesktop: $agendaMarginTopDesktop,
-  agendaMarginRight: $agendaMarginRight,
-  agendaMarginRightTablet: $agendaMarginRightTablet,
-  agendaMarginRightDesktop: $agendaMarginRightDesktop,
-  agendaMarginBottom: $agendaMarginBottom,
-  agendaMarginBottomTablet: $agendaMarginBottomTablet,
-  agendaMarginBottomDesktop: $agendaMarginBottomDesktop,
-  agendaMarginLeft: $agendaMarginLeft,
-  agendaMarginLeftTablet: $agendaMarginLeftTablet,
-  agendaMarginLeftDesktop: $agendaMarginLeftDesktop,
-  agendaVisibility: $agendaVisibility,
-  agendaVisibilityTablet: $agendaVisibilityTablet,
-  agendaVisibilityDesktop: $agendaVisibilityDesktop,
-  agendaTitleFontFamily: $agendaTitleFontFamily,
-  agendaTitleFontFamilyTablet: $agendaTitleFontFamilyTablet,
-  agendaTitleFontFamilyDesktop: $agendaTitleFontFamilyDesktop,
-  agendaTitleFontSize: $agendaTitleFontSize,
-  agendaTitleFontSizeTablet: $agendaTitleFontSizeTablet,
-  agendaTitleFontSizeDesktop: $agendaTitleFontSizeDesktop,
-  agendaTitleFontColor: $agendaTitleFontColor,
-  agendaTitleFontColorTablet: $agendaTitleFontColorTablet,
-  agendaTitleFontColorDesktop: $agendaTitleFontColorDesktop,
-  agendaTitleFontWeight: $agendaTitleFontWeight,
-  agendaTitleFontWeightTablet: $agendaTitleFontWeightTablet,
-  agendaTitleFontWeightDesktop: $agendaTitleFontWeightDesktop,
-  agendaTitleItalic: $agendaTitleItalic,
-  agendaTitleItalicTablet: $agendaTitleItalicTablet,
-  agendaTitleItalicDesktop: $agendaTitleItalicDesktop,
-  agendaTitleUnderline: $agendaTitleUnderline,
-  agendaTitleUnderlineTablet: $agendaTitleUnderlineTablet,
-  agendaTitleUnderlineDesktop: $agendaTitleUnderlineDesktop,
-  agendaTitleLineHeight: $agendaTitleLineHeight,
-  agendaTitleLineHeightTablet: $agendaTitleLineHeightTablet,
-  agendaTitleLineHeightDesktop: $agendaTitleLineHeightDesktop,
-  agendaTitleMarginTop: $agendaTitleMarginTop,
-  agendaTitleMarginTopTablet: $agendaTitleMarginTopTablet,
-  agendaTitleMarginTopDesktop: $agendaTitleMarginTopDesktop,
-  agendaTitleMarginBottom: $agendaTitleMarginBottom,
-  agendaTitleMarginBottomTablet: $agendaTitleMarginBottomTablet,
-  agendaTitleMarginBottomDesktop: $agendaTitleMarginBottomDesktop,
-  agendaDescriptionFontFamily: $agendaDescriptionFontFamily,
-  agendaDescriptionFontFamilyTablet: $agendaDescriptionFontFamilyTablet,
-  agendaDescriptionFontFamilyDesktop: $agendaDescriptionFontFamilyDesktop,
-  agendaDescriptionFontSize: $agendaDescriptionFontSize,
-  agendaDescriptionFontSizeTablet: $agendaDescriptionFontSizeTablet,
-  agendaDescriptionFontSizeDesktop: $agendaDescriptionFontSizeDesktop,
-  agendaDescriptionFontColor: $agendaDescriptionFontColor,
-  agendaDescriptionFontColorTablet: $agendaDescriptionFontColorTablet,
-  agendaDescriptionFontColorDesktop: $agendaDescriptionFontColorDesktop,
-  agendaDescriptionFontWeight: $agendaDescriptionFontWeight,
-  agendaDescriptionFontWeightTablet: $agendaDescriptionFontWeightTablet,
-  agendaDescriptionFontWeightDesktop: $agendaDescriptionFontWeightDesktop,
-  agendaDescriptionItalic: $agendaDescriptionItalic,
-  agendaDescriptionItalicTablet: $agendaDescriptionItalicTablet,
-  agendaDescriptionItalicDesktop: $agendaDescriptionItalicDesktop,
-  agendaDescriptionUnderline: $agendaDescriptionUnderline,
-  agendaDescriptionUnderlineTablet: $agendaDescriptionUnderlineTablet,
-  agendaDescriptionUnderlineDesktop: $agendaDescriptionUnderlineDesktop,
-  agendaDescriptionLineHeight: $agendaDescriptionLineHeight,
-  agendaDescriptionLineHeightTablet: $agendaDescriptionLineHeightTablet,
-  agendaDescriptionLineHeightDesktop: $agendaDescriptionLineHeightDesktop,
-  agendaDescriptionMarginTop: $agendaDescriptionMarginTop,
-  agendaDescriptionMarginTopTablet: $agendaDescriptionMarginTopTablet,
-  agendaDescriptionMarginTopDesktop: $agendaDescriptionMarginTopDesktop,
-  agendaDescriptionMarginBottom: $agendaDescriptionMarginBottom,
-  agendaDescriptionMarginBottomTablet: $agendaDescriptionMarginBottomTablet,
-  agendaDescriptionMarginBottomDesktop: $agendaDescriptionMarginBottomDesktop,
-  agendaDetailTitleFontFamily: $agendaDetailTitleFontFamily,
-  agendaDetailTitleFontFamilyTablet: $agendaDetailTitleFontFamilyTablet,
-  agendaDetailTitleFontFamilyDesktop: $agendaDetailTitleFontFamilyDesktop,
-  agendaDetailTitleFontSize: $agendaDetailTitleFontSize,
-  agendaDetailTitleFontSizeTablet: $agendaDetailTitleFontSizeTablet,
-  agendaDetailTitleFontSizeDesktop: $agendaDetailTitleFontSizeDesktop,
-  agendaDetailTitleFontColor: $agendaDetailTitleFontColor,
-  agendaDetailTitleFontColorTablet: $agendaDetailTitleFontColorTablet,
-  agendaDetailTitleFontColorDesktop: $agendaDetailTitleFontColorDesktop,
-  agendaDetailTitleFontWeight: $agendaDetailTitleFontWeight,
-  agendaDetailTitleFontWeightTablet: $agendaDetailTitleFontWeightTablet,
-  agendaDetailTitleFontWeightDesktop: $agendaDetailTitleFontWeightDesktop,
-  agendaDetailTitleItalic: $agendaDetailTitleItalic,
-  agendaDetailTitleItalicTablet: $agendaDetailTitleItalicTablet,
-  agendaDetailTitleItalicDesktop: $agendaDetailTitleItalicDesktop,
-  agendaDetailTitleUnderline: $agendaDetailTitleUnderline,
-  agendaDetailTitleUnderlineTablet: $agendaDetailTitleUnderlineTablet,
-  agendaDetailTitleUnderlineDesktop: $agendaDetailTitleUnderlineDesktop,
-  agendaDetailTitleLineHeight: $agendaDetailTitleLineHeight,
-  agendaDetailTitleLineHeightTablet: $agendaDetailTitleLineHeightTablet,
-  agendaDetailTitleLineHeightDesktop: $agendaDetailTitleLineHeightDesktop,
-  agendaDetailDescriptionFontFamily: $agendaDetailDescriptionFontFamily,
-  agendaDetailDescriptionFontFamilyTablet: $agendaDetailDescriptionFontFamilyTablet,
-  agendaDetailDescriptionFontFamilyDesktop: $agendaDetailDescriptionFontFamilyDesktop,
-  agendaDetailDescriptionFontSize: $agendaDetailDescriptionFontSize,
-  agendaDetailDescriptionFontSizeTablet: $agendaDetailDescriptionFontSizeTablet,
-  agendaDetailDescriptionFontSizeDesktop: $agendaDetailDescriptionFontSizeDesktop,
-  agendaDetailDescriptionFontColor: $agendaDetailDescriptionFontColor,
-  agendaDetailDescriptionFontColorTablet: $agendaDetailDescriptionFontColorTablet,
-  agendaDetailDescriptionFontColorDesktop: $agendaDetailDescriptionFontColorDesktop,
-  agendaDetailDescriptionFontWeight: $agendaDetailDescriptionFontWeight,
-  agendaDetailDescriptionFontWeightTablet: $agendaDetailDescriptionFontWeightTablet,
-  agendaDetailDescriptionFontWeightDesktop: $agendaDetailDescriptionFontWeightDesktop,
-  agendaDetailDescriptionItalic: $agendaDetailDescriptionItalic,
-  agendaDetailDescriptionItalicTablet: $agendaDetailDescriptionItalicTablet,
-  agendaDetailDescriptionItalicDesktop: $agendaDetailDescriptionItalicDesktop,
-  agendaDetailDescriptionUnderline: $agendaDetailDescriptionUnderline,
-  agendaDetailDescriptionUnderlineTablet: $agendaDetailDescriptionUnderlineTablet,
-  agendaDetailDescriptionUnderlineDesktop: $agendaDetailDescriptionUnderlineDesktop,
-  agendaDetailDescriptionLineHeight: $agendaDetailDescriptionLineHeight,
-  agendaDetailDescriptionLineHeightTablet: $agendaDetailDescriptionLineHeightTablet,
-  agendaDetailDescriptionLineHeightDesktop: $agendaDetailDescriptionLineHeightDesktop,
-  agendaDetailDescriptionMarginTop: $agendaDetailDescriptionMarginTop,
-  agendaDetailDescriptionMarginTopTablet: $agendaDetailDescriptionMarginTopTablet,
-  agendaDetailDescriptionMarginTopDesktop: $agendaDetailDescriptionMarginTopDesktop,
-  agendaDetailDescriptionMarginBottom: $agendaDetailDescriptionMarginBottom,
-  agendaDetailDescriptionMarginBottomTablet: $agendaDetailDescriptionMarginBottomTablet,
-  agendaDetailDescriptionMarginBottomDesktop: $agendaDetailDescriptionMarginBottomDesktop,
-  agendaDetailSecondDescriptionFontFamily: $agendaDetailSecondDescriptionFontFamily,
-  agendaDetailSecondDescriptionFontFamilyTablet: $agendaDetailSecondDescriptionFontFamilyTablet,
-  agendaDetailSecondDescriptionFontFamilyDesktop: $agendaDetailSecondDescriptionFontFamilyDesktop,
-  agendaDetailSecondDescriptionFontSize: $agendaDetailSecondDescriptionFontSize,
-  agendaDetailSecondDescriptionFontSizeTablet: $agendaDetailSecondDescriptionFontSizeTablet,
-  agendaDetailSecondDescriptionFontSizeDesktop: $agendaDetailSecondDescriptionFontSizeDesktop,
-  agendaDetailSecondDescriptionFontColor: $agendaDetailSecondDescriptionFontColor,
-  agendaDetailSecondDescriptionFontColorTablet: $agendaDetailSecondDescriptionFontColorTablet,
-  agendaDetailSecondDescriptionFontColorDesktop: $agendaDetailSecondDescriptionFontColorDesktop,
-  agendaDetailSecondDescriptionFontWeight: $agendaDetailSecondDescriptionFontWeight,
-  agendaDetailSecondDescriptionFontWeightTablet: $agendaDetailSecondDescriptionFontWeightTablet,
-  agendaDetailSecondDescriptionFontWeightDesktop: $agendaDetailSecondDescriptionFontWeightDesktop,
-  agendaDetailSecondDescriptionItalic: $agendaDetailSecondDescriptionItalic,
-  agendaDetailSecondDescriptionItalicTablet: $agendaDetailSecondDescriptionItalicTablet,
-  agendaDetailSecondDescriptionItalicDesktop: $agendaDetailSecondDescriptionItalicDesktop,
-  agendaDetailSecondDescriptionUnderline: $agendaDetailSecondDescriptionUnderline,
-  agendaDetailSecondDescriptionUnderlineTablet: $agendaDetailSecondDescriptionUnderlineTablet,
-  agendaDetailSecondDescriptionUnderlineDesktop: $agendaDetailSecondDescriptionUnderlineDesktop,
-  agendaDetailSecondDescriptionLineHeight: $agendaDetailSecondDescriptionLineHeight,
-  agendaDetailSecondDescriptionLineHeightTablet: $agendaDetailSecondDescriptionLineHeightTablet,
-  agendaDetailSecondDescriptionLineHeightDesktop: $agendaDetailSecondDescriptionLineHeightDesktop,
-  agendaDetailSecondDescriptionMarginTop: $agendaDetailSecondDescriptionMarginTop,
-  agendaDetailSecondDescriptionMarginTopTablet: $agendaDetailSecondDescriptionMarginTopTablet,
-  agendaDetailSecondDescriptionMarginTopDesktop: $agendaDetailSecondDescriptionMarginTopDesktop,
-  agendaDetailSecondDescriptionMarginBottom: $agendaDetailSecondDescriptionMarginBottom,
-  agendaDetailSecondDescriptionMarginBottomTablet: $agendaDetailSecondDescriptionMarginBottomTablet,
-  agendaDetailSecondDescriptionMarginBottomDesktop: $agendaDetailSecondDescriptionMarginBottomDesktop,
-  agendaItemTimeFontFamily: $agendaItemTimeFontFamily,
-  agendaItemTimeFontFamilyTablet: $agendaItemTimeFontFamilyTablet,
-  agendaItemTimeFontFamilyDesktop: $agendaItemTimeFontFamilyDesktop,
-  agendaItemTimeFontSize: $agendaItemTimeFontSize,
-  agendaItemTimeFontSizeTablet: $agendaItemTimeFontSizeTablet,
-  agendaItemTimeFontSizeDesktop: $agendaItemTimeFontSizeDesktop,
-  agendaItemTimeFontColor: $agendaItemTimeFontColor,
-  agendaItemTimeFontColorTablet: $agendaItemTimeFontColorTablet,
-  agendaItemTimeFontColorDesktop: $agendaItemTimeFontColorDesktop,
-  agendaItemTimeFontWeight: $agendaItemTimeFontWeight,
-  agendaItemTimeFontWeightTablet: $agendaItemTimeFontWeightTablet,
-  agendaItemTimeFontWeightDesktop: $agendaItemTimeFontWeightDesktop,
-  agendaItemTimeItalic: $agendaItemTimeItalic,
-  agendaItemTimeItalicTablet: $agendaItemTimeItalicTablet,
-  agendaItemTimeItalicDesktop: $agendaItemTimeItalicDesktop,
-  agendaItemTimeUnderline: $agendaItemTimeUnderline,
-  agendaItemTimeUnderlineTablet: $agendaItemTimeUnderlineTablet,
-  agendaItemTimeUnderlineDesktop: $agendaItemTimeUnderlineDesktop,
-  agendaItemTimeLineHeight: $agendaItemTimeLineHeight,
-  agendaItemTimeLineHeightTablet: $agendaItemTimeLineHeightTablet,
-  agendaItemTimeLineHeightDesktop: $agendaItemTimeLineHeightDesktop,
-  agendaDetailTextFontFamily: $agendaDetailTextFontFamily,
-  agendaDetailTextFontFamilyTablet: $agendaDetailTextFontFamilyTablet,
-  agendaDetailTextFontFamilyDesktop: $agendaDetailTextFontFamilyDesktop,
-  agendaDetailTextFontSize: $agendaDetailTextFontSize,
-  agendaDetailTextFontSizeTablet: $agendaDetailTextFontSizeTablet,
-  agendaDetailTextFontSizeDesktop: $agendaDetailTextFontSizeDesktop,
-  agendaDetailTextFontColor: $agendaDetailTextFontColor,
-  agendaDetailTextFontColorTablet: $agendaDetailTextFontColorTablet,
-  agendaDetailTextFontColorDesktop: $agendaDetailTextFontColorDesktop,
-  agendaDetailTextFontWeight: $agendaDetailTextFontWeight,
-  agendaDetailTextFontWeightTablet: $agendaDetailTextFontWeightTablet,
-  agendaDetailTextFontWeightDesktop: $agendaDetailTextFontWeightDesktop,
-  agendaDetailTextItalic: $agendaDetailTextItalic,
-  agendaDetailTextItalicTablet: $agendaDetailTextItalicTablet,
-  agendaDetailTextItalicDesktop: $agendaDetailTextItalicDesktop,
-  agendaDetailTextUnderline: $agendaDetailTextUnderline,
-  agendaDetailTextUnderlineTablet: $agendaDetailTextUnderlineTablet,
-  agendaDetailTextUnderlineDesktop: $agendaDetailTextUnderlineDesktop,
-  agendaDetailTextLineHeight: $agendaDetailTextLineHeight,
-  agendaDetailTextLineHeightTablet: $agendaDetailTextLineHeightTablet,
-  agendaDetailTextLineHeightDesktop: $agendaDetailTextLineHeightDesktop,
-  agendaDetailTextMarginTop: $agendaDetailTextMarginTop,
-  agendaDetailTextMarginTopTablet: $agendaDetailTextMarginTopTablet,
-  agendaDetailTextMarginTopDesktop: $agendaDetailTextMarginTopDesktop,
-  agendaDetailTextMarginBottom: $agendaDetailTextMarginBottom,
-  agendaDetailTextMarginBottomTablet: $agendaDetailTextMarginBottomTablet,
-  agendaDetailTextMarginBottomDesktop: $agendaDetailTextMarginBottomDesktop,
-  agendaListItemBackground: $agendaListItemBackground,
-  agendaListItemBackgroundTablet: $agendaListItemBackgroundTablet,
-  agendaListItemBackgroundDesktop: $agendaListItemBackgroundDesktop,
-  agendaListDetailOverlayBackground: $agendaListDetailOverlayBackground,
-  agendaListDetailOverlayBackgroundTablet: $agendaListDetailOverlayBackgroundTablet,
-  agendaListDetailOverlayBackgroundDesktop: $agendaListDetailOverlayBackgroundDesktop,
-  agendaListDetailOverlayLineUnderTitleColor: $agendaListDetailOverlayLineUnderTitleColor,
-  agendaListDetailOverlayLineUnderTitleColorTablet: $agendaListDetailOverlayLineUnderTitleColorTablet,
-  agendaListDetailOverlayLineUnderTitleColorDesktop: $agendaListDetailOverlayLineUnderTitleColorDesktop,
-  agendaListDetailOverlayIconsColor: $agendaListDetailOverlayIconsColor,
-  agendaListDetailOverlayIconsColorTablet: $agendaListDetailOverlayIconsColorTablet,
-  agendaListDetailOverlayIconsColorDesktop: $agendaListDetailOverlayIconsColorDesktop,
-  agendaFiltersOverlayBackground: $agendaFiltersOverlayBackground,
-  agendaFiltersOverlayBackgroundTablet: $agendaFiltersOverlayBackgroundTablet,
-  agendaFiltersOverlayBackgroundDesktop: $agendaFiltersOverlayBackgroundDesktop,
-  agendaFilterIconColor: $agendaFilterIconColor,
-  agendaFilterIconColorTablet: $agendaFilterIconColorTablet,
-  agendaFilterIconColorDesktop: $agendaFilterIconColorDesktop,
-  agendaFilterIconActiveColor: $agendaFilterIconActiveColor,
-  agendaFilterIconActiveColorTablet: $agendaFilterIconActiveColorTablet,
-  agendaFilterIconActiveColorDesktop: $agendaFilterIconActiveColorDesktop,
-  agendaSearchIconColor: $agendaSearchIconColor,
-  agendaSearchIconColorTablet: $agendaSearchIconColorTablet,
-  agendaSearchIconColorDesktop: $agendaSearchIconColorDesktop,
-  agendaSearchFieldBorderColor: $agendaSearchFieldBorderColor,
-  agendaSearchFieldBorderColorTablet: $agendaSearchFieldBorderColorTablet,
-  agendaSearchFieldBorderColorDesktop: $agendaSearchFieldBorderColorDesktop,
-  agendaSearchFieldBorderActiveColor: $agendaSearchFieldBorderActiveColor,
-  agendaSearchFieldBorderActiveColorTablet: $agendaSearchFieldBorderActiveColorTablet,
-  agendaSearchFieldBorderActiveColorDesktop: $agendaSearchFieldBorderActiveColorDesktop,
-  agendaSearchFieldTextColor: $agendaSearchFieldTextColor,
-  agendaSearchFieldTextColorTablet: $agendaSearchFieldTextColorTablet,
-  agendaSearchFieldTextColorDesktop: $agendaSearchFieldTextColorDesktop,
-  agendaSearchFieldBackgroundColor: $agendaSearchFieldBackgroundColor,
-  agendaSearchFieldBackgroundColorTablet: $agendaSearchFieldBackgroundColorTablet,
-  agendaSearchFieldBackgroundColorDesktop: $agendaSearchFieldBackgroundColorDesktop,
-  agendaBookmarkIconColor: $agendaBookmarkIconColor,
-  agendaBookmarkIconColorTablet: $agendaBookmarkIconColorTablet,
-  agendaBookmarkIconColorDesktop: $agendaBookmarkIconColorDesktop,
-  agendaBookmarkIconActiveColor: $agendaBookmarkIconActiveColor,
-  agendaBookmarkIconActiveColorTablet: $agendaBookmarkIconActiveColorTablet,
-  agendaBookmarkIconActiveColorDesktop: $agendaBookmarkIconActiveColorDesktop,
-  agendaPaddingTop: $agendaPaddingTop,
-  agendaPaddingRight: $agendaPaddingRight,
-  agendaPaddingBottom: $agendaPaddingBottom,
-  agendaPaddingLeft: $agendaPaddingLeft,
-  agendaPaddingTopTablet: $agendaPaddingTopTablet,
-  agendaPaddingRightTablet: $agendaPaddingRightTablet,
-  agendaPaddingBottomTablet: $agendaPaddingBottomTablet,
-  agendaPaddingLeftTablet: $agendaPaddingLeftTablet,
-  agendaPaddingTopDesktop: $agendaPaddingTopDesktop,
-  agendaPaddingRightDesktop: $agendaPaddingRightDesktop,
-  agendaPaddingBottomDesktop: $agendaPaddingBottomDesktop,
-  agendaPaddingLeftDesktop: $agendaPaddingLeftDesktop,
-  agendaListItemBorderSides: $agendaListItemBorderSides,
-  agendaListItemBorderSidesTablet: $agendaListItemBorderSidesTablet,
-  agendaListItemBorderSidesDesktop: $agendaListItemBorderSidesDesktop,
-  agendaListItemBorderWidth: $agendaListItemBorderWidth,
-  agendaListItemBorderWidthTablet: $agendaListItemBorderWidthTablet,
-  agendaListItemBorderWidthDesktop: $agendaListItemBorderWidthDesktop,
-  agendaListItemBorderStyle: $agendaListItemBorderStyle,
-  agendaListItemBorderStyleTablet: $agendaListItemBorderStyleTablet,
-  agendaListItemBorderStyleDesktop: $agendaListItemBorderStyleDesktop,
-  agendaListItemBorder: $agendaListItemBorder,
-  agendaListItemBorderTablet: $agendaListItemBorderTablet,
-  agendaListItemBorderDesktop: $agendaListItemBorderDesktop,
-  agendaListItemBorderRadius: $agendaListItemBorderRadius,
-  agendaListItemBorderRadiusTablet: $agendaListItemBorderRadiusTablet,
-  agendaListItemBorderRadiusDesktop: $agendaListItemBorderRadiusDesktop,
-  agendaListItemShadowStyle: $agendaListItemShadowStyle,
-  agendaListItemShadowStyleTablet: $agendaListItemShadowStyleTablet,
-  agendaListItemShadowStyleDesktop: $agendaListItemShadowStyleDesktop,
-  agendaListItemShadowXoffset: $agendaListItemShadowXoffset,
-  agendaListItemShadowXoffsetTablet: $agendaListItemShadowXoffsetTablet,
-  agendaListItemShadowXoffsetDesktop: $agendaListItemShadowXoffsetDesktop,
-  agendaListItemShadowYoffset: $agendaListItemShadowYoffset,
-  agendaListItemShadowYoffsetTablet: $agendaListItemShadowYoffsetTablet,
-  agendaListItemShadowYoffsetDesktop: $agendaListItemShadowYoffsetDesktop,
-  agendaListItemShadowBlur: $agendaListItemShadowBlur,
-  agendaListItemShadowBlurTablet: $agendaListItemShadowBlurTablet,
-  agendaListItemShadowBlurDesktop: $agendaListItemShadowBlurDesktop,
-  agendaListItemShadowSpread: $agendaListItemShadowSpread,
-  agendaListItemShadowSpreadTablet: $agendaListItemShadowSpreadTablet,
-  agendaListItemShadowSpreadDesktop: $agendaListItemShadowSpreadDesktop,
-  agendaListItemShadowColor: $agendaListItemShadowColor,
-  agendaListItemShadowColorTablet: $agendaListItemShadowColorTablet,
-  agendaListItemShadowColorDesktop: $agendaListItemShadowColorDesktop,
-  agendaIndex: $agendaIndex,
-  agendaIndexTablet: $agendaIndexTablet,
-  agendaIndexDesktop: $agendaIndexDesktop,
-  agendaAddButtonBackground: $agendaAddButtonBackground,
-  agendaAddButtonBackgroundTablet: $agendaAddButtonBackgroundTablet,
-  agendaAddButtonBackgroundDesktop: $agendaAddButtonBackgroundDesktop,
-  agendaAddButtonIcon: $agendaAddButtonIcon,
-  agendaAddButtonIconTablet: $agendaAddButtonIconTablet,
-  agendaAddButtonIconDesktop: $agendaAddButtonIconDesktop
-  ), $options);
+@mixin agenda($options: (), $widgetInstanceId: "", $widgetInstanceUUID: "") {
+  $configuration: map-merge(
+    (
+      lfdAgendaTopBackgroundColor: $lfdAgendaTopBackgroundColor,
+      lfdAgendaTopBackgroundColorTablet: $lfdAgendaTopBackgroundColorTablet,
+      lfdAgendaTopBackgroundColorDesktop: $lfdAgendaTopBackgroundColorDesktop,
+      lfdAgendaTopTextColor: $lfdAgendaTopTextColor,
+      lfdAgendaTopTextColorTablet: $lfdAgendaTopTextColorTablet,
+      lfdAgendaTopTextColorDesktop: $lfdAgendaTopTextColorDesktop,
+      lfdAgendaDatesFontColor: $lfdAgendaDatesFontColor,
+      lfdAgendaDatesFontColorTablet: $lfdAgendaDatesFontColorTablet,
+      lfdAgendaDatesFontColorDesktop: $lfdAgendaDatesFontColorDesktop,
+      lfdAgendaTopTextActiveColor: $lfdAgendaTopTextActiveColor,
+      lfdAgendaTopTextActiveColorTablet: $lfdAgendaTopTextActiveColorTablet,
+      lfdAgendaTopTextActiveColorDesktop: $lfdAgendaTopTextActiveColorDesktop,
+      lfdAgendaDatesBackgroundColor: $lfdAgendaDatesBackgroundColor,
+      lfdAgendaDatesBackgroundColorTablet: $lfdAgendaDatesBackgroundColorTablet,
+      lfdAgendaDatesBackgroundColorDesktop: $lfdAgendaDatesBackgroundColorDesktop,
+      agendaOverlayFontColor: $agendaOverlayFontColor,
+      agendaOverlayFontColorTablet: $agendaOverlayFontColorTablet,
+      agendaOverlayFontColorDesktop: $agendaOverlayFontColorDesktop,
+      agendaMarginTop: $agendaMarginTop,
+      agendaMarginTopTablet: $agendaMarginTopTablet,
+      agendaMarginTopDesktop: $agendaMarginTopDesktop,
+      agendaMarginRight: $agendaMarginRight,
+      agendaMarginRightTablet: $agendaMarginRightTablet,
+      agendaMarginRightDesktop: $agendaMarginRightDesktop,
+      agendaMarginBottom: $agendaMarginBottom,
+      agendaMarginBottomTablet: $agendaMarginBottomTablet,
+      agendaMarginBottomDesktop: $agendaMarginBottomDesktop,
+      agendaMarginLeft: $agendaMarginLeft,
+      agendaMarginLeftTablet: $agendaMarginLeftTablet,
+      agendaMarginLeftDesktop: $agendaMarginLeftDesktop,
+      agendaVisibility: $agendaVisibility,
+      agendaVisibilityTablet: $agendaVisibilityTablet,
+      agendaVisibilityDesktop: $agendaVisibilityDesktop,
+      agendaTitleFontFamily: $agendaTitleFontFamily,
+      agendaTitleFontFamilyTablet: $agendaTitleFontFamilyTablet,
+      agendaTitleFontFamilyDesktop: $agendaTitleFontFamilyDesktop,
+      agendaTitleFontSize: $agendaTitleFontSize,
+      agendaTitleFontSizeTablet: $agendaTitleFontSizeTablet,
+      agendaTitleFontSizeDesktop: $agendaTitleFontSizeDesktop,
+      agendaTitleFontColor: $agendaTitleFontColor,
+      agendaTitleFontColorTablet: $agendaTitleFontColorTablet,
+      agendaTitleFontColorDesktop: $agendaTitleFontColorDesktop,
+      agendaTitleFontWeight: $agendaTitleFontWeight,
+      agendaTitleFontWeightTablet: $agendaTitleFontWeightTablet,
+      agendaTitleFontWeightDesktop: $agendaTitleFontWeightDesktop,
+      agendaTitleItalic: $agendaTitleItalic,
+      agendaTitleItalicTablet: $agendaTitleItalicTablet,
+      agendaTitleItalicDesktop: $agendaTitleItalicDesktop,
+      agendaTitleUnderline: $agendaTitleUnderline,
+      agendaTitleUnderlineTablet: $agendaTitleUnderlineTablet,
+      agendaTitleUnderlineDesktop: $agendaTitleUnderlineDesktop,
+      agendaTitleLineHeight: $agendaTitleLineHeight,
+      agendaTitleLineHeightTablet: $agendaTitleLineHeightTablet,
+      agendaTitleLineHeightDesktop: $agendaTitleLineHeightDesktop,
+      agendaTitleMarginTop: $agendaTitleMarginTop,
+      agendaTitleMarginTopTablet: $agendaTitleMarginTopTablet,
+      agendaTitleMarginTopDesktop: $agendaTitleMarginTopDesktop,
+      agendaTitleMarginBottom: $agendaTitleMarginBottom,
+      agendaTitleMarginBottomTablet: $agendaTitleMarginBottomTablet,
+      agendaTitleMarginBottomDesktop: $agendaTitleMarginBottomDesktop,
+      agendaDescriptionFontFamily: $agendaDescriptionFontFamily,
+      agendaDescriptionFontFamilyTablet: $agendaDescriptionFontFamilyTablet,
+      agendaDescriptionFontFamilyDesktop: $agendaDescriptionFontFamilyDesktop,
+      agendaDescriptionFontSize: $agendaDescriptionFontSize,
+      agendaDescriptionFontSizeTablet: $agendaDescriptionFontSizeTablet,
+      agendaDescriptionFontSizeDesktop: $agendaDescriptionFontSizeDesktop,
+      agendaDescriptionFontColor: $agendaDescriptionFontColor,
+      agendaDescriptionFontColorTablet: $agendaDescriptionFontColorTablet,
+      agendaDescriptionFontColorDesktop: $agendaDescriptionFontColorDesktop,
+      agendaDescriptionFontWeight: $agendaDescriptionFontWeight,
+      agendaDescriptionFontWeightTablet: $agendaDescriptionFontWeightTablet,
+      agendaDescriptionFontWeightDesktop: $agendaDescriptionFontWeightDesktop,
+      agendaDescriptionItalic: $agendaDescriptionItalic,
+      agendaDescriptionItalicTablet: $agendaDescriptionItalicTablet,
+      agendaDescriptionItalicDesktop: $agendaDescriptionItalicDesktop,
+      agendaDescriptionUnderline: $agendaDescriptionUnderline,
+      agendaDescriptionUnderlineTablet: $agendaDescriptionUnderlineTablet,
+      agendaDescriptionUnderlineDesktop: $agendaDescriptionUnderlineDesktop,
+      agendaDescriptionLineHeight: $agendaDescriptionLineHeight,
+      agendaDescriptionLineHeightTablet: $agendaDescriptionLineHeightTablet,
+      agendaDescriptionLineHeightDesktop: $agendaDescriptionLineHeightDesktop,
+      agendaDescriptionMarginTop: $agendaDescriptionMarginTop,
+      agendaDescriptionMarginTopTablet: $agendaDescriptionMarginTopTablet,
+      agendaDescriptionMarginTopDesktop: $agendaDescriptionMarginTopDesktop,
+      agendaDescriptionMarginBottom: $agendaDescriptionMarginBottom,
+      agendaDescriptionMarginBottomTablet: $agendaDescriptionMarginBottomTablet,
+      agendaDescriptionMarginBottomDesktop: $agendaDescriptionMarginBottomDesktop,
+      agendaDetailTitleFontFamily: $agendaDetailTitleFontFamily,
+      agendaDetailTitleFontFamilyTablet: $agendaDetailTitleFontFamilyTablet,
+      agendaDetailTitleFontFamilyDesktop: $agendaDetailTitleFontFamilyDesktop,
+      agendaDetailTitleFontSize: $agendaDetailTitleFontSize,
+      agendaDetailTitleFontSizeTablet: $agendaDetailTitleFontSizeTablet,
+      agendaDetailTitleFontSizeDesktop: $agendaDetailTitleFontSizeDesktop,
+      agendaDetailTitleFontColor: $agendaDetailTitleFontColor,
+      agendaDetailTitleFontColorTablet: $agendaDetailTitleFontColorTablet,
+      agendaDetailTitleFontColorDesktop: $agendaDetailTitleFontColorDesktop,
+      agendaDetailTitleFontWeight: $agendaDetailTitleFontWeight,
+      agendaDetailTitleFontWeightTablet: $agendaDetailTitleFontWeightTablet,
+      agendaDetailTitleFontWeightDesktop: $agendaDetailTitleFontWeightDesktop,
+      agendaDetailTitleItalic: $agendaDetailTitleItalic,
+      agendaDetailTitleItalicTablet: $agendaDetailTitleItalicTablet,
+      agendaDetailTitleItalicDesktop: $agendaDetailTitleItalicDesktop,
+      agendaDetailTitleUnderline: $agendaDetailTitleUnderline,
+      agendaDetailTitleUnderlineTablet: $agendaDetailTitleUnderlineTablet,
+      agendaDetailTitleUnderlineDesktop: $agendaDetailTitleUnderlineDesktop,
+      agendaDetailTitleLineHeight: $agendaDetailTitleLineHeight,
+      agendaDetailTitleLineHeightTablet: $agendaDetailTitleLineHeightTablet,
+      agendaDetailTitleLineHeightDesktop: $agendaDetailTitleLineHeightDesktop,
+      agendaDetailDescriptionFontFamily: $agendaDetailDescriptionFontFamily,
+      agendaDetailDescriptionFontFamilyTablet: $agendaDetailDescriptionFontFamilyTablet,
+      agendaDetailDescriptionFontFamilyDesktop: $agendaDetailDescriptionFontFamilyDesktop,
+      agendaDetailDescriptionFontSize: $agendaDetailDescriptionFontSize,
+      agendaDetailDescriptionFontSizeTablet: $agendaDetailDescriptionFontSizeTablet,
+      agendaDetailDescriptionFontSizeDesktop: $agendaDetailDescriptionFontSizeDesktop,
+      agendaDetailDescriptionFontColor: $agendaDetailDescriptionFontColor,
+      agendaDetailDescriptionFontColorTablet: $agendaDetailDescriptionFontColorTablet,
+      agendaDetailDescriptionFontColorDesktop: $agendaDetailDescriptionFontColorDesktop,
+      agendaDetailDescriptionFontWeight: $agendaDetailDescriptionFontWeight,
+      agendaDetailDescriptionFontWeightTablet: $agendaDetailDescriptionFontWeightTablet,
+      agendaDetailDescriptionFontWeightDesktop: $agendaDetailDescriptionFontWeightDesktop,
+      agendaDetailDescriptionItalic: $agendaDetailDescriptionItalic,
+      agendaDetailDescriptionItalicTablet: $agendaDetailDescriptionItalicTablet,
+      agendaDetailDescriptionItalicDesktop: $agendaDetailDescriptionItalicDesktop,
+      agendaDetailDescriptionUnderline: $agendaDetailDescriptionUnderline,
+      agendaDetailDescriptionUnderlineTablet: $agendaDetailDescriptionUnderlineTablet,
+      agendaDetailDescriptionUnderlineDesktop: $agendaDetailDescriptionUnderlineDesktop,
+      agendaDetailDescriptionLineHeight: $agendaDetailDescriptionLineHeight,
+      agendaDetailDescriptionLineHeightTablet: $agendaDetailDescriptionLineHeightTablet,
+      agendaDetailDescriptionLineHeightDesktop: $agendaDetailDescriptionLineHeightDesktop,
+      agendaDetailDescriptionMarginTop: $agendaDetailDescriptionMarginTop,
+      agendaDetailDescriptionMarginTopTablet: $agendaDetailDescriptionMarginTopTablet,
+      agendaDetailDescriptionMarginTopDesktop: $agendaDetailDescriptionMarginTopDesktop,
+      agendaDetailDescriptionMarginBottom: $agendaDetailDescriptionMarginBottom,
+      agendaDetailDescriptionMarginBottomTablet: $agendaDetailDescriptionMarginBottomTablet,
+      agendaDetailDescriptionMarginBottomDesktop: $agendaDetailDescriptionMarginBottomDesktop,
+      agendaDetailSecondDescriptionFontFamily: $agendaDetailSecondDescriptionFontFamily,
+      agendaDetailSecondDescriptionFontFamilyTablet: $agendaDetailSecondDescriptionFontFamilyTablet,
+      agendaDetailSecondDescriptionFontFamilyDesktop:
+        $agendaDetailSecondDescriptionFontFamilyDesktop,
+      agendaDetailSecondDescriptionFontSize: $agendaDetailSecondDescriptionFontSize,
+      agendaDetailSecondDescriptionFontSizeTablet: $agendaDetailSecondDescriptionFontSizeTablet,
+      agendaDetailSecondDescriptionFontSizeDesktop: $agendaDetailSecondDescriptionFontSizeDesktop,
+      agendaDetailSecondDescriptionFontColor: $agendaDetailSecondDescriptionFontColor,
+      agendaDetailSecondDescriptionFontColorTablet: $agendaDetailSecondDescriptionFontColorTablet,
+      agendaDetailSecondDescriptionFontColorDesktop: $agendaDetailSecondDescriptionFontColorDesktop,
+      agendaDetailSecondDescriptionFontWeight: $agendaDetailSecondDescriptionFontWeight,
+      agendaDetailSecondDescriptionFontWeightTablet: $agendaDetailSecondDescriptionFontWeightTablet,
+      agendaDetailSecondDescriptionFontWeightDesktop:
+        $agendaDetailSecondDescriptionFontWeightDesktop,
+      agendaDetailSecondDescriptionItalic: $agendaDetailSecondDescriptionItalic,
+      agendaDetailSecondDescriptionItalicTablet: $agendaDetailSecondDescriptionItalicTablet,
+      agendaDetailSecondDescriptionItalicDesktop: $agendaDetailSecondDescriptionItalicDesktop,
+      agendaDetailSecondDescriptionUnderline: $agendaDetailSecondDescriptionUnderline,
+      agendaDetailSecondDescriptionUnderlineTablet: $agendaDetailSecondDescriptionUnderlineTablet,
+      agendaDetailSecondDescriptionUnderlineDesktop: $agendaDetailSecondDescriptionUnderlineDesktop,
+      agendaDetailSecondDescriptionLineHeight: $agendaDetailSecondDescriptionLineHeight,
+      agendaDetailSecondDescriptionLineHeightTablet: $agendaDetailSecondDescriptionLineHeightTablet,
+      agendaDetailSecondDescriptionLineHeightDesktop:
+        $agendaDetailSecondDescriptionLineHeightDesktop,
+      agendaDetailSecondDescriptionMarginTop: $agendaDetailSecondDescriptionMarginTop,
+      agendaDetailSecondDescriptionMarginTopTablet: $agendaDetailSecondDescriptionMarginTopTablet,
+      agendaDetailSecondDescriptionMarginTopDesktop: $agendaDetailSecondDescriptionMarginTopDesktop,
+      agendaDetailSecondDescriptionMarginBottom: $agendaDetailSecondDescriptionMarginBottom,
+      agendaDetailSecondDescriptionMarginBottomTablet:
+        $agendaDetailSecondDescriptionMarginBottomTablet,
+      agendaDetailSecondDescriptionMarginBottomDesktop:
+        $agendaDetailSecondDescriptionMarginBottomDesktop,
+      agendaItemTimeFontFamily: $agendaItemTimeFontFamily,
+      agendaItemTimeFontFamilyTablet: $agendaItemTimeFontFamilyTablet,
+      agendaItemTimeFontFamilyDesktop: $agendaItemTimeFontFamilyDesktop,
+      agendaItemTimeFontSize: $agendaItemTimeFontSize,
+      agendaItemTimeFontSizeTablet: $agendaItemTimeFontSizeTablet,
+      agendaItemTimeFontSizeDesktop: $agendaItemTimeFontSizeDesktop,
+      agendaItemTimeFontColor: $agendaItemTimeFontColor,
+      agendaItemTimeFontColorTablet: $agendaItemTimeFontColorTablet,
+      agendaItemTimeFontColorDesktop: $agendaItemTimeFontColorDesktop,
+      agendaItemTimeFontWeight: $agendaItemTimeFontWeight,
+      agendaItemTimeFontWeightTablet: $agendaItemTimeFontWeightTablet,
+      agendaItemTimeFontWeightDesktop: $agendaItemTimeFontWeightDesktop,
+      agendaItemTimeItalic: $agendaItemTimeItalic,
+      agendaItemTimeItalicTablet: $agendaItemTimeItalicTablet,
+      agendaItemTimeItalicDesktop: $agendaItemTimeItalicDesktop,
+      agendaItemTimeUnderline: $agendaItemTimeUnderline,
+      agendaItemTimeUnderlineTablet: $agendaItemTimeUnderlineTablet,
+      agendaItemTimeUnderlineDesktop: $agendaItemTimeUnderlineDesktop,
+      agendaItemTimeLineHeight: $agendaItemTimeLineHeight,
+      agendaItemTimeLineHeightTablet: $agendaItemTimeLineHeightTablet,
+      agendaItemTimeLineHeightDesktop: $agendaItemTimeLineHeightDesktop,
+      agendaDetailTextFontFamily: $agendaDetailTextFontFamily,
+      agendaDetailTextFontFamilyTablet: $agendaDetailTextFontFamilyTablet,
+      agendaDetailTextFontFamilyDesktop: $agendaDetailTextFontFamilyDesktop,
+      agendaDetailTextFontSize: $agendaDetailTextFontSize,
+      agendaDetailTextFontSizeTablet: $agendaDetailTextFontSizeTablet,
+      agendaDetailTextFontSizeDesktop: $agendaDetailTextFontSizeDesktop,
+      agendaDetailTextFontColor: $agendaDetailTextFontColor,
+      agendaDetailTextFontColorTablet: $agendaDetailTextFontColorTablet,
+      agendaDetailTextFontColorDesktop: $agendaDetailTextFontColorDesktop,
+      agendaDetailTextFontWeight: $agendaDetailTextFontWeight,
+      agendaDetailTextFontWeightTablet: $agendaDetailTextFontWeightTablet,
+      agendaDetailTextFontWeightDesktop: $agendaDetailTextFontWeightDesktop,
+      agendaDetailTextItalic: $agendaDetailTextItalic,
+      agendaDetailTextItalicTablet: $agendaDetailTextItalicTablet,
+      agendaDetailTextItalicDesktop: $agendaDetailTextItalicDesktop,
+      agendaDetailTextUnderline: $agendaDetailTextUnderline,
+      agendaDetailTextUnderlineTablet: $agendaDetailTextUnderlineTablet,
+      agendaDetailTextUnderlineDesktop: $agendaDetailTextUnderlineDesktop,
+      agendaDetailTextLineHeight: $agendaDetailTextLineHeight,
+      agendaDetailTextLineHeightTablet: $agendaDetailTextLineHeightTablet,
+      agendaDetailTextLineHeightDesktop: $agendaDetailTextLineHeightDesktop,
+      agendaDetailTextMarginTop: $agendaDetailTextMarginTop,
+      agendaDetailTextMarginTopTablet: $agendaDetailTextMarginTopTablet,
+      agendaDetailTextMarginTopDesktop: $agendaDetailTextMarginTopDesktop,
+      agendaDetailTextMarginBottom: $agendaDetailTextMarginBottom,
+      agendaDetailTextMarginBottomTablet: $agendaDetailTextMarginBottomTablet,
+      agendaDetailTextMarginBottomDesktop: $agendaDetailTextMarginBottomDesktop,
+      agendaListItemBackground: $agendaListItemBackground,
+      agendaListItemBackgroundTablet: $agendaListItemBackgroundTablet,
+      agendaListItemBackgroundDesktop: $agendaListItemBackgroundDesktop,
+      agendaListDetailOverlayBackground: $agendaListDetailOverlayBackground,
+      agendaListDetailOverlayBackgroundTablet: $agendaListDetailOverlayBackgroundTablet,
+      agendaListDetailOverlayBackgroundDesktop: $agendaListDetailOverlayBackgroundDesktop,
+      agendaListDetailOverlayLineUnderTitleColor: $agendaListDetailOverlayLineUnderTitleColor,
+      agendaListDetailOverlayLineUnderTitleColorTablet:
+        $agendaListDetailOverlayLineUnderTitleColorTablet,
+      agendaListDetailOverlayLineUnderTitleColorDesktop:
+        $agendaListDetailOverlayLineUnderTitleColorDesktop,
+      agendaListDetailOverlayIconsColor: $agendaListDetailOverlayIconsColor,
+      agendaListDetailOverlayIconsColorTablet: $agendaListDetailOverlayIconsColorTablet,
+      agendaListDetailOverlayIconsColorDesktop: $agendaListDetailOverlayIconsColorDesktop,
+      agendaFiltersOverlayBackground: $agendaFiltersOverlayBackground,
+      agendaFiltersOverlayBackgroundTablet: $agendaFiltersOverlayBackgroundTablet,
+      agendaFiltersOverlayBackgroundDesktop: $agendaFiltersOverlayBackgroundDesktop,
+      agendaFilterIconColor: $agendaFilterIconColor,
+      agendaFilterIconColorTablet: $agendaFilterIconColorTablet,
+      agendaFilterIconColorDesktop: $agendaFilterIconColorDesktop,
+      agendaFilterIconActiveColor: $agendaFilterIconActiveColor,
+      agendaFilterIconActiveColorTablet: $agendaFilterIconActiveColorTablet,
+      agendaFilterIconActiveColorDesktop: $agendaFilterIconActiveColorDesktop,
+      agendaSearchIconColor: $agendaSearchIconColor,
+      agendaSearchIconColorTablet: $agendaSearchIconColorTablet,
+      agendaSearchIconColorDesktop: $agendaSearchIconColorDesktop,
+      agendaSearchFieldBorderColor: $agendaSearchFieldBorderColor,
+      agendaSearchFieldBorderColorTablet: $agendaSearchFieldBorderColorTablet,
+      agendaSearchFieldBorderColorDesktop: $agendaSearchFieldBorderColorDesktop,
+      agendaSearchFieldBorderActiveColor: $agendaSearchFieldBorderActiveColor,
+      agendaSearchFieldBorderActiveColorTablet: $agendaSearchFieldBorderActiveColorTablet,
+      agendaSearchFieldBorderActiveColorDesktop: $agendaSearchFieldBorderActiveColorDesktop,
+      agendaSearchFieldTextColor: $agendaSearchFieldTextColor,
+      agendaSearchFieldTextColorTablet: $agendaSearchFieldTextColorTablet,
+      agendaSearchFieldTextColorDesktop: $agendaSearchFieldTextColorDesktop,
+      agendaSearchFieldBackgroundColor: $agendaSearchFieldBackgroundColor,
+      agendaSearchFieldBackgroundColorTablet: $agendaSearchFieldBackgroundColorTablet,
+      agendaSearchFieldBackgroundColorDesktop: $agendaSearchFieldBackgroundColorDesktop,
+      agendaBookmarkIconColor: $agendaBookmarkIconColor,
+      agendaBookmarkIconColorTablet: $agendaBookmarkIconColorTablet,
+      agendaBookmarkIconColorDesktop: $agendaBookmarkIconColorDesktop,
+      agendaBookmarkIconActiveColor: $agendaBookmarkIconActiveColor,
+      agendaBookmarkIconActiveColorTablet: $agendaBookmarkIconActiveColorTablet,
+      agendaBookmarkIconActiveColorDesktop: $agendaBookmarkIconActiveColorDesktop,
+      agendaPaddingTop: $agendaPaddingTop,
+      agendaPaddingRight: $agendaPaddingRight,
+      agendaPaddingBottom: $agendaPaddingBottom,
+      agendaPaddingLeft: $agendaPaddingLeft,
+      agendaPaddingTopTablet: $agendaPaddingTopTablet,
+      agendaPaddingRightTablet: $agendaPaddingRightTablet,
+      agendaPaddingBottomTablet: $agendaPaddingBottomTablet,
+      agendaPaddingLeftTablet: $agendaPaddingLeftTablet,
+      agendaPaddingTopDesktop: $agendaPaddingTopDesktop,
+      agendaPaddingRightDesktop: $agendaPaddingRightDesktop,
+      agendaPaddingBottomDesktop: $agendaPaddingBottomDesktop,
+      agendaPaddingLeftDesktop: $agendaPaddingLeftDesktop,
+      agendaListItemBorderSides: $agendaListItemBorderSides,
+      agendaListItemBorderSidesTablet: $agendaListItemBorderSidesTablet,
+      agendaListItemBorderSidesDesktop: $agendaListItemBorderSidesDesktop,
+      agendaListItemBorderWidth: $agendaListItemBorderWidth,
+      agendaListItemBorderWidthTablet: $agendaListItemBorderWidthTablet,
+      agendaListItemBorderWidthDesktop: $agendaListItemBorderWidthDesktop,
+      agendaListItemBorderStyle: $agendaListItemBorderStyle,
+      agendaListItemBorderStyleTablet: $agendaListItemBorderStyleTablet,
+      agendaListItemBorderStyleDesktop: $agendaListItemBorderStyleDesktop,
+      agendaListItemBorder: $agendaListItemBorder,
+      agendaListItemBorderTablet: $agendaListItemBorderTablet,
+      agendaListItemBorderDesktop: $agendaListItemBorderDesktop,
+      agendaListItemBorderRadius: $agendaListItemBorderRadius,
+      agendaListItemBorderRadiusTablet: $agendaListItemBorderRadiusTablet,
+      agendaListItemBorderRadiusDesktop: $agendaListItemBorderRadiusDesktop,
+      agendaListItemShadowStyle: $agendaListItemShadowStyle,
+      agendaListItemShadowStyleTablet: $agendaListItemShadowStyleTablet,
+      agendaListItemShadowStyleDesktop: $agendaListItemShadowStyleDesktop,
+      agendaListItemShadowXoffset: $agendaListItemShadowXoffset,
+      agendaListItemShadowXoffsetTablet: $agendaListItemShadowXoffsetTablet,
+      agendaListItemShadowXoffsetDesktop: $agendaListItemShadowXoffsetDesktop,
+      agendaListItemShadowYoffset: $agendaListItemShadowYoffset,
+      agendaListItemShadowYoffsetTablet: $agendaListItemShadowYoffsetTablet,
+      agendaListItemShadowYoffsetDesktop: $agendaListItemShadowYoffsetDesktop,
+      agendaListItemShadowBlur: $agendaListItemShadowBlur,
+      agendaListItemShadowBlurTablet: $agendaListItemShadowBlurTablet,
+      agendaListItemShadowBlurDesktop: $agendaListItemShadowBlurDesktop,
+      agendaListItemShadowSpread: $agendaListItemShadowSpread,
+      agendaListItemShadowSpreadTablet: $agendaListItemShadowSpreadTablet,
+      agendaListItemShadowSpreadDesktop: $agendaListItemShadowSpreadDesktop,
+      agendaListItemShadowColor: $agendaListItemShadowColor,
+      agendaListItemShadowColorTablet: $agendaListItemShadowColorTablet,
+      agendaListItemShadowColorDesktop: $agendaListItemShadowColorDesktop,
+      agendaIndex: $agendaIndex,
+      agendaIndexTablet: $agendaIndexTablet,
+      agendaIndexDesktop: $agendaIndexDesktop,
+      agendaAddButtonBackground: $agendaAddButtonBackground,
+      agendaAddButtonBackgroundTablet: $agendaAddButtonBackgroundTablet,
+      agendaAddButtonBackgroundDesktop: $agendaAddButtonBackgroundDesktop,
+      agendaAddButtonIcon: $agendaAddButtonIcon,
+      agendaAddButtonIconTablet: $agendaAddButtonIconTablet,
+      agendaAddButtonIconDesktop: $agendaAddButtonIconDesktop
+    ),
+    $options
+  );
 
   $instanceSelector: '[data-widget-package="com.fliplet.dynamic-lists"]';
   $layout: '[data-settings-layout="agenda"]';
-  $layoutSelector: '#{$instanceSelector}#{$layout}';
-  @if $widgetInstanceUUID != '' {
+  $layoutSelector: "#{$instanceSelector}#{$layout}";
+  @if $widgetInstanceUUID != "" {
     $layoutSelector: '#{$layoutSelector}[data-uuid="#{$widgetInstanceUUID}"]';
-  } @else if $widgetInstanceId != '' {
+  } @else if $widgetInstanceId != "" {
     $layoutSelector: '#{$layoutSelector}[data-id="#{$widgetInstanceId}"]';
   }
 
   #{$layoutSelector} {
     .agenda-list-holder {
       z-index: map-get($configuration, agendaIndex);
-      margin: map-get($configuration, agendaMarginTop)
-        map-get($configuration, agendaMarginRight)
-        map-get($configuration, agendaMarginBottom)
-        map-get($configuration, agendaMarginLeft);
+      margin: map-get($configuration, agendaMarginTop) map-get($configuration, agendaMarginRight)
+        map-get($configuration, agendaMarginBottom) map-get($configuration, agendaMarginLeft);
 
-      padding: map-get($configuration, agendaPaddingTop)
-        map-get($configuration, agendaPaddingRight)
-        map-get($configuration, agendaPaddingBottom)
-        map-get($configuration, agendaPaddingLeft);
+      padding: map-get($configuration, agendaPaddingTop) map-get($configuration, agendaPaddingRight)
+        map-get($configuration, agendaPaddingBottom) map-get($configuration, agendaPaddingLeft);
 
       // Styles for tablet
       @include above($tabletBreakpoint) {
@@ -397,14 +403,16 @@
 
         .agenda-item-content-holder {
           .agenda-item-description .agenda-item-detail-body-text > p {
-            @include fontOnly((
-              fontFamily: map-get($configuration, agendaDetailTextFontFamily),
-              fontSize: map-get($configuration, agendaDetailTextFontSize),
-              fontLineHeight: map-get($configuration, agendaDetailTextLineHeight),
-              fontWeight: map-get($configuration, agendaDetailTextFontWeight),
-              fontStyle: map-get($configuration, agendaDetailTextItalic),
-              fontDecoration: map-get($configuration, agendaDetailTextUnderline)
-            ));
+            @include fontOnly(
+              (
+                fontFamily: map-get($configuration, agendaDetailTextFontFamily),
+                fontSize: map-get($configuration, agendaDetailTextFontSize),
+                fontLineHeight: map-get($configuration, agendaDetailTextLineHeight),
+                fontWeight: map-get($configuration, agendaDetailTextFontWeight),
+                fontStyle: map-get($configuration, agendaDetailTextItalic),
+                fontDecoration: map-get($configuration, agendaDetailTextUnderline)
+              )
+            );
 
             margin-top: map-get($configuration, agendaDetailTextMarginTop);
             margin-bottom: map-get($configuration, agendaDetailTextMarginBottom);
@@ -413,14 +421,16 @@
 
           .agenda-item-session-location {
             .agenda-item-start-date-time {
-              @include fontOnly((
-                fontFamily: map-get($configuration, agendaDetailSecondDescriptionFontFamily),
-                fontSize: map-get($configuration, agendaDetailSecondDescriptionFontSize),
-                fontLineHeight: map-get($configuration, agendaDetailSecondDescriptionLineHeight),
-                fontWeight: map-get($configuration, agendaDetailSecondDescriptionFontWeight),
-                fontStyle: map-get($configuration, agendaDetailSecondDescriptionItalic),
-                fontDecoration: map-get($configuration, agendaDetailSecondDescriptionUnderline)
-              ));
+              @include fontOnly(
+                (
+                  fontFamily: map-get($configuration, agendaDetailSecondDescriptionFontFamily),
+                  fontSize: map-get($configuration, agendaDetailSecondDescriptionFontSize),
+                  fontLineHeight: map-get($configuration, agendaDetailSecondDescriptionLineHeight),
+                  fontWeight: map-get($configuration, agendaDetailSecondDescriptionFontWeight),
+                  fontStyle: map-get($configuration, agendaDetailSecondDescriptionItalic),
+                  fontDecoration: map-get($configuration, agendaDetailSecondDescriptionUnderline)
+                )
+              );
 
               margin-top: map-get($configuration, agendaDetailSecondDescriptionMarginTop);
               margin-bottom: map-get($configuration, agendaDetailSecondDescriptionMarginBottom);
@@ -428,14 +438,16 @@
             }
 
             .agenda-item-location {
-              @include fontOnly((
-                fontFamily: map-get($configuration, agendaDetailDescriptionFontFamily),
-                fontSize: map-get($configuration, agendaDetailDescriptionFontSize),
-                fontLineHeight: map-get($configuration, agendaDetailDescriptionLineHeight),
-                fontWeight: map-get($configuration, agendaDetailDescriptionFontWeight),
-                fontStyle: map-get($configuration, agendaDetailDescriptionItalic),
-                fontDecoration: map-get($configuration, agendaDetailDescriptionUnderline)
-              ));
+              @include fontOnly(
+                (
+                  fontFamily: map-get($configuration, agendaDetailDescriptionFontFamily),
+                  fontSize: map-get($configuration, agendaDetailDescriptionFontSize),
+                  fontLineHeight: map-get($configuration, agendaDetailDescriptionLineHeight),
+                  fontWeight: map-get($configuration, agendaDetailDescriptionFontWeight),
+                  fontStyle: map-get($configuration, agendaDetailDescriptionItalic),
+                  fontDecoration: map-get($configuration, agendaDetailDescriptionUnderline)
+                )
+              );
 
               margin-top: map-get($configuration, agendaDetailDescriptionMarginTop);
               margin-bottom: map-get($configuration, agendaDetailDescriptionMarginBottom);
@@ -444,14 +456,16 @@
           }
 
           h2.agenda-item-title {
-            @include fontOnly((
-              fontFamily: map-get($configuration, agendaDetailTitleFontFamily),
-              fontSize: map-get($configuration, agendaDetailTitleFontSize),
-              fontLineHeight: map-get($configuration, agendaDetailTitleLineHeight),
-              fontWeight: map-get($configuration, agendaDetailTitleFontWeight),
-              fontStyle: map-get($configuration, agendaDetailTitleItalic),
-              fontDecoration: map-get($configuration, agendaDetailTitleUnderline)
-            ));
+            @include fontOnly(
+              (
+                fontFamily: map-get($configuration, agendaDetailTitleFontFamily),
+                fontSize: map-get($configuration, agendaDetailTitleFontSize),
+                fontLineHeight: map-get($configuration, agendaDetailTitleLineHeight),
+                fontWeight: map-get($configuration, agendaDetailTitleFontWeight),
+                fontStyle: map-get($configuration, agendaDetailTitleItalic),
+                fontDecoration: map-get($configuration, agendaDetailTitleUnderline)
+              )
+            );
 
             color: map-get($configuration, agendaDetailTitleFontColor);
 
@@ -479,14 +493,16 @@
 
           .agenda-item-content-holder {
             .agenda-item-description .agenda-item-detail-body-text > p {
-              @include fontOnly((
-                fontFamily: map-get($configuration, agendaDetailTextFontFamilyTablet),
-                fontSize: map-get($configuration, agendaDetailTextFontSizeTablet),
-                fontLineHeight: map-get($configuration, agendaDetailTextLineHeightTablet),
-                fontWeight: map-get($configuration, agendaDetailTextFontWeightTablet),
-                fontStyle: map-get($configuration, agendaDetailTextItalicTablet),
-                fontDecoration: map-get($configuration, agendaDetailTextUnderlineTablet)
-              ));
+              @include fontOnly(
+                (
+                  fontFamily: map-get($configuration, agendaDetailTextFontFamilyTablet),
+                  fontSize: map-get($configuration, agendaDetailTextFontSizeTablet),
+                  fontLineHeight: map-get($configuration, agendaDetailTextLineHeightTablet),
+                  fontWeight: map-get($configuration, agendaDetailTextFontWeightTablet),
+                  fontStyle: map-get($configuration, agendaDetailTextItalicTablet),
+                  fontDecoration: map-get($configuration, agendaDetailTextUnderlineTablet)
+                )
+              );
 
               margin-top: map-get($configuration, agendaDetailTextMarginTopTablet);
               margin-bottom: map-get($configuration, agendaDetailTextMarginBottomTablet);
@@ -495,29 +511,40 @@
 
             .agenda-item-session-location {
               .agenda-item-start-date-time {
-                @include fontOnly((
-                  fontFamily: map-get($configuration, agendaDetailSecondDescriptionFontFamilyTablet),
-                  fontSize: map-get($configuration, agendaDetailSecondDescriptionFontSizeTablet),
-                  fontLineHeight: map-get($configuration, agendaDetailSecondDescriptionLineHeightTablet),
-                  fontWeight: map-get($configuration, agendaDetailSecondDescriptionFontWeightTablet),
-                  fontStyle: map-get($configuration, agendaDetailSecondDescriptionItalicTablet),
-                  fontDecoration: map-get($configuration, agendaDetailSecondDescriptionUnderlineTablet)
-                ));
+                @include fontOnly(
+                  (
+                    fontFamily:
+                      map-get($configuration, agendaDetailSecondDescriptionFontFamilyTablet),
+                    fontSize: map-get($configuration, agendaDetailSecondDescriptionFontSizeTablet),
+                    fontLineHeight:
+                      map-get($configuration, agendaDetailSecondDescriptionLineHeightTablet),
+                    fontWeight:
+                      map-get($configuration, agendaDetailSecondDescriptionFontWeightTablet),
+                    fontStyle: map-get($configuration, agendaDetailSecondDescriptionItalicTablet),
+                    fontDecoration:
+                      map-get($configuration, agendaDetailSecondDescriptionUnderlineTablet)
+                  )
+                );
 
                 margin-top: map-get($configuration, agendaDetailSecondDescriptionMarginTopTablet);
-                margin-bottom: map-get($configuration, agendaDetailSecondDescriptionMarginBottomTablet);
+                margin-bottom: map-get(
+                  $configuration,
+                  agendaDetailSecondDescriptionMarginBottomTablet
+                );
                 color: map-get($configuration, agendaDetailSecondDescriptionFontColorTablet);
               }
 
               .agenda-item-location {
-                @include fontOnly((
-                  fontFamily: map-get($configuration, agendaDetailDescriptionFontFamilyTablet),
-                  fontSize: map-get($configuration, agendaDetailDescriptionFontSizeTablet),
-                  fontLineHeight: map-get($configuration, agendaDetailDescriptionLineHeightTablet),
-                  fontWeight: map-get($configuration, agendaDetailDescriptionFontWeightTablet),
-                  fontStyle: map-get($configuration, agendaDetailDescriptionItalicTablet),
-                  fontDecoration: map-get($configuration, agendaDetailDescriptionUnderlineTablet)
-                ));
+                @include fontOnly(
+                  (
+                    fontFamily: map-get($configuration, agendaDetailDescriptionFontFamilyTablet),
+                    fontSize: map-get($configuration, agendaDetailDescriptionFontSizeTablet),
+                    fontLineHeight: map-get($configuration, agendaDetailDescriptionLineHeightTablet),
+                    fontWeight: map-get($configuration, agendaDetailDescriptionFontWeightTablet),
+                    fontStyle: map-get($configuration, agendaDetailDescriptionItalicTablet),
+                    fontDecoration: map-get($configuration, agendaDetailDescriptionUnderlineTablet)
+                  )
+                );
 
                 margin-top: map-get($configuration, agendaDetailDescriptionMarginTopTablet);
                 margin-bottom: map-get($configuration, agendaDetailDescriptionMarginBottomTablet);
@@ -526,19 +553,24 @@
             }
 
             h2.agenda-item-title {
-              @include fontOnly((
-                fontFamily: map-get($configuration, agendaDetailTitleFontFamilyTablet),
-                fontSize: map-get($configuration, agendaDetailTitleFontSizeTablet),
-                fontLineHeight: map-get($configuration, agendaDetailTitleLineHeightTablet),
-                fontWeight: map-get($configuration, agendaDetailTitleFontWeightTablet),
-                fontStyle: map-get($configuration, agendaDetailTitleItalicTablet),
-                fontDecoration: map-get($configuration, agendaDetailTitleUnderlineTablet)
-              ));
+              @include fontOnly(
+                (
+                  fontFamily: map-get($configuration, agendaDetailTitleFontFamilyTablet),
+                  fontSize: map-get($configuration, agendaDetailTitleFontSizeTablet),
+                  fontLineHeight: map-get($configuration, agendaDetailTitleLineHeightTablet),
+                  fontWeight: map-get($configuration, agendaDetailTitleFontWeightTablet),
+                  fontStyle: map-get($configuration, agendaDetailTitleItalicTablet),
+                  fontDecoration: map-get($configuration, agendaDetailTitleUnderlineTablet)
+                )
+              );
 
               color: map-get($configuration, agendaDetailTitleFontColorTablet);
 
               &:after {
-                background-color: map-get($configuration, agendaListDetailOverlayLineUnderTitleColorTablet);
+                background-color: map-get(
+                  $configuration,
+                  agendaListDetailOverlayLineUnderTitleColorTablet
+                );
               }
             }
           }
@@ -562,14 +594,16 @@
 
           .agenda-item-content-holder {
             .agenda-item-description .agenda-item-detail-body-text > p {
-              @include fontOnly((
-                fontFamily: map-get($configuration, agendaDetailTextFontFamilyDesktop),
-                fontSize: map-get($configuration, agendaDetailTextFontSizeDesktop),
-                fontLineHeight: map-get($configuration, agendaDetailTextLineHeightDesktop),
-                fontWeight: map-get($configuration, agendaDetailTextFontWeightDesktop),
-                fontStyle: map-get($configuration, agendaDetailTextItalicDesktop),
-                fontDecoration: map-get($configuration, agendaDetailTextUnderlineDesktop)
-              ));
+              @include fontOnly(
+                (
+                  fontFamily: map-get($configuration, agendaDetailTextFontFamilyDesktop),
+                  fontSize: map-get($configuration, agendaDetailTextFontSizeDesktop),
+                  fontLineHeight: map-get($configuration, agendaDetailTextLineHeightDesktop),
+                  fontWeight: map-get($configuration, agendaDetailTextFontWeightDesktop),
+                  fontStyle: map-get($configuration, agendaDetailTextItalicDesktop),
+                  fontDecoration: map-get($configuration, agendaDetailTextUnderlineDesktop)
+                )
+              );
 
               margin-top: map-get($configuration, agendaDetailTextMarginTopDesktop);
               margin-bottom: map-get($configuration, agendaDetailTextMarginBottomDesktop);
@@ -578,29 +612,41 @@
 
             .agenda-item-session-location {
               .agenda-item-start-date-time {
-                @include fontOnly((
-                  fontFamily: map-get($configuration, agendaDetailSecondDescriptionFontFamilyDesktop),
-                  fontSize: map-get($configuration, agendaDetailSecondDescriptionFontSizeDesktop),
-                  fontLineHeight: map-get($configuration, agendaDetailSecondDescriptionLineHeightDesktop),
-                  fontWeight: map-get($configuration, agendaDetailSecondDescriptionFontWeightDesktop),
-                  fontStyle: map-get($configuration, agendaDetailSecondDescriptionItalicDesktop),
-                  fontDecoration: map-get($configuration, agendaDetailSecondDescriptionUnderlineDesktop)
-                ));
+                @include fontOnly(
+                  (
+                    fontFamily:
+                      map-get($configuration, agendaDetailSecondDescriptionFontFamilyDesktop),
+                    fontSize: map-get($configuration, agendaDetailSecondDescriptionFontSizeDesktop),
+                    fontLineHeight:
+                      map-get($configuration, agendaDetailSecondDescriptionLineHeightDesktop),
+                    fontWeight:
+                      map-get($configuration, agendaDetailSecondDescriptionFontWeightDesktop),
+                    fontStyle: map-get($configuration, agendaDetailSecondDescriptionItalicDesktop),
+                    fontDecoration:
+                      map-get($configuration, agendaDetailSecondDescriptionUnderlineDesktop)
+                  )
+                );
 
                 margin-top: map-get($configuration, agendaDetailSecondDescriptionMarginTopDesktop);
-                margin-bottom: map-get($configuration, agendaDetailSecondDescriptionMarginBottomDesktop);
+                margin-bottom: map-get(
+                  $configuration,
+                  agendaDetailSecondDescriptionMarginBottomDesktop
+                );
                 color: map-get($configuration, agendaDetailSecondDescriptionFontColorDesktop);
               }
 
               .agenda-item-location {
-                @include fontOnly((
-                  fontFamily: map-get($configuration, agendaDetailDescriptionFontFamilyDesktop),
-                  fontSize: map-get($configuration, agendaDetailDescriptionFontSizeDesktop),
-                  fontLineHeight: map-get($configuration, agendaDetailDescriptionLineHeightDesktop),
-                  fontWeight: map-get($configuration, agendaDetailDescriptionFontWeightDesktop),
-                  fontStyle: map-get($configuration, agendaDetailDescriptionItalicDesktop),
-                  fontDecoration: map-get($configuration, agendaDetailDescriptionUnderlineDesktop)
-                ));
+                @include fontOnly(
+                  (
+                    fontFamily: map-get($configuration, agendaDetailDescriptionFontFamilyDesktop),
+                    fontSize: map-get($configuration, agendaDetailDescriptionFontSizeDesktop),
+                    fontLineHeight:
+                      map-get($configuration, agendaDetailDescriptionLineHeightDesktop),
+                    fontWeight: map-get($configuration, agendaDetailDescriptionFontWeightDesktop),
+                    fontStyle: map-get($configuration, agendaDetailDescriptionItalicDesktop),
+                    fontDecoration: map-get($configuration, agendaDetailDescriptionUnderlineDesktop)
+                  )
+                );
 
                 margin-top: map-get($configuration, agendaDetailDescriptionMarginTopDesktop);
                 margin-bottom: map-get($configuration, agendaDetailDescriptionMarginBottomDesktop);
@@ -609,19 +655,24 @@
             }
 
             h2.agenda-item-title {
-              @include fontOnly((
-                fontFamily: map-get($configuration, agendaDetailTitleFontFamilyDesktop),
-                fontSize: map-get($configuration, agendaDetailTitleFontSizeDesktop),
-                fontLineHeight: map-get($configuration, agendaDetailTitleLineHeightDesktop),
-                fontWeight: map-get($configuration, agendaDetailTitleFontWeightDesktop),
-                fontStyle: map-get($configuration, agendaDetailTitleItalicDesktop),
-                fontDecoration: map-get($configuration, agendaDetailTitleUnderlineDesktop)
-              ));
+              @include fontOnly(
+                (
+                  fontFamily: map-get($configuration, agendaDetailTitleFontFamilyDesktop),
+                  fontSize: map-get($configuration, agendaDetailTitleFontSizeDesktop),
+                  fontLineHeight: map-get($configuration, agendaDetailTitleLineHeightDesktop),
+                  fontWeight: map-get($configuration, agendaDetailTitleFontWeightDesktop),
+                  fontStyle: map-get($configuration, agendaDetailTitleItalicDesktop),
+                  fontDecoration: map-get($configuration, agendaDetailTitleUnderlineDesktop)
+                )
+              );
 
               color: map-get($configuration, agendaDetailTitleFontColorDesktop);
 
               &:after {
-                background-color: map-get($configuration, agendaListDetailOverlayLineUnderTitleColorDesktop);
+                background-color: map-get(
+                  $configuration,
+                  agendaListDetailOverlayLineUnderTitleColorDesktop
+                );
               }
             }
 
@@ -759,7 +810,7 @@
           }
 
           li.active {
-            color:rgba(map-get($configuration, lfdAgendaTopTextActiveColor), 0.5) ;
+            color: rgba(map-get($configuration, lfdAgendaTopTextActiveColor), 0.5);
           }
 
           li.active .day {
@@ -769,49 +820,57 @@
       }
 
       .agenda-list-card-holder .agenda-list-item {
-        @include borderOnly((
-          borderSides: map-get($configuration, agendaListItemBorderSides),
-          borderWidth: map-get($configuration, agendaListItemBorderWidth),
-          borderStyle: map-get($configuration, agendaListItemBorderStyle),
-          borderColor: map-get($configuration, agendaListItemBorder)
-        ));
+        @include borderOnly(
+          (
+            borderSides: map-get($configuration, agendaListItemBorderSides),
+            borderWidth: map-get($configuration, agendaListItemBorderWidth),
+            borderStyle: map-get($configuration, agendaListItemBorderStyle),
+            borderColor: map-get($configuration, agendaListItemBorder)
+          )
+        );
         border-radius: map-get($configuration, agendaListItemBorderRadius);
 
-        @include shadowOnly((
-          shadowStyle: map-get($configuration, agendaListItemShadowStyle),
-          shadowXOffset: map-get($configuration, agendaListItemShadowXoffset),
-          shadowYOffset: map-get($configuration, agendaListItemShadowYoffset),
-          shadowBlur: map-get($configuration, agendaListItemShadowBlur),
-          shadowSpread: map-get($configuration, agendaListItemShadowSpread),
-          shadowColor: map-get($configuration, agendaListItemShadowColor)
-        ));
+        @include shadowOnly(
+          (
+            shadowStyle: map-get($configuration, agendaListItemShadowStyle),
+            shadowXOffset: map-get($configuration, agendaListItemShadowXoffset),
+            shadowYOffset: map-get($configuration, agendaListItemShadowYoffset),
+            shadowBlur: map-get($configuration, agendaListItemShadowBlur),
+            shadowSpread: map-get($configuration, agendaListItemShadowSpread),
+            shadowColor: map-get($configuration, agendaListItemShadowColor)
+          )
+        );
 
         .slide-over {
           .agenda-item-inner-content {
             background-color: map-get($configuration, agendaListItemBackground);
 
             .agenda-item-time:not(.line) {
-              @include fontOnly((
-                fontFamily: map-get($configuration, agendaItemTimeFontFamily),
-                fontSize: map-get($configuration, agendaItemTimeFontSize),
-                fontLineHeight: map-get($configuration, agendaItemTimeLineHeight),
-                fontWeight: map-get($configuration, agendaItemTimeFontWeight),
-                fontStyle: map-get($configuration, agendaItemTimeItalic),
-                fontDecoration: map-get($configuration, agendaItemTimeUnderline)
-              ));
+              @include fontOnly(
+                (
+                  fontFamily: map-get($configuration, agendaItemTimeFontFamily),
+                  fontSize: map-get($configuration, agendaItemTimeFontSize),
+                  fontLineHeight: map-get($configuration, agendaItemTimeLineHeight),
+                  fontWeight: map-get($configuration, agendaItemTimeFontWeight),
+                  fontStyle: map-get($configuration, agendaItemTimeItalic),
+                  fontDecoration: map-get($configuration, agendaItemTimeUnderline)
+                )
+              );
 
               color: map-get($configuration, agendaItemTimeFontColor);
             }
 
             .agenda-item-session-location .agenda-item-location {
-              @include fontOnly((
-                fontFamily: map-get($configuration, agendaDescriptionFontFamily),
-                fontSize: map-get($configuration, agendaDescriptionFontSize),
-                fontLineHeight: map-get($configuration, agendaDescriptionLineHeight),
-                fontWeight: map-get($configuration, agendaDescriptionFontWeight),
-                fontStyle: map-get($configuration, agendaDescriptionItalic),
-                fontDecoration: map-get($configuration, agendaDescriptionUnderline)
-              ));
+              @include fontOnly(
+                (
+                  fontFamily: map-get($configuration, agendaDescriptionFontFamily),
+                  fontSize: map-get($configuration, agendaDescriptionFontSize),
+                  fontLineHeight: map-get($configuration, agendaDescriptionLineHeight),
+                  fontWeight: map-get($configuration, agendaDescriptionFontWeight),
+                  fontStyle: map-get($configuration, agendaDescriptionItalic),
+                  fontDecoration: map-get($configuration, agendaDescriptionUnderline)
+                )
+              );
 
               margin-top: map-get($configuration, agendaDescriptionMarginTop);
               margin-bottom: map-get($configuration, agendaDescriptionMarginBottom);
@@ -819,14 +878,16 @@
             }
 
             h2.agenda-item-title {
-              @include fontOnly((
-                fontFamily: map-get($configuration, agendaTitleFontFamily),
-                fontSize: map-get($configuration, agendaTitleFontSize),
-                fontLineHeight: map-get($configuration, agendaTitleLineHeight),
-                fontWeight: map-get($configuration, agendaTitleFontWeight),
-                fontStyle: map-get($configuration, agendaTitleItalic),
-                fontDecoration: map-get($configuration, agendaTitleUnderline)
-              ));
+              @include fontOnly(
+                (
+                  fontFamily: map-get($configuration, agendaTitleFontFamily),
+                  fontSize: map-get($configuration, agendaTitleFontSize),
+                  fontLineHeight: map-get($configuration, agendaTitleLineHeight),
+                  fontWeight: map-get($configuration, agendaTitleFontWeight),
+                  fontStyle: map-get($configuration, agendaTitleItalic),
+                  fontDecoration: map-get($configuration, agendaTitleUnderline)
+                )
+              );
 
               margin-top: map-get($configuration, agendaTitleMarginTop);
               margin-bottom: map-get($configuration, agendaTitleMarginBottom);
@@ -877,11 +938,13 @@
       .section-top-wrapper {
         max-width: map-get($configuration, agendaMaxWidth);
 
-        .fa-sliders, .list-search-cancel .fa-times {
+        .fa-sliders,
+        .list-search-cancel .fa-times {
           color: map-get($configuration, agendaFilterIconColor) !important;
         }
 
-        &.active .fa-sliders, .list-search-cancel .fa-times {
+        &.active .fa-sliders,
+        .list-search-cancel .fa-times {
           color: map-get($configuration, agendaFilterIconActiveColor) !important;
         }
 
@@ -912,11 +975,11 @@
               color: rgba(map-get($configuration, agendaSearchFieldTextColor), 0.8);
               opacity: 1;
             }
-            
+
             &:-ms-input-placeholder {
               color: rgba(map-get($configuration, agendaSearchFieldTextColor), 0.8);
             }
-            
+
             &::-ms-input-placeholder {
               color: rgba(map-get($configuration, agendaSearchFieldTextColor), 0.8);
             }
@@ -1024,7 +1087,7 @@
             }
 
             li.active {
-              color: rgba(map-get($configuration, lfdAgendaTopTextActiveColorTablet), 0.5) ;
+              color: rgba(map-get($configuration, lfdAgendaTopTextActiveColorTablet), 0.5);
             }
 
             li.active .day {
@@ -1034,49 +1097,57 @@
         }
 
         .agenda-list-item {
-          @include borderOnly((
-            borderSides: map-get($configuration, agendaListItemBorderSidesTablet),
-            borderWidth: map-get($configuration, agendaListItemBorderWidthTablet),
-            borderStyle: map-get($configuration, agendaListItemBorderStyleTablet),
-            borderColor: map-get($configuration, agendaListItemBorderTablet)
-          ));
+          @include borderOnly(
+            (
+              borderSides: map-get($configuration, agendaListItemBorderSidesTablet),
+              borderWidth: map-get($configuration, agendaListItemBorderWidthTablet),
+              borderStyle: map-get($configuration, agendaListItemBorderStyleTablet),
+              borderColor: map-get($configuration, agendaListItemBorderTablet)
+            )
+          );
           border-radius: map-get($configuration, agendaListItemBorderRadiusTablet);
 
-          @include shadowOnly((
-            shadowStyle: map-get($configuration, agendaListItemShadowStyleTablet),
-            shadowXOffset: map-get($configuration, agendaListItemShadowXoffsetTablet),
-            shadowYOffset: map-get($configuration, agendaListItemShadowYoffsetTablet),
-            shadowBlur: map-get($configuration, agendaListItemShadowBlurTablet),
-            shadowSpread: map-get($configuration, agendaListItemShadowSpreadTablet),
-            shadowColor: map-get($configuration, agendaListItemShadowColorTablet)
-          ));
+          @include shadowOnly(
+            (
+              shadowStyle: map-get($configuration, agendaListItemShadowStyleTablet),
+              shadowXOffset: map-get($configuration, agendaListItemShadowXoffsetTablet),
+              shadowYOffset: map-get($configuration, agendaListItemShadowYoffsetTablet),
+              shadowBlur: map-get($configuration, agendaListItemShadowBlurTablet),
+              shadowSpread: map-get($configuration, agendaListItemShadowSpreadTablet),
+              shadowColor: map-get($configuration, agendaListItemShadowColorTablet)
+            )
+          );
 
           .slide-over {
             .agenda-item-inner-content {
               background-color: map-get($configuration, agendaListItemBackgroundTablet);
 
               .agenda-item-time:not(.line) {
-                @include fontOnly((
-                  fontFamily: map-get($configuration, agendaItemTimeFontFamilyTablet),
-                  fontSize: map-get($configuration, agendaItemTimeFontSizeTablet),
-                  fontLineHeight: map-get($configuration, agendaItemTimeLineHeightTablet),
-                  fontWeight: map-get($configuration, agendaItemTimeFontWeightTablet),
-                  fontStyle: map-get($configuration, agendaItemTimeItalicTablet),
-                  fontDecoration: map-get($configuration, agendaItemTimeUnderlineTablet)
-                ));
+                @include fontOnly(
+                  (
+                    fontFamily: map-get($configuration, agendaItemTimeFontFamilyTablet),
+                    fontSize: map-get($configuration, agendaItemTimeFontSizeTablet),
+                    fontLineHeight: map-get($configuration, agendaItemTimeLineHeightTablet),
+                    fontWeight: map-get($configuration, agendaItemTimeFontWeightTablet),
+                    fontStyle: map-get($configuration, agendaItemTimeItalicTablet),
+                    fontDecoration: map-get($configuration, agendaItemTimeUnderlineTablet)
+                  )
+                );
 
                 color: map-get($configuration, agendaItemTimeFontColorTablet);
               }
 
               .agenda-item-session-location .agenda-item-location {
-                @include fontOnly((
-                  fontFamily: map-get($configuration, agendaDescriptionFontFamilyTablet),
-                  fontSize: map-get($configuration, agendaDescriptionFontSizeTablet),
-                  fontLineHeight: map-get($configuration, agendaDescriptionLineHeightTablet),
-                  fontWeight: map-get($configuration, agendaDescriptionFontWeightTablet),
-                  fontStyle: map-get($configuration, agendaDescriptionItalicTablet),
-                  fontDecoration: map-get($configuration, agendaDescriptionUnderlineTablet)
-                ));
+                @include fontOnly(
+                  (
+                    fontFamily: map-get($configuration, agendaDescriptionFontFamilyTablet),
+                    fontSize: map-get($configuration, agendaDescriptionFontSizeTablet),
+                    fontLineHeight: map-get($configuration, agendaDescriptionLineHeightTablet),
+                    fontWeight: map-get($configuration, agendaDescriptionFontWeightTablet),
+                    fontStyle: map-get($configuration, agendaDescriptionItalicTablet),
+                    fontDecoration: map-get($configuration, agendaDescriptionUnderlineTablet)
+                  )
+                );
 
                 margin-top: map-get($configuration, agendaDescriptionMarginTopTablet);
                 margin-bottom: map-get($configuration, agendaDescriptionMarginBottomTablet);
@@ -1084,14 +1155,16 @@
               }
 
               h2.agenda-item-title {
-                @include fontOnly((
-                  fontFamily: map-get($configuration, agendaTitleFontFamilyTablet),
-                  fontSize: map-get($configuration, agendaTitleFontSizeTablet),
-                  fontLineHeight: map-get($configuration, agendaTitleLineHeightTablet),
-                  fontWeight: map-get($configuration, agendaTitleFontWeightTablet),
-                  fontStyle: map-get($configuration, agendaTitleItalicTablet),
-                  fontDecoration: map-get($configuration, agendaTitleUnderlineTablet)
-                ));
+                @include fontOnly(
+                  (
+                    fontFamily: map-get($configuration, agendaTitleFontFamilyTablet),
+                    fontSize: map-get($configuration, agendaTitleFontSizeTablet),
+                    fontLineHeight: map-get($configuration, agendaTitleLineHeightTablet),
+                    fontWeight: map-get($configuration, agendaTitleFontWeightTablet),
+                    fontStyle: map-get($configuration, agendaTitleItalicTablet),
+                    fontDecoration: map-get($configuration, agendaTitleUnderlineTablet)
+                  )
+                );
 
                 margin-top: map-get($configuration, agendaTitleMarginTopTablet);
                 margin-bottom: map-get($configuration, agendaTitleMarginBottomTablet);
@@ -1118,7 +1191,7 @@
         }
 
         .agenda-list-controls {
-            background-color: map-get($configuration, lfdAgendaDatesBackgroundColorTablet);
+          background-color: map-get($configuration, lfdAgendaDatesBackgroundColorTablet);
 
           .toggle-agenda {
             .fa.fa-bookmark-o {
@@ -1142,11 +1215,13 @@
         .section-top-wrapper {
           max-width: map-get($configuration, agendaMaxWidthTablet);
 
-          .fa-sliders, .list-search-cancel .fa-times {
+          .fa-sliders,
+          .list-search-cancel .fa-times {
             color: map-get($configuration, agendaFilterIconColorTablet) !important;
           }
 
-          &.active .fa-sliders, .list-search-cancel .fa-times {
+          &.active .fa-sliders,
+          .list-search-cancel .fa-times {
             color: map-get($configuration, agendaFilterIconActiveColorTablet) !important;
           }
 
@@ -1169,21 +1244,22 @@
               }
             }
 
-            
-  
             .search-feed {
-              background-color: rgba(map-get($configuration, agendaSearchFieldBackgroundColorTablet), 1);
+              background-color: rgba(
+                map-get($configuration, agendaSearchFieldBackgroundColorTablet),
+                1
+              );
               color: map-get($configuration, agendaSearchFieldTextColorTablet);
 
               &::placeholder {
                 color: rgba(map-get($configuration, agendaSearchFieldTextColorTablet), 0.8);
                 opacity: 1;
               }
-              
+
               &:-ms-input-placeholder {
                 color: rgba(map-get($configuration, agendaSearchFieldTextColorTablet), 0.8);
               }
-              
+
               &::-ms-input-placeholder {
                 color: rgba(map-get($configuration, agendaSearchFieldTextColorTablet), 0.8);
               }
@@ -1195,7 +1271,10 @@
 
             .btn.search-btn {
               color: map-get($configuration, agendaSearchFieldTextColorTablet);
-              background-color: rgba(map-get($configuration, agendaSearchFieldTextColorTablet), 0.1);
+              background-color: rgba(
+                map-get($configuration, agendaSearchFieldTextColorTablet),
+                0.1
+              );
             }
           }
         }
@@ -1296,7 +1375,7 @@
             }
 
             li.active {
-              color: rgba(map-get($configuration, lfdAgendaTopTextActiveColorDesktop), 0.5) ;
+              color: rgba(map-get($configuration, lfdAgendaTopTextActiveColorDesktop), 0.5);
             }
 
             li.active .day {
@@ -1306,49 +1385,57 @@
         }
 
         .agenda-list-item {
-          @include borderOnly((
-            borderSides: map-get($configuration, agendaListItemBorderSidesDesktop),
-            borderWidth: map-get($configuration, agendaListItemBorderWidthDesktop),
-            borderStyle: map-get($configuration, agendaListItemBorderStyleDesktop),
-            borderColor: map-get($configuration, agendaListItemBorderDesktop)
-          ));
+          @include borderOnly(
+            (
+              borderSides: map-get($configuration, agendaListItemBorderSidesDesktop),
+              borderWidth: map-get($configuration, agendaListItemBorderWidthDesktop),
+              borderStyle: map-get($configuration, agendaListItemBorderStyleDesktop),
+              borderColor: map-get($configuration, agendaListItemBorderDesktop)
+            )
+          );
           border-radius: map-get($configuration, agendaListItemBorderRadiusDesktop);
 
-          @include shadowOnly((
-            shadowStyle: map-get($configuration, agendaListItemShadowStyleDesktop),
-            shadowXOffset: map-get($configuration, agendaListItemShadowXoffsetDesktop),
-            shadowYOffset: map-get($configuration, agendaListItemShadowYoffsetDesktop),
-            shadowBlur: map-get($configuration, agendaListItemShadowBlurDesktop),
-            shadowSpread: map-get($configuration, agendaListItemShadowSpreadDesktop),
-            shadowColor: map-get($configuration, agendaListItemShadowColorDesktop)
-          ));
+          @include shadowOnly(
+            (
+              shadowStyle: map-get($configuration, agendaListItemShadowStyleDesktop),
+              shadowXOffset: map-get($configuration, agendaListItemShadowXoffsetDesktop),
+              shadowYOffset: map-get($configuration, agendaListItemShadowYoffsetDesktop),
+              shadowBlur: map-get($configuration, agendaListItemShadowBlurDesktop),
+              shadowSpread: map-get($configuration, agendaListItemShadowSpreadDesktop),
+              shadowColor: map-get($configuration, agendaListItemShadowColorDesktop)
+            )
+          );
 
           .slide-over {
             .agenda-item-inner-content {
               background-color: map-get($configuration, agendaListItemBackgroundDesktop);
 
               .agenda-item-time:not(.line) {
-                @include fontOnly((
-                  fontFamily: map-get($configuration, agendaItemTimeFontFamilyDesktop),
-                  fontSize: map-get($configuration, agendaItemTimeFontSizeDesktop),
-                  fontLineHeight: map-get($configuration, agendaItemTimeLineHeightDesktop),
-                  fontWeight: map-get($configuration, agendaItemTimeFontWeightDesktop),
-                  fontStyle: map-get($configuration, agendaItemTimeItalicDesktop),
-                  fontDecoration: map-get($configuration, agendaItemTimeUnderlineDesktop)
-                ));
+                @include fontOnly(
+                  (
+                    fontFamily: map-get($configuration, agendaItemTimeFontFamilyDesktop),
+                    fontSize: map-get($configuration, agendaItemTimeFontSizeDesktop),
+                    fontLineHeight: map-get($configuration, agendaItemTimeLineHeightDesktop),
+                    fontWeight: map-get($configuration, agendaItemTimeFontWeightDesktop),
+                    fontStyle: map-get($configuration, agendaItemTimeItalicDesktop),
+                    fontDecoration: map-get($configuration, agendaItemTimeUnderlineDesktop)
+                  )
+                );
 
                 color: map-get($configuration, agendaItemTimeFontColorDesktop);
               }
 
               .agenda-item-session-location .agenda-item-location {
-                @include fontOnly((
-                  fontFamily: map-get($configuration, agendaDescriptionFontFamilyDesktop),
-                  fontSize: map-get($configuration, agendaDescriptionFontSizeDesktop),
-                  fontLineHeight: map-get($configuration, agendaDescriptionLineHeightDesktop),
-                  fontWeight: map-get($configuration, agendaDescriptionFontWeightDesktop),
-                  fontStyle: map-get($configuration, agendaDescriptionItalicDesktop),
-                  fontDecoration: map-get($configuration, agendaDescriptionUnderlineDesktop)
-                ));
+                @include fontOnly(
+                  (
+                    fontFamily: map-get($configuration, agendaDescriptionFontFamilyDesktop),
+                    fontSize: map-get($configuration, agendaDescriptionFontSizeDesktop),
+                    fontLineHeight: map-get($configuration, agendaDescriptionLineHeightDesktop),
+                    fontWeight: map-get($configuration, agendaDescriptionFontWeightDesktop),
+                    fontStyle: map-get($configuration, agendaDescriptionItalicDesktop),
+                    fontDecoration: map-get($configuration, agendaDescriptionUnderlineDesktop)
+                  )
+                );
 
                 margin-top: map-get($configuration, agendaDescriptionMarginTopDesktop);
                 margin-bottom: map-get($configuration, agendaDescriptionMarginBottomDesktop);
@@ -1356,14 +1443,16 @@
               }
 
               h2.agenda-item-title {
-                @include fontOnly((
-                  fontFamily: map-get($configuration, agendaTitleFontFamilyDesktop),
-                  fontSize: map-get($configuration, agendaTitleFontSizeDesktop),
-                  fontLineHeight: map-get($configuration, agendaTitleLineHeightDesktop),
-                  fontWeight: map-get($configuration, agendaTitleFontWeightDesktop),
-                  fontStyle: map-get($configuration, agendaTitleItalicDesktop),
-                  fontDecoration: map-get($configuration, agendaTitleUnderlineDesktop)
-                ));
+                @include fontOnly(
+                  (
+                    fontFamily: map-get($configuration, agendaTitleFontFamilyDesktop),
+                    fontSize: map-get($configuration, agendaTitleFontSizeDesktop),
+                    fontLineHeight: map-get($configuration, agendaTitleLineHeightDesktop),
+                    fontWeight: map-get($configuration, agendaTitleFontWeightDesktop),
+                    fontStyle: map-get($configuration, agendaTitleItalicDesktop),
+                    fontDecoration: map-get($configuration, agendaTitleUnderlineDesktop)
+                  )
+                );
 
                 margin-top: map-get($configuration, agendaTitleMarginTopDesktop);
                 margin-bottom: map-get($configuration, agendaTitleMarginBottomDesktop);
@@ -1414,11 +1503,13 @@
         .section-top-wrapper {
           max-width: map-get($configuration, agendaMaxWidthDesktop);
 
-          .fa-sliders, .list-search-cancel .fa-times {
+          .fa-sliders,
+          .list-search-cancel .fa-times {
             color: map-get($configuration, agendaFilterIconColorDesktop) !important;
           }
 
-          &.active .fa-sliders, .list-search-cancel .fa-times {
+          &.active .fa-sliders,
+          .list-search-cancel .fa-times {
             color: map-get($configuration, agendaFilterIconActiveColorDesktop) !important;
           }
 
@@ -1442,18 +1533,21 @@
             }
 
             .search-feed {
-              background-color: rgba(map-get($configuration, agendaSearchFieldBackgroundColorDesktop), 1);
+              background-color: rgba(
+                map-get($configuration, agendaSearchFieldBackgroundColorDesktop),
+                1
+              );
               color: map-get($configuration, agendaSearchFieldTextColorDesktop);
 
               &::placeholder {
                 color: rgba(map-get($configuration, agendaSearchFieldTextColorDesktop), 0.8);
                 opacity: 1;
               }
-              
+
               &:-ms-input-placeholder {
                 color: rgba(map-get($configuration, agendaSearchFieldTextColorDesktop), 0.8);
               }
-              
+
               &::-ms-input-placeholder {
                 color: rgba(map-get($configuration, agendaSearchFieldTextColorDesktop), 0.8);
               }
@@ -1465,7 +1559,10 @@
 
             .btn.search-btn {
               color: map-get($configuration, agendaSearchFieldTextColorDesktop);
-              background-color: rgba(map-get($configuration, agendaSearchFieldTextColorDesktop), 0.1);
+              background-color: rgba(
+                map-get($configuration, agendaSearchFieldTextColorDesktop),
+                0.1
+              );
             }
           }
         }

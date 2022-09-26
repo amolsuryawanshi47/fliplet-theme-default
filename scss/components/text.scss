@@ -1,353 +1,357 @@
-@mixin text($options: (), $widgetInstanceId: '', $widgetInstanceUUID: '') {
-  $configuration: map-merge((
-    textBackgroundImage: $textBackgroundImage,
-    textBackgroundColor: $textBackgroundColor,
-    textBackgroundType: $textBackgroundType,
-    textBackgroundSize: $textBackgroundSize,
-    textBackgroundRepeat: $textBackgroundRepeat,
-    textBackgroundPosX: $textBackgroundPosX,
-    textBackgroundPosY: $textBackgroundPosY,
-    textWidth: $textWidth,
-    textHeight: $textHeight,
-    textMinWidth: $textMinWidth,
-    textMaxWidth: $textMaxWidth,
-    textMinHeight: $textMinHeight,
-    textMaxHeight: $textMaxHeight,
-    textPosition: $textPosition,
-    textDisplay: $textDisplay,
-    textPositionTop: $textPositionTop,
-    textPositionRight: $textPositionRight,
-    textPositionBottom: $textPositionBottom,
-    textPositionLeft: $textPositionLeft,
-    textIndex: $textIndex,
-    textMarginTop: $textMarginTop,
-    textMarginRight: $textMarginRight,
-    textMarginBottom: $textMarginBottom,
-    textMarginLeft: $textMarginLeft,
-    textPaddingTop: $textPaddingTop,
-    textPaddingRight: $textPaddingRight,
-    textPaddingBottom: $textPaddingBottom,
-    textPaddingLeft: $textPaddingLeft,
-    textBorderSides: $textBorderSides,
-    textBorderWidth: $textBorderWidth,
-    textBorderStyle: $textBorderStyle,
-    textBorderColor: $textBorderColor,
-    textBorderRadius: $textBorderRadius,
-    textShadowStyle: $textShadowStyle,
-    textShadowXoffset: $textShadowXoffset,
-    textShadowYoffset: $textShadowYoffset,
-    textShadowBlur: $textShadowBlur,
-    textShadowSpread: $textShadowSpread,
-    textShadowColor: $textShadowColor,
-    paragraphFontFamily: $paragraphFontFamily,
-    paragraphFontSize: $paragraphFontSize,
-    paragraphTextColor: $paragraphTextColor,
-    paragraphFontWeight: $paragraphFontWeight,
-    paragraphFontStyle: $paragraphFontStyle,
-    paragraphFontDecoration: $paragraphFontDecoration,
-    paragraphLineHeight: $paragraphLineHeight,
-    paragraphMarginTop: $paragraphMarginTop,
-    paragraphMarginBottom: $paragraphMarginBottom,
-    textVisibility: $textVisibility,
-    textBackgroundImageTablet: $textBackgroundImageTablet,
-    textBackgroundColorTablet: $textBackgroundColorTablet,
-    textBackgroundTypeTablet: $textBackgroundTypeTablet,
-    textBackgroundSizeTablet: $textBackgroundSizeTablet,
-    textBackgroundRepeatTablet: $textBackgroundRepeatTablet,
-    textBackgroundPosXTablet: $textBackgroundPosXTablet,
-    textBackgroundPosYTablet: $textBackgroundPosYTablet,
-    textWidthTablet: $textWidthTablet,
-    textHeightTablet: $textHeightTablet,
-    textMinWidthTablet: $textMinWidthTablet,
-    textMaxWidthTablet: $textMaxWidthTablet,
-    textMinHeightTablet: $textMinHeightTablet,
-    textMaxHeightTablet: $textMaxHeightTablet,
-    textPositionTablet: $textPositionTablet,
-    textDisplayTablet: $textDisplayTablet,
-    textPositionTopTablet: $textPositionTopTablet,
-    textPositionRightTablet: $textPositionRightTablet,
-    textPositionBottomTablet: $textPositionBottomTablet,
-    textPositionLeftTablet: $textPositionLeftTablet,
-    textIndexTablet: $textIndexTablet,
-    textMarginTopTablet: $textMarginTopTablet,
-    textMarginRightTablet: $textMarginRightTablet,
-    textMarginBottomTablet: $textMarginBottomTablet,
-    textMarginLeftTablet: $textMarginLeftTablet,
-    textPaddingTopTablet: $textPaddingTopTablet,
-    textPaddingRightTablet: $textPaddingRightTablet,
-    textPaddingBottomTablet: $textPaddingBottomTablet,
-    textPaddingLeftTablet: $textPaddingLeftTablet,
-    textBorderSidesTablet: $textBorderSidesTablet,
-    textBorderWidthTablet: $textBorderWidthTablet,
-    textBorderStyleTablet: $textBorderStyleTablet,
-    textBorderColorTablet: $textBorderColorTablet,
-    textBorderRadiusTablet: $textBorderRadiusTablet,
-    textShadowStyleTablet: $textShadowStyleTablet,
-    textShadowXoffsetTablet: $textShadowXoffsetTablet,
-    textShadowYoffsetTablet: $textShadowYoffsetTablet,
-    textShadowBlurTablet: $textShadowBlurTablet,
-    textShadowSpreadTablet: $textShadowSpreadTablet,
-    textShadowColorTablet: $textShadowColorTablet,
-    paragraphFontFamilyTablet: $paragraphFontFamilyTablet,
-    paragraphFontSizeTablet: $paragraphFontSizeTablet,
-    paragraphTextColorTablet: $paragraphTextColorTablet,
-    paragraphFontWeightTablet: $paragraphFontWeightTablet,
-    paragraphFontStyleTablet: $paragraphFontStyleTablet,
-    paragraphFontDecorationTablet: $paragraphFontDecorationTablet,
-    paragraphLineHeightTablet: $paragraphLineHeightTablet,
-    paragraphMarginTopTablet: $paragraphMarginTopTablet,
-    paragraphMarginBottomTablet: $paragraphMarginBottomTablet,
-    textVisibilityTablet: $textVisibilityTablet,
-    textBackgroundImageDesktop: $textBackgroundImageDesktop,
-    textBackgroundColorDesktop: $textBackgroundColorDesktop,
-    textBackgroundTypeDesktop: $textBackgroundTypeDesktop,
-    textBackgroundSizeDesktop: $textBackgroundSizeDesktop,
-    textBackgroundRepeatDesktop: $textBackgroundRepeatDesktop,
-    textBackgroundPosXDesktop: $textBackgroundPosXDesktop,
-    textBackgroundPosYDesktop: $textBackgroundPosYDesktop,
-    textWidthDesktop: $textWidthDesktop,
-    textHeightDesktop: $textHeightDesktop,
-    textMinWidthDesktop: $textMinWidthDesktop,
-    textMaxWidthDesktop: $textMaxWidthDesktop,
-    textMinHeightDesktop: $textMinHeightDesktop,
-    textMaxHeightDesktop: $textMaxHeightDesktop,
-    textPositionDesktop: $textPositionDesktop,
-    textPositionTopDesktop: $textPositionTopDesktop,
-    textDisplayDesktop: $textDisplayDesktop,
-    textPositionRightDesktop: $textPositionRightDesktop,
-    textPositionBottomDesktop: $textPositionBottomDesktop,
-    textPositionLeftDesktop: $textPositionLeftDesktop,
-    textIndexDesktop: $textIndexDesktop,
-    textMarginTopDesktop: $textMarginTopDesktop,
-    textMarginRightDesktop: $textMarginRightDesktop,
-    textMarginBottomDesktop: $textMarginBottomDesktop,
-    textMarginLeftDesktop: $textMarginLeftDesktop,
-    textPaddingTopDesktop: $textPaddingTopDesktop,
-    textPaddingRightDesktop: $textPaddingRightDesktop,
-    textPaddingBottomDesktop: $textPaddingBottomDesktop,
-    textPaddingLeftDesktop: $textPaddingLeftDesktop,
-    textBorderSidesDesktop: $textBorderSidesDesktop,
-    textBorderWidthDesktop: $textBorderWidthDesktop,
-    textBorderStyleDesktop: $textBorderStyleDesktop,
-    textBorderColorDesktop: $textBorderColorDesktop,
-    textBorderRadiusDesktop: $textBorderRadiusDesktop,
-    textShadowStyleDesktop: $textShadowStyleDesktop,
-    textShadowXoffsetDesktop: $textShadowXoffsetDesktop,
-    textShadowYoffsetDesktop: $textShadowYoffsetDesktop,
-    textShadowBlurDesktop: $textShadowBlurDesktop,
-    textShadowSpreadDesktop: $textShadowSpreadDesktop,
-    textShadowColorDesktop: $textShadowColorDesktop,
-    paragraphFontFamilyDesktop: $paragraphFontFamilyDesktop,
-    paragraphFontSizeDesktop: $paragraphFontSizeDesktop,
-    paragraphTextColorDesktop: $paragraphTextColorDesktop,
-    paragraphFontWeightDesktop: $paragraphFontWeightDesktop,
-    paragraphFontStyleDesktop: $paragraphFontStyleDesktop,
-    paragraphFontDecorationDesktop: $paragraphFontDecorationDesktop,
-    paragraphLineHeightDesktop: $paragraphLineHeightDesktop,
-    paragraphMarginTopDesktop: $paragraphMarginTopDesktop,
-    paragraphMarginBottomDesktop: $paragraphMarginBottomDesktop,
-    textVisibilityDesktop: $textVisibilityDesktop,
-    textHeadingOneColor: $textHeadingOneColor,
-    textHeadingOneFontFamily: $textHeadingOneFontFamily,
-    textHeadingOneSize: $textHeadingOneSize,
-    textHeadingOneHeight: $textHeadingOneHeight,
-    textHeadingOneWeight: $textHeadingOneWeight,
-    textHeadingOneStyle: $textHeadingOneStyle,
-    textHeadingOneDecoration: $textHeadingOneDecoration,
-    textHeadingOneMarginTop: $textHeadingOneMarginTop,
-    textHeadingOneMarginBottom: $textHeadingOneMarginBottom,
-    textHeadingOneColorTablet: $textHeadingOneColorTablet,
-    textHeadingOneFontFamilyTablet: $textHeadingOneFontFamilyTablet,
-    textHeadingOneSizeTablet: $textHeadingOneSizeTablet,
-    textHeadingOneHeightTablet: $textHeadingOneHeightTablet,
-    textHeadingOneWeightTablet: $textHeadingOneWeightTablet,
-    textHeadingOneStyleTablet: $textHeadingOneStyleTablet,
-    textHeadingOneDecorationTablet: $textHeadingOneDecorationTablet,
-    textHeadingOneMarginTopTablet: $textHeadingOneMarginTopTablet,
-    textHeadingOneMarginBottomTablet: $textHeadingOneMarginBottomTablet,
-    textHeadingOneColorDesktop: $textHeadingOneColorDesktop,
-    textHeadingOneFontFamilyDesktop: $textHeadingOneFontFamilyDesktop,
-    textHeadingOneSizeDesktop: $textHeadingOneSizeDesktop,
-    textHeadingOneHeightDesktop: $textHeadingOneHeightDesktop,
-    textHeadingOneWeightDesktop: $textHeadingOneWeightDesktop,
-    textHeadingOneStyleDesktop: $textHeadingOneStyleDesktop,
-    textHeadingOneDecorationDesktop: $textHeadingOneDecorationDesktop,
-    textHeadingOneMarginTopDesktop: $textHeadingOneMarginTopDesktop,
-    textHeadingOneMarginBottomDesktop: $textHeadingOneMarginBottomDesktop,
-    textHeadingTwoColor: $textHeadingTwoColor,
-    textHeadingTwoFontFamily: $textHeadingTwoFontFamily,
-    textHeadingTwoSize: $textHeadingTwoSize,
-    textHeadingTwoHeight: $textHeadingTwoHeight,
-    textHeadingTwoWeight: $textHeadingTwoWeight,
-    textHeadingTwoStyle: $textHeadingTwoStyle,
-    textHeadingTwoDecoration: $textHeadingTwoDecoration,
-    textHeadingTwoMarginTop: $textHeadingTwoMarginTop,
-    textHeadingTwoMarginBottom: $textHeadingTwoMarginBottom,
-    textHeadingTwoColorTablet: $textHeadingTwoColorTablet,
-    textHeadingTwoFontFamilyTablet: $textHeadingTwoFontFamilyTablet,
-    textHeadingTwoSizeTablet: $textHeadingTwoSizeTablet,
-    textHeadingTwoHeightTablet: $textHeadingTwoHeightTablet,
-    textHeadingTwoWeightTablet: $textHeadingTwoWeightTablet,
-    textHeadingTwoStyleTablet: $textHeadingTwoStyleTablet,
-    textHeadingTwoDecorationTablet: $textHeadingTwoDecorationTablet,
-    textHeadingTwoMarginTopTablet: $textHeadingTwoMarginTopTablet,
-    textHeadingTwoMarginBottomTablet: $textHeadingTwoMarginBottomTablet,
-    textHeadingTwoColorDesktop: $textHeadingTwoColorDesktop,
-    textHeadingTwoFontFamilyDesktop: $textHeadingTwoFontFamilyDesktop,
-    textHeadingTwoSizeDesktop: $textHeadingTwoSizeDesktop,
-    textHeadingTwoHeightDesktop: $textHeadingTwoHeightDesktop,
-    textHeadingTwoWeightDesktop: $textHeadingTwoWeightDesktop,
-    textHeadingTwoStyleDesktop: $textHeadingTwoStyleDesktop,
-    textHeadingTwoDecorationDesktop: $textHeadingTwoDecorationDesktop,
-    textHeadingTwoMarginTopDesktop: $textHeadingTwoMarginTopDesktop,
-    textHeadingTwoMarginBottomDesktop: $textHeadingTwoMarginBottomDesktop,
-    textHeadingThreeColor: $textHeadingThreeColor,
-    textHeadingThreeFontFamily: $textHeadingThreeFontFamily,
-    textHeadingThreeSize: $textHeadingThreeSize,
-    textHeadingThreeHeight: $textHeadingThreeHeight,
-    textHeadingThreeWeight: $textHeadingThreeWeight,
-    textHeadingThreeStyle: $textHeadingThreeStyle,
-    textHeadingThreeDecoration: $textHeadingThreeDecoration,
-    textHeadingThreeMarginTop: $textHeadingThreeMarginTop,
-    textHeadingThreeMarginBottom: $textHeadingThreeMarginBottom,
-    textHeadingThreeColorTablet: $textHeadingThreeColorTablet,
-    textHeadingThreeFontFamilyTablet: $textHeadingThreeFontFamilyTablet,
-    textHeadingThreeSizeTablet: $textHeadingThreeSizeTablet,
-    textHeadingThreeHeightTablet: $textHeadingThreeHeightTablet,
-    textHeadingThreeWeightTablet: $textHeadingThreeWeightTablet,
-    textHeadingThreeStyleTablet: $textHeadingThreeStyleTablet,
-    textHeadingThreeDecorationTablet: $textHeadingThreeDecorationTablet,
-    textHeadingThreeMarginTopTablet: $textHeadingThreeMarginTopTablet,
-    textHeadingThreeMarginBottomTablet: $textHeadingThreeMarginBottomTablet,
-    textHeadingThreeColorDesktop: $textHeadingThreeColorDesktop,
-    textHeadingThreeFontFamilyDesktop: $textHeadingThreeFontFamilyDesktop,
-    textHeadingThreeSizeDesktop: $textHeadingThreeSizeDesktop,
-    textHeadingThreeHeightDesktop: $textHeadingThreeHeightDesktop,
-    textHeadingThreeWeightDesktop: $textHeadingThreeWeightDesktop,
-    textHeadingThreeStyleDesktop: $textHeadingThreeStyleDesktop,
-    textHeadingThreeDecorationDesktop: $textHeadingThreeDecorationDesktop,
-    textHeadingThreeMarginTopDesktop: $textHeadingThreeMarginTopDesktop,
-    textHeadingThreeMarginBottomDesktop: $textHeadingThreeMarginBottomDesktop,
-    textHeadingFourColor: $textHeadingFourColor,
-    textHeadingFourFontFamily: $textHeadingFourFontFamily,
-    textHeadingFourSize: $textHeadingFourSize,
-    textHeadingFourHeight: $textHeadingFourHeight,
-    textHeadingFourWeight: $textHeadingFourWeight,
-    textHeadingFourStyle: $textHeadingFourStyle,
-    textHeadingFourDecoration: $textHeadingFourDecoration,
-    textHeadingFourMarginTop: $textHeadingFourMarginTop,
-    textHeadingFourMarginBottom: $textHeadingFourMarginBottom,
-    textHeadingFourColorTablet: $textHeadingFourColorTablet,
-    textHeadingFourFontFamilyTablet: $textHeadingFourFontFamilyTablet,
-    textHeadingFourSizeTablet: $textHeadingFourSizeTablet,
-    textHeadingFourHeightTablet: $textHeadingFourHeightTablet,
-    textHeadingFourWeightTablet: $textHeadingFourWeightTablet,
-    textHeadingFourStyleTablet: $textHeadingFourStyleTablet,
-    textHeadingFourDecorationTablet: $textHeadingFourDecorationTablet,
-    textHeadingFourMarginTopTablet: $textHeadingFourMarginTopTablet,
-    textHeadingFourMarginBottomTablet: $textHeadingFourMarginBottomTablet,
-    textHeadingFourColorDesktop: $textHeadingFourColorDesktop,
-    textHeadingFourFontFamilyDesktop: $textHeadingFourFontFamilyDesktop,
-    textHeadingFourSizeDesktop: $textHeadingFourSizeDesktop,
-    textHeadingFourHeightDesktop: $textHeadingFourHeightDesktop,
-    textHeadingFourWeightDesktop: $textHeadingFourWeightDesktop,
-    textHeadingFourStyleDesktop: $textHeadingFourStyleDesktop,
-    textHeadingFourDecorationDesktop: $textHeadingFourDecorationDesktop,
-    textHeadingFourMarginTopDesktop: $textHeadingFourMarginTopDesktop,
-    textHeadingFourMarginBottomDesktop: $textHeadingFourMarginBottomDesktop,
-    textHeadingFiveColor: $textHeadingFiveColor,
-    textHeadingFiveFontFamily: $textHeadingFiveFontFamily,
-    textHeadingFiveSize: $textHeadingFiveSize,
-    textHeadingFiveHeight: $textHeadingFiveHeight,
-    textHeadingFiveWeight: $textHeadingFiveWeight,
-    textHeadingFiveStyle: $textHeadingFiveStyle,
-    textHeadingFiveDecoration: $textHeadingFiveDecoration,
-    textHeadingFiveMarginTop: $textHeadingFiveMarginTop,
-    textHeadingFiveMarginBottom: $textHeadingFiveMarginBottom,
-    textHeadingFiveColorTablet: $textHeadingFiveColorTablet,
-    textHeadingFiveFontFamilyTablet: $textHeadingFiveFontFamilyTablet,
-    textHeadingFiveSizeTablet: $textHeadingFiveSizeTablet,
-    textHeadingFiveHeightTablet: $textHeadingFiveHeightTablet,
-    textHeadingFiveWeightTablet: $textHeadingFiveWeightTablet,
-    textHeadingFiveStyleTablet: $textHeadingFiveStyleTablet,
-    textHeadingFiveDecorationTablet: $textHeadingFiveDecorationTablet,
-    textHeadingFiveMarginTopTablet: $textHeadingFiveMarginTopTablet,
-    textHeadingFiveMarginBottomTablet: $textHeadingFiveMarginBottomTablet,
-    textHeadingFiveColorDesktop: $textHeadingFiveColorDesktop,
-    textHeadingFiveFontFamilyDesktop: $textHeadingFiveFontFamilyDesktop,
-    textHeadingFiveSizeDesktop: $textHeadingFiveSizeDesktop,
-    textHeadingFiveHeightDesktop: $textHeadingFiveHeightDesktop,
-    textHeadingFiveWeightDesktop: $textHeadingFiveWeightDesktop,
-    textHeadingFiveStyleDesktop: $textHeadingFiveStyleDesktop,
-    textHeadingFiveDecorationDesktop: $textHeadingFiveDecorationDesktop,
-    textHeadingFiveMarginTopDesktop: $textHeadingFiveMarginTopDesktop,
-    textHeadingFiveMarginBottomDesktop: $textHeadingFiveMarginBottomDesktop,
-    textHeadingSixColor: $textHeadingSixColor,
-    textHeadingSixFontFamily: $textHeadingSixFontFamily,
-    textHeadingSixSize: $textHeadingSixSize,
-    textHeadingSixHeight: $textHeadingSixHeight,
-    textHeadingSixWeight: $textHeadingSixWeight,
-    textHeadingSixStyle: $textHeadingSixStyle,
-    textHeadingSixDecoration: $textHeadingSixDecoration,
-    textHeadingSixMarginTop: $textHeadingSixMarginTop,
-    textHeadingSixMarginBottom: $textHeadingSixMarginBottom,
-    textHeadingSixColorTablet: $textHeadingSixColorTablet,
-    textHeadingSixFontFamilyTablet: $textHeadingSixFontFamilyTablet,
-    textHeadingSixSizeTablet: $textHeadingSixSizeTablet,
-    textHeadingSixHeightTablet: $textHeadingSixHeightTablet,
-    textHeadingSixWeightTablet: $textHeadingSixWeightTablet,
-    textHeadingSixStyleTablet: $textHeadingSixStyleTablet,
-    textHeadingSixDecorationTablet: $textHeadingSixDecorationTablet,
-    textHeadingSixMarginTopTablet: $textHeadingSixMarginTopTablet,
-    textHeadingSixMarginBottomTablet: $textHeadingSixMarginBottomTablet,
-    textHeadingSixColorDesktop: $textHeadingSixColorDesktop,
-    textHeadingSixFontFamilyDesktop: $textHeadingSixFontFamilyDesktop,
-    textHeadingSixSizeDesktop: $textHeadingSixSizeDesktop,
-    textHeadingSixHeightDesktop: $textHeadingSixHeightDesktop,
-    textHeadingSixWeightDesktop: $textHeadingSixWeightDesktop,
-    textHeadingSixStyleDesktop: $textHeadingSixStyleDesktop,
-    textHeadingSixDecorationDesktop: $textHeadingSixDecorationDesktop,
-    textHeadingSixMarginTopDesktop: $textHeadingSixMarginTopDesktop,
-    textHeadingSixMarginBottomDesktop: $textHeadingSixMarginBottomDesktop
-  ), $options);
-  
+@mixin text($options: (), $widgetInstanceId: "", $widgetInstanceUUID: "") {
+  $configuration: map-merge(
+    (
+      textBackgroundImage: $textBackgroundImage,
+      textBackgroundColor: $textBackgroundColor,
+      textBackgroundType: $textBackgroundType,
+      textBackgroundSize: $textBackgroundSize,
+      textBackgroundRepeat: $textBackgroundRepeat,
+      textBackgroundPosX: $textBackgroundPosX,
+      textBackgroundPosY: $textBackgroundPosY,
+      textWidth: $textWidth,
+      textHeight: $textHeight,
+      textMinWidth: $textMinWidth,
+      textMaxWidth: $textMaxWidth,
+      textMinHeight: $textMinHeight,
+      textMaxHeight: $textMaxHeight,
+      textPosition: $textPosition,
+      textDisplay: $textDisplay,
+      textPositionTop: $textPositionTop,
+      textPositionRight: $textPositionRight,
+      textPositionBottom: $textPositionBottom,
+      textPositionLeft: $textPositionLeft,
+      textIndex: $textIndex,
+      textMarginTop: $textMarginTop,
+      textMarginRight: $textMarginRight,
+      textMarginBottom: $textMarginBottom,
+      textMarginLeft: $textMarginLeft,
+      textPaddingTop: $textPaddingTop,
+      textPaddingRight: $textPaddingRight,
+      textPaddingBottom: $textPaddingBottom,
+      textPaddingLeft: $textPaddingLeft,
+      textBorderSides: $textBorderSides,
+      textBorderWidth: $textBorderWidth,
+      textBorderStyle: $textBorderStyle,
+      textBorderColor: $textBorderColor,
+      textBorderRadius: $textBorderRadius,
+      textShadowStyle: $textShadowStyle,
+      textShadowXoffset: $textShadowXoffset,
+      textShadowYoffset: $textShadowYoffset,
+      textShadowBlur: $textShadowBlur,
+      textShadowSpread: $textShadowSpread,
+      textShadowColor: $textShadowColor,
+      paragraphFontFamily: $paragraphFontFamily,
+      paragraphFontSize: $paragraphFontSize,
+      paragraphTextColor: $paragraphTextColor,
+      paragraphFontWeight: $paragraphFontWeight,
+      paragraphFontStyle: $paragraphFontStyle,
+      paragraphFontDecoration: $paragraphFontDecoration,
+      paragraphLineHeight: $paragraphLineHeight,
+      paragraphMarginTop: $paragraphMarginTop,
+      paragraphMarginBottom: $paragraphMarginBottom,
+      textVisibility: $textVisibility,
+      textBackgroundImageTablet: $textBackgroundImageTablet,
+      textBackgroundColorTablet: $textBackgroundColorTablet,
+      textBackgroundTypeTablet: $textBackgroundTypeTablet,
+      textBackgroundSizeTablet: $textBackgroundSizeTablet,
+      textBackgroundRepeatTablet: $textBackgroundRepeatTablet,
+      textBackgroundPosXTablet: $textBackgroundPosXTablet,
+      textBackgroundPosYTablet: $textBackgroundPosYTablet,
+      textWidthTablet: $textWidthTablet,
+      textHeightTablet: $textHeightTablet,
+      textMinWidthTablet: $textMinWidthTablet,
+      textMaxWidthTablet: $textMaxWidthTablet,
+      textMinHeightTablet: $textMinHeightTablet,
+      textMaxHeightTablet: $textMaxHeightTablet,
+      textPositionTablet: $textPositionTablet,
+      textDisplayTablet: $textDisplayTablet,
+      textPositionTopTablet: $textPositionTopTablet,
+      textPositionRightTablet: $textPositionRightTablet,
+      textPositionBottomTablet: $textPositionBottomTablet,
+      textPositionLeftTablet: $textPositionLeftTablet,
+      textIndexTablet: $textIndexTablet,
+      textMarginTopTablet: $textMarginTopTablet,
+      textMarginRightTablet: $textMarginRightTablet,
+      textMarginBottomTablet: $textMarginBottomTablet,
+      textMarginLeftTablet: $textMarginLeftTablet,
+      textPaddingTopTablet: $textPaddingTopTablet,
+      textPaddingRightTablet: $textPaddingRightTablet,
+      textPaddingBottomTablet: $textPaddingBottomTablet,
+      textPaddingLeftTablet: $textPaddingLeftTablet,
+      textBorderSidesTablet: $textBorderSidesTablet,
+      textBorderWidthTablet: $textBorderWidthTablet,
+      textBorderStyleTablet: $textBorderStyleTablet,
+      textBorderColorTablet: $textBorderColorTablet,
+      textBorderRadiusTablet: $textBorderRadiusTablet,
+      textShadowStyleTablet: $textShadowStyleTablet,
+      textShadowXoffsetTablet: $textShadowXoffsetTablet,
+      textShadowYoffsetTablet: $textShadowYoffsetTablet,
+      textShadowBlurTablet: $textShadowBlurTablet,
+      textShadowSpreadTablet: $textShadowSpreadTablet,
+      textShadowColorTablet: $textShadowColorTablet,
+      paragraphFontFamilyTablet: $paragraphFontFamilyTablet,
+      paragraphFontSizeTablet: $paragraphFontSizeTablet,
+      paragraphTextColorTablet: $paragraphTextColorTablet,
+      paragraphFontWeightTablet: $paragraphFontWeightTablet,
+      paragraphFontStyleTablet: $paragraphFontStyleTablet,
+      paragraphFontDecorationTablet: $paragraphFontDecorationTablet,
+      paragraphLineHeightTablet: $paragraphLineHeightTablet,
+      paragraphMarginTopTablet: $paragraphMarginTopTablet,
+      paragraphMarginBottomTablet: $paragraphMarginBottomTablet,
+      textVisibilityTablet: $textVisibilityTablet,
+      textBackgroundImageDesktop: $textBackgroundImageDesktop,
+      textBackgroundColorDesktop: $textBackgroundColorDesktop,
+      textBackgroundTypeDesktop: $textBackgroundTypeDesktop,
+      textBackgroundSizeDesktop: $textBackgroundSizeDesktop,
+      textBackgroundRepeatDesktop: $textBackgroundRepeatDesktop,
+      textBackgroundPosXDesktop: $textBackgroundPosXDesktop,
+      textBackgroundPosYDesktop: $textBackgroundPosYDesktop,
+      textWidthDesktop: $textWidthDesktop,
+      textHeightDesktop: $textHeightDesktop,
+      textMinWidthDesktop: $textMinWidthDesktop,
+      textMaxWidthDesktop: $textMaxWidthDesktop,
+      textMinHeightDesktop: $textMinHeightDesktop,
+      textMaxHeightDesktop: $textMaxHeightDesktop,
+      textPositionDesktop: $textPositionDesktop,
+      textPositionTopDesktop: $textPositionTopDesktop,
+      textDisplayDesktop: $textDisplayDesktop,
+      textPositionRightDesktop: $textPositionRightDesktop,
+      textPositionBottomDesktop: $textPositionBottomDesktop,
+      textPositionLeftDesktop: $textPositionLeftDesktop,
+      textIndexDesktop: $textIndexDesktop,
+      textMarginTopDesktop: $textMarginTopDesktop,
+      textMarginRightDesktop: $textMarginRightDesktop,
+      textMarginBottomDesktop: $textMarginBottomDesktop,
+      textMarginLeftDesktop: $textMarginLeftDesktop,
+      textPaddingTopDesktop: $textPaddingTopDesktop,
+      textPaddingRightDesktop: $textPaddingRightDesktop,
+      textPaddingBottomDesktop: $textPaddingBottomDesktop,
+      textPaddingLeftDesktop: $textPaddingLeftDesktop,
+      textBorderSidesDesktop: $textBorderSidesDesktop,
+      textBorderWidthDesktop: $textBorderWidthDesktop,
+      textBorderStyleDesktop: $textBorderStyleDesktop,
+      textBorderColorDesktop: $textBorderColorDesktop,
+      textBorderRadiusDesktop: $textBorderRadiusDesktop,
+      textShadowStyleDesktop: $textShadowStyleDesktop,
+      textShadowXoffsetDesktop: $textShadowXoffsetDesktop,
+      textShadowYoffsetDesktop: $textShadowYoffsetDesktop,
+      textShadowBlurDesktop: $textShadowBlurDesktop,
+      textShadowSpreadDesktop: $textShadowSpreadDesktop,
+      textShadowColorDesktop: $textShadowColorDesktop,
+      paragraphFontFamilyDesktop: $paragraphFontFamilyDesktop,
+      paragraphFontSizeDesktop: $paragraphFontSizeDesktop,
+      paragraphTextColorDesktop: $paragraphTextColorDesktop,
+      paragraphFontWeightDesktop: $paragraphFontWeightDesktop,
+      paragraphFontStyleDesktop: $paragraphFontStyleDesktop,
+      paragraphFontDecorationDesktop: $paragraphFontDecorationDesktop,
+      paragraphLineHeightDesktop: $paragraphLineHeightDesktop,
+      paragraphMarginTopDesktop: $paragraphMarginTopDesktop,
+      paragraphMarginBottomDesktop: $paragraphMarginBottomDesktop,
+      textVisibilityDesktop: $textVisibilityDesktop,
+      textHeadingOneColor: $textHeadingOneColor,
+      textHeadingOneFontFamily: $textHeadingOneFontFamily,
+      textHeadingOneSize: $textHeadingOneSize,
+      textHeadingOneHeight: $textHeadingOneHeight,
+      textHeadingOneWeight: $textHeadingOneWeight,
+      textHeadingOneStyle: $textHeadingOneStyle,
+      textHeadingOneDecoration: $textHeadingOneDecoration,
+      textHeadingOneMarginTop: $textHeadingOneMarginTop,
+      textHeadingOneMarginBottom: $textHeadingOneMarginBottom,
+      textHeadingOneColorTablet: $textHeadingOneColorTablet,
+      textHeadingOneFontFamilyTablet: $textHeadingOneFontFamilyTablet,
+      textHeadingOneSizeTablet: $textHeadingOneSizeTablet,
+      textHeadingOneHeightTablet: $textHeadingOneHeightTablet,
+      textHeadingOneWeightTablet: $textHeadingOneWeightTablet,
+      textHeadingOneStyleTablet: $textHeadingOneStyleTablet,
+      textHeadingOneDecorationTablet: $textHeadingOneDecorationTablet,
+      textHeadingOneMarginTopTablet: $textHeadingOneMarginTopTablet,
+      textHeadingOneMarginBottomTablet: $textHeadingOneMarginBottomTablet,
+      textHeadingOneColorDesktop: $textHeadingOneColorDesktop,
+      textHeadingOneFontFamilyDesktop: $textHeadingOneFontFamilyDesktop,
+      textHeadingOneSizeDesktop: $textHeadingOneSizeDesktop,
+      textHeadingOneHeightDesktop: $textHeadingOneHeightDesktop,
+      textHeadingOneWeightDesktop: $textHeadingOneWeightDesktop,
+      textHeadingOneStyleDesktop: $textHeadingOneStyleDesktop,
+      textHeadingOneDecorationDesktop: $textHeadingOneDecorationDesktop,
+      textHeadingOneMarginTopDesktop: $textHeadingOneMarginTopDesktop,
+      textHeadingOneMarginBottomDesktop: $textHeadingOneMarginBottomDesktop,
+      textHeadingTwoColor: $textHeadingTwoColor,
+      textHeadingTwoFontFamily: $textHeadingTwoFontFamily,
+      textHeadingTwoSize: $textHeadingTwoSize,
+      textHeadingTwoHeight: $textHeadingTwoHeight,
+      textHeadingTwoWeight: $textHeadingTwoWeight,
+      textHeadingTwoStyle: $textHeadingTwoStyle,
+      textHeadingTwoDecoration: $textHeadingTwoDecoration,
+      textHeadingTwoMarginTop: $textHeadingTwoMarginTop,
+      textHeadingTwoMarginBottom: $textHeadingTwoMarginBottom,
+      textHeadingTwoColorTablet: $textHeadingTwoColorTablet,
+      textHeadingTwoFontFamilyTablet: $textHeadingTwoFontFamilyTablet,
+      textHeadingTwoSizeTablet: $textHeadingTwoSizeTablet,
+      textHeadingTwoHeightTablet: $textHeadingTwoHeightTablet,
+      textHeadingTwoWeightTablet: $textHeadingTwoWeightTablet,
+      textHeadingTwoStyleTablet: $textHeadingTwoStyleTablet,
+      textHeadingTwoDecorationTablet: $textHeadingTwoDecorationTablet,
+      textHeadingTwoMarginTopTablet: $textHeadingTwoMarginTopTablet,
+      textHeadingTwoMarginBottomTablet: $textHeadingTwoMarginBottomTablet,
+      textHeadingTwoColorDesktop: $textHeadingTwoColorDesktop,
+      textHeadingTwoFontFamilyDesktop: $textHeadingTwoFontFamilyDesktop,
+      textHeadingTwoSizeDesktop: $textHeadingTwoSizeDesktop,
+      textHeadingTwoHeightDesktop: $textHeadingTwoHeightDesktop,
+      textHeadingTwoWeightDesktop: $textHeadingTwoWeightDesktop,
+      textHeadingTwoStyleDesktop: $textHeadingTwoStyleDesktop,
+      textHeadingTwoDecorationDesktop: $textHeadingTwoDecorationDesktop,
+      textHeadingTwoMarginTopDesktop: $textHeadingTwoMarginTopDesktop,
+      textHeadingTwoMarginBottomDesktop: $textHeadingTwoMarginBottomDesktop,
+      textHeadingThreeColor: $textHeadingThreeColor,
+      textHeadingThreeFontFamily: $textHeadingThreeFontFamily,
+      textHeadingThreeSize: $textHeadingThreeSize,
+      textHeadingThreeHeight: $textHeadingThreeHeight,
+      textHeadingThreeWeight: $textHeadingThreeWeight,
+      textHeadingThreeStyle: $textHeadingThreeStyle,
+      textHeadingThreeDecoration: $textHeadingThreeDecoration,
+      textHeadingThreeMarginTop: $textHeadingThreeMarginTop,
+      textHeadingThreeMarginBottom: $textHeadingThreeMarginBottom,
+      textHeadingThreeColorTablet: $textHeadingThreeColorTablet,
+      textHeadingThreeFontFamilyTablet: $textHeadingThreeFontFamilyTablet,
+      textHeadingThreeSizeTablet: $textHeadingThreeSizeTablet,
+      textHeadingThreeHeightTablet: $textHeadingThreeHeightTablet,
+      textHeadingThreeWeightTablet: $textHeadingThreeWeightTablet,
+      textHeadingThreeStyleTablet: $textHeadingThreeStyleTablet,
+      textHeadingThreeDecorationTablet: $textHeadingThreeDecorationTablet,
+      textHeadingThreeMarginTopTablet: $textHeadingThreeMarginTopTablet,
+      textHeadingThreeMarginBottomTablet: $textHeadingThreeMarginBottomTablet,
+      textHeadingThreeColorDesktop: $textHeadingThreeColorDesktop,
+      textHeadingThreeFontFamilyDesktop: $textHeadingThreeFontFamilyDesktop,
+      textHeadingThreeSizeDesktop: $textHeadingThreeSizeDesktop,
+      textHeadingThreeHeightDesktop: $textHeadingThreeHeightDesktop,
+      textHeadingThreeWeightDesktop: $textHeadingThreeWeightDesktop,
+      textHeadingThreeStyleDesktop: $textHeadingThreeStyleDesktop,
+      textHeadingThreeDecorationDesktop: $textHeadingThreeDecorationDesktop,
+      textHeadingThreeMarginTopDesktop: $textHeadingThreeMarginTopDesktop,
+      textHeadingThreeMarginBottomDesktop: $textHeadingThreeMarginBottomDesktop,
+      textHeadingFourColor: $textHeadingFourColor,
+      textHeadingFourFontFamily: $textHeadingFourFontFamily,
+      textHeadingFourSize: $textHeadingFourSize,
+      textHeadingFourHeight: $textHeadingFourHeight,
+      textHeadingFourWeight: $textHeadingFourWeight,
+      textHeadingFourStyle: $textHeadingFourStyle,
+      textHeadingFourDecoration: $textHeadingFourDecoration,
+      textHeadingFourMarginTop: $textHeadingFourMarginTop,
+      textHeadingFourMarginBottom: $textHeadingFourMarginBottom,
+      textHeadingFourColorTablet: $textHeadingFourColorTablet,
+      textHeadingFourFontFamilyTablet: $textHeadingFourFontFamilyTablet,
+      textHeadingFourSizeTablet: $textHeadingFourSizeTablet,
+      textHeadingFourHeightTablet: $textHeadingFourHeightTablet,
+      textHeadingFourWeightTablet: $textHeadingFourWeightTablet,
+      textHeadingFourStyleTablet: $textHeadingFourStyleTablet,
+      textHeadingFourDecorationTablet: $textHeadingFourDecorationTablet,
+      textHeadingFourMarginTopTablet: $textHeadingFourMarginTopTablet,
+      textHeadingFourMarginBottomTablet: $textHeadingFourMarginBottomTablet,
+      textHeadingFourColorDesktop: $textHeadingFourColorDesktop,
+      textHeadingFourFontFamilyDesktop: $textHeadingFourFontFamilyDesktop,
+      textHeadingFourSizeDesktop: $textHeadingFourSizeDesktop,
+      textHeadingFourHeightDesktop: $textHeadingFourHeightDesktop,
+      textHeadingFourWeightDesktop: $textHeadingFourWeightDesktop,
+      textHeadingFourStyleDesktop: $textHeadingFourStyleDesktop,
+      textHeadingFourDecorationDesktop: $textHeadingFourDecorationDesktop,
+      textHeadingFourMarginTopDesktop: $textHeadingFourMarginTopDesktop,
+      textHeadingFourMarginBottomDesktop: $textHeadingFourMarginBottomDesktop,
+      textHeadingFiveColor: $textHeadingFiveColor,
+      textHeadingFiveFontFamily: $textHeadingFiveFontFamily,
+      textHeadingFiveSize: $textHeadingFiveSize,
+      textHeadingFiveHeight: $textHeadingFiveHeight,
+      textHeadingFiveWeight: $textHeadingFiveWeight,
+      textHeadingFiveStyle: $textHeadingFiveStyle,
+      textHeadingFiveDecoration: $textHeadingFiveDecoration,
+      textHeadingFiveMarginTop: $textHeadingFiveMarginTop,
+      textHeadingFiveMarginBottom: $textHeadingFiveMarginBottom,
+      textHeadingFiveColorTablet: $textHeadingFiveColorTablet,
+      textHeadingFiveFontFamilyTablet: $textHeadingFiveFontFamilyTablet,
+      textHeadingFiveSizeTablet: $textHeadingFiveSizeTablet,
+      textHeadingFiveHeightTablet: $textHeadingFiveHeightTablet,
+      textHeadingFiveWeightTablet: $textHeadingFiveWeightTablet,
+      textHeadingFiveStyleTablet: $textHeadingFiveStyleTablet,
+      textHeadingFiveDecorationTablet: $textHeadingFiveDecorationTablet,
+      textHeadingFiveMarginTopTablet: $textHeadingFiveMarginTopTablet,
+      textHeadingFiveMarginBottomTablet: $textHeadingFiveMarginBottomTablet,
+      textHeadingFiveColorDesktop: $textHeadingFiveColorDesktop,
+      textHeadingFiveFontFamilyDesktop: $textHeadingFiveFontFamilyDesktop,
+      textHeadingFiveSizeDesktop: $textHeadingFiveSizeDesktop,
+      textHeadingFiveHeightDesktop: $textHeadingFiveHeightDesktop,
+      textHeadingFiveWeightDesktop: $textHeadingFiveWeightDesktop,
+      textHeadingFiveStyleDesktop: $textHeadingFiveStyleDesktop,
+      textHeadingFiveDecorationDesktop: $textHeadingFiveDecorationDesktop,
+      textHeadingFiveMarginTopDesktop: $textHeadingFiveMarginTopDesktop,
+      textHeadingFiveMarginBottomDesktop: $textHeadingFiveMarginBottomDesktop,
+      textHeadingSixColor: $textHeadingSixColor,
+      textHeadingSixFontFamily: $textHeadingSixFontFamily,
+      textHeadingSixSize: $textHeadingSixSize,
+      textHeadingSixHeight: $textHeadingSixHeight,
+      textHeadingSixWeight: $textHeadingSixWeight,
+      textHeadingSixStyle: $textHeadingSixStyle,
+      textHeadingSixDecoration: $textHeadingSixDecoration,
+      textHeadingSixMarginTop: $textHeadingSixMarginTop,
+      textHeadingSixMarginBottom: $textHeadingSixMarginBottom,
+      textHeadingSixColorTablet: $textHeadingSixColorTablet,
+      textHeadingSixFontFamilyTablet: $textHeadingSixFontFamilyTablet,
+      textHeadingSixSizeTablet: $textHeadingSixSizeTablet,
+      textHeadingSixHeightTablet: $textHeadingSixHeightTablet,
+      textHeadingSixWeightTablet: $textHeadingSixWeightTablet,
+      textHeadingSixStyleTablet: $textHeadingSixStyleTablet,
+      textHeadingSixDecorationTablet: $textHeadingSixDecorationTablet,
+      textHeadingSixMarginTopTablet: $textHeadingSixMarginTopTablet,
+      textHeadingSixMarginBottomTablet: $textHeadingSixMarginBottomTablet,
+      textHeadingSixColorDesktop: $textHeadingSixColorDesktop,
+      textHeadingSixFontFamilyDesktop: $textHeadingSixFontFamilyDesktop,
+      textHeadingSixSizeDesktop: $textHeadingSixSizeDesktop,
+      textHeadingSixHeightDesktop: $textHeadingSixHeightDesktop,
+      textHeadingSixWeightDesktop: $textHeadingSixWeightDesktop,
+      textHeadingSixStyleDesktop: $textHeadingSixStyleDesktop,
+      textHeadingSixDecorationDesktop: $textHeadingSixDecorationDesktop,
+      textHeadingSixMarginTopDesktop: $textHeadingSixMarginTopDesktop,
+      textHeadingSixMarginBottomDesktop: $textHeadingSixMarginBottomDesktop
+    ),
+    $options
+  );
+
   $instanceSelector: '[data-widget-package="com.fliplet.text"]';
-  @if $widgetInstanceUUID != '' {
+  @if $widgetInstanceUUID != "" {
     $instanceSelector: '#{$instanceSelector}[data-uuid="#{$widgetInstanceUUID}"]';
-  } @else if $widgetInstanceId != '' {
+  } @else if $widgetInstanceId != "" {
     $instanceSelector: '#{$instanceSelector}[data-id="#{$widgetInstanceId}"]';
   }
 
   #{$instanceSelector} {
-    @if map-get($configuration, textBackgroundType) == 'Image' {
-      @if map-get($configuration, textBackgroundImage) == 'none' {
-        background-image: map-get($configuration, textBackgroundImage)
+    @if map-get($configuration, textBackgroundType) == "Image" {
+      @if map-get($configuration, textBackgroundImage) == "none" {
+        background-image: map-get($configuration, textBackgroundImage);
       } @else {
-        background-image: url(#{map-get($configuration, textBackgroundImage)});
+        background-image: url(#{map-get($configuration textBackgroundImage)});
       }
-    } @else if map-get($configuration, textBackgroundType) == 'Color' {
+    } @else if map-get($configuration, textBackgroundType) == "Color" {
       background-image: none;
       background-color: map-get($configuration, textBackgroundColor);
     } @else {
       background-image: none;
       background-color: transparent;
     }
-  
+
     background-size: map-get($configuration, textBackgroundSize);
     background-repeat: map-get($configuration, textBackgroundRepeat);
-    background-position: map-get($configuration, textBackgroundPosX) map-get($configuration, textBackgroundPosY);
+    background-position: map-get($configuration, textBackgroundPosX)
+      map-get($configuration, textBackgroundPosY);
 
     position: map-get($configuration, textPosition) !important;
     z-index: map-get($configuration, textIndex);
 
-    @if map-get($configuration, textPosition) == 'relative' {
-      @if map-get($configuration, textVisibility) == 'visible' {
+    @if map-get($configuration, textPosition) == "relative" {
+      @if map-get($configuration, textVisibility) == "visible" {
         display: map-get($configuration, textDisplay) !important;
       } @else {
         display: none !important;
       }
     } @else {
-      @if map-get($configuration, textVisibility) == 'visible' {
+      @if map-get($configuration, textVisibility) == "visible" {
         display: block !important;
       } @else {
         display: none !important;
@@ -365,62 +369,63 @@
     height: auto !important;
     min-height: map-get($configuration, textMinHeight);
     max-height: map-get($configuration, textMaxHeight);
-    margin: map-get($configuration, textMarginTop)
-      map-get($configuration, textMarginRight)
-      map-get($configuration, textMarginBottom)
-      map-get($configuration, textMarginLeft);
-    padding: map-get($configuration, textPaddingTop)
-      map-get($configuration, textPaddingRight)
-      map-get($configuration, textPaddingBottom)
-      map-get($configuration, textPaddingLeft);
+    margin: map-get($configuration, textMarginTop) map-get($configuration, textMarginRight)
+      map-get($configuration, textMarginBottom) map-get($configuration, textMarginLeft);
+    padding: map-get($configuration, textPaddingTop) map-get($configuration, textPaddingRight)
+      map-get($configuration, textPaddingBottom) map-get($configuration, textPaddingLeft);
 
-    @include borderOnly((
-      borderSides: map-get($configuration, textBorderSides),
-      borderWidth: map-get($configuration, textBorderWidth),
-      borderStyle: map-get($configuration, textBorderStyle),
-      borderColor: map-get($configuration, textBorderColor)
-    ));
+    @include borderOnly(
+      (
+        borderSides: map-get($configuration, textBorderSides),
+        borderWidth: map-get($configuration, textBorderWidth),
+        borderStyle: map-get($configuration, textBorderStyle),
+        borderColor: map-get($configuration, textBorderColor)
+      )
+    );
     border-radius: map-get($configuration, textBorderRadius);
-    @include shadowOnly((
-      shadowStyle: map-get($configuration, textShadowStyle),
-      shadowXOffset: map-get($configuration, textShadowXoffset),
-      shadowYOffset: map-get($configuration, textShadowYoffset),
-      shadowBlur: map-get($configuration, textShadowBlur),
-      shadowSpread: map-get($configuration, textShadowSpread),
-      shadowColor: map-get($configuration, textShadowColor)
-    ));
+    @include shadowOnly(
+      (
+        shadowStyle: map-get($configuration, textShadowStyle),
+        shadowXOffset: map-get($configuration, textShadowXoffset),
+        shadowYOffset: map-get($configuration, textShadowYoffset),
+        shadowBlur: map-get($configuration, textShadowBlur),
+        shadowSpread: map-get($configuration, textShadowSpread),
+        shadowColor: map-get($configuration, textShadowColor)
+      )
+    );
 
     // Styles for tablet
     @include above($tabletBreakpoint) {
-      @if map-get($configuration, textBackgroundTypeTablet) == 'Image' {
-        @if map-get($configuration, textBackgroundImageTablet) == 'none' {
-          background-image: map-get($configuration, textBackgroundImageTablet)
+      @if map-get($configuration, textBackgroundTypeTablet) == "Image" {
+        @if map-get($configuration, textBackgroundImageTablet) == "none" {
+          background-image: map-get($configuration, textBackgroundImageTablet);
         } @else {
-          background-image: url(#{map-get($configuration, textBackgroundImageTablet)});
+          background-image: url(#{map-get($configuration textBackgroundImageTablet)});
         }
-      } @else if map-get($configuration, textBackgroundTypeTablet) == 'Color' {
+      } @else if map-get($configuration, textBackgroundTypeTablet) == "Color" {
         background-image: none;
         background-color: map-get($configuration, textBackgroundColorTablet);
       } @else {
         background-image: none;
         background-color: transparent;
       }
-    
+
       background-size: map-get($configuration, textBackgroundSizeTablet);
       background-repeat: map-get($configuration, textBackgroundRepeatTablet);
-      background-position: map-get($configuration, textBackgroundPosXTablet) map-get($configuration, textBackgroundPosYTablet);
+      background-position: map-get($configuration, textBackgroundPosXTablet)
+        map-get($configuration, textBackgroundPosYTablet);
 
       position: map-get($configuration, textPositionTablet) !important;
       z-index: map-get($configuration, textIndexTablet);
 
-      @if map-get($configuration, textPositionTablet) == 'relative' {
-        @if map-get($configuration, textVisibilityTablet) == 'visible' {
+      @if map-get($configuration, textPositionTablet) == "relative" {
+        @if map-get($configuration, textVisibilityTablet) == "visible" {
           display: map-get($configuration, textDisplayTablet) !important;
         } @else {
           display: none !important;
         }
       } @else {
-        @if map-get($configuration, textVisibilityTablet) == 'visible' {
+        @if map-get($configuration, textVisibilityTablet) == "visible" {
           display: block !important;
         } @else {
           display: none !important;
@@ -431,7 +436,7 @@
         bottom: map-get($configuration, textPositionBottomTablet);
         left: map-get($configuration, textPositionLeftTablet);
       }
-  
+
       width: map-get($configuration, textWidthTablet);
       min-width: map-get($configuration, textMinWidthTablet);
       max-width: map-get($configuration, textMaxWidthTablet);
@@ -447,54 +452,59 @@
         map-get($configuration, textPaddingBottomTablet)
         map-get($configuration, textPaddingLeftTablet);
 
-      @include borderOnly((
-        borderSides: map-get($configuration, textBorderSidesTablet),
-        borderWidth: map-get($configuration, textBorderWidthTablet),
-        borderStyle: map-get($configuration, textBorderStyleTablet),
-        borderColor: map-get($configuration, textBorderColorTablet)
-      ));
+      @include borderOnly(
+        (
+          borderSides: map-get($configuration, textBorderSidesTablet),
+          borderWidth: map-get($configuration, textBorderWidthTablet),
+          borderStyle: map-get($configuration, textBorderStyleTablet),
+          borderColor: map-get($configuration, textBorderColorTablet)
+        )
+      );
       border-radius: map-get($configuration, textBorderRadiusTablet);
-      @include shadowOnly((
-        shadowStyle: map-get($configuration, textShadowStyleTablet),
-        shadowXOffset: map-get($configuration, textShadowXoffsetTablet),
-        shadowYOffset: map-get($configuration, textShadowYoffsetTablet),
-        shadowBlur: map-get($configuration, textShadowBlurTablet),
-        shadowSpread: map-get($configuration, textShadowSpreadTablet),
-        shadowColor: map-get($configuration, textShadowColorTablet)
-      ));
+      @include shadowOnly(
+        (
+          shadowStyle: map-get($configuration, textShadowStyleTablet),
+          shadowXOffset: map-get($configuration, textShadowXoffsetTablet),
+          shadowYOffset: map-get($configuration, textShadowYoffsetTablet),
+          shadowBlur: map-get($configuration, textShadowBlurTablet),
+          shadowSpread: map-get($configuration, textShadowSpreadTablet),
+          shadowColor: map-get($configuration, textShadowColorTablet)
+        )
+      );
     }
 
     // Styles for desktop
     @include above($desktopBreakpoint) {
-      @if map-get($configuration, textBackgroundTypeDesktop) == 'Image' {
-        @if map-get($configuration, textBackgroundImageDesktop) == 'none' {
-          background-image: map-get($configuration, textBackgroundImageDesktop)
+      @if map-get($configuration, textBackgroundTypeDesktop) == "Image" {
+        @if map-get($configuration, textBackgroundImageDesktop) == "none" {
+          background-image: map-get($configuration, textBackgroundImageDesktop);
         } @else {
-          background-image: url(#{map-get($configuration, textBackgroundImageDesktop)});
+          background-image: url(#{map-get($configuration textBackgroundImageDesktop)});
         }
-      } @else if map-get($configuration, textBackgroundTypeDesktop) == 'Color' {
+      } @else if map-get($configuration, textBackgroundTypeDesktop) == "Color" {
         background-image: none;
         background-color: map-get($configuration, textBackgroundColorDesktop);
       } @else {
         background-image: none;
         background-color: transparent;
       }
-    
+
       background-size: map-get($configuration, textBackgroundSizeDesktop);
       background-repeat: map-get($configuration, textBackgroundRepeatDesktop);
-      background-position: map-get($configuration, textBackgroundPosXDesktop) map-get($configuration, textBackgroundPosYDesktop);
+      background-position: map-get($configuration, textBackgroundPosXDesktop)
+        map-get($configuration, textBackgroundPosYDesktop);
 
       position: map-get($configuration, textPositionDesktop) !important;
       z-index: map-get($configuration, textIndexDesktop);
 
-      @if map-get($configuration, textPositionDesktop) == 'relative' {
-        @if map-get($configuration, textVisibilityDesktop) == 'visible' {
+      @if map-get($configuration, textPositionDesktop) == "relative" {
+        @if map-get($configuration, textVisibilityDesktop) == "visible" {
           display: map-get($configuration, textDisplayDesktop) !important;
         } @else {
           display: none !important;
         }
       } @else {
-        @if map-get($configuration, textVisibilityDesktop) == 'visible' {
+        @if map-get($configuration, textVisibilityDesktop) == "visible" {
           display: block !important;
         } @else {
           display: none !important;
@@ -505,7 +515,7 @@
         bottom: map-get($configuration, textPositionBottomDesktop);
         left: map-get($configuration, textPositionLeftDesktop);
       }
-  
+
       width: map-get($configuration, textWidthDesktop);
       min-width: map-get($configuration, textMinWidthDesktop);
       max-width: map-get($configuration, textMaxWidthDesktop);
@@ -521,21 +531,25 @@
         map-get($configuration, textPaddingBottomDesktop)
         map-get($configuration, textPaddingLeftDesktop);
 
-      @include borderOnly((
-        borderSides: map-get($configuration, textBorderSidesDesktop),
-        borderWidth: map-get($configuration, textBorderWidthDesktop),
-        borderStyle: map-get($configuration, textBorderStyleDesktop),
-        borderColor: map-get($configuration, textBorderColorDesktop)
-      ));
+      @include borderOnly(
+        (
+          borderSides: map-get($configuration, textBorderSidesDesktop),
+          borderWidth: map-get($configuration, textBorderWidthDesktop),
+          borderStyle: map-get($configuration, textBorderStyleDesktop),
+          borderColor: map-get($configuration, textBorderColorDesktop)
+        )
+      );
       border-radius: map-get($configuration, textBorderRadiusDesktop);
-      @include shadowOnly((
-        shadowStyle: map-get($configuration, textShadowStyleDesktop),
-        shadowXOffset: map-get($configuration, textShadowXoffsetDesktop),
-        shadowYOffset: map-get($configuration, textShadowYoffsetDesktop),
-        shadowBlur: map-get($configuration, textShadowBlurDesktop),
-        shadowSpread: map-get($configuration, textShadowSpreadDesktop),
-        shadowColor: map-get($configuration, textShadowColorDesktop)
-      ));
+      @include shadowOnly(
+        (
+          shadowStyle: map-get($configuration, textShadowStyleDesktop),
+          shadowXOffset: map-get($configuration, textShadowXoffsetDesktop),
+          shadowYOffset: map-get($configuration, textShadowYoffsetDesktop),
+          shadowBlur: map-get($configuration, textShadowBlurDesktop),
+          shadowSpread: map-get($configuration, textShadowSpreadDesktop),
+          shadowColor: map-get($configuration, textShadowColorDesktop)
+        )
+      );
     }
 
     p {
@@ -620,8 +634,7 @@
         margin-bottom: map-get($configuration, textHeadingOneMarginBottomDesktop);
       }
     }
-    
-    
+
     h2 {
       color: map-get($configuration, textHeadingTwoColor);
       font-family: map-get($configuration, textHeadingTwoFontFamily);
@@ -662,7 +675,7 @@
         margin-bottom: map-get($configuration, textHeadingTwoMarginBottomDesktop);
       }
     }
-    
+
     h3 {
       color: map-get($configuration, textHeadingThreeColor);
       font-family: map-get($configuration, textHeadingThreeFontFamily);
@@ -703,7 +716,7 @@
         margin-bottom: map-get($configuration, textHeadingThreeMarginBottomDesktop);
       }
     }
-    
+
     h4 {
       color: map-get($configuration, textHeadingFourColor);
       font-family: map-get($configuration, textHeadingFourFontFamily);
@@ -744,7 +757,7 @@
         margin-bottom: map-get($configuration, textHeadingFourMarginBottomDesktop);
       }
     }
-    
+
     h5 {
       color: map-get($configuration, textHeadingFiveColor);
       font-family: map-get($configuration, textHeadingFiveFontFamily);
@@ -785,7 +798,7 @@
         margin-bottom: map-get($configuration, textHeadingFiveMarginBottomDesktop);
       }
     }
-    
+
     h6 {
       color: map-get($configuration, textHeadingSixColor);
       font-family: map-get($configuration, textHeadingSixFontFamily);

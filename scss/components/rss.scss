@@ -1,119 +1,122 @@
-@mixin rss($options: (), $widgetInstanceId: '', $widgetInstanceUUID: '') {
-  $configuration: map-merge((
-    rssWidth: $rssWidth,
-    rssMinWidth: $rssMinWidth,
-    rssMaxWidth: $rssMaxWidth,
-    rssPosition: $rssPosition,
-    rssPositionTop: $rssPositionTop,
-    rssPositionRight: $rssPositionRight,
-    rssPositionBottom: $rssPositionBottom,
-    rssPositionLeft: $rssPositionLeft,
-    rssIndex: $rssIndex,
-    rssDisplay: $rssDisplay,
-    rssMarginTop: $rssMarginTop,
-    rssMarginRight: $rssMarginRight,
-    rssMarginBottom: $rssMarginBottom,
-    rssMarginLeft: $rssMarginLeft,
-    rssPaddingTop: $rssPaddingTop,
-    rssPaddingRight: $rssPaddingRight,
-    rssPaddingBottom: $rssPaddingBottom,
-    rssPaddingLeft: $rssPaddingLeft,
-    rssBackgroundColor: $rssBackgroundColor,
-    rssHighlight: $rssHighlight,
-    rssStripes: $rssStripes,
-    rssSeparatorColor: $rssSeparatorColor,
-    rssChevronColor: $rssChevronColor,
-    rssTitleFont: $rssTitleFont,
-    rssTitleSize: $rssTitleSize,
-    rssTitleColor: $rssTitleColor,
-    rssTitleWeight: $rssTitleWeight,
-    rssTitleStyle: $rssTitleStyle,
-    rssTitleDecoration: $rssTitleDecoration,
-    rssDescriptionFont: $rssDescriptionFont,
-    rssDescriptionSize: $rssDescriptionSize,
-    rssDescriptionColor: $rssDescriptionColor,
-    rssDescriptionWeight: $rssDescriptionWeight,
-    rssDescriptionStyle: $rssDescriptionStyle,
-    rssDescriptionDecoration: $rssDescriptionDecoration,
-    rssVisibility: $rssVisibility,
-    rssWidthTablet: $rssWidthTablet,
-    rssMinWidthTablet: $rssMinWidthTablet,
-    rssMaxWidthTablet: $rssMaxWidthTablet,
-    rssPositionTablet: $rssPositionTablet,
-    rssPositionTopTablet: $rssPositionTopTablet,
-    rssPositionRightTablet: $rssPositionRightTablet,
-    rssPositionBottomTablet: $rssPositionBottomTablet,
-    rssPositionLeftTablet: $rssPositionLeftTablet,
-    rssIndexTablet: $rssIndexTablet,
-    rssDisplayTablet: $rssDisplayTablet,
-    rssMarginTopTablet: $rssMarginTopTablet,
-    rssMarginRightTablet: $rssMarginRightTablet,
-    rssMarginBottomTablet: $rssMarginBottomTablet,
-    rssMarginLeftTablet: $rssMarginLeftTablet,
-    rssPaddingTopTablet: $rssPaddingTopTablet,
-    rssPaddingRightTablet: $rssPaddingRightTablet,
-    rssPaddingBottomTablet: $rssPaddingBottomTablet,
-    rssPaddingLeftTablet: $rssPaddingLeftTablet,
-    rssBackgroundColorTablet: $rssBackgroundColorTablet,
-    rssHighlightTablet: $rssHighlightTablet,
-    rssStripesTablet: $rssStripesTablet,
-    rssSeparatorColorTablet: $rssSeparatorColorTablet,
-    rssChevronColorTablet: $rssChevronColorTablet,
-    rssTitleFontTablet: $rssTitleFontTablet,
-    rssTitleSizeTablet: $rssTitleSizeTablet,
-    rssTitleColorTablet: $rssTitleColorTablet,
-    rssTitleWeightTablet: $rssTitleWeightTablet,
-    rssTitleStyleTablet: $rssTitleStyleTablet,
-    rssTitleDecorationTablet: $rssTitleDecorationTablet,
-    rssDescriptionFontTablet: $rssDescriptionFontTablet,
-    rssDescriptionSizeTablet: $rssDescriptionSizeTablet,
-    rssDescriptionColorTablet: $rssDescriptionColorTablet,
-    rssDescriptionWeightTablet: $rssDescriptionWeightTablet,
-    rssDescriptionStyleTablet: $rssDescriptionStyleTablet,
-    rssDescriptionDecorationTablet: $rssDescriptionDecorationTablet,
-    rssVisibilityTablet: $rssVisibilityTablet,
-    rssWidthDesktop: $rssWidthDesktop,
-    rssMinWidthDesktop: $rssMinWidthDesktop,
-    rssMaxWidthDesktop: $rssMaxWidthDesktop,
-    rssPositionDesktop: $rssPositionDesktop,
-    rssPositionTopDesktop: $rssPositionTopDesktop,
-    rssPositionRightDesktop: $rssPositionRightDesktop,
-    rssPositionBottomDesktop: $rssPositionBottomDesktop,
-    rssPositionLeftDesktop: $rssPositionLeftDesktop,
-    rssIndexDesktop: $rssIndexDesktop,
-    rssDisplayDesktop: $rssDisplayDesktop,
-    rssMarginTopDesktop: $rssMarginTopDesktop,
-    rssMarginRightDesktop: $rssMarginRightDesktop,
-    rssMarginBottomDesktop: $rssMarginBottomDesktop,
-    rssMarginLeftDesktop: $rssMarginLeftDesktop,
-    rssPaddingTopDesktop: $rssPaddingTopDesktop,
-    rssPaddingRightDesktop: $rssPaddingRightDesktop,
-    rssPaddingBottomDesktop: $rssPaddingBottomDesktop,
-    rssPaddingLeftDesktop: $rssPaddingLeftDesktop,
-    rssBackgroundColorDesktop: $rssBackgroundColorDesktop,
-    rssHighlightDesktop: $rssHighlightDesktop,
-    rssStripesDesktop: $rssStripesDesktop,
-    rssSeparatorColorDesktop: $rssSeparatorColorDesktop,
-    rssChevronColorDesktop: $rssChevronColorDesktop,
-    rssTitleFontDesktop: $rssTitleFontDesktop,
-    rssTitleSizeDesktop: $rssTitleSizeDesktop,
-    rssTitleColorDesktop: $rssTitleColorDesktop,
-    rssTitleWeightDesktop: $rssTitleWeightDesktop,
-    rssTitleStyleDesktop: $rssTitleStyleDesktop,
-    rssTitleDecorationDesktop: $rssTitleDecorationDesktop,
-    rssDescriptionFontDesktop: $rssDescriptionFontDesktop,
-    rssDescriptionSizeDesktop: $rssDescriptionSizeDesktop,
-    rssDescriptionColorDesktop: $rssDescriptionColorDesktop,
-    rssDescriptionWeightDesktop: $rssDescriptionWeightDesktop,
-    rssDescriptionStyleDesktop: $rssDescriptionStyleDesktop,
-    rssDescriptionDecorationDesktop: $rssDescriptionDecorationDesktop,
-    rssVisibilityDesktop: $rssVisibilityDesktop
-  ), $options);
+@mixin rss($options: (), $widgetInstanceId: "", $widgetInstanceUUID: "") {
+  $configuration: map-merge(
+    (
+      rssWidth: $rssWidth,
+      rssMinWidth: $rssMinWidth,
+      rssMaxWidth: $rssMaxWidth,
+      rssPosition: $rssPosition,
+      rssPositionTop: $rssPositionTop,
+      rssPositionRight: $rssPositionRight,
+      rssPositionBottom: $rssPositionBottom,
+      rssPositionLeft: $rssPositionLeft,
+      rssIndex: $rssIndex,
+      rssDisplay: $rssDisplay,
+      rssMarginTop: $rssMarginTop,
+      rssMarginRight: $rssMarginRight,
+      rssMarginBottom: $rssMarginBottom,
+      rssMarginLeft: $rssMarginLeft,
+      rssPaddingTop: $rssPaddingTop,
+      rssPaddingRight: $rssPaddingRight,
+      rssPaddingBottom: $rssPaddingBottom,
+      rssPaddingLeft: $rssPaddingLeft,
+      rssBackgroundColor: $rssBackgroundColor,
+      rssHighlight: $rssHighlight,
+      rssStripes: $rssStripes,
+      rssSeparatorColor: $rssSeparatorColor,
+      rssChevronColor: $rssChevronColor,
+      rssTitleFont: $rssTitleFont,
+      rssTitleSize: $rssTitleSize,
+      rssTitleColor: $rssTitleColor,
+      rssTitleWeight: $rssTitleWeight,
+      rssTitleStyle: $rssTitleStyle,
+      rssTitleDecoration: $rssTitleDecoration,
+      rssDescriptionFont: $rssDescriptionFont,
+      rssDescriptionSize: $rssDescriptionSize,
+      rssDescriptionColor: $rssDescriptionColor,
+      rssDescriptionWeight: $rssDescriptionWeight,
+      rssDescriptionStyle: $rssDescriptionStyle,
+      rssDescriptionDecoration: $rssDescriptionDecoration,
+      rssVisibility: $rssVisibility,
+      rssWidthTablet: $rssWidthTablet,
+      rssMinWidthTablet: $rssMinWidthTablet,
+      rssMaxWidthTablet: $rssMaxWidthTablet,
+      rssPositionTablet: $rssPositionTablet,
+      rssPositionTopTablet: $rssPositionTopTablet,
+      rssPositionRightTablet: $rssPositionRightTablet,
+      rssPositionBottomTablet: $rssPositionBottomTablet,
+      rssPositionLeftTablet: $rssPositionLeftTablet,
+      rssIndexTablet: $rssIndexTablet,
+      rssDisplayTablet: $rssDisplayTablet,
+      rssMarginTopTablet: $rssMarginTopTablet,
+      rssMarginRightTablet: $rssMarginRightTablet,
+      rssMarginBottomTablet: $rssMarginBottomTablet,
+      rssMarginLeftTablet: $rssMarginLeftTablet,
+      rssPaddingTopTablet: $rssPaddingTopTablet,
+      rssPaddingRightTablet: $rssPaddingRightTablet,
+      rssPaddingBottomTablet: $rssPaddingBottomTablet,
+      rssPaddingLeftTablet: $rssPaddingLeftTablet,
+      rssBackgroundColorTablet: $rssBackgroundColorTablet,
+      rssHighlightTablet: $rssHighlightTablet,
+      rssStripesTablet: $rssStripesTablet,
+      rssSeparatorColorTablet: $rssSeparatorColorTablet,
+      rssChevronColorTablet: $rssChevronColorTablet,
+      rssTitleFontTablet: $rssTitleFontTablet,
+      rssTitleSizeTablet: $rssTitleSizeTablet,
+      rssTitleColorTablet: $rssTitleColorTablet,
+      rssTitleWeightTablet: $rssTitleWeightTablet,
+      rssTitleStyleTablet: $rssTitleStyleTablet,
+      rssTitleDecorationTablet: $rssTitleDecorationTablet,
+      rssDescriptionFontTablet: $rssDescriptionFontTablet,
+      rssDescriptionSizeTablet: $rssDescriptionSizeTablet,
+      rssDescriptionColorTablet: $rssDescriptionColorTablet,
+      rssDescriptionWeightTablet: $rssDescriptionWeightTablet,
+      rssDescriptionStyleTablet: $rssDescriptionStyleTablet,
+      rssDescriptionDecorationTablet: $rssDescriptionDecorationTablet,
+      rssVisibilityTablet: $rssVisibilityTablet,
+      rssWidthDesktop: $rssWidthDesktop,
+      rssMinWidthDesktop: $rssMinWidthDesktop,
+      rssMaxWidthDesktop: $rssMaxWidthDesktop,
+      rssPositionDesktop: $rssPositionDesktop,
+      rssPositionTopDesktop: $rssPositionTopDesktop,
+      rssPositionRightDesktop: $rssPositionRightDesktop,
+      rssPositionBottomDesktop: $rssPositionBottomDesktop,
+      rssPositionLeftDesktop: $rssPositionLeftDesktop,
+      rssIndexDesktop: $rssIndexDesktop,
+      rssDisplayDesktop: $rssDisplayDesktop,
+      rssMarginTopDesktop: $rssMarginTopDesktop,
+      rssMarginRightDesktop: $rssMarginRightDesktop,
+      rssMarginBottomDesktop: $rssMarginBottomDesktop,
+      rssMarginLeftDesktop: $rssMarginLeftDesktop,
+      rssPaddingTopDesktop: $rssPaddingTopDesktop,
+      rssPaddingRightDesktop: $rssPaddingRightDesktop,
+      rssPaddingBottomDesktop: $rssPaddingBottomDesktop,
+      rssPaddingLeftDesktop: $rssPaddingLeftDesktop,
+      rssBackgroundColorDesktop: $rssBackgroundColorDesktop,
+      rssHighlightDesktop: $rssHighlightDesktop,
+      rssStripesDesktop: $rssStripesDesktop,
+      rssSeparatorColorDesktop: $rssSeparatorColorDesktop,
+      rssChevronColorDesktop: $rssChevronColorDesktop,
+      rssTitleFontDesktop: $rssTitleFontDesktop,
+      rssTitleSizeDesktop: $rssTitleSizeDesktop,
+      rssTitleColorDesktop: $rssTitleColorDesktop,
+      rssTitleWeightDesktop: $rssTitleWeightDesktop,
+      rssTitleStyleDesktop: $rssTitleStyleDesktop,
+      rssTitleDecorationDesktop: $rssTitleDecorationDesktop,
+      rssDescriptionFontDesktop: $rssDescriptionFontDesktop,
+      rssDescriptionSizeDesktop: $rssDescriptionSizeDesktop,
+      rssDescriptionColorDesktop: $rssDescriptionColorDesktop,
+      rssDescriptionWeightDesktop: $rssDescriptionWeightDesktop,
+      rssDescriptionStyleDesktop: $rssDescriptionStyleDesktop,
+      rssDescriptionDecorationDesktop: $rssDescriptionDecorationDesktop,
+      rssVisibilityDesktop: $rssVisibilityDesktop
+    ),
+    $options
+  );
 
   $instanceSelector: '[data-widget-package="com.fliplet.rss"]';
-  @if $widgetInstanceUUID != '' {
+  @if $widgetInstanceUUID != "" {
     $instanceSelector: '#{$instanceSelector}[data-uuid="#{$widgetInstanceUUID}"]';
-  } @else if $widgetInstanceId != '' {
+  } @else if $widgetInstanceId != "" {
     $instanceSelector: '#{$instanceSelector}[data-id="#{$widgetInstanceId}"]';
   }
 
@@ -121,14 +124,14 @@
     position: map-get($configuration, rssPosition) !important;
     z-index: map-get($configuration, rssIndex);
 
-    @if map-get($configuration, rssPosition) == 'relative' {
-      @if map-get($configuration, rssVisibility) == 'visible' {
+    @if map-get($configuration, rssPosition) == "relative" {
+      @if map-get($configuration, rssVisibility) == "visible" {
         display: map-get($configuration, rssDisplay) !important;
       } @else {
         display: none !important;
       }
     } @else {
-      @if map-get($configuration, rssVisibility) == 'visible' {
+      @if map-get($configuration, rssVisibility) == "visible" {
         display: block !important;
       } @else {
         display: none !important;
@@ -143,28 +146,24 @@
     width: map-get($configuration, rssWidth);
     min-width: map-get($configuration, rssMinWidth);
     max-width: map-get($configuration, rssMaxWidth);
-    margin: map-get($configuration, rssMarginTop)
-      map-get($configuration, rssMarginRight)
-      map-get($configuration, rssMarginBottom)
-      map-get($configuration, rssMarginLeft);
-    padding: map-get($configuration, rssPaddingTop)
-      map-get($configuration, rssPaddingRight)
-      map-get($configuration, rssPaddingBottom)
-      map-get($configuration, rssPaddingLeft);
+    margin: map-get($configuration, rssMarginTop) map-get($configuration, rssMarginRight)
+      map-get($configuration, rssMarginBottom) map-get($configuration, rssMarginLeft);
+    padding: map-get($configuration, rssPaddingTop) map-get($configuration, rssPaddingRight)
+      map-get($configuration, rssPaddingBottom) map-get($configuration, rssPaddingLeft);
 
     // Styles for tablet
     @include above($tabletBreakpoint) {
       position: map-get($configuration, rssPositionTablet) !important;
       z-index: map-get($configuration, rssIndexTablet);
 
-      @if map-get($configuration, rssPositionTablet) == 'relative' {
-        @if map-get($configuration, rssVisibilityTablet) == 'visible' {
+      @if map-get($configuration, rssPositionTablet) == "relative" {
+        @if map-get($configuration, rssVisibilityTablet) == "visible" {
           display: map-get($configuration, rssDisplayTablet) !important;
         } @else {
           display: none !important;
         }
       } @else {
-        @if map-get($configuration, rssVisibilityTablet) == 'visible' {
+        @if map-get($configuration, rssVisibilityTablet) == "visible" {
           display: block !important;
         } @else {
           display: none !important;
@@ -180,8 +179,7 @@
       min-width: map-get($configuration, rssMinWidthTablet);
       max-width: map-get($configuration, rssMaxWidthTablet);
       margin: map-get($configuration, rssMarginTopTablet)
-        map-get($configuration, rssMarginRightTablet)
-        map-get($configuration, rssMarginBottomTablet)
+        map-get($configuration, rssMarginRightTablet) map-get($configuration, rssMarginBottomTablet)
         map-get($configuration, rssMarginLeftTablet);
       padding: map-get($configuration, rssPaddingTopTablet)
         map-get($configuration, rssPaddingRightTablet)
@@ -194,14 +192,14 @@
       position: map-get($configuration, rssPositionDesktop) !important;
       z-index: map-get($configuration, rssIndexDesktop);
 
-      @if map-get($configuration, rssPositionDesktop) == 'relative' {
-        @if map-get($configuration, rssVisibilityDesktop) == 'visible' {
+      @if map-get($configuration, rssPositionDesktop) == "relative" {
+        @if map-get($configuration, rssVisibilityDesktop) == "visible" {
           display: map-get($configuration, rssDisplayDesktop) !important;
         } @else {
           display: none !important;
         }
       } @else {
-        @if map-get($configuration, rssVisibilityDesktop) == 'visible' {
+        @if map-get($configuration, rssVisibilityDesktop) == "visible" {
           display: block !important;
         } @else {
           display: none !important;
@@ -225,7 +223,7 @@
         map-get($configuration, rssPaddingBottomDesktop)
         map-get($configuration, rssPaddingLeftDesktop);
     }
-    
+
     .feed {
       ul {
         &.feed-panels {
@@ -323,26 +321,30 @@
         }
 
         .list-title {
-          @include fontOnly((
-            fontFamily: map-get($configuration, rssTitleFont),
-            fontSize: map-get($configuration, rssTitleSize),
-            fontLineHeight: 1.5,
-            fontWeight: map-get($configuration, rssTitleWeight),
-            fontStyle: map-get($configuration, rssTitleStyle),
-            fontDecoration: map-get($configuration, rssTitleDecoration)
-          ));
+          @include fontOnly(
+            (
+              fontFamily: map-get($configuration, rssTitleFont),
+              fontSize: map-get($configuration, rssTitleSize),
+              fontLineHeight: 1.5,
+              fontWeight: map-get($configuration, rssTitleWeight),
+              fontStyle: map-get($configuration, rssTitleStyle),
+              fontDecoration: map-get($configuration, rssTitleDecoration)
+            )
+          );
           color: map-get($configuration, rssTitleColor);
         }
 
         .list-description {
-          @include fontOnly((
-            fontFamily: map-get($configuration, rssDescriptionFont),
-            fontSize: map-get($configuration, rssDescriptionSize),
-            fontLineHeight: 1.5,
-            fontWeight: map-get($configuration, rssDescriptionWeight),
-            fontStyle: map-get($configuration, rssDescriptionStyle),
-            fontDecoration: map-get($configuration, rssDescriptionDecoration)
-          ));
+          @include fontOnly(
+            (
+              fontFamily: map-get($configuration, rssDescriptionFont),
+              fontSize: map-get($configuration, rssDescriptionSize),
+              fontLineHeight: 1.5,
+              fontWeight: map-get($configuration, rssDescriptionWeight),
+              fontStyle: map-get($configuration, rssDescriptionStyle),
+              fontDecoration: map-get($configuration, rssDescriptionDecoration)
+            )
+          );
           color: map-get($configuration, rssDescriptionColor);
           font-size: map-get($configuration, rssDescriptionSize);
           font-weight: map-get($configuration, rssDescriptionWeight);
@@ -355,26 +357,30 @@
         // Styles for tablet
         @include above($tabletBreakpoint) {
           .list-title {
-            @include fontOnly((
-              fontFamily: map-get($configuration, rssTitleFontTablet),
-              fontSize: map-get($configuration, rssTitleSizeTablet),
-              fontLineHeight: 1.5,
-              fontWeight: map-get($configuration, rssTitleWeightTablet),
-              fontStyle: map-get($configuration, rssTitleStyleTablet),
-              fontDecoration: map-get($configuration, rssTitleDecorationTablet)
-            ));
+            @include fontOnly(
+              (
+                fontFamily: map-get($configuration, rssTitleFontTablet),
+                fontSize: map-get($configuration, rssTitleSizeTablet),
+                fontLineHeight: 1.5,
+                fontWeight: map-get($configuration, rssTitleWeightTablet),
+                fontStyle: map-get($configuration, rssTitleStyleTablet),
+                fontDecoration: map-get($configuration, rssTitleDecorationTablet)
+              )
+            );
             color: map-get($configuration, rssTitleColorTablet);
           }
 
           .list-description {
-            @include fontOnly((
-              fontFamily: map-get($configuration, rssDescriptionFontTablet),
-              fontSize: map-get($configuration, rssDescriptionSizeTablet),
-              fontLineHeight: 1.5,
-              fontWeight: map-get($configuration, rssDescriptionWeightTablet),
-              fontStyle: map-get($configuration, rssDescriptionStyleTablet),
-              fontDecoration: map-get($configuration, rssDescriptionDecorationTablet)
-            ));
+            @include fontOnly(
+              (
+                fontFamily: map-get($configuration, rssDescriptionFontTablet),
+                fontSize: map-get($configuration, rssDescriptionSizeTablet),
+                fontLineHeight: 1.5,
+                fontWeight: map-get($configuration, rssDescriptionWeightTablet),
+                fontStyle: map-get($configuration, rssDescriptionStyleTablet),
+                fontDecoration: map-get($configuration, rssDescriptionDecorationTablet)
+              )
+            );
             color: map-get($configuration, rssDescriptionColorTablet);
           }
 
@@ -386,26 +392,30 @@
         // Styles for desktop
         @include above($desktopBreakpoint) {
           .list-title {
-            @include fontOnly((
-              fontFamily: map-get($configuration, rssTitleFontDesktop),
-              fontSize: map-get($configuration, rssTitleSizeDesktop),
-              fontLineHeight: 1.5,
-              fontWeight: map-get($configuration, rssTitleWeightDesktop),
-              fontStyle: map-get($configuration, rssTitleStyleDesktop),
-              fontDecoration: map-get($configuration, rssTitleDecorationDesktop)
-            ));
+            @include fontOnly(
+              (
+                fontFamily: map-get($configuration, rssTitleFontDesktop),
+                fontSize: map-get($configuration, rssTitleSizeDesktop),
+                fontLineHeight: 1.5,
+                fontWeight: map-get($configuration, rssTitleWeightDesktop),
+                fontStyle: map-get($configuration, rssTitleStyleDesktop),
+                fontDecoration: map-get($configuration, rssTitleDecorationDesktop)
+              )
+            );
             color: map-get($configuration, rssTitleColorDesktop);
           }
 
           .list-description {
-            @include fontOnly((
-              fontFamily: map-get($configuration, rssDescriptionFontDesktop),
-              fontSize: map-get($configuration, rssDescriptionSizeDesktop),
-              fontLineHeight: 1.5,
-              fontWeight: map-get($configuration, rssDescriptionWeightDesktop),
-              fontStyle: map-get($configuration, rssDescriptionStyleDesktop),
-              fontDecoration: map-get($configuration, rssDescriptionDecorationDesktop)
-            ));
+            @include fontOnly(
+              (
+                fontFamily: map-get($configuration, rssDescriptionFontDesktop),
+                fontSize: map-get($configuration, rssDescriptionSizeDesktop),
+                fontLineHeight: 1.5,
+                fontWeight: map-get($configuration, rssDescriptionWeightDesktop),
+                fontStyle: map-get($configuration, rssDescriptionStyleDesktop),
+                fontDecoration: map-get($configuration, rssDescriptionDecorationDesktop)
+              )
+            );
             color: map-get($configuration, rssDescriptionColorDesktop);
           }
 

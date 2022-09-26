@@ -1,28 +1,31 @@
 @mixin intro($options: ()) {
-  $configuration: map-merge((
-    backgroundImage: '',
-    backgroundColor: '',
-    backgroundType: '',
-    backgroundSize: '',
-    backgroundRepeat: '',
-    backgroundPosX: '',
-    backgroundPosY: '',
-    fontFamily: '',
-    fontSize: '',
-    fontColor: '',
-    fontWeight: '',
-    fontLineHeight: '',
-    fontStyle: '',
-    fontDecoration: ''
-  ), $options);
+  $configuration: map-merge(
+    (
+      backgroundImage: "",
+      backgroundColor: "",
+      backgroundType: "",
+      backgroundSize: "",
+      backgroundRepeat: "",
+      backgroundPosX: "",
+      backgroundPosY: "",
+      fontFamily: "",
+      fontSize: "",
+      fontColor: "",
+      fontWeight: "",
+      fontLineHeight: "",
+      fontStyle: "",
+      fontDecoration: ""
+    ),
+    $options
+  );
 
-  @if map-get($configuration, backgroundType) == 'Image' {
-    @if map-get($configuration, backgroundImage) == 'none' {
-      background-image: map-get($configuration, backgroundImage)
+  @if map-get($configuration, backgroundType) == "Image" {
+    @if map-get($configuration, backgroundImage) == "none" {
+      background-image: map-get($configuration, backgroundImage);
     } @else {
-      background-image: url(#{map-get($configuration, backgroundImage)});
+      background-image: url(#{map-get($configuration backgroundImage)});
     }
-  } @else if map-get($configuration, backgroundType) == 'Color' {
+  } @else if map-get($configuration, backgroundType) == "Color" {
     background-image: none;
     background-color: map-get($configuration, backgroundColor);
   } @else {
@@ -32,7 +35,8 @@
 
   background-size: map-get($configuration, backgroundSize);
   background-repeat: map-get($configuration, backgroundRepeat);
-  background-position: map-get($configuration, backgroundPosX) map-get($configuration, backgroundPosY);
+  background-position: map-get($configuration, backgroundPosX)
+    map-get($configuration, backgroundPosY);
   color: map-get($configuration, fontColor);
   font-family: map-get($configuration, fontFamily);
   font-size: map-get($configuration, fontSize);
@@ -43,29 +47,32 @@
 }
 
 @mixin overlay($options: ()) {
-  $configuration: map-merge((
-    overlayColor: '',
-    overlayPosition: '',
-    overlayPositionTop: '',
-    overlayPositionRight: '',
-    overlayPositionBottom: '',
-    overlayPositionLeft: '',
-    overlayBorderSides: '',
-    overlayBorderWidth: '',
-    overlayBorderStyle: '',
-    overlayBorderColor: '',
-    overlayBorderRadius: '',
-    overlayShadowStyle: '',
-    overlayShadowXoffset: '',
-    overlayShadowYoffset: '',
-    overlayShadowBlur: '',
-    overlayShadowSpread: '',
-    overlayShadowColor: '',
-    overlayPaddingTop: '',
-    overlayPaddingRight: '',
-    overlayPaddingBottom: '',
-    overlayPaddingLeft: ''
-  ), $options);
+  $configuration: map-merge(
+    (
+      overlayColor: "",
+      overlayPosition: "",
+      overlayPositionTop: "",
+      overlayPositionRight: "",
+      overlayPositionBottom: "",
+      overlayPositionLeft: "",
+      overlayBorderSides: "",
+      overlayBorderWidth: "",
+      overlayBorderStyle: "",
+      overlayBorderColor: "",
+      overlayBorderRadius: "",
+      overlayShadowStyle: "",
+      overlayShadowXoffset: "",
+      overlayShadowYoffset: "",
+      overlayShadowBlur: "",
+      overlayShadowSpread: "",
+      overlayShadowColor: "",
+      overlayPaddingTop: "",
+      overlayPaddingRight: "",
+      overlayPaddingBottom: "",
+      overlayPaddingLeft: ""
+    ),
+    $options
+  );
 
   position: map-get($configuration, overlayPosition);
   top: map-get($configuration, overlayPositionTop);
@@ -73,12 +80,10 @@
   bottom: map-get($configuration, overlayPositionBottom);
   left: map-get($configuration, overlayPositionLeft);
   background-color: map-get($configuration, overlayColor);
-  padding: map-get($configuration, overlayPaddingTop)
-    map-get($configuration, overlayPaddingRight)
-    map-get($configuration, overlayPaddingBottom)
-    map-get($configuration, overlayPaddingLeft);
+  padding: map-get($configuration, overlayPaddingTop) map-get($configuration, overlayPaddingRight)
+    map-get($configuration, overlayPaddingBottom) map-get($configuration, overlayPaddingLeft);
 
-  @if map-get($configuration, overlayShadowStyle) == 'inset' {
+  @if map-get($configuration, overlayShadowStyle) == "inset" {
     box-shadow: map-get($configuration, overlayShadowStyle)
       map-get($configuration, overlayShadowXoffset)
       map-get($configuration, overlayShadowYoffset)
@@ -86,10 +91,10 @@
       map-get($configuration, overlayShadowSpread)
       map-get($configuration, overlayShadowColor);
   }
-  @if map-get($configuration, overlayShadowStyle) == 'none' {
+  @if map-get($configuration, overlayShadowStyle) == "none" {
     box-shadow: map-get($configuration, overlayShadowStyle);
   }
-  @if map-get($configuration, overlayShadowStyle) == 'outset' {
+  @if map-get($configuration, overlayShadowStyle) == "outset" {
     box-shadow: map-get($configuration, overlayShadowXoffset)
       map-get($configuration, overlayShadowYoffset)
       map-get($configuration, overlayShadowBlur)
@@ -97,30 +102,30 @@
       map-get($configuration, overlayShadowColor);
   }
 
-  @if map-get($configuration, overlayBorderSides) == 'none' {
+  @if map-get($configuration, overlayBorderSides) == "none" {
     border: none;
   }
-  @if map-get($configuration, overlayBorderSides) == 'all' {
+  @if map-get($configuration, overlayBorderSides) == "all" {
     border: map-get($configuration, overlayBorderWidth)
       map-get($configuration, overlayBorderStyle)
       map-get($configuration, overlayBorderColor);
   }
-  @if map-get($configuration, overlayBorderSides) == 'top' {
+  @if map-get($configuration, overlayBorderSides) == "top" {
     border-top: map-get($configuration, overlayBorderWidth)
       map-get($configuration, overlayBorderStyle)
       map-get($configuration, overlayBorderColor);
   }
-  @if map-get($configuration, overlayBorderSides) == 'right' {
+  @if map-get($configuration, overlayBorderSides) == "right" {
     border-right: map-get($configuration, overlayBorderWidth)
       map-get($configuration, overlayBorderStyle)
       map-get($configuration, overlayBorderColor);
   }
-  @if map-get($configuration, overlayBorderSides) == 'bottom' {
+  @if map-get($configuration, overlayBorderSides) == "bottom" {
     border-bottom: map-get($configuration, overlayBorderWidth)
       map-get($configuration, overlayBorderStyle)
       map-get($configuration, overlayBorderColor);
   }
-  @if map-get($configuration, overlayBorderSides) == 'left' {
+  @if map-get($configuration, overlayBorderSides) == "left" {
     border-left: map-get($configuration, overlayBorderWidth)
       map-get($configuration, overlayBorderStyle)
       map-get($configuration, overlayBorderColor);
@@ -130,171 +135,180 @@
 }
 
 @mixin introLayout($options: ()) {
-  $configuration: map-merge((
-    introBodyBackgroundImage: $introBodyBackgroundImage,
-    introBodyBackgroundColor: $introBodyBackgroundColor,
-    introBodyBackgroundType: $introBodyBackgroundType,
-    introBodyBackgroundSize: $introBodyBackgroundSize,
-    introBodyBackgroundRepeat: $introBodyBackgroundRepeat,
-    introBodyBackgroundPosX: $introBodyBackgroundPosX,
-    introBodyBackgroundPosY: $introBodyBackgroundPosY,
-    introBodyFontFamily: $introBodyFontFamily,
-    introBodyFontSize: $introBodyFontSize,
-    introBodyTextColor: $introBodyTextColor,
-    introBodyFontWeight: $introBodyFontWeight,
-    introBodyLineHeight: $introBodyLineHeight,
-    introBodyFontStyle: $introBodyFontStyle,
-    introBodyFontDecoration: $introBodyFontDecoration,
-    introOverlayColor: $introOverlayColor,
-    introOverlayPosition: $introOverlayPosition,
-    introOverlayPositionTop: $introOverlayPositionTop,
-    introOverlayPositionRight: $introOverlayPositionRight,
-    introOverlayPositionBottom: $introOverlayPositionBottom,
-    introOverlayPositionLeft: $introOverlayPositionLeft,
-    introOverlayBorderSides: $introOverlayBorderSides,
-    introOverlayBorderWidth: $introOverlayBorderWidth,
-    introOverlayBorderStyle: $introOverlayBorderStyle,
-    introOverlayBorderColor: $introOverlayBorderColor,
-    introOverlayBorderRadius: $introOverlayBorderRadius,
-    introOverlayShadowStyle: $introOverlayShadowStyle,
-    introOverlayShadowXoffset: $introOverlayShadowXoffset,
-    introOverlayShadowYoffset: $introOverlayShadowYoffset,
-    introOverlayShadowBlur: $introOverlayShadowBlur,
-    introOverlayShadowSpread: $introOverlayShadowSpread,
-    introOverlayShadowColor: $introOverlayShadowColor,
-    introOverlayPaddingTop: $introOverlayPaddingTop,
-    introOverlayPaddingRight: $introOverlayPaddingRight,
-    introOverlayPaddingBottom: $introOverlayPaddingBottom,
-    introOverlayPaddingLeft: $introOverlayPaddingLeft,
-    introBodyBackgroundImageTablet: $introBodyBackgroundImageTablet,
-    introBodyBackgroundColorTablet: $introBodyBackgroundColorTablet,
-    introBodyBackgroundTypeTablet: $introBodyBackgroundTypeTablet,
-    introBodyBackgroundSizeTablet: $introBodyBackgroundSizeTablet,
-    introBodyBackgroundRepeatTablet: $introBodyBackgroundRepeatTablet,
-    introBodyBackgroundPosXTablet: $introBodyBackgroundPosXTablet,
-    introBodyBackgroundPosYTablet: $introBodyBackgroundPosYTablet,
-    introBodyFontFamilyTablet: $introBodyFontFamilyTablet,
-    introBodyFontSizeTablet: $introBodyFontSizeTablet,
-    introBodyTextColorTablet: $introBodyTextColorTablet,
-    introBodyFontWeightTablet: $introBodyFontWeightTablet,
-    introBodyLineHeightTablet: $introBodyLineHeightTablet,
-    introBodyFontStyleTablet: $introBodyFontStyleTablet,
-    introBodyFontDecorationTablet: $introBodyFontDecorationTablet,
-    introOverlayColorTablet: $introOverlayColorTablet,
-    introOverlayPositionTablet: $introOverlayPositionTablet,
-    introOverlayPositionTopTablet: $introOverlayPositionTopTablet,
-    introOverlayPositionRightTablet: $introOverlayPositionRightTablet,
-    introOverlayPositionBottomTablet: $introOverlayPositionBottomTablet,
-    introOverlayPositionLeftTablet: $introOverlayPositionLeftTablet,
-    introOverlayBorderSidesTablet: $introOverlayBorderSidesTablet,
-    introOverlayBorderWidthTablet: $introOverlayBorderWidthTablet,
-    introOverlayBorderStyleTablet: $introOverlayBorderStyleTablet,
-    introOverlayBorderColorTablet: $introOverlayBorderColorTablet,
-    introOverlayBorderRadiusTablet: $introOverlayBorderRadiusTablet,
-    introOverlayShadowStyleTablet: $introOverlayShadowStyleTablet,
-    introOverlayShadowXoffsetTablet: $introOverlayShadowXoffsetTablet,
-    introOverlayShadowYoffsetTablet: $introOverlayShadowYoffsetTablet,
-    introOverlayShadowBlurTablet: $introOverlayShadowBlurTablet,
-    introOverlayShadowSpreadTablet: $introOverlayShadowSpreadTablet,
-    introOverlayShadowColorTablet: $introOverlayShadowColorTablet,
-    introOverlayPaddingTopTablet: $introOverlayPaddingTopTablet,
-    introOverlayPaddingRightTablet: $introOverlayPaddingRightTablet,
-    introOverlayPaddingBottomTablet: $introOverlayPaddingBottomTablet,
-    introOverlayPaddingLeftTablet: $introOverlayPaddingLeftTablet,
-    introBodyBackgroundImageDesktop: $introBodyBackgroundImageDesktop,
-    introBodyBackgroundColorDesktop: $introBodyBackgroundColorDesktop,
-    introBodyBackgroundTypeDesktop: $introBodyBackgroundTypeDesktop,
-    introBodyBackgroundSizeDesktop: $introBodyBackgroundSizeDesktop,
-    introBodyBackgroundRepeatDesktop: $introBodyBackgroundRepeatDesktop,
-    introBodyBackgroundPosXDesktop: $introBodyBackgroundPosXDesktop,
-    introBodyBackgroundPosYDesktop: $introBodyBackgroundPosYDesktop,
-    introBodyFontFamilyDesktop: $introBodyFontFamilyDesktop,
-    introBodyFontSizeDesktop: $introBodyFontSizeDesktop,
-    introBodyTextColorDesktop: $introBodyTextColorDesktop,
-    introBodyFontWeightDesktop: $introBodyFontWeightDesktop,
-    introBodyLineHeightDesktop: $introBodyLineHeightDesktop,
-    introBodyFontStyleDesktop: $introBodyFontStyleDesktop,
-    introBodyFontDecorationDesktop: $introBodyFontDecorationDesktop,
-    introOverlayColorDesktop: $introOverlayColorDesktop,
-    introOverlayPositionDesktop: $introOverlayPositionDesktop,
-    introOverlayPositionTopDesktop: $introOverlayPositionTopDesktop,
-    introOverlayPositionRightDesktop: $introOverlayPositionRightDesktop,
-    introOverlayPositionBottomDesktop: $introOverlayPositionBottomDesktop,
-    introOverlayPositionLeftDesktop: $introOverlayPositionLeftDesktop,
-    introOverlayBorderSidesDesktop: $introOverlayBorderSidesDesktop,
-    introOverlayBorderWidthDesktop: $introOverlayBorderWidthDesktop,
-    introOverlayBorderStyleDesktop: $introOverlayBorderStyleDesktop,
-    introOverlayBorderColorDesktop: $introOverlayBorderColorDesktop,
-    introOverlayBorderRadiusDesktop: $introOverlayBorderRadiusDesktop,
-    introOverlayShadowStyleDesktop: $introOverlayShadowStyleDesktop,
-    introOverlayShadowXoffsetDesktop: $introOverlayShadowXoffsetDesktop,
-    introOverlayShadowYoffsetDesktop: $introOverlayShadowYoffsetDesktop,
-    introOverlayShadowBlurDesktop: $introOverlayShadowBlurDesktop,
-    introOverlayShadowSpreadDesktop: $introOverlayShadowSpreadDesktop,
-    introOverlayShadowColorDesktop: $introOverlayShadowColorDesktop,
-    introOverlayPaddingTopDesktop: $introOverlayPaddingTopDesktop,
-    introOverlayPaddingRightDesktop: $introOverlayPaddingRightDesktop,
-    introOverlayPaddingBottomDesktop: $introOverlayPaddingBottomDesktop,
-    introOverlayPaddingLeftDesktop: $introOverlayPaddingLeftDesktop
-  ), $options);
+  $configuration: map-merge(
+    (
+      introBodyBackgroundImage: $introBodyBackgroundImage,
+      introBodyBackgroundColor: $introBodyBackgroundColor,
+      introBodyBackgroundType: $introBodyBackgroundType,
+      introBodyBackgroundSize: $introBodyBackgroundSize,
+      introBodyBackgroundRepeat: $introBodyBackgroundRepeat,
+      introBodyBackgroundPosX: $introBodyBackgroundPosX,
+      introBodyBackgroundPosY: $introBodyBackgroundPosY,
+      introBodyFontFamily: $introBodyFontFamily,
+      introBodyFontSize: $introBodyFontSize,
+      introBodyTextColor: $introBodyTextColor,
+      introBodyFontWeight: $introBodyFontWeight,
+      introBodyLineHeight: $introBodyLineHeight,
+      introBodyFontStyle: $introBodyFontStyle,
+      introBodyFontDecoration: $introBodyFontDecoration,
+      introOverlayColor: $introOverlayColor,
+      introOverlayPosition: $introOverlayPosition,
+      introOverlayPositionTop: $introOverlayPositionTop,
+      introOverlayPositionRight: $introOverlayPositionRight,
+      introOverlayPositionBottom: $introOverlayPositionBottom,
+      introOverlayPositionLeft: $introOverlayPositionLeft,
+      introOverlayBorderSides: $introOverlayBorderSides,
+      introOverlayBorderWidth: $introOverlayBorderWidth,
+      introOverlayBorderStyle: $introOverlayBorderStyle,
+      introOverlayBorderColor: $introOverlayBorderColor,
+      introOverlayBorderRadius: $introOverlayBorderRadius,
+      introOverlayShadowStyle: $introOverlayShadowStyle,
+      introOverlayShadowXoffset: $introOverlayShadowXoffset,
+      introOverlayShadowYoffset: $introOverlayShadowYoffset,
+      introOverlayShadowBlur: $introOverlayShadowBlur,
+      introOverlayShadowSpread: $introOverlayShadowSpread,
+      introOverlayShadowColor: $introOverlayShadowColor,
+      introOverlayPaddingTop: $introOverlayPaddingTop,
+      introOverlayPaddingRight: $introOverlayPaddingRight,
+      introOverlayPaddingBottom: $introOverlayPaddingBottom,
+      introOverlayPaddingLeft: $introOverlayPaddingLeft,
+      introBodyBackgroundImageTablet: $introBodyBackgroundImageTablet,
+      introBodyBackgroundColorTablet: $introBodyBackgroundColorTablet,
+      introBodyBackgroundTypeTablet: $introBodyBackgroundTypeTablet,
+      introBodyBackgroundSizeTablet: $introBodyBackgroundSizeTablet,
+      introBodyBackgroundRepeatTablet: $introBodyBackgroundRepeatTablet,
+      introBodyBackgroundPosXTablet: $introBodyBackgroundPosXTablet,
+      introBodyBackgroundPosYTablet: $introBodyBackgroundPosYTablet,
+      introBodyFontFamilyTablet: $introBodyFontFamilyTablet,
+      introBodyFontSizeTablet: $introBodyFontSizeTablet,
+      introBodyTextColorTablet: $introBodyTextColorTablet,
+      introBodyFontWeightTablet: $introBodyFontWeightTablet,
+      introBodyLineHeightTablet: $introBodyLineHeightTablet,
+      introBodyFontStyleTablet: $introBodyFontStyleTablet,
+      introBodyFontDecorationTablet: $introBodyFontDecorationTablet,
+      introOverlayColorTablet: $introOverlayColorTablet,
+      introOverlayPositionTablet: $introOverlayPositionTablet,
+      introOverlayPositionTopTablet: $introOverlayPositionTopTablet,
+      introOverlayPositionRightTablet: $introOverlayPositionRightTablet,
+      introOverlayPositionBottomTablet: $introOverlayPositionBottomTablet,
+      introOverlayPositionLeftTablet: $introOverlayPositionLeftTablet,
+      introOverlayBorderSidesTablet: $introOverlayBorderSidesTablet,
+      introOverlayBorderWidthTablet: $introOverlayBorderWidthTablet,
+      introOverlayBorderStyleTablet: $introOverlayBorderStyleTablet,
+      introOverlayBorderColorTablet: $introOverlayBorderColorTablet,
+      introOverlayBorderRadiusTablet: $introOverlayBorderRadiusTablet,
+      introOverlayShadowStyleTablet: $introOverlayShadowStyleTablet,
+      introOverlayShadowXoffsetTablet: $introOverlayShadowXoffsetTablet,
+      introOverlayShadowYoffsetTablet: $introOverlayShadowYoffsetTablet,
+      introOverlayShadowBlurTablet: $introOverlayShadowBlurTablet,
+      introOverlayShadowSpreadTablet: $introOverlayShadowSpreadTablet,
+      introOverlayShadowColorTablet: $introOverlayShadowColorTablet,
+      introOverlayPaddingTopTablet: $introOverlayPaddingTopTablet,
+      introOverlayPaddingRightTablet: $introOverlayPaddingRightTablet,
+      introOverlayPaddingBottomTablet: $introOverlayPaddingBottomTablet,
+      introOverlayPaddingLeftTablet: $introOverlayPaddingLeftTablet,
+      introBodyBackgroundImageDesktop: $introBodyBackgroundImageDesktop,
+      introBodyBackgroundColorDesktop: $introBodyBackgroundColorDesktop,
+      introBodyBackgroundTypeDesktop: $introBodyBackgroundTypeDesktop,
+      introBodyBackgroundSizeDesktop: $introBodyBackgroundSizeDesktop,
+      introBodyBackgroundRepeatDesktop: $introBodyBackgroundRepeatDesktop,
+      introBodyBackgroundPosXDesktop: $introBodyBackgroundPosXDesktop,
+      introBodyBackgroundPosYDesktop: $introBodyBackgroundPosYDesktop,
+      introBodyFontFamilyDesktop: $introBodyFontFamilyDesktop,
+      introBodyFontSizeDesktop: $introBodyFontSizeDesktop,
+      introBodyTextColorDesktop: $introBodyTextColorDesktop,
+      introBodyFontWeightDesktop: $introBodyFontWeightDesktop,
+      introBodyLineHeightDesktop: $introBodyLineHeightDesktop,
+      introBodyFontStyleDesktop: $introBodyFontStyleDesktop,
+      introBodyFontDecorationDesktop: $introBodyFontDecorationDesktop,
+      introOverlayColorDesktop: $introOverlayColorDesktop,
+      introOverlayPositionDesktop: $introOverlayPositionDesktop,
+      introOverlayPositionTopDesktop: $introOverlayPositionTopDesktop,
+      introOverlayPositionRightDesktop: $introOverlayPositionRightDesktop,
+      introOverlayPositionBottomDesktop: $introOverlayPositionBottomDesktop,
+      introOverlayPositionLeftDesktop: $introOverlayPositionLeftDesktop,
+      introOverlayBorderSidesDesktop: $introOverlayBorderSidesDesktop,
+      introOverlayBorderWidthDesktop: $introOverlayBorderWidthDesktop,
+      introOverlayBorderStyleDesktop: $introOverlayBorderStyleDesktop,
+      introOverlayBorderColorDesktop: $introOverlayBorderColorDesktop,
+      introOverlayBorderRadiusDesktop: $introOverlayBorderRadiusDesktop,
+      introOverlayShadowStyleDesktop: $introOverlayShadowStyleDesktop,
+      introOverlayShadowXoffsetDesktop: $introOverlayShadowXoffsetDesktop,
+      introOverlayShadowYoffsetDesktop: $introOverlayShadowYoffsetDesktop,
+      introOverlayShadowBlurDesktop: $introOverlayShadowBlurDesktop,
+      introOverlayShadowSpreadDesktop: $introOverlayShadowSpreadDesktop,
+      introOverlayShadowColorDesktop: $introOverlayShadowColorDesktop,
+      introOverlayPaddingTopDesktop: $introOverlayPaddingTopDesktop,
+      introOverlayPaddingRightDesktop: $introOverlayPaddingRightDesktop,
+      introOverlayPaddingBottomDesktop: $introOverlayPaddingBottomDesktop,
+      introOverlayPaddingLeftDesktop: $introOverlayPaddingLeftDesktop
+    ),
+    $options
+  );
 
   .fl-intro-layout.container-fluid {
     // Include styles for default mobile viewport
-    @include intro((
-      backgroundImage: map-get($configuration, introBodyBackgroundImage),
-      backgroundColor: map-get($configuration, introBodyBackgroundColor),
-      backgroundType: map-get($configuration, introBodyBackgroundType),
-      backgroundSize: map-get($configuration, introBodyBackgroundSize),
-      backgroundRepeat: map-get($configuration, introBodyBackgroundRepeat),
-      backgroundPosX: map-get($configuration, introBodyBackgroundPosX),
-      backgroundPosY: map-get($configuration, introBodyBackgroundPosY),
-      fontFamily: map-get($configuration, introBodyFontFamily),
-      fontSize: map-get($configuration, introBodyFontSize),
-      fontColor: map-get($configuration, introBodyTextColor),
-      fontWeight: map-get($configuration, introBodyFontWeight),
-      fontLineHeight: map-get($configuration, introBodyLineHeight),
-      fontStyle: map-get($configuration, introBodyFontStyle),
-      fontDecoration: map-get($configuration, introBodyFontDecoration)
-    ));
+    @include intro(
+      (
+        backgroundImage: map-get($configuration, introBodyBackgroundImage),
+        backgroundColor: map-get($configuration, introBodyBackgroundColor),
+        backgroundType: map-get($configuration, introBodyBackgroundType),
+        backgroundSize: map-get($configuration, introBodyBackgroundSize),
+        backgroundRepeat: map-get($configuration, introBodyBackgroundRepeat),
+        backgroundPosX: map-get($configuration, introBodyBackgroundPosX),
+        backgroundPosY: map-get($configuration, introBodyBackgroundPosY),
+        fontFamily: map-get($configuration, introBodyFontFamily),
+        fontSize: map-get($configuration, introBodyFontSize),
+        fontColor: map-get($configuration, introBodyTextColor),
+        fontWeight: map-get($configuration, introBodyFontWeight),
+        fontLineHeight: map-get($configuration, introBodyLineHeight),
+        fontStyle: map-get($configuration, introBodyFontStyle),
+        fontDecoration: map-get($configuration, introBodyFontDecoration)
+      )
+    );
 
     // Styles for tablet
     @include above($tabletBreakpoint) {
-      @include intro((
-        backgroundImage: map-get($configuration, introBodyBackgroundImageTablet),
-        backgroundColor: map-get($configuration, introBodyBackgroundColorTablet),
-        backgroundType: map-get($configuration, introBodyBackgroundTypeTablet),
-        backgroundSize: map-get($configuration, introBodyBackgroundSizeTablet),
-        backgroundRepeat: map-get($configuration, introBodyBackgroundRepeatTablet),
-        backgroundPosX: map-get($configuration, introBodyBackgroundPosXTablet),
-        backgroundPosY: map-get($configuration, introBodyBackgroundPosYTablet),
-        fontFamily: map-get($configuration, introBodyFontFamilyTablet),
-        fontSize: map-get($configuration, introBodyFontSizeTablet),
-        fontColor: map-get($configuration, introBodyTextColorTablet),
-        fontWeight: map-get($configuration, introBodyFontWeightTablet),
-        fontLineHeight: map-get($configuration, introBodyLineHeightTablet),
-        fontStyle: map-get($configuration, introBodyFontStyleTablet),
-        fontDecoration: map-get($configuration, introBodyFontDecorationTablet)
-      ));
+      @include intro(
+        (
+          backgroundImage: map-get($configuration, introBodyBackgroundImageTablet),
+          backgroundColor: map-get($configuration, introBodyBackgroundColorTablet),
+          backgroundType: map-get($configuration, introBodyBackgroundTypeTablet),
+          backgroundSize: map-get($configuration, introBodyBackgroundSizeTablet),
+          backgroundRepeat: map-get($configuration, introBodyBackgroundRepeatTablet),
+          backgroundPosX: map-get($configuration, introBodyBackgroundPosXTablet),
+          backgroundPosY: map-get($configuration, introBodyBackgroundPosYTablet),
+          fontFamily: map-get($configuration, introBodyFontFamilyTablet),
+          fontSize: map-get($configuration, introBodyFontSizeTablet),
+          fontColor: map-get($configuration, introBodyTextColorTablet),
+          fontWeight: map-get($configuration, introBodyFontWeightTablet),
+          fontLineHeight: map-get($configuration, introBodyLineHeightTablet),
+          fontStyle: map-get($configuration, introBodyFontStyleTablet),
+          fontDecoration: map-get($configuration, introBodyFontDecorationTablet)
+        )
+      );
     }
 
     // Styles for desktop
     @include above($desktopBreakpoint) {
-      @include intro((
-        backgroundImage: map-get($configuration, introBodyBackgroundImageDesktop),
-        backgroundColor: map-get($configuration, introBodyBackgroundColorDesktop),
-        backgroundType: map-get($configuration, introBodyBackgroundTypeDesktop),
-        backgroundSize: map-get($configuration, introBodyBackgroundSizeDesktop),
-        backgroundRepeat: map-get($configuration, introBodyBackgroundRepeatDesktop),
-        backgroundPosX: map-get($configuration, introBodyBackgroundPosXDesktop),
-        backgroundPosY: map-get($configuration, introBodyBackgroundPosYDesktop),
-        fontFamily: map-get($configuration, introBodyFontFamilyDesktop),
-        fontSize: map-get($configuration, introBodyFontSizeDesktop),
-        fontColor: map-get($configuration, introBodyTextColorDesktop),
-        fontWeight: map-get($configuration, introBodyFontWeightDesktop),
-        fontLineHeight: map-get($configuration, introBodyLineHeightDesktop),
-        fontStyle: map-get($configuration, introBodyFontStyleDesktop),
-        fontDecoration: map-get($configuration, introBodyFontDecorationDesktop)
-      ));
+      @include intro(
+        (
+          backgroundImage: map-get($configuration, introBodyBackgroundImageDesktop),
+          backgroundColor: map-get($configuration, introBodyBackgroundColorDesktop),
+          backgroundType: map-get($configuration, introBodyBackgroundTypeDesktop),
+          backgroundSize: map-get($configuration, introBodyBackgroundSizeDesktop),
+          backgroundRepeat: map-get($configuration, introBodyBackgroundRepeatDesktop),
+          backgroundPosX: map-get($configuration, introBodyBackgroundPosXDesktop),
+          backgroundPosY: map-get($configuration, introBodyBackgroundPosYDesktop),
+          fontFamily: map-get($configuration, introBodyFontFamilyDesktop),
+          fontSize: map-get($configuration, introBodyFontSizeDesktop),
+          fontColor: map-get($configuration, introBodyTextColorDesktop),
+          fontWeight: map-get($configuration, introBodyFontWeightDesktop),
+          fontLineHeight: map-get($configuration, introBodyLineHeightDesktop),
+          fontStyle: map-get($configuration, introBodyFontStyleDesktop),
+          fontDecoration: map-get($configuration, introBodyFontDecorationDesktop)
+        )
+      );
     }
 
     .panel-overlay {
@@ -308,29 +322,31 @@
       left: 0px;
 
       > .panel-body {
-        @include overlay((
-          overlayColor: map-get($configuration, introOverlayColor),
-          overlayPosition: map-get($configuration, introOverlayPosition),
-          overlayPositionTop: map-get($configuration, introOverlayPositionTop),
-          overlayPositionRight: map-get($configuration, introOverlayPositionRight),
-          overlayPositionBottom: map-get($configuration, introOverlayPositionBottom),
-          overlayPositionLeft: map-get($configuration, introOverlayPositionLeft),
-          overlayBorderSides: map-get($configuration, introOverlayBorderSides),
-          overlayBorderWidth: map-get($configuration, introOverlayBorderWidth),
-          overlayBorderStyle: map-get($configuration, introOverlayBorderStyle),
-          overlayBorderColor: map-get($configuration, introOverlayBorderColor),
-          overlayBorderRadius: map-get($configuration, introOverlayBorderRadius),
-          overlayShadowStyle: map-get($configuration, introOverlayShadowStyle),
-          overlayShadowXoffset: map-get($configuration, introOverlayShadowXoffset),
-          overlayShadowYoffset: map-get($configuration, introOverlayShadowYoffset),
-          overlayShadowBlur: map-get($configuration, introOverlayShadowBlur),
-          overlayShadowSpread: map-get($configuration, introOverlayShadowSpread),
-          overlayShadowColor: map-get($configuration, introOverlayShadowColor),
-          overlayPaddingTop: map-get($configuration, introOverlayPaddingTop),
-          overlayPaddingRight: map-get($configuration, introOverlayPaddingRight),
-          overlayPaddingBottom: map-get($configuration, introOverlayPaddingBottom),
-          overlayPaddingLeft: map-get($configuration, introOverlayPaddingLeft)
-        ));
+        @include overlay(
+          (
+            overlayColor: map-get($configuration, introOverlayColor),
+            overlayPosition: map-get($configuration, introOverlayPosition),
+            overlayPositionTop: map-get($configuration, introOverlayPositionTop),
+            overlayPositionRight: map-get($configuration, introOverlayPositionRight),
+            overlayPositionBottom: map-get($configuration, introOverlayPositionBottom),
+            overlayPositionLeft: map-get($configuration, introOverlayPositionLeft),
+            overlayBorderSides: map-get($configuration, introOverlayBorderSides),
+            overlayBorderWidth: map-get($configuration, introOverlayBorderWidth),
+            overlayBorderStyle: map-get($configuration, introOverlayBorderStyle),
+            overlayBorderColor: map-get($configuration, introOverlayBorderColor),
+            overlayBorderRadius: map-get($configuration, introOverlayBorderRadius),
+            overlayShadowStyle: map-get($configuration, introOverlayShadowStyle),
+            overlayShadowXoffset: map-get($configuration, introOverlayShadowXoffset),
+            overlayShadowYoffset: map-get($configuration, introOverlayShadowYoffset),
+            overlayShadowBlur: map-get($configuration, introOverlayShadowBlur),
+            overlayShadowSpread: map-get($configuration, introOverlayShadowSpread),
+            overlayShadowColor: map-get($configuration, introOverlayShadowColor),
+            overlayPaddingTop: map-get($configuration, introOverlayPaddingTop),
+            overlayPaddingRight: map-get($configuration, introOverlayPaddingRight),
+            overlayPaddingBottom: map-get($configuration, introOverlayPaddingBottom),
+            overlayPaddingLeft: map-get($configuration, introOverlayPaddingLeft)
+          )
+        );
 
         h1,
         h2,
@@ -343,29 +359,31 @@
 
         // Styles for tablet
         @include above($tabletBreakpoint) {
-          @include overlay((
-            overlayColor: map-get($configuration, introOverlayColorTablet),
-            overlayPosition: map-get($configuration, introOverlayPositionTablet),
-            overlayPositionTop: map-get($configuration, introOverlayPositionTopTablet),
-            overlayPositionRight: map-get($configuration, introOverlayPositionRightTablet),
-            overlayPositionBottom: map-get($configuration, introOverlayPositionBottomTablet),
-            overlayPositionLeft: map-get($configuration, introOverlayPositionLeftTablet),
-            overlayBorderSides: map-get($configuration, introOverlayBorderSidesTablet),
-            overlayBorderWidth: map-get($configuration, introOverlayBorderWidthTablet),
-            overlayBorderStyle: map-get($configuration, introOverlayBorderStyleTablet),
-            overlayBorderColor: map-get($configuration, introOverlayBorderColorTablet),
-            overlayBorderRadius: map-get($configuration, introOverlayBorderRadiusTablet),
-            overlayShadowStyle: map-get($configuration, introOverlayShadowStyleTablet),
-            overlayShadowXoffset: map-get($configuration, introOverlayShadowXoffsetTablet),
-            overlayShadowYoffset: map-get($configuration, introOverlayShadowYoffsetTablet),
-            overlayShadowBlur: map-get($configuration, introOverlayShadowBlurTablet),
-            overlayShadowSpread: map-get($configuration, introOverlayShadowSpreadTablet),
-            overlayShadowColor: map-get($configuration, introOverlayShadowColorTablet),
-            overlayPaddingTop: map-get($configuration, introOverlayPaddingTopTablet),
-            overlayPaddingRight: map-get($configuration, introOverlayPaddingRightTablet),
-            overlayPaddingBottom: map-get($configuration, introOverlayPaddingBottomTablet),
-            overlayPaddingLeft: map-get($configuration, introOverlayPaddingLeftTablet)
-          ));
+          @include overlay(
+            (
+              overlayColor: map-get($configuration, introOverlayColorTablet),
+              overlayPosition: map-get($configuration, introOverlayPositionTablet),
+              overlayPositionTop: map-get($configuration, introOverlayPositionTopTablet),
+              overlayPositionRight: map-get($configuration, introOverlayPositionRightTablet),
+              overlayPositionBottom: map-get($configuration, introOverlayPositionBottomTablet),
+              overlayPositionLeft: map-get($configuration, introOverlayPositionLeftTablet),
+              overlayBorderSides: map-get($configuration, introOverlayBorderSidesTablet),
+              overlayBorderWidth: map-get($configuration, introOverlayBorderWidthTablet),
+              overlayBorderStyle: map-get($configuration, introOverlayBorderStyleTablet),
+              overlayBorderColor: map-get($configuration, introOverlayBorderColorTablet),
+              overlayBorderRadius: map-get($configuration, introOverlayBorderRadiusTablet),
+              overlayShadowStyle: map-get($configuration, introOverlayShadowStyleTablet),
+              overlayShadowXoffset: map-get($configuration, introOverlayShadowXoffsetTablet),
+              overlayShadowYoffset: map-get($configuration, introOverlayShadowYoffsetTablet),
+              overlayShadowBlur: map-get($configuration, introOverlayShadowBlurTablet),
+              overlayShadowSpread: map-get($configuration, introOverlayShadowSpreadTablet),
+              overlayShadowColor: map-get($configuration, introOverlayShadowColorTablet),
+              overlayPaddingTop: map-get($configuration, introOverlayPaddingTopTablet),
+              overlayPaddingRight: map-get($configuration, introOverlayPaddingRightTablet),
+              overlayPaddingBottom: map-get($configuration, introOverlayPaddingBottomTablet),
+              overlayPaddingLeft: map-get($configuration, introOverlayPaddingLeftTablet)
+            )
+          );
 
           h1,
           h2,
@@ -379,29 +397,31 @@
 
         // Styles for desktop
         @include above($desktopBreakpoint) {
-          @include overlay((
-            overlayColor: map-get($configuration, introOverlayColorDesktop),
-            overlayPosition: map-get($configuration, introOverlayPositionDesktop),
-            overlayPositionTop: map-get($configuration, introOverlayPositionTopDesktop),
-            overlayPositionRight: map-get($configuration, introOverlayPositionRightDesktop),
-            overlayPositionBottom: map-get($configuration, introOverlayPositionBottomDesktop),
-            overlayPositionLeft: map-get($configuration, introOverlayPositionLeftDesktop),
-            overlayBorderSides: map-get($configuration, introOverlayBorderSidesDesktop),
-            overlayBorderWidth: map-get($configuration, introOverlayBorderWidthDesktop),
-            overlayBorderStyle: map-get($configuration, introOverlayBorderStyleDesktop),
-            overlayBorderColor: map-get($configuration, introOverlayBorderColorDesktop),
-            overlayBorderRadius: map-get($configuration, introOverlayBorderRadiusDesktop),
-            overlayShadowStyle: map-get($configuration, introOverlayShadowStyleDesktop),
-            overlayShadowXoffset: map-get($configuration, introOverlayShadowXoffsetDesktop),
-            overlayShadowYoffset: map-get($configuration, introOverlayShadowYoffsetDesktop),
-            overlayShadowBlur: map-get($configuration, introOverlayShadowBlurDesktop),
-            overlayShadowSpread: map-get($configuration, introOverlayShadowSpreadDesktop),
-            overlayShadowColor: map-get($configuration, introOverlayShadowColorDesktop),
-            overlayPaddingTop: map-get($configuration, introOverlayPaddingTopDesktop),
-            overlayPaddingRight: map-get($configuration, introOverlayPaddingRightDesktop),
-            overlayPaddingBottom: map-get($configuration, introOverlayPaddingBottomDesktop),
-            overlayPaddingLeft: map-get($configuration, introOverlayPaddingLeftDesktop)
-          ));
+          @include overlay(
+            (
+              overlayColor: map-get($configuration, introOverlayColorDesktop),
+              overlayPosition: map-get($configuration, introOverlayPositionDesktop),
+              overlayPositionTop: map-get($configuration, introOverlayPositionTopDesktop),
+              overlayPositionRight: map-get($configuration, introOverlayPositionRightDesktop),
+              overlayPositionBottom: map-get($configuration, introOverlayPositionBottomDesktop),
+              overlayPositionLeft: map-get($configuration, introOverlayPositionLeftDesktop),
+              overlayBorderSides: map-get($configuration, introOverlayBorderSidesDesktop),
+              overlayBorderWidth: map-get($configuration, introOverlayBorderWidthDesktop),
+              overlayBorderStyle: map-get($configuration, introOverlayBorderStyleDesktop),
+              overlayBorderColor: map-get($configuration, introOverlayBorderColorDesktop),
+              overlayBorderRadius: map-get($configuration, introOverlayBorderRadiusDesktop),
+              overlayShadowStyle: map-get($configuration, introOverlayShadowStyleDesktop),
+              overlayShadowXoffset: map-get($configuration, introOverlayShadowXoffsetDesktop),
+              overlayShadowYoffset: map-get($configuration, introOverlayShadowYoffsetDesktop),
+              overlayShadowBlur: map-get($configuration, introOverlayShadowBlurDesktop),
+              overlayShadowSpread: map-get($configuration, introOverlayShadowSpreadDesktop),
+              overlayShadowColor: map-get($configuration, introOverlayShadowColorDesktop),
+              overlayPaddingTop: map-get($configuration, introOverlayPaddingTopDesktop),
+              overlayPaddingRight: map-get($configuration, introOverlayPaddingRightDesktop),
+              overlayPaddingBottom: map-get($configuration, introOverlayPaddingBottomDesktop),
+              overlayPaddingLeft: map-get($configuration, introOverlayPaddingLeftDesktop)
+            )
+          );
 
           h1,
           h2,

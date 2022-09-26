@@ -1,38 +1,41 @@
-@mixin menuBottom($options: (), $widgetInstanceId: '', $widgetInstanceUUID: '') {
-  $configuration: map-merge((
-    menuBottomFont: $menuBottomFont,
-    menuBottomSize: $menuBottomSize,
-    menuBottomWeight: $menuBottomWeight,
-    menuBottomStyle: $menuBottomStyle,
-    menuBottomDecoration: $menuBottomDecoration,
-    menuBottomBarBackgroundColor: $menuBottomBarBackgroundColor,
-    menuBottomBarFontColor: $menuBottomBarFontColor,
-    menuBottomActiveBackground: $menuBottomActiveBackground,
-    menuBottomBarActiveFontColor: $menuBottomBarActiveFontColor,
-    menuBottomFontTablet: $menuBottomFontTablet,
-    menuBottomSizeTablet: $menuBottomSizeTablet,
-    menuBottomWeightTablet: $menuBottomWeightTablet,
-    menuBottomStyleTablet: $menuBottomStyleTablet,
-    menuBottomDecorationTablet: $menuBottomDecorationTablet,
-    menuBottomBarBackgroundColorTablet: $menuBottomBarBackgroundColorTablet,
-    menuBottomBarFontColorTablet: $menuBottomBarFontColorTablet,
-    menuBottomActiveBackgroundTablet: $menuBottomActiveBackgroundTablet,
-    menuBottomBarActiveFontColorTablet: $menuBottomBarActiveFontColorTablet,
-    menuBottomFontDesktop: $menuBottomFontDesktop,
-    menuBottomSizeDesktop: $menuBottomSizeDesktop,
-    menuBottomWeightDesktop: $menuBottomWeightDesktop,
-    menuBottomStyleDesktop: $menuBottomStyleDesktop,
-    menuBottomDecorationDesktop: $menuBottomDecorationDesktop,
-    menuBottomBarBackgroundColorDesktop: $menuBottomBarBackgroundColorDesktop,
-    menuBottomBarFontColorDesktop: $menuBottomBarFontColorDesktop,
-    menuBottomActiveBackgroundDesktop: $menuBottomActiveBackgroundDesktop,
-    menuBottomBarActiveFontColorDesktop: $menuBottomBarActiveFontColorDesktop
-  ), $options);
+@mixin menuBottom($options: (), $widgetInstanceId: "", $widgetInstanceUUID: "") {
+  $configuration: map-merge(
+    (
+      menuBottomFont: $menuBottomFont,
+      menuBottomSize: $menuBottomSize,
+      menuBottomWeight: $menuBottomWeight,
+      menuBottomStyle: $menuBottomStyle,
+      menuBottomDecoration: $menuBottomDecoration,
+      menuBottomBarBackgroundColor: $menuBottomBarBackgroundColor,
+      menuBottomBarFontColor: $menuBottomBarFontColor,
+      menuBottomActiveBackground: $menuBottomActiveBackground,
+      menuBottomBarActiveFontColor: $menuBottomBarActiveFontColor,
+      menuBottomFontTablet: $menuBottomFontTablet,
+      menuBottomSizeTablet: $menuBottomSizeTablet,
+      menuBottomWeightTablet: $menuBottomWeightTablet,
+      menuBottomStyleTablet: $menuBottomStyleTablet,
+      menuBottomDecorationTablet: $menuBottomDecorationTablet,
+      menuBottomBarBackgroundColorTablet: $menuBottomBarBackgroundColorTablet,
+      menuBottomBarFontColorTablet: $menuBottomBarFontColorTablet,
+      menuBottomActiveBackgroundTablet: $menuBottomActiveBackgroundTablet,
+      menuBottomBarActiveFontColorTablet: $menuBottomBarActiveFontColorTablet,
+      menuBottomFontDesktop: $menuBottomFontDesktop,
+      menuBottomSizeDesktop: $menuBottomSizeDesktop,
+      menuBottomWeightDesktop: $menuBottomWeightDesktop,
+      menuBottomStyleDesktop: $menuBottomStyleDesktop,
+      menuBottomDecorationDesktop: $menuBottomDecorationDesktop,
+      menuBottomBarBackgroundColorDesktop: $menuBottomBarBackgroundColorDesktop,
+      menuBottomBarFontColorDesktop: $menuBottomBarFontColorDesktop,
+      menuBottomActiveBackgroundDesktop: $menuBottomActiveBackgroundDesktop,
+      menuBottomBarActiveFontColorDesktop: $menuBottomBarActiveFontColorDesktop
+    ),
+    $options
+  );
 
   $instanceSelector: '[data-widget-package="com.fliplet.menu.bottom-bar"]';
-  @if $widgetInstanceUUID != '' {
+  @if $widgetInstanceUUID != "" {
     $instanceSelector: '#{$instanceSelector}[data-uuid="#{$widgetInstanceUUID}"]';
-  } @else if $widgetInstanceId != '' {
+  } @else if $widgetInstanceId != "" {
     $instanceSelector: '#{$instanceSelector}[data-id="#{$widgetInstanceId}"]';
   }
 
@@ -46,14 +49,16 @@
 
       li {
         .fl-menu-title {
-          @include fontOnly((
-            fontFamily: map-get($configuration, menuBottomFont),
-            fontSize: map-get($configuration, menuBottomSize),
-            fontLineHeight: 1.5,
-            fontWeight: map-get($configuration, menuBottomWeight),
-            fontStyle: map-get($configuration, menuBottomStyle),
-            fontDecoration: map-get($configuration, menuBottomDecoration)
-          ));
+          @include fontOnly(
+            (
+              fontFamily: map-get($configuration, menuBottomFont),
+              fontSize: map-get($configuration, menuBottomSize),
+              fontLineHeight: 1.5,
+              fontWeight: map-get($configuration, menuBottomWeight),
+              fontStyle: map-get($configuration, menuBottomStyle),
+              fontDecoration: map-get($configuration, menuBottomDecoration)
+            )
+          );
         }
 
         &.active {
@@ -79,14 +84,16 @@
 
         li {
           .fl-menu-title {
-            @include fontOnly((
-              fontFamily: map-get($configuration, menuBottomFontTablet),
-              fontSize: map-get($configuration, menuBottomSizeTablet),
-              fontLineHeight: 1.5,
-              fontWeight: map-get($configuration, menuBottomWeightTablet),
-              fontStyle: map-get($configuration, menuBottomStyleTablet),
-              fontDecoration: map-get($configuration, menuBottomDecorationTablet)
-            ));
+            @include fontOnly(
+              (
+                fontFamily: map-get($configuration, menuBottomFontTablet),
+                fontSize: map-get($configuration, menuBottomSizeTablet),
+                fontLineHeight: 1.5,
+                fontWeight: map-get($configuration, menuBottomWeightTablet),
+                fontStyle: map-get($configuration, menuBottomStyleTablet),
+                fontDecoration: map-get($configuration, menuBottomDecorationTablet)
+              )
+            );
           }
 
           &.active {
@@ -113,14 +120,16 @@
 
         li {
           .fl-menu-title {
-            @include fontOnly((
-              fontFamily: map-get($configuration, menuBottomFontDesktop),
-              fontSize: map-get($configuration, menuBottomSizeDesktop),
-              fontLineHeight: 1.5,
-              fontWeight: map-get($configuration, menuBottomWeightDesktop),
-              fontStyle: map-get($configuration, menuBottomStyleDesktop),
-              fontDecoration: map-get($configuration, menuBottomDecorationDesktop)
-            ));
+            @include fontOnly(
+              (
+                fontFamily: map-get($configuration, menuBottomFontDesktop),
+                fontSize: map-get($configuration, menuBottomSizeDesktop),
+                fontLineHeight: 1.5,
+                fontWeight: map-get($configuration, menuBottomWeightDesktop),
+                fontStyle: map-get($configuration, menuBottomStyleDesktop),
+                fontDecoration: map-get($configuration, menuBottomDecorationDesktop)
+              )
+            );
           }
 
           &.active {

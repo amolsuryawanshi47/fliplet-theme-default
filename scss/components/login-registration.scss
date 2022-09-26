@@ -1,214 +1,217 @@
-@mixin loginRegistration($options: (), $widgetInstanceId: '', $widgetInstanceUUID: '') {
-  $configuration: map-merge((
-    loginWidth: $loginWidth,
-    loginMinWidth: $loginMinWidth,
-    loginMaxWidth: $loginMaxWidth,
-    loginMarginTop: $loginMarginTop,
-    loginMarginRight: $loginMarginRight,
-    loginMarginBottom: $loginMarginBottom,
-    loginMarginLeft: $loginMarginLeft,
-    loginPaddingTop: $loginPaddingTop,
-    loginPaddingRight: $loginPaddingRight,
-    loginPaddingBottom: $loginPaddingBottom,
-    loginPaddingLeft: $loginPaddingLeft,
-    chevronColor: $chevronColor,
-    chevronSeparator: $chevronSeparator,
-    fieldBorderSides: $fieldBorderSides,
-    fieldBorderWidth: $fieldBorderWidth,
-    fieldBorderStyle: $fieldBorderStyle,
-    fieldBorder: $fieldBorder,
-    fieldBorderRadius: $fieldBorderRadius,
-    loginButtonWidth: $loginButtonWidth,
-    loginButtonMinWidth: $loginButtonMinWidth,
-    loginButtonMaxWidth: $loginButtonMaxWidth,
-    loginButtonHeight: $loginButtonHeight,
-    loginButtonMinHeight: $loginButtonMinHeight,
-    loginButtonMaxHeight: $loginButtonMaxHeight,
-    loginButtonMarginTop: $loginButtonMarginTop,
-    loginButtonMarginRight: $loginButtonMarginRight,
-    loginButtonMarginBottom: $loginButtonMarginBottom,
-    loginButtonMarginLeft: $loginButtonMarginLeft,
-    loginButtonPaddingTop: $loginButtonPaddingTop,
-    loginButtonPaddingRight: $loginButtonPaddingRight,
-    loginButtonPaddingBottom: $loginButtonPaddingBottom,
-    loginButtonPaddingLeft: $loginButtonPaddingLeft,
-    loginButtonTextFontFamily: $loginButtonTextFontFamily,
-    loginButtonTextFontSize: $loginButtonTextFontSize,
-    loginButtonFontWeight: $loginButtonFontWeight,
-    loginButtonFontStyle: $loginButtonFontStyle,
-    loginButtonLineHeight: $loginButtonLineHeight,
-    loginButtonTextDecoration: $loginButtonTextDecoration,
-    loginButtonColor: $loginButtonColor,
-    loginButtonTextColor: $loginButtonTextColor,
-    iconColor: $iconColor,
-    loginButtonBorderSides: $loginButtonBorderSides,
-    loginButtonBorderWidth: $loginButtonBorderWidth,
-    loginButtonBorderStyle: $loginButtonBorderStyle,
-    loginButtonBorderColor: $loginButtonBorderColor,
-    loginButtonBorderRadius: $loginButtonBorderRadius,
-    loginButtonShadowStyle: $loginButtonShadowStyle,
-    loginButtonShadowXoffset: $loginButtonShadowXoffset,
-    loginButtonShadowYoffset: $loginButtonShadowYoffset,
-    loginButtonShadowBlur: $loginButtonShadowBlur,
-    loginButtonShadowSpread: $loginButtonShadowSpread,
-    loginButtonShadowColor: $loginButtonShadowColor,
-    loginButtonHoverColor: $loginButtonHoverColor,
-    loginButtonHoverTextColor: $loginButtonHoverTextColor,
-    loginButtonHoverBorderSides: $loginButtonHoverBorderSides,
-    loginButtonHoverBorderWidth: $loginButtonHoverBorderWidth,
-    loginButtonHoverBorderStyle: $loginButtonHoverBorderStyle,
-    loginButtonHoverBorderColor: $loginButtonHoverBorderColor,
-    loginButtonHoverBorderRadius: $loginButtonHoverBorderRadius,
-    loginButtonHoverShadowStyle: $loginButtonHoverShadowStyle,
-    loginButtonHoverShadowXoffset: $loginButtonHoverShadowXoffset,
-    loginButtonHoverShadowYoffset: $loginButtonHoverShadowYoffset,
-    loginButtonHoverShadowBlur: $loginButtonHoverShadowBlur,
-    loginButtonHoverShadowSpread: $loginButtonHoverShadowSpread,
-    loginButtonHoverShadowColor: $loginButtonHoverShadowColor,
-    loginWidthTablet: $loginWidthTablet,
-    loginMinWidthTablet: $loginMinWidthTablet,
-    loginMaxWidthTablet: $loginMaxWidthTablet,
-    loginMarginTopTablet: $loginMarginTopTablet,
-    loginMarginRightTablet: $loginMarginRightTablet,
-    loginMarginBottomTablet: $loginMarginBottomTablet,
-    loginMarginLeftTablet: $loginMarginLeftTablet,
-    loginPaddingTopTablet: $loginPaddingTopTablet,
-    loginPaddingRightTablet: $loginPaddingRightTablet,
-    loginPaddingBottomTablet: $loginPaddingBottomTablet,
-    loginPaddingLeftTablet: $loginPaddingLeftTablet,
-    chevronColorTablet: $chevronColorTablet,
-    chevronSeparatorTablet: $chevronSeparatorTablet,
-    fieldBorderSidesTablet: $fieldBorderSidesTablet,
-    fieldBorderWidthTablet: $fieldBorderWidthTablet,
-    fieldBorderStyleTablet: $fieldBorderStyleTablet,
-    fieldBorderTablet: $fieldBorderTablet,
-    fieldBorderRadiusTablet: $fieldBorderRadiusTablet,
-    loginButtonWidthTablet: $loginButtonWidthTablet,
-    loginButtonMinWidthTablet: $loginButtonMinWidthTablet,
-    loginButtonMaxWidthTablet: $loginButtonMaxWidthTablet,
-    loginButtonHeightTablet: $loginButtonHeightTablet,
-    loginButtonMinHeightTablet: $loginButtonMinHeightTablet,
-    loginButtonMaxHeightTablet: $loginButtonMaxHeightTablet,
-    loginButtonMarginTopTablet: $loginButtonMarginTopTablet,
-    loginButtonMarginRightTablet: $loginButtonMarginRightTablet,
-    loginButtonMarginBottomTablet: $loginButtonMarginBottomTablet,
-    loginButtonMarginLeftTablet: $loginButtonMarginLeftTablet,
-    loginButtonPaddingTopTablet: $loginButtonPaddingTopTablet,
-    loginButtonPaddingRightTablet: $loginButtonPaddingRightTablet,
-    loginButtonPaddingBottomTablet: $loginButtonPaddingBottomTablet,
-    loginButtonPaddingLeftTablet: $loginButtonPaddingLeftTablet,
-    loginButtonTextFontFamilyTablet: $loginButtonTextFontFamilyTablet,
-    loginButtonTextFontSizeTablet: $loginButtonTextFontSizeTablet,
-    loginButtonFontWeightTablet: $loginButtonFontWeightTablet,
-    loginButtonFontStyleTablet: $loginButtonFontStyleTablet,
-    loginButtonLineHeightTablet: $loginButtonLineHeightTablet,
-    loginButtonTextDecorationTablet: $loginButtonTextDecorationTablet,
-    loginButtonColorTablet: $loginButtonColorTablet,
-    loginButtonTextColorTablet: $loginButtonTextColorTablet,
-    iconColorTablet: $iconColorTablet,
-    loginButtonBorderSidesTablet: $loginButtonBorderSidesTablet,
-    loginButtonBorderWidthTablet: $loginButtonBorderWidthTablet,
-    loginButtonBorderStyleTablet: $loginButtonBorderStyleTablet,
-    loginButtonBorderColorTablet: $loginButtonBorderColorTablet,
-    loginButtonBorderRadiusTablet: $loginButtonBorderRadiusTablet,
-    loginButtonShadowStyleTablet: $loginButtonShadowStyleTablet,
-    loginButtonShadowXoffsetTablet: $loginButtonShadowXoffsetTablet,
-    loginButtonShadowYoffsetTablet: $loginButtonShadowYoffsetTablet,
-    loginButtonShadowBlurTablet: $loginButtonShadowBlurTablet,
-    loginButtonShadowSpreadTablet: $loginButtonShadowSpreadTablet,
-    loginButtonShadowColorTablet: $loginButtonShadowColorTablet,
-    loginButtonHoverColorTablet: $loginButtonHoverColorTablet,
-    loginButtonHoverTextColorTablet: $loginButtonHoverTextColorTablet,
-    loginButtonHoverBorderSidesTablet: $loginButtonHoverBorderSidesTablet,
-    loginButtonHoverBorderWidthTablet: $loginButtonHoverBorderWidthTablet,
-    loginButtonHoverBorderStyleTablet: $loginButtonHoverBorderStyleTablet,
-    loginButtonHoverBorderColorTablet: $loginButtonHoverBorderColorTablet,
-    loginButtonHoverBorderRadiusTablet: $loginButtonHoverBorderRadiusTablet,
-    loginButtonHoverShadowStyleTablet: $loginButtonHoverShadowStyleTablet,
-    loginButtonHoverShadowXoffsetTablet: $loginButtonHoverShadowXoffsetTablet,
-    loginButtonHoverShadowYoffsetTablet: $loginButtonHoverShadowYoffsetTablet,
-    loginButtonHoverShadowBlurTablet: $loginButtonHoverShadowBlurTablet,
-    loginButtonHoverShadowSpreadTablet: $loginButtonHoverShadowSpreadTablet,
-    loginButtonHoverShadowColorTablet: $loginButtonHoverShadowColorTablet,
-    loginButtonFontStyleDesktop: $loginButtonFontStyleDesktop,
-    loginButtonLineHeightDesktop: $loginButtonLineHeightDesktop,
-    loginButtonTextDecorationDesktop: $loginButtonTextDecorationDesktop,
-    loginButtonColorDesktop: $loginButtonColorDesktop,
-    loginButtonTextColorDesktop: $loginButtonTextColorDesktop,
-    iconColorDesktop: $iconColorDesktop,
-    loginButtonBorderSidesDesktop: $loginButtonBorderSidesDesktop,
-    loginButtonBorderWidthDesktop: $loginButtonBorderWidthDesktop,
-    loginButtonBorderStyleDesktop: $loginButtonBorderStyleDesktop,
-    loginButtonBorderColorDesktop: $loginButtonBorderColorDesktop,
-    loginButtonBorderRadiusDesktop: $loginButtonBorderRadiusDesktop,
-    loginButtonShadowStyleDesktop: $loginButtonShadowStyleDesktop,
-    loginButtonShadowXoffsetDesktop: $loginButtonShadowXoffsetDesktop,
-    loginButtonShadowYoffsetDesktop: $loginButtonShadowYoffsetDesktop,
-    loginButtonShadowBlurDesktop: $loginButtonShadowBlurDesktop,
-    loginButtonShadowSpreadDesktop: $loginButtonShadowSpreadDesktop,
-    loginButtonShadowColorDesktop: $loginButtonShadowColorDesktop,
-    loginButtonHoverColorDesktop: $loginButtonHoverColorDesktop,
-    loginButtonHoverTextColorDesktop: $loginButtonHoverTextColorDesktop,
-    loginButtonHoverBorderSidesDesktop: $loginButtonHoverBorderSidesDesktop,
-    loginButtonHoverBorderWidthDesktop: $loginButtonHoverBorderWidthDesktop,
-    loginButtonHoverBorderStyleDesktop: $loginButtonHoverBorderStyleDesktop,
-    loginButtonHoverBorderColorDesktop: $loginButtonHoverBorderColorDesktop,
-    loginButtonHoverBorderRadiusDesktop: $loginButtonHoverBorderRadiusDesktop,
-    loginButtonHoverShadowStyleDesktop: $loginButtonHoverShadowStyleDesktop,
-    loginButtonWidthDesktop: $loginButtonWidthDesktop,
-    loginButtonMinWidthDesktop: $loginButtonMinWidthDesktop,
-    loginButtonMaxWidthDesktop: $loginButtonMaxWidthDesktop,
-    loginButtonHeightDesktop: $loginButtonHeightDesktop,
-    loginButtonMinHeightDesktop: $loginButtonMinHeightDesktop,
-    loginButtonMaxHeightDesktop: $loginButtonMaxHeightDesktop,
-    loginButtonMarginTopDesktop: $loginButtonMarginTopDesktop,
-    loginButtonMarginRightDesktop: $loginButtonMarginRightDesktop,
-    loginButtonMarginBottomDesktop: $loginButtonMarginBottomDesktop,
-    loginButtonMarginLeftDesktop: $loginButtonMarginLeftDesktop,
-    loginButtonPaddingTopDesktop: $loginButtonPaddingTopDesktop,
-    loginButtonPaddingRightDesktop: $loginButtonPaddingRightDesktop,
-    loginButtonPaddingBottomDesktop: $loginButtonPaddingBottomDesktop,
-    loginButtonPaddingLeftDesktop: $loginButtonPaddingLeftDesktop,
-    loginButtonTextFontFamilyDesktop: $loginButtonTextFontFamilyDesktop,
-    loginButtonTextFontSizeDesktop: $loginButtonTextFontSizeDesktop,
-    loginButtonFontWeightDesktop: $loginButtonFontWeightDesktop,
-    loginButtonHoverShadowColorDesktop: $loginButtonHoverShadowColorDesktop,
-    loginButtonHoverShadowSpreadDesktop: $loginButtonHoverShadowSpreadDesktop,
-    loginButtonHoverShadowBlurDesktop: $loginButtonHoverShadowBlurDesktop,
-    loginButtonHoverShadowYoffsetDesktop: $loginButtonHoverShadowYoffsetDesktop,
-    loginButtonHoverShadowXoffsetDesktop: $loginButtonHoverShadowXoffsetDesktop,
-    loginWidthDesktop: $loginWidthDesktop,
-    loginMinWidthDesktop: $loginMinWidthDesktop,
-    loginMaxWidthDesktop: $loginMaxWidthDesktop,
-    loginMarginTopDesktop: $loginMarginTopDesktop,
-    loginMarginRightDesktop: $loginMarginRightDesktop,
-    loginMarginBottomDesktop: $loginMarginBottomDesktop,
-    loginMarginLeftDesktop: $loginMarginLeftDesktop,
-    loginPaddingTopDesktop: $loginPaddingTopDesktop,
-    loginPaddingRightDesktop: $loginPaddingRightDesktop,
-    loginPaddingBottomDesktop: $loginPaddingBottomDesktop,
-    loginPaddingLeftDesktop: $loginPaddingLeftDesktop,
-    chevronColorDesktop: $chevronColorDesktop,
-    chevronSeparatorDesktop: $chevronSeparatorDesktop,
-    fieldBorderSidesDesktop: $fieldBorderSidesDesktop,
-    fieldBorderWidthDesktop: $fieldBorderWidthDesktop,
-    fieldBorderStyleDesktop: $fieldBorderStyleDesktop,
-    fieldBorderDesktop: $fieldBorderDesktop,
-    fieldBorderRadiusDesktop: $fieldBorderRadiusDesktop
-  ), $options);
+@mixin loginRegistration($options: (), $widgetInstanceId: "", $widgetInstanceUUID: "") {
+  $configuration: map-merge(
+    (
+      loginWidth: $loginWidth,
+      loginMinWidth: $loginMinWidth,
+      loginMaxWidth: $loginMaxWidth,
+      loginMarginTop: $loginMarginTop,
+      loginMarginRight: $loginMarginRight,
+      loginMarginBottom: $loginMarginBottom,
+      loginMarginLeft: $loginMarginLeft,
+      loginPaddingTop: $loginPaddingTop,
+      loginPaddingRight: $loginPaddingRight,
+      loginPaddingBottom: $loginPaddingBottom,
+      loginPaddingLeft: $loginPaddingLeft,
+      chevronColor: $chevronColor,
+      chevronSeparator: $chevronSeparator,
+      fieldBorderSides: $fieldBorderSides,
+      fieldBorderWidth: $fieldBorderWidth,
+      fieldBorderStyle: $fieldBorderStyle,
+      fieldBorder: $fieldBorder,
+      fieldBorderRadius: $fieldBorderRadius,
+      loginButtonWidth: $loginButtonWidth,
+      loginButtonMinWidth: $loginButtonMinWidth,
+      loginButtonMaxWidth: $loginButtonMaxWidth,
+      loginButtonHeight: $loginButtonHeight,
+      loginButtonMinHeight: $loginButtonMinHeight,
+      loginButtonMaxHeight: $loginButtonMaxHeight,
+      loginButtonMarginTop: $loginButtonMarginTop,
+      loginButtonMarginRight: $loginButtonMarginRight,
+      loginButtonMarginBottom: $loginButtonMarginBottom,
+      loginButtonMarginLeft: $loginButtonMarginLeft,
+      loginButtonPaddingTop: $loginButtonPaddingTop,
+      loginButtonPaddingRight: $loginButtonPaddingRight,
+      loginButtonPaddingBottom: $loginButtonPaddingBottom,
+      loginButtonPaddingLeft: $loginButtonPaddingLeft,
+      loginButtonTextFontFamily: $loginButtonTextFontFamily,
+      loginButtonTextFontSize: $loginButtonTextFontSize,
+      loginButtonFontWeight: $loginButtonFontWeight,
+      loginButtonFontStyle: $loginButtonFontStyle,
+      loginButtonLineHeight: $loginButtonLineHeight,
+      loginButtonTextDecoration: $loginButtonTextDecoration,
+      loginButtonColor: $loginButtonColor,
+      loginButtonTextColor: $loginButtonTextColor,
+      iconColor: $iconColor,
+      loginButtonBorderSides: $loginButtonBorderSides,
+      loginButtonBorderWidth: $loginButtonBorderWidth,
+      loginButtonBorderStyle: $loginButtonBorderStyle,
+      loginButtonBorderColor: $loginButtonBorderColor,
+      loginButtonBorderRadius: $loginButtonBorderRadius,
+      loginButtonShadowStyle: $loginButtonShadowStyle,
+      loginButtonShadowXoffset: $loginButtonShadowXoffset,
+      loginButtonShadowYoffset: $loginButtonShadowYoffset,
+      loginButtonShadowBlur: $loginButtonShadowBlur,
+      loginButtonShadowSpread: $loginButtonShadowSpread,
+      loginButtonShadowColor: $loginButtonShadowColor,
+      loginButtonHoverColor: $loginButtonHoverColor,
+      loginButtonHoverTextColor: $loginButtonHoverTextColor,
+      loginButtonHoverBorderSides: $loginButtonHoverBorderSides,
+      loginButtonHoverBorderWidth: $loginButtonHoverBorderWidth,
+      loginButtonHoverBorderStyle: $loginButtonHoverBorderStyle,
+      loginButtonHoverBorderColor: $loginButtonHoverBorderColor,
+      loginButtonHoverBorderRadius: $loginButtonHoverBorderRadius,
+      loginButtonHoverShadowStyle: $loginButtonHoverShadowStyle,
+      loginButtonHoverShadowXoffset: $loginButtonHoverShadowXoffset,
+      loginButtonHoverShadowYoffset: $loginButtonHoverShadowYoffset,
+      loginButtonHoverShadowBlur: $loginButtonHoverShadowBlur,
+      loginButtonHoverShadowSpread: $loginButtonHoverShadowSpread,
+      loginButtonHoverShadowColor: $loginButtonHoverShadowColor,
+      loginWidthTablet: $loginWidthTablet,
+      loginMinWidthTablet: $loginMinWidthTablet,
+      loginMaxWidthTablet: $loginMaxWidthTablet,
+      loginMarginTopTablet: $loginMarginTopTablet,
+      loginMarginRightTablet: $loginMarginRightTablet,
+      loginMarginBottomTablet: $loginMarginBottomTablet,
+      loginMarginLeftTablet: $loginMarginLeftTablet,
+      loginPaddingTopTablet: $loginPaddingTopTablet,
+      loginPaddingRightTablet: $loginPaddingRightTablet,
+      loginPaddingBottomTablet: $loginPaddingBottomTablet,
+      loginPaddingLeftTablet: $loginPaddingLeftTablet,
+      chevronColorTablet: $chevronColorTablet,
+      chevronSeparatorTablet: $chevronSeparatorTablet,
+      fieldBorderSidesTablet: $fieldBorderSidesTablet,
+      fieldBorderWidthTablet: $fieldBorderWidthTablet,
+      fieldBorderStyleTablet: $fieldBorderStyleTablet,
+      fieldBorderTablet: $fieldBorderTablet,
+      fieldBorderRadiusTablet: $fieldBorderRadiusTablet,
+      loginButtonWidthTablet: $loginButtonWidthTablet,
+      loginButtonMinWidthTablet: $loginButtonMinWidthTablet,
+      loginButtonMaxWidthTablet: $loginButtonMaxWidthTablet,
+      loginButtonHeightTablet: $loginButtonHeightTablet,
+      loginButtonMinHeightTablet: $loginButtonMinHeightTablet,
+      loginButtonMaxHeightTablet: $loginButtonMaxHeightTablet,
+      loginButtonMarginTopTablet: $loginButtonMarginTopTablet,
+      loginButtonMarginRightTablet: $loginButtonMarginRightTablet,
+      loginButtonMarginBottomTablet: $loginButtonMarginBottomTablet,
+      loginButtonMarginLeftTablet: $loginButtonMarginLeftTablet,
+      loginButtonPaddingTopTablet: $loginButtonPaddingTopTablet,
+      loginButtonPaddingRightTablet: $loginButtonPaddingRightTablet,
+      loginButtonPaddingBottomTablet: $loginButtonPaddingBottomTablet,
+      loginButtonPaddingLeftTablet: $loginButtonPaddingLeftTablet,
+      loginButtonTextFontFamilyTablet: $loginButtonTextFontFamilyTablet,
+      loginButtonTextFontSizeTablet: $loginButtonTextFontSizeTablet,
+      loginButtonFontWeightTablet: $loginButtonFontWeightTablet,
+      loginButtonFontStyleTablet: $loginButtonFontStyleTablet,
+      loginButtonLineHeightTablet: $loginButtonLineHeightTablet,
+      loginButtonTextDecorationTablet: $loginButtonTextDecorationTablet,
+      loginButtonColorTablet: $loginButtonColorTablet,
+      loginButtonTextColorTablet: $loginButtonTextColorTablet,
+      iconColorTablet: $iconColorTablet,
+      loginButtonBorderSidesTablet: $loginButtonBorderSidesTablet,
+      loginButtonBorderWidthTablet: $loginButtonBorderWidthTablet,
+      loginButtonBorderStyleTablet: $loginButtonBorderStyleTablet,
+      loginButtonBorderColorTablet: $loginButtonBorderColorTablet,
+      loginButtonBorderRadiusTablet: $loginButtonBorderRadiusTablet,
+      loginButtonShadowStyleTablet: $loginButtonShadowStyleTablet,
+      loginButtonShadowXoffsetTablet: $loginButtonShadowXoffsetTablet,
+      loginButtonShadowYoffsetTablet: $loginButtonShadowYoffsetTablet,
+      loginButtonShadowBlurTablet: $loginButtonShadowBlurTablet,
+      loginButtonShadowSpreadTablet: $loginButtonShadowSpreadTablet,
+      loginButtonShadowColorTablet: $loginButtonShadowColorTablet,
+      loginButtonHoverColorTablet: $loginButtonHoverColorTablet,
+      loginButtonHoverTextColorTablet: $loginButtonHoverTextColorTablet,
+      loginButtonHoverBorderSidesTablet: $loginButtonHoverBorderSidesTablet,
+      loginButtonHoverBorderWidthTablet: $loginButtonHoverBorderWidthTablet,
+      loginButtonHoverBorderStyleTablet: $loginButtonHoverBorderStyleTablet,
+      loginButtonHoverBorderColorTablet: $loginButtonHoverBorderColorTablet,
+      loginButtonHoverBorderRadiusTablet: $loginButtonHoverBorderRadiusTablet,
+      loginButtonHoverShadowStyleTablet: $loginButtonHoverShadowStyleTablet,
+      loginButtonHoverShadowXoffsetTablet: $loginButtonHoverShadowXoffsetTablet,
+      loginButtonHoverShadowYoffsetTablet: $loginButtonHoverShadowYoffsetTablet,
+      loginButtonHoverShadowBlurTablet: $loginButtonHoverShadowBlurTablet,
+      loginButtonHoverShadowSpreadTablet: $loginButtonHoverShadowSpreadTablet,
+      loginButtonHoverShadowColorTablet: $loginButtonHoverShadowColorTablet,
+      loginButtonFontStyleDesktop: $loginButtonFontStyleDesktop,
+      loginButtonLineHeightDesktop: $loginButtonLineHeightDesktop,
+      loginButtonTextDecorationDesktop: $loginButtonTextDecorationDesktop,
+      loginButtonColorDesktop: $loginButtonColorDesktop,
+      loginButtonTextColorDesktop: $loginButtonTextColorDesktop,
+      iconColorDesktop: $iconColorDesktop,
+      loginButtonBorderSidesDesktop: $loginButtonBorderSidesDesktop,
+      loginButtonBorderWidthDesktop: $loginButtonBorderWidthDesktop,
+      loginButtonBorderStyleDesktop: $loginButtonBorderStyleDesktop,
+      loginButtonBorderColorDesktop: $loginButtonBorderColorDesktop,
+      loginButtonBorderRadiusDesktop: $loginButtonBorderRadiusDesktop,
+      loginButtonShadowStyleDesktop: $loginButtonShadowStyleDesktop,
+      loginButtonShadowXoffsetDesktop: $loginButtonShadowXoffsetDesktop,
+      loginButtonShadowYoffsetDesktop: $loginButtonShadowYoffsetDesktop,
+      loginButtonShadowBlurDesktop: $loginButtonShadowBlurDesktop,
+      loginButtonShadowSpreadDesktop: $loginButtonShadowSpreadDesktop,
+      loginButtonShadowColorDesktop: $loginButtonShadowColorDesktop,
+      loginButtonHoverColorDesktop: $loginButtonHoverColorDesktop,
+      loginButtonHoverTextColorDesktop: $loginButtonHoverTextColorDesktop,
+      loginButtonHoverBorderSidesDesktop: $loginButtonHoverBorderSidesDesktop,
+      loginButtonHoverBorderWidthDesktop: $loginButtonHoverBorderWidthDesktop,
+      loginButtonHoverBorderStyleDesktop: $loginButtonHoverBorderStyleDesktop,
+      loginButtonHoverBorderColorDesktop: $loginButtonHoverBorderColorDesktop,
+      loginButtonHoverBorderRadiusDesktop: $loginButtonHoverBorderRadiusDesktop,
+      loginButtonHoverShadowStyleDesktop: $loginButtonHoverShadowStyleDesktop,
+      loginButtonWidthDesktop: $loginButtonWidthDesktop,
+      loginButtonMinWidthDesktop: $loginButtonMinWidthDesktop,
+      loginButtonMaxWidthDesktop: $loginButtonMaxWidthDesktop,
+      loginButtonHeightDesktop: $loginButtonHeightDesktop,
+      loginButtonMinHeightDesktop: $loginButtonMinHeightDesktop,
+      loginButtonMaxHeightDesktop: $loginButtonMaxHeightDesktop,
+      loginButtonMarginTopDesktop: $loginButtonMarginTopDesktop,
+      loginButtonMarginRightDesktop: $loginButtonMarginRightDesktop,
+      loginButtonMarginBottomDesktop: $loginButtonMarginBottomDesktop,
+      loginButtonMarginLeftDesktop: $loginButtonMarginLeftDesktop,
+      loginButtonPaddingTopDesktop: $loginButtonPaddingTopDesktop,
+      loginButtonPaddingRightDesktop: $loginButtonPaddingRightDesktop,
+      loginButtonPaddingBottomDesktop: $loginButtonPaddingBottomDesktop,
+      loginButtonPaddingLeftDesktop: $loginButtonPaddingLeftDesktop,
+      loginButtonTextFontFamilyDesktop: $loginButtonTextFontFamilyDesktop,
+      loginButtonTextFontSizeDesktop: $loginButtonTextFontSizeDesktop,
+      loginButtonFontWeightDesktop: $loginButtonFontWeightDesktop,
+      loginButtonHoverShadowColorDesktop: $loginButtonHoverShadowColorDesktop,
+      loginButtonHoverShadowSpreadDesktop: $loginButtonHoverShadowSpreadDesktop,
+      loginButtonHoverShadowBlurDesktop: $loginButtonHoverShadowBlurDesktop,
+      loginButtonHoverShadowYoffsetDesktop: $loginButtonHoverShadowYoffsetDesktop,
+      loginButtonHoverShadowXoffsetDesktop: $loginButtonHoverShadowXoffsetDesktop,
+      loginWidthDesktop: $loginWidthDesktop,
+      loginMinWidthDesktop: $loginMinWidthDesktop,
+      loginMaxWidthDesktop: $loginMaxWidthDesktop,
+      loginMarginTopDesktop: $loginMarginTopDesktop,
+      loginMarginRightDesktop: $loginMarginRightDesktop,
+      loginMarginBottomDesktop: $loginMarginBottomDesktop,
+      loginMarginLeftDesktop: $loginMarginLeftDesktop,
+      loginPaddingTopDesktop: $loginPaddingTopDesktop,
+      loginPaddingRightDesktop: $loginPaddingRightDesktop,
+      loginPaddingBottomDesktop: $loginPaddingBottomDesktop,
+      loginPaddingLeftDesktop: $loginPaddingLeftDesktop,
+      chevronColorDesktop: $chevronColorDesktop,
+      chevronSeparatorDesktop: $chevronSeparatorDesktop,
+      fieldBorderSidesDesktop: $fieldBorderSidesDesktop,
+      fieldBorderWidthDesktop: $fieldBorderWidthDesktop,
+      fieldBorderStyleDesktop: $fieldBorderStyleDesktop,
+      fieldBorderDesktop: $fieldBorderDesktop,
+      fieldBorderRadiusDesktop: $fieldBorderRadiusDesktop
+    ),
+    $options
+  );
 
   $instanceSelectorOne: '[data-widget-package="com.fliplet.login"]';
   $instanceSelectorTwo: '[data-widget-package="com.fliplet.login-data-source"]';
   $instanceSelectorThree: '[data-widget-package="com.fliplet.login.saml2"]';
   $instanceSelectorFour: '[data-widget-package="com.fliplet.email-validation"]';
   $instanceSelectorFive: '[data-widget-package="com.fliplet.sms-verfication"]';
-  @if $widgetInstanceUUID != '' {
+  @if $widgetInstanceUUID != "" {
     $instanceSelectorOne: '#{$instanceSelectorOne}[data-uuid="#{$widgetInstanceUUID}"]';
     $instanceSelectorTwo: '#{$instanceSelectorTwo}[data-uuid="#{$widgetInstanceUUID}"]';
     $instanceSelectorThree: '#{$instanceSelectorThree}[data-uuid="#{$widgetInstanceUUID}"]';
     $instanceSelectorFour: '#{$instanceSelectorFour}[data-uuid="#{$widgetInstanceUUID}"]';
     $instanceSelectorFive: '#{$instanceSelectorFive}[data-uuid="#{$widgetInstanceUUID}"]';
-  } @else if $widgetInstanceId != '' {
+  } @else if $widgetInstanceId != "" {
     $instanceSelectorOne: '#{$instanceSelectorOne}[data-id="#{$widgetInstanceId}"]';
     $instanceSelectorTwo: '#{$instanceSelectorTwo}[data-id="#{$widgetInstanceId}"]';
     $instanceSelectorThree: '#{$instanceSelectorThree}[data-id="#{$widgetInstanceId}"]';
@@ -224,10 +227,8 @@
     width: map-get($configuration, loginWidth);
     min-width: map-get($configuration, loginMinWidth);
     max-width: map-get($configuration, loginMaxWidth);
-    margin: map-get($configuration, loginMarginTop)
-      map-get($configuration, loginMarginRight)
-      map-get($configuration, loginMarginBottom)
-      map-get($configuration, loginMarginLeft);
+    margin: map-get($configuration, loginMarginTop) map-get($configuration, loginMarginRight)
+      map-get($configuration, loginMarginBottom) map-get($configuration, loginMarginLeft);
 
     // Styles for tablet
     @include above($tabletBreakpoint) {
@@ -256,10 +257,8 @@
     [data-login-id],
     .fl-sms-verification,
     .fl-email-verification {
-      padding: map-get($configuration, loginPaddingTop)
-        map-get($configuration, loginPaddingRight)
-        map-get($configuration, loginPaddingBottom)
-        map-get($configuration, loginPaddingLeft);
+      padding: map-get($configuration, loginPaddingTop) map-get($configuration, loginPaddingRight)
+        map-get($configuration, loginPaddingBottom) map-get($configuration, loginPaddingLeft);
 
       .fl-login-form .fl-email:before,
       .fl-login-form .fl-password:before {
@@ -292,38 +291,46 @@
           map-get($configuration, loginButtonPaddingRight)
           map-get($configuration, loginButtonPaddingBottom)
           map-get($configuration, loginButtonPaddingLeft);
-        @include borderOnly((
-          borderSides: map-get($configuration, loginButtonBorderSides),
-          borderWidth: map-get($configuration, loginButtonBorderWidth),
-          borderStyle: map-get($configuration, loginButtonBorderStyle),
-          borderColor: map-get($configuration, loginButtonBorderColor)
-        ));
-        @include shadowOnly((
-          shadowStyle: map-get($configuration, loginButtonShadowStyle),
-          shadowXOffset: map-get($configuration, loginButtonShadowXoffset),
-          shadowYOffset: map-get($configuration, loginButtonShadowYoffset),
-          shadowBlur: map-get($configuration, loginButtonShadowBlur),
-          shadowSpread: map-get($configuration, loginButtonShadowSpread),
-          shadowColor: map-get($configuration, loginButtonShadowColor)
-        ));
-
-        &:active:hover {
-          background-color: map-get($configuration, loginButtonHoverColor);
-          color: map-get($configuration, loginButtonHoverTextColor);
-          @include borderOnly((
-            borderSides: map-get($configuration, loginButtonHoverBorderSides),
-            borderWidth: map-get($configuration, loginButtonHoverBorderWidth),
-            borderStyle: map-get($configuration, loginButtonHoverBorderStyle),
-            borderColor: map-get($configuration, loginButtonHoverBorderColor)
-          ));
-          @include shadowOnly((
+        @include borderOnly(
+          (
+            borderSides: map-get($configuration, loginButtonBorderSides),
+            borderWidth: map-get($configuration, loginButtonBorderWidth),
+            borderStyle: map-get($configuration, loginButtonBorderStyle),
+            borderColor: map-get($configuration, loginButtonBorderColor)
+          )
+        );
+        @include shadowOnly(
+          (
             shadowStyle: map-get($configuration, loginButtonShadowStyle),
             shadowXOffset: map-get($configuration, loginButtonShadowXoffset),
             shadowYOffset: map-get($configuration, loginButtonShadowYoffset),
             shadowBlur: map-get($configuration, loginButtonShadowBlur),
             shadowSpread: map-get($configuration, loginButtonShadowSpread),
             shadowColor: map-get($configuration, loginButtonShadowColor)
-          ));
+          )
+        );
+
+        &:active:hover {
+          background-color: map-get($configuration, loginButtonHoverColor);
+          color: map-get($configuration, loginButtonHoverTextColor);
+          @include borderOnly(
+            (
+              borderSides: map-get($configuration, loginButtonHoverBorderSides),
+              borderWidth: map-get($configuration, loginButtonHoverBorderWidth),
+              borderStyle: map-get($configuration, loginButtonHoverBorderStyle),
+              borderColor: map-get($configuration, loginButtonHoverBorderColor)
+            )
+          );
+          @include shadowOnly(
+            (
+              shadowStyle: map-get($configuration, loginButtonShadowStyle),
+              shadowXOffset: map-get($configuration, loginButtonShadowXoffset),
+              shadowYOffset: map-get($configuration, loginButtonShadowYoffset),
+              shadowBlur: map-get($configuration, loginButtonShadowBlur),
+              shadowSpread: map-get($configuration, loginButtonShadowSpread),
+              shadowColor: map-get($configuration, loginButtonShadowColor)
+            )
+          );
         }
       }
       // Styles for tablet
@@ -363,38 +370,46 @@
             map-get($configuration, loginButtonPaddingRightTablet)
             map-get($configuration, loginButtonPaddingBottomTablet)
             map-get($configuration, loginButtonPaddingLeftTablet);
-          @include borderOnly((
-            borderSides: map-get($configuration, loginButtonBorderSidesTablet),
-            borderWidth: map-get($configuration, loginButtonBorderWidthTablet),
-            borderStyle: map-get($configuration, loginButtonBorderStyleTablet),
-            borderColor: map-get($configuration, loginButtonBorderColorTablet)
-          ));
-          @include shadowOnly((
-            shadowStyle: map-get($configuration, loginButtonShadowStyleTablet),
-            shadowXOffset: map-get($configuration, loginButtonShadowXoffsetTablet),
-            shadowYOffset: map-get($configuration, loginButtonShadowYoffsetTablet),
-            shadowBlur: map-get($configuration, loginButtonShadowBlurTablet),
-            shadowSpread: map-get($configuration, loginButtonShadowSpreadTablet),
-            shadowColor: map-get($configuration, loginButtonShadowColorTablet)
-          ));
-
-          &:active:hover {
-            background-color: map-get($configuration, loginButtonHoverColorTablet);
-            color: map-get($configuration, loginButtonHoverTextColorTablet);
-            @include borderOnly((
-              borderSides: map-get($configuration, loginButtonHoverBorderSidesTablet),
-              borderWidth: map-get($configuration, loginButtonHoverBorderWidthTablet),
-              borderStyle: map-get($configuration, loginButtonHoverBorderStyleTablet),
-              borderColor: map-get($configuration, loginButtonHoverBorderColorTablet)
-            ));
-            @include shadowOnly((
+          @include borderOnly(
+            (
+              borderSides: map-get($configuration, loginButtonBorderSidesTablet),
+              borderWidth: map-get($configuration, loginButtonBorderWidthTablet),
+              borderStyle: map-get($configuration, loginButtonBorderStyleTablet),
+              borderColor: map-get($configuration, loginButtonBorderColorTablet)
+            )
+          );
+          @include shadowOnly(
+            (
               shadowStyle: map-get($configuration, loginButtonShadowStyleTablet),
               shadowXOffset: map-get($configuration, loginButtonShadowXoffsetTablet),
               shadowYOffset: map-get($configuration, loginButtonShadowYoffsetTablet),
               shadowBlur: map-get($configuration, loginButtonShadowBlurTablet),
               shadowSpread: map-get($configuration, loginButtonShadowSpreadTablet),
               shadowColor: map-get($configuration, loginButtonShadowColorTablet)
-            ));
+            )
+          );
+
+          &:active:hover {
+            background-color: map-get($configuration, loginButtonHoverColorTablet);
+            color: map-get($configuration, loginButtonHoverTextColorTablet);
+            @include borderOnly(
+              (
+                borderSides: map-get($configuration, loginButtonHoverBorderSidesTablet),
+                borderWidth: map-get($configuration, loginButtonHoverBorderWidthTablet),
+                borderStyle: map-get($configuration, loginButtonHoverBorderStyleTablet),
+                borderColor: map-get($configuration, loginButtonHoverBorderColorTablet)
+              )
+            );
+            @include shadowOnly(
+              (
+                shadowStyle: map-get($configuration, loginButtonShadowStyleTablet),
+                shadowXOffset: map-get($configuration, loginButtonShadowXoffsetTablet),
+                shadowYOffset: map-get($configuration, loginButtonShadowYoffsetTablet),
+                shadowBlur: map-get($configuration, loginButtonShadowBlurTablet),
+                shadowSpread: map-get($configuration, loginButtonShadowSpreadTablet),
+                shadowColor: map-get($configuration, loginButtonShadowColorTablet)
+              )
+            );
           }
         }
       }
@@ -436,38 +451,46 @@
             map-get($configuration, loginButtonPaddingRightDesktop)
             map-get($configuration, loginButtonPaddingBottomDesktop)
             map-get($configuration, loginButtonPaddingLeftDesktop);
-          @include borderOnly((
-            borderSides: map-get($configuration, loginButtonBorderSidesDesktop),
-            borderWidth: map-get($configuration, loginButtonBorderWidthDesktop),
-            borderStyle: map-get($configuration, loginButtonBorderStyleDesktop),
-            borderColor: map-get($configuration, loginButtonBorderColorDesktop)
-          ));
-          @include shadowOnly((
-            shadowStyle: map-get($configuration, loginButtonShadowStyleDesktop),
-            shadowXOffset: map-get($configuration, loginButtonShadowXoffsetDesktop),
-            shadowYOffset: map-get($configuration, loginButtonShadowYoffsetDesktop),
-            shadowBlur: map-get($configuration, loginButtonShadowBlurDesktop),
-            shadowSpread: map-get($configuration, loginButtonShadowSpread),
-            shadowColor: map-get($configuration, loginButtonShadowColorDesktop)
-          ));
-
-          &:active:hover {
-            background-color: map-get($configuration, loginButtonHoverColorDesktop);
-            color: map-get($configuration, loginButtonHoverTextColorDesktop);
-            @include borderOnly((
-              borderSides: map-get($configuration, loginButtonHoverBorderSidesDesktop),
-              borderWidth: map-get($configuration, loginButtonHoverBorderWidthDesktop),
-              borderStyle: map-get($configuration, loginButtonHoverBorderStyleDesktop),
-              borderColor: map-get($configuration, loginButtonHoverBorderColorDesktop)
-            ));
-            @include shadowOnly((
+          @include borderOnly(
+            (
+              borderSides: map-get($configuration, loginButtonBorderSidesDesktop),
+              borderWidth: map-get($configuration, loginButtonBorderWidthDesktop),
+              borderStyle: map-get($configuration, loginButtonBorderStyleDesktop),
+              borderColor: map-get($configuration, loginButtonBorderColorDesktop)
+            )
+          );
+          @include shadowOnly(
+            (
               shadowStyle: map-get($configuration, loginButtonShadowStyleDesktop),
               shadowXOffset: map-get($configuration, loginButtonShadowXoffsetDesktop),
               shadowYOffset: map-get($configuration, loginButtonShadowYoffsetDesktop),
               shadowBlur: map-get($configuration, loginButtonShadowBlurDesktop),
-              shadowSpread: map-get($configuration, loginButtonShadowSpreadDesktop),
+              shadowSpread: map-get($configuration, loginButtonShadowSpread),
               shadowColor: map-get($configuration, loginButtonShadowColorDesktop)
-            ));
+            )
+          );
+
+          &:active:hover {
+            background-color: map-get($configuration, loginButtonHoverColorDesktop);
+            color: map-get($configuration, loginButtonHoverTextColorDesktop);
+            @include borderOnly(
+              (
+                borderSides: map-get($configuration, loginButtonHoverBorderSidesDesktop),
+                borderWidth: map-get($configuration, loginButtonHoverBorderWidthDesktop),
+                borderStyle: map-get($configuration, loginButtonHoverBorderStyleDesktop),
+                borderColor: map-get($configuration, loginButtonHoverBorderColorDesktop)
+              )
+            );
+            @include shadowOnly(
+              (
+                shadowStyle: map-get($configuration, loginButtonShadowStyleDesktop),
+                shadowXOffset: map-get($configuration, loginButtonShadowXoffsetDesktop),
+                shadowYOffset: map-get($configuration, loginButtonShadowYoffsetDesktop),
+                shadowBlur: map-get($configuration, loginButtonShadowBlurDesktop),
+                shadowSpread: map-get($configuration, loginButtonShadowSpreadDesktop),
+                shadowColor: map-get($configuration, loginButtonShadowColorDesktop)
+              )
+            );
           }
         }
       }
@@ -476,33 +499,39 @@
     .state input.form-control,
     .fl-login-form input.form-control {
       border: none;
-      @include borderOnly((
-        borderSides: map-get($configuration, fieldBorderSides),
-        borderWidth: map-get($configuration, fieldBorderWidth),
-        borderStyle: map-get($configuration, fieldBorderStyle),
-        borderColor: map-get($configuration, fieldBorder)
-      ));
+      @include borderOnly(
+        (
+          borderSides: map-get($configuration, fieldBorderSides),
+          borderWidth: map-get($configuration, fieldBorderWidth),
+          borderStyle: map-get($configuration, fieldBorderStyle),
+          borderColor: map-get($configuration, fieldBorder)
+        )
+      );
       border-radius: map-get($configuration, fieldBorderRadius);
 
       // Styles for tablet
       @include above($tabletBreakpoint) {
-        @include borderOnly((
-          borderSides: map-get($configuration, fieldBorderSidesTablet),
-          borderWidth: map-get($configuration, fieldBorderWidthTablet),
-          borderStyle: map-get($configuration, fieldBorderStyleTablet),
-          borderColor: map-get($configuration, fieldBorderTablet)
-        ));
+        @include borderOnly(
+          (
+            borderSides: map-get($configuration, fieldBorderSidesTablet),
+            borderWidth: map-get($configuration, fieldBorderWidthTablet),
+            borderStyle: map-get($configuration, fieldBorderStyleTablet),
+            borderColor: map-get($configuration, fieldBorderTablet)
+          )
+        );
         border-radius: map-get($configuration, fieldBorderRadiusTablet);
       }
 
       // Styles for desktop
       @include above($desktopBreakpoint) {
-        @include borderOnly((
-          borderSides: map-get($configuration, fieldBorderSidesDesktop),
-          borderWidth: map-get($configuration, fieldBorderWidthDesktop),
-          borderStyle: map-get($configuration, fieldBorderStyleDesktop),
-          borderColor: map-get($configuration, fieldBorderDesktop)
-        ));
+        @include borderOnly(
+          (
+            borderSides: map-get($configuration, fieldBorderSidesDesktop),
+            borderWidth: map-get($configuration, fieldBorderWidthDesktop),
+            borderStyle: map-get($configuration, fieldBorderStyleDesktop),
+            borderColor: map-get($configuration, fieldBorderDesktop)
+          )
+        );
         border-radius: map-get($configuration, fieldBorderRadiusDesktop);
       }
     }
