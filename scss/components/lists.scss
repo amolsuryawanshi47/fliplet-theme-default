@@ -1,158 +1,161 @@
-@mixin list($options: (), $widgetInstanceId: '', $widgetInstanceUUID: '') {
-  $configuration: map-merge((
-    listWidth: $listWidth,
-    listMinWidth: $listMinWidth,
-    listMaxWidth: $listMaxWidth,
+@mixin list($options: (), $widgetInstanceId: "", $widgetInstanceUUID: "") {
+  $configuration: map-merge(
+    (
+      listWidth: $listWidth,
+      listMinWidth: $listMinWidth,
+      listMaxWidth: $listMaxWidth,
 
-    listPosition: $listPosition,
-    listPositionTop: $listPositionTop,
-    listPositionRight: $listPositionRight,
-    listPositionBottom: $listPositionBottom,
-    listPositionLeft: $listPositionLeft,
-    listIndex: $listIndex,
-    listDisplay: $listDisplay,
+      listPosition: $listPosition,
+      listPositionTop: $listPositionTop,
+      listPositionRight: $listPositionRight,
+      listPositionBottom: $listPositionBottom,
+      listPositionLeft: $listPositionLeft,
+      listIndex: $listIndex,
+      listDisplay: $listDisplay,
 
-    listMarginTop: $listMarginTop,
-    listMarginRight: $listMarginRight,
-    listMarginBottom: $listMarginBottom,
-    listMarginLeft: $listMarginLeft,
-    listPaddingTop: $listPaddingTop,
-    listPaddingRight: $listPaddingRight,
-    listPaddingBottom: $listPaddingBottom,
-    listPaddingLeft: $listPaddingLeft,
-    listBackgroundColor: $listBackgroundColor,
-    listClickColor: $listClickColor,
-    listSeparatorColor: $listSeparatorColor,
-    listChevronColor: $listChevronColor,
-    titleFont: $titleFont,
-    titleSize: $titleSize,
-    titleColor: $titleColor,
-    titleWeight: $titleWeight,
-    titleStyle: $titleStyle,
-    titleDecoration: $titleDecoration,
-    descriptionFont: $descriptionFont,
-    descriptionSize: $descriptionSize,
-    descriptionColor: $descriptionColor,
-    descriptionWeight: $descriptionWeight,
-    descriptionStyle: $descriptionStyle,
-    descriptionDecoration: $descriptionDecoration,
-    listItemPaddingTop: $listItemPaddingTop,
-    listItemPaddingRight: $listItemPaddingRight,
-    listItemPaddingBottom: $listItemPaddingBottom,
-    listItemPaddingLeft: $listItemPaddingLeft,
-    listMyListToggleColor: $listMyListToggleColor,
-    listMyListToggleActiveColor: $listMyListToggleActiveColor,
-    listMyListSwipeColor: $listMyListSwipeColor,
-    listMyListSwipeTextColor: $listMyListSwipeTextColor,
-    listMyListSwipeRightColor: $listMyListSwipeRightColor,
-    listMyListSwipeRightTextColor: $listMyListSwipeRightTextColor,
-    listMyListSwipeLeftColor: $listMyListSwipeLeftColor,
-    listMyListSwipeLeftTextColor: $listMyListSwipeLeftTextColor,
-    listVisibility: $listVisibility,
-    listWidthTablet: $listWidthTablet,
-    listMinWidthTablet: $listMinWidthTablet,
-    listMaxWidthTablet: $listMaxWidthTablet,
+      listMarginTop: $listMarginTop,
+      listMarginRight: $listMarginRight,
+      listMarginBottom: $listMarginBottom,
+      listMarginLeft: $listMarginLeft,
+      listPaddingTop: $listPaddingTop,
+      listPaddingRight: $listPaddingRight,
+      listPaddingBottom: $listPaddingBottom,
+      listPaddingLeft: $listPaddingLeft,
+      listBackgroundColor: $listBackgroundColor,
+      listClickColor: $listClickColor,
+      listSeparatorColor: $listSeparatorColor,
+      listChevronColor: $listChevronColor,
+      titleFont: $titleFont,
+      titleSize: $titleSize,
+      titleColor: $titleColor,
+      titleWeight: $titleWeight,
+      titleStyle: $titleStyle,
+      titleDecoration: $titleDecoration,
+      descriptionFont: $descriptionFont,
+      descriptionSize: $descriptionSize,
+      descriptionColor: $descriptionColor,
+      descriptionWeight: $descriptionWeight,
+      descriptionStyle: $descriptionStyle,
+      descriptionDecoration: $descriptionDecoration,
+      listItemPaddingTop: $listItemPaddingTop,
+      listItemPaddingRight: $listItemPaddingRight,
+      listItemPaddingBottom: $listItemPaddingBottom,
+      listItemPaddingLeft: $listItemPaddingLeft,
+      listMyListToggleColor: $listMyListToggleColor,
+      listMyListToggleActiveColor: $listMyListToggleActiveColor,
+      listMyListSwipeColor: $listMyListSwipeColor,
+      listMyListSwipeTextColor: $listMyListSwipeTextColor,
+      listMyListSwipeRightColor: $listMyListSwipeRightColor,
+      listMyListSwipeRightTextColor: $listMyListSwipeRightTextColor,
+      listMyListSwipeLeftColor: $listMyListSwipeLeftColor,
+      listMyListSwipeLeftTextColor: $listMyListSwipeLeftTextColor,
+      listVisibility: $listVisibility,
+      listWidthTablet: $listWidthTablet,
+      listMinWidthTablet: $listMinWidthTablet,
+      listMaxWidthTablet: $listMaxWidthTablet,
 
-    listPositionTablet: $listPositionTablet,
-    listPositionTopTablet: $listPositionTopTablet,
-    listPositionRightTablet: $listPositionRightTablet,
-    listPositionBottomTablet: $listPositionBottomTablet,
-    listPositionLeftTablet: $listPositionLeftTablet,
-    listIndexTablet: $listIndexTablet,
-    listDisplayTablet: $listDisplayTablet,
+      listPositionTablet: $listPositionTablet,
+      listPositionTopTablet: $listPositionTopTablet,
+      listPositionRightTablet: $listPositionRightTablet,
+      listPositionBottomTablet: $listPositionBottomTablet,
+      listPositionLeftTablet: $listPositionLeftTablet,
+      listIndexTablet: $listIndexTablet,
+      listDisplayTablet: $listDisplayTablet,
 
-    listMarginTopTablet: $listMarginTopTablet,
-    listMarginRightTablet: $listMarginRightTablet,
-    listMarginBottomTablet: $listMarginBottomTablet,
-    listMarginLeftTablet: $listMarginLeftTablet,
-    listPaddingTopTablet: $listPaddingTopTablet,
-    listPaddingRightTablet: $listPaddingRightTablet,
-    listPaddingBottomTablet: $listPaddingBottomTablet,
-    listPaddingLeftTablet: $listPaddingLeftTablet,
-    listBackgroundColorTablet: $listBackgroundColorTablet,
-    listClickColorTablet: $listClickColorTablet,
-    listSeparatorColorTablet: $listSeparatorColorTablet,
-    listChevronColorTablet: $listChevronColorTablet,
-    titleFontTablet: $titleFontTablet,
-    titleSizeTablet: $titleSizeTablet,
-    titleColorTablet: $titleColorTablet,
-    titleWeightTablet: $titleWeightTablet,
-    titleStyleTablet: $titleStyleTablet,
-    titleDecorationTablet: $titleDecorationTablet,
-    descriptionFontTablet: $descriptionFontTablet,
-    descriptionSizeTablet: $descriptionSizeTablet,
-    descriptionColorTablet: $descriptionColorTablet,
-    descriptionWeightTablet: $descriptionWeightTablet,
-    descriptionStyleTablet: $descriptionStyleTablet,
-    descriptionDecorationTablet: $descriptionDecorationTablet,
-    listItemPaddingTopTablet: $listItemPaddingTopTablet,
-    listItemPaddingRightTablet: $listItemPaddingRightTablet,
-    listItemPaddingBottomTablet: $listItemPaddingBottomTablet,
-    listItemPaddingLeftTablet: $listItemPaddingLeftTablet,
-    listMyListToggleColorTablet: $listMyListToggleColorTablet,
-    listMyListToggleActiveColorTablet: $listMyListToggleActiveColorTablet,
-    listMyListSwipeColorTablet: $listMyListSwipeColorTablet,
-    listMyListSwipeTextColorTablet: $listMyListSwipeTextColorTablet,
-    listMyListSwipeRightColorTablet: $listMyListSwipeRightColorTablet,
-    listMyListSwipeRightTextColorTablet: $listMyListSwipeRightTextColorTablet,
-    listMyListSwipeLeftColorTablet: $listMyListSwipeLeftColorTablet,
-    listMyListSwipeLeftTextColorTablet: $listMyListSwipeLeftTextColorTablet,
-    listVisibilityTablet: $listVisibilityTablet,
-    listWidthDesktop: $listWidthDesktop,
-    listMinWidthDesktop: $listMinWidthDesktop,
-    listMaxWidthDesktop: $listMaxWidthDesktop,
+      listMarginTopTablet: $listMarginTopTablet,
+      listMarginRightTablet: $listMarginRightTablet,
+      listMarginBottomTablet: $listMarginBottomTablet,
+      listMarginLeftTablet: $listMarginLeftTablet,
+      listPaddingTopTablet: $listPaddingTopTablet,
+      listPaddingRightTablet: $listPaddingRightTablet,
+      listPaddingBottomTablet: $listPaddingBottomTablet,
+      listPaddingLeftTablet: $listPaddingLeftTablet,
+      listBackgroundColorTablet: $listBackgroundColorTablet,
+      listClickColorTablet: $listClickColorTablet,
+      listSeparatorColorTablet: $listSeparatorColorTablet,
+      listChevronColorTablet: $listChevronColorTablet,
+      titleFontTablet: $titleFontTablet,
+      titleSizeTablet: $titleSizeTablet,
+      titleColorTablet: $titleColorTablet,
+      titleWeightTablet: $titleWeightTablet,
+      titleStyleTablet: $titleStyleTablet,
+      titleDecorationTablet: $titleDecorationTablet,
+      descriptionFontTablet: $descriptionFontTablet,
+      descriptionSizeTablet: $descriptionSizeTablet,
+      descriptionColorTablet: $descriptionColorTablet,
+      descriptionWeightTablet: $descriptionWeightTablet,
+      descriptionStyleTablet: $descriptionStyleTablet,
+      descriptionDecorationTablet: $descriptionDecorationTablet,
+      listItemPaddingTopTablet: $listItemPaddingTopTablet,
+      listItemPaddingRightTablet: $listItemPaddingRightTablet,
+      listItemPaddingBottomTablet: $listItemPaddingBottomTablet,
+      listItemPaddingLeftTablet: $listItemPaddingLeftTablet,
+      listMyListToggleColorTablet: $listMyListToggleColorTablet,
+      listMyListToggleActiveColorTablet: $listMyListToggleActiveColorTablet,
+      listMyListSwipeColorTablet: $listMyListSwipeColorTablet,
+      listMyListSwipeTextColorTablet: $listMyListSwipeTextColorTablet,
+      listMyListSwipeRightColorTablet: $listMyListSwipeRightColorTablet,
+      listMyListSwipeRightTextColorTablet: $listMyListSwipeRightTextColorTablet,
+      listMyListSwipeLeftColorTablet: $listMyListSwipeLeftColorTablet,
+      listMyListSwipeLeftTextColorTablet: $listMyListSwipeLeftTextColorTablet,
+      listVisibilityTablet: $listVisibilityTablet,
+      listWidthDesktop: $listWidthDesktop,
+      listMinWidthDesktop: $listMinWidthDesktop,
+      listMaxWidthDesktop: $listMaxWidthDesktop,
 
-    listPositionDesktop: $listPositionDesktop,
-    listPositionTopDesktop: $listPositionTopDesktop,
-    listPositionRightDesktop: $listPositionRightDesktop,
-    listPositionBottomDesktop: $listPositionBottomDesktop,
-    listPositionLeftDesktop: $listPositionLeftDesktop,
-    listIndexDesktop: $listIndexDesktop,
-    listDisplayDesktop: $listDisplayDesktop,
+      listPositionDesktop: $listPositionDesktop,
+      listPositionTopDesktop: $listPositionTopDesktop,
+      listPositionRightDesktop: $listPositionRightDesktop,
+      listPositionBottomDesktop: $listPositionBottomDesktop,
+      listPositionLeftDesktop: $listPositionLeftDesktop,
+      listIndexDesktop: $listIndexDesktop,
+      listDisplayDesktop: $listDisplayDesktop,
 
-    listMarginTopDesktop: $listMarginTopDesktop,
-    listMarginRightDesktop: $listMarginRightDesktop,
-    listMarginBottomDesktop: $listMarginBottomDesktop,
-    listMarginLeftDesktop: $listMarginLeftDesktop,
-    listPaddingTopDesktop: $listPaddingTopDesktop,
-    listPaddingRightDesktop: $listPaddingRightDesktop,
-    listPaddingBottomDesktop: $listPaddingBottomDesktop,
-    listPaddingLeftDesktop: $listPaddingLeftDesktop,
-    listBackgroundColorDesktop: $listBackgroundColorDesktop,
-    listClickColorDesktop: $listClickColorDesktop,
-    listSeparatorColorDesktop: $listSeparatorColorDesktop,
-    listChevronColorDesktop: $listChevronColorDesktop,
-    titleFontDesktop: $titleFontDesktop,
-    titleSizeDesktop: $titleSizeDesktop,
-    titleColorDesktop: $titleColorDesktop,
-    titleWeightDesktop: $titleWeightDesktop,
-    titleStyleDesktop: $titleStyleDesktop,
-    titleDecorationDesktop: $titleDecorationDesktop,
-    descriptionFontDesktop: $descriptionFontDesktop,
-    descriptionSizeDesktop: $descriptionSizeDesktop,
-    descriptionColorDesktop: $descriptionColorDesktop,
-    descriptionWeightDesktop: $descriptionWeightDesktop,
-    descriptionStyleDesktop: $descriptionStyleDesktop,
-    descriptionDecorationDesktop: $descriptionDecorationDesktop,
-    listItemPaddingTopDesktop: $listItemPaddingTopDesktop,
-    listItemPaddingRightDesktop: $listItemPaddingRightDesktop,
-    listItemPaddingBottomDesktop: $listItemPaddingBottomDesktop,
-    listItemPaddingLeftDesktop: $listItemPaddingLeftDesktop,
-    listMyListToggleColorDesktop: $listMyListToggleColorDesktop,
-    listMyListToggleActiveColorDesktop: $listMyListToggleActiveColorDesktop,
-    listMyListSwipeColorDesktop: $listMyListSwipeColorDesktop,
-    listMyListSwipeTextColorDesktop: $listMyListSwipeTextColorDesktop,
-    listMyListSwipeRightColorDesktop: $listMyListSwipeRightColorDesktop,
-    listMyListSwipeRightTextColorDesktop: $listMyListSwipeRightTextColorDesktop,
-    listMyListSwipeLeftColorDesktop: $listMyListSwipeLeftColorDesktop,
-    listMyListSwipeLeftTextColorDesktop: $listMyListSwipeLeftTextColorDesktop,
-    listVisibilityDesktop: $listVisibilityDesktop
-  ), $options);
-  
+      listMarginTopDesktop: $listMarginTopDesktop,
+      listMarginRightDesktop: $listMarginRightDesktop,
+      listMarginBottomDesktop: $listMarginBottomDesktop,
+      listMarginLeftDesktop: $listMarginLeftDesktop,
+      listPaddingTopDesktop: $listPaddingTopDesktop,
+      listPaddingRightDesktop: $listPaddingRightDesktop,
+      listPaddingBottomDesktop: $listPaddingBottomDesktop,
+      listPaddingLeftDesktop: $listPaddingLeftDesktop,
+      listBackgroundColorDesktop: $listBackgroundColorDesktop,
+      listClickColorDesktop: $listClickColorDesktop,
+      listSeparatorColorDesktop: $listSeparatorColorDesktop,
+      listChevronColorDesktop: $listChevronColorDesktop,
+      titleFontDesktop: $titleFontDesktop,
+      titleSizeDesktop: $titleSizeDesktop,
+      titleColorDesktop: $titleColorDesktop,
+      titleWeightDesktop: $titleWeightDesktop,
+      titleStyleDesktop: $titleStyleDesktop,
+      titleDecorationDesktop: $titleDecorationDesktop,
+      descriptionFontDesktop: $descriptionFontDesktop,
+      descriptionSizeDesktop: $descriptionSizeDesktop,
+      descriptionColorDesktop: $descriptionColorDesktop,
+      descriptionWeightDesktop: $descriptionWeightDesktop,
+      descriptionStyleDesktop: $descriptionStyleDesktop,
+      descriptionDecorationDesktop: $descriptionDecorationDesktop,
+      listItemPaddingTopDesktop: $listItemPaddingTopDesktop,
+      listItemPaddingRightDesktop: $listItemPaddingRightDesktop,
+      listItemPaddingBottomDesktop: $listItemPaddingBottomDesktop,
+      listItemPaddingLeftDesktop: $listItemPaddingLeftDesktop,
+      listMyListToggleColorDesktop: $listMyListToggleColorDesktop,
+      listMyListToggleActiveColorDesktop: $listMyListToggleActiveColorDesktop,
+      listMyListSwipeColorDesktop: $listMyListSwipeColorDesktop,
+      listMyListSwipeTextColorDesktop: $listMyListSwipeTextColorDesktop,
+      listMyListSwipeRightColorDesktop: $listMyListSwipeRightColorDesktop,
+      listMyListSwipeRightTextColorDesktop: $listMyListSwipeRightTextColorDesktop,
+      listMyListSwipeLeftColorDesktop: $listMyListSwipeLeftColorDesktop,
+      listMyListSwipeLeftTextColorDesktop: $listMyListSwipeLeftTextColorDesktop,
+      listVisibilityDesktop: $listVisibilityDesktop
+    ),
+    $options
+  );
+
   $instanceSelector: '[data-widget-package="com.fliplet.simple-list"]';
-  @if $widgetInstanceUUID != '' {
+  @if $widgetInstanceUUID != "" {
     $instanceSelector: '#{$instanceSelector}[data-uuid="#{$widgetInstanceUUID}"]';
-  } @else if $widgetInstanceId != '' {
+  } @else if $widgetInstanceId != "" {
     $instanceSelector: '#{$instanceSelector}[data-id="#{$widgetInstanceId}"]';
   }
 
@@ -160,14 +163,14 @@
     position: map-get($configuration, listPosition) !important;
     z-index: map-get($configuration, listIndex);
 
-    @if map-get($configuration, listPosition) == 'relative' {
-      @if map-get($configuration, listVisibility) == 'visible' {
+    @if map-get($configuration, listPosition) == "relative" {
+      @if map-get($configuration, listVisibility) == "visible" {
         display: map-get($configuration, listDisplay) !important;
       } @else {
         display: none !important;
       }
     } @else {
-      @if map-get($configuration, listVisibility) == 'visible' {
+      @if map-get($configuration, listVisibility) == "visible" {
         display: block !important;
       } @else {
         display: none !important;
@@ -182,28 +185,24 @@
     width: map-get($configuration, listWidth);
     min-width: map-get($configuration, listMinWidth);
     max-width: map-get($configuration, listMaxWidth);
-    margin: map-get($configuration, listMarginTop)
-      map-get($configuration, listMarginRight)
-      map-get($configuration, listMarginBottom)
-      map-get($configuration, listMarginLeft);
-    padding: map-get($configuration, listPaddingTop)
-      map-get($configuration, listPaddingRight)
-      map-get($configuration, listPaddingBottom)
-      map-get($configuration, listPaddingLeft);
+    margin: map-get($configuration, listMarginTop) map-get($configuration, listMarginRight)
+      map-get($configuration, listMarginBottom) map-get($configuration, listMarginLeft);
+    padding: map-get($configuration, listPaddingTop) map-get($configuration, listPaddingRight)
+      map-get($configuration, listPaddingBottom) map-get($configuration, listPaddingLeft);
 
     // Styles for tablet
     @include above($tabletBreakpoint) {
       position: map-get($configuration, listPositionTablet) !important;
       z-index: map-get($configuration, listIndexTablet);
 
-      @if map-get($configuration, listPositionTablet) == 'relative' {
-        @if map-get($configuration, listVisibilityTablet) == 'visible' {
+      @if map-get($configuration, listPositionTablet) == "relative" {
+        @if map-get($configuration, listVisibilityTablet) == "visible" {
           display: map-get($configuration, listDisplayTablet) !important;
         } @else {
           display: none !important;
         }
       } @else {
-        @if map-get($configuration, listVisibilityTablet) == 'visible' {
+        @if map-get($configuration, listVisibilityTablet) == "visible" {
           display: block !important;
         } @else {
           display: none !important;
@@ -233,14 +232,14 @@
       position: map-get($configuration, listPositionDesktop) !important;
       z-index: map-get($configuration, listIndexDesktop);
 
-      @if map-get($configuration, listPositionDesktop) == 'relative' {
-        @if map-get($configuration, listVisibilityDesktop) == 'visible' {
+      @if map-get($configuration, listPositionDesktop) == "relative" {
+        @if map-get($configuration, listVisibilityDesktop) == "visible" {
           display: map-get($configuration, listDisplayDesktop) !important;
         } @else {
           display: none !important;
         }
       } @else {
-        @if map-get($configuration, listVisibilityDesktop) == 'visible' {
+        @if map-get($configuration, listVisibilityDesktop) == "visible" {
           display: block !important;
         } @else {
           display: none !important;
@@ -291,26 +290,30 @@
         }
 
         .list-title {
-          @include fontOnly((
-            fontFamily: map-get($configuration, titleFont),
-            fontSize: map-get($configuration, titleSize),
-            fontLineHeight: 1.5,
-            fontWeight: map-get($configuration, titleWeight),
-            fontStyle: map-get($configuration, titleStyle),
-            fontDecoration: map-get($configuration, titleDecoration)
-          ));
+          @include fontOnly(
+            (
+              fontFamily: map-get($configuration, titleFont),
+              fontSize: map-get($configuration, titleSize),
+              fontLineHeight: 1.5,
+              fontWeight: map-get($configuration, titleWeight),
+              fontStyle: map-get($configuration, titleStyle),
+              fontDecoration: map-get($configuration, titleDecoration)
+            )
+          );
           color: map-get($configuration, titleColor);
         }
 
         p + p {
-          @include fontOnly((
-            fontFamily: map-get($configuration, descriptionFont),
-            fontSize: map-get($configuration, descriptionSize),
-            fontLineHeight: 1.5,
-            fontWeight: map-get($configuration, descriptionWeight),
-            fontStyle: map-get($configuration, descriptionStyle),
-            fontDecoration: map-get($configuration, descriptionDecoration)
-          ));
+          @include fontOnly(
+            (
+              fontFamily: map-get($configuration, descriptionFont),
+              fontSize: map-get($configuration, descriptionSize),
+              fontLineHeight: 1.5,
+              fontWeight: map-get($configuration, descriptionWeight),
+              fontStyle: map-get($configuration, descriptionStyle),
+              fontDecoration: map-get($configuration, descriptionDecoration)
+            )
+          );
           color: map-get($configuration, descriptionColor);
         }
 
@@ -340,26 +343,30 @@
           }
 
           .list-title {
-            @include fontOnly((
-              fontFamily: map-get($configuration, titleFontTablet),
-              fontSize: map-get($configuration, titleSizeTablet),
-              fontLineHeight: 1.5,
-              fontWeight: map-get($configuration, titleWeightTablet),
-              fontStyle: map-get($configuration, titleStyleTablet),
-              fontDecoration: map-get($configuration, titleDecorationTablet)
-            ));
+            @include fontOnly(
+              (
+                fontFamily: map-get($configuration, titleFontTablet),
+                fontSize: map-get($configuration, titleSizeTablet),
+                fontLineHeight: 1.5,
+                fontWeight: map-get($configuration, titleWeightTablet),
+                fontStyle: map-get($configuration, titleStyleTablet),
+                fontDecoration: map-get($configuration, titleDecorationTablet)
+              )
+            );
             color: map-get($configuration, titleColorTablet);
           }
 
           p + p {
-            @include fontOnly((
-              fontFamily: map-get($configuration, descriptionFontTablet),
-              fontSize: map-get($configuration, descriptionSizeTablet),
-              fontLineHeight: 1.5,
-              fontWeight: map-get($configuration, descriptionWeightTablet),
-              fontStyle: map-get($configuration, descriptionStyleTablet),
-              fontDecoration: map-get($configuration, descriptionDecorationTablet)
-            ));
+            @include fontOnly(
+              (
+                fontFamily: map-get($configuration, descriptionFontTablet),
+                fontSize: map-get($configuration, descriptionSizeTablet),
+                fontLineHeight: 1.5,
+                fontWeight: map-get($configuration, descriptionWeightTablet),
+                fontStyle: map-get($configuration, descriptionStyleTablet),
+                fontDecoration: map-get($configuration, descriptionDecorationTablet)
+              )
+            );
             color: map-get($configuration, descriptionColorTablet);
           }
         }
@@ -390,26 +397,30 @@
           }
 
           .list-title {
-            @include fontOnly((
-              fontFamily: map-get($configuration, titleFontDesktop),
-              fontSize: map-get($configuration, titleSizeDesktop),
-              fontLineHeight: 1.5,
-              fontWeight: map-get($configuration, titleWeightDesktop),
-              fontStyle: map-get($configuration, titleStyleDesktop),
-              fontDecoration: map-get($configuration, titleDecorationDesktop)
-            ));
+            @include fontOnly(
+              (
+                fontFamily: map-get($configuration, titleFontDesktop),
+                fontSize: map-get($configuration, titleSizeDesktop),
+                fontLineHeight: 1.5,
+                fontWeight: map-get($configuration, titleWeightDesktop),
+                fontStyle: map-get($configuration, titleStyleDesktop),
+                fontDecoration: map-get($configuration, titleDecorationDesktop)
+              )
+            );
             color: map-get($configuration, titleColorDesktop);
           }
 
           p + p {
-            @include fontOnly((
-              fontFamily: map-get($configuration, descriptionFontDesktop),
-              fontSize: map-get($configuration, descriptionSizeDesktop),
-              fontLineHeight: 1.5,
-              fontWeight: map-get($configuration, descriptionWeightDesktop),
-              fontStyle: map-get($configuration, descriptionStyleDesktop),
-              fontDecoration: map-get($configuration, descriptionDecorationDesktop)
-            ));
+            @include fontOnly(
+              (
+                fontFamily: map-get($configuration, descriptionFontDesktop),
+                fontSize: map-get($configuration, descriptionSizeDesktop),
+                fontLineHeight: 1.5,
+                fontWeight: map-get($configuration, descriptionWeightDesktop),
+                fontStyle: map-get($configuration, descriptionStyleDesktop),
+                fontDecoration: map-get($configuration, descriptionDecorationDesktop)
+              )
+            );
             color: map-get($configuration, descriptionColorDesktop);
           }
         }
@@ -481,7 +492,7 @@
           background: map-get($configuration, listMyListSwipeColorTablet);
           color: map-get($configuration, listMyListSwipeTextColorTablet);
 
-          &.swipe-action-right.active{
+          &.swipe-action-right.active {
             background: map-get($configuration, listMyListSwipeRightColorTablet);
             color: map-get($configuration, listMyListSwipeRightTextColorTablet);
           }
@@ -497,7 +508,7 @@
           background: map-get($configuration, listMyListSwipeColorDesktop);
           color: map-get($configuration, listMyListSwipeTextColorDesktop);
 
-          &.swipe-action-right.active{
+          &.swipe-action-right.active {
             background: map-get($configuration, listMyListSwipeRightColorDesktop);
             color: map-get($configuration, listMyListSwipeRightTextColorDesktop);
           }

@@ -1,47 +1,50 @@
-@mixin inlineLink($options: (), $widgetInstanceId: '', $widgetInstanceUUID: '') {
-  $configuration: map-merge((
-    linkFontFamily: $linkFontFamily,
-    linkFontFamilyHover: $linkFontFamilyHover,
-    linkFontFamilyTablet: $linkFontFamilyTablet,
-    linkFontFamilyHoverTablet: $linkFontFamilyHoverTablet,
-    linkFontFamilyDesktop: $linkFontFamilyDesktop,
-    linkFontFamilyHoverDesktop: $linkFontFamilyHoverDesktop,
-    linkFontSize: $linkFontSize,
-    linkFontSizeHover: $linkFontSizeHover,
-    linkFontSizeTablet: $linkFontSizeTablet,
-    linkFontSizeHoverTablet: $linkFontSizeHoverTablet,
-    linkFontSizeDesktop: $linkFontSizeDesktop,
-    linkFontSizeHoverDesktop: $linkFontSizeHoverDesktop,
-    linkFontWeight: $linkFontWeight,
-    linkFontWeightHover: $linkFontWeightHover,
-    linkFontWeightTablet: $linkFontWeightTablet,
-    linkFontWeightHoverTablet: $linkFontWeightHoverTablet,
-    linkFontWeightDesktop: $linkFontWeightDesktop,
-    linkFontWeightHoverDesktop: $linkFontWeightHoverDesktop,
-    linkFontStyle: $linkFontStyle,
-    linkFontStyleHover: $linkFontStyleHover,
-    linkFontStyleTablet: $linkFontStyleTablet,
-    linkFontStyleHoverTablet: $linkFontStyleHoverTablet,
-    linkFontStyleDesktop: $linkFontStyleDesktop,
-    linkFontStyleHoverDesktop: $linkFontStyleHoverDesktop,
-    linkFontDecoration: $linkFontDecoration,
-    linkFontDecorationHover: $linkFontDecorationHover,
-    linkFontDecorationTablet: $linkFontDecorationTablet,
-    linkFontDecorationHoverTablet: $linkFontDecorationHoverTablet,
-    linkFontDecorationDesktop: $linkFontDecorationDesktop,
-    linkFontDecorationHoverDesktop: $linkFontDecorationHoverDesktop,
-    linkColor: $linkColor,
-    linkHoverColor: $linkHoverColor,
-    linkColorTablet: $linkColorTablet,
-    linkHoverColorTablet: $linkHoverColorTablet,
-    linkColorDesktop: $linkColorDesktop,
-    linkHoverColorDesktop: $linkHoverColorDesktop
-  ), $options);
+@mixin inlineLink($options: (), $widgetInstanceId: "", $widgetInstanceUUID: "") {
+  $configuration: map-merge(
+    (
+      linkFontFamily: $linkFontFamily,
+      linkFontFamilyHover: $linkFontFamilyHover,
+      linkFontFamilyTablet: $linkFontFamilyTablet,
+      linkFontFamilyHoverTablet: $linkFontFamilyHoverTablet,
+      linkFontFamilyDesktop: $linkFontFamilyDesktop,
+      linkFontFamilyHoverDesktop: $linkFontFamilyHoverDesktop,
+      linkFontSize: $linkFontSize,
+      linkFontSizeHover: $linkFontSizeHover,
+      linkFontSizeTablet: $linkFontSizeTablet,
+      linkFontSizeHoverTablet: $linkFontSizeHoverTablet,
+      linkFontSizeDesktop: $linkFontSizeDesktop,
+      linkFontSizeHoverDesktop: $linkFontSizeHoverDesktop,
+      linkFontWeight: $linkFontWeight,
+      linkFontWeightHover: $linkFontWeightHover,
+      linkFontWeightTablet: $linkFontWeightTablet,
+      linkFontWeightHoverTablet: $linkFontWeightHoverTablet,
+      linkFontWeightDesktop: $linkFontWeightDesktop,
+      linkFontWeightHoverDesktop: $linkFontWeightHoverDesktop,
+      linkFontStyle: $linkFontStyle,
+      linkFontStyleHover: $linkFontStyleHover,
+      linkFontStyleTablet: $linkFontStyleTablet,
+      linkFontStyleHoverTablet: $linkFontStyleHoverTablet,
+      linkFontStyleDesktop: $linkFontStyleDesktop,
+      linkFontStyleHoverDesktop: $linkFontStyleHoverDesktop,
+      linkFontDecoration: $linkFontDecoration,
+      linkFontDecorationHover: $linkFontDecorationHover,
+      linkFontDecorationTablet: $linkFontDecorationTablet,
+      linkFontDecorationHoverTablet: $linkFontDecorationHoverTablet,
+      linkFontDecorationDesktop: $linkFontDecorationDesktop,
+      linkFontDecorationHoverDesktop: $linkFontDecorationHoverDesktop,
+      linkColor: $linkColor,
+      linkHoverColor: $linkHoverColor,
+      linkColorTablet: $linkColorTablet,
+      linkHoverColorTablet: $linkHoverColorTablet,
+      linkColorDesktop: $linkColorDesktop,
+      linkHoverColorDesktop: $linkHoverColorDesktop
+    ),
+    $options
+  );
 
   $instanceSelector: '[data-widget-package="com.fliplet.inline-link"]';
-  @if $widgetInstanceUUID != '' {
+  @if $widgetInstanceUUID != "" {
     $instanceSelector: '#{$instanceSelector}[data-uuid="#{$widgetInstanceUUID}"]';
-  } @else if $widgetInstanceId != '' {
+  } @else if $widgetInstanceId != "" {
     $instanceSelector: '#{$instanceSelector}[data-id="#{$widgetInstanceId}"]';
   }
 
@@ -85,7 +88,7 @@
         font-style: map-get($configuration, linkFontStyleHover);
         text-decoration: map-get($configuration, linkFontDecorationHover);
         color: map-get($configuration, linkHoverColor);
-  
+
         // Styles for tablet
         @include above($tabletBreakpoint) {
           font-family: map-get($configuration, linkFontFamilyHoverTablet);
@@ -95,7 +98,7 @@
           text-decoration: map-get($configuration, linkFontDecorationHoverTablet);
           color: map-get($configuration, linkHoverColorTablet);
         }
-  
+
         // Styles for desktop
         @include above($desktopBreakpoint) {
           font-family: map-get($configuration, linkFontFamilyHoverDesktop);
@@ -147,7 +150,7 @@
         font-style: map-get($configuration, linkFontStyleHover);
         text-decoration: map-get($configuration, linkFontDecorationHover);
         color: map-get($configuration, linkHoverColor);
-  
+
         // Styles for tablet
         @include above($tabletBreakpoint) {
           font-family: map-get($configuration, linkFontFamilyHoverTablet);
@@ -157,7 +160,7 @@
           text-decoration: map-get($configuration, linkFontDecorationHoverTablet);
           color: map-get($configuration, linkHoverColorTablet);
         }
-  
+
         // Styles for desktop
         @include above($desktopBreakpoint) {
           font-family: map-get($configuration, linkFontFamilyHoverDesktop);

@@ -1,91 +1,105 @@
 @mixin calculateHeight($options: ()) {
-  $configuration: map-merge((
-    height: '',
-    menuType: 'none'
-  ), $options);
+  $configuration: map-merge(
+    (
+      height: "",
+      menuType: "none"
+    ),
+    $options
+  );
 
-  @if map-get($configuration, menuType) == 'none' {
+  @if map-get($configuration, menuType) == "none" {
     height: map-get($configuration, height);
-    height: calc(#{map-get($configuration, height)} - (env(safe-area-inset-bottom) + env(safe-area-inset-top))); 
+    height: calc(
+      #{map-get($configuration, height)} - (env(safe-area-inset-bottom) + env(safe-area-inset-top))
+    );
   }
-  @if map-get($configuration, menuType) == 'top' {
+  @if map-get($configuration, menuType) == "top" {
     height: calc(#{map-get($configuration, height)} - 44px);
-    height: calc(#{map-get($configuration, height)} - (44px + env(safe-area-inset-bottom) + env(safe-area-inset-top))); 
+    height: calc(
+      #{map-get($configuration, height)} -
+        (44px + env(safe-area-inset-bottom) + env(safe-area-inset-top))
+    );
   }
-  @if map-get($configuration, menuType) == 'bottom' {
+  @if map-get($configuration, menuType) == "bottom" {
     height: calc(#{map-get($configuration, height)} - 65px);
-    height: calc(#{map-get($configuration, height)} - (65px + env(safe-area-inset-bottom) + env(safe-area-inset-top))); 
+    height: calc(
+      #{map-get($configuration, height)} -
+        (65px + env(safe-area-inset-bottom) + env(safe-area-inset-top))
+    );
   }
-  @if map-get($configuration, menuType) == 'top-with-notch' {
-    height: calc(#{map-get($configuration, height)} - (44px + 34px)); 
+  @if map-get($configuration, menuType) == "top-with-notch" {
+    height: calc(#{map-get($configuration, height)} - (44px + 34px));
   }
-  @if map-get($configuration, menuType) == 'bottom-with-notch' {
-    height: calc(#{map-get($configuration, height)} - (65px + 34px)); 
+  @if map-get($configuration, menuType) == "bottom-with-notch" {
+    height: calc(#{map-get($configuration, height)} - (65px + 34px));
   }
 }
 
-@mixin interactiveGraphics($options: (), $widgetInstanceId: '', $widgetInstanceUUID: '') {
-  $configuration: map-merge((
-    interactiveGraphWidth: $interactiveGraphWidth,
-    interactiveGraphHeight: $interactiveGraphHeight,
-    interactiveGraphMinWidth: $interactiveGraphMinWidth,
-    interactiveGraphMaxWidth: $interactiveGraphMaxWidth,
-    interactiveGraphMinHeight: $interactiveGraphMinHeight,
-    interactiveGraphMaxHeight: $interactiveGraphMaxHeight,
-    interactiveGraphMarginTop: $interactiveGraphMarginTop,
-    interactiveGraphMarginRight: $interactiveGraphMarginRight,
-    interactiveGraphMarginBottom: $interactiveGraphMarginBottom,
-    interactiveGraphMarginLeft: $interactiveGraphMarginLeft,
-    markerLabelBackground: $markerLabelBackground,
-    markerLabelText: $markerLabelText,
-    mapLabelBackground: $mapLabelBackground,
-    mapLabelText: $mapLabelText,
-    controlsBackground: $controlsBackground,
-    controlsText: $controlsText,
-    mapSearchOverlayBackground: $mapSearchOverlayBackground,
-    mapSearchOverlayText: $mapSearchOverlayText,
-    interactiveGraphWidthTablet: $interactiveGraphWidthTablet,
-    interactiveGraphHeightTablet: $interactiveGraphHeightTablet,
-    interactiveGraphMinWidthTablet: $interactiveGraphMinWidthTablet,
-    interactiveGraphMaxWidthTablet: $interactiveGraphMaxWidthTablet,
-    interactiveGraphMinHeightTablet: $interactiveGraphMinHeightTablet,
-    interactiveGraphMaxHeightTablet: $interactiveGraphMaxHeightTablet,
-    interactiveGraphMarginTopTablet: $interactiveGraphMarginTopTablet,
-    interactiveGraphMarginRightTablet: $interactiveGraphMarginRightTablet,
-    interactiveGraphMarginBottomTablet: $interactiveGraphMarginBottomTablet,
-    interactiveGraphMarginLeftTablet: $interactiveGraphMarginLeftTablet,
-    markerLabelBackgroundTablet: $markerLabelBackgroundTablet,
-    markerLabelTextTablet: $markerLabelTextTablet,
-    mapLabelBackgroundTablet: $mapLabelBackgroundTablet,
-    mapLabelTextTablet: $mapLabelTextTablet,
-    controlsBackgroundTablet: $controlsBackgroundTablet,
-    controlsTextTablet: $controlsTextTablet,
-    mapSearchOverlayBackgroundTablet: $mapSearchOverlayBackgroundTablet,
-    mapSearchOverlayTextTablet: $mapSearchOverlayTextTablet,
-    interactiveGraphMinWidthDesktop: $interactiveGraphMinWidthDesktop,
-    interactiveGraphMaxWidthDesktop: $interactiveGraphMaxWidthDesktop,
-    interactiveGraphMinHeightDesktop: $interactiveGraphMinHeightDesktop,
-    interactiveGraphMaxHeightDesktop: $interactiveGraphMaxHeightDesktop,
-    interactiveGraphWidthDesktop: $interactiveGraphWidthDesktop,
-    interactiveGraphHeightDesktop: $interactiveGraphHeightDesktop,
-    interactiveGraphMarginTopDesktop: $interactiveGraphMarginTopDesktop,
-    interactiveGraphMarginRightDesktop: $interactiveGraphMarginRightDesktop,
-    interactiveGraphMarginBottomDesktop: $interactiveGraphMarginBottomDesktop,
-    interactiveGraphMarginLeftDesktop: $interactiveGraphMarginLeftDesktop,
-    markerLabelBackgroundDesktop: $markerLabelBackgroundDesktop,
-    markerLabelTextDesktop: $markerLabelTextDesktop,
-    mapLabelBackgroundDesktop: $mapLabelBackgroundDesktop,
-    mapLabelTextDesktop: $mapLabelTextDesktop,
-    controlsBackgroundDesktop: $controlsBackgroundDesktop,
-    controlsTextDesktop: $controlsTextDesktop,
-    mapSearchOverlayBackgroundDesktop: $mapSearchOverlayBackgroundDesktop,
-    mapSearchOverlayTextDesktop: $mapSearchOverlayTextDesktop
-  ), $options);
+@mixin interactiveGraphics($options: (), $widgetInstanceId: "", $widgetInstanceUUID: "") {
+  $configuration: map-merge(
+    (
+      interactiveGraphWidth: $interactiveGraphWidth,
+      interactiveGraphHeight: $interactiveGraphHeight,
+      interactiveGraphMinWidth: $interactiveGraphMinWidth,
+      interactiveGraphMaxWidth: $interactiveGraphMaxWidth,
+      interactiveGraphMinHeight: $interactiveGraphMinHeight,
+      interactiveGraphMaxHeight: $interactiveGraphMaxHeight,
+      interactiveGraphMarginTop: $interactiveGraphMarginTop,
+      interactiveGraphMarginRight: $interactiveGraphMarginRight,
+      interactiveGraphMarginBottom: $interactiveGraphMarginBottom,
+      interactiveGraphMarginLeft: $interactiveGraphMarginLeft,
+      markerLabelBackground: $markerLabelBackground,
+      markerLabelText: $markerLabelText,
+      mapLabelBackground: $mapLabelBackground,
+      mapLabelText: $mapLabelText,
+      controlsBackground: $controlsBackground,
+      controlsText: $controlsText,
+      mapSearchOverlayBackground: $mapSearchOverlayBackground,
+      mapSearchOverlayText: $mapSearchOverlayText,
+      interactiveGraphWidthTablet: $interactiveGraphWidthTablet,
+      interactiveGraphHeightTablet: $interactiveGraphHeightTablet,
+      interactiveGraphMinWidthTablet: $interactiveGraphMinWidthTablet,
+      interactiveGraphMaxWidthTablet: $interactiveGraphMaxWidthTablet,
+      interactiveGraphMinHeightTablet: $interactiveGraphMinHeightTablet,
+      interactiveGraphMaxHeightTablet: $interactiveGraphMaxHeightTablet,
+      interactiveGraphMarginTopTablet: $interactiveGraphMarginTopTablet,
+      interactiveGraphMarginRightTablet: $interactiveGraphMarginRightTablet,
+      interactiveGraphMarginBottomTablet: $interactiveGraphMarginBottomTablet,
+      interactiveGraphMarginLeftTablet: $interactiveGraphMarginLeftTablet,
+      markerLabelBackgroundTablet: $markerLabelBackgroundTablet,
+      markerLabelTextTablet: $markerLabelTextTablet,
+      mapLabelBackgroundTablet: $mapLabelBackgroundTablet,
+      mapLabelTextTablet: $mapLabelTextTablet,
+      controlsBackgroundTablet: $controlsBackgroundTablet,
+      controlsTextTablet: $controlsTextTablet,
+      mapSearchOverlayBackgroundTablet: $mapSearchOverlayBackgroundTablet,
+      mapSearchOverlayTextTablet: $mapSearchOverlayTextTablet,
+      interactiveGraphMinWidthDesktop: $interactiveGraphMinWidthDesktop,
+      interactiveGraphMaxWidthDesktop: $interactiveGraphMaxWidthDesktop,
+      interactiveGraphMinHeightDesktop: $interactiveGraphMinHeightDesktop,
+      interactiveGraphMaxHeightDesktop: $interactiveGraphMaxHeightDesktop,
+      interactiveGraphWidthDesktop: $interactiveGraphWidthDesktop,
+      interactiveGraphHeightDesktop: $interactiveGraphHeightDesktop,
+      interactiveGraphMarginTopDesktop: $interactiveGraphMarginTopDesktop,
+      interactiveGraphMarginRightDesktop: $interactiveGraphMarginRightDesktop,
+      interactiveGraphMarginBottomDesktop: $interactiveGraphMarginBottomDesktop,
+      interactiveGraphMarginLeftDesktop: $interactiveGraphMarginLeftDesktop,
+      markerLabelBackgroundDesktop: $markerLabelBackgroundDesktop,
+      markerLabelTextDesktop: $markerLabelTextDesktop,
+      mapLabelBackgroundDesktop: $mapLabelBackgroundDesktop,
+      mapLabelTextDesktop: $mapLabelTextDesktop,
+      controlsBackgroundDesktop: $controlsBackgroundDesktop,
+      controlsTextDesktop: $controlsTextDesktop,
+      mapSearchOverlayBackgroundDesktop: $mapSearchOverlayBackgroundDesktop,
+      mapSearchOverlayTextDesktop: $mapSearchOverlayTextDesktop
+    ),
+    $options
+  );
 
   $instanceSelector: '[data-widget-package="com.fliplet.interactive-map"]';
-  @if $widgetInstanceUUID != '' {
+  @if $widgetInstanceUUID != "" {
     $instanceSelector: '#{$instanceSelector}[data-uuid="#{$widgetInstanceUUID}"]';
-  } @else if $widgetInstanceId != '' {
+  } @else if $widgetInstanceId != "" {
     $instanceSelector: '#{$instanceSelector}[data-id="#{$widgetInstanceId}"]';
   }
 
@@ -97,9 +111,11 @@
       map-get($configuration, interactiveGraphMarginRight)
       map-get($configuration, interactiveGraphMarginBottom)
       map-get($configuration, interactiveGraphMarginLeft);
-    @include calculateHeight((
-      height: map-get($configuration, interactiveGraphHeight)
-    ));
+    @include calculateHeight(
+      (
+        height: map-get($configuration, interactiveGraphHeight)
+      )
+    );
     min-height: map-get($configuration, interactiveGraphMinHeight);
     max-height: map-get($configuration, interactiveGraphMaxHeight);
 
@@ -112,9 +128,11 @@
         map-get($configuration, interactiveGraphMarginRightTablet)
         map-get($configuration, interactiveGraphMarginBottomTablet)
         map-get($configuration, interactiveGraphMarginLeftTablet);
-      @include calculateHeight((
-        height: map-get($configuration, interactiveGraphHeightTablet)
-      ));
+      @include calculateHeight(
+        (
+          height: map-get($configuration, interactiveGraphHeightTablet)
+        )
+      );
       min-height: map-get($configuration, interactiveGraphMinHeightTablet);
       max-height: map-get($configuration, interactiveGraphMaxHeightTablet);
     }
@@ -128,9 +146,11 @@
         map-get($configuration, interactiveGraphMarginRightDesktop)
         map-get($configuration, interactiveGraphMarginBottomDesktop)
         map-get($configuration, interactiveGraphMarginLeftDesktop);
-      @include calculateHeight((
-        height: map-get($configuration, interactiveGraphHeightDesktop)
-      ));
+      @include calculateHeight(
+        (
+          height: map-get($configuration, interactiveGraphHeightDesktop)
+        )
+      );
       min-height: map-get($configuration, interactiveGraphMinHeightDesktop);
       max-height: map-get($configuration, interactiveGraphMaxHeightDesktop);
     }
@@ -315,94 +335,118 @@
   }
 
   body.fl-with-top-menu #{$instanceSelector} {
-    @include calculateHeight((
-      height: map-get($configuration, interactiveGraphHeight),
-      menuType: 'top'
-    ));
+    @include calculateHeight(
+      (
+        height: map-get($configuration, interactiveGraphHeight),
+        menuType: "top"
+      )
+    );
 
     // Styles for tablet
     @include above($tabletBreakpoint) {
-      @include calculateHeight((
-        height: map-get($configuration, interactiveGraphHeightTablet),
-        menuType: 'top'
-      ));
+      @include calculateHeight(
+        (
+          height: map-get($configuration, interactiveGraphHeightTablet),
+          menuType: "top"
+        )
+      );
     }
 
     // Styles for desktop
     @include above($desktopBreakpoint) {
-      @include calculateHeight((
-        height: map-get($configuration, interactiveGraphHeightDesktop),
-        menuType: 'top'
-      ));
+      @include calculateHeight(
+        (
+          height: map-get($configuration, interactiveGraphHeightDesktop),
+          menuType: "top"
+        )
+      );
     }
   }
 
   [data-has-notch] body.fl-with-top-menu #{$instanceSelector} {
-    @include calculateHeight((
-      height: map-get($configuration, interactiveGraphHeight),
-      menuType: 'top-with-notch'
-    ));
+    @include calculateHeight(
+      (
+        height: map-get($configuration, interactiveGraphHeight),
+        menuType: "top-with-notch"
+      )
+    );
 
     // Styles for tablet
     @include above($tabletBreakpoint) {
-      @include calculateHeight((
-        height: map-get($configuration, interactiveGraphHeightTablet),
-        menuType: 'top-with-notch'
-      ));
+      @include calculateHeight(
+        (
+          height: map-get($configuration, interactiveGraphHeightTablet),
+          menuType: "top-with-notch"
+        )
+      );
     }
 
     // Styles for desktop
     @include above($desktopBreakpoint) {
-      @include calculateHeight((
-        height: map-get($configuration, interactiveGraphHeightDesktop),
-        menuType: 'top-with-notch'
-      ));
+      @include calculateHeight(
+        (
+          height: map-get($configuration, interactiveGraphHeightDesktop),
+          menuType: "top-with-notch"
+        )
+      );
     }
   }
 
   body.fl-with-bottom-menu #{$instanceSelector} {
-    @include calculateHeight((
-      height: map-get($configuration, interactiveGraphHeight),
-      menuType: 'bottom'
-    ));
+    @include calculateHeight(
+      (
+        height: map-get($configuration, interactiveGraphHeight),
+        menuType: "bottom"
+      )
+    );
 
     // Styles for tablet
     @include above($tabletBreakpoint) {
-      @include calculateHeight((
-        height: map-get($configuration, interactiveGraphHeightTablet),
-        menuType: 'bottom'
-      ));
+      @include calculateHeight(
+        (
+          height: map-get($configuration, interactiveGraphHeightTablet),
+          menuType: "bottom"
+        )
+      );
     }
 
     // Styles for desktop
     @include above($desktopBreakpoint) {
-      @include calculateHeight((
-        height: map-get($configuration, interactiveGraphHeightDesktop),
-        menuType: 'bottom'
-      ));
+      @include calculateHeight(
+        (
+          height: map-get($configuration, interactiveGraphHeightDesktop),
+          menuType: "bottom"
+        )
+      );
     }
   }
 
   [data-has-notch] body.fl-with-bottom-menu #{$instanceSelector} {
-    @include calculateHeight((
-      height: map-get($configuration, interactiveGraphHeight),
-      menuType: 'bottom-with-notch'
-    ));
+    @include calculateHeight(
+      (
+        height: map-get($configuration, interactiveGraphHeight),
+        menuType: "bottom-with-notch"
+      )
+    );
 
     // Styles for tablet
     @include above($tabletBreakpoint) {
-      @include calculateHeight((
-        height: map-get($configuration, interactiveGraphHeightTablet),
-        menuType: 'bottom-with-notch'
-      ));
+      @include calculateHeight(
+        (
+          height: map-get($configuration, interactiveGraphHeightTablet),
+          menuType: "bottom-with-notch"
+        )
+      );
     }
 
     // Styles for desktop
     @include above($desktopBreakpoint) {
-      @include calculateHeight((
-        height: map-get($configuration, interactiveGraphHeightDesktop),
-        menuType: 'bottom-with-notch'
-      ));
+      @include calculateHeight(
+        (
+          height: map-get($configuration, interactiveGraphHeightDesktop),
+          menuType: "bottom-with-notch"
+        )
+      );
     }
   }
 }

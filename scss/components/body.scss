@@ -1,14 +1,17 @@
 // Body mixin
 @mixin body($options: ()) {
-  $configuration: map-merge((
-    backgroundColor: $bodyBackground,
-    fontColor: $bodyTextColor,
-    fontFamily: $bodyFontFamily,
-    fontSize: $bodyFontSize,
-    fontWeight: $bodyFontWeight,
-    fontStyle: $bodyFontStyle,
-    fontLineHeight: $bodyLineHeight
-  ), $options);
+  $configuration: map-merge(
+    (
+      backgroundColor: $bodyBackground,
+      fontColor: $bodyTextColor,
+      fontFamily: $bodyFontFamily,
+      fontSize: $bodyFontSize,
+      fontWeight: $bodyFontWeight,
+      fontStyle: $bodyFontStyle,
+      fontLineHeight: $bodyLineHeight
+    ),
+    $options
+  );
 
   background-color: map-get($configuration, backgroundColor);
   color: map-get($configuration, fontColor);
@@ -25,19 +28,23 @@ body {
 
   // Styles for tablet
   @include above($tabletBreakpoint) {
-    @include body((
-      backgroundColor: $bodyBackgroundTablet,
-      fontColor: $bodyTextColorTablet,
-      fontFamily: $bodyFontFamilyTablet
-    ));
+    @include body(
+      (
+        backgroundColor: $bodyBackgroundTablet,
+        fontColor: $bodyTextColorTablet,
+        fontFamily: $bodyFontFamilyTablet
+      )
+    );
   }
 
   // Styles for desktop
   @include above($desktopBreakpoint) {
-    @include body((
-      backgroundColor: $bodyBackgroundDesktop,
-      fontColor: $bodyTextColorDesktop,
-      fontFamily: $bodyFontFamilyDesktop
-    ));
+    @include body(
+      (
+        backgroundColor: $bodyBackgroundDesktop,
+        fontColor: $bodyTextColorDesktop,
+        fontFamily: $bodyFontFamilyDesktop
+      )
+    );
   }
 }

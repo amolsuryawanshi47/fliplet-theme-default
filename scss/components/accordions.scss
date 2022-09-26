@@ -1,112 +1,115 @@
-@mixin accordion($options: (), $widgetInstanceId: '', $widgetInstanceUUID: '') {
-  $configuration: map-merge((
-    accordionWidth: $accordionWidth,
-    accordionMinWidth: $accordionMinWidth,
-    accordionMaxWidth: $accordionMaxWidth,
-    accordionMarginTop: $accordionMarginTop,
-    accordionMarginRight: $accordionMarginRight,
-    accordionMarginBottom: $accordionMarginBottom,
-    accordionMarginLeft: $accordionMarginLeft,
-    accordionPaddingTop: $accordionPaddingTop,
-    accordionPaddingRight: $accordionPaddingRight,
-    accordionPaddingBottom: $accordionPaddingBottom,
-    accordionPaddingLeft: $accordionPaddingLeft,
-    accordionHeadingBg: $accordionHeadingBg,
-    accordionHeadingBgActive: $accordionHeadingBgActive,
-    accordionHeadingText: $accordionHeadingText,
-    accordionHeadingTextActive: $accordionHeadingTextActive,
-    accordionHeadingChevron: $accordionHeadingChevron,
-    accordionHeadingChevronActive: $accordionHeadingChevronActive,
-    accordionHeadingPaddingTop: $accordionHeadingPaddingTop,
-    accordionHeadingPaddingRight: $accordionHeadingPaddingRight,
-    accordionHeadingPaddingBottom: $accordionHeadingPaddingBottom,
-    accordionHeadingPaddingLeft: $accordionHeadingPaddingLeft,
-    accordionContentPaddingTop: $accordionContentPaddingTop,
-    accordionContentPaddingRight: $accordionContentPaddingRight,
-    accordionContentPaddingBottom: $accordionContentPaddingBottom,
-    accordionContentPaddingLeft: $accordionContentPaddingLeft,
-    accordionBorderWidth: $accordionBorderWidth,
-    accordionBorderStyle: $accordionBorderStyle,
-    accordionBorderColor: $accordionBorderColor,
-    accordionWidthTablet: $accordionWidthTablet,
-    accordionMinWidthTablet: $accordionMinWidthTablet,
-    accordionMaxWidthTablet: $accordionMaxWidthTablet,
-    accordionMarginTopTablet: $accordionMarginTopTablet,
-    accordionMarginRightTablet: $accordionMarginRightTablet,
-    accordionMarginBottomTablet: $accordionMarginBottomTablet,
-    accordionMarginLeftTablet: $accordionMarginLeftTablet,
-    accordionPaddingTopTablet: $accordionPaddingTopTablet,
-    accordionPaddingRightTablet: $accordionPaddingRightTablet,
-    accordionPaddingBottomTablet: $accordionPaddingBottomTablet,
-    accordionPaddingLeftTablet: $accordionPaddingLeftTablet,
-    accordionHeadingBgTablet: $accordionHeadingBgTablet,
-    accordionHeadingBgActiveTablet: $accordionHeadingBgActiveTablet,
-    accordionHeadingTextTablet: $accordionHeadingTextTablet,
-    accordionHeadingTextActiveTablet: $accordionHeadingTextActiveTablet,
-    accordionHeadingChevronTablet: $accordionHeadingChevronTablet,
-    accordionHeadingChevronActiveTablet: $accordionHeadingChevronActiveTablet,
-    accordionHeadingPaddingTopTablet: $accordionHeadingPaddingTopTablet,
-    accordionHeadingPaddingRightTablet: $accordionHeadingPaddingRightTablet,
-    accordionHeadingPaddingBottomTablet: $accordionHeadingPaddingBottomTablet,
-    accordionHeadingPaddingLeftTablet: $accordionHeadingPaddingLeftTablet,
-    accordionContentPaddingTopTablet: $accordionContentPaddingTopTablet,
-    accordionContentPaddingRightTablet: $accordionContentPaddingRightTablet,
-    accordionContentPaddingBottomTablet: $accordionContentPaddingBottomTablet,
-    accordionContentPaddingLeftTablet: $accordionContentPaddingLeftTablet,
-    accordionBorderWidthTablet: $accordionBorderWidthTablet,
-    accordionBorderStyleTablet: $accordionBorderStyleTablet,
-    accordionBorderColorTablet: $accordionBorderColorTablet,
-    accordionWidthDesktop: $accordionWidthDesktop,
-    accordionMinWidthDesktop: $accordionMinWidthDesktop,
-    accordionMaxWidthDesktop: $accordionMaxWidthDesktop,
-    accordionMarginTopDesktop: $accordionMarginTopDesktop,
-    accordionMarginRightDesktop: $accordionMarginRightDesktop,
-    accordionMarginBottomDesktop: $accordionMarginBottomDesktop,
-    accordionMarginLeftDesktop: $accordionMarginLeftDesktop,
-    accordionPaddingTopDesktop: $accordionPaddingTopDesktop,
-    accordionPaddingRightDesktop: $accordionPaddingRightDesktop,
-    accordionPaddingBottomDesktop: $accordionPaddingBottomDesktop,
-    accordionPaddingLeftDesktop: $accordionPaddingLeftDesktop,
-    accordionHeadingBgDesktop: $accordionHeadingBgDesktop,
-    accordionHeadingBgActiveDesktop: $accordionHeadingBgActiveDesktop,
-    accordionHeadingTextDesktop: $accordionHeadingTextDesktop,
-    accordionHeadingTextActiveDesktop: $accordionHeadingTextActiveDesktop,
-    accordionHeadingChevronDesktop: $accordionHeadingChevronDesktop,
-    accordionHeadingChevronActiveDesktop: $accordionHeadingChevronActiveDesktop,
-    accordionHeadingPaddingTopDesktop: $accordionHeadingPaddingTopDesktop,
-    accordionHeadingPaddingRightDesktop: $accordionHeadingPaddingRightDesktop,
-    accordionHeadingPaddingBottomDesktop: $accordionHeadingPaddingBottomDesktop,
-    accordionHeadingPaddingLeftDesktop: $accordionHeadingPaddingLeftDesktop,
-    accordionContentPaddingTopDesktop: $accordionContentPaddingTopDesktop,
-    accordionContentPaddingRightDesktop: $accordionContentPaddingRightDesktop,
-    accordionContentPaddingBottomDesktop: $accordionContentPaddingBottomDesktop,
-    accordionContentPaddingLeftDesktop: $accordionContentPaddingLeftDesktop,
-    accordionBorderWidthDesktop: $accordionBorderWidthDesktop,
-    accordionBorderStyleDesktop: $accordionBorderStyleDesktop,
-    accordionBorderColorDesktop: $accordionBorderColorDesktop,
-    accordionContentBackgroundColor: $accordionContentBackgroundColor,
-    accordionContentBackgroundColorTablet: $accordionContentBackgroundColorTablet,
-    accordionContentBackgroundColorDesktop: $accordionContentBackgroundColorDesktop
-  ), $options);
+@mixin accordion($options: (), $widgetInstanceId: "", $widgetInstanceUUID: "") {
+  $configuration: map-merge(
+    (
+      accordionWidth: $accordionWidth,
+      accordionMinWidth: $accordionMinWidth,
+      accordionMaxWidth: $accordionMaxWidth,
+      accordionMarginTop: $accordionMarginTop,
+      accordionMarginRight: $accordionMarginRight,
+      accordionMarginBottom: $accordionMarginBottom,
+      accordionMarginLeft: $accordionMarginLeft,
+      accordionPaddingTop: $accordionPaddingTop,
+      accordionPaddingRight: $accordionPaddingRight,
+      accordionPaddingBottom: $accordionPaddingBottom,
+      accordionPaddingLeft: $accordionPaddingLeft,
+      accordionHeadingBg: $accordionHeadingBg,
+      accordionHeadingBgActive: $accordionHeadingBgActive,
+      accordionHeadingText: $accordionHeadingText,
+      accordionHeadingTextActive: $accordionHeadingTextActive,
+      accordionHeadingChevron: $accordionHeadingChevron,
+      accordionHeadingChevronActive: $accordionHeadingChevronActive,
+      accordionHeadingPaddingTop: $accordionHeadingPaddingTop,
+      accordionHeadingPaddingRight: $accordionHeadingPaddingRight,
+      accordionHeadingPaddingBottom: $accordionHeadingPaddingBottom,
+      accordionHeadingPaddingLeft: $accordionHeadingPaddingLeft,
+      accordionContentPaddingTop: $accordionContentPaddingTop,
+      accordionContentPaddingRight: $accordionContentPaddingRight,
+      accordionContentPaddingBottom: $accordionContentPaddingBottom,
+      accordionContentPaddingLeft: $accordionContentPaddingLeft,
+      accordionBorderWidth: $accordionBorderWidth,
+      accordionBorderStyle: $accordionBorderStyle,
+      accordionBorderColor: $accordionBorderColor,
+      accordionWidthTablet: $accordionWidthTablet,
+      accordionMinWidthTablet: $accordionMinWidthTablet,
+      accordionMaxWidthTablet: $accordionMaxWidthTablet,
+      accordionMarginTopTablet: $accordionMarginTopTablet,
+      accordionMarginRightTablet: $accordionMarginRightTablet,
+      accordionMarginBottomTablet: $accordionMarginBottomTablet,
+      accordionMarginLeftTablet: $accordionMarginLeftTablet,
+      accordionPaddingTopTablet: $accordionPaddingTopTablet,
+      accordionPaddingRightTablet: $accordionPaddingRightTablet,
+      accordionPaddingBottomTablet: $accordionPaddingBottomTablet,
+      accordionPaddingLeftTablet: $accordionPaddingLeftTablet,
+      accordionHeadingBgTablet: $accordionHeadingBgTablet,
+      accordionHeadingBgActiveTablet: $accordionHeadingBgActiveTablet,
+      accordionHeadingTextTablet: $accordionHeadingTextTablet,
+      accordionHeadingTextActiveTablet: $accordionHeadingTextActiveTablet,
+      accordionHeadingChevronTablet: $accordionHeadingChevronTablet,
+      accordionHeadingChevronActiveTablet: $accordionHeadingChevronActiveTablet,
+      accordionHeadingPaddingTopTablet: $accordionHeadingPaddingTopTablet,
+      accordionHeadingPaddingRightTablet: $accordionHeadingPaddingRightTablet,
+      accordionHeadingPaddingBottomTablet: $accordionHeadingPaddingBottomTablet,
+      accordionHeadingPaddingLeftTablet: $accordionHeadingPaddingLeftTablet,
+      accordionContentPaddingTopTablet: $accordionContentPaddingTopTablet,
+      accordionContentPaddingRightTablet: $accordionContentPaddingRightTablet,
+      accordionContentPaddingBottomTablet: $accordionContentPaddingBottomTablet,
+      accordionContentPaddingLeftTablet: $accordionContentPaddingLeftTablet,
+      accordionBorderWidthTablet: $accordionBorderWidthTablet,
+      accordionBorderStyleTablet: $accordionBorderStyleTablet,
+      accordionBorderColorTablet: $accordionBorderColorTablet,
+      accordionWidthDesktop: $accordionWidthDesktop,
+      accordionMinWidthDesktop: $accordionMinWidthDesktop,
+      accordionMaxWidthDesktop: $accordionMaxWidthDesktop,
+      accordionMarginTopDesktop: $accordionMarginTopDesktop,
+      accordionMarginRightDesktop: $accordionMarginRightDesktop,
+      accordionMarginBottomDesktop: $accordionMarginBottomDesktop,
+      accordionMarginLeftDesktop: $accordionMarginLeftDesktop,
+      accordionPaddingTopDesktop: $accordionPaddingTopDesktop,
+      accordionPaddingRightDesktop: $accordionPaddingRightDesktop,
+      accordionPaddingBottomDesktop: $accordionPaddingBottomDesktop,
+      accordionPaddingLeftDesktop: $accordionPaddingLeftDesktop,
+      accordionHeadingBgDesktop: $accordionHeadingBgDesktop,
+      accordionHeadingBgActiveDesktop: $accordionHeadingBgActiveDesktop,
+      accordionHeadingTextDesktop: $accordionHeadingTextDesktop,
+      accordionHeadingTextActiveDesktop: $accordionHeadingTextActiveDesktop,
+      accordionHeadingChevronDesktop: $accordionHeadingChevronDesktop,
+      accordionHeadingChevronActiveDesktop: $accordionHeadingChevronActiveDesktop,
+      accordionHeadingPaddingTopDesktop: $accordionHeadingPaddingTopDesktop,
+      accordionHeadingPaddingRightDesktop: $accordionHeadingPaddingRightDesktop,
+      accordionHeadingPaddingBottomDesktop: $accordionHeadingPaddingBottomDesktop,
+      accordionHeadingPaddingLeftDesktop: $accordionHeadingPaddingLeftDesktop,
+      accordionContentPaddingTopDesktop: $accordionContentPaddingTopDesktop,
+      accordionContentPaddingRightDesktop: $accordionContentPaddingRightDesktop,
+      accordionContentPaddingBottomDesktop: $accordionContentPaddingBottomDesktop,
+      accordionContentPaddingLeftDesktop: $accordionContentPaddingLeftDesktop,
+      accordionBorderWidthDesktop: $accordionBorderWidthDesktop,
+      accordionBorderStyleDesktop: $accordionBorderStyleDesktop,
+      accordionBorderColorDesktop: $accordionBorderColorDesktop,
+      accordionContentBackgroundColor: $accordionContentBackgroundColor,
+      accordionContentBackgroundColorTablet: $accordionContentBackgroundColorTablet,
+      accordionContentBackgroundColorDesktop: $accordionContentBackgroundColorDesktop
+    ),
+    $options
+  );
 
-  $instanceSelector: '.panel';
-  @if $widgetInstanceUUID != '' {
+  $instanceSelector: ".panel";
+  @if $widgetInstanceUUID != "" {
     $instanceSelector: '#{$instanceSelector}[data-collapse-uuid="#{$widgetInstanceUUID}"]';
-  } @else if $widgetInstanceId != '' {
+  } @else if $widgetInstanceId != "" {
     $instanceSelector: '#{$instanceSelector}[data-collapse-id="#{$widgetInstanceId}"]';
   }
 
   $instanceWidgetStartSelector: '[data-widget-package="com.fliplet.accordionstart"]';
-  @if $widgetInstanceUUID != '' {
+  @if $widgetInstanceUUID != "" {
     $instanceWidgetStartSelector: '#{$instanceWidgetStartSelector}[data-uuid="#{$widgetInstanceUUID}"]';
-  } @else if $widgetInstanceId != '' {
+  } @else if $widgetInstanceId != "" {
     $instanceWidgetStartSelector: '#{$instanceWidgetStartSelector}[data-id="#{$widgetInstanceId}"]';
   }
 
   $instanceWidgetEndSelector: '[data-widget-package="com.fliplet.accordionend"]';
-  @if $widgetInstanceUUID != '' {
+  @if $widgetInstanceUUID != "" {
     $instanceWidgetEndSelector: '#{$instanceWidgetEndSelector}[data-uuid="#{$widgetInstanceUUID}"]';
-  } @else if $widgetInstanceId != '' {
+  } @else if $widgetInstanceId != "" {
     $instanceWidgetEndSelector: '#{$instanceWidgetEndSelector}[data-id="#{$widgetInstanceId}"]';
   }
 
@@ -141,8 +144,7 @@
         map-get($configuration, accordionHeadingPaddingBottom)
         map-get($configuration, accordionHeadingPaddingLeft);
       border: map-get($configuration, accordionBorderWidth)
-        map-get($configuration, accordionBorderStyle)
-        map-get($configuration, accordionBorderColor);
+        map-get($configuration, accordionBorderStyle) map-get($configuration, accordionBorderColor);
 
       // Styles for tablet
       @include above($tabletBreakpoint) {
@@ -194,8 +196,7 @@
     background-color: $bodyBackground;
 
     border: map-get($configuration, accordionBorderWidth)
-      map-get($configuration, accordionBorderStyle)
-      map-get($configuration, accordionBorderColor);
+      map-get($configuration, accordionBorderStyle) map-get($configuration, accordionBorderColor);
 
     // Styles for tablet
     @include above($tabletBreakpoint) {
@@ -245,8 +246,7 @@
 
     #{$instanceSelector} {
       margin: map-get($configuration, accordionMarginTop)
-        map-get($configuration, accordionMarginRight)
-        map-get($configuration, accordionMarginBottom)
+        map-get($configuration, accordionMarginRight) map-get($configuration, accordionMarginBottom)
         map-get($configuration, accordionMarginLeft);
       padding: map-get($configuration, accordionPaddingTop)
         map-get($configuration, accordionPaddingRight)
@@ -254,8 +254,7 @@
         map-get($configuration, accordionPaddingLeft);
       background-color: transparent;
       border: map-get($configuration, accordionBorderWidth)
-        map-get($configuration, accordionBorderStyle)
-        map-get($configuration, accordionBorderColor);
+        map-get($configuration, accordionBorderStyle) map-get($configuration, accordionBorderColor);
 
       // Styles for tablet
       @include above($tabletBreakpoint) {

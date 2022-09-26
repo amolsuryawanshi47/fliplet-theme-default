@@ -1,254 +1,257 @@
-@mixin formBuilder($options: (), $widgetInstanceId: '', $widgetInstanceUUID: '') {
-  $configuration: map-merge((
-    formWidth: $formWidth,
-    formMinWidth: $formMinWidth,
-    formMaxWidth: $formMaxWidth,
-    formPosition: $formPosition,
-    formPositionTop: $formPositionTop,
-    formPositionRight: $formPositionRight,
-    formPositionBottom: $formPositionBottom,
-    formPositionLeft: $formPositionLeft,
-    formIndex: $formIndex,
-    formDisplay: $formDisplay,
-    formMarginAlign: $formMarginAlign,
-    formMarginTop: $formMarginTop,
-    formMarginRight: $formMarginRight,
-    formMarginBottom: $formMarginBottom,
-    formMarginLeft: $formMarginLeft,
-    formPaddingTop: $formPaddingTop,
-    formPaddingRight: $formPaddingRight,
-    formPaddingBottom: $formPaddingBottom,
-    formPaddingLeft: $formPaddingLeft,
-    formLabelFontFam: $formLabelFontFam,
-    formLabelSize: $formLabelSize,
-    formLabelColor: $formLabelColor,
-    formLabelWeight: $formLabelWeight,
-    formLabelStyle: $formLabelStyle,
-    formLabelDecoration: $formLabelDecoration,
-    formInputBorderSides: $formInputBorderSides,
-    formInputBorderWidth: $formInputBorderWidth,
-    formInputBorderStyle: $formInputBorderStyle,
-    formInputBorderColor: $formInputBorderColor,
-    formInputBorderRadius: $formInputBorderRadius,
-    formInputBorderFocusSides: $formInputBorderFocusSides,
-    formInputBorderFocusWidth: $formInputBorderFocusWidth,
-    formInputBorderFocusStyle: $formInputBorderFocusStyle,
-    formInputBorderFocusColor: $formInputBorderFocusColor,
-    formInputBorderFocusRadius: $formInputBorderFocusRadius,
-    formInputBorderErrorSides: $formInputBorderErrorSides,
-    formInputBorderErrorWidth: $formInputBorderErrorWidth,
-    formInputBorderErrorStyle: $formInputBorderErrorStyle,
-    formInputBorderErrorColor: $formInputBorderErrorColor,
-    formInputBorderErrorRadius: $formInputBorderErrorRadius,
-    formInputPaddingTop: $formInputPaddingTop,
-    formInputPaddingRight: $formInputPaddingRight,
-    formInputPaddingBottom: $formInputPaddingBottom,
-    formInputPaddingLeft: $formInputPaddingLeft,
-    formTextInputsFontFamily: $formTextInputsFontFamily,
-    formTextInputsFontSize: $formTextInputsFontSize,
-    formTextInputsFontColor: $formTextInputsFontColor,
-    formTextInputsFontWeight: $formTextInputsFontWeight,
-    formTextInputsItalic: $formTextInputsItalic,
-    formTextInputsUnderline: $formTextInputsUnderline,
-    formTextInputsLineHeight: $formTextInputsLineHeight,
-    formTextInputsPlaceholderFontFamily: $formTextInputsPlaceholderFontFamily,
-    formTextInputsPlaceholderFontSize: $formTextInputsPlaceholderFontSize,
-    formTextInputsPlaceholderFontColor: $formTextInputsPlaceholderFontColor,
-    formTextInputsPlaceholderFontWeight: $formTextInputsPlaceholderFontWeight,
-    formTextInputsPlaceholderItalic: $formTextInputsPlaceholderItalic,
-    formTextInputsPlaceholderUnderline: $formTextInputsPlaceholderUnderline,
-    formTextInputsPlaceholderLineHeight: $formTextInputsPlaceholderLineHeight,
-    formErrorTextFontFamily: $formErrorTextFontFamily,
-    formErrorTextFontSize: $formErrorTextFontSize,
-    formErrorTextFontColor: $formErrorTextFontColor,
-    formErrorTextFontWeight: $formErrorTextFontWeight,
-    formErrorTextItalic: $formErrorTextItalic,
-    formErrorTextUnderline: $formErrorTextUnderline,
-    formErrorTextLineHeight: $formErrorTextLineHeight,
-    formToggleBackgroundColor: $formToggleBackgroundColor,
-    formToggleBorderColor: $formToggleBorderColor,
-    formToggleColor: $formToggleColor,
-    formToggleActiveBackgroundColor: $formToggleActiveBackgroundColor,
-    formSelectTextColor: $formSelectTextColor,
-    formSelectArrowBackground: $formSelectArrowBackground,
-    formSelectArrow: $formSelectArrow,
-    formStarRating: $formStarRating,
-    formStarRatingSelected: $formStarRatingSelected,
-    formSignatureFieldBackgroundColor: $formSignatureFieldBackgroundColor,
-    formSignatureClearTextColor: $formSignatureClearTextColor,
-    formSignatureClearTextColorActive: $formSignatureClearTextColorActive,
-    formRequiredColor: $formRequiredColor,
-    formVisibility: $formVisibility,
-    formWidthTablet: $formWidthTablet,
-    formMinWidthTablet: $formMinWidthTablet,
-    formMaxWidthTablet: $formMaxWidthTablet,
-    formPositionTablet: $formPositionTablet,
-    formPositionTopTablet: $formPositionTopTablet,
-    formPositionRightTablet: $formPositionRightTablet,
-    formPositionBottomTablet: $formPositionBottomTablet,
-    formPositionLeftTablet: $formPositionLeftTablet,
-    formIndexTablet: $formIndexTablet,
-    formDisplayTablet: $formDisplayTablet,
-    formMarginAlignTablet: $formMarginAlignTablet,
-    formMarginTopTablet: $formMarginTopTablet,
-    formMarginRightTablet: $formMarginRightTablet,
-    formMarginBottomTablet: $formMarginBottomTablet,
-    formMarginLeftTablet: $formMarginLeftTablet,
-    formPaddingTopTablet: $formPaddingTopTablet,
-    formPaddingRightTablet: $formPaddingRightTablet,
-    formPaddingBottomTablet: $formPaddingBottomTablet,
-    formPaddingLeftTablet: $formPaddingLeftTablet,
-    formLabelFontFamTablet: $formLabelFontFamTablet,
-    formLabelSizeTablet: $formLabelSizeTablet,
-    formLabelColorTablet: $formLabelColorTablet,
-    formLabelWeightTablet: $formLabelWeightTablet,
-    formLabelStyleTablet: $formLabelStyleTablet,
-    formLabelDecorationTablet: $formLabelDecorationTablet,
-    formInputBorderSidesTablet: $formInputBorderSidesTablet,
-    formInputBorderWidthTablet: $formInputBorderWidthTablet,
-    formInputBorderStyleTablet: $formInputBorderStyleTablet,
-    formInputBorderColorTablet: $formInputBorderColorTablet,
-    formInputBorderRadiusTablet: $formInputBorderRadiusTablet,
-    formInputBorderFocusSidesTablet: $formInputBorderFocusSidesTablet,
-    formInputBorderFocusWidthTablet: $formInputBorderFocusWidthTablet,
-    formInputBorderFocusStyleTablet: $formInputBorderFocusStyleTablet,
-    formInputBorderFocusColorTablet: $formInputBorderFocusColorTablet,
-    formInputBorderFocusRadiusTablet: $formInputBorderFocusRadiusTablet,
-    formInputBorderErrorSidesTablet: $formInputBorderErrorSidesTablet,
-    formInputBorderErrorWidthTablet: $formInputBorderErrorWidthTablet,
-    formInputBorderErrorStyleTablet: $formInputBorderErrorStyleTablet,
-    formInputBorderErrorColorTablet: $formInputBorderErrorColorTablet,
-    formInputBorderErrorRadiusTablet: $formInputBorderErrorRadiusTablet,
-    formInputPaddingTopTablet: $formInputPaddingTopTablet,
-    formInputPaddingRightTablet: $formInputPaddingRightTablet,
-    formInputPaddingBottomTablet: $formInputPaddingBottomTablet,
-    formInputPaddingLeftTablet: $formInputPaddingLeftTablet,
-    formTextInputsFontFamilyTablet: $formTextInputsFontFamilyTablet,
-    formTextInputsFontSizeTablet: $formTextInputsFontSizeTablet,
-    formTextInputsFontColorTablet: $formTextInputsFontColorTablet,
-    formTextInputsFontWeightTablet: $formTextInputsFontWeightTablet,
-    formTextInputsItalicTablet: $formTextInputsItalicTablet,
-    formTextInputsUnderlineTablet: $formTextInputsUnderlineTablet,
-    formTextInputsLineHeightTablet: $formTextInputsLineHeightTablet,
-    formTextInputsPlaceholderFontFamilyTablet: $formTextInputsPlaceholderFontFamilyTablet,
-    formTextInputsPlaceholderFontSizeTablet: $formTextInputsPlaceholderFontSizeTablet,
-    formTextInputsPlaceholderFontColorTablet: $formTextInputsPlaceholderFontColorTablet,
-    formTextInputsPlaceholderFontWeightTablet: $formTextInputsPlaceholderFontWeightTablet,
-    formTextInputsPlaceholderItalicTablet: $formTextInputsPlaceholderItalicTablet,
-    formTextInputsPlaceholderUnderlineTablet: $formTextInputsPlaceholderUnderlineTablet,
-    formTextInputsPlaceholderLineHeightTablet: $formTextInputsPlaceholderLineHeightTablet,
-    formErrorTextFontFamilyTablet: $formErrorTextFontFamilyTablet,
-    formErrorTextFontSizeTablet: $formErrorTextFontSizeTablet,
-    formErrorTextFontColorTablet: $formErrorTextFontColorTablet,
-    formErrorTextFontWeightTablet: $formErrorTextFontWeightTablet,
-    formErrorTextItalicTablet: $formErrorTextItalicTablet,
-    formErrorTextUnderlineTablet: $formErrorTextUnderlineTablet,
-    formErrorTextLineHeightTablet: $formErrorTextLineHeightTablet,
-    formToggleBackgroundColorTablet: $formToggleBackgroundColorTablet,
-    formToggleBorderColorTablet: $formToggleBorderColorTablet,
-    formToggleColorTablet: $formToggleColorTablet,
-    formToggleActiveBackgroundColorTablet: $formToggleActiveBackgroundColorTablet,
-    formSelectTextColorTablet: $formSelectTextColorTablet,
-    formSelectArrowBackgroundTablet: $formSelectArrowBackgroundTablet,
-    formSelectArrowTablet: $formSelectArrowTablet,
-    formStarRatingTablet: $formStarRatingTablet,
-    formStarRatingSelectedTablet: $formStarRatingSelectedTablet,
-    formSignatureFieldBackgroundColorTablet: $formSignatureFieldBackgroundColorTablet,
-    formSignatureClearTextColorTablet: $formSignatureClearTextColorTablet,
-    formSignatureClearTextColorActiveTablet: $formSignatureClearTextColorActiveTablet,
-    formRequiredColorTablet: $formRequiredColorTablet,
-    formVisibilityTablet: $formVisibilityTablet,
-    formWidthDesktop: $formWidthDesktop,
-    formMinWidthDesktop: $formMinWidthDesktop,
-    formMaxWidthDesktop: $formMaxWidthDesktop,
-    formPositionDesktop: $formPositionDesktop,
-    formPositionTopDesktop: $formPositionTopDesktop,
-    formPositionRightDesktop: $formPositionRightDesktop,
-    formPositionBottomDesktop: $formPositionBottomDesktop,
-    formPositionLeftDesktop: $formPositionLeftDesktop,
-    formIndexDesktop: $formIndexDesktop,
-    formDisplayDesktop: $formDisplayDesktop,
-    formMarginAlignDesktop: $formMarginAlignDesktop,
-    formMarginTopDesktop: $formMarginTopDesktop,
-    formMarginRightDesktop: $formMarginRightDesktop,
-    formMarginBottomDesktop: $formMarginBottomDesktop,
-    formMarginLeftDesktop: $formMarginLeftDesktop,
-    formPaddingTopDesktop: $formPaddingTopDesktop,
-    formPaddingRightDesktop: $formPaddingRightDesktop,
-    formPaddingBottomDesktop: $formPaddingBottomDesktop,
-    formPaddingLeftDesktop: $formPaddingLeftDesktop,
-    formLabelFontFamDesktop: $formLabelFontFamDesktop,
-    formLabelSizeDesktop: $formLabelSizeDesktop,
-    formLabelColorDesktop: $formLabelColorDesktop,
-    formLabelWeightDesktop: $formLabelWeightDesktop,
-    formLabelStyleDesktop: $formLabelStyleDesktop,
-    formLabelDecorationDesktop: $formLabelDecorationDesktop,
-    formInputBorderSidesDesktop: $formInputBorderSidesDesktop,
-    formInputBorderWidthDesktop: $formInputBorderWidthDesktop,
-    formInputBorderStyleDesktop: $formInputBorderStyleDesktop,
-    formInputBorderColorDesktop: $formInputBorderColorDesktop,
-    formInputBorderRadiusDesktop: $formInputBorderRadiusDesktop,
-    formInputBorderFocusSidesDesktop: $formInputBorderFocusSidesDesktop,
-    formInputBorderFocusWidthDesktop: $formInputBorderFocusWidthDesktop,
-    formInputBorderFocusStyleDesktop: $formInputBorderFocusStyleDesktop,
-    formInputBorderFocusColorDesktop: $formInputBorderFocusColorDesktop,
-    formInputBorderFocusRadiusDesktop: $formInputBorderFocusRadiusDesktop,
-    formInputBorderErrorSidesDesktop: $formInputBorderErrorSidesDesktop,
-    formInputBorderErrorWidthDesktop: $formInputBorderErrorWidthDesktop,
-    formInputBorderErrorStyleDesktop: $formInputBorderErrorStyleDesktop,
-    formInputBorderErrorColorDesktop: $formInputBorderErrorColorDesktop,
-    formInputBorderErrorRadiusDesktop: $formInputBorderErrorRadiusDesktop,
-    formInputPaddingTopDesktop: $formInputPaddingTopDesktop,
-    formInputPaddingRightDesktop: $formInputPaddingRightDesktop,
-    formInputPaddingBottomDesktop: $formInputPaddingBottomDesktop,
-    formInputPaddingLeftDesktop: $formInputPaddingLeftDesktop,
-    formTextInputsFontFamilyDesktop: $formTextInputsFontFamilyDesktop,
-    formTextInputsFontSizeDesktop: $formTextInputsFontSizeDesktop,
-    formTextInputsFontColorDesktop: $formTextInputsFontColorDesktop,
-    formTextInputsFontWeightDesktop: $formTextInputsFontWeightDesktop,
-    formTextInputsItalicDesktop: $formTextInputsItalicDesktop,
-    formTextInputsUnderlineDesktop: $formTextInputsUnderlineDesktop,
-    formTextInputsLineHeightDesktop: $formTextInputsLineHeightDesktop,
-    formTextInputsPlaceholderFontFamilyDesktop: $formTextInputsPlaceholderFontFamilyDesktop,
-    formTextInputsPlaceholderFontSizeDesktop: $formTextInputsPlaceholderFontSizeDesktop,
-    formTextInputsPlaceholderFontColorDesktop: $formTextInputsPlaceholderFontColorDesktop,
-    formTextInputsPlaceholderFontWeightDesktop: $formTextInputsPlaceholderFontWeightDesktop,
-    formTextInputsPlaceholderItalicDesktop: $formTextInputsPlaceholderItalicDesktop,
-    formTextInputsPlaceholderUnderlineDesktop: $formTextInputsPlaceholderUnderlineDesktop,
-    formTextInputsPlaceholderLineHeightDesktop: $formTextInputsPlaceholderLineHeightDesktop,
-    formErrorTextFontFamilyDesktop: $formErrorTextFontFamilyDesktop,
-    formErrorTextFontSizeDesktop: $formErrorTextFontSizeDesktop,
-    formErrorTextFontColorDesktop: $formErrorTextFontColorDesktop,
-    formErrorTextFontWeightDesktop: $formErrorTextFontWeightDesktop,
-    formErrorTextItalicDesktop: $formErrorTextItalicDesktop,
-    formErrorTextUnderlineDesktop: $formErrorTextUnderlineDesktop,
-    formErrorTextLineHeightDesktop: $formErrorTextLineHeightDesktop,
-    formToggleBackgroundColorDesktop: $formToggleBackgroundColorDesktop,
-    formToggleBorderColorDesktop: $formToggleBorderColorDesktop,
-    formToggleColorDesktop: $formToggleColorDesktop,
-    formToggleActiveBackgroundColorDesktop: $formToggleActiveBackgroundColorDesktop,
-    formSelectTextColorDesktop: $formSelectTextColorDesktop,
-    formSelectArrowBackgroundDesktop: $formSelectArrowBackgroundDesktop,
-    formSelectArrowDesktop: $formSelectArrowDesktop,
-    formStarRatingDesktop: $formStarRatingDesktop,
-    formStarRatingSelectedDesktop: $formStarRatingSelectedDesktop,
-    formSignatureFieldBackgroundColorDesktop: $formSignatureFieldBackgroundColorDesktop,
-    formSignatureClearTextColorDesktop: $formSignatureClearTextColorDesktop,
-    formSignatureClearTextColorActiveDesktop: $formSignatureClearTextColorActiveDesktop,
-    formRequiredColorDesktop: $formRequiredColorDesktop,
-    formVisibilityDesktop: $formVisibilityDesktop,
-    primaryButtonPaddingRightTablet: $primaryButtonPaddingRightTablet,
-    primaryButtonPaddingRightDesktop: $primaryButtonPaddingRightDesktop
-  ), $options);
+@mixin formBuilder($options: (), $widgetInstanceId: "", $widgetInstanceUUID: "") {
+  $configuration: map-merge(
+    (
+      formWidth: $formWidth,
+      formMinWidth: $formMinWidth,
+      formMaxWidth: $formMaxWidth,
+      formPosition: $formPosition,
+      formPositionTop: $formPositionTop,
+      formPositionRight: $formPositionRight,
+      formPositionBottom: $formPositionBottom,
+      formPositionLeft: $formPositionLeft,
+      formIndex: $formIndex,
+      formDisplay: $formDisplay,
+      formMarginAlign: $formMarginAlign,
+      formMarginTop: $formMarginTop,
+      formMarginRight: $formMarginRight,
+      formMarginBottom: $formMarginBottom,
+      formMarginLeft: $formMarginLeft,
+      formPaddingTop: $formPaddingTop,
+      formPaddingRight: $formPaddingRight,
+      formPaddingBottom: $formPaddingBottom,
+      formPaddingLeft: $formPaddingLeft,
+      formLabelFontFam: $formLabelFontFam,
+      formLabelSize: $formLabelSize,
+      formLabelColor: $formLabelColor,
+      formLabelWeight: $formLabelWeight,
+      formLabelStyle: $formLabelStyle,
+      formLabelDecoration: $formLabelDecoration,
+      formInputBorderSides: $formInputBorderSides,
+      formInputBorderWidth: $formInputBorderWidth,
+      formInputBorderStyle: $formInputBorderStyle,
+      formInputBorderColor: $formInputBorderColor,
+      formInputBorderRadius: $formInputBorderRadius,
+      formInputBorderFocusSides: $formInputBorderFocusSides,
+      formInputBorderFocusWidth: $formInputBorderFocusWidth,
+      formInputBorderFocusStyle: $formInputBorderFocusStyle,
+      formInputBorderFocusColor: $formInputBorderFocusColor,
+      formInputBorderFocusRadius: $formInputBorderFocusRadius,
+      formInputBorderErrorSides: $formInputBorderErrorSides,
+      formInputBorderErrorWidth: $formInputBorderErrorWidth,
+      formInputBorderErrorStyle: $formInputBorderErrorStyle,
+      formInputBorderErrorColor: $formInputBorderErrorColor,
+      formInputBorderErrorRadius: $formInputBorderErrorRadius,
+      formInputPaddingTop: $formInputPaddingTop,
+      formInputPaddingRight: $formInputPaddingRight,
+      formInputPaddingBottom: $formInputPaddingBottom,
+      formInputPaddingLeft: $formInputPaddingLeft,
+      formTextInputsFontFamily: $formTextInputsFontFamily,
+      formTextInputsFontSize: $formTextInputsFontSize,
+      formTextInputsFontColor: $formTextInputsFontColor,
+      formTextInputsFontWeight: $formTextInputsFontWeight,
+      formTextInputsItalic: $formTextInputsItalic,
+      formTextInputsUnderline: $formTextInputsUnderline,
+      formTextInputsLineHeight: $formTextInputsLineHeight,
+      formTextInputsPlaceholderFontFamily: $formTextInputsPlaceholderFontFamily,
+      formTextInputsPlaceholderFontSize: $formTextInputsPlaceholderFontSize,
+      formTextInputsPlaceholderFontColor: $formTextInputsPlaceholderFontColor,
+      formTextInputsPlaceholderFontWeight: $formTextInputsPlaceholderFontWeight,
+      formTextInputsPlaceholderItalic: $formTextInputsPlaceholderItalic,
+      formTextInputsPlaceholderUnderline: $formTextInputsPlaceholderUnderline,
+      formTextInputsPlaceholderLineHeight: $formTextInputsPlaceholderLineHeight,
+      formErrorTextFontFamily: $formErrorTextFontFamily,
+      formErrorTextFontSize: $formErrorTextFontSize,
+      formErrorTextFontColor: $formErrorTextFontColor,
+      formErrorTextFontWeight: $formErrorTextFontWeight,
+      formErrorTextItalic: $formErrorTextItalic,
+      formErrorTextUnderline: $formErrorTextUnderline,
+      formErrorTextLineHeight: $formErrorTextLineHeight,
+      formToggleBackgroundColor: $formToggleBackgroundColor,
+      formToggleBorderColor: $formToggleBorderColor,
+      formToggleColor: $formToggleColor,
+      formToggleActiveBackgroundColor: $formToggleActiveBackgroundColor,
+      formSelectTextColor: $formSelectTextColor,
+      formSelectArrowBackground: $formSelectArrowBackground,
+      formSelectArrow: $formSelectArrow,
+      formStarRating: $formStarRating,
+      formStarRatingSelected: $formStarRatingSelected,
+      formSignatureFieldBackgroundColor: $formSignatureFieldBackgroundColor,
+      formSignatureClearTextColor: $formSignatureClearTextColor,
+      formSignatureClearTextColorActive: $formSignatureClearTextColorActive,
+      formRequiredColor: $formRequiredColor,
+      formVisibility: $formVisibility,
+      formWidthTablet: $formWidthTablet,
+      formMinWidthTablet: $formMinWidthTablet,
+      formMaxWidthTablet: $formMaxWidthTablet,
+      formPositionTablet: $formPositionTablet,
+      formPositionTopTablet: $formPositionTopTablet,
+      formPositionRightTablet: $formPositionRightTablet,
+      formPositionBottomTablet: $formPositionBottomTablet,
+      formPositionLeftTablet: $formPositionLeftTablet,
+      formIndexTablet: $formIndexTablet,
+      formDisplayTablet: $formDisplayTablet,
+      formMarginAlignTablet: $formMarginAlignTablet,
+      formMarginTopTablet: $formMarginTopTablet,
+      formMarginRightTablet: $formMarginRightTablet,
+      formMarginBottomTablet: $formMarginBottomTablet,
+      formMarginLeftTablet: $formMarginLeftTablet,
+      formPaddingTopTablet: $formPaddingTopTablet,
+      formPaddingRightTablet: $formPaddingRightTablet,
+      formPaddingBottomTablet: $formPaddingBottomTablet,
+      formPaddingLeftTablet: $formPaddingLeftTablet,
+      formLabelFontFamTablet: $formLabelFontFamTablet,
+      formLabelSizeTablet: $formLabelSizeTablet,
+      formLabelColorTablet: $formLabelColorTablet,
+      formLabelWeightTablet: $formLabelWeightTablet,
+      formLabelStyleTablet: $formLabelStyleTablet,
+      formLabelDecorationTablet: $formLabelDecorationTablet,
+      formInputBorderSidesTablet: $formInputBorderSidesTablet,
+      formInputBorderWidthTablet: $formInputBorderWidthTablet,
+      formInputBorderStyleTablet: $formInputBorderStyleTablet,
+      formInputBorderColorTablet: $formInputBorderColorTablet,
+      formInputBorderRadiusTablet: $formInputBorderRadiusTablet,
+      formInputBorderFocusSidesTablet: $formInputBorderFocusSidesTablet,
+      formInputBorderFocusWidthTablet: $formInputBorderFocusWidthTablet,
+      formInputBorderFocusStyleTablet: $formInputBorderFocusStyleTablet,
+      formInputBorderFocusColorTablet: $formInputBorderFocusColorTablet,
+      formInputBorderFocusRadiusTablet: $formInputBorderFocusRadiusTablet,
+      formInputBorderErrorSidesTablet: $formInputBorderErrorSidesTablet,
+      formInputBorderErrorWidthTablet: $formInputBorderErrorWidthTablet,
+      formInputBorderErrorStyleTablet: $formInputBorderErrorStyleTablet,
+      formInputBorderErrorColorTablet: $formInputBorderErrorColorTablet,
+      formInputBorderErrorRadiusTablet: $formInputBorderErrorRadiusTablet,
+      formInputPaddingTopTablet: $formInputPaddingTopTablet,
+      formInputPaddingRightTablet: $formInputPaddingRightTablet,
+      formInputPaddingBottomTablet: $formInputPaddingBottomTablet,
+      formInputPaddingLeftTablet: $formInputPaddingLeftTablet,
+      formTextInputsFontFamilyTablet: $formTextInputsFontFamilyTablet,
+      formTextInputsFontSizeTablet: $formTextInputsFontSizeTablet,
+      formTextInputsFontColorTablet: $formTextInputsFontColorTablet,
+      formTextInputsFontWeightTablet: $formTextInputsFontWeightTablet,
+      formTextInputsItalicTablet: $formTextInputsItalicTablet,
+      formTextInputsUnderlineTablet: $formTextInputsUnderlineTablet,
+      formTextInputsLineHeightTablet: $formTextInputsLineHeightTablet,
+      formTextInputsPlaceholderFontFamilyTablet: $formTextInputsPlaceholderFontFamilyTablet,
+      formTextInputsPlaceholderFontSizeTablet: $formTextInputsPlaceholderFontSizeTablet,
+      formTextInputsPlaceholderFontColorTablet: $formTextInputsPlaceholderFontColorTablet,
+      formTextInputsPlaceholderFontWeightTablet: $formTextInputsPlaceholderFontWeightTablet,
+      formTextInputsPlaceholderItalicTablet: $formTextInputsPlaceholderItalicTablet,
+      formTextInputsPlaceholderUnderlineTablet: $formTextInputsPlaceholderUnderlineTablet,
+      formTextInputsPlaceholderLineHeightTablet: $formTextInputsPlaceholderLineHeightTablet,
+      formErrorTextFontFamilyTablet: $formErrorTextFontFamilyTablet,
+      formErrorTextFontSizeTablet: $formErrorTextFontSizeTablet,
+      formErrorTextFontColorTablet: $formErrorTextFontColorTablet,
+      formErrorTextFontWeightTablet: $formErrorTextFontWeightTablet,
+      formErrorTextItalicTablet: $formErrorTextItalicTablet,
+      formErrorTextUnderlineTablet: $formErrorTextUnderlineTablet,
+      formErrorTextLineHeightTablet: $formErrorTextLineHeightTablet,
+      formToggleBackgroundColorTablet: $formToggleBackgroundColorTablet,
+      formToggleBorderColorTablet: $formToggleBorderColorTablet,
+      formToggleColorTablet: $formToggleColorTablet,
+      formToggleActiveBackgroundColorTablet: $formToggleActiveBackgroundColorTablet,
+      formSelectTextColorTablet: $formSelectTextColorTablet,
+      formSelectArrowBackgroundTablet: $formSelectArrowBackgroundTablet,
+      formSelectArrowTablet: $formSelectArrowTablet,
+      formStarRatingTablet: $formStarRatingTablet,
+      formStarRatingSelectedTablet: $formStarRatingSelectedTablet,
+      formSignatureFieldBackgroundColorTablet: $formSignatureFieldBackgroundColorTablet,
+      formSignatureClearTextColorTablet: $formSignatureClearTextColorTablet,
+      formSignatureClearTextColorActiveTablet: $formSignatureClearTextColorActiveTablet,
+      formRequiredColorTablet: $formRequiredColorTablet,
+      formVisibilityTablet: $formVisibilityTablet,
+      formWidthDesktop: $formWidthDesktop,
+      formMinWidthDesktop: $formMinWidthDesktop,
+      formMaxWidthDesktop: $formMaxWidthDesktop,
+      formPositionDesktop: $formPositionDesktop,
+      formPositionTopDesktop: $formPositionTopDesktop,
+      formPositionRightDesktop: $formPositionRightDesktop,
+      formPositionBottomDesktop: $formPositionBottomDesktop,
+      formPositionLeftDesktop: $formPositionLeftDesktop,
+      formIndexDesktop: $formIndexDesktop,
+      formDisplayDesktop: $formDisplayDesktop,
+      formMarginAlignDesktop: $formMarginAlignDesktop,
+      formMarginTopDesktop: $formMarginTopDesktop,
+      formMarginRightDesktop: $formMarginRightDesktop,
+      formMarginBottomDesktop: $formMarginBottomDesktop,
+      formMarginLeftDesktop: $formMarginLeftDesktop,
+      formPaddingTopDesktop: $formPaddingTopDesktop,
+      formPaddingRightDesktop: $formPaddingRightDesktop,
+      formPaddingBottomDesktop: $formPaddingBottomDesktop,
+      formPaddingLeftDesktop: $formPaddingLeftDesktop,
+      formLabelFontFamDesktop: $formLabelFontFamDesktop,
+      formLabelSizeDesktop: $formLabelSizeDesktop,
+      formLabelColorDesktop: $formLabelColorDesktop,
+      formLabelWeightDesktop: $formLabelWeightDesktop,
+      formLabelStyleDesktop: $formLabelStyleDesktop,
+      formLabelDecorationDesktop: $formLabelDecorationDesktop,
+      formInputBorderSidesDesktop: $formInputBorderSidesDesktop,
+      formInputBorderWidthDesktop: $formInputBorderWidthDesktop,
+      formInputBorderStyleDesktop: $formInputBorderStyleDesktop,
+      formInputBorderColorDesktop: $formInputBorderColorDesktop,
+      formInputBorderRadiusDesktop: $formInputBorderRadiusDesktop,
+      formInputBorderFocusSidesDesktop: $formInputBorderFocusSidesDesktop,
+      formInputBorderFocusWidthDesktop: $formInputBorderFocusWidthDesktop,
+      formInputBorderFocusStyleDesktop: $formInputBorderFocusStyleDesktop,
+      formInputBorderFocusColorDesktop: $formInputBorderFocusColorDesktop,
+      formInputBorderFocusRadiusDesktop: $formInputBorderFocusRadiusDesktop,
+      formInputBorderErrorSidesDesktop: $formInputBorderErrorSidesDesktop,
+      formInputBorderErrorWidthDesktop: $formInputBorderErrorWidthDesktop,
+      formInputBorderErrorStyleDesktop: $formInputBorderErrorStyleDesktop,
+      formInputBorderErrorColorDesktop: $formInputBorderErrorColorDesktop,
+      formInputBorderErrorRadiusDesktop: $formInputBorderErrorRadiusDesktop,
+      formInputPaddingTopDesktop: $formInputPaddingTopDesktop,
+      formInputPaddingRightDesktop: $formInputPaddingRightDesktop,
+      formInputPaddingBottomDesktop: $formInputPaddingBottomDesktop,
+      formInputPaddingLeftDesktop: $formInputPaddingLeftDesktop,
+      formTextInputsFontFamilyDesktop: $formTextInputsFontFamilyDesktop,
+      formTextInputsFontSizeDesktop: $formTextInputsFontSizeDesktop,
+      formTextInputsFontColorDesktop: $formTextInputsFontColorDesktop,
+      formTextInputsFontWeightDesktop: $formTextInputsFontWeightDesktop,
+      formTextInputsItalicDesktop: $formTextInputsItalicDesktop,
+      formTextInputsUnderlineDesktop: $formTextInputsUnderlineDesktop,
+      formTextInputsLineHeightDesktop: $formTextInputsLineHeightDesktop,
+      formTextInputsPlaceholderFontFamilyDesktop: $formTextInputsPlaceholderFontFamilyDesktop,
+      formTextInputsPlaceholderFontSizeDesktop: $formTextInputsPlaceholderFontSizeDesktop,
+      formTextInputsPlaceholderFontColorDesktop: $formTextInputsPlaceholderFontColorDesktop,
+      formTextInputsPlaceholderFontWeightDesktop: $formTextInputsPlaceholderFontWeightDesktop,
+      formTextInputsPlaceholderItalicDesktop: $formTextInputsPlaceholderItalicDesktop,
+      formTextInputsPlaceholderUnderlineDesktop: $formTextInputsPlaceholderUnderlineDesktop,
+      formTextInputsPlaceholderLineHeightDesktop: $formTextInputsPlaceholderLineHeightDesktop,
+      formErrorTextFontFamilyDesktop: $formErrorTextFontFamilyDesktop,
+      formErrorTextFontSizeDesktop: $formErrorTextFontSizeDesktop,
+      formErrorTextFontColorDesktop: $formErrorTextFontColorDesktop,
+      formErrorTextFontWeightDesktop: $formErrorTextFontWeightDesktop,
+      formErrorTextItalicDesktop: $formErrorTextItalicDesktop,
+      formErrorTextUnderlineDesktop: $formErrorTextUnderlineDesktop,
+      formErrorTextLineHeightDesktop: $formErrorTextLineHeightDesktop,
+      formToggleBackgroundColorDesktop: $formToggleBackgroundColorDesktop,
+      formToggleBorderColorDesktop: $formToggleBorderColorDesktop,
+      formToggleColorDesktop: $formToggleColorDesktop,
+      formToggleActiveBackgroundColorDesktop: $formToggleActiveBackgroundColorDesktop,
+      formSelectTextColorDesktop: $formSelectTextColorDesktop,
+      formSelectArrowBackgroundDesktop: $formSelectArrowBackgroundDesktop,
+      formSelectArrowDesktop: $formSelectArrowDesktop,
+      formStarRatingDesktop: $formStarRatingDesktop,
+      formStarRatingSelectedDesktop: $formStarRatingSelectedDesktop,
+      formSignatureFieldBackgroundColorDesktop: $formSignatureFieldBackgroundColorDesktop,
+      formSignatureClearTextColorDesktop: $formSignatureClearTextColorDesktop,
+      formSignatureClearTextColorActiveDesktop: $formSignatureClearTextColorActiveDesktop,
+      formRequiredColorDesktop: $formRequiredColorDesktop,
+      formVisibilityDesktop: $formVisibilityDesktop,
+      primaryButtonPaddingRightTablet: $primaryButtonPaddingRightTablet,
+      primaryButtonPaddingRightDesktop: $primaryButtonPaddingRightDesktop
+    ),
+    $options
+  );
 
   $spinnerColor: lighten($bodyTextColor, 33%);
   $spinnerColorTablet: lighten($bodyTextColorTablet, 33%);
   $spinnerColorDesktop: lighten($bodyTextColorDesktop, 33%);
 
   $instanceSelector: '[data-widget-package="com.fliplet.form-builder"]';
-  @if $widgetInstanceUUID != '' {
+  @if $widgetInstanceUUID != "" {
     $instanceSelector: '#{$instanceSelector}[data-uuid="#{$widgetInstanceUUID}"]';
-  } @else if $widgetInstanceId != '' {
+  } @else if $widgetInstanceId != "" {
     $instanceSelector: '#{$instanceSelector}[data-id="#{$widgetInstanceId}"]';
   }
 
@@ -256,14 +259,14 @@
     position: map-get($configuration, formPosition) !important;
     z-index: map-get($configuration, formIndex);
 
-    @if map-get($configuration, formPosition) == 'relative' {
-      @if map-get($configuration, formVisibility) == 'visible' {
+    @if map-get($configuration, formPosition) == "relative" {
+      @if map-get($configuration, formVisibility) == "visible" {
         display: map-get($configuration, formDisplay) !important;
       } @else {
         display: none !important;
       }
     } @else {
-      @if map-get($configuration, formVisibility) == 'visible' {
+      @if map-get($configuration, formVisibility) == "visible" {
         display: block !important;
       } @else {
         display: none !important;
@@ -278,27 +281,23 @@
     width: map-get($configuration, formWidth);
     min-width: map-get($configuration, formMinWidth);
     max-width: map-get($configuration, formMaxWidth);
-    margin: map-get($configuration, formMarginTop)
-      map-get($configuration, formMarginRight)
-      map-get($configuration, formMarginBottom)
-      map-get($configuration, formMarginLeft);
-    padding: map-get($configuration, formPaddingTop)
-      map-get($configuration, formPaddingRight)
-      map-get($configuration, formPaddingBottom)
-      map-get($configuration, formPaddingLeft);
+    margin: map-get($configuration, formMarginTop) map-get($configuration, formMarginRight)
+      map-get($configuration, formMarginBottom) map-get($configuration, formMarginLeft);
+    padding: map-get($configuration, formPaddingTop) map-get($configuration, formPaddingRight)
+      map-get($configuration, formPaddingBottom) map-get($configuration, formPaddingLeft);
 
     @include above($tabletBreakpoint) {
       position: map-get($configuration, formPositionTablet) !important;
       z-index: map-get($configuration, formIndexTablet);
 
-      @if map-get($configuration, formPositionTablet) == 'relative' {
-        @if map-get($configuration, formVisibilityTablet) == 'visible' {
+      @if map-get($configuration, formPositionTablet) == "relative" {
+        @if map-get($configuration, formVisibilityTablet) == "visible" {
           display: map-get($configuration, formDisplayTablet) !important;
         } @else {
           display: none !important;
         }
       } @else {
-        @if map-get($configuration, formVisibilityTablet) == 'visible' {
+        @if map-get($configuration, formVisibilityTablet) == "visible" {
           display: block !important;
         } @else {
           display: none !important;
@@ -327,14 +326,14 @@
       position: map-get($configuration, formPositionDesktop) !important;
       z-index: map-get($configuration, formIndexDesktop);
 
-      @if map-get($configuration, formPositionDesktop) == 'relative' {
-        @if map-get($configuration, formVisibilityDesktop) == 'visible' {
+      @if map-get($configuration, formPositionDesktop) == "relative" {
+        @if map-get($configuration, formVisibilityDesktop) == "visible" {
           display: map-get($configuration, formDisplayDesktop) !important;
         } @else {
           display: none !important;
         }
       } @else {
-        @if map-get($configuration, formVisibilityDesktop) == 'visible' {
+        @if map-get($configuration, formVisibilityDesktop) == "visible" {
           display: block !important;
         } @else {
           display: none !important;
@@ -361,52 +360,60 @@
 
     .form-group {
       input.form-control {
-        @include fontOnly((
-          fontFamily: map-get($configuration, formTextInputsFontFamily),
-          fontSize: map-get($configuration, formTextInputsFontSize),
-          fontLineHeight: map-get($configuration, formTextInputsLineHeight),
-          fontWeight: map-get($configuration, formTextInputsFontWeight),
-          fontStyle: map-get($configuration, formTextInputsItalic),
-          fontDecoration: map-get($configuration, formTextInputsUnderline)
-        ));
+        @include fontOnly(
+          (
+            fontFamily: map-get($configuration, formTextInputsFontFamily),
+            fontSize: map-get($configuration, formTextInputsFontSize),
+            fontLineHeight: map-get($configuration, formTextInputsLineHeight),
+            fontWeight: map-get($configuration, formTextInputsFontWeight),
+            fontStyle: map-get($configuration, formTextInputsItalic),
+            fontDecoration: map-get($configuration, formTextInputsUnderline)
+          )
+        );
 
         color: map-get($configuration, formTextInputsFontColor);
 
         &::placeholder {
-          @include fontOnly((
-            fontFamily: map-get($configuration, formTextInputsPlaceholderFontFamily),
-            fontSize: map-get($configuration, formTextInputsPlaceholderFontSize),
-            fontLineHeight: map-get($configuration, formTextInputsPlaceholderLineHeight),
-            fontWeight: map-get($configuration, formTextInputsPlaceholderFontWeight),
-            fontStyle: map-get($configuration, formTextInputsPlaceholderItalic),
-            fontDecoration: map-get($configuration, formTextInputsPlaceholderUnderline)
-          ));
+          @include fontOnly(
+            (
+              fontFamily: map-get($configuration, formTextInputsPlaceholderFontFamily),
+              fontSize: map-get($configuration, formTextInputsPlaceholderFontSize),
+              fontLineHeight: map-get($configuration, formTextInputsPlaceholderLineHeight),
+              fontWeight: map-get($configuration, formTextInputsPlaceholderFontWeight),
+              fontStyle: map-get($configuration, formTextInputsPlaceholderItalic),
+              fontDecoration: map-get($configuration, formTextInputsPlaceholderUnderline)
+            )
+          );
 
           color: map-get($configuration, formTextInputsPlaceholderFontColor);
         }
 
         // Styles for tablet
         @include above($tabletBreakpoint) {
-          @include fontOnly((
-            fontFamily: map-get($configuration, formTextInputsFontFamilyTablet),
-            fontSize: map-get($configuration, formTextInputsFontSizeTablet),
-            fontLineHeight: map-get($configuration, formTextInputsLineHeightTablet),
-            fontWeight: map-get($configuration, formTextInputsFontWeightTablet),
-            fontStyle: map-get($configuration, formTextInputsItalicTablet),
-            fontDecoration: map-get($configuration, formTextInputsUnderlineTablet)
-          ));
+          @include fontOnly(
+            (
+              fontFamily: map-get($configuration, formTextInputsFontFamilyTablet),
+              fontSize: map-get($configuration, formTextInputsFontSizeTablet),
+              fontLineHeight: map-get($configuration, formTextInputsLineHeightTablet),
+              fontWeight: map-get($configuration, formTextInputsFontWeightTablet),
+              fontStyle: map-get($configuration, formTextInputsItalicTablet),
+              fontDecoration: map-get($configuration, formTextInputsUnderlineTablet)
+            )
+          );
 
           color: map-get($configuration, formTextInputsFontColorTablet);
 
           &::placeholder {
-            @include fontOnly((
-              fontFamily: map-get($configuration, formTextInputsPlaceholderFontFamilyTablet),
-              fontSize: map-get($configuration, formTextInputsPlaceholderFontSizeTablet),
-              fontLineHeight: map-get($configuration, formTextInputsPlaceholderLineHeightTablet),
-              fontWeight: map-get($configuration, formTextInputsPlaceholderFontWeightTablet),
-              fontStyle: map-get($configuration, formTextInputsPlaceholderItalicTablet),
-              fontDecoration: map-get($configuration, formTextInputsPlaceholderUnderlineTablet)
-            ));
+            @include fontOnly(
+              (
+                fontFamily: map-get($configuration, formTextInputsPlaceholderFontFamilyTablet),
+                fontSize: map-get($configuration, formTextInputsPlaceholderFontSizeTablet),
+                fontLineHeight: map-get($configuration, formTextInputsPlaceholderLineHeightTablet),
+                fontWeight: map-get($configuration, formTextInputsPlaceholderFontWeightTablet),
+                fontStyle: map-get($configuration, formTextInputsPlaceholderItalicTablet),
+                fontDecoration: map-get($configuration, formTextInputsPlaceholderUnderlineTablet)
+              )
+            );
 
             color: map-get($configuration, formTextInputsPlaceholderFontColorTablet);
           }
@@ -414,26 +421,30 @@
 
         // Styles for desktop
         @include above($desktopBreakpoint) {
-          @include fontOnly((
-            fontFamily: map-get($configuration, formTextInputsFontFamilyDesktop),
-            fontSize: map-get($configuration, formTextInputsFontSizeDesktop),
-            fontLineHeight: map-get($configuration, formTextInputsLineHeightDesktop),
-            fontWeight: map-get($configuration, formTextInputsFontWeightDesktop),
-            fontStyle: map-get($configuration, formTextInputsItalicDesktop),
-            fontDecoration: map-get($configuration, formTextInputsUnderlineDesktop)
-          ));
+          @include fontOnly(
+            (
+              fontFamily: map-get($configuration, formTextInputsFontFamilyDesktop),
+              fontSize: map-get($configuration, formTextInputsFontSizeDesktop),
+              fontLineHeight: map-get($configuration, formTextInputsLineHeightDesktop),
+              fontWeight: map-get($configuration, formTextInputsFontWeightDesktop),
+              fontStyle: map-get($configuration, formTextInputsItalicDesktop),
+              fontDecoration: map-get($configuration, formTextInputsUnderlineDesktop)
+            )
+          );
 
           color: map-get($configuration, formTextInputsFontColorDesktop);
 
           &::placeholder {
-            @include fontOnly((
-              fontFamily: map-get($configuration, formTextInputsPlaceholderFontFamilyDesktop),
-              fontSize: map-get($configuration, formTextInputsPlaceholderFontSizeDesktop),
-              fontLineHeight: map-get($configuration, formTextInputsPlaceholderLineHeightDesktop),
-              fontWeight: map-get($configuration, formTextInputsPlaceholderFontWeightDesktop),
-              fontStyle: map-get($configuration, formTextInputsPlaceholderItalicDesktop),
-              fontDecoration: map-get($configuration, formTextInputsPlaceholderUnderlineDesktop)
-            ));
+            @include fontOnly(
+              (
+                fontFamily: map-get($configuration, formTextInputsPlaceholderFontFamilyDesktop),
+                fontSize: map-get($configuration, formTextInputsPlaceholderFontSizeDesktop),
+                fontLineHeight: map-get($configuration, formTextInputsPlaceholderLineHeightDesktop),
+                fontWeight: map-get($configuration, formTextInputsPlaceholderFontWeightDesktop),
+                fontStyle: map-get($configuration, formTextInputsPlaceholderItalicDesktop),
+                fontDecoration: map-get($configuration, formTextInputsPlaceholderUnderlineDesktop)
+              )
+            );
 
             color: map-get($configuration, formTextInputsPlaceholderFontColorDesktop);
           }
@@ -527,70 +538,82 @@
 
     .has-error {
       .text-danger {
-        @include fontOnly((
-          fontFamily: map-get($configuration, formErrorTextFontFamily),
-          fontSize: map-get($configuration, formErrorTextFontSize),
-          fontLineHeight: map-get($configuration, formErrorTextLineHeight),
-          fontWeight: map-get($configuration, formErrorTextFontWeight),
-          fontStyle: map-get($configuration, formErrorTextItalic),
-          fontDecoration: map-get($configuration, formErrorTextUnderline)
-        ));
+        @include fontOnly(
+          (
+            fontFamily: map-get($configuration, formErrorTextFontFamily),
+            fontSize: map-get($configuration, formErrorTextFontSize),
+            fontLineHeight: map-get($configuration, formErrorTextLineHeight),
+            fontWeight: map-get($configuration, formErrorTextFontWeight),
+            fontStyle: map-get($configuration, formErrorTextItalic),
+            fontDecoration: map-get($configuration, formErrorTextUnderline)
+          )
+        );
 
         color: map-get($configuration, formErrorTextFontColor);
 
         @include above($tabletBreakpoint) {
-          @include fontOnly((
-            fontFamily: map-get($configuration, formErrorTextFontFamilyTablet),
-            fontSize: map-get($configuration, formErrorTextFontSizeTablet),
-            fontLineHeight: map-get($configuration, formErrorTextLineHeightTablet),
-            fontWeight: map-get($configuration, formErrorTextFontWeightTablet),
-            fontStyle: map-get($configuration, formErrorTextItalicTablet),
-            fontDecoration: map-get($configuration, formErrorTextUnderlineTablet)
-          ));
+          @include fontOnly(
+            (
+              fontFamily: map-get($configuration, formErrorTextFontFamilyTablet),
+              fontSize: map-get($configuration, formErrorTextFontSizeTablet),
+              fontLineHeight: map-get($configuration, formErrorTextLineHeightTablet),
+              fontWeight: map-get($configuration, formErrorTextFontWeightTablet),
+              fontStyle: map-get($configuration, formErrorTextItalicTablet),
+              fontDecoration: map-get($configuration, formErrorTextUnderlineTablet)
+            )
+          );
 
           color: map-get($configuration, formErrorTextFontColorTablet);
         }
 
         @include above($desktopBreakpoint) {
-          @include fontOnly((
-            fontFamily: map-get($configuration, formErrorTextFontFamilyDesktop),
-            fontSize: map-get($configuration, formErrorTextFontSizeDesktop),
-            fontLineHeight: map-get($configuration, formErrorTextLineHeightDesktop),
-            fontWeight: map-get($configuration, formErrorTextFontWeightDesktop),
-            fontStyle: map-get($configuration, formErrorTextItalicDesktop),
-            fontDecoration: map-get($configuration, formErrorTextUnderlineDesktop)
-          ));
+          @include fontOnly(
+            (
+              fontFamily: map-get($configuration, formErrorTextFontFamilyDesktop),
+              fontSize: map-get($configuration, formErrorTextFontSizeDesktop),
+              fontLineHeight: map-get($configuration, formErrorTextLineHeightDesktop),
+              fontWeight: map-get($configuration, formErrorTextFontWeightDesktop),
+              fontStyle: map-get($configuration, formErrorTextItalicDesktop),
+              fontDecoration: map-get($configuration, formErrorTextUnderlineDesktop)
+            )
+          );
 
           color: map-get($configuration, formErrorTextFontColorDesktop);
         }
       }
 
       .form-control {
-        @include borderOnly((
-          borderSides: map-get($configuration, formInputBorderErrorSides),
-          borderWidth: map-get($configuration, formInputBorderErrorWidth),
-          borderStyle: map-get($configuration, formInputBorderErrorStyle),
-          borderColor: map-get($configuration, formInputBorderErrorColor)
-        ));
+        @include borderOnly(
+          (
+            borderSides: map-get($configuration, formInputBorderErrorSides),
+            borderWidth: map-get($configuration, formInputBorderErrorWidth),
+            borderStyle: map-get($configuration, formInputBorderErrorStyle),
+            borderColor: map-get($configuration, formInputBorderErrorColor)
+          )
+        );
         border-radius: map-get($configuration, formInputBorderErrorRadius);
 
         @include above($tabletBreakpoint) {
-          @include borderOnly((
-            borderSides: map-get($configuration, formInputBorderErrorSidesTablet),
-            borderWidth: map-get($configuration, formInputBorderErrorWidthTablet),
-            borderStyle: map-get($configuration, formInputBorderErrorStyleTablet),
-            borderColor: map-get($configuration, formInputBorderErrorColorTablet)
-          ));
+          @include borderOnly(
+            (
+              borderSides: map-get($configuration, formInputBorderErrorSidesTablet),
+              borderWidth: map-get($configuration, formInputBorderErrorWidthTablet),
+              borderStyle: map-get($configuration, formInputBorderErrorStyleTablet),
+              borderColor: map-get($configuration, formInputBorderErrorColorTablet)
+            )
+          );
           border-radius: map-get($configuration, formInputBorderErrorRadiusTablet);
         }
 
         @include above($desktopBreakpoint) {
-          @include borderOnly((
-            borderSides: map-get($configuration, formInputBorderErrorSidesDesktop),
-            borderWidth: map-get($configuration, formInputBorderErrorWidthDesktop),
-            borderStyle: map-get($configuration, formInputBorderErrorStyleDesktop),
-            borderColor: map-get($configuration, formInputBorderErrorColorDesktop)
-          ));
+          @include borderOnly(
+            (
+              borderSides: map-get($configuration, formInputBorderErrorSidesDesktop),
+              borderWidth: map-get($configuration, formInputBorderErrorWidthDesktop),
+              borderStyle: map-get($configuration, formInputBorderErrorStyleDesktop),
+              borderColor: map-get($configuration, formInputBorderErrorColorDesktop)
+            )
+          );
           border-radius: map-get($configuration, formInputBorderErrorRadiusDesktop);
         }
       }
@@ -598,62 +621,74 @@
       .form-group.fl-date-picker,
       .form-group.fl-time-picker {
         > .form-control {
-          @include borderOnly((
-            borderSides: map-get($configuration, formInputBorderErrorSides),
-            borderWidth: map-get($configuration, formInputBorderErrorWidth),
-            borderStyle: map-get($configuration, formInputBorderErrorStyle),
-            borderColor: map-get($configuration, formInputBorderErrorColor),
-          ));
+          @include borderOnly(
+            (
+              borderSides: map-get($configuration, formInputBorderErrorSides),
+              borderWidth: map-get($configuration, formInputBorderErrorWidth),
+              borderStyle: map-get($configuration, formInputBorderErrorStyle),
+              borderColor: map-get($configuration, formInputBorderErrorColor)
+            )
+          );
           border-radius: map-get($configuration, formInputBorderErrorRadius);
 
           &:focus {
-            @include borderOnly((
-              borderSides: map-get($configuration, formInputBorderErrorFocusSides),
-              borderWidth: map-get($configuration, formInputBorderErrorFocusWidth),
-              borderStyle: map-get($configuration, formInputBorderErrorFocusStyle),
-              borderColor: map-get($configuration, formInputBorderErrorFocusColor),
-            ));
+            @include borderOnly(
+              (
+                borderSides: map-get($configuration, formInputBorderErrorFocusSides),
+                borderWidth: map-get($configuration, formInputBorderErrorFocusWidth),
+                borderStyle: map-get($configuration, formInputBorderErrorFocusStyle),
+                borderColor: map-get($configuration, formInputBorderErrorFocusColor)
+              )
+            );
             border-radius: map-get($configuration, formInputBorderErrorFocusRadius);
           }
 
           // Styles for tablet
           @include above($tabletBreakpoint) {
-            @include borderOnly((
-              borderSides: map-get($configuration, formInputBorderErrorSidesTablet),
-              borderWidth: map-get($configuration, formInputBorderErrorWidthTablet),
-              borderStyle: map-get($configuration, formInputBorderErrorStyleTablet),
-              borderColor: map-get($configuration, formInputBorderErrorColorTablet),
-            ));
+            @include borderOnly(
+              (
+                borderSides: map-get($configuration, formInputBorderErrorSidesTablet),
+                borderWidth: map-get($configuration, formInputBorderErrorWidthTablet),
+                borderStyle: map-get($configuration, formInputBorderErrorStyleTablet),
+                borderColor: map-get($configuration, formInputBorderErrorColorTablet)
+              )
+            );
             border-radius: map-get($configuration, formInputBorderErrorRadiusTablet);
 
             &:focus {
-              @include borderOnly((
-                borderSides: map-get($configuration, formInputBorderErrorFocusSidesTablet),
-                borderWidth: map-get($configuration, formInputBorderErrorFocusWidthTablet),
-                borderStyle: map-get($configuration, formInputBorderErrorFocusStyleTablet),
-                borderColor: map-get($configuration, formInputBorderErrorFocusColorTablet),
-              ));
+              @include borderOnly(
+                (
+                  borderSides: map-get($configuration, formInputBorderErrorFocusSidesTablet),
+                  borderWidth: map-get($configuration, formInputBorderErrorFocusWidthTablet),
+                  borderStyle: map-get($configuration, formInputBorderErrorFocusStyleTablet),
+                  borderColor: map-get($configuration, formInputBorderErrorFocusColorTablet)
+                )
+              );
               border-radius: map-get($configuration, formInputBorderErrorFocusRadiusTablet);
             }
           }
 
           // Styles for desktop
           @include above($desktopBreakpoint) {
-            @include borderOnly((
-              borderSides: map-get($configuration, formInputBorderErrorSidesDesktop),
-              borderWidth: map-get($configuration, formInputBorderErrorWidthDesktop),
-              borderStyle: map-get($configuration, formInputBorderErrorStyleDesktop),
-              borderColor: map-get($configuration, formInputBorderErrorColorDesktop),
-            ));
+            @include borderOnly(
+              (
+                borderSides: map-get($configuration, formInputBorderErrorSidesDesktop),
+                borderWidth: map-get($configuration, formInputBorderErrorWidthDesktop),
+                borderStyle: map-get($configuration, formInputBorderErrorStyleDesktop),
+                borderColor: map-get($configuration, formInputBorderErrorColorDesktop)
+              )
+            );
             border-radius: map-get($configuration, formInputBorderErrorRadiusDesktop);
 
             &:focus {
-              @include borderOnly((
-                borderSides: map-get($configuration, formInputBorderErrorFocusSidesDesktop),
-                borderWidth: map-get($configuration, formInputBorderErrorFocusWidthDesktop),
-                borderStyle: map-get($configuration, formInputBorderErrorFocusStyleDesktop),
-                borderColor: map-get($configuration, formInputBorderErrorFocusColorDesktop),
-              ));
+              @include borderOnly(
+                (
+                  borderSides: map-get($configuration, formInputBorderErrorFocusSidesDesktop),
+                  borderWidth: map-get($configuration, formInputBorderErrorFocusWidthDesktop),
+                  borderStyle: map-get($configuration, formInputBorderErrorFocusStyleDesktop),
+                  borderColor: map-get($configuration, formInputBorderErrorFocusColorDesktop)
+                )
+              );
               border-radius: map-get($configuration, formInputBorderErrorFocusRadiusDesktop);
             }
           }
@@ -703,12 +738,14 @@
     }
 
     .form-control {
-      @include borderOnly((
-        borderSides: map-get($configuration, formInputBorderSides),
-        borderWidth: map-get($configuration, formInputBorderWidth),
-        borderStyle: map-get($configuration, formInputBorderStyle),
-        borderColor: map-get($configuration, formInputBorderColor)
-      ));
+      @include borderOnly(
+        (
+          borderSides: map-get($configuration, formInputBorderSides),
+          borderWidth: map-get($configuration, formInputBorderWidth),
+          borderStyle: map-get($configuration, formInputBorderStyle),
+          borderColor: map-get($configuration, formInputBorderColor)
+        )
+      );
       border-radius: map-get($configuration, formInputBorderRadius);
       padding: map-get($configuration, formInputPaddingTop)
         map-get($configuration, formInputPaddingRight)
@@ -716,23 +753,27 @@
         map-get($configuration, formInputPaddingLeft);
 
       &:focus {
-        @include borderOnly((
-          borderSides: map-get($configuration, formInputBorderFocusSides),
-          borderWidth: map-get($configuration, formInputBorderFocusWidth),
-          borderStyle: map-get($configuration, formInputBorderFocusStyle),
-          borderColor: map-get($configuration, formInputBorderFocusColor)
-        ));
+        @include borderOnly(
+          (
+            borderSides: map-get($configuration, formInputBorderFocusSides),
+            borderWidth: map-get($configuration, formInputBorderFocusWidth),
+            borderStyle: map-get($configuration, formInputBorderFocusStyle),
+            borderColor: map-get($configuration, formInputBorderFocusColor)
+          )
+        );
         border-radius: map-get($configuration, formInputBorderFocusRadius);
       }
 
       // Styles for tablet
       @include above($tabletBreakpoint) {
-        @include borderOnly((
-          borderSides: map-get($configuration, formInputBorderSidesTablet),
-          borderWidth: map-get($configuration, formInputBorderWidthTablet),
-          borderStyle: map-get($configuration, formInputBorderStyleTablet),
-          borderColor: map-get($configuration, formInputBorderColorTablet)
-        ));
+        @include borderOnly(
+          (
+            borderSides: map-get($configuration, formInputBorderSidesTablet),
+            borderWidth: map-get($configuration, formInputBorderWidthTablet),
+            borderStyle: map-get($configuration, formInputBorderStyleTablet),
+            borderColor: map-get($configuration, formInputBorderColorTablet)
+          )
+        );
         border-radius: map-get($configuration, formInputBorderRadiusTablet);
         padding: map-get($configuration, formInputPaddingTopTablet)
           map-get($configuration, formInputPaddingRightTablet)
@@ -740,24 +781,28 @@
           map-get($configuration, formInputPaddingLeftTablet);
 
         &:focus {
-          @include borderOnly((
-            borderSides: map-get($configuration, formInputBorderFocusSidesTablet),
-            borderWidth: map-get($configuration, formInputBorderFocusWidthTablet),
-            borderStyle: map-get($configuration, formInputBorderFocusStyleTablet),
-            borderColor: map-get($configuration, formInputBorderFocusColorTablet)
-          ));
+          @include borderOnly(
+            (
+              borderSides: map-get($configuration, formInputBorderFocusSidesTablet),
+              borderWidth: map-get($configuration, formInputBorderFocusWidthTablet),
+              borderStyle: map-get($configuration, formInputBorderFocusStyleTablet),
+              borderColor: map-get($configuration, formInputBorderFocusColorTablet)
+            )
+          );
           border-radius: map-get($configuration, formInputBorderFocusRadiusTablet);
         }
       }
 
       // Styles for desktop
       @include above($desktopBreakpoint) {
-        @include borderOnly((
-          borderSides: map-get($configuration, formInputBorderSidesDesktop),
-          borderWidth: map-get($configuration, formInputBorderWidthDesktop),
-          borderStyle: map-get($configuration, formInputBorderStyleDesktop),
-          borderColor: map-get($configuration, formInputBorderColorDesktop)
-        ));
+        @include borderOnly(
+          (
+            borderSides: map-get($configuration, formInputBorderSidesDesktop),
+            borderWidth: map-get($configuration, formInputBorderWidthDesktop),
+            borderStyle: map-get($configuration, formInputBorderStyleDesktop),
+            borderColor: map-get($configuration, formInputBorderColorDesktop)
+          )
+        );
         border-radius: map-get($configuration, formInputBorderRadiusDesktop);
         padding: map-get($configuration, formInputPaddingTopDesktop)
           map-get($configuration, formInputPaddingRightDesktop)
@@ -765,12 +810,14 @@
           map-get($configuration, formInputPaddingLeftDesktop);
 
         &:focus {
-          @include borderOnly((
-            borderSides: map-get($configuration, formInputBorderFocusSidesDesktop),
-            borderWidth: map-get($configuration, formInputBorderFocusWidthDesktop),
-            borderStyle: map-get($configuration, formInputBorderFocusStyleDesktop),
-            borderColor: map-get($configuration, formInputBorderFocusColorDesktop)
-          ));
+          @include borderOnly(
+            (
+              borderSides: map-get($configuration, formInputBorderFocusSidesDesktop),
+              borderWidth: map-get($configuration, formInputBorderFocusWidthDesktop),
+              borderStyle: map-get($configuration, formInputBorderFocusStyleDesktop),
+              borderColor: map-get($configuration, formInputBorderFocusColorDesktop)
+            )
+          );
           border-radius: map-get($configuration, formInputBorderFocusRadiusDesktop);
         }
       }
@@ -779,12 +826,14 @@
     .form-group.fl-date-picker,
     .form-group.fl-time-picker {
       > .form-control {
-        @include borderOnly((
-          borderSides: map-get($configuration, formInputBorderSides),
-          borderWidth: map-get($configuration, formInputBorderWidth),
-          borderStyle: map-get($configuration, formInputBorderStyle),
-          borderColor: map-get($configuration, formInputBorderColor),
-        ));
+        @include borderOnly(
+          (
+            borderSides: map-get($configuration, formInputBorderSides),
+            borderWidth: map-get($configuration, formInputBorderWidth),
+            borderStyle: map-get($configuration, formInputBorderStyle),
+            borderColor: map-get($configuration, formInputBorderColor)
+          )
+        );
         border-radius: map-get($configuration, formInputBorderRadius);
         padding: map-get($configuration, formInputPaddingTop)
           calc(45px + #{map-get($configuration, formInputPaddingRight)})
@@ -792,23 +841,27 @@
           calc(45px + #{map-get($configuration, formInputPaddingLeft)});
 
         &:focus {
-          @include borderOnly((
-            borderSides: map-get($configuration, formInputBorderFocusSides),
-            borderWidth: map-get($configuration, formInputBorderFocusWidth),
-            borderStyle: map-get($configuration, formInputBorderFocusStyle),
-            borderColor: map-get($configuration, formInputBorderFocusColor),
-          ));
+          @include borderOnly(
+            (
+              borderSides: map-get($configuration, formInputBorderFocusSides),
+              borderWidth: map-get($configuration, formInputBorderFocusWidth),
+              borderStyle: map-get($configuration, formInputBorderFocusStyle),
+              borderColor: map-get($configuration, formInputBorderFocusColor)
+            )
+          );
           border-radius: map-get($configuration, formInputBorderFocusRadius);
         }
 
         // Styles for tablet
         @include above($tabletBreakpoint) {
-          @include borderOnly((
-            borderSides: map-get($configuration, formInputBorderSidesTablet),
-            borderWidth: map-get($configuration, formInputBorderWidthTablet),
-            borderStyle: map-get($configuration, formInputBorderStyleTablet),
-            borderColor: map-get($configuration, formInputBorderColorTablet),
-          ));
+          @include borderOnly(
+            (
+              borderSides: map-get($configuration, formInputBorderSidesTablet),
+              borderWidth: map-get($configuration, formInputBorderWidthTablet),
+              borderStyle: map-get($configuration, formInputBorderStyleTablet),
+              borderColor: map-get($configuration, formInputBorderColorTablet)
+            )
+          );
           border-radius: map-get($configuration, formInputBorderRadiusTablet);
           padding: map-get($configuration, formInputPaddingTopTablet)
             calc(45px + #{map-get($configuration, formInputPaddingRightTablet)})
@@ -816,24 +869,28 @@
             calc(45px + #{map-get($configuration, formInputPaddingLeftTablet)});
 
           &:focus {
-            @include borderOnly((
-              borderSides: map-get($configuration, formInputBorderFocusSidesTablet),
-              borderWidth: map-get($configuration, formInputBorderFocusWidthTablet),
-              borderStyle: map-get($configuration, formInputBorderFocusStyleTablet),
-              borderColor: map-get($configuration, formInputBorderFocusColorTablet),
-            ));
+            @include borderOnly(
+              (
+                borderSides: map-get($configuration, formInputBorderFocusSidesTablet),
+                borderWidth: map-get($configuration, formInputBorderFocusWidthTablet),
+                borderStyle: map-get($configuration, formInputBorderFocusStyleTablet),
+                borderColor: map-get($configuration, formInputBorderFocusColorTablet)
+              )
+            );
             border-radius: map-get($configuration, formInputBorderFocusRadiusTablet);
           }
         }
 
         // Styles for desktop
         @include above($desktopBreakpoint) {
-          @include borderOnly((
-            borderSides: map-get($configuration, formInputBorderSidesDesktop),
-            borderWidth: map-get($configuration, formInputBorderWidthDesktop),
-            borderStyle: map-get($configuration, formInputBorderStyleDesktop),
-            borderColor: map-get($configuration, formInputBorderColorDesktop),
-          ));
+          @include borderOnly(
+            (
+              borderSides: map-get($configuration, formInputBorderSidesDesktop),
+              borderWidth: map-get($configuration, formInputBorderWidthDesktop),
+              borderStyle: map-get($configuration, formInputBorderStyleDesktop),
+              borderColor: map-get($configuration, formInputBorderColorDesktop)
+            )
+          );
           border-radius: map-get($configuration, formInputBorderRadiusDesktop);
           padding: map-get($configuration, formInputPaddingTopDesktop)
             calc(45px + #{map-get($configuration, formInputPaddingRightDesktop)})
@@ -841,12 +898,14 @@
             calc(45px + #{map-get($configuration, formInputPaddingLeftDesktop)});
 
           &:focus {
-            @include borderOnly((
-              borderSides: map-get($configuration, formInputBorderFocusSidesDesktop),
-              borderWidth: map-get($configuration, formInputBorderFocusWidthDesktop),
-              borderStyle: map-get($configuration, formInputBorderFocusStyleDesktop),
-              borderColor: map-get($configuration, formInputBorderFocusColorDesktop),
-            ));
+            @include borderOnly(
+              (
+                borderSides: map-get($configuration, formInputBorderFocusSidesDesktop),
+                borderWidth: map-get($configuration, formInputBorderFocusWidthDesktop),
+                borderStyle: map-get($configuration, formInputBorderFocusStyleDesktop),
+                borderColor: map-get($configuration, formInputBorderFocusColorDesktop)
+              )
+            );
             border-radius: map-get($configuration, formInputBorderFocusRadiusDesktop);
           }
         }
@@ -951,8 +1010,8 @@
       }
     }
 
-    .radio.radio-icon input[type="radio"]+label>span.check,
-    .checkbox.checkbox-icon input[type="checkbox"]+label>span.check {
+    .radio.radio-icon input[type="radio"] + label > span.check,
+    .checkbox.checkbox-icon input[type="checkbox"] + label > span.check {
       border: 1px solid map-get($configuration, formToggleBorderColor);
       background-color: map-get($configuration, formToggleBackgroundColor);
 
@@ -969,8 +1028,8 @@
       }
     }
 
-    .radio.radio-icon input[type="radio"]:checked+label>span.check,
-    .checkbox.checkbox-icon input[type="checkbox"]:checked+label>span.check {
+    .radio.radio-icon input[type="radio"]:checked + label > span.check,
+    .checkbox.checkbox-icon input[type="checkbox"]:checked + label > span.check {
       background-color: map-get($configuration, formToggleActiveBackgroundColor);
 
       // Styles for tablet
@@ -984,8 +1043,8 @@
       }
     }
 
-    .radio.radio-icon input[type="radio"]+label>span.check>i.fa,
-    .checkbox.checkbox-icon input[type="checkbox"]+label>span.check>i.fa {
+    .radio.radio-icon input[type="radio"] + label > span.check > i.fa,
+    .checkbox.checkbox-icon input[type="checkbox"] + label > span.check > i.fa {
       color: map-get($configuration, formToggleActiveBackgroundColor);
 
       // Styles for tablet
@@ -999,8 +1058,8 @@
       }
     }
 
-    .radio.radio-icon input[type="radio"]:checked+label span.check>i.fa,
-    .checkbox.checkbox-icon input[type="checkbox"]:checked+label span.check>i.fa {
+    .radio.radio-icon input[type="radio"]:checked + label span.check > i.fa,
+    .checkbox.checkbox-icon input[type="checkbox"]:checked + label span.check > i.fa {
       color: map-get($configuration, formToggleColor);
 
       // Styles for tablet
@@ -1014,7 +1073,7 @@
       }
     }
 
-    .radio.radio-icon input[type="radio"]:checked+label span.check>i.fa {
+    .radio.radio-icon input[type="radio"]:checked + label span.check > i.fa {
       &:before {
         background-color: map-get($configuration, formToggleColor);
 
@@ -1030,8 +1089,8 @@
       }
     }
 
-    .rtgl-ios+.rtgl-btn,
-    .tgl-ios+.tgl-btn {
+    .rtgl-ios + .rtgl-btn,
+    .tgl-ios + .tgl-btn {
       background-color: map-get($configuration, formToggleBackgroundColor);
       border: 1px solid map-get($configuration, formToggleBorderColor);
 
@@ -1048,8 +1107,8 @@
       }
     }
 
-    .rtgl-ios+.rtgl-btn:after,
-    .tgl-ios+.tgl-btn:after {
+    .rtgl-ios + .rtgl-btn:after,
+    .tgl-ios + .tgl-btn:after {
       background-color: map-get($configuration, formToggleColor);
 
       // Styles for tablet
@@ -1063,8 +1122,8 @@
       }
     }
 
-    .rtgl-ios:checked+.rtgl-btn,
-    .tgl-ios:checked+.tgl-btn {
+    .rtgl-ios:checked + .rtgl-btn,
+    .tgl-ios:checked + .tgl-btn {
       background-color: map-get($configuration, formToggleActiveBackgroundColor);
 
       // Styles for tablet
@@ -1079,12 +1138,14 @@
     }
 
     .select-proxy-display {
-      @include borderOnly((
-        borderWidth: map-get($configuration, formInputBorderWidth),
-        borderStyle: map-get($configuration, formInputBorderStyle),
-        borderColor: map-get($configuration, formInputBorderColor),
-        borderSides: map-get($configuration, formInputBorderSides)
-      ));
+      @include borderOnly(
+        (
+          borderWidth: map-get($configuration, formInputBorderWidth),
+          borderStyle: map-get($configuration, formInputBorderStyle),
+          borderColor: map-get($configuration, formInputBorderColor),
+          borderSides: map-get($configuration, formInputBorderSides)
+        )
+      );
       border-radius: map-get($configuration, formInputBorderRadius);
       color: map-get($configuration, formSelectTextColor);
       padding: map-get($configuration, formInputPaddingTop)
@@ -1102,12 +1163,14 @@
 
       // Styles for tablet
       @include above($tabletBreakpoint) {
-        @include borderOnly((
-          borderWidth: map-get($configuration, formInputBorderWidthTablet),
-          borderStyle: map-get($configuration, formInputBorderStyleTablet),
-          borderColor: map-get($configuration, formInputBorderColorTablet),
-          borderSides: map-get($configuration, formInputBorderSidesTablet)
-        ));
+        @include borderOnly(
+          (
+            borderWidth: map-get($configuration, formInputBorderWidthTablet),
+            borderStyle: map-get($configuration, formInputBorderStyleTablet),
+            borderColor: map-get($configuration, formInputBorderColorTablet),
+            borderSides: map-get($configuration, formInputBorderSidesTablet)
+          )
+        );
         border-radius: map-get($configuration, formInputBorderRadiusTablet);
         color: map-get($configuration, formSelectTextColorTablet);
         padding: map-get($configuration, formInputPaddingTopTablet)
@@ -1126,12 +1189,14 @@
 
       // Styles for desktop
       @include above($desktopBreakpoint) {
-        @include borderOnly((
-          borderWidth: map-get($configuration, formInputBorderWidthDesktop),
-          borderStyle: map-get($configuration, formInputBorderStyleDesktop),
-          borderColor: map-get($configuration, formInputBorderColorDesktop),
-          borderSides: map-get($configuration, formInputBorderSidesDesktop)
-        ));
+        @include borderOnly(
+          (
+            borderWidth: map-get($configuration, formInputBorderWidthDesktop),
+            borderStyle: map-get($configuration, formInputBorderStyleDesktop),
+            borderColor: map-get($configuration, formInputBorderColorDesktop),
+            borderSides: map-get($configuration, formInputBorderSidesDesktop)
+          )
+        );
         border-radius: map-get($configuration, formInputBorderRadiusDesktop);
         color: map-get($configuration, formSelectTextColorDesktop);
         padding: map-get($configuration, formInputPaddingTopDesktop)
@@ -1149,17 +1214,19 @@
       }
     }
 
-    .select-proxy-display>.icon {
+    .select-proxy-display > .icon {
       background-color: map-get($configuration, formSelectArrowBackground);
       color: map-get($configuration, formSelectArrow);
       border-top-right-radius: map-get($configuration, formInputBorderRadius);
       border-bottom-right-radius: map-get($configuration, formInputBorderRadius);
-      @include borderOnly((
-        borderWidth: map-get($configuration, formInputBorderWidth),
-        borderStyle: map-get($configuration, formInputBorderStyle),
-        borderColor: map-get($configuration, formInputBorderColor),
-        borderSides: 'left'
-      ));
+      @include borderOnly(
+        (
+          borderWidth: map-get($configuration, formInputBorderWidth),
+          borderStyle: map-get($configuration, formInputBorderStyle),
+          borderColor: map-get($configuration, formInputBorderColor),
+          borderSides: "left"
+        )
+      );
 
       // Styles for tablet
       @include above($tabletBreakpoint) {
@@ -1167,12 +1234,14 @@
         color: map-get($configuration, formSelectArrowTablet);
         border-top-right-radius: map-get($configuration, formInputBorderRadiusTablet);
         border-bottom-right-radius: map-get($configuration, formInputBorderRadiusTablet);
-        @include borderOnly((
-          borderWidth: map-get($configuration, formInputBorderWidthTablet),
-          borderStyle: map-get($configuration, formInputBorderStyleTablet),
-          borderColor: map-get($configuration, formInputBorderColorTablet),
-          borderSides: 'left'
-        ));
+        @include borderOnly(
+          (
+            borderWidth: map-get($configuration, formInputBorderWidthTablet),
+            borderStyle: map-get($configuration, formInputBorderStyleTablet),
+            borderColor: map-get($configuration, formInputBorderColorTablet),
+            borderSides: "left"
+          )
+        );
       }
 
       // Styles for desktop
@@ -1181,12 +1250,14 @@
         color: map-get($configuration, formSelectArrowDesktop);
         border-top-right-radius: map-get($configuration, formInputBorderRadiusDesktop);
         border-bottom-right-radius: map-get($configuration, formInputBorderRadiusDesktop);
-        @include borderOnly((
-          borderWidth: map-get($configuration, formInputBorderWidthDesktop),
-          borderStyle: map-get($configuration, formInputBorderStyleDesktop),
-          borderColor: map-get($configuration, formInputBorderColorDesktop),
-          borderSides: 'left'
-        ));
+        @include borderOnly(
+          (
+            borderWidth: map-get($configuration, formInputBorderWidthDesktop),
+            borderStyle: map-get($configuration, formInputBorderStyleDesktop),
+            borderColor: map-get($configuration, formInputBorderColorDesktop),
+            borderSides: "left"
+          )
+        );
       }
     }
 
@@ -1235,7 +1306,6 @@
           box-shadow: 0px 0px 0px $focusOutlineWidthDesktop $focusOutlineColorDesktop !important;
         }
       }
-
     }
 
     .input-group-addon {
@@ -1253,31 +1323,37 @@
     }
 
     .input-group-addon:first-child {
-      @include borderOnly((
-        borderWidth: map-get($configuration, formInputBorderWidth),
-        borderStyle: map-get($configuration, formInputBorderStyle),
-        borderColor: map-get($configuration, formInputBorderColor),
-        borderSides: 'right'
-      ));
+      @include borderOnly(
+        (
+          borderWidth: map-get($configuration, formInputBorderWidth),
+          borderStyle: map-get($configuration, formInputBorderStyle),
+          borderColor: map-get($configuration, formInputBorderColor),
+          borderSides: "right"
+        )
+      );
 
       // Styles for tablet
       @include above($tabletBreakpoint) {
-        @include borderOnly((
-          borderWidth: map-get($configuration, formInputBorderWidthTablet),
-          borderStyle: map-get($configuration, formInputBorderStyleTablet),
-          borderColor: map-get($configuration, formInputBorderColorTablet),
-          borderSides: 'right'
-        ));
+        @include borderOnly(
+          (
+            borderWidth: map-get($configuration, formInputBorderWidthTablet),
+            borderStyle: map-get($configuration, formInputBorderStyleTablet),
+            borderColor: map-get($configuration, formInputBorderColorTablet),
+            borderSides: "right"
+          )
+        );
       }
 
       // Styles for desktop
       @include above($desktopBreakpoint) {
-        @include borderOnly((
-          borderWidth: map-get($configuration, formInputBorderWidthDesktop),
-          borderStyle: map-get($configuration, formInputBorderStyleDesktop),
-          borderColor: map-get($configuration, formInputBorderColorDesktop),
-          borderSides: 'right'
-        ));
+        @include borderOnly(
+          (
+            borderWidth: map-get($configuration, formInputBorderWidthDesktop),
+            borderStyle: map-get($configuration, formInputBorderStyleDesktop),
+            borderColor: map-get($configuration, formInputBorderColorDesktop),
+            borderSides: "right"
+          )
+        );
       }
     }
 
@@ -1295,7 +1371,7 @@
       }
     }
 
-    [_type="flStarRating"] .rating-input:checked~.rating-star .fa {
+    [_type="flStarRating"] .rating-input:checked ~ .rating-star .fa {
       color: map-get($configuration, formStarRatingSelected);
 
       // Styles for tablet
@@ -1313,7 +1389,9 @@
       background-color: map-get($configuration, formSignatureFieldBackgroundColor);
 
       canvas {
-        border: map-get($configuration, formInputBorderWidth) map-get($configuration, formInputBorderStyle) map-get($configuration, formInputBorderColor) !important;
+        border: map-get($configuration, formInputBorderWidth)
+          map-get($configuration, formInputBorderStyle)
+          map-get($configuration, formInputBorderColor) !important;
         border-top-width: 0 !important;
         border-left-width: 0 !important;
         border-right-width: 0 !important;
@@ -1339,7 +1417,9 @@
         background-color: map-get($configuration, formSignatureFieldBackgroundColorTablet);
 
         canvas {
-          border: map-get($configuration, formInputBorderWidthTablet) map-get($configuration, formInputBorderStyleTablet) map-get($configuration, formInputBorderColorTablet) !important;
+          border: map-get($configuration, formInputBorderWidthTablet)
+            map-get($configuration, formInputBorderStyleTablet)
+            map-get($configuration, formInputBorderColorTablet) !important;
         }
 
         a {
@@ -1363,7 +1443,9 @@
         background-color: map-get($configuration, formSignatureFieldBackgroundColorDesktop);
 
         canvas {
-          border: map-get($configuration, formInputBorderWidthDesktop) map-get($configuration, formInputBorderStyleDesktop) map-get($configuration, formInputBorderColorDesktop) !important;
+          border: map-get($configuration, formInputBorderWidthDesktop)
+            map-get($configuration, formInputBorderStyleDesktop)
+            map-get($configuration, formInputBorderColorDesktop) !important;
         }
 
         a {
@@ -1384,13 +1466,17 @@
     }
 
     .form-group .mce-tinymce > .mce-container-body.mce-stack-layout,
-    .form-group .tinymce-mobile-outer-container:not(.tinymce-mobile-fullscreen-maximized) .tinymce-mobile-editor-socket {
-      @include borderOnly((
-        borderWidth: map-get($configuration, formInputBorderWidth),
-        borderStyle: map-get($configuration, formInputBorderStyle),
-        borderColor: map-get($configuration, formInputBorderColor),
-        borderSides: map-get($configuration, formInputBorderSides)
-      ));
+    .form-group
+      .tinymce-mobile-outer-container:not(.tinymce-mobile-fullscreen-maximized)
+      .tinymce-mobile-editor-socket {
+      @include borderOnly(
+        (
+          borderWidth: map-get($configuration, formInputBorderWidth),
+          borderStyle: map-get($configuration, formInputBorderStyle),
+          borderColor: map-get($configuration, formInputBorderColor),
+          borderSides: map-get($configuration, formInputBorderSides)
+        )
+      );
 
       border-radius: map-get($configuration, formInputBorderRadius);
       overflow: hidden;
@@ -1401,12 +1487,14 @@
 
       // Styles for tablet
       @include above($tabletBreakpoint) {
-        @include borderOnly((
-          borderWidth: map-get($configuration, formInputBorderWidthTablet),
-          borderStyle: map-get($configuration, formInputBorderStyleTablet),
-          borderColor: map-get($configuration, formInputBorderColorTablet),
-          borderSides: map-get($configuration, formInputBorderSidesTablet)
-        ));
+        @include borderOnly(
+          (
+            borderWidth: map-get($configuration, formInputBorderWidthTablet),
+            borderStyle: map-get($configuration, formInputBorderStyleTablet),
+            borderColor: map-get($configuration, formInputBorderColorTablet),
+            borderSides: map-get($configuration, formInputBorderSidesTablet)
+          )
+        );
 
         &.focus-outline {
           box-shadow: 0px 0px 0px $focusOutlineWidthTablet $focusOutlineColorTablet !important;
@@ -1415,12 +1503,14 @@
 
       // Styles for desktop
       @include above($desktopBreakpoint) {
-        @include borderOnly((
-          borderWidth: map-get($configuration, formInputBorderWidthDesktop),
-          borderStyle: map-get($configuration, formInputBorderStyleDesktop),
-          borderColor: map-get($configuration, formInputBorderColorDesktop),
-          borderSides: map-get($configuration, formInputBorderSidesDesktop)
-        ));
+        @include borderOnly(
+          (
+            borderWidth: map-get($configuration, formInputBorderWidthDesktop),
+            borderStyle: map-get($configuration, formInputBorderStyleDesktop),
+            borderColor: map-get($configuration, formInputBorderColorDesktop),
+            borderSides: map-get($configuration, formInputBorderSidesDesktop)
+          )
+        );
 
         &.focus-outline {
           box-shadow: 0px 0px 0px $focusOutlineWidthDesktop $focusOutlineColorDesktop !important;
@@ -1470,12 +1560,14 @@
 @include formBuilder();
 
 .form-control {
-  @include borderOnly((
-    borderSides: $formInputBorderSides,
-    borderWidth: $formInputBorderWidth,
-    borderStyle: $formInputBorderStyle,
-    borderColor: $formInputBorderColor
-  ));
+  @include borderOnly(
+    (
+      borderSides: $formInputBorderSides,
+      borderWidth: $formInputBorderWidth,
+      borderStyle: $formInputBorderStyle,
+      borderColor: $formInputBorderColor
+    )
+  );
 
   border-radius: $formInputBorderRadius;
 }

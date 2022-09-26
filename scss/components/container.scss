@@ -1,194 +1,198 @@
-@mixin container($options: (), $widgetInstanceId: '', $widgetInstanceUUID: '') {
-  $configuration: map-merge((
-    containerBackgroundImage: $containerBackgroundImage,
-    containerBackgroundColor: $containerBackgroundColor,
-    containerBackgroundType: $containerBackgroundType,
-    containerBackgroundSize: $containerBackgroundSize,
-    containerBackgroundRepeat: $containerBackgroundRepeat,
-    containerBackgroundPosX: $containerBackgroundPosX,
-    containerBackgroundPosY: $containerBackgroundPosY,
-    containerWidth: $containerWidth,
-    containerHeight: $containerHeight,
-    containerMinWidth: $containerMinWidth,
-    containerMaxWidth: $containerMaxWidth,
-    containerMinHeight: $containerMinHeight,
-    containerMaxHeight: $containerMaxHeight,
-    containerOverflowX: $containerOverflowX,
-    containerOverflowY: $containerOverflowY,
-    containerPosition: $containerPosition,
-    containerDisplay: $containerDisplay,
-    containerVisibility: $containerVisibility,
-    containerContentLayout: $containerContentLayout,
-    containerFlexDirection: $containerFlexDirection,
-    containerFlexAlign: $containerFlexAlign,
-    containerFlexJustify: $containerFlexJustify,
-    containerFlexWrap: $containerFlexWrap,
-    containerPositionTop: $containerPositionTop,
-    containerPositionRight: $containerPositionRight,
-    containerPositionBottom: $containerPositionBottom,
-    containerPositionLeft: $containerPositionLeft,
-    containerMarginTop: $containerMarginTop,
-    containerMarginRight: $containerMarginRight,
-    containerMarginBottom: $containerMarginBottom,
-    containerMarginLeft: $containerMarginLeft,
-    containerPaddingTop: $containerPaddingTop,
-    containerPaddingRight: $containerPaddingRight,
-    containerPaddingBottom: $containerPaddingBottom,
-    containerPaddingLeft: $containerPaddingLeft,
-    containerBorderSides: $containerBorderSides,
-    containerBorderWidth: $containerBorderWidth,
-    containerBorderStyle: $containerBorderStyle,
-    containerBorderColor: $containerBorderColor,
-    containerBorderRadius: $containerBorderRadius,
-    containerShadowStyle: $containerShadowStyle,
-    containerShadowXoffset: $containerShadowXoffset,
-    containerShadowYoffset: $containerShadowYoffset,
-    containerShadowBlur: $containerShadowBlur,
-    containerShadowSpread: $containerShadowSpread,
-    containerShadowColor: $containerShadowColor,
-    containerIndex: $containerIndex,
-    containerBackgroundImageTablet: $containerBackgroundImageTablet,
-    containerBackgroundColorTablet: $containerBackgroundColorTablet,
-    containerBackgroundTypeTablet: $containerBackgroundTypeTablet,
-    containerBackgroundSizeTablet: $containerBackgroundSizeTablet,
-    containerBackgroundRepeatTablet: $containerBackgroundRepeatTablet,
-    containerBackgroundPosXTablet: $containerBackgroundPosXTablet,
-    containerBackgroundPosYTablet: $containerBackgroundPosYTablet,
-    containerWidthTablet: $containerWidthTablet,
-    containerHeightTablet: $containerHeightTablet,
-    containerMinWidthTablet: $containerMinWidthTablet,
-    containerMaxWidthTablet: $containerMaxWidthTablet,
-    containerMinHeightTablet: $containerMinHeightTablet,
-    containerMaxHeightTablet: $containerMaxHeightTablet,
-    containerOverflowXTablet: $containerOverflowXTablet,
-    containerOverflowYTablet: $containerOverflowYTablet,
-    containerPositionTablet: $containerPositionTablet,
-    containerDisplayTablet: $containerDisplayTablet,
-    containerVisibilityTablet: $containerVisibilityTablet,
-    containerContentLayoutTablet: $containerContentLayoutTablet,
-    containerFlexDirectionTablet: $containerFlexDirectionTablet,
-    containerFlexAlignTablet: $containerFlexAlignTablet,
-    containerFlexJustifyTablet: $containerFlexJustifyTablet,
-    containerFlexWrapTablet: $containerFlexWrapTablet,
-    containerPositionTopTablet: $containerPositionTopTablet,
-    containerPositionRightTablet: $containerPositionRightTablet,
-    containerPositionBottomTablet: $containerPositionBottomTablet,
-    containerPositionLeftTablet: $containerPositionLeftTablet,
-    containerMarginTopTablet: $containerMarginTopTablet,
-    containerMarginRightTablet: $containerMarginRightTablet,
-    containerMarginBottomTablet: $containerMarginBottomTablet,
-    containerMarginLeftTablet: $containerMarginLeftTablet,
-    containerPaddingTopTablet: $containerPaddingTopTablet,
-    containerPaddingRightTablet: $containerPaddingRightTablet,
-    containerPaddingBottomTablet: $containerPaddingBottomTablet,
-    containerPaddingLeftTablet: $containerPaddingLeftTablet,
-    containerBorderSidesTablet: $containerBorderSidesTablet,
-    containerBorderWidthTablet: $containerBorderWidthTablet,
-    containerBorderStyleTablet: $containerBorderStyleTablet,
-    containerBorderColorTablet: $containerBorderColorTablet,
-    containerBorderRadiusTablet: $containerBorderRadiusTablet,
-    containerShadowStyleTablet: $containerShadowStyleTablet,
-    containerShadowXoffsetTablet: $containerShadowXoffsetTablet,
-    containerShadowYoffsetTablet: $containerShadowYoffsetTablet,
-    containerShadowBlurTablet: $containerShadowBlurTablet,
-    containerShadowSpreadTablet: $containerShadowSpreadTablet,
-    containerShadowColorTablet: $containerShadowColorTablet,
-    containerIndexTablet: $containerIndexTablet,
-    containerBackgroundImageDesktop: $containerBackgroundImageDesktop,
-    containerBackgroundColorDesktop: $containerBackgroundColorDesktop,
-    containerBackgroundTypeDesktop: $containerBackgroundTypeDesktop,
-    containerBackgroundSizeDesktop: $containerBackgroundSizeDesktop,
-    containerBackgroundRepeatDesktop: $containerBackgroundRepeatDesktop,
-    containerBackgroundPosXDesktop: $containerBackgroundPosXDesktop,
-    containerBackgroundPosYDesktop: $containerBackgroundPosYDesktop,
-    containerWidthDesktop: $containerWidthDesktop,
-    containerHeightDesktop: $containerHeightDesktop,
-    containerMinWidthDesktop: $containerMinWidthDesktop,
-    containerMaxWidthDesktop: $containerMaxWidthDesktop,
-    containerMinHeightDesktop: $containerMinHeightDesktop,
-    containerMaxHeightDesktop: $containerMaxHeightDesktop,
-    containerOverflowXDesktop: $containerOverflowXDesktop,
-    containerOverflowYDesktop: $containerOverflowYDesktop,
-    containerPositionDesktop: $containerPositionDesktop,
-    containerDisplayDesktop: $containerDisplayDesktop,
-    containerVisibilityDesktop: $containerVisibilityDesktop,
-    containerContentLayoutDesktop: $containerContentLayoutDesktop,
-    containerFlexDirectionDesktop: $containerFlexDirectionDesktop,
-    containerFlexAlignDesktop: $containerFlexAlignDesktop,
-    containerFlexJustifyDesktop: $containerFlexJustifyDesktop,
-    containerFlexWrapDesktop: $containerFlexWrapDesktop,
-    containerPositionTopDesktop: $containerPositionTopDesktop,
-    containerPositionRightDesktop: $containerPositionRightDesktop,
-    containerPositionBottomDesktop: $containerPositionBottomDesktop,
-    containerPositionLeftDesktop: $containerPositionLeftDesktop,
-    containerMarginTopDesktop: $containerMarginTopDesktop,
-    containerMarginRightDesktop: $containerMarginRightDesktop,
-    containerMarginBottomDesktop: $containerMarginBottomDesktop,
-    containerMarginLeftDesktop: $containerMarginLeftDesktop,
-    containerPaddingTopDesktop: $containerPaddingTopDesktop,
-    containerPaddingRightDesktop: $containerPaddingRightDesktop,
-    containerPaddingBottomDesktop: $containerPaddingBottomDesktop,
-    containerPaddingLeftDesktop: $containerPaddingLeftDesktop,
-    containerBorderSidesDesktop: $containerBorderSidesDesktop,
-    containerBorderWidthDesktop: $containerBorderWidthDesktop,
-    containerBorderStyleDesktop: $containerBorderStyleDesktop,
-    containerBorderColorDesktop: $containerBorderColorDesktop,
-    containerBorderRadiusDesktop: $containerBorderRadiusDesktop,
-    containerShadowStyleDesktop: $containerShadowStyleDesktop,
-    containerShadowXoffsetDesktop: $containerShadowXoffsetDesktop,
-    containerShadowYoffsetDesktop: $containerShadowYoffsetDesktop,
-    containerShadowBlurDesktop: $containerShadowBlurDesktop,
-    containerShadowSpreadDesktop: $containerShadowSpreadDesktop,
-    containerShadowColorDesktop: $containerShadowColorDesktop,
-    containerIndexDesktop: $containerIndexDesktop
-  ), $options);
-  
+@mixin container($options: (), $widgetInstanceId: "", $widgetInstanceUUID: "") {
+  $configuration: map-merge(
+    (
+      containerBackgroundImage: $containerBackgroundImage,
+      containerBackgroundColor: $containerBackgroundColor,
+      containerBackgroundType: $containerBackgroundType,
+      containerBackgroundSize: $containerBackgroundSize,
+      containerBackgroundRepeat: $containerBackgroundRepeat,
+      containerBackgroundPosX: $containerBackgroundPosX,
+      containerBackgroundPosY: $containerBackgroundPosY,
+      containerWidth: $containerWidth,
+      containerHeight: $containerHeight,
+      containerMinWidth: $containerMinWidth,
+      containerMaxWidth: $containerMaxWidth,
+      containerMinHeight: $containerMinHeight,
+      containerMaxHeight: $containerMaxHeight,
+      containerOverflowX: $containerOverflowX,
+      containerOverflowY: $containerOverflowY,
+      containerPosition: $containerPosition,
+      containerDisplay: $containerDisplay,
+      containerVisibility: $containerVisibility,
+      containerContentLayout: $containerContentLayout,
+      containerFlexDirection: $containerFlexDirection,
+      containerFlexAlign: $containerFlexAlign,
+      containerFlexJustify: $containerFlexJustify,
+      containerFlexWrap: $containerFlexWrap,
+      containerPositionTop: $containerPositionTop,
+      containerPositionRight: $containerPositionRight,
+      containerPositionBottom: $containerPositionBottom,
+      containerPositionLeft: $containerPositionLeft,
+      containerMarginTop: $containerMarginTop,
+      containerMarginRight: $containerMarginRight,
+      containerMarginBottom: $containerMarginBottom,
+      containerMarginLeft: $containerMarginLeft,
+      containerPaddingTop: $containerPaddingTop,
+      containerPaddingRight: $containerPaddingRight,
+      containerPaddingBottom: $containerPaddingBottom,
+      containerPaddingLeft: $containerPaddingLeft,
+      containerBorderSides: $containerBorderSides,
+      containerBorderWidth: $containerBorderWidth,
+      containerBorderStyle: $containerBorderStyle,
+      containerBorderColor: $containerBorderColor,
+      containerBorderRadius: $containerBorderRadius,
+      containerShadowStyle: $containerShadowStyle,
+      containerShadowXoffset: $containerShadowXoffset,
+      containerShadowYoffset: $containerShadowYoffset,
+      containerShadowBlur: $containerShadowBlur,
+      containerShadowSpread: $containerShadowSpread,
+      containerShadowColor: $containerShadowColor,
+      containerIndex: $containerIndex,
+      containerBackgroundImageTablet: $containerBackgroundImageTablet,
+      containerBackgroundColorTablet: $containerBackgroundColorTablet,
+      containerBackgroundTypeTablet: $containerBackgroundTypeTablet,
+      containerBackgroundSizeTablet: $containerBackgroundSizeTablet,
+      containerBackgroundRepeatTablet: $containerBackgroundRepeatTablet,
+      containerBackgroundPosXTablet: $containerBackgroundPosXTablet,
+      containerBackgroundPosYTablet: $containerBackgroundPosYTablet,
+      containerWidthTablet: $containerWidthTablet,
+      containerHeightTablet: $containerHeightTablet,
+      containerMinWidthTablet: $containerMinWidthTablet,
+      containerMaxWidthTablet: $containerMaxWidthTablet,
+      containerMinHeightTablet: $containerMinHeightTablet,
+      containerMaxHeightTablet: $containerMaxHeightTablet,
+      containerOverflowXTablet: $containerOverflowXTablet,
+      containerOverflowYTablet: $containerOverflowYTablet,
+      containerPositionTablet: $containerPositionTablet,
+      containerDisplayTablet: $containerDisplayTablet,
+      containerVisibilityTablet: $containerVisibilityTablet,
+      containerContentLayoutTablet: $containerContentLayoutTablet,
+      containerFlexDirectionTablet: $containerFlexDirectionTablet,
+      containerFlexAlignTablet: $containerFlexAlignTablet,
+      containerFlexJustifyTablet: $containerFlexJustifyTablet,
+      containerFlexWrapTablet: $containerFlexWrapTablet,
+      containerPositionTopTablet: $containerPositionTopTablet,
+      containerPositionRightTablet: $containerPositionRightTablet,
+      containerPositionBottomTablet: $containerPositionBottomTablet,
+      containerPositionLeftTablet: $containerPositionLeftTablet,
+      containerMarginTopTablet: $containerMarginTopTablet,
+      containerMarginRightTablet: $containerMarginRightTablet,
+      containerMarginBottomTablet: $containerMarginBottomTablet,
+      containerMarginLeftTablet: $containerMarginLeftTablet,
+      containerPaddingTopTablet: $containerPaddingTopTablet,
+      containerPaddingRightTablet: $containerPaddingRightTablet,
+      containerPaddingBottomTablet: $containerPaddingBottomTablet,
+      containerPaddingLeftTablet: $containerPaddingLeftTablet,
+      containerBorderSidesTablet: $containerBorderSidesTablet,
+      containerBorderWidthTablet: $containerBorderWidthTablet,
+      containerBorderStyleTablet: $containerBorderStyleTablet,
+      containerBorderColorTablet: $containerBorderColorTablet,
+      containerBorderRadiusTablet: $containerBorderRadiusTablet,
+      containerShadowStyleTablet: $containerShadowStyleTablet,
+      containerShadowXoffsetTablet: $containerShadowXoffsetTablet,
+      containerShadowYoffsetTablet: $containerShadowYoffsetTablet,
+      containerShadowBlurTablet: $containerShadowBlurTablet,
+      containerShadowSpreadTablet: $containerShadowSpreadTablet,
+      containerShadowColorTablet: $containerShadowColorTablet,
+      containerIndexTablet: $containerIndexTablet,
+      containerBackgroundImageDesktop: $containerBackgroundImageDesktop,
+      containerBackgroundColorDesktop: $containerBackgroundColorDesktop,
+      containerBackgroundTypeDesktop: $containerBackgroundTypeDesktop,
+      containerBackgroundSizeDesktop: $containerBackgroundSizeDesktop,
+      containerBackgroundRepeatDesktop: $containerBackgroundRepeatDesktop,
+      containerBackgroundPosXDesktop: $containerBackgroundPosXDesktop,
+      containerBackgroundPosYDesktop: $containerBackgroundPosYDesktop,
+      containerWidthDesktop: $containerWidthDesktop,
+      containerHeightDesktop: $containerHeightDesktop,
+      containerMinWidthDesktop: $containerMinWidthDesktop,
+      containerMaxWidthDesktop: $containerMaxWidthDesktop,
+      containerMinHeightDesktop: $containerMinHeightDesktop,
+      containerMaxHeightDesktop: $containerMaxHeightDesktop,
+      containerOverflowXDesktop: $containerOverflowXDesktop,
+      containerOverflowYDesktop: $containerOverflowYDesktop,
+      containerPositionDesktop: $containerPositionDesktop,
+      containerDisplayDesktop: $containerDisplayDesktop,
+      containerVisibilityDesktop: $containerVisibilityDesktop,
+      containerContentLayoutDesktop: $containerContentLayoutDesktop,
+      containerFlexDirectionDesktop: $containerFlexDirectionDesktop,
+      containerFlexAlignDesktop: $containerFlexAlignDesktop,
+      containerFlexJustifyDesktop: $containerFlexJustifyDesktop,
+      containerFlexWrapDesktop: $containerFlexWrapDesktop,
+      containerPositionTopDesktop: $containerPositionTopDesktop,
+      containerPositionRightDesktop: $containerPositionRightDesktop,
+      containerPositionBottomDesktop: $containerPositionBottomDesktop,
+      containerPositionLeftDesktop: $containerPositionLeftDesktop,
+      containerMarginTopDesktop: $containerMarginTopDesktop,
+      containerMarginRightDesktop: $containerMarginRightDesktop,
+      containerMarginBottomDesktop: $containerMarginBottomDesktop,
+      containerMarginLeftDesktop: $containerMarginLeftDesktop,
+      containerPaddingTopDesktop: $containerPaddingTopDesktop,
+      containerPaddingRightDesktop: $containerPaddingRightDesktop,
+      containerPaddingBottomDesktop: $containerPaddingBottomDesktop,
+      containerPaddingLeftDesktop: $containerPaddingLeftDesktop,
+      containerBorderSidesDesktop: $containerBorderSidesDesktop,
+      containerBorderWidthDesktop: $containerBorderWidthDesktop,
+      containerBorderStyleDesktop: $containerBorderStyleDesktop,
+      containerBorderColorDesktop: $containerBorderColorDesktop,
+      containerBorderRadiusDesktop: $containerBorderRadiusDesktop,
+      containerShadowStyleDesktop: $containerShadowStyleDesktop,
+      containerShadowXoffsetDesktop: $containerShadowXoffsetDesktop,
+      containerShadowYoffsetDesktop: $containerShadowYoffsetDesktop,
+      containerShadowBlurDesktop: $containerShadowBlurDesktop,
+      containerShadowSpreadDesktop: $containerShadowSpreadDesktop,
+      containerShadowColorDesktop: $containerShadowColorDesktop,
+      containerIndexDesktop: $containerIndexDesktop
+    ),
+    $options
+  );
+
   $instanceSelector: '[data-widget-package="com.fliplet.container"]';
-  @if $widgetInstanceUUID != '' {
+  @if $widgetInstanceUUID != "" {
     $instanceSelector: '#{$instanceSelector}[data-uuid="#{$widgetInstanceUUID}"]';
-  } @else if $widgetInstanceId != '' {
+  } @else if $widgetInstanceId != "" {
     $instanceSelector: '#{$instanceSelector}[data-id="#{$widgetInstanceId}"]';
   }
 
   #{$instanceSelector} {
-    @if map-get($configuration, containerBackgroundType) == 'Image' {
-      @if map-get($configuration, containerBackgroundImage) == 'none' {
-        background-image: map-get($configuration, containerBackgroundImage)
+    @if map-get($configuration, containerBackgroundType) == "Image" {
+      @if map-get($configuration, containerBackgroundImage) == "none" {
+        background-image: map-get($configuration, containerBackgroundImage);
       } @else {
-        background-image: url(#{map-get($configuration, containerBackgroundImage)});
+        background-image: url(#{map-get($configuration containerBackgroundImage)});
       }
-    } @else if map-get($configuration, containerBackgroundType) == 'Color' {
+    } @else if map-get($configuration, containerBackgroundType) == "Color" {
       background-image: none;
       background-color: map-get($configuration, containerBackgroundColor);
     } @else {
       background-image: none;
       background-color: transparent;
     }
-  
+
     background-size: map-get($configuration, containerBackgroundSize);
     background-repeat: map-get($configuration, containerBackgroundRepeat);
-    background-position: map-get($configuration, containerBackgroundPosX) map-get($configuration, containerBackgroundPosY);
+    background-position: map-get($configuration, containerBackgroundPosX)
+      map-get($configuration, containerBackgroundPosY);
 
     position: map-get($configuration, containerPosition) !important;
     z-index: map-get($configuration, containerIndex);
-    @if map-get($configuration, containerPosition) != 'relative' {
+    @if map-get($configuration, containerPosition) != "relative" {
       top: map-get($configuration, containerPositionTop);
       right: map-get($configuration, containerPositionRight);
       bottom: map-get($configuration, containerPositionBottom);
       left: map-get($configuration, containerPositionLeft);
     }
 
-    @if map-get($configuration, containerVisibility) == 'hidden' {
+    @if map-get($configuration, containerVisibility) == "hidden" {
       display: none !important;
     } @else {
-      @if map-get($configuration, containerContentLayout) == 'on' {
-        @if map-get($configuration, containerDisplay) == 'block' {
+      @if map-get($configuration, containerContentLayout) == "on" {
+        @if map-get($configuration, containerDisplay) == "block" {
           display: flex !important;
         } @else {
           display: inline-flex !important;
         }
 
-        flex-direction:  map-get($configuration, containerFlexDirection);
+        flex-direction: map-get($configuration, containerFlexDirection);
         align-items: map-get($configuration, containerFlexAlign);
         justify-content: map-get($configuration, containerFlexJustify);
         flex-wrap: map-get($configuration, containerFlexWrap);
@@ -206,69 +210,72 @@
     overflow-x: map-get($configuration, containerOverflowX);
     overflow-y: map-get($configuration, containerOverflowY);
     margin: map-get($configuration, containerMarginTop)
-      map-get($configuration, containerMarginRight)
-      map-get($configuration, containerMarginBottom)
+      map-get($configuration, containerMarginRight) map-get($configuration, containerMarginBottom)
       map-get($configuration, containerMarginLeft);
     padding: map-get($configuration, containerPaddingTop)
-      map-get($configuration, containerPaddingRight)
-      map-get($configuration, containerPaddingBottom)
+      map-get($configuration, containerPaddingRight) map-get($configuration, containerPaddingBottom)
       map-get($configuration, containerPaddingLeft);
-    @include borderOnly((
-      borderSides: map-get($configuration, containerBorderSides),
-      borderWidth: map-get($configuration, containerBorderWidth),
-      borderStyle: map-get($configuration, containerBorderStyle),
-      borderColor: map-get($configuration, containerBorderColor)
-    ));
+    @include borderOnly(
+      (
+        borderSides: map-get($configuration, containerBorderSides),
+        borderWidth: map-get($configuration, containerBorderWidth),
+        borderStyle: map-get($configuration, containerBorderStyle),
+        borderColor: map-get($configuration, containerBorderColor)
+      )
+    );
     border-radius: map-get($configuration, containerBorderRadius);
-    @include shadowOnly((
-      shadowStyle: map-get($configuration, containerShadowStyle),
-      shadowXOffset: map-get($configuration, containerShadowXoffset),
-      shadowYOffset: map-get($configuration, containerShadowYoffset),
-      shadowBlur: map-get($configuration, containerShadowBlur),
-      shadowSpread: map-get($configuration, containerShadowSpread),
-      shadowColor: map-get($configuration, containerShadowColor)
-    ));
+    @include shadowOnly(
+      (
+        shadowStyle: map-get($configuration, containerShadowStyle),
+        shadowXOffset: map-get($configuration, containerShadowXoffset),
+        shadowYOffset: map-get($configuration, containerShadowYoffset),
+        shadowBlur: map-get($configuration, containerShadowBlur),
+        shadowSpread: map-get($configuration, containerShadowSpread),
+        shadowColor: map-get($configuration, containerShadowColor)
+      )
+    );
 
     // Styles for tablet
     @include above($tabletBreakpoint) {
-      @if map-get($configuration, containerBackgroundTypeTablet) == 'Image' {
-        @if map-get($configuration, containerBackgroundImageTablet) == 'none' {
-          background-image: map-get($configuration, containerBackgroundImageTablet)
+      @if map-get($configuration, containerBackgroundTypeTablet) == "Image" {
+        @if map-get($configuration, containerBackgroundImageTablet) == "none" {
+          background-image: map-get($configuration, containerBackgroundImageTablet);
         } @else {
-          background-image: url(#{map-get($configuration, containerBackgroundImageTablet)});
+          background-image: url(#{map-get($configuration containerBackgroundImageTablet)});
         }
-      } @else if map-get($configuration, containerBackgroundTypeTablet) == 'Color' {
+      } @else if map-get($configuration, containerBackgroundTypeTablet) == "Color" {
         background-image: none;
         background-color: map-get($configuration, containerBackgroundColorTablet);
       } @else {
         background-image: none;
         background-color: transparent;
       }
-    
+
       background-size: map-get($configuration, containerBackgroundSizeTablet);
       background-repeat: map-get($configuration, containerBackgroundRepeatTablet);
-      background-position: map-get($configuration, containerBackgroundPosXTablet) map-get($configuration, containerBackgroundPosYTablet);
+      background-position: map-get($configuration, containerBackgroundPosXTablet)
+        map-get($configuration, containerBackgroundPosYTablet);
 
       position: map-get($configuration, containerPositionTablet) !important;
       z-index: map-get($configuration, containerIndexTablet);
-      @if map-get($configuration, containerPositionTablet) != 'relative' {
+      @if map-get($configuration, containerPositionTablet) != "relative" {
         top: map-get($configuration, containerPositionTopTablet);
         right: map-get($configuration, containerPositionRightTablet);
         bottom: map-get($configuration, containerPositionBottomTablet);
         left: map-get($configuration, containerPositionLeftTablet);
       }
 
-      @if map-get($configuration, containerVisibilityTablet) == 'hidden' {
+      @if map-get($configuration, containerVisibilityTablet) == "hidden" {
         display: none !important;
       } @else {
-        @if map-get($configuration, containerContentLayoutTablet) == 'on' {
-          @if map-get($configuration, containerDisplayTablet) == 'block' {
+        @if map-get($configuration, containerContentLayoutTablet) == "on" {
+          @if map-get($configuration, containerDisplayTablet) == "block" {
             display: flex !important;
           } @else {
             display: inline-flex !important;
           }
-  
-          flex-direction:  map-get($configuration, containerFlexDirectionTablet);
+
+          flex-direction: map-get($configuration, containerFlexDirectionTablet);
           align-items: map-get($configuration, containerFlexAlignTablet);
           justify-content: map-get($configuration, containerFlexJustifyTablet);
           flex-wrap: map-get($configuration, containerFlexWrapTablet);
@@ -293,63 +300,68 @@
         map-get($configuration, containerPaddingRightTablet)
         map-get($configuration, containerPaddingBottomTablet)
         map-get($configuration, containerPaddingLeftTablet);
-      @include borderOnly((
-        borderSides: map-get($configuration, containerBorderSidesTablet),
-        borderWidth: map-get($configuration, containerBorderWidthTablet),
-        borderStyle: map-get($configuration, containerBorderStyleTablet),
-        borderColor: map-get($configuration, containerBorderColorTablet)
-      ));
+      @include borderOnly(
+        (
+          borderSides: map-get($configuration, containerBorderSidesTablet),
+          borderWidth: map-get($configuration, containerBorderWidthTablet),
+          borderStyle: map-get($configuration, containerBorderStyleTablet),
+          borderColor: map-get($configuration, containerBorderColorTablet)
+        )
+      );
       border-radius: map-get($configuration, containerBorderRadiusTablet);
-      @include shadowOnly((
-        shadowStyle: map-get($configuration, containerShadowStyleTablet),
-        shadowXOffset: map-get($configuration, containerShadowXoffsetTablet),
-        shadowYOffset: map-get($configuration, containerShadowYoffsetTablet),
-        shadowBlur: map-get($configuration, containerShadowBlurTablet),
-        shadowSpread: map-get($configuration, containerShadowSpreadTablet),
-        shadowColor: map-get($configuration, containerShadowColorTablet)
-      ));
+      @include shadowOnly(
+        (
+          shadowStyle: map-get($configuration, containerShadowStyleTablet),
+          shadowXOffset: map-get($configuration, containerShadowXoffsetTablet),
+          shadowYOffset: map-get($configuration, containerShadowYoffsetTablet),
+          shadowBlur: map-get($configuration, containerShadowBlurTablet),
+          shadowSpread: map-get($configuration, containerShadowSpreadTablet),
+          shadowColor: map-get($configuration, containerShadowColorTablet)
+        )
+      );
     }
 
     // Styles for desktop
     @include above($desktopBreakpoint) {
-      @if map-get($configuration, containerBackgroundTypeDesktop) == 'Image' {
-        @if map-get($configuration, containerBackgroundImageDesktop) == 'none' {
-          background-image: map-get($configuration, containerBackgroundImageDesktop)
+      @if map-get($configuration, containerBackgroundTypeDesktop) == "Image" {
+        @if map-get($configuration, containerBackgroundImageDesktop) == "none" {
+          background-image: map-get($configuration, containerBackgroundImageDesktop);
         } @else {
-          background-image: url(#{map-get($configuration, containerBackgroundImageDesktop)});
+          background-image: url(#{map-get($configuration containerBackgroundImageDesktop)});
         }
-      } @else if map-get($configuration, containerBackgroundTypeDesktop) == 'Color' {
+      } @else if map-get($configuration, containerBackgroundTypeDesktop) == "Color" {
         background-image: none;
         background-color: map-get($configuration, containerBackgroundColorDesktop);
       } @else {
         background-image: none;
         background-color: transparent;
       }
-    
+
       background-size: map-get($configuration, containerBackgroundSizeDesktop);
       background-repeat: map-get($configuration, containerBackgroundRepeatDesktop);
-      background-position: map-get($configuration, containerBackgroundPosXDesktop) map-get($configuration, containerBackgroundPosYDesktop);
+      background-position: map-get($configuration, containerBackgroundPosXDesktop)
+        map-get($configuration, containerBackgroundPosYDesktop);
 
       position: map-get($configuration, containerPositionDesktop) !important;
       z-index: map-get($configuration, containerIndexDesktop);
-      @if map-get($configuration, containerPositionDesktop) != 'relative' {
+      @if map-get($configuration, containerPositionDesktop) != "relative" {
         top: map-get($configuration, containerPositionTopDesktop);
         right: map-get($configuration, containerPositionRightDesktop);
         bottom: map-get($configuration, containerPositionBottomDesktop);
         left: map-get($configuration, containerPositionLeftDesktop);
       }
 
-      @if map-get($configuration, containerVisibilityDesktop) == 'hidden' {
+      @if map-get($configuration, containerVisibilityDesktop) == "hidden" {
         display: none !important;
       } @else {
-        @if map-get($configuration, containerContentLayoutDesktop) == 'on' {
-          @if map-get($configuration, containerDisplayDesktop) == 'block' {
+        @if map-get($configuration, containerContentLayoutDesktop) == "on" {
+          @if map-get($configuration, containerDisplayDesktop) == "block" {
             display: flex !important;
           } @else {
             display: inline-flex !important;
           }
-  
-          flex-direction:  map-get($configuration, containerFlexDirectionDesktop);
+
+          flex-direction: map-get($configuration, containerFlexDirectionDesktop);
           align-items: map-get($configuration, containerFlexAlignDesktop);
           justify-content: map-get($configuration, containerFlexJustifyDesktop);
           flex-wrap: map-get($configuration, containerFlexWrapDesktop);
@@ -374,21 +386,25 @@
         map-get($configuration, containerPaddingRightDesktop)
         map-get($configuration, containerPaddingBottomDesktop)
         map-get($configuration, containerPaddingLeftDesktop);
-      @include borderOnly((
-        borderSides: map-get($configuration, containerBorderSidesDesktop),
-        borderWidth: map-get($configuration, containerBorderWidthDesktop),
-        borderStyle: map-get($configuration, containerBorderStyleDesktop),
-        borderColor: map-get($configuration, containerBorderColorDesktop)
-      ));
+      @include borderOnly(
+        (
+          borderSides: map-get($configuration, containerBorderSidesDesktop),
+          borderWidth: map-get($configuration, containerBorderWidthDesktop),
+          borderStyle: map-get($configuration, containerBorderStyleDesktop),
+          borderColor: map-get($configuration, containerBorderColorDesktop)
+        )
+      );
       border-radius: map-get($configuration, containerBorderRadiusDesktop);
-      @include shadowOnly((
-        shadowStyle: map-get($configuration, containerShadowStyleDesktop),
-        shadowXOffset: map-get($configuration, containerShadowXoffsetDesktop),
-        shadowYOffset: map-get($configuration, containerShadowYoffsetDesktop),
-        shadowBlur: map-get($configuration, containerShadowBlurDesktop),
-        shadowSpread: map-get($configuration, containerShadowSpreadDesktop),
-        shadowColor: map-get($configuration, containerShadowColorDesktop)
-      ));
+      @include shadowOnly(
+        (
+          shadowStyle: map-get($configuration, containerShadowStyleDesktop),
+          shadowXOffset: map-get($configuration, containerShadowXoffsetDesktop),
+          shadowYOffset: map-get($configuration, containerShadowYoffsetDesktop),
+          shadowBlur: map-get($configuration, containerShadowBlurDesktop),
+          shadowSpread: map-get($configuration, containerShadowSpreadDesktop),
+          shadowColor: map-get($configuration, containerShadowColorDesktop)
+        )
+      );
     }
   }
 }

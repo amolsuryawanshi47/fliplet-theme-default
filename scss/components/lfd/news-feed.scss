@@ -1,337 +1,353 @@
-@mixin newsFeed($options: (), $widgetInstanceId: '', $widgetInstanceUUID: '') {
-  $configuration: map-merge((
-  newsFeedOverlayFontColor: $newsFeedOverlayFontColor,
-  newsFeedOverlayFontColorTablet: $newsFeedOverlayFontColorTablet,
-  newsFeedOverlayFontColorDesktop: $newsFeedOverlayFontColorDesktop,
-  newsFeedWidth: $newsFeedWidth,
-  newsFeedWidthTablet: $newsFeedWidthTablet,
-  newsFeedWidthDesktop: $newsFeedWidthDesktop,
-  newsFeedMaxWidth: $newsFeedMaxWidth,
-  newsFeedMaxWidthTablet: $newsFeedMaxWidthTablet,
-  newsFeedMaxWidthDesktop: $newsFeedMaxWidthDesktop,
-  newsFeedMarginTop: $newsFeedMarginTop,
-  newsFeedMarginTopTablet: $newsFeedMarginTopTablet,
-  newsFeedMarginTopDesktop: $newsFeedMarginTopDesktop,
-  newsFeedMarginRight: $newsFeedMarginRight,
-  newsFeedMarginRightTablet: $newsFeedMarginRightTablet,
-  newsFeedMarginRightDesktop: $newsFeedMarginRightDesktop,
-  newsFeedMarginBottom: $newsFeedMarginBottom,
-  newsFeedMarginBottomTablet: $newsFeedMarginBottomTablet,
-  newsFeedMarginBottomDesktop: $newsFeedMarginBottomDesktop,
-  newsFeedMarginLeft: $newsFeedMarginLeft,
-  newsFeedMarginLeftTablet: $newsFeedMarginLeftTablet,
-  newsFeedMarginLeftDesktop: $newsFeedMarginLeftDesktop,
-  newsFeedVisibility: $newsFeedVisibility,
-  newsFeedVisibilityTablet: $newsFeedVisibilityTablet,
-  newsFeedVisibilityDesktop: $newsFeedVisibilityDesktop,
-  newsFeedTitleFontFamily: $newsFeedTitleFontFamily,
-  newsFeedTitleFontFamilyTablet: $newsFeedTitleFontFamilyTablet,
-  newsFeedTitleFontFamilyDesktop: $newsFeedTitleFontFamilyDesktop,
-  newsFeedTitleFontSize: $newsFeedTitleFontSize,
-  newsFeedTitleFontSizeTablet: $newsFeedTitleFontSizeTablet,
-  newsFeedTitleFontSizeDesktop: $newsFeedTitleFontSizeDesktop,
-  newsFeedTitleFontColor: $newsFeedTitleFontColor,
-  newsFeedTitleFontColorTablet: $newsFeedTitleFontColorTablet,
-  newsFeedTitleFontColorDesktop: $newsFeedTitleFontColorDesktop,
-  newsFeedTitleFontWeight: $newsFeedTitleFontWeight,
-  newsFeedTitleFontWeightTablet: $newsFeedTitleFontWeightTablet,
-  newsFeedTitleFontWeightDesktop: $newsFeedTitleFontWeightDesktop,
-  newsFeedTitleItalic: $newsFeedTitleItalic,
-  newsFeedTitleItalicTablet: $newsFeedTitleItalicTablet,
-  newsFeedTitleItalicDesktop: $newsFeedTitleItalicDesktop,
-  newsFeedTitleUnderline: $newsFeedTitleUnderline,
-  newsFeedTitleUnderlineTablet: $newsFeedTitleUnderlineTablet,
-  newsFeedTitleUnderlineDesktop: $newsFeedTitleUnderlineDesktop,
-  newsFeedTitleLineHeight: $newsFeedTitleLineHeight,
-  newsFeedTitleLineHeightTablet: $newsFeedTitleLineHeightTablet,
-  newsFeedTitleLineHeightDesktop: $newsFeedTitleLineHeightDesktop,
-  newsFeedTitleMarginTop: $newsFeedTitleMarginTop,
-  newsFeedTitleMarginTopTablet: $newsFeedTitleMarginTopTablet,
-  newsFeedTitleMarginTopDesktop: $newsFeedTitleMarginTopDesktop,
-  newsFeedTitleMarginBottom: $newsFeedTitleMarginBottom,
-  newsFeedTitleMarginBottomTablet: $newsFeedTitleMarginBottomTablet,
-  newsFeedTitleMarginBottomDesktop: $newsFeedTitleMarginBottomDesktop,
-  newsFeedDescriptionFontFamily: $newsFeedDescriptionFontFamily,
-  newsFeedDescriptionFontFamilyTablet: $newsFeedDescriptionFontFamilyTablet,
-  newsFeedDescriptionFontFamilyDesktop: $newsFeedDescriptionFontFamilyDesktop,
-  newsFeedDescriptionFontSize: $newsFeedDescriptionFontSize,
-  newsFeedDescriptionFontSizeTablet: $newsFeedDescriptionFontSizeTablet,
-  newsFeedDescriptionFontSizeDesktop: $newsFeedDescriptionFontSizeDesktop,
-  newsFeedDescriptionFontColor: $newsFeedDescriptionFontColor,
-  newsFeedDescriptionFontColorTablet: $newsFeedDescriptionFontColorTablet,
-  newsFeedDescriptionFontColorDesktop: $newsFeedDescriptionFontColorDesktop,
-  newsFeedDescriptionFontWeight: $newsFeedDescriptionFontWeight,
-  newsFeedDescriptionFontWeightTablet: $newsFeedDescriptionFontWeightTablet,
-  newsFeedDescriptionFontWeightDesktop: $newsFeedDescriptionFontWeightDesktop,
-  newsFeedDescriptionItalic: $newsFeedDescriptionItalic,
-  newsFeedDescriptionItalicTablet: $newsFeedDescriptionItalicTablet,
-  newsFeedDescriptionItalicDesktop: $newsFeedDescriptionItalicDesktop,
-  newsFeedDescriptionUnderline: $newsFeedDescriptionUnderline,
-  newsFeedDescriptionUnderlineTablet: $newsFeedDescriptionUnderlineTablet,
-  newsFeedDescriptionUnderlineDesktop: $newsFeedDescriptionUnderlineDesktop,
-  newsFeedDescriptionLineHeight: $newsFeedDescriptionLineHeight,
-  newsFeedDescriptionLineHeightTablet: $newsFeedDescriptionLineHeightTablet,
-  newsFeedDescriptionLineHeightDesktop: $newsFeedDescriptionLineHeightDesktop,
-  newsFeedDescriptionMarginTop: $newsFeedDescriptionMarginTop,
-  newsFeedDescriptionMarginTopTablet: $newsFeedDescriptionMarginTopTablet,
-  newsFeedDescriptionMarginTopDesktop: $newsFeedDescriptionMarginTopDesktop,
-  newsFeedDescriptionMarginBottom: $newsFeedDescriptionMarginBottom,
-  newsFeedDescriptionMarginBottomTablet: $newsFeedDescriptionMarginBottomTablet,
-  newsFeedDescriptionMarginBottomDesktop: $newsFeedDescriptionMarginBottomDesktop,
-  newsFeedSecondDescriptionFontFamily: $newsFeedSecondDescriptionFontFamily,
-  newsFeedSecondDescriptionFontFamilyTablet: $newsFeedSecondDescriptionFontFamilyTablet,
-  newsFeedSecondDescriptionFontFamilyDesktop: $newsFeedSecondDescriptionFontFamilyDesktop,
-  newsFeedSecondDescriptionFontSize: $newsFeedSecondDescriptionFontSize,
-  newsFeedSecondDescriptionFontSizeTablet: $newsFeedSecondDescriptionFontSizeTablet,
-  newsFeedSecondDescriptionFontSizeDesktop: $newsFeedSecondDescriptionFontSizeDesktop,
-  newsFeedSecondDescriptionFontColor: $newsFeedSecondDescriptionFontColor,
-  newsFeedSecondDescriptionFontColorTablet: $newsFeedSecondDescriptionFontColorTablet,
-  newsFeedSecondDescriptionFontColorDesktop: $newsFeedSecondDescriptionFontColorDesktop,
-  newsFeedSecondDescriptionFontWeight: $newsFeedSecondDescriptionFontWeight,
-  newsFeedSecondDescriptionFontWeightTablet: $newsFeedSecondDescriptionFontWeightTablet,
-  newsFeedSecondDescriptionFontWeightDesktop: $newsFeedSecondDescriptionFontWeightDesktop,
-  newsFeedSecondDescriptionItalic: $newsFeedSecondDescriptionItalic,
-  newsFeedSecondDescriptionItalicTablet: $newsFeedSecondDescriptionItalicTablet,
-  newsFeedSecondDescriptionItalicDesktop: $newsFeedSecondDescriptionItalicDesktop,
-  newsFeedSecondDescriptionUnderline: $newsFeedSecondDescriptionUnderline,
-  newsFeedSecondDescriptionUnderlineTablet: $newsFeedSecondDescriptionUnderlineTablet,
-  newsFeedSecondDescriptionUnderlineDesktop: $newsFeedSecondDescriptionUnderlineDesktop,
-  newsFeedSecondDescriptionLineHeight: $newsFeedSecondDescriptionLineHeight,
-  newsFeedSecondDescriptionLineHeightTablet: $newsFeedSecondDescriptionLineHeightTablet,
-  newsFeedSecondDescriptionLineHeightDesktop: $newsFeedSecondDescriptionLineHeightDesktop,
-  newsFeedDetailTitleFontFamily: $newsFeedDetailTitleFontFamily,
-  newsFeedDetailTitleFontFamilyTablet: $newsFeedDetailTitleFontFamilyTablet,
-  newsFeedDetailTitleFontFamilyDesktop: $newsFeedDetailTitleFontFamilyDesktop,
-  newsFeedDetailTitleFontSize: $newsFeedDetailTitleFontSize,
-  newsFeedDetailTitleFontSizeTablet: $newsFeedDetailTitleFontSizeTablet,
-  newsFeedDetailTitleFontSizeDesktop: $newsFeedDetailTitleFontSizeDesktop,
-  newsFeedDetailTitleFontColor: $newsFeedDetailTitleFontColor,
-  newsFeedDetailTitleFontColorTablet: $newsFeedDetailTitleFontColorTablet,
-  newsFeedDetailTitleFontColorDesktop: $newsFeedDetailTitleFontColorDesktop,
-  newsFeedDetailTitleFontWeight: $newsFeedDetailTitleFontWeight,
-  newsFeedDetailTitleFontWeightTablet: $newsFeedDetailTitleFontWeightTablet,
-  newsFeedDetailTitleFontWeightDesktop: $newsFeedDetailTitleFontWeightDesktop,
-  newsFeedDetailTitleItalic: $newsFeedDetailTitleItalic,
-  newsFeedDetailTitleItalicTablet: $newsFeedDetailTitleItalicTablet,
-  newsFeedDetailTitleItalicDesktop: $newsFeedDetailTitleItalicDesktop,
-  newsFeedDetailTitleUnderline: $newsFeedDetailTitleUnderline,
-  newsFeedDetailTitleUnderlineTablet: $newsFeedDetailTitleUnderlineTablet,
-  newsFeedDetailTitleUnderlineDesktop: $newsFeedDetailTitleUnderlineDesktop,
-  newsFeedDetailTitleLineHeight: $newsFeedDetailTitleLineHeight,
-  newsFeedDetailTitleLineHeightTablet: $newsFeedDetailTitleLineHeightTablet,
-  newsFeedDetailTitleLineHeightDesktop: $newsFeedDetailTitleLineHeightDesktop,
-  newsFeedDetailDescriptionFontFamily: $newsFeedDetailDescriptionFontFamily,
-  newsFeedDetailDescriptionFontFamilyTablet: $newsFeedDetailDescriptionFontFamilyTablet,
-  newsFeedDetailDescriptionFontFamilyDesktop: $newsFeedDetailDescriptionFontFamilyDesktop,
-  newsFeedDetailDescriptionFontSize: $newsFeedDetailDescriptionFontSize,
-  newsFeedDetailDescriptionFontSizeTablet: $newsFeedDetailDescriptionFontSizeTablet,
-  newsFeedDetailDescriptionFontSizeDesktop: $newsFeedDetailDescriptionFontSizeDesktop,
-  newsFeedDetailDescriptionFontColor: $newsFeedDetailDescriptionFontColor,
-  newsFeedDetailDescriptionFontColorTablet: $newsFeedDetailDescriptionFontColorTablet,
-  newsFeedDetailDescriptionFontColorDesktop: $newsFeedDetailDescriptionFontColorDesktop,
-  newsFeedDetailDescriptionFontWeight: $newsFeedDetailDescriptionFontWeight,
-  newsFeedDetailDescriptionFontWeightTablet: $newsFeedDetailDescriptionFontWeightTablet,
-  newsFeedDetailDescriptionFontWeightDesktop: $newsFeedDetailDescriptionFontWeightDesktop,
-  newsFeedDetailDescriptionItalic: $newsFeedDetailDescriptionItalic,
-  newsFeedDetailDescriptionItalicTablet: $newsFeedDetailDescriptionItalicTablet,
-  newsFeedDetailDescriptionItalicDesktop: $newsFeedDetailDescriptionItalicDesktop,
-  newsFeedDetailDescriptionUnderline: $newsFeedDetailDescriptionUnderline,
-  newsFeedDetailDescriptionUnderlineTablet: $newsFeedDetailDescriptionUnderlineTablet,
-  newsFeedDetailDescriptionUnderlineDesktop: $newsFeedDetailDescriptionUnderlineDesktop,
-  newsFeedDetailDescriptionLineHeight: $newsFeedDetailDescriptionLineHeight,
-  newsFeedDetailDescriptionLineHeightTablet: $newsFeedDetailDescriptionLineHeightTablet,
-  newsFeedDetailDescriptionLineHeightDesktop: $newsFeedDetailDescriptionLineHeightDesktop,
-  newsFeedDetailDescriptionMarginTop: $newsFeedDetailDescriptionMarginTop,
-  newsFeedDetailDescriptionMarginTopTablet: $newsFeedDetailDescriptionMarginTopTablet,
-  newsFeedDetailDescriptionMarginTopDesktop: $newsFeedDetailDescriptionMarginTopDesktop,
-  newsFeedDetailDescriptionMarginBottom: $newsFeedDetailDescriptionMarginBottom,
-  newsFeedDetailDescriptionMarginBottomTablet: $newsFeedDetailDescriptionMarginBottomTablet,
-  newsFeedDetailDescriptionMarginBottomDesktop: $newsFeedDetailDescriptionMarginBottomDesktop,
-  newsFeedDetailSecondDescriptionFontFamily: $newsFeedDetailSecondDescriptionFontFamily,
-  newsFeedDetailSecondDescriptionFontFamilyTablet: $newsFeedDetailSecondDescriptionFontFamilyTablet,
-  newsFeedDetailSecondDescriptionFontFamilyDesktop: $newsFeedDetailSecondDescriptionFontFamilyDesktop,
-  newsFeedDetailSecondDescriptionFontSize: $newsFeedDetailSecondDescriptionFontSize,
-  newsFeedDetailSecondDescriptionFontSizeTablet: $newsFeedDetailSecondDescriptionFontSizeTablet,
-  newsFeedDetailSecondDescriptionFontSizeDesktop: $newsFeedDetailSecondDescriptionFontSizeDesktop,
-  newsFeedDetailSecondDescriptionFontColor: $newsFeedDetailSecondDescriptionFontColor,
-  newsFeedDetailSecondDescriptionFontColorTablet: $newsFeedDetailSecondDescriptionFontColorTablet,
-  newsFeedDetailSecondDescriptionFontColorDesktop: $newsFeedDetailSecondDescriptionFontColorDesktop,
-  newsFeedDetailSecondDescriptionFontWeight: $newsFeedDetailSecondDescriptionFontWeight,
-  newsFeedDetailSecondDescriptionFontWeightTablet: $newsFeedDetailSecondDescriptionFontWeightTablet,
-  newsFeedDetailSecondDescriptionFontWeightDesktop: $newsFeedDetailSecondDescriptionFontWeightDesktop,
-  newsFeedDetailSecondDescriptionItalic: $newsFeedDetailSecondDescriptionItalic,
-  newsFeedDetailSecondDescriptionItalicTablet: $newsFeedDetailSecondDescriptionItalicTablet,
-  newsFeedDetailSecondDescriptionItalicDesktop: $newsFeedDetailSecondDescriptionItalicDesktop,
-  newsFeedDetailSecondDescriptionUnderline: $newsFeedDetailSecondDescriptionUnderline,
-  newsFeedDetailSecondDescriptionUnderlineTablet: $newsFeedDetailSecondDescriptionUnderlineTablet,
-  newsFeedDetailSecondDescriptionUnderlineDesktop: $newsFeedDetailSecondDescriptionUnderlineDesktop,
-  newsFeedDetailSecondDescriptionLineHeight: $newsFeedDetailSecondDescriptionLineHeight,
-  newsFeedDetailSecondDescriptionLineHeightTablet: $newsFeedDetailSecondDescriptionLineHeightTablet,
-  newsFeedDetailSecondDescriptionLineHeightDesktop: $newsFeedDetailSecondDescriptionLineHeightDesktop,
-  newsFeedDetailTextFontFamily: $newsFeedDetailTextFontFamily,
-  newsFeedDetailTextFontFamilyTablet: $newsFeedDetailTextFontFamilyTablet,
-  newsFeedDetailTextFontFamilyDesktop: $newsFeedDetailTextFontFamilyDesktop,
-  newsFeedDetailTextFontSize: $newsFeedDetailTextFontSize,
-  newsFeedDetailTextFontSizeTablet: $newsFeedDetailTextFontSizeTablet,
-  newsFeedDetailTextFontSizeDesktop: $newsFeedDetailTextFontSizeDesktop,
-  newsFeedDetailTextFontColor: $newsFeedDetailTextFontColor,
-  newsFeedDetailTextFontColorTablet: $newsFeedDetailTextFontColorTablet,
-  newsFeedDetailTextFontColorDesktop: $newsFeedDetailTextFontColorDesktop,
-  newsFeedDetailTextFontWeight: $newsFeedDetailTextFontWeight,
-  newsFeedDetailTextFontWeightTablet: $newsFeedDetailTextFontWeightTablet,
-  newsFeedDetailTextFontWeightDesktop: $newsFeedDetailTextFontWeightDesktop,
-  newsFeedDetailTextItalic: $newsFeedDetailTextItalic,
-  newsFeedDetailTextItalicTablet: $newsFeedDetailTextItalicTablet,
-  newsFeedDetailTextItalicDesktop: $newsFeedDetailTextItalicDesktop,
-  newsFeedDetailTextUnderline: $newsFeedDetailTextUnderline,
-  newsFeedDetailTextUnderlineTablet: $newsFeedDetailTextUnderlineTablet,
-  newsFeedDetailTextUnderlineDesktop: $newsFeedDetailTextUnderlineDesktop,
-  newsFeedDetailTextLineHeight: $newsFeedDetailTextLineHeight,
-  newsFeedDetailTextLineHeightTablet: $newsFeedDetailTextLineHeightTablet,
-  newsFeedDetailTextLineHeightDesktop: $newsFeedDetailTextLineHeightDesktop,
-  newsFeedDetailTextMarginTop: $newsFeedDetailTextMarginTop,
-  newsFeedDetailTextMarginTopTablet: $newsFeedDetailTextMarginTopTablet,
-  newsFeedDetailTextMarginTopDesktop: $newsFeedDetailTextMarginTopDesktop,
-  newsFeedDetailTextMarginBottom: $newsFeedDetailTextMarginBottom,
-  newsFeedDetailTextMarginBottomTablet: $newsFeedDetailTextMarginBottomTablet,
-  newsFeedDetailTextMarginBottomDesktop: $newsFeedDetailTextMarginBottomDesktop,
-  newsFeedListItemBackground: $newsFeedListItemBackground,
-  newsFeedListItemBackgroundTablet: $newsFeedListItemBackgroundTablet,
-  newsFeedListItemBackgroundDesktop: $newsFeedListItemBackgroundDesktop,
-  newsFeedListDetailOverlayBackground: $newsFeedListDetailOverlayBackground,
-  newsFeedListDetailOverlayBackgroundTablet: $newsFeedListDetailOverlayBackgroundTablet,
-  newsFeedListDetailOverlayBackgroundDesktop: $newsFeedListDetailOverlayBackgroundDesktop,
-  newsFeedListDetailOverlayLineUnderTitleColor: $newsFeedListDetailOverlayLineUnderTitleColor,
-  newsFeedListDetailOverlayLineUnderTitleColorTablet: $newsFeedListDetailOverlayLineUnderTitleColorTablet,
-  newsFeedListDetailOverlayLineUnderTitleColorDesktop: $newsFeedListDetailOverlayLineUnderTitleColorDesktop,
-  newsFeedFiltersOverlayBackground: $newsFeedFiltersOverlayBackground,
-  newsFeedFiltersOverlayBackgroundTablet: $newsFeedFiltersOverlayBackgroundTablet,
-  newsFeedFiltersOverlayBackgroundDesktop: $newsFeedFiltersOverlayBackgroundDesktop,
-  newsFeedFilterIconColor: $newsFeedFilterIconColor,
-  newsFeedFilterIconColorTablet: $newsFeedFilterIconColorTablet,
-  newsFeedFilterIconColorDesktop: $newsFeedFilterIconColorDesktop,
-  newsFeedFilterIconActiveColor: $newsFeedFilterIconActiveColor,
-  newsFeedFilterIconActiveColorTablet: $newsFeedFilterIconActiveColorTablet,
-  newsFeedFilterIconActiveColorDesktop: $newsFeedFilterIconActiveColorDesktop,
-  newsFeedSearchIconColor: $newsFeedSearchIconColor,
-  newsFeedSearchIconColorTablet: $newsFeedSearchIconColorTablet,
-  newsFeedSearchIconColorDesktop: $newsFeedSearchIconColorDesktop,
-  newsFeedSearchFieldBorderColor: $newsFeedSearchFieldBorderColor,
-  newsFeedSearchFieldBorderColorTablet: $newsFeedSearchFieldBorderColorTablet,
-  newsFeedSearchFieldBorderColorDesktop: $newsFeedSearchFieldBorderColorDesktop,
-  newsFeedSearchFieldBorderActiveColor: $newsFeedSearchFieldBorderActiveColor,
-  newsFeedSearchFieldBorderActiveColorTablet: $newsFeedSearchFieldBorderActiveColorTablet,
-  newsFeedSearchFieldBorderActiveColorDesktop: $newsFeedSearchFieldBorderActiveColorDesktop,
-  newsFeedSearchFieldTextColor: $newsFeedSearchFieldTextColor,
-  newsFeedSearchFieldTextColorTablet: $newsFeedSearchFieldTextColorTablet,
-  newsFeedSearchFieldTextColorDesktop: $newsFeedSearchFieldTextColorDesktop,
-  newsFeedSearchFieldBackgroundColor: $newsFeedSearchFieldBackgroundColor,
-  newsFeedSearchFieldBackgroundColorTablet: $newsFeedSearchFieldBackgroundColorTablet,
-  newsFeedSearchFieldBackgroundColorDesktop: $newsFeedSearchFieldBackgroundColorDesktop,
-  newsFeedBookmarkIconColor: $newsFeedBookmarkIconColor,
-  newsFeedBookmarkIconColorTablet: $newsFeedBookmarkIconColorTablet,
-  newsFeedBookmarkIconColorDesktop: $newsFeedBookmarkIconColorDesktop,
-  newsFeedBookmarkIconActiveColor: $newsFeedBookmarkIconActiveColor,
-  newsFeedBookmarkIconActiveColorTablet: $newsFeedBookmarkIconActiveColorTablet,
-  newsFeedBookmarkIconActiveColorDesktop: $newsFeedBookmarkIconActiveColorDesktop,
-  newsFeedLikeIconColor: $newsFeedLikeIconColor,
-  newsFeedLikeIconColorTablet: $newsFeedLikeIconColorTablet,
-  newsFeedLikeIconColorDesktop: $newsFeedLikeIconColorDesktop,
-  newsFeedLikeIconActiveColor: $newsFeedLikeIconActiveColor,
-  newsFeedLikeIconActiveColorTablet: $newsFeedLikeIconActiveColorTablet,
-  newsFeedLikeIconActiveColorDesktop: $newsFeedLikeIconActiveColorDesktop,
-  newsFeedImageBackground: $newsFeedImageBackground,
-  newsFeedImageBackgroundTablet: $newsFeedImageBackgroundTablet,
-  newsFeedImageBackgroundDesktop: $newsFeedImageBackgroundDesktop,
-  lfdCommentsBackgroundColor: $lfdCommentsBackgroundColor,
-  lfdCommentsBackgroundColorTablet: $lfdCommentsBackgroundColorTablet,
-  lfdCommentsBackgroundColorDesktop: $lfdCommentsBackgroundColorDesktop,
-  lfdCommentsFontColor: $lfdCommentsFontColor,
-  lfdCommentsFontColorTablet: $lfdCommentsFontColorTablet,
-  lfdCommentsFontColorDesktop: $lfdCommentsFontColorDesktop,
-  newsFeedPaddingTop: $newsFeedPaddingTop,
-  newsFeedPaddingRight: $newsFeedPaddingRight,
-  newsFeedPaddingBottom: $newsFeedPaddingBottom,
-  newsFeedPaddingLeft: $newsFeedPaddingLeft,
-  newsFeedPaddingTopTablet: $newsFeedPaddingTopTablet,
-  newsFeedPaddingRightTablet: $newsFeedPaddingRightTablet,
-  newsFeedPaddingBottomTablet: $newsFeedPaddingBottomTablet,
-  newsFeedPaddingLeftTablet: $newsFeedPaddingLeftTablet,
-  newsFeedPaddingTopDesktop: $newsFeedPaddingTopDesktop,
-  newsFeedPaddingRightDesktop: $newsFeedPaddingRightDesktop,
-  newsFeedPaddingBottomDesktop: $newsFeedPaddingBottomDesktop,
-  newsFeedPaddingLeftDesktop: $newsFeedPaddingLeftDesktop,
-  newsFeedListItemBorderSides: $newsFeedListItemBorderSides,
-  newsFeedListItemBorderSidesTablet: $newsFeedListItemBorderSidesTablet,
-  newsFeedListItemBorderSidesDesktop: $newsFeedListItemBorderSidesDesktop,
-  newsFeedListItemBorderWidth: $newsFeedListItemBorderWidth,
-  newsFeedListItemBorderWidthTablet: $newsFeedListItemBorderWidthTablet,
-  newsFeedListItemBorderWidthDesktop: $newsFeedListItemBorderWidthDesktop,
-  newsFeedListItemBorderStyle: $newsFeedListItemBorderStyle,
-  newsFeedListItemBorderStyleTablet: $newsFeedListItemBorderStyleTablet,
-  newsFeedListItemBorderStyleDesktop: $newsFeedListItemBorderStyleDesktop,
-  newsFeedListItemBorder: $newsFeedListItemBorder,
-  newsFeedListItemBorderTablet: $newsFeedListItemBorderTablet,
-  newsFeedListItemBorderDesktop: $newsFeedListItemBorderDesktop,
-  newsFeedListItemBorderRadius: $newsFeedListItemBorderRadius,
-  newsFeedListItemBorderRadiusTablet: $newsFeedListItemBorderRadiusTablet,
-  newsFeedListItemBorderRadiusDesktop: $newsFeedListItemBorderRadiusDesktop,
-  newsFeedListItemShadowStyle: $newsFeedListItemShadowStyle,
-  newsFeedListItemShadowStyleTablet: $newsFeedListItemShadowStyleTablet,
-  newsFeedListItemShadowStyleDesktop: $newsFeedListItemShadowStyleDesktop,
-  newsFeedListItemShadowXoffset: $newsFeedListItemShadowXoffset,
-  newsFeedListItemShadowXoffsetTablet: $newsFeedListItemShadowXoffsetTablet,
-  newsFeedListItemShadowXoffsetDesktop: $newsFeedListItemShadowXoffsetDesktop,
-  newsFeedListItemShadowYoffset: $newsFeedListItemShadowYoffset,
-  newsFeedListItemShadowYoffsetTablet: $newsFeedListItemShadowYoffsetTablet,
-  newsFeedListItemShadowYoffsetDesktop: $newsFeedListItemShadowYoffsetDesktop,
-  newsFeedListItemShadowBlur: $newsFeedListItemShadowBlur,
-  newsFeedListItemShadowBlurTablet: $newsFeedListItemShadowBlurTablet,
-  newsFeedListItemShadowBlurDesktop: $newsFeedListItemShadowBlurDesktop,
-  newsFeedListItemShadowSpread: $newsFeedListItemShadowSpread,
-  newsFeedListItemShadowSpreadTablet: $newsFeedListItemShadowSpreadTablet,
-  newsFeedListItemShadowSpreadDesktop: $newsFeedListItemShadowSpreadDesktop,
-  newsFeedListItemShadowColor: $newsFeedListItemShadowColor,
-  newsFeedListItemShadowColorTablet: $newsFeedListItemShadowColorTablet,
-  newsFeedListItemShadowColorDesktop: $newsFeedListItemShadowColorDesktop,
-  newsFeedPosition: $newsFeedPosition,
-  newsFeedPositionTop: $newsFeedPositionTop,
-  newsFeedPositionRight: $newsFeedPositionRight,
-  newsFeedPositionBottom: $newsFeedPositionBottom,
-  newsFeedPositionLeft: $newsFeedPositionLeft,
-  newsFeedIndex: $newsFeedIndex,
-  newsFeedDisplay: $newsFeedDisplay,
-  newsFeedPositionTablet: $newsFeedPositionTablet,
-  newsFeedPositionTopTablet: $newsFeedPositionTopTablet,
-  newsFeedPositionRightTablet: $newsFeedPositionRightTablet,
-  newsFeedPositionBottomTablet: $newsFeedPositionBottomTablet,
-  newsFeedPositionLeftTablet: $newsFeedPositionLeftTablet,
-  newsFeedIndexTablet: $newsFeedIndexTablet,
-  newsFeedDisplayTablet: $newsFeedDisplayTablet,
-  newsFeedPositionDesktop: $newsFeedPositionDesktop,
-  newsFeedPositionTopDesktop: $newsFeedPositionTopDesktop,
-  newsFeedPositionRightDesktop: $newsFeedPositionRightDesktop,
-  newsFeedPositionBottomDesktop: $newsFeedPositionBottomDesktop,
-  newsFeedPositionLeftDesktop: $newsFeedPositionLeftDesktop,
-  newsFeedIndexDesktop: $newsFeedIndexDesktop,
-  newsFeedDisplayDesktop: $newsFeedDisplayDesktop,
-  newsFeedAddButtonBackground: $newsFeedAddButtonBackground,
-  newsFeedAddButtonBackgroundTablet: $newsFeedAddButtonBackgroundTablet,
-  newsFeedAddButtonBackgroundDesktop: $newsFeedAddButtonBackgroundDesktop,
-  newsFeedAddButtonIcon: $newsFeedAddButtonIcon,
-  newsFeedAddButtonIconTablet: $newsFeedAddButtonIconTablet,
-  newsFeedAddButtonIconDesktop: $newsFeedAddButtonIconDesktop,
-  newsFeedSortIconColor: $newsFeedSortIconColor,
-  newsFeedSortIconColorTablet: $newsFeedSortIconColorTablet,
-  newsFeedSortIconColorDesktop: $newsFeedSortIconColorDesktop
-  ), $options);
+@mixin newsFeed($options: (), $widgetInstanceId: "", $widgetInstanceUUID: "") {
+  $configuration: map-merge(
+    (
+      newsFeedOverlayFontColor: $newsFeedOverlayFontColor,
+      newsFeedOverlayFontColorTablet: $newsFeedOverlayFontColorTablet,
+      newsFeedOverlayFontColorDesktop: $newsFeedOverlayFontColorDesktop,
+      newsFeedWidth: $newsFeedWidth,
+      newsFeedWidthTablet: $newsFeedWidthTablet,
+      newsFeedWidthDesktop: $newsFeedWidthDesktop,
+      newsFeedMaxWidth: $newsFeedMaxWidth,
+      newsFeedMaxWidthTablet: $newsFeedMaxWidthTablet,
+      newsFeedMaxWidthDesktop: $newsFeedMaxWidthDesktop,
+      newsFeedMarginTop: $newsFeedMarginTop,
+      newsFeedMarginTopTablet: $newsFeedMarginTopTablet,
+      newsFeedMarginTopDesktop: $newsFeedMarginTopDesktop,
+      newsFeedMarginRight: $newsFeedMarginRight,
+      newsFeedMarginRightTablet: $newsFeedMarginRightTablet,
+      newsFeedMarginRightDesktop: $newsFeedMarginRightDesktop,
+      newsFeedMarginBottom: $newsFeedMarginBottom,
+      newsFeedMarginBottomTablet: $newsFeedMarginBottomTablet,
+      newsFeedMarginBottomDesktop: $newsFeedMarginBottomDesktop,
+      newsFeedMarginLeft: $newsFeedMarginLeft,
+      newsFeedMarginLeftTablet: $newsFeedMarginLeftTablet,
+      newsFeedMarginLeftDesktop: $newsFeedMarginLeftDesktop,
+      newsFeedVisibility: $newsFeedVisibility,
+      newsFeedVisibilityTablet: $newsFeedVisibilityTablet,
+      newsFeedVisibilityDesktop: $newsFeedVisibilityDesktop,
+      newsFeedTitleFontFamily: $newsFeedTitleFontFamily,
+      newsFeedTitleFontFamilyTablet: $newsFeedTitleFontFamilyTablet,
+      newsFeedTitleFontFamilyDesktop: $newsFeedTitleFontFamilyDesktop,
+      newsFeedTitleFontSize: $newsFeedTitleFontSize,
+      newsFeedTitleFontSizeTablet: $newsFeedTitleFontSizeTablet,
+      newsFeedTitleFontSizeDesktop: $newsFeedTitleFontSizeDesktop,
+      newsFeedTitleFontColor: $newsFeedTitleFontColor,
+      newsFeedTitleFontColorTablet: $newsFeedTitleFontColorTablet,
+      newsFeedTitleFontColorDesktop: $newsFeedTitleFontColorDesktop,
+      newsFeedTitleFontWeight: $newsFeedTitleFontWeight,
+      newsFeedTitleFontWeightTablet: $newsFeedTitleFontWeightTablet,
+      newsFeedTitleFontWeightDesktop: $newsFeedTitleFontWeightDesktop,
+      newsFeedTitleItalic: $newsFeedTitleItalic,
+      newsFeedTitleItalicTablet: $newsFeedTitleItalicTablet,
+      newsFeedTitleItalicDesktop: $newsFeedTitleItalicDesktop,
+      newsFeedTitleUnderline: $newsFeedTitleUnderline,
+      newsFeedTitleUnderlineTablet: $newsFeedTitleUnderlineTablet,
+      newsFeedTitleUnderlineDesktop: $newsFeedTitleUnderlineDesktop,
+      newsFeedTitleLineHeight: $newsFeedTitleLineHeight,
+      newsFeedTitleLineHeightTablet: $newsFeedTitleLineHeightTablet,
+      newsFeedTitleLineHeightDesktop: $newsFeedTitleLineHeightDesktop,
+      newsFeedTitleMarginTop: $newsFeedTitleMarginTop,
+      newsFeedTitleMarginTopTablet: $newsFeedTitleMarginTopTablet,
+      newsFeedTitleMarginTopDesktop: $newsFeedTitleMarginTopDesktop,
+      newsFeedTitleMarginBottom: $newsFeedTitleMarginBottom,
+      newsFeedTitleMarginBottomTablet: $newsFeedTitleMarginBottomTablet,
+      newsFeedTitleMarginBottomDesktop: $newsFeedTitleMarginBottomDesktop,
+      newsFeedDescriptionFontFamily: $newsFeedDescriptionFontFamily,
+      newsFeedDescriptionFontFamilyTablet: $newsFeedDescriptionFontFamilyTablet,
+      newsFeedDescriptionFontFamilyDesktop: $newsFeedDescriptionFontFamilyDesktop,
+      newsFeedDescriptionFontSize: $newsFeedDescriptionFontSize,
+      newsFeedDescriptionFontSizeTablet: $newsFeedDescriptionFontSizeTablet,
+      newsFeedDescriptionFontSizeDesktop: $newsFeedDescriptionFontSizeDesktop,
+      newsFeedDescriptionFontColor: $newsFeedDescriptionFontColor,
+      newsFeedDescriptionFontColorTablet: $newsFeedDescriptionFontColorTablet,
+      newsFeedDescriptionFontColorDesktop: $newsFeedDescriptionFontColorDesktop,
+      newsFeedDescriptionFontWeight: $newsFeedDescriptionFontWeight,
+      newsFeedDescriptionFontWeightTablet: $newsFeedDescriptionFontWeightTablet,
+      newsFeedDescriptionFontWeightDesktop: $newsFeedDescriptionFontWeightDesktop,
+      newsFeedDescriptionItalic: $newsFeedDescriptionItalic,
+      newsFeedDescriptionItalicTablet: $newsFeedDescriptionItalicTablet,
+      newsFeedDescriptionItalicDesktop: $newsFeedDescriptionItalicDesktop,
+      newsFeedDescriptionUnderline: $newsFeedDescriptionUnderline,
+      newsFeedDescriptionUnderlineTablet: $newsFeedDescriptionUnderlineTablet,
+      newsFeedDescriptionUnderlineDesktop: $newsFeedDescriptionUnderlineDesktop,
+      newsFeedDescriptionLineHeight: $newsFeedDescriptionLineHeight,
+      newsFeedDescriptionLineHeightTablet: $newsFeedDescriptionLineHeightTablet,
+      newsFeedDescriptionLineHeightDesktop: $newsFeedDescriptionLineHeightDesktop,
+      newsFeedDescriptionMarginTop: $newsFeedDescriptionMarginTop,
+      newsFeedDescriptionMarginTopTablet: $newsFeedDescriptionMarginTopTablet,
+      newsFeedDescriptionMarginTopDesktop: $newsFeedDescriptionMarginTopDesktop,
+      newsFeedDescriptionMarginBottom: $newsFeedDescriptionMarginBottom,
+      newsFeedDescriptionMarginBottomTablet: $newsFeedDescriptionMarginBottomTablet,
+      newsFeedDescriptionMarginBottomDesktop: $newsFeedDescriptionMarginBottomDesktop,
+      newsFeedSecondDescriptionFontFamily: $newsFeedSecondDescriptionFontFamily,
+      newsFeedSecondDescriptionFontFamilyTablet: $newsFeedSecondDescriptionFontFamilyTablet,
+      newsFeedSecondDescriptionFontFamilyDesktop: $newsFeedSecondDescriptionFontFamilyDesktop,
+      newsFeedSecondDescriptionFontSize: $newsFeedSecondDescriptionFontSize,
+      newsFeedSecondDescriptionFontSizeTablet: $newsFeedSecondDescriptionFontSizeTablet,
+      newsFeedSecondDescriptionFontSizeDesktop: $newsFeedSecondDescriptionFontSizeDesktop,
+      newsFeedSecondDescriptionFontColor: $newsFeedSecondDescriptionFontColor,
+      newsFeedSecondDescriptionFontColorTablet: $newsFeedSecondDescriptionFontColorTablet,
+      newsFeedSecondDescriptionFontColorDesktop: $newsFeedSecondDescriptionFontColorDesktop,
+      newsFeedSecondDescriptionFontWeight: $newsFeedSecondDescriptionFontWeight,
+      newsFeedSecondDescriptionFontWeightTablet: $newsFeedSecondDescriptionFontWeightTablet,
+      newsFeedSecondDescriptionFontWeightDesktop: $newsFeedSecondDescriptionFontWeightDesktop,
+      newsFeedSecondDescriptionItalic: $newsFeedSecondDescriptionItalic,
+      newsFeedSecondDescriptionItalicTablet: $newsFeedSecondDescriptionItalicTablet,
+      newsFeedSecondDescriptionItalicDesktop: $newsFeedSecondDescriptionItalicDesktop,
+      newsFeedSecondDescriptionUnderline: $newsFeedSecondDescriptionUnderline,
+      newsFeedSecondDescriptionUnderlineTablet: $newsFeedSecondDescriptionUnderlineTablet,
+      newsFeedSecondDescriptionUnderlineDesktop: $newsFeedSecondDescriptionUnderlineDesktop,
+      newsFeedSecondDescriptionLineHeight: $newsFeedSecondDescriptionLineHeight,
+      newsFeedSecondDescriptionLineHeightTablet: $newsFeedSecondDescriptionLineHeightTablet,
+      newsFeedSecondDescriptionLineHeightDesktop: $newsFeedSecondDescriptionLineHeightDesktop,
+      newsFeedDetailTitleFontFamily: $newsFeedDetailTitleFontFamily,
+      newsFeedDetailTitleFontFamilyTablet: $newsFeedDetailTitleFontFamilyTablet,
+      newsFeedDetailTitleFontFamilyDesktop: $newsFeedDetailTitleFontFamilyDesktop,
+      newsFeedDetailTitleFontSize: $newsFeedDetailTitleFontSize,
+      newsFeedDetailTitleFontSizeTablet: $newsFeedDetailTitleFontSizeTablet,
+      newsFeedDetailTitleFontSizeDesktop: $newsFeedDetailTitleFontSizeDesktop,
+      newsFeedDetailTitleFontColor: $newsFeedDetailTitleFontColor,
+      newsFeedDetailTitleFontColorTablet: $newsFeedDetailTitleFontColorTablet,
+      newsFeedDetailTitleFontColorDesktop: $newsFeedDetailTitleFontColorDesktop,
+      newsFeedDetailTitleFontWeight: $newsFeedDetailTitleFontWeight,
+      newsFeedDetailTitleFontWeightTablet: $newsFeedDetailTitleFontWeightTablet,
+      newsFeedDetailTitleFontWeightDesktop: $newsFeedDetailTitleFontWeightDesktop,
+      newsFeedDetailTitleItalic: $newsFeedDetailTitleItalic,
+      newsFeedDetailTitleItalicTablet: $newsFeedDetailTitleItalicTablet,
+      newsFeedDetailTitleItalicDesktop: $newsFeedDetailTitleItalicDesktop,
+      newsFeedDetailTitleUnderline: $newsFeedDetailTitleUnderline,
+      newsFeedDetailTitleUnderlineTablet: $newsFeedDetailTitleUnderlineTablet,
+      newsFeedDetailTitleUnderlineDesktop: $newsFeedDetailTitleUnderlineDesktop,
+      newsFeedDetailTitleLineHeight: $newsFeedDetailTitleLineHeight,
+      newsFeedDetailTitleLineHeightTablet: $newsFeedDetailTitleLineHeightTablet,
+      newsFeedDetailTitleLineHeightDesktop: $newsFeedDetailTitleLineHeightDesktop,
+      newsFeedDetailDescriptionFontFamily: $newsFeedDetailDescriptionFontFamily,
+      newsFeedDetailDescriptionFontFamilyTablet: $newsFeedDetailDescriptionFontFamilyTablet,
+      newsFeedDetailDescriptionFontFamilyDesktop: $newsFeedDetailDescriptionFontFamilyDesktop,
+      newsFeedDetailDescriptionFontSize: $newsFeedDetailDescriptionFontSize,
+      newsFeedDetailDescriptionFontSizeTablet: $newsFeedDetailDescriptionFontSizeTablet,
+      newsFeedDetailDescriptionFontSizeDesktop: $newsFeedDetailDescriptionFontSizeDesktop,
+      newsFeedDetailDescriptionFontColor: $newsFeedDetailDescriptionFontColor,
+      newsFeedDetailDescriptionFontColorTablet: $newsFeedDetailDescriptionFontColorTablet,
+      newsFeedDetailDescriptionFontColorDesktop: $newsFeedDetailDescriptionFontColorDesktop,
+      newsFeedDetailDescriptionFontWeight: $newsFeedDetailDescriptionFontWeight,
+      newsFeedDetailDescriptionFontWeightTablet: $newsFeedDetailDescriptionFontWeightTablet,
+      newsFeedDetailDescriptionFontWeightDesktop: $newsFeedDetailDescriptionFontWeightDesktop,
+      newsFeedDetailDescriptionItalic: $newsFeedDetailDescriptionItalic,
+      newsFeedDetailDescriptionItalicTablet: $newsFeedDetailDescriptionItalicTablet,
+      newsFeedDetailDescriptionItalicDesktop: $newsFeedDetailDescriptionItalicDesktop,
+      newsFeedDetailDescriptionUnderline: $newsFeedDetailDescriptionUnderline,
+      newsFeedDetailDescriptionUnderlineTablet: $newsFeedDetailDescriptionUnderlineTablet,
+      newsFeedDetailDescriptionUnderlineDesktop: $newsFeedDetailDescriptionUnderlineDesktop,
+      newsFeedDetailDescriptionLineHeight: $newsFeedDetailDescriptionLineHeight,
+      newsFeedDetailDescriptionLineHeightTablet: $newsFeedDetailDescriptionLineHeightTablet,
+      newsFeedDetailDescriptionLineHeightDesktop: $newsFeedDetailDescriptionLineHeightDesktop,
+      newsFeedDetailDescriptionMarginTop: $newsFeedDetailDescriptionMarginTop,
+      newsFeedDetailDescriptionMarginTopTablet: $newsFeedDetailDescriptionMarginTopTablet,
+      newsFeedDetailDescriptionMarginTopDesktop: $newsFeedDetailDescriptionMarginTopDesktop,
+      newsFeedDetailDescriptionMarginBottom: $newsFeedDetailDescriptionMarginBottom,
+      newsFeedDetailDescriptionMarginBottomTablet: $newsFeedDetailDescriptionMarginBottomTablet,
+      newsFeedDetailDescriptionMarginBottomDesktop: $newsFeedDetailDescriptionMarginBottomDesktop,
+      newsFeedDetailSecondDescriptionFontFamily: $newsFeedDetailSecondDescriptionFontFamily,
+      newsFeedDetailSecondDescriptionFontFamilyTablet:
+        $newsFeedDetailSecondDescriptionFontFamilyTablet,
+      newsFeedDetailSecondDescriptionFontFamilyDesktop:
+        $newsFeedDetailSecondDescriptionFontFamilyDesktop,
+      newsFeedDetailSecondDescriptionFontSize: $newsFeedDetailSecondDescriptionFontSize,
+      newsFeedDetailSecondDescriptionFontSizeTablet: $newsFeedDetailSecondDescriptionFontSizeTablet,
+      newsFeedDetailSecondDescriptionFontSizeDesktop:
+        $newsFeedDetailSecondDescriptionFontSizeDesktop,
+      newsFeedDetailSecondDescriptionFontColor: $newsFeedDetailSecondDescriptionFontColor,
+      newsFeedDetailSecondDescriptionFontColorTablet:
+        $newsFeedDetailSecondDescriptionFontColorTablet,
+      newsFeedDetailSecondDescriptionFontColorDesktop:
+        $newsFeedDetailSecondDescriptionFontColorDesktop,
+      newsFeedDetailSecondDescriptionFontWeight: $newsFeedDetailSecondDescriptionFontWeight,
+      newsFeedDetailSecondDescriptionFontWeightTablet:
+        $newsFeedDetailSecondDescriptionFontWeightTablet,
+      newsFeedDetailSecondDescriptionFontWeightDesktop:
+        $newsFeedDetailSecondDescriptionFontWeightDesktop,
+      newsFeedDetailSecondDescriptionItalic: $newsFeedDetailSecondDescriptionItalic,
+      newsFeedDetailSecondDescriptionItalicTablet: $newsFeedDetailSecondDescriptionItalicTablet,
+      newsFeedDetailSecondDescriptionItalicDesktop: $newsFeedDetailSecondDescriptionItalicDesktop,
+      newsFeedDetailSecondDescriptionUnderline: $newsFeedDetailSecondDescriptionUnderline,
+      newsFeedDetailSecondDescriptionUnderlineTablet:
+        $newsFeedDetailSecondDescriptionUnderlineTablet,
+      newsFeedDetailSecondDescriptionUnderlineDesktop:
+        $newsFeedDetailSecondDescriptionUnderlineDesktop,
+      newsFeedDetailSecondDescriptionLineHeight: $newsFeedDetailSecondDescriptionLineHeight,
+      newsFeedDetailSecondDescriptionLineHeightTablet:
+        $newsFeedDetailSecondDescriptionLineHeightTablet,
+      newsFeedDetailSecondDescriptionLineHeightDesktop:
+        $newsFeedDetailSecondDescriptionLineHeightDesktop,
+      newsFeedDetailTextFontFamily: $newsFeedDetailTextFontFamily,
+      newsFeedDetailTextFontFamilyTablet: $newsFeedDetailTextFontFamilyTablet,
+      newsFeedDetailTextFontFamilyDesktop: $newsFeedDetailTextFontFamilyDesktop,
+      newsFeedDetailTextFontSize: $newsFeedDetailTextFontSize,
+      newsFeedDetailTextFontSizeTablet: $newsFeedDetailTextFontSizeTablet,
+      newsFeedDetailTextFontSizeDesktop: $newsFeedDetailTextFontSizeDesktop,
+      newsFeedDetailTextFontColor: $newsFeedDetailTextFontColor,
+      newsFeedDetailTextFontColorTablet: $newsFeedDetailTextFontColorTablet,
+      newsFeedDetailTextFontColorDesktop: $newsFeedDetailTextFontColorDesktop,
+      newsFeedDetailTextFontWeight: $newsFeedDetailTextFontWeight,
+      newsFeedDetailTextFontWeightTablet: $newsFeedDetailTextFontWeightTablet,
+      newsFeedDetailTextFontWeightDesktop: $newsFeedDetailTextFontWeightDesktop,
+      newsFeedDetailTextItalic: $newsFeedDetailTextItalic,
+      newsFeedDetailTextItalicTablet: $newsFeedDetailTextItalicTablet,
+      newsFeedDetailTextItalicDesktop: $newsFeedDetailTextItalicDesktop,
+      newsFeedDetailTextUnderline: $newsFeedDetailTextUnderline,
+      newsFeedDetailTextUnderlineTablet: $newsFeedDetailTextUnderlineTablet,
+      newsFeedDetailTextUnderlineDesktop: $newsFeedDetailTextUnderlineDesktop,
+      newsFeedDetailTextLineHeight: $newsFeedDetailTextLineHeight,
+      newsFeedDetailTextLineHeightTablet: $newsFeedDetailTextLineHeightTablet,
+      newsFeedDetailTextLineHeightDesktop: $newsFeedDetailTextLineHeightDesktop,
+      newsFeedDetailTextMarginTop: $newsFeedDetailTextMarginTop,
+      newsFeedDetailTextMarginTopTablet: $newsFeedDetailTextMarginTopTablet,
+      newsFeedDetailTextMarginTopDesktop: $newsFeedDetailTextMarginTopDesktop,
+      newsFeedDetailTextMarginBottom: $newsFeedDetailTextMarginBottom,
+      newsFeedDetailTextMarginBottomTablet: $newsFeedDetailTextMarginBottomTablet,
+      newsFeedDetailTextMarginBottomDesktop: $newsFeedDetailTextMarginBottomDesktop,
+      newsFeedListItemBackground: $newsFeedListItemBackground,
+      newsFeedListItemBackgroundTablet: $newsFeedListItemBackgroundTablet,
+      newsFeedListItemBackgroundDesktop: $newsFeedListItemBackgroundDesktop,
+      newsFeedListDetailOverlayBackground: $newsFeedListDetailOverlayBackground,
+      newsFeedListDetailOverlayBackgroundTablet: $newsFeedListDetailOverlayBackgroundTablet,
+      newsFeedListDetailOverlayBackgroundDesktop: $newsFeedListDetailOverlayBackgroundDesktop,
+      newsFeedListDetailOverlayLineUnderTitleColor: $newsFeedListDetailOverlayLineUnderTitleColor,
+      newsFeedListDetailOverlayLineUnderTitleColorTablet:
+        $newsFeedListDetailOverlayLineUnderTitleColorTablet,
+      newsFeedListDetailOverlayLineUnderTitleColorDesktop:
+        $newsFeedListDetailOverlayLineUnderTitleColorDesktop,
+      newsFeedFiltersOverlayBackground: $newsFeedFiltersOverlayBackground,
+      newsFeedFiltersOverlayBackgroundTablet: $newsFeedFiltersOverlayBackgroundTablet,
+      newsFeedFiltersOverlayBackgroundDesktop: $newsFeedFiltersOverlayBackgroundDesktop,
+      newsFeedFilterIconColor: $newsFeedFilterIconColor,
+      newsFeedFilterIconColorTablet: $newsFeedFilterIconColorTablet,
+      newsFeedFilterIconColorDesktop: $newsFeedFilterIconColorDesktop,
+      newsFeedFilterIconActiveColor: $newsFeedFilterIconActiveColor,
+      newsFeedFilterIconActiveColorTablet: $newsFeedFilterIconActiveColorTablet,
+      newsFeedFilterIconActiveColorDesktop: $newsFeedFilterIconActiveColorDesktop,
+      newsFeedSearchIconColor: $newsFeedSearchIconColor,
+      newsFeedSearchIconColorTablet: $newsFeedSearchIconColorTablet,
+      newsFeedSearchIconColorDesktop: $newsFeedSearchIconColorDesktop,
+      newsFeedSearchFieldBorderColor: $newsFeedSearchFieldBorderColor,
+      newsFeedSearchFieldBorderColorTablet: $newsFeedSearchFieldBorderColorTablet,
+      newsFeedSearchFieldBorderColorDesktop: $newsFeedSearchFieldBorderColorDesktop,
+      newsFeedSearchFieldBorderActiveColor: $newsFeedSearchFieldBorderActiveColor,
+      newsFeedSearchFieldBorderActiveColorTablet: $newsFeedSearchFieldBorderActiveColorTablet,
+      newsFeedSearchFieldBorderActiveColorDesktop: $newsFeedSearchFieldBorderActiveColorDesktop,
+      newsFeedSearchFieldTextColor: $newsFeedSearchFieldTextColor,
+      newsFeedSearchFieldTextColorTablet: $newsFeedSearchFieldTextColorTablet,
+      newsFeedSearchFieldTextColorDesktop: $newsFeedSearchFieldTextColorDesktop,
+      newsFeedSearchFieldBackgroundColor: $newsFeedSearchFieldBackgroundColor,
+      newsFeedSearchFieldBackgroundColorTablet: $newsFeedSearchFieldBackgroundColorTablet,
+      newsFeedSearchFieldBackgroundColorDesktop: $newsFeedSearchFieldBackgroundColorDesktop,
+      newsFeedBookmarkIconColor: $newsFeedBookmarkIconColor,
+      newsFeedBookmarkIconColorTablet: $newsFeedBookmarkIconColorTablet,
+      newsFeedBookmarkIconColorDesktop: $newsFeedBookmarkIconColorDesktop,
+      newsFeedBookmarkIconActiveColor: $newsFeedBookmarkIconActiveColor,
+      newsFeedBookmarkIconActiveColorTablet: $newsFeedBookmarkIconActiveColorTablet,
+      newsFeedBookmarkIconActiveColorDesktop: $newsFeedBookmarkIconActiveColorDesktop,
+      newsFeedLikeIconColor: $newsFeedLikeIconColor,
+      newsFeedLikeIconColorTablet: $newsFeedLikeIconColorTablet,
+      newsFeedLikeIconColorDesktop: $newsFeedLikeIconColorDesktop,
+      newsFeedLikeIconActiveColor: $newsFeedLikeIconActiveColor,
+      newsFeedLikeIconActiveColorTablet: $newsFeedLikeIconActiveColorTablet,
+      newsFeedLikeIconActiveColorDesktop: $newsFeedLikeIconActiveColorDesktop,
+      newsFeedImageBackground: $newsFeedImageBackground,
+      newsFeedImageBackgroundTablet: $newsFeedImageBackgroundTablet,
+      newsFeedImageBackgroundDesktop: $newsFeedImageBackgroundDesktop,
+      lfdCommentsBackgroundColor: $lfdCommentsBackgroundColor,
+      lfdCommentsBackgroundColorTablet: $lfdCommentsBackgroundColorTablet,
+      lfdCommentsBackgroundColorDesktop: $lfdCommentsBackgroundColorDesktop,
+      lfdCommentsFontColor: $lfdCommentsFontColor,
+      lfdCommentsFontColorTablet: $lfdCommentsFontColorTablet,
+      lfdCommentsFontColorDesktop: $lfdCommentsFontColorDesktop,
+      newsFeedPaddingTop: $newsFeedPaddingTop,
+      newsFeedPaddingRight: $newsFeedPaddingRight,
+      newsFeedPaddingBottom: $newsFeedPaddingBottom,
+      newsFeedPaddingLeft: $newsFeedPaddingLeft,
+      newsFeedPaddingTopTablet: $newsFeedPaddingTopTablet,
+      newsFeedPaddingRightTablet: $newsFeedPaddingRightTablet,
+      newsFeedPaddingBottomTablet: $newsFeedPaddingBottomTablet,
+      newsFeedPaddingLeftTablet: $newsFeedPaddingLeftTablet,
+      newsFeedPaddingTopDesktop: $newsFeedPaddingTopDesktop,
+      newsFeedPaddingRightDesktop: $newsFeedPaddingRightDesktop,
+      newsFeedPaddingBottomDesktop: $newsFeedPaddingBottomDesktop,
+      newsFeedPaddingLeftDesktop: $newsFeedPaddingLeftDesktop,
+      newsFeedListItemBorderSides: $newsFeedListItemBorderSides,
+      newsFeedListItemBorderSidesTablet: $newsFeedListItemBorderSidesTablet,
+      newsFeedListItemBorderSidesDesktop: $newsFeedListItemBorderSidesDesktop,
+      newsFeedListItemBorderWidth: $newsFeedListItemBorderWidth,
+      newsFeedListItemBorderWidthTablet: $newsFeedListItemBorderWidthTablet,
+      newsFeedListItemBorderWidthDesktop: $newsFeedListItemBorderWidthDesktop,
+      newsFeedListItemBorderStyle: $newsFeedListItemBorderStyle,
+      newsFeedListItemBorderStyleTablet: $newsFeedListItemBorderStyleTablet,
+      newsFeedListItemBorderStyleDesktop: $newsFeedListItemBorderStyleDesktop,
+      newsFeedListItemBorder: $newsFeedListItemBorder,
+      newsFeedListItemBorderTablet: $newsFeedListItemBorderTablet,
+      newsFeedListItemBorderDesktop: $newsFeedListItemBorderDesktop,
+      newsFeedListItemBorderRadius: $newsFeedListItemBorderRadius,
+      newsFeedListItemBorderRadiusTablet: $newsFeedListItemBorderRadiusTablet,
+      newsFeedListItemBorderRadiusDesktop: $newsFeedListItemBorderRadiusDesktop,
+      newsFeedListItemShadowStyle: $newsFeedListItemShadowStyle,
+      newsFeedListItemShadowStyleTablet: $newsFeedListItemShadowStyleTablet,
+      newsFeedListItemShadowStyleDesktop: $newsFeedListItemShadowStyleDesktop,
+      newsFeedListItemShadowXoffset: $newsFeedListItemShadowXoffset,
+      newsFeedListItemShadowXoffsetTablet: $newsFeedListItemShadowXoffsetTablet,
+      newsFeedListItemShadowXoffsetDesktop: $newsFeedListItemShadowXoffsetDesktop,
+      newsFeedListItemShadowYoffset: $newsFeedListItemShadowYoffset,
+      newsFeedListItemShadowYoffsetTablet: $newsFeedListItemShadowYoffsetTablet,
+      newsFeedListItemShadowYoffsetDesktop: $newsFeedListItemShadowYoffsetDesktop,
+      newsFeedListItemShadowBlur: $newsFeedListItemShadowBlur,
+      newsFeedListItemShadowBlurTablet: $newsFeedListItemShadowBlurTablet,
+      newsFeedListItemShadowBlurDesktop: $newsFeedListItemShadowBlurDesktop,
+      newsFeedListItemShadowSpread: $newsFeedListItemShadowSpread,
+      newsFeedListItemShadowSpreadTablet: $newsFeedListItemShadowSpreadTablet,
+      newsFeedListItemShadowSpreadDesktop: $newsFeedListItemShadowSpreadDesktop,
+      newsFeedListItemShadowColor: $newsFeedListItemShadowColor,
+      newsFeedListItemShadowColorTablet: $newsFeedListItemShadowColorTablet,
+      newsFeedListItemShadowColorDesktop: $newsFeedListItemShadowColorDesktop,
+      newsFeedPosition: $newsFeedPosition,
+      newsFeedPositionTop: $newsFeedPositionTop,
+      newsFeedPositionRight: $newsFeedPositionRight,
+      newsFeedPositionBottom: $newsFeedPositionBottom,
+      newsFeedPositionLeft: $newsFeedPositionLeft,
+      newsFeedIndex: $newsFeedIndex,
+      newsFeedDisplay: $newsFeedDisplay,
+      newsFeedPositionTablet: $newsFeedPositionTablet,
+      newsFeedPositionTopTablet: $newsFeedPositionTopTablet,
+      newsFeedPositionRightTablet: $newsFeedPositionRightTablet,
+      newsFeedPositionBottomTablet: $newsFeedPositionBottomTablet,
+      newsFeedPositionLeftTablet: $newsFeedPositionLeftTablet,
+      newsFeedIndexTablet: $newsFeedIndexTablet,
+      newsFeedDisplayTablet: $newsFeedDisplayTablet,
+      newsFeedPositionDesktop: $newsFeedPositionDesktop,
+      newsFeedPositionTopDesktop: $newsFeedPositionTopDesktop,
+      newsFeedPositionRightDesktop: $newsFeedPositionRightDesktop,
+      newsFeedPositionBottomDesktop: $newsFeedPositionBottomDesktop,
+      newsFeedPositionLeftDesktop: $newsFeedPositionLeftDesktop,
+      newsFeedIndexDesktop: $newsFeedIndexDesktop,
+      newsFeedDisplayDesktop: $newsFeedDisplayDesktop,
+      newsFeedAddButtonBackground: $newsFeedAddButtonBackground,
+      newsFeedAddButtonBackgroundTablet: $newsFeedAddButtonBackgroundTablet,
+      newsFeedAddButtonBackgroundDesktop: $newsFeedAddButtonBackgroundDesktop,
+      newsFeedAddButtonIcon: $newsFeedAddButtonIcon,
+      newsFeedAddButtonIconTablet: $newsFeedAddButtonIconTablet,
+      newsFeedAddButtonIconDesktop: $newsFeedAddButtonIconDesktop,
+      newsFeedSortIconColor: $newsFeedSortIconColor,
+      newsFeedSortIconColorTablet: $newsFeedSortIconColorTablet,
+      newsFeedSortIconColorDesktop: $newsFeedSortIconColorDesktop
+    ),
+    $options
+  );
 
   $instanceSelector: '[data-widget-package="com.fliplet.dynamic-lists"]';
   $layout: '[data-settings-layout="news-feed"]';
-  $layoutSelector: '#{$instanceSelector}#{$layout}';
-  @if $widgetInstanceUUID != '' {
+  $layoutSelector: "#{$instanceSelector}#{$layout}";
+  @if $widgetInstanceUUID != "" {
     $layoutSelector: '#{$layoutSelector}[data-uuid="#{$widgetInstanceUUID}"]';
-  } @else if $widgetInstanceId != '' {
+  } @else if $widgetInstanceId != "" {
     $layoutSelector: '#{$layoutSelector}[data-id="#{$widgetInstanceId}"]';
   }
 
@@ -339,14 +355,14 @@
     position: map-get($configuration, newsFeedPosition) !important;
     z-index: map-get($configuration, newsFeedIndex);
 
-    @if map-get($configuration, newsFeedPosition) == 'relative' {
-      @if map-get($configuration, newsFeedVisibility) == 'visible' {
+    @if map-get($configuration, newsFeedPosition) == "relative" {
+      @if map-get($configuration, newsFeedVisibility) == "visible" {
         display: map-get($configuration, newsFeedDisplay) !important;
       } @else {
         display: none !important;
       }
     } @else {
-      @if map-get($configuration, newsFeedVisibility) == 'visible' {
+      @if map-get($configuration, newsFeedVisibility) == "visible" {
         display: block !important;
       } @else {
         display: none !important;
@@ -360,14 +376,11 @@
 
     width: map-get($configuration, newsFeedWidth);
     max-width: map-get($configuration, newsFeedMaxWidth);
-    margin: map-get($configuration, newsFeedMarginTop)
-      map-get($configuration, newsFeedMarginRight)
-      map-get($configuration, newsFeedMarginBottom)
-      map-get($configuration, newsFeedMarginLeft);
+    margin: map-get($configuration, newsFeedMarginTop) map-get($configuration, newsFeedMarginRight)
+      map-get($configuration, newsFeedMarginBottom) map-get($configuration, newsFeedMarginLeft);
 
     padding: map-get($configuration, newsFeedPaddingTop)
-      map-get($configuration, newsFeedPaddingRight)
-      map-get($configuration, newsFeedPaddingBottom)
+      map-get($configuration, newsFeedPaddingRight) map-get($configuration, newsFeedPaddingBottom)
       map-get($configuration, newsFeedPaddingLeft);
 
     // Styles for tablet
@@ -375,14 +388,14 @@
       position: map-get($configuration, newsFeedPositionTablet) !important;
       z-index: map-get($configuration, newsFeedIndexTablet);
 
-      @if map-get($configuration, newsFeedPositionTablet) == 'relative' {
-        @if map-get($configuration, newsFeedVisibilityTablet) == 'visible' {
+      @if map-get($configuration, newsFeedPositionTablet) == "relative" {
+        @if map-get($configuration, newsFeedVisibilityTablet) == "visible" {
           display: map-get($configuration, newsFeedDisplayTablet) !important;
         } @else {
           display: none !important;
         }
       } @else {
-        @if map-get($configuration, newsFeedVisibilityTablet) == 'visible' {
+        @if map-get($configuration, newsFeedVisibilityTablet) == "visible" {
           display: block !important;
         } @else {
           display: none !important;
@@ -412,14 +425,14 @@
       position: map-get($configuration, newsFeedPositionDesktop) !important;
       z-index: map-get($configuration, newsFeedIndexDesktop);
 
-      @if map-get($configuration, newsFeedPositionDesktop) == 'relative' {
-        @if map-get($configuration, newsFeedVisibilityDesktop) == 'visible' {
+      @if map-get($configuration, newsFeedPositionDesktop) == "relative" {
+        @if map-get($configuration, newsFeedVisibilityDesktop) == "visible" {
           display: map-get($configuration, newsFeedDisplayDesktop) !important;
         } @else {
           display: none !important;
         }
       } @else {
-        @if map-get($configuration, newsFeedVisibilityDesktop) == 'visible' {
+        @if map-get($configuration, newsFeedVisibilityDesktop) == "visible" {
           display: block !important;
         } @else {
           display: none !important;
@@ -509,7 +522,7 @@
         .btn.comment,
         .btn.save {
           border-color: rgba(map-get($configuration, lfdCommentsFontColor), 0.3);
-          color: rgba(map-get($configuration, lfdCommentsFontColor),0.3);
+          color: rgba(map-get($configuration, lfdCommentsFontColor), 0.3);
         }
 
         &.ready {
@@ -539,7 +552,7 @@
         color: map-get($configuration, lfdCommentsFontColor);
 
         ~ .typeahead.dropdown-menu {
-          border-color: rgba(map-get($configuration, lfdCommentsFontColor),0.1);
+          border-color: rgba(map-get($configuration, lfdCommentsFontColor), 0.1);
 
           > .active > a {
             background-color: $highlightColor;
@@ -588,7 +601,7 @@
           .btn.comment,
           .btn.save {
             border-color: rgba(map-get($configuration, lfdCommentsFontColorTablet), 0.3);
-            color: rgba(map-get($configuration, lfdCommentsFontColorTablet),0.3);
+            color: rgba(map-get($configuration, lfdCommentsFontColorTablet), 0.3);
           }
 
           &.ready {
@@ -616,7 +629,7 @@
           color: map-get($configuration, lfdCommentsFontColorTablet);
 
           ~ .typeahead.dropdown-menu {
-            border-color: rgba(map-get($configuration, lfdCommentsFontColorTablet),0.1);
+            border-color: rgba(map-get($configuration, lfdCommentsFontColorTablet), 0.1);
 
             > .active > a {
               color: $primaryButtonTextColorTablet;
@@ -665,7 +678,7 @@
           .btn.comment,
           .btn.save {
             border-color: rgba(map-get($configuration, lfdCommentsFontColorDesktop), 0.3);
-            color: rgba(map-get($configuration, lfdCommentsFontColorDesktop),0.3);
+            color: rgba(map-get($configuration, lfdCommentsFontColorDesktop), 0.3);
           }
 
           &.ready {
@@ -693,7 +706,7 @@
           color: map-get($configuration, lfdCommentsFontColorDesktop);
 
           ~ .typeahead.dropdown-menu {
-            border-color: rgba(map-get($configuration, lfdCommentsFontColorDesktop),0.1);
+            border-color: rgba(map-get($configuration, lfdCommentsFontColorDesktop), 0.1);
 
             > .active > a {
               color: $primaryButtonTextColorDesktop;
@@ -706,7 +719,6 @@
         }
       }
     }
-
 
     .new-news-feed-list-container .news-feed-search-filter-overlay {
       .news-feed-overlay-wrapper {
@@ -810,43 +822,52 @@
           background-color: map-get($configuration, newsFeedListItemBackground);
 
           h2.news-feed-item-title {
-            @include fontOnly((
-              fontFamily: map-get($configuration, newsFeedTitleFontFamily),
-              fontSize: map-get($configuration, newsFeedTitleFontSize),
-              fontLineHeight: map-get($configuration, newsFeedTitleLineHeight),
-              fontWeight: map-get($configuration, newsFeedTitleFontWeight),
-              fontStyle: map-get($configuration, newsFeedTitleItalic),
-              fontDecoration: map-get($configuration, newsFeedTitleUnderline)
-            ));
+            @include fontOnly(
+              (
+                fontFamily: map-get($configuration, newsFeedTitleFontFamily),
+                fontSize: map-get($configuration, newsFeedTitleFontSize),
+                fontLineHeight: map-get($configuration, newsFeedTitleLineHeight),
+                fontWeight: map-get($configuration, newsFeedTitleFontWeight),
+                fontStyle: map-get($configuration, newsFeedTitleItalic),
+                fontDecoration: map-get($configuration, newsFeedTitleUnderline)
+              )
+            );
 
             margin-top: map-get($configuration, newsFeedTitleMarginTop);
             margin-bottom: map-get($configuration, newsFeedTitleMarginBottom);
             color: map-get($configuration, newsFeedTitleFontColor);
 
             &:after {
-              background-color: map-get($configuration, newsFeedListDetailOverlayLineUnderTitleColor);
+              background-color: map-get(
+                $configuration,
+                newsFeedListDetailOverlayLineUnderTitleColor
+              );
             }
           }
         }
       }
 
       .news-feed-list-wrapper .news-feed-list-item {
-        @include borderOnly((
-          borderSides: map-get($configuration, newsFeedListItemBorderSides),
-          borderWidth: map-get($configuration, newsFeedListItemBorderWidth),
-          borderStyle: map-get($configuration, newsFeedListItemBorderStyle),
-          borderColor: map-get($configuration, newsFeedListItemBorder)
-        ));
+        @include borderOnly(
+          (
+            borderSides: map-get($configuration, newsFeedListItemBorderSides),
+            borderWidth: map-get($configuration, newsFeedListItemBorderWidth),
+            borderStyle: map-get($configuration, newsFeedListItemBorderStyle),
+            borderColor: map-get($configuration, newsFeedListItemBorder)
+          )
+        );
         border-radius: map-get($configuration, newsFeedListItemBorderRadius);
 
-        @include shadowOnly((
-          shadowStyle: map-get($configuration, newsFeedListItemShadowStyle),
-          shadowXOffset: map-get($configuration, newsFeedListItemShadowXoffset),
-          shadowYOffset: map-get($configuration, newsFeedListItemShadowYoffset),
-          shadowBlur: map-get($configuration, newsFeedListItemShadowBlur),
-          shadowSpread: map-get($configuration, newsFeedListItemShadowSpread),
-          shadowColor: map-get($configuration, newsFeedListItemShadowColor)
-        ));
+        @include shadowOnly(
+          (
+            shadowStyle: map-get($configuration, newsFeedListItemShadowStyle),
+            shadowXOffset: map-get($configuration, newsFeedListItemShadowXoffset),
+            shadowYOffset: map-get($configuration, newsFeedListItemShadowYoffset),
+            shadowBlur: map-get($configuration, newsFeedListItemShadowBlur),
+            shadowSpread: map-get($configuration, newsFeedListItemShadowSpread),
+            shadowColor: map-get($configuration, newsFeedListItemShadowColor)
+          )
+        );
       }
 
       .news-feed-item-content {
@@ -863,14 +884,16 @@
         }
 
         .news-feed-item-description {
-          @include fontOnly((
-            fontFamily: map-get($configuration, newsFeedDescriptionFontFamily),
-            fontSize: map-get($configuration, newsFeedDescriptionFontSize),
-            fontLineHeight: map-get($configuration, newsFeedDescriptionLineHeight),
-            fontWeight: map-get($configuration, newsFeedDescriptionFontWeight),
-            fontStyle: map-get($configuration, newsFeedDescriptionItalic),
-            fontDecoration: map-get($configuration, newsFeedDescriptionUnderline)
-          ));
+          @include fontOnly(
+            (
+              fontFamily: map-get($configuration, newsFeedDescriptionFontFamily),
+              fontSize: map-get($configuration, newsFeedDescriptionFontSize),
+              fontLineHeight: map-get($configuration, newsFeedDescriptionLineHeight),
+              fontWeight: map-get($configuration, newsFeedDescriptionFontWeight),
+              fontStyle: map-get($configuration, newsFeedDescriptionItalic),
+              fontDecoration: map-get($configuration, newsFeedDescriptionUnderline)
+            )
+          );
 
           margin-top: map-get($configuration, newsFeedDescriptionMarginTop);
           margin-bottom: map-get($configuration, newsFeedDescriptionMarginBottom);
@@ -878,14 +901,16 @@
         }
 
         .news-feed-info-holder .news-feed-date-category {
-          @include fontOnly((
-            fontFamily: map-get($configuration, newsFeedSecondDescriptionFontFamily),
-            fontSize: map-get($configuration, newsFeedSecondDescriptionFontSize),
-            fontLineHeight: map-get($configuration, newsFeedSecondDescriptionLineHeight),
-            fontWeight: map-get($configuration, newsFeedSecondDescriptionFontWeight),
-            fontStyle: map-get($configuration, newsFeedSecondDescriptionItalic),
-            fontDecoration: map-get($configuration, newsFeedSecondDescriptionUnderline)
-          ));
+          @include fontOnly(
+            (
+              fontFamily: map-get($configuration, newsFeedSecondDescriptionFontFamily),
+              fontSize: map-get($configuration, newsFeedSecondDescriptionFontSize),
+              fontLineHeight: map-get($configuration, newsFeedSecondDescriptionLineHeight),
+              fontWeight: map-get($configuration, newsFeedSecondDescriptionFontWeight),
+              fontStyle: map-get($configuration, newsFeedSecondDescriptionItalic),
+              fontDecoration: map-get($configuration, newsFeedSecondDescriptionUnderline)
+            )
+          );
 
           color: map-get($configuration, newsFeedSecondDescriptionFontColor);
         }
@@ -926,43 +951,52 @@
             background-color: map-get($configuration, newsFeedListItemBackgroundTablet);
 
             h2.news-feed-item-title {
-              @include fontOnly((
-                fontFamily: map-get($configuration, newsFeedTitleFontFamilyTablet),
-                fontSize: map-get($configuration, newsFeedTitleFontSizeTablet),
-                fontLineHeight: map-get($configuration, newsFeedTitleLineHeightTablet),
-                fontWeight: map-get($configuration, newsFeedTitleFontWeightTablet),
-                fontStyle: map-get($configuration, newsFeedTitleItalicTablet),
-                fontDecoration: map-get($configuration, newsFeedTitleUnderlineTablet)
-              ));
+              @include fontOnly(
+                (
+                  fontFamily: map-get($configuration, newsFeedTitleFontFamilyTablet),
+                  fontSize: map-get($configuration, newsFeedTitleFontSizeTablet),
+                  fontLineHeight: map-get($configuration, newsFeedTitleLineHeightTablet),
+                  fontWeight: map-get($configuration, newsFeedTitleFontWeightTablet),
+                  fontStyle: map-get($configuration, newsFeedTitleItalicTablet),
+                  fontDecoration: map-get($configuration, newsFeedTitleUnderlineTablet)
+                )
+              );
 
               margin-top: map-get($configuration, newsFeedTitleMarginTopTablet);
               margin-bottom: map-get($configuration, newsFeedTitleMarginBottomTablet);
               color: map-get($configuration, newsFeedTitleFontColorTablet);
 
               &:after {
-                background-color: map-get($configuration, newsFeedListDetailOverlayLineUnderTitleColorTablet);
+                background-color: map-get(
+                  $configuration,
+                  newsFeedListDetailOverlayLineUnderTitleColorTablet
+                );
               }
             }
           }
         }
 
         .news-feed-list-wrapper .news-feed-list-item {
-          @include borderOnly((
-            borderSides: map-get($configuration, newsFeedListItemBorderSidesTablet),
-            borderWidth: map-get($configuration, newsFeedListItemBorderWidthTablet),
-            borderStyle: map-get($configuration, newsFeedListItemBorderStyleTablet),
-            borderColor: map-get($configuration, newsFeedListItemBorderTablet)
-          ));
+          @include borderOnly(
+            (
+              borderSides: map-get($configuration, newsFeedListItemBorderSidesTablet),
+              borderWidth: map-get($configuration, newsFeedListItemBorderWidthTablet),
+              borderStyle: map-get($configuration, newsFeedListItemBorderStyleTablet),
+              borderColor: map-get($configuration, newsFeedListItemBorderTablet)
+            )
+          );
           border-radius: map-get($configuration, newsFeedListItemBorderRadiusTablet);
 
-          @include shadowOnly((
-            shadowStyle: map-get($configuration, newsFeedListItemShadowStyleTablet),
-            shadowXOffset: map-get($configuration, newsFeedListItemShadowXoffsetTablet),
-            shadowYOffset: map-get($configuration, newsFeedListItemShadowYoffsetTablet),
-            shadowBlur: map-get($configuration, newsFeedListItemShadowBlurTablet),
-            shadowSpread: map-get($configuration, newsFeedListItemShadowSpreadTablet),
-            shadowColor: map-get($configuration, newsFeedListItemShadowColorTablet)
-          ))
+          @include shadowOnly(
+            (
+              shadowStyle: map-get($configuration, newsFeedListItemShadowStyleTablet),
+              shadowXOffset: map-get($configuration, newsFeedListItemShadowXoffsetTablet),
+              shadowYOffset: map-get($configuration, newsFeedListItemShadowYoffsetTablet),
+              shadowBlur: map-get($configuration, newsFeedListItemShadowBlurTablet),
+              shadowSpread: map-get($configuration, newsFeedListItemShadowSpreadTablet),
+              shadowColor: map-get($configuration, newsFeedListItemShadowColorTablet)
+            )
+          );
         }
 
         .news-feed-item-content {
@@ -979,14 +1013,16 @@
           }
 
           .news-feed-item-description {
-            @include fontOnly((
-              fontFamily: map-get($configuration, newsFeedDescriptionFontFamilyTablet),
-              fontSize: map-get($configuration, newsFeedDescriptionFontSizeTablet),
-              fontLineHeight: map-get($configuration, newsFeedDescriptionLineHeightTablet),
-              fontWeight: map-get($configuration, newsFeedDescriptionFontWeightTablet),
-              fontStyle: map-get($configuration, newsFeedDescriptionItalicTablet),
-              fontDecoration: map-get($configuration, newsFeedDescriptionUnderlineTablet)
-            ));
+            @include fontOnly(
+              (
+                fontFamily: map-get($configuration, newsFeedDescriptionFontFamilyTablet),
+                fontSize: map-get($configuration, newsFeedDescriptionFontSizeTablet),
+                fontLineHeight: map-get($configuration, newsFeedDescriptionLineHeightTablet),
+                fontWeight: map-get($configuration, newsFeedDescriptionFontWeightTablet),
+                fontStyle: map-get($configuration, newsFeedDescriptionItalicTablet),
+                fontDecoration: map-get($configuration, newsFeedDescriptionUnderlineTablet)
+              )
+            );
 
             margin-top: map-get($configuration, newsFeedDescriptionMarginTopTablet);
             margin-bottom: map-get($configuration, newsFeedDescriptionMarginBottomTablet);
@@ -994,14 +1030,16 @@
           }
 
           .news-feed-info-holder .news-feed-date-category {
-            @include fontOnly((
-              fontFamily: map-get($configuration, newsFeedSecondDescriptionFontFamilyTablet),
-              fontSize: map-get($configuration, newsFeedSecondDescriptionFontSizeTablet),
-              fontLineHeight: map-get($configuration, newsFeedSecondDescriptionLineHeightTablet),
-              fontWeight: map-get($configuration, newsFeedSecondDescriptionFontWeightTablet),
-              fontStyle: map-get($configuration, newsFeedSecondDescriptionItalicTablet),
-              fontDecoration: map-get($configuration, newsFeedSecondDescriptionUnderlineTablet)
-            ));
+            @include fontOnly(
+              (
+                fontFamily: map-get($configuration, newsFeedSecondDescriptionFontFamilyTablet),
+                fontSize: map-get($configuration, newsFeedSecondDescriptionFontSizeTablet),
+                fontLineHeight: map-get($configuration, newsFeedSecondDescriptionLineHeightTablet),
+                fontWeight: map-get($configuration, newsFeedSecondDescriptionFontWeightTablet),
+                fontStyle: map-get($configuration, newsFeedSecondDescriptionItalicTablet),
+                fontDecoration: map-get($configuration, newsFeedSecondDescriptionUnderlineTablet)
+              )
+            );
 
             color: map-get($configuration, newsFeedSecondDescriptionFontColorTablet);
           }
@@ -1035,43 +1073,52 @@
             background-color: map-get($configuration, newsFeedListItemBackgroundDesktop);
 
             h2.news-feed-item-title {
-              @include fontOnly((
-                fontFamily: map-get($configuration, newsFeedTitleFontFamilyDesktop),
-                fontSize: map-get($configuration, newsFeedTitleFontSizeDesktop),
-                fontLineHeight: map-get($configuration, newsFeedTitleLineHeightDesktop),
-                fontWeight: map-get($configuration, newsFeedTitleFontWeightDesktop),
-                fontStyle: map-get($configuration, newsFeedTitleItalicDesktop),
-                fontDecoration: map-get($configuration, newsFeedTitleUnderlineDesktop)
-              ));
+              @include fontOnly(
+                (
+                  fontFamily: map-get($configuration, newsFeedTitleFontFamilyDesktop),
+                  fontSize: map-get($configuration, newsFeedTitleFontSizeDesktop),
+                  fontLineHeight: map-get($configuration, newsFeedTitleLineHeightDesktop),
+                  fontWeight: map-get($configuration, newsFeedTitleFontWeightDesktop),
+                  fontStyle: map-get($configuration, newsFeedTitleItalicDesktop),
+                  fontDecoration: map-get($configuration, newsFeedTitleUnderlineDesktop)
+                )
+              );
 
               margin-top: map-get($configuration, newsFeedTitleMarginTopDesktop);
               margin-bottom: map-get($configuration, newsFeedTitleMarginBottomDesktop);
               color: map-get($configuration, newsFeedTitleFontColorDesktop);
 
               &:after {
-                background-color: map-get($configuration, newsFeedListDetailOverlayLineUnderTitleColorDesktop);
+                background-color: map-get(
+                  $configuration,
+                  newsFeedListDetailOverlayLineUnderTitleColorDesktop
+                );
               }
             }
           }
         }
 
         .news-feed-list-wrapper .news-feed-list-item {
-          @include borderOnly((
-            borderSides: map-get($configuration, newsFeedListItemBorderSidesDesktop),
-            borderWidth: map-get($configuration, newsFeedListItemBorderWidthDesktop),
-            borderStyle: map-get($configuration, newsFeedListItemBorderStyleDesktop),
-            borderColor: map-get($configuration, newsFeedListItemBorderDesktop)
-          ));
+          @include borderOnly(
+            (
+              borderSides: map-get($configuration, newsFeedListItemBorderSidesDesktop),
+              borderWidth: map-get($configuration, newsFeedListItemBorderWidthDesktop),
+              borderStyle: map-get($configuration, newsFeedListItemBorderStyleDesktop),
+              borderColor: map-get($configuration, newsFeedListItemBorderDesktop)
+            )
+          );
           border-radius: map-get($configuration, newsFeedListItemBorderRadiusDesktop);
 
-          @include shadowOnly((
-            shadowStyle: map-get($configuration, newsFeedListItemShadowStyleDesktop),
-            shadowXOffset: map-get($configuration, newsFeedListItemShadowXoffsetDesktop),
-            shadowYOffset: map-get($configuration, newsFeedListItemShadowYoffsetDesktop),
-            shadowBlur: map-get($configuration, newsFeedListItemShadowBlurDesktop),
-            shadowSpread: map-get($configuration, newsFeedListItemShadowSpreadDesktop),
-            shadowColor: map-get($configuration, newsFeedListItemShadowColorDesktop)
-          ))
+          @include shadowOnly(
+            (
+              shadowStyle: map-get($configuration, newsFeedListItemShadowStyleDesktop),
+              shadowXOffset: map-get($configuration, newsFeedListItemShadowXoffsetDesktop),
+              shadowYOffset: map-get($configuration, newsFeedListItemShadowYoffsetDesktop),
+              shadowBlur: map-get($configuration, newsFeedListItemShadowBlurDesktop),
+              shadowSpread: map-get($configuration, newsFeedListItemShadowSpreadDesktop),
+              shadowColor: map-get($configuration, newsFeedListItemShadowColorDesktop)
+            )
+          );
         }
 
         .news-feed-item-content {
@@ -1084,18 +1131,23 @@
 
           .slide-over {
             border-bottom-left-radius: map-get($configuration, newsFeedListItemBorderRadiusDesktop);
-            border-bottom-right-radius: map-get($configuration, newsFeedListItemBorderRadiusDesktop);
+            border-bottom-right-radius: map-get(
+              $configuration,
+              newsFeedListItemBorderRadiusDesktop
+            );
           }
 
           .news-feed-item-description {
-            @include fontOnly((
-              fontFamily: map-get($configuration, newsFeedDesсriptionFontFamilyDesktop),
-              fontSize: map-get($configuration, newsFeedDesсriptionFontSizeDesktop),
-              fontLineHeight: map-get($configuration, newsFeedDesсriptionLineHeightDesktop),
-              fontWeight: map-get($configuration, newsFeedDesсriptionFontWeightDesktop),
-              fontStyle: map-get($configuration, newsFeedDesсriptionItalicDesktop),
-              fontDecoration: map-get($configuration, newsFeedDesсriptionUnderlineDesktop)
-            ));
+            @include fontOnly(
+              (
+                fontFamily: map-get($configuration, newsFeedDesсriptionFontFamilyDesktop),
+                fontSize: map-get($configuration, newsFeedDesсriptionFontSizeDesktop),
+                fontLineHeight: map-get($configuration, newsFeedDesсriptionLineHeightDesktop),
+                fontWeight: map-get($configuration, newsFeedDesсriptionFontWeightDesktop),
+                fontStyle: map-get($configuration, newsFeedDesсriptionItalicDesktop),
+                fontDecoration: map-get($configuration, newsFeedDesсriptionUnderlineDesktop)
+              )
+            );
 
             margin-top: map-get($configuration, newsFeedDesсriptionMarginTopDesktop);
             margin-bottom: map-get($configuration, newsFeedDesсriptionMarginBottomDesktop);
@@ -1103,14 +1155,16 @@
           }
 
           .news-feed-info-holder .news-feed-date-category {
-            @include fontOnly((
-              fontFamily: map-get($configuration, newsFeedSecondDescriptionFontFamilyDesktop),
-              fontSize: map-get($configuration, newsFeedSecondDescriptionFontSizeDesktop),
-              fontLineHeight: map-get($configuration, newsFeedSecondDescriptionLineHeightDesktop),
-              fontWeight: map-get($configuration, newsFeedSecondDescriptionFontWeightDesktop),
-              fontStyle: map-get($configuration, newsFeedSecondDescriptionItalicDesktop),
-              fontDecoration: map-get($configuration, newsFeedSecondDescriptionUnderlineDesktop)
-            ));
+            @include fontOnly(
+              (
+                fontFamily: map-get($configuration, newsFeedSecondDescriptionFontFamilyDesktop),
+                fontSize: map-get($configuration, newsFeedSecondDescriptionFontSizeDesktop),
+                fontLineHeight: map-get($configuration, newsFeedSecondDescriptionLineHeightDesktop),
+                fontWeight: map-get($configuration, newsFeedSecondDescriptionFontWeightDesktop),
+                fontStyle: map-get($configuration, newsFeedSecondDescriptionItalicDesktop),
+                fontDecoration: map-get($configuration, newsFeedSecondDescriptionUnderlineDesktop)
+              )
+            );
 
             color: map-get($configuration, newsFeedSecondDescriptionFontColorDesktop);
           }
@@ -1144,33 +1198,40 @@
           background-color: map-get($configuration, newsFeedListDetailOverlayBackground);
 
           h2.news-feed-item-title {
-            @include fontOnly((
-              fontFamily: map-get($configuration, newsFeedDetailTitleFontFamily),
-              fontSize: map-get($configuration, newsFeedDetailTitleFontSize),
-              fontLineHeight: map-get($configuration, newsFeedDetailTitleLineHeight),
-              fontWeight: map-get($configuration, newsFeedDetailTitleFontWeight),
-              fontStyle: map-get($configuration, newsFeedDetailTitleItalic),
-              fontDecoration: map-get($configuration, newsFeedDetailTitleUnderline)
-            ));
+            @include fontOnly(
+              (
+                fontFamily: map-get($configuration, newsFeedDetailTitleFontFamily),
+                fontSize: map-get($configuration, newsFeedDetailTitleFontSize),
+                fontLineHeight: map-get($configuration, newsFeedDetailTitleLineHeight),
+                fontWeight: map-get($configuration, newsFeedDetailTitleFontWeight),
+                fontStyle: map-get($configuration, newsFeedDetailTitleItalic),
+                fontDecoration: map-get($configuration, newsFeedDetailTitleUnderline)
+              )
+            );
 
             margin-top: map-get($configuration, newsFeedDetailTitleMarginTop);
             margin-bottom: map-get($configuration, newsFeedDetailTitleMarginBottom);
             color: map-get($configuration, newsFeedDetailTitleFontColor);
 
             &:after {
-              background-color: map-get($configuration, newsFeedListDetailOverlayLineUnderTitleColor);
+              background-color: map-get(
+                $configuration,
+                newsFeedListDetailOverlayLineUnderTitleColor
+              );
             }
           }
 
           .news-feed-item-description {
-            @include fontOnly((
-              fontFamily: map-get($configuration, newsFeedDetailDescriptionFontFamily),
-              fontSize: map-get($configuration, newsFeedDetailDescriptionFontSize),
-              fontLineHeight: map-get($configuration, newsFeedDetailDescriptionLineHeight),
-              fontWeight: map-get($configuration, newsFeedDetailDescriptionFontWeight),
-              fontStyle: map-get($configuration, newsFeedDetailDescriptionItalic),
-              fontDecoration: map-get($configuration, newsFeedDetailDescriptionUnderline)
-            ));
+            @include fontOnly(
+              (
+                fontFamily: map-get($configuration, newsFeedDetailDescriptionFontFamily),
+                fontSize: map-get($configuration, newsFeedDetailDescriptionFontSize),
+                fontLineHeight: map-get($configuration, newsFeedDetailDescriptionLineHeight),
+                fontWeight: map-get($configuration, newsFeedDetailDescriptionFontWeight),
+                fontStyle: map-get($configuration, newsFeedDetailDescriptionItalic),
+                fontDecoration: map-get($configuration, newsFeedDetailDescriptionUnderline)
+              )
+            );
 
             margin-top: map-get($configuration, newsFeedDetailDescriptionMarginTop);
             margin-bottom: map-get($configuration, newsFeedDetailDescriptionMarginBottom);
@@ -1178,14 +1239,16 @@
           }
 
           .news-feed-item-description > p {
-            @include fontOnly((
-              fontFamily: map-get($configuration, newsFeedDetailTextFontFamily),
-              fontSize: map-get($configuration, newsFeedDetailTextFontSize),
-              fontLineHeight: map-get($configuration, newsFeedDetailTextLineHeight),
-              fontWeight: map-get($configuration, newsFeedDetailTextFontWeight),
-              fontStyle: map-get($configuration, newsFeedDetailTextItalic),
-              fontDecoration: map-get($configuration, newsFeedDetailTextUnderline)
-            ));
+            @include fontOnly(
+              (
+                fontFamily: map-get($configuration, newsFeedDetailTextFontFamily),
+                fontSize: map-get($configuration, newsFeedDetailTextFontSize),
+                fontLineHeight: map-get($configuration, newsFeedDetailTextLineHeight),
+                fontWeight: map-get($configuration, newsFeedDetailTextFontWeight),
+                fontStyle: map-get($configuration, newsFeedDetailTextItalic),
+                fontDecoration: map-get($configuration, newsFeedDetailTextUnderline)
+              )
+            );
 
             margin-top: map-get($configuration, newsFeedDetailTextMarginTop);
             margin-bottom: map-get($configuration, newsFeedDetailTextMarginBottom);
@@ -1194,14 +1257,16 @@
 
           .news-feed-info-holder {
             .news-feed-date-category {
-              @include fontOnly((
-                fontFamily: map-get($configuration, newsFeedDetailSecondDescriptionFontFamily),
-                fontSize: map-get($configuration, newsFeedDetailSecondDescriptionFontSize),
-                fontLineHeight: map-get($configuration, newsFeedDetailSecondDescriptionLineHeight),
-                fontWeight: map-get($configuration, newsFeedDetailSecondDescriptionFontWeight),
-                fontStyle: map-get($configuration, newsFeedDetailSecondDescriptionItalic),
-                fontDecoration: map-get($configuration, newsFeedDetailSecondDescriptionUnderline)
-              ));
+              @include fontOnly(
+                (
+                  fontFamily: map-get($configuration, newsFeedDetailSecondDescriptionFontFamily),
+                  fontSize: map-get($configuration, newsFeedDetailSecondDescriptionFontSize),
+                  fontLineHeight: map-get($configuration, newsFeedDetailSecondDescriptionLineHeight),
+                  fontWeight: map-get($configuration, newsFeedDetailSecondDescriptionFontWeight),
+                  fontStyle: map-get($configuration, newsFeedDetailSecondDescriptionItalic),
+                  fontDecoration: map-get($configuration, newsFeedDetailSecondDescriptionUnderline)
+                )
+              );
 
               color: map-get($configuration, newsFeedDetailSecondDescriptionFontColor);
             }
@@ -1239,33 +1304,40 @@
             background-color: map-get($configuration, newsFeedListDetailOverlayBackgroundTablet);
 
             h2.news-feed-item-title {
-              @include fontOnly((
-                fontFamily: map-get($configuration, newsFeedDetailTitleFontFamilyTablet),
-                fontSize: map-get($configuration, newsFeedDetailTitleFontSizeTablet),
-                fontLineHeight: map-get($configuration, newsFeedDetailTitleLineHeightTablet),
-                fontWeight: map-get($configuration, newsFeedDetailTitleFontWeightTablet),
-                fontStyle: map-get($configuration, newsFeedDetailTitleItalicTablet),
-                fontDecoration: map-get($configuration, newsFeedDetailTitleUnderlineTablet)
-              ));
+              @include fontOnly(
+                (
+                  fontFamily: map-get($configuration, newsFeedDetailTitleFontFamilyTablet),
+                  fontSize: map-get($configuration, newsFeedDetailTitleFontSizeTablet),
+                  fontLineHeight: map-get($configuration, newsFeedDetailTitleLineHeightTablet),
+                  fontWeight: map-get($configuration, newsFeedDetailTitleFontWeightTablet),
+                  fontStyle: map-get($configuration, newsFeedDetailTitleItalicTablet),
+                  fontDecoration: map-get($configuration, newsFeedDetailTitleUnderlineTablet)
+                )
+              );
 
               margin-top: map-get($configuration, newsFeedDetailTitleMarginTopTablet);
               margin-bottom: map-get($configuration, newsFeedDetailTitleMarginBottomTablet);
               color: map-get($configuration, newsFeedDetailTitleFontColorTablet);
 
               &:after {
-                background-color: map-get($configuration, newsFeedListDetailOverlayLineUnderTitleColorTablet);
+                background-color: map-get(
+                  $configuration,
+                  newsFeedListDetailOverlayLineUnderTitleColorTablet
+                );
               }
             }
 
             .news-feed-item-description {
-              @include fontOnly((
-                fontFamily: map-get($configuration, newsFeedDetailDescriptionFontFamilyTablet),
-                fontSize: map-get($configuration, newsFeedDetailDescriptionFontSizeTablet),
-                fontLineHeight: map-get($configuration, newsFeedDetailDescriptionLineHeightTablet),
-                fontWeight: map-get($configuration, newsFeedDetailDescriptionFontWeightTablet),
-                fontStyle: map-get($configuration, newsFeedDetailDescriptionItalicTablet),
-                fontDecoration: map-get($configuration, newsFeedDetailDescriptionUnderlineTablet)
-              ));
+              @include fontOnly(
+                (
+                  fontFamily: map-get($configuration, newsFeedDetailDescriptionFontFamilyTablet),
+                  fontSize: map-get($configuration, newsFeedDetailDescriptionFontSizeTablet),
+                  fontLineHeight: map-get($configuration, newsFeedDetailDescriptionLineHeightTablet),
+                  fontWeight: map-get($configuration, newsFeedDetailDescriptionFontWeightTablet),
+                  fontStyle: map-get($configuration, newsFeedDetailDescriptionItalicTablet),
+                  fontDecoration: map-get($configuration, newsFeedDetailDescriptionUnderlineTablet)
+                )
+              );
 
               margin-top: map-get($configuration, newsFeedDetailDescriptionMarginTopTablet);
               margin-bottom: map-get($configuration, newsFeedDetailDescriptionMarginBottomTablet);
@@ -1273,14 +1345,16 @@
             }
 
             .news-feed-item-description > p {
-              @include fontOnly((
-                fontFamily: map-get($configuration, newsFeedDetailTextFontFamilyTablet),
-                fontSize: map-get($configuration, newsFeedDetailTextFontSizeTablet),
-                fontLineHeight: map-get($configuration, newsFeedDetailTextLineHeightTablet),
-                fontWeight: map-get($configuration, newsFeedDetailTextFontWeightTablet),
-                fontStyle: map-get($configuration, newsFeedDetailTextItalicTablet),
-                fontDecoration: map-get($configuration, newsFeedDetailTextUnderlineTablet)
-              ));
+              @include fontOnly(
+                (
+                  fontFamily: map-get($configuration, newsFeedDetailTextFontFamilyTablet),
+                  fontSize: map-get($configuration, newsFeedDetailTextFontSizeTablet),
+                  fontLineHeight: map-get($configuration, newsFeedDetailTextLineHeightTablet),
+                  fontWeight: map-get($configuration, newsFeedDetailTextFontWeightTablet),
+                  fontStyle: map-get($configuration, newsFeedDetailTextItalicTablet),
+                  fontDecoration: map-get($configuration, newsFeedDetailTextUnderlineTablet)
+                )
+              );
 
               margin-top: map-get($configuration, newsFeedDetailTextMarginTopTablet);
               margin-bottom: map-get($configuration, newsFeedDetailTextMarginBottomTablet);
@@ -1289,14 +1363,20 @@
 
             .news-feed-info-holder {
               .news-feed-date-category {
-                @include fontOnly((
-                  fontFamily: map-get($configuration, newsFeedDetailSecondDescriptionFontFamilyTablet),
-                  fontSize: map-get($configuration, newsFeedDetailSecondDescriptionFontSizeTablet),
-                  fontLineHeight: map-get($configuration, newsFeedDetailSecondDescriptionLineHeightTablet),
-                  fontWeight: map-get($configuration, newsFeedDetailSecondDescriptionFontWeightTablet),
-                  fontStyle: map-get($configuration, newsFeedDetailSecondDescriptionItalicTablet),
-                  fontDecoration: map-get($configuration, newsFeedDetailSecondDescriptionUnderlineTablet)
-                ));
+                @include fontOnly(
+                  (
+                    fontFamily:
+                      map-get($configuration, newsFeedDetailSecondDescriptionFontFamilyTablet),
+                    fontSize: map-get($configuration, newsFeedDetailSecondDescriptionFontSizeTablet),
+                    fontLineHeight:
+                      map-get($configuration, newsFeedDetailSecondDescriptionLineHeightTablet),
+                    fontWeight:
+                      map-get($configuration, newsFeedDetailSecondDescriptionFontWeightTablet),
+                    fontStyle: map-get($configuration, newsFeedDetailSecondDescriptionItalicTablet),
+                    fontDecoration:
+                      map-get($configuration, newsFeedDetailSecondDescriptionUnderlineTablet)
+                  )
+                );
 
                 color: map-get($configuration, newsFeedDetailSecondDescriptionFontColorTablet);
               }
@@ -1335,33 +1415,41 @@
             background-color: map-get($configuration, newsFeedListDetailOverlayBackgroundDesktop);
 
             h2.news-feed-item-title {
-              @include fontOnly((
-                fontFamily: map-get($configuration, newsFeedDetailTitleFontFamilyDesktop),
-                fontSize: map-get($configuration, newsFeedDetailTitleFontSizeDesktop),
-                fontLineHeight: map-get($configuration, newsFeedDetailTitleLineHeightDesktop),
-                fontWeight: map-get($configuration, newsFeedDetailTitleFontWeightDesktop),
-                fontStyle: map-get($configuration, newsFeedDetailTitleItalicDesktop),
-                fontDecoration: map-get($configuration, newsFeedDetailTitleUnderlineDesktop)
-              ));
+              @include fontOnly(
+                (
+                  fontFamily: map-get($configuration, newsFeedDetailTitleFontFamilyDesktop),
+                  fontSize: map-get($configuration, newsFeedDetailTitleFontSizeDesktop),
+                  fontLineHeight: map-get($configuration, newsFeedDetailTitleLineHeightDesktop),
+                  fontWeight: map-get($configuration, newsFeedDetailTitleFontWeightDesktop),
+                  fontStyle: map-get($configuration, newsFeedDetailTitleItalicDesktop),
+                  fontDecoration: map-get($configuration, newsFeedDetailTitleUnderlineDesktop)
+                )
+              );
 
               margin-top: map-get($configuration, newsFeedDetailTitleMarginTopDesktop);
               margin-bottom: map-get($configuration, newsFeedDetailTitleMarginBottomDesktop);
               color: map-get($configuration, newsFeedDetailTitleFontColorDesktop);
 
               &:after {
-                background-color: map-get($configuration, newsFeedListDetailOverlayLineUnderTitleColorDesktop);
+                background-color: map-get(
+                  $configuration,
+                  newsFeedListDetailOverlayLineUnderTitleColorDesktop
+                );
               }
             }
 
             .news-feed-item-description {
-              @include fontOnly((
-                fontFamily: map-get($configuration, newsFeedDetailDescriptionFontFamilyDesktop),
-                fontSize: map-get($configuration, newsFeedDetailDescriptionFontSizeDesktop),
-                fontLineHeight: map-get($configuration, newsFeedDetailDescriptionLineHeightDesktop),
-                fontWeight: map-get($configuration, newsFeedDetailDescriptionFontWeightDesktop),
-                fontStyle: map-get($configuration, newsFeedDetailDescriptionItalicDesktop),
-                fontDecoration: map-get($configuration, newsFeedDetailDescriptionUnderlineDesktop)
-              ));
+              @include fontOnly(
+                (
+                  fontFamily: map-get($configuration, newsFeedDetailDescriptionFontFamilyDesktop),
+                  fontSize: map-get($configuration, newsFeedDetailDescriptionFontSizeDesktop),
+                  fontLineHeight:
+                    map-get($configuration, newsFeedDetailDescriptionLineHeightDesktop),
+                  fontWeight: map-get($configuration, newsFeedDetailDescriptionFontWeightDesktop),
+                  fontStyle: map-get($configuration, newsFeedDetailDescriptionItalicDesktop),
+                  fontDecoration: map-get($configuration, newsFeedDetailDescriptionUnderlineDesktop)
+                )
+              );
 
               margin-top: map-get($configuration, newsFeedDetailDescriptionMarginTopDesktop);
               margin-bottom: map-get($configuration, newsFeedDetailDescriptionMarginBottomDesktop);
@@ -1369,14 +1457,16 @@
             }
 
             .news-feed-item-description > p {
-              @include fontOnly((
-                fontFamily: map-get($configuration, newsFeedDetailTextFontFamilyDesktop),
-                fontSize: map-get($configuration, newsFeedDetailTextFontSizeDesktop),
-                fontLineHeight: map-get($configuration, newsFeedDetailTextLineHeightDesktop),
-                fontWeight: map-get($configuration, newsFeedDetailTextFontWeightDesktop),
-                fontStyle: map-get($configuration, newsFeedDetailTextItalicDesktop),
-                fontDecoration: map-get($configuration, newsFeedDetailTextUnderlineDesktop)
-              ));
+              @include fontOnly(
+                (
+                  fontFamily: map-get($configuration, newsFeedDetailTextFontFamilyDesktop),
+                  fontSize: map-get($configuration, newsFeedDetailTextFontSizeDesktop),
+                  fontLineHeight: map-get($configuration, newsFeedDetailTextLineHeightDesktop),
+                  fontWeight: map-get($configuration, newsFeedDetailTextFontWeightDesktop),
+                  fontStyle: map-get($configuration, newsFeedDetailTextItalicDesktop),
+                  fontDecoration: map-get($configuration, newsFeedDetailTextUnderlineDesktop)
+                )
+              );
 
               margin-top: map-get($configuration, newsFeedDetailTextMarginTopDesktop);
               margin-bottom: map-get($configuration, newsFeedDetailTextMarginBottomDesktop);
@@ -1385,14 +1475,21 @@
 
             .news-feed-info-holder {
               .news-feed-date-category {
-                @include fontOnly((
-                  fontFamily: map-get($configuration, newsFeedDetailSecondDescriptionFontFamilyDesktop),
-                  fontSize: map-get($configuration, newsFeedDetailSecondDescriptionFontSizeDesktop),
-                  fontLineHeight: map-get($configuration, newsFeedDetailSecondDescriptionLineHeightDesktop),
-                  fontWeight: map-get($configuration, newsFeedDetailSecondDescriptionFontWeightDesktop),
-                  fontStyle: map-get($configuration, newsFeedDetailSecondDescriptionItalicDesktop),
-                  fontDecoration: map-get($configuration, newsFeedDetailSecondDescriptionUnderlineDesktop)
-                ));
+                @include fontOnly(
+                  (
+                    fontFamily:
+                      map-get($configuration, newsFeedDetailSecondDescriptionFontFamilyDesktop),
+                    fontSize:
+                      map-get($configuration, newsFeedDetailSecondDescriptionFontSizeDesktop),
+                    fontLineHeight:
+                      map-get($configuration, newsFeedDetailSecondDescriptionLineHeightDesktop),
+                    fontWeight:
+                      map-get($configuration, newsFeedDetailSecondDescriptionFontWeightDesktop),
+                    fontStyle: map-get($configuration, newsFeedDetailSecondDescriptionItalicDesktop),
+                    fontDecoration:
+                      map-get($configuration, newsFeedDetailSecondDescriptionUnderlineDesktop)
+                  )
+                );
 
                 color: map-get($configuration, newsFeedDetailSecondDescriptionFontColorDesktop);
               }
@@ -1457,7 +1554,7 @@
             color: $highlightColor;
           }
         }
-        
+
         .search-holder {
           input[type="search"] {
             border-color: map-get($configuration, newsFeedSearchFieldBorderColor);
@@ -1475,11 +1572,11 @@
               color: rgba(map-get($configuration, newsFeedSearchFieldTextColor), 0.8);
               opacity: 1;
             }
-            
+
             &:-ms-input-placeholder {
               color: rgba(map-get($configuration, newsFeedSearchFieldTextColor), 0.8);
             }
-            
+
             &::-ms-input-placeholder {
               color: rgba(map-get($configuration, newsFeedSearchFieldTextColor), 0.8);
             }
@@ -1499,8 +1596,6 @@
           }
         }
 
-        
-
         .btn.search-btn {
           border: none;
           color: map-get($configuration, newsFeedSearchFieldTextColor);
@@ -1518,11 +1613,13 @@
         }
 
         .list-search-icon {
-          .fa-sliders, .list-search-cancel .fa-times {
+          .fa-sliders,
+          .list-search-cancel .fa-times {
             color: map-get($configuration, newsFeedFilterIconColor) !important;
           }
 
-          &.active .fa-sliders, .list-search-cancel .fa-times {
+          &.active .fa-sliders,
+          .list-search-cancel .fa-times {
             color: map-get($configuration, newsFeedFilterIconActiveColor) !important;
           }
 
@@ -1606,7 +1703,8 @@
           .panel-default > .panel-heading {
             color: map-get($configuration, newsFeedOverlayFontColorTablet);
             background-color: map-get($configuration, newsFeedFiltersOverlayBackgroundTablet);
-            border-bottom: 1px solid rgba(map-get($configuration, newsFeedOverlayFontColorTablet), 0.2);
+            border-bottom: 1px solid
+              rgba(map-get($configuration, newsFeedOverlayFontColorTablet), 0.2);
           }
         }
 
@@ -1621,18 +1719,21 @@
             }
 
             .search-feed {
-              background-color: rgba(map-get($configuration, newsFeedSearchFieldBackgroundColorTablet), 1);
+              background-color: rgba(
+                map-get($configuration, newsFeedSearchFieldBackgroundColorTablet),
+                1
+              );
               color: map-get($configuration, newsFeedSearchFieldTextColorTablet);
 
               &::placeholder {
                 color: rgba(map-get($configuration, newsFeedSearchFieldTextColorTablet), 0.8);
                 opacity: 1;
               }
-              
+
               &:-ms-input-placeholder {
                 color: rgba(map-get($configuration, newsFeedSearchFieldTextColorTablet), 0.8);
               }
-              
+
               &::-ms-input-placeholder {
                 color: rgba(map-get($configuration, newsFeedSearchFieldTextColorTablet), 0.8);
               }
@@ -1645,7 +1746,10 @@
             .btn.search-btn {
               border: none;
               color: map-get($configuration, newsFeedSearchFieldTextColorTablet);
-              background-color: rgba(map-get($configuration, newsFeedSearchFieldTextColorTablet), 0.1);
+              background-color: rgba(
+                map-get($configuration, newsFeedSearchFieldTextColorTablet),
+                0.1
+              );
 
               &:hover,
               &:active,
@@ -1659,11 +1763,13 @@
             }
 
             .list-search-icon {
-              .fa-sliders, .list-search-cancel .fa-times {
+              .fa-sliders,
+              .list-search-cancel .fa-times {
                 color: map-get($configuration, newsFeedFilterIconColorTablet) !important;
               }
 
-              &.active .fa-sliders, .list-search-cancel .fa-times {
+              &.active .fa-sliders,
+              .list-search-cancel .fa-times {
                 color: map-get($configuration, newsFeedFilterIconActiveColorTablet) !important;
               }
 
@@ -1747,7 +1853,8 @@
           .panel-default > .panel-heading {
             color: map-get($configuration, newsFeedOverlayFontColorDesktop);
             background-color: map-get($configuration, newsFeedFiltersOverlayBackgroundDesktop);
-            border-bottom: 1px solid rgba(map-get($configuration, newsFeedOverlayFontColorDesktop), 0.2);
+            border-bottom: 1px solid
+              rgba(map-get($configuration, newsFeedOverlayFontColorDesktop), 0.2);
           }
         }
 
@@ -1762,18 +1869,21 @@
             }
 
             .search-feed {
-              background-color: rgba(map-get($configuration, newsFeedSearchFieldBackgroundColorDesktop), 1);
+              background-color: rgba(
+                map-get($configuration, newsFeedSearchFieldBackgroundColorDesktop),
+                1
+              );
               color: map-get($configuration, newsFeedSearchFieldTextColorDesktop);
 
               &::placeholder {
                 color: rgba(map-get($configuration, newsFeedSearchFieldTextColorDesktop), 0.8);
                 opacity: 1;
               }
-              
+
               &:-ms-input-placeholder {
                 color: rgba(map-get($configuration, newsFeedSearchFieldTextColorDesktop), 0.8);
               }
-              
+
               &::-ms-input-placeholder {
                 color: rgba(map-get($configuration, newsFeedSearchFieldTextColorDesktop), 0.8);
               }
@@ -1786,7 +1896,10 @@
             .btn.search-btn {
               border: none;
               color: map-get($configuration, newsFeedSearchFieldTextColorDesktop);
-              background-color: rgba(map-get($configuration, newsFeedSearchFieldTextColorDesktop), 0.1);
+              background-color: rgba(
+                map-get($configuration, newsFeedSearchFieldTextColorDesktop),
+                0.1
+              );
 
               &:hover,
               &:active,
@@ -1800,11 +1913,13 @@
             }
 
             .list-search-icon {
-              .fa-sliders, .list-search-cancel .fa-times {
+              .fa-sliders,
+              .list-search-cancel .fa-times {
                 color: map-get($configuration, newsFeedFilterIconColorDesktop) !important;
               }
 
-              &.active .fa-sliders, .list-search-cancel .fa-times {
+              &.active .fa-sliders,
+              .list-search-cancel .fa-times {
                 color: map-get($configuration, newsFeedFilterIconActiveColorDesktop) !important;
               }
 

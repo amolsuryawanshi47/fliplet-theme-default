@@ -1,53 +1,56 @@
-@mixin notificationBox($options: (), $widgetInstanceId: '', $widgetInstanceUUID: '') {
-  $configuration: map-merge((
-    notificationWidth: $notificationWidth,
-    notificationMinWidth: $notificationMinWidth,
-    notificationMaxWidth: $notificationMaxWidth,
-    notificationMarginTop: $notificationMarginTop,
-    notificationMarginRight: $notificationMarginRight,
-    notificationMarginBottom: $notificationMarginBottom,
-    notificationMarginLeft: $notificationMarginLeft,
-    notificationPaddingTop: $notificationPaddingTop,
-    notificationPaddingRight: $notificationPaddingRight,
-    notificationPaddingBottom: $notificationPaddingBottom,
-    notificationPaddingLeft: $notificationPaddingLeft,
-    notificationBadgeBackgroundColor: $notificationBadgeBackgroundColor,
-    notificationDraftBackgroundColor: $notificationDraftBackgroundColor,
-    notificationPublishedBackgroundColor: $notificationPublishedBackgroundColor,
-    notificationWidthTablet: $notificationWidthTablet,
-    notificationMinWidthTablet: $notificationMinWidthTablet,
-    notificationMaxWidthTablet: $notificationMaxWidthTablet,
-    notificationMarginTopTablet: $notificationMarginTopTablet,
-    notificationMarginRightTablet: $notificationMarginRightTablet,
-    notificationMarginBottomTablet: $notificationMarginBottomTablet,
-    notificationMarginLeftTablet: $notificationMarginLeftTablet,
-    notificationPaddingTopTablet: $notificationPaddingTopTablet,
-    notificationPaddingRightTablet: $notificationPaddingRightTablet,
-    notificationPaddingBottomTablet: $notificationPaddingBottomTablet,
-    notificationPaddingLeftTablet: $notificationPaddingLeftTablet,
-    notificationBadgeBackgroundColorTablet: $notificationBadgeBackgroundColorTablet,
-    notificationDraftBackgroundColorTablet: $notificationDraftBackgroundColorTablet,
-    notificationPublishedBackgroundColorTablet: $notificationPublishedBackgroundColorTablet,
-    notificationWidthDesktop: $notificationWidthDesktop,
-    notificationMinWidthDesktop: $notificationMinWidthDesktop,
-    notificationMaxWidthDesktop: $notificationMaxWidthDesktop,
-    notificationMarginTopDesktop: $notificationMarginTopDesktop,
-    notificationMarginRightDesktop: $notificationMarginRightDesktop,
-    notificationMarginBottomDesktop: $notificationMarginBottomDesktop,
-    notificationMarginLeftDesktop: $notificationMarginLeftDesktop,
-    notificationPaddingTopDesktop: $notificationPaddingTopDesktop,
-    notificationPaddingRightDesktop: $notificationPaddingRightDesktop,
-    notificationPaddingBottomDesktop: $notificationPaddingBottomDesktop,
-    notificationPaddingLeftDesktop: $notificationPaddingLeftDesktop,
-    notificationBadgeBackgroundColorDesktop: $notificationBadgeBackgroundColorDesktop,
-    notificationDraftBackgroundColorDesktop: $notificationDraftBackgroundColorDesktop,
-    notificationPublishedBackgroundColorDesktop: $notificationPublishedBackgroundColorDesktop
-  ), $options);
+@mixin notificationBox($options: (), $widgetInstanceId: "", $widgetInstanceUUID: "") {
+  $configuration: map-merge(
+    (
+      notificationWidth: $notificationWidth,
+      notificationMinWidth: $notificationMinWidth,
+      notificationMaxWidth: $notificationMaxWidth,
+      notificationMarginTop: $notificationMarginTop,
+      notificationMarginRight: $notificationMarginRight,
+      notificationMarginBottom: $notificationMarginBottom,
+      notificationMarginLeft: $notificationMarginLeft,
+      notificationPaddingTop: $notificationPaddingTop,
+      notificationPaddingRight: $notificationPaddingRight,
+      notificationPaddingBottom: $notificationPaddingBottom,
+      notificationPaddingLeft: $notificationPaddingLeft,
+      notificationBadgeBackgroundColor: $notificationBadgeBackgroundColor,
+      notificationDraftBackgroundColor: $notificationDraftBackgroundColor,
+      notificationPublishedBackgroundColor: $notificationPublishedBackgroundColor,
+      notificationWidthTablet: $notificationWidthTablet,
+      notificationMinWidthTablet: $notificationMinWidthTablet,
+      notificationMaxWidthTablet: $notificationMaxWidthTablet,
+      notificationMarginTopTablet: $notificationMarginTopTablet,
+      notificationMarginRightTablet: $notificationMarginRightTablet,
+      notificationMarginBottomTablet: $notificationMarginBottomTablet,
+      notificationMarginLeftTablet: $notificationMarginLeftTablet,
+      notificationPaddingTopTablet: $notificationPaddingTopTablet,
+      notificationPaddingRightTablet: $notificationPaddingRightTablet,
+      notificationPaddingBottomTablet: $notificationPaddingBottomTablet,
+      notificationPaddingLeftTablet: $notificationPaddingLeftTablet,
+      notificationBadgeBackgroundColorTablet: $notificationBadgeBackgroundColorTablet,
+      notificationDraftBackgroundColorTablet: $notificationDraftBackgroundColorTablet,
+      notificationPublishedBackgroundColorTablet: $notificationPublishedBackgroundColorTablet,
+      notificationWidthDesktop: $notificationWidthDesktop,
+      notificationMinWidthDesktop: $notificationMinWidthDesktop,
+      notificationMaxWidthDesktop: $notificationMaxWidthDesktop,
+      notificationMarginTopDesktop: $notificationMarginTopDesktop,
+      notificationMarginRightDesktop: $notificationMarginRightDesktop,
+      notificationMarginBottomDesktop: $notificationMarginBottomDesktop,
+      notificationMarginLeftDesktop: $notificationMarginLeftDesktop,
+      notificationPaddingTopDesktop: $notificationPaddingTopDesktop,
+      notificationPaddingRightDesktop: $notificationPaddingRightDesktop,
+      notificationPaddingBottomDesktop: $notificationPaddingBottomDesktop,
+      notificationPaddingLeftDesktop: $notificationPaddingLeftDesktop,
+      notificationBadgeBackgroundColorDesktop: $notificationBadgeBackgroundColorDesktop,
+      notificationDraftBackgroundColorDesktop: $notificationDraftBackgroundColorDesktop,
+      notificationPublishedBackgroundColorDesktop: $notificationPublishedBackgroundColorDesktop
+    ),
+    $options
+  );
 
   $instanceSelector: '[data-widget-package="com.fliplet.notificationinbox"]';
-  @if $widgetInstanceUUID != '' {
+  @if $widgetInstanceUUID != "" {
     $instanceSelector: '#{$instanceSelector}[data-uuid="#{$widgetInstanceUUID}"]';
-  } @else if $widgetInstanceId != '' {
+  } @else if $widgetInstanceId != "" {
     $instanceSelector: '#{$instanceSelector}[data-id="#{$widgetInstanceId}"]';
   }
 
@@ -93,7 +96,7 @@
 
       // Styles for tablet
       @include above($tabletBreakpoint) {
-       background-color: map-get($configuration, notificationBadgeBackgroundColorTablet);
+        background-color: map-get($configuration, notificationBadgeBackgroundColorTablet);
       }
 
       // Styles for desktop

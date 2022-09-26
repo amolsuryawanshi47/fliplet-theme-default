@@ -1,174 +1,189 @@
-@mixin menuOverlay($options: (), $widgetInstanceId: '', $widgetInstanceUUID: '') {
-  $configuration: map-merge((
-    menuFont: $menuFont,
-    menuFontSize: $menuFontSize,
-    menuFontWeight: $menuFontWeight,
-    menuFontStyle: $menuFontStyle,
-    menuFontDecoration: $menuFontDecoration,
-    menuTopNavBackground: $menuTopNavBackground,
-    menuTopNavFontColor: $menuTopNavFontColor,
-    menuTopNavBorderSides: $menuTopNavBorderSides,
-    menuTopNavBorderWidth: $menuTopNavBorderWidth,
-    menuTopNavBorderStyle: $menuTopNavBorderStyle,
-    menuTopNavBorderColor: $menuTopNavBorderColor,
-    menuShadowStyle: $menuShadowStyle,
-    menuShadowXoffset: $menuShadowXoffset,
-    menuShadowYoffset: $menuShadowYoffset,
-    menuShadowBlur: $menuShadowBlur,
-    menuShadowSpread: $menuShadowSpread,
-    menuTopNavFontShadowColor: $menuTopNavFontShadowColor,
-    menuBackButtonColor: $menuBackButtonColor,
-    menuButtonColor: $menuButtonColor,
-    menuBackgroundColor: $menuBackgroundColor,
-    menuFontColor: $menuFontColor,
-    menuCloseButtonColor: $menuCloseButtonColor,
-    menuFooterFontColor: $menuFooterFontColor,
-    menuWidth: $menuWidth,
-    menuFontTablet: $menuFontTablet,
-    menuFontSizeTablet: $menuFontSizeTablet,
-    menuFontWeightTablet: $menuFontWeightTablet,
-    menuFontStyleTablet: $menuFontStyleTablet,
-    menuFontDecorationTablet: $menuFontDecorationTablet,
-    menuTopNavBackgroundTablet: $menuTopNavBackgroundTablet,
-    menuTopNavFontColorTablet: $menuTopNavFontColorTablet,
-    menuTopNavBorderSidesTablet: $menuTopNavBorderSidesTablet,
-    menuTopNavBorderWidthTablet: $menuTopNavBorderWidthTablet,
-    menuTopNavBorderStyleTablet: $menuTopNavBorderStyleTablet,
-    menuTopNavBorderColorTablet: $menuTopNavBorderColorTablet,
-    menuShadowStyleTablet: $menuShadowStyleTablet,
-    menuShadowXoffsetTablet: $menuShadowXoffsetTablet,
-    menuShadowYoffsetTablet: $menuShadowYoffsetTablet,
-    menuShadowBlurTablet: $menuShadowBlurTablet,
-    menuShadowSpreadTablet: $menuShadowSpreadTablet,
-    menuTopNavFontShadowColorTablet: $menuTopNavFontShadowColorTablet,
-    menuBackButtonColorTablet: $menuBackButtonColorTablet,
-    menuButtonColorTablet: $menuButtonColorTablet,
-    menuBackgroundColorTablet: $menuBackgroundColorTablet,
-    menuFontColorTablet: $menuFontColorTablet,
-    menuCloseButtonColorTablet: $menuCloseButtonColorTablet,
-    menuFooterFontColorTablet: $menuFooterFontColorTablet,
-    menuWidthTablet: $menuWidthTablet,
-    menuFontDesktop: $menuFontDesktop,
-    menuFontSizeDesktop: $menuFontSizeDesktop,
-    menuFontWeightDesktop: $menuFontWeightDesktop,
-    menuFontStyleDesktop: $menuFontStyleDesktop,
-    menuFontDecorationDesktop: $menuFontDecorationDesktop,
-    menuTopNavBackgroundDesktop: $menuTopNavBackgroundDesktop,
-    menuTopNavFontColorDesktop: $menuTopNavFontColorDesktop,
-    menuTopNavBorderSidesDesktop: $menuTopNavBorderSidesDesktop,
-    menuTopNavBorderWidthDesktop: $menuTopNavBorderWidthDesktop,
-    menuTopNavBorderStyleDesktop: $menuTopNavBorderStyleDesktop,
-    menuTopNavBorderColorDesktop: $menuTopNavBorderColorDesktop,
-    menuShadowStyleDesktop: $menuShadowStyleDesktop,
-    menuShadowXoffsetDesktop: $menuShadowXoffsetDesktop,
-    menuShadowYoffsetDesktop: $menuShadowYoffsetDesktop,
-    menuShadowBlurDesktop: $menuShadowBlurDesktop,
-    menuShadowSpreadDesktop: $menuShadowSpreadDesktop,
-    menuTopNavFontShadowColorDesktop: $menuTopNavFontShadowColorDesktop,
-    menuBackButtonColorDesktop: $menuBackButtonColorDesktop,
-    menuButtonColorDesktop: $menuButtonColorDesktop,
-    menuBackgroundColorDesktop: $menuBackgroundColorDesktop,
-    menuFontColorDesktop: $menuFontColorDesktop,
-    menuCloseButtonColorDesktop: $menuCloseButtonColorDesktop,
-    menuFooterFontColorDesktop: $menuFooterFontColorDesktop,
-    menuWidthDesktop: $menuWidthDesktop
-  ), $options);
+@mixin menuOverlay($options: (), $widgetInstanceId: "", $widgetInstanceUUID: "") {
+  $configuration: map-merge(
+    (
+      menuFont: $menuFont,
+      menuFontSize: $menuFontSize,
+      menuFontWeight: $menuFontWeight,
+      menuFontStyle: $menuFontStyle,
+      menuFontDecoration: $menuFontDecoration,
+      menuTopNavBackground: $menuTopNavBackground,
+      menuTopNavFontColor: $menuTopNavFontColor,
+      menuTopNavBorderSides: $menuTopNavBorderSides,
+      menuTopNavBorderWidth: $menuTopNavBorderWidth,
+      menuTopNavBorderStyle: $menuTopNavBorderStyle,
+      menuTopNavBorderColor: $menuTopNavBorderColor,
+      menuShadowStyle: $menuShadowStyle,
+      menuShadowXoffset: $menuShadowXoffset,
+      menuShadowYoffset: $menuShadowYoffset,
+      menuShadowBlur: $menuShadowBlur,
+      menuShadowSpread: $menuShadowSpread,
+      menuTopNavFontShadowColor: $menuTopNavFontShadowColor,
+      menuBackButtonColor: $menuBackButtonColor,
+      menuButtonColor: $menuButtonColor,
+      menuBackgroundColor: $menuBackgroundColor,
+      menuFontColor: $menuFontColor,
+      menuCloseButtonColor: $menuCloseButtonColor,
+      menuFooterFontColor: $menuFooterFontColor,
+      menuWidth: $menuWidth,
+      menuFontTablet: $menuFontTablet,
+      menuFontSizeTablet: $menuFontSizeTablet,
+      menuFontWeightTablet: $menuFontWeightTablet,
+      menuFontStyleTablet: $menuFontStyleTablet,
+      menuFontDecorationTablet: $menuFontDecorationTablet,
+      menuTopNavBackgroundTablet: $menuTopNavBackgroundTablet,
+      menuTopNavFontColorTablet: $menuTopNavFontColorTablet,
+      menuTopNavBorderSidesTablet: $menuTopNavBorderSidesTablet,
+      menuTopNavBorderWidthTablet: $menuTopNavBorderWidthTablet,
+      menuTopNavBorderStyleTablet: $menuTopNavBorderStyleTablet,
+      menuTopNavBorderColorTablet: $menuTopNavBorderColorTablet,
+      menuShadowStyleTablet: $menuShadowStyleTablet,
+      menuShadowXoffsetTablet: $menuShadowXoffsetTablet,
+      menuShadowYoffsetTablet: $menuShadowYoffsetTablet,
+      menuShadowBlurTablet: $menuShadowBlurTablet,
+      menuShadowSpreadTablet: $menuShadowSpreadTablet,
+      menuTopNavFontShadowColorTablet: $menuTopNavFontShadowColorTablet,
+      menuBackButtonColorTablet: $menuBackButtonColorTablet,
+      menuButtonColorTablet: $menuButtonColorTablet,
+      menuBackgroundColorTablet: $menuBackgroundColorTablet,
+      menuFontColorTablet: $menuFontColorTablet,
+      menuCloseButtonColorTablet: $menuCloseButtonColorTablet,
+      menuFooterFontColorTablet: $menuFooterFontColorTablet,
+      menuWidthTablet: $menuWidthTablet,
+      menuFontDesktop: $menuFontDesktop,
+      menuFontSizeDesktop: $menuFontSizeDesktop,
+      menuFontWeightDesktop: $menuFontWeightDesktop,
+      menuFontStyleDesktop: $menuFontStyleDesktop,
+      menuFontDecorationDesktop: $menuFontDecorationDesktop,
+      menuTopNavBackgroundDesktop: $menuTopNavBackgroundDesktop,
+      menuTopNavFontColorDesktop: $menuTopNavFontColorDesktop,
+      menuTopNavBorderSidesDesktop: $menuTopNavBorderSidesDesktop,
+      menuTopNavBorderWidthDesktop: $menuTopNavBorderWidthDesktop,
+      menuTopNavBorderStyleDesktop: $menuTopNavBorderStyleDesktop,
+      menuTopNavBorderColorDesktop: $menuTopNavBorderColorDesktop,
+      menuShadowStyleDesktop: $menuShadowStyleDesktop,
+      menuShadowXoffsetDesktop: $menuShadowXoffsetDesktop,
+      menuShadowYoffsetDesktop: $menuShadowYoffsetDesktop,
+      menuShadowBlurDesktop: $menuShadowBlurDesktop,
+      menuShadowSpreadDesktop: $menuShadowSpreadDesktop,
+      menuTopNavFontShadowColorDesktop: $menuTopNavFontShadowColorDesktop,
+      menuBackButtonColorDesktop: $menuBackButtonColorDesktop,
+      menuButtonColorDesktop: $menuButtonColorDesktop,
+      menuBackgroundColorDesktop: $menuBackgroundColorDesktop,
+      menuFontColorDesktop: $menuFontColorDesktop,
+      menuCloseButtonColorDesktop: $menuCloseButtonColorDesktop,
+      menuFooterFontColorDesktop: $menuFooterFontColorDesktop,
+      menuWidthDesktop: $menuWidthDesktop
+    ),
+    $options
+  );
 
   $instanceSelector: '[data-widget-package="com.fliplet.menu.default"]';
-  @if $widgetInstanceUUID != '' {
+  @if $widgetInstanceUUID != "" {
     $instanceSelector: '#{$instanceSelector}[data-uuid="#{$widgetInstanceUUID}"]';
-  } @else if $widgetInstanceId != '' {
+  } @else if $widgetInstanceId != "" {
     $instanceSelector: '#{$instanceSelector}[data-id="#{$widgetInstanceId}"]';
   }
-  
+
   #{$instanceSelector} {
     // Menu Overlay
     .fl-viewport-header {
       text-shadow: none;
 
-      @include viewportHeader((
-        headerBackgroundColor: map-get($configuration, menuTopNavBackground),
-        headerTextColor: map-get($configuration, menuTopNavFontColor),
-        headerBorderSides: map-get($configuration, menuTopNavBorderSides),
-        headerBorderWidth: map-get($configuration, menuTopNavBorderWidth),
-        headerBorderStyle: map-get($configuration, menuTopNavBorderStyle),
-        headerBorderColor: map-get($configuration, menuTopNavBorderColor),
-        headerShadowStyle: map-get($configuration, menuShadowStyle),
-        headerShadowXOffset: map-get($configuration, menuShadowXoffset),
-        headerShadowYOffset: map-get($configuration, menuShadowYoffset),
-        headerShadowBlur: map-get($configuration, menuShadowBlur),
-        headerShadowSpread: map-get($configuration, menuShadowSpread),
-        headerShadowColor: map-get($configuration, menuTopNavFontShadowColor)
-      ));
+      @include viewportHeader(
+        (
+          headerBackgroundColor: map-get($configuration, menuTopNavBackground),
+          headerTextColor: map-get($configuration, menuTopNavFontColor),
+          headerBorderSides: map-get($configuration, menuTopNavBorderSides),
+          headerBorderWidth: map-get($configuration, menuTopNavBorderWidth),
+          headerBorderStyle: map-get($configuration, menuTopNavBorderStyle),
+          headerBorderColor: map-get($configuration, menuTopNavBorderColor),
+          headerShadowStyle: map-get($configuration, menuShadowStyle),
+          headerShadowXOffset: map-get($configuration, menuShadowXoffset),
+          headerShadowYOffset: map-get($configuration, menuShadowYoffset),
+          headerShadowBlur: map-get($configuration, menuShadowBlur),
+          headerShadowSpread: map-get($configuration, menuShadowSpread),
+          headerShadowColor: map-get($configuration, menuTopNavFontShadowColor)
+        )
+      );
 
       // Styles for tablet
       @include above($tabletBreakpoint) {
-        @include viewportHeader((
-          headerBackgroundColor: map-get($configuration, menuTopNavBackgroundTablet),
-          headerTextColor: map-get($configuration, menuTopNavFontColorTablet),
-          headerBorderSides: map-get($configuration, menuTopNavBorderSidesTablet),
-          headerBorderWidth: map-get($configuration, menuTopNavBorderWidthTablet),
-          headerBorderStyle: map-get($configuration, menuTopNavBorderStyleTablet),
-          headerBorderColor: map-get($configuration, menuTopNavBorderColorTablet),
-          headerShadowStyle: map-get($configuration, menuShadowStyleTablet),
-          headerShadowXOffset: map-get($configuration, menuShadowXoffsetTablet),
-          headerShadowYOffset: map-get($configuration, menuShadowYoffsetTablet),
-          headerShadowBlur: map-get($configuration, menuShadowBlurTablet),
-          headerShadowSpread: map-get($configuration, menuShadowSpreadTablet),
-          headerShadowColor: map-get($configuration, menuTopNavFontShadowColorTablet)
-        ));
+        @include viewportHeader(
+          (
+            headerBackgroundColor: map-get($configuration, menuTopNavBackgroundTablet),
+            headerTextColor: map-get($configuration, menuTopNavFontColorTablet),
+            headerBorderSides: map-get($configuration, menuTopNavBorderSidesTablet),
+            headerBorderWidth: map-get($configuration, menuTopNavBorderWidthTablet),
+            headerBorderStyle: map-get($configuration, menuTopNavBorderStyleTablet),
+            headerBorderColor: map-get($configuration, menuTopNavBorderColorTablet),
+            headerShadowStyle: map-get($configuration, menuShadowStyleTablet),
+            headerShadowXOffset: map-get($configuration, menuShadowXoffsetTablet),
+            headerShadowYOffset: map-get($configuration, menuShadowYoffsetTablet),
+            headerShadowBlur: map-get($configuration, menuShadowBlurTablet),
+            headerShadowSpread: map-get($configuration, menuShadowSpreadTablet),
+            headerShadowColor: map-get($configuration, menuTopNavFontShadowColorTablet)
+          )
+        );
       }
 
       // Styles for desktop
       @include above($desktopBreakpoint) {
-        @include viewportHeader((
-          headerBackgroundColor: map-get($configuration, menuTopNavBackgroundDesktop),
-          headerTextColor: map-get($configuration, menuTopNavFontColorDesktop),
-          headerBorderSides: map-get($configuration, menuTopNavBorderSidesDesktop),
-          headerBorderWidth: map-get($configuration, menuTopNavBorderWidthDesktop),
-          headerBorderStyle: map-get($configuration, menuTopNavBorderStyleDesktop),
-          headerBorderColor: map-get($configuration, menuTopNavBorderColorDesktop),
-          headerShadowStyle: map-get($configuration, menuShadowStyleDesktop),
-          headerShadowXOffset: map-get($configuration, menuShadowXoffsetDesktop),
-          headerShadowYOffset: map-get($configuration, menuShadowYoffsetDesktop),
-          headerShadowBlur: map-get($configuration, menuShadowBlurDesktop),
-          headerShadowSpread: map-get($configuration, menuShadowSpreadDesktop),
-          headerShadowColor: map-get($configuration, menuTopNavFontShadowColorDesktop)
-        ));
+        @include viewportHeader(
+          (
+            headerBackgroundColor: map-get($configuration, menuTopNavBackgroundDesktop),
+            headerTextColor: map-get($configuration, menuTopNavFontColorDesktop),
+            headerBorderSides: map-get($configuration, menuTopNavBorderSidesDesktop),
+            headerBorderWidth: map-get($configuration, menuTopNavBorderWidthDesktop),
+            headerBorderStyle: map-get($configuration, menuTopNavBorderStyleDesktop),
+            headerBorderColor: map-get($configuration, menuTopNavBorderColorDesktop),
+            headerShadowStyle: map-get($configuration, menuShadowStyleDesktop),
+            headerShadowXOffset: map-get($configuration, menuShadowXoffsetDesktop),
+            headerShadowYOffset: map-get($configuration, menuShadowYoffsetDesktop),
+            headerShadowBlur: map-get($configuration, menuShadowBlurDesktop),
+            headerShadowSpread: map-get($configuration, menuShadowSpreadDesktop),
+            headerShadowColor: map-get($configuration, menuTopNavFontShadowColorDesktop)
+          )
+        );
       }
 
       .nav-title {
-        @include fontOnly((
-          fontFamily: map-get($configuration, menuFont),
-          fontSize: map-get($configuration, menuFontSize),
-          fontLineHeight: '43px',
-          fontWeight: map-get($configuration, menuFontWeight),
-          fontStyle: map-get($configuration, menuFontStyle),
-          fontDecoration: map-get($configuration, menuFontDecoration)
-        ));
+        @include fontOnly(
+          (
+            fontFamily: map-get($configuration, menuFont),
+            fontSize: map-get($configuration, menuFontSize),
+            fontLineHeight: "43px",
+            fontWeight: map-get($configuration, menuFontWeight),
+            fontStyle: map-get($configuration, menuFontStyle),
+            fontDecoration: map-get($configuration, menuFontDecoration)
+          )
+        );
 
         // Styles for tablet
         @include above($tabletBreakpoint) {
-          @include fontOnly((
-            fontFamily: map-get($configuration, menuFontTablet),
-            fontSize: map-get($configuration, menuFontSizeTablet),
-            fontLineHeight: '43px',
-            fontWeight: map-get($configuration, menuFontWeightTablet),
-            fontStyle: map-get($configuration, menuFontStyleTablet),
-            fontDecoration: map-get($configuration, menuFontDecorationTablet)
-          ));
+          @include fontOnly(
+            (
+              fontFamily: map-get($configuration, menuFontTablet),
+              fontSize: map-get($configuration, menuFontSizeTablet),
+              fontLineHeight: "43px",
+              fontWeight: map-get($configuration, menuFontWeightTablet),
+              fontStyle: map-get($configuration, menuFontStyleTablet),
+              fontDecoration: map-get($configuration, menuFontDecorationTablet)
+            )
+          );
         }
 
         // Styles for desktop
         @include above($desktopBreakpoint) {
-          @include fontOnly((
-            fontFamily: map-get($configuration, menuFontDesktop),
-            fontSize: map-get($configuration, menuFontSizeDesktop),
-            fontLineHeight: '43px',
-            fontWeight: map-get($configuration, menuFontWeightDesktop),
-            fontStyle: map-get($configuration, menuFontStyleDesktop),
-            fontDecoration: map-get($configuration, menuFontDecorationDesktop)
-          ));
+          @include fontOnly(
+            (
+              fontFamily: map-get($configuration, menuFontDesktop),
+              fontSize: map-get($configuration, menuFontSizeDesktop),
+              fontLineHeight: "43px",
+              fontWeight: map-get($configuration, menuFontWeightDesktop),
+              fontStyle: map-get($configuration, menuFontStyleDesktop),
+              fontDecoration: map-get($configuration, menuFontDecorationDesktop)
+            )
+          );
         }
       }
 
@@ -253,7 +268,8 @@
       }
     }
 
-    .fl-menu-default, .fl-menu-default-left {
+    .fl-menu-default,
+    .fl-menu-default-left {
       .fl-menu-panel {
         background-color: map-get($configuration, menuBackgroundColor);
 
@@ -275,14 +291,16 @@
           color: map-get($configuration, menuFontColor);
 
           ul {
-            @include fontOnly((
-              fontFamily: map-get($configuration, menuFont),
-              fontSize: map-get($configuration, menuFontSize),
-              fontLineHeight: 1.5,
-              fontWeight: map-get($configuration, menuFontWeight),
-              fontStyle: map-get($configuration, menuFontStyle),
-              fontDecoration: map-get($configuration, menuFontDecoration)
-            ));
+            @include fontOnly(
+              (
+                fontFamily: map-get($configuration, menuFont),
+                fontSize: map-get($configuration, menuFontSize),
+                fontLineHeight: 1.5,
+                fontWeight: map-get($configuration, menuFontWeight),
+                fontStyle: map-get($configuration, menuFontStyle),
+                fontDecoration: map-get($configuration, menuFontDecoration)
+              )
+            );
 
             > li {
               border-bottom: 1px solid rgba(map-get($configuration, menuTopNavFontColor), 0.2);
@@ -315,17 +333,20 @@
             color: map-get($configuration, menuFontColorTablet);
 
             ul {
-              @include fontOnly((
-                fontFamily: map-get($configuration, menuFontTablet),
-                fontSize: map-get($configuration, menuFontSizeTablet),
-                fontLineHeight: 1.5,
-                fontWeight: map-get($configuration, menuFontWeightTablet),
-                fontStyle: map-get($configuration, menuFontStyleTablet),
-                fontDecoration: map-get($configuration, menuFontDecorationTablet)
-              ));
+              @include fontOnly(
+                (
+                  fontFamily: map-get($configuration, menuFontTablet),
+                  fontSize: map-get($configuration, menuFontSizeTablet),
+                  fontLineHeight: 1.5,
+                  fontWeight: map-get($configuration, menuFontWeightTablet),
+                  fontStyle: map-get($configuration, menuFontStyleTablet),
+                  fontDecoration: map-get($configuration, menuFontDecorationTablet)
+                )
+              );
 
               > li {
-                border-bottom: 1px solid rgba(map-get($configuration, menuTopNavFontColorTablet), 0.2);
+                border-bottom: 1px solid
+                  rgba(map-get($configuration, menuTopNavFontColorTablet), 0.2);
 
                 .fa {
                   color: map-get($configuration, menuFontColorTablet);
@@ -356,17 +377,20 @@
             color: map-get($configuration, menuFontColorDesktop);
 
             ul {
-              @include fontOnly((
-                fontFamily: map-get($configuration, menuFontDesktop),
-                fontSize: map-get($configuration, menuFontSizeDesktop),
-                fontLineHeight: 1.5,
-                fontWeight: map-get($configuration, menuFontWeightDesktop),
-                fontStyle: map-get($configuration, menuFontStyleDesktop),
-                fontDecoration: map-get($configuration, menuFontDecorationDesktop)
-              ));
+              @include fontOnly(
+                (
+                  fontFamily: map-get($configuration, menuFontDesktop),
+                  fontSize: map-get($configuration, menuFontSizeDesktop),
+                  fontLineHeight: 1.5,
+                  fontWeight: map-get($configuration, menuFontWeightDesktop),
+                  fontStyle: map-get($configuration, menuFontStyleDesktop),
+                  fontDecoration: map-get($configuration, menuFontDecorationDesktop)
+                )
+              );
 
               > li {
-                border-bottom: 1px solid rgba(map-get($configuration, menuTopNavFontColorDesktop), 0.2);
+                border-bottom: 1px solid
+                  rgba(map-get($configuration, menuTopNavFontColorDesktop), 0.2);
 
                 .fa {
                   color: map-get($configuration, menuFontColorTablet);

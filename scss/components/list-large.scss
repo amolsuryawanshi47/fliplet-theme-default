@@ -1,161 +1,164 @@
-@mixin listLargeThumbs($options: (), $widgetInstanceId: '', $widgetInstanceUUID: '') {
-  $configuration: map-merge((
-    listLargeWidth: $listLargeWidth,
-    listLargeMinWidth: $listLargeMinWidth,
-    listLargeMaxWidth: $listLargeMaxWidth,
-    listLargePosition: $listLargePosition,
-    listLargePositionTop: $listLargePositionTop,
-    listLargePositionRight: $listLargePositionRight,
-    listLargePositionBottom: $listLargePositionBottom,
-    listLargePositionLeft: $listLargePositionLeft,
-    listLargeIndex: $listLargeIndex,
-    listLargeDisplay: $listLargeDisplay,
-    listLargeMarginTop: $listLargeMarginTop,
-    listLargeMarginRight: $listLargeMarginRight,
-    listLargeMarginBottom: $listLargeMarginBottom,
-    listLargeMarginLeft: $listLargeMarginLeft,
-    listLargePaddingTop: $listLargePaddingTop,
-    listLargePaddingRight: $listLargePaddingRight,
-    listLargePaddingBottom: $listLargePaddingBottom,
-    listLargePaddingLeft: $listLargePaddingLeft,
-    listLargeBackgroundColor: $listLargeBackgroundColor,
-    listLargeClickColor: $listLargeClickColor,
-    listLargeSeparatorColor: $listLargeSeparatorColor,
-    listLargeChevronColor: $listLargeChevronColor,
-    listLargeTitleFont: $listLargeTitleFont,
-    listLargeTitleSize: $listLargeTitleSize,
-    listLargeTitleColor: $listLargeTitleColor,
-    listLargeTitleWeight: $listLargeTitleWeight,
-    listLargeTitleStyle: $listLargeTitleStyle,
-    listLargeTitleDecoration: $listLargeTitleDecoration,
-    listLargeDescriptionFont: $listLargeDescriptionFont,
-    listLargeDescriptionSize: $listLargeDescriptionSize,
-    listLargeDescriptionColor: $listLargeDescriptionColor,
-    listLargeDescriptionWeight: $listLargeDescriptionWeight,
-    listLargeDescriptionStyle: $listLargeDescriptionStyle,
-    listLargeDescriptionDecoration: $listLargeDescriptionDecoration,
-    listLargeIconSize: $listLargeIconSize,
-    listLargeIconBackgroundColor: $listLargeIconBackgroundColor,
-    listLargeIconColor: $listLargeIconColor,
-    listLargeItemPaddingTop: $listLargeItemPaddingTop,
-    listLargeItemPaddingRight: $listLargeItemPaddingRight,
-    listLargeItemPaddingBottom: $listLargeItemPaddingBottom,
-    listLargeItemPaddingLeft: $listLargeItemPaddingLeft,
-    listLargeMyListToggleColor: $listLargeMyListToggleColor,
-    listLargeMyListToggleActiveColor: $listLargeMyListToggleActiveColor,
-    listLargeMyListSwipeColor: $listLargeMyListSwipeColor,
-    listLargeMyListSwipeTextColor: $listLargeMyListSwipeTextColor,
-    listLargeMyListSwipeRightColor: $listLargeMyListSwipeRightColor,
-    listLargeMyListSwipeRightTextColor: $listLargeMyListSwipeRightTextColor,
-    listLargeMyListSwipeLeftColor: $listLargeMyListSwipeLeftColor,
-    listLargeMyListSwipeLeftTextColor: $listLargeMyListSwipeLeftTextColor,
-    listLargeVisibility: $listLargeVisibility,
-    listLargeWidthTablet: $listLargeWidthTablet,
-    listLargeMinWidthTablet: $listLargeMinWidthTablet,
-    listLargeMaxWidthTablet: $listLargeMaxWidthTablet,
-    listLargePositionTablet: $listLargePositionTablet,
-    listLargePositionTopTablet: $listLargePositionTopTablet,
-    listLargePositionRightTablet: $listLargePositionRightTablet,
-    listLargePositionBottomTablet: $listLargePositionBottomTablet,
-    listLargePositionLeftTablet: $listLargePositionLeftTablet,
-    listLargeIndexTablet: $listLargeIndexTablet,
-    listLargeDisplayTablet: $listLargeDisplayTablet,
-    listLargeMarginTopTablet: $listLargeMarginTopTablet,
-    listLargeMarginRightTablet: $listLargeMarginRightTablet,
-    listLargeMarginBottomTablet: $listLargeMarginBottomTablet,
-    listLargeMarginLeftTablet: $listLargeMarginLeftTablet,
-    listLargePaddingTopTablet: $listLargePaddingTopTablet,
-    listLargePaddingRightTablet: $listLargePaddingRightTablet,
-    listLargePaddingBottomTablet: $listLargePaddingBottomTablet,
-    listLargePaddingLeftTablet: $listLargePaddingLeftTablet,
-    listLargeBackgroundColorTablet: $listLargeBackgroundColorTablet,
-    listLargeClickColorTablet: $listLargeClickColorTablet,
-    listLargeSeparatorColorTablet: $listLargeSeparatorColorTablet,
-    listLargeChevronColorTablet: $listLargeChevronColorTablet,
-    listLargeTitleFontTablet: $listLargeTitleFontTablet,
-    listLargeTitleSizeTablet: $listLargeTitleSizeTablet,
-    listLargeTitleColorTablet: $listLargeTitleColorTablet,
-    listLargeTitleWeightTablet: $listLargeTitleWeightTablet,
-    listLargeTitleStyleTablet: $listLargeTitleStyleTablet,
-    listLargeTitleDecorationTablet: $listLargeTitleDecorationTablet,
-    listLargeDescriptionFontTablet: $listLargeDescriptionFontTablet,
-    listLargeDescriptionSizeTablet: $listLargeDescriptionSizeTablet,
-    listLargeDescriptionColorTablet: $listLargeDescriptionColorTablet,
-    listLargeDescriptionWeightTablet: $listLargeDescriptionWeightTablet,
-    listLargeDescriptionStyleTablet: $listLargeDescriptionStyleTablet,
-    listLargeDescriptionDecorationTablet: $listLargeDescriptionDecorationTablet,
-    listLargeIconSizeTablet: $listLargeIconSizeTablet,
-    listLargeIconBackgroundColorTablet: $listLargeIconBackgroundColorTablet,
-    listLargeIconColorTablet: $listLargeIconColorTablet,
-    listLargeItemPaddingTopTablet: $listLargeItemPaddingTopTablet,
-    listLargeItemPaddingRightTablet: $listLargeItemPaddingRightTablet,
-    listLargeItemPaddingBottomTablet: $listLargeItemPaddingBottomTablet,
-    listLargeItemPaddingLeftTablet: $listLargeItemPaddingLeftTablet,
-    listLargeMyListToggleColorTablet: $listLargeMyListToggleColorTablet,
-    listLargeMyListToggleActiveColorTablet: $listLargeMyListToggleActiveColorTablet,
-    listLargeMyListSwipeColorTablet: $listLargeMyListSwipeColorTablet,
-    listLargeMyListSwipeTextColorTablet: $listLargeMyListSwipeTextColorTablet,
-    listLargeMyListSwipeRightColorTablet: $listLargeMyListSwipeRightColorTablet,
-    listLargeMyListSwipeRightTextColorTablet: $listLargeMyListSwipeRightTextColorTablet,
-    listLargeMyListSwipeLeftColorTablet: $listLargeMyListSwipeLeftColorTablet,
-    listLargeMyListSwipeLeftTextColorTablet: $listLargeMyListSwipeLeftTextColorTablet,
-    listLargeVisibilityTablet: $listLargeVisibilityTablet,
-    listLargeWidthDesktop: $listLargeWidthDesktop,
-    listLargeMinWidthDesktop: $listLargeMinWidthDesktop,
-    listLargeMaxWidthDesktop: $listLargeMaxWidthDesktop,
-    listLargePositionDesktop: $listLargePositionDesktop,
-    listLargePositionTopDesktop: $listLargePositionTopDesktop,
-    listLargePositionRightDesktop: $listLargePositionRightDesktop,
-    listLargePositionBottomDesktop: $listLargePositionBottomDesktop,
-    listLargePositionLeftDesktop: $listLargePositionLeftDesktop,
-    listLargeIndexDesktop: $listLargeIndexDesktop,
-    listLargeDisplayDesktop: $listLargeDisplayDesktop,
-    listLargeMarginTopDesktop: $listLargeMarginTopDesktop,
-    listLargeMarginRightDesktop: $listLargeMarginRightDesktop,
-    listLargeMarginBottomDesktop: $listLargeMarginBottomDesktop,
-    listLargeMarginLeftDesktop: $listLargeMarginLeftDesktop,
-    listLargePaddingTopDesktop: $listLargePaddingTopDesktop,
-    listLargePaddingRightDesktop: $listLargePaddingRightDesktop,
-    listLargePaddingBottomDesktop: $listLargePaddingBottomDesktop,
-    listLargePaddingLeftDesktop: $listLargePaddingLeftDesktop,
-    listLargeBackgroundColorDesktop: $listLargeBackgroundColorDesktop,
-    listLargeClickColorDesktop: $listLargeClickColorDesktop,
-    listLargeSeparatorColorDesktop: $listLargeSeparatorColorDesktop,
-    listLargeChevronColorDesktop: $listLargeChevronColorDesktop,
-    listLargeTitleFontDesktop: $listLargeTitleFontDesktop,
-    listLargeTitleSizeDesktop: $listLargeTitleSizeDesktop,
-    listLargeTitleColorDesktop: $listLargeTitleColorDesktop,
-    listLargeTitleWeightDesktop: $listLargeTitleWeightDesktop,
-    listLargeTitleStyleDesktop: $listLargeTitleStyleDesktop,
-    listLargeTitleDecorationDesktop: $listLargeTitleDecorationDesktop,
-    listLargeDescriptionFontDesktop: $listLargeDescriptionFontDesktop,
-    listLargeDescriptionSizeDesktop: $listLargeDescriptionSizeDesktop,
-    listLargeDescriptionColorDesktop: $listLargeDescriptionColorDesktop,
-    listLargeDescriptionWeightDesktop: $listLargeDescriptionWeightDesktop,
-    listLargeDescriptionStyleDesktop: $listLargeDescriptionStyleDesktop,
-    listLargeDescriptionDecorationDesktop: $listLargeDescriptionDecorationDesktop,
-    listLargeIconSizeDesktop: $listLargeIconSizeDesktop,
-    listLargeIconBackgroundColorDesktop: $listLargeIconBackgroundColorDesktop,
-    listLargeIconColorDesktop: $listLargeIconColorDesktop,
-    listLargeItemPaddingTopDesktop: $listLargeItemPaddingTopDesktop,
-    listLargeItemPaddingRightDesktop: $listLargeItemPaddingRightDesktop,
-    listLargeItemPaddingBottomDesktop: $listLargeItemPaddingBottomDesktop,
-    listLargeItemPaddingLeftDesktop: $listLargeItemPaddingLeftDesktop,
-    listLargeMyListToggleColorDesktop: $listLargeMyListToggleColorDesktop,
-    listLargeMyListToggleActiveColorDesktop: $listLargeMyListToggleActiveColorDesktop,
-    listLargeMyListSwipeColorDesktop: $listLargeMyListSwipeColorDesktop,
-    listLargeMyListSwipeTextColorDesktop: $listLargeMyListSwipeTextColorDesktop,
-    listLargeMyListSwipeRightColorDesktop: $listLargeMyListSwipeRightColorDesktop,
-    listLargeMyListSwipeRightTextColorDesktop: $listLargeMyListSwipeRightTextColorDesktop,
-    listLargeMyListSwipeLeftColorDesktop: $listLargeMyListSwipeLeftColorDesktop,
-    listLargeMyListSwipeLeftTextColorDesktop: $listLargeMyListSwipeLeftTextColorDesktop,
-    listLargeVisibilityDesktop: $listLargeVisibilityDesktop
-  ), $options);
-  
+@mixin listLargeThumbs($options: (), $widgetInstanceId: "", $widgetInstanceUUID: "") {
+  $configuration: map-merge(
+    (
+      listLargeWidth: $listLargeWidth,
+      listLargeMinWidth: $listLargeMinWidth,
+      listLargeMaxWidth: $listLargeMaxWidth,
+      listLargePosition: $listLargePosition,
+      listLargePositionTop: $listLargePositionTop,
+      listLargePositionRight: $listLargePositionRight,
+      listLargePositionBottom: $listLargePositionBottom,
+      listLargePositionLeft: $listLargePositionLeft,
+      listLargeIndex: $listLargeIndex,
+      listLargeDisplay: $listLargeDisplay,
+      listLargeMarginTop: $listLargeMarginTop,
+      listLargeMarginRight: $listLargeMarginRight,
+      listLargeMarginBottom: $listLargeMarginBottom,
+      listLargeMarginLeft: $listLargeMarginLeft,
+      listLargePaddingTop: $listLargePaddingTop,
+      listLargePaddingRight: $listLargePaddingRight,
+      listLargePaddingBottom: $listLargePaddingBottom,
+      listLargePaddingLeft: $listLargePaddingLeft,
+      listLargeBackgroundColor: $listLargeBackgroundColor,
+      listLargeClickColor: $listLargeClickColor,
+      listLargeSeparatorColor: $listLargeSeparatorColor,
+      listLargeChevronColor: $listLargeChevronColor,
+      listLargeTitleFont: $listLargeTitleFont,
+      listLargeTitleSize: $listLargeTitleSize,
+      listLargeTitleColor: $listLargeTitleColor,
+      listLargeTitleWeight: $listLargeTitleWeight,
+      listLargeTitleStyle: $listLargeTitleStyle,
+      listLargeTitleDecoration: $listLargeTitleDecoration,
+      listLargeDescriptionFont: $listLargeDescriptionFont,
+      listLargeDescriptionSize: $listLargeDescriptionSize,
+      listLargeDescriptionColor: $listLargeDescriptionColor,
+      listLargeDescriptionWeight: $listLargeDescriptionWeight,
+      listLargeDescriptionStyle: $listLargeDescriptionStyle,
+      listLargeDescriptionDecoration: $listLargeDescriptionDecoration,
+      listLargeIconSize: $listLargeIconSize,
+      listLargeIconBackgroundColor: $listLargeIconBackgroundColor,
+      listLargeIconColor: $listLargeIconColor,
+      listLargeItemPaddingTop: $listLargeItemPaddingTop,
+      listLargeItemPaddingRight: $listLargeItemPaddingRight,
+      listLargeItemPaddingBottom: $listLargeItemPaddingBottom,
+      listLargeItemPaddingLeft: $listLargeItemPaddingLeft,
+      listLargeMyListToggleColor: $listLargeMyListToggleColor,
+      listLargeMyListToggleActiveColor: $listLargeMyListToggleActiveColor,
+      listLargeMyListSwipeColor: $listLargeMyListSwipeColor,
+      listLargeMyListSwipeTextColor: $listLargeMyListSwipeTextColor,
+      listLargeMyListSwipeRightColor: $listLargeMyListSwipeRightColor,
+      listLargeMyListSwipeRightTextColor: $listLargeMyListSwipeRightTextColor,
+      listLargeMyListSwipeLeftColor: $listLargeMyListSwipeLeftColor,
+      listLargeMyListSwipeLeftTextColor: $listLargeMyListSwipeLeftTextColor,
+      listLargeVisibility: $listLargeVisibility,
+      listLargeWidthTablet: $listLargeWidthTablet,
+      listLargeMinWidthTablet: $listLargeMinWidthTablet,
+      listLargeMaxWidthTablet: $listLargeMaxWidthTablet,
+      listLargePositionTablet: $listLargePositionTablet,
+      listLargePositionTopTablet: $listLargePositionTopTablet,
+      listLargePositionRightTablet: $listLargePositionRightTablet,
+      listLargePositionBottomTablet: $listLargePositionBottomTablet,
+      listLargePositionLeftTablet: $listLargePositionLeftTablet,
+      listLargeIndexTablet: $listLargeIndexTablet,
+      listLargeDisplayTablet: $listLargeDisplayTablet,
+      listLargeMarginTopTablet: $listLargeMarginTopTablet,
+      listLargeMarginRightTablet: $listLargeMarginRightTablet,
+      listLargeMarginBottomTablet: $listLargeMarginBottomTablet,
+      listLargeMarginLeftTablet: $listLargeMarginLeftTablet,
+      listLargePaddingTopTablet: $listLargePaddingTopTablet,
+      listLargePaddingRightTablet: $listLargePaddingRightTablet,
+      listLargePaddingBottomTablet: $listLargePaddingBottomTablet,
+      listLargePaddingLeftTablet: $listLargePaddingLeftTablet,
+      listLargeBackgroundColorTablet: $listLargeBackgroundColorTablet,
+      listLargeClickColorTablet: $listLargeClickColorTablet,
+      listLargeSeparatorColorTablet: $listLargeSeparatorColorTablet,
+      listLargeChevronColorTablet: $listLargeChevronColorTablet,
+      listLargeTitleFontTablet: $listLargeTitleFontTablet,
+      listLargeTitleSizeTablet: $listLargeTitleSizeTablet,
+      listLargeTitleColorTablet: $listLargeTitleColorTablet,
+      listLargeTitleWeightTablet: $listLargeTitleWeightTablet,
+      listLargeTitleStyleTablet: $listLargeTitleStyleTablet,
+      listLargeTitleDecorationTablet: $listLargeTitleDecorationTablet,
+      listLargeDescriptionFontTablet: $listLargeDescriptionFontTablet,
+      listLargeDescriptionSizeTablet: $listLargeDescriptionSizeTablet,
+      listLargeDescriptionColorTablet: $listLargeDescriptionColorTablet,
+      listLargeDescriptionWeightTablet: $listLargeDescriptionWeightTablet,
+      listLargeDescriptionStyleTablet: $listLargeDescriptionStyleTablet,
+      listLargeDescriptionDecorationTablet: $listLargeDescriptionDecorationTablet,
+      listLargeIconSizeTablet: $listLargeIconSizeTablet,
+      listLargeIconBackgroundColorTablet: $listLargeIconBackgroundColorTablet,
+      listLargeIconColorTablet: $listLargeIconColorTablet,
+      listLargeItemPaddingTopTablet: $listLargeItemPaddingTopTablet,
+      listLargeItemPaddingRightTablet: $listLargeItemPaddingRightTablet,
+      listLargeItemPaddingBottomTablet: $listLargeItemPaddingBottomTablet,
+      listLargeItemPaddingLeftTablet: $listLargeItemPaddingLeftTablet,
+      listLargeMyListToggleColorTablet: $listLargeMyListToggleColorTablet,
+      listLargeMyListToggleActiveColorTablet: $listLargeMyListToggleActiveColorTablet,
+      listLargeMyListSwipeColorTablet: $listLargeMyListSwipeColorTablet,
+      listLargeMyListSwipeTextColorTablet: $listLargeMyListSwipeTextColorTablet,
+      listLargeMyListSwipeRightColorTablet: $listLargeMyListSwipeRightColorTablet,
+      listLargeMyListSwipeRightTextColorTablet: $listLargeMyListSwipeRightTextColorTablet,
+      listLargeMyListSwipeLeftColorTablet: $listLargeMyListSwipeLeftColorTablet,
+      listLargeMyListSwipeLeftTextColorTablet: $listLargeMyListSwipeLeftTextColorTablet,
+      listLargeVisibilityTablet: $listLargeVisibilityTablet,
+      listLargeWidthDesktop: $listLargeWidthDesktop,
+      listLargeMinWidthDesktop: $listLargeMinWidthDesktop,
+      listLargeMaxWidthDesktop: $listLargeMaxWidthDesktop,
+      listLargePositionDesktop: $listLargePositionDesktop,
+      listLargePositionTopDesktop: $listLargePositionTopDesktop,
+      listLargePositionRightDesktop: $listLargePositionRightDesktop,
+      listLargePositionBottomDesktop: $listLargePositionBottomDesktop,
+      listLargePositionLeftDesktop: $listLargePositionLeftDesktop,
+      listLargeIndexDesktop: $listLargeIndexDesktop,
+      listLargeDisplayDesktop: $listLargeDisplayDesktop,
+      listLargeMarginTopDesktop: $listLargeMarginTopDesktop,
+      listLargeMarginRightDesktop: $listLargeMarginRightDesktop,
+      listLargeMarginBottomDesktop: $listLargeMarginBottomDesktop,
+      listLargeMarginLeftDesktop: $listLargeMarginLeftDesktop,
+      listLargePaddingTopDesktop: $listLargePaddingTopDesktop,
+      listLargePaddingRightDesktop: $listLargePaddingRightDesktop,
+      listLargePaddingBottomDesktop: $listLargePaddingBottomDesktop,
+      listLargePaddingLeftDesktop: $listLargePaddingLeftDesktop,
+      listLargeBackgroundColorDesktop: $listLargeBackgroundColorDesktop,
+      listLargeClickColorDesktop: $listLargeClickColorDesktop,
+      listLargeSeparatorColorDesktop: $listLargeSeparatorColorDesktop,
+      listLargeChevronColorDesktop: $listLargeChevronColorDesktop,
+      listLargeTitleFontDesktop: $listLargeTitleFontDesktop,
+      listLargeTitleSizeDesktop: $listLargeTitleSizeDesktop,
+      listLargeTitleColorDesktop: $listLargeTitleColorDesktop,
+      listLargeTitleWeightDesktop: $listLargeTitleWeightDesktop,
+      listLargeTitleStyleDesktop: $listLargeTitleStyleDesktop,
+      listLargeTitleDecorationDesktop: $listLargeTitleDecorationDesktop,
+      listLargeDescriptionFontDesktop: $listLargeDescriptionFontDesktop,
+      listLargeDescriptionSizeDesktop: $listLargeDescriptionSizeDesktop,
+      listLargeDescriptionColorDesktop: $listLargeDescriptionColorDesktop,
+      listLargeDescriptionWeightDesktop: $listLargeDescriptionWeightDesktop,
+      listLargeDescriptionStyleDesktop: $listLargeDescriptionStyleDesktop,
+      listLargeDescriptionDecorationDesktop: $listLargeDescriptionDecorationDesktop,
+      listLargeIconSizeDesktop: $listLargeIconSizeDesktop,
+      listLargeIconBackgroundColorDesktop: $listLargeIconBackgroundColorDesktop,
+      listLargeIconColorDesktop: $listLargeIconColorDesktop,
+      listLargeItemPaddingTopDesktop: $listLargeItemPaddingTopDesktop,
+      listLargeItemPaddingRightDesktop: $listLargeItemPaddingRightDesktop,
+      listLargeItemPaddingBottomDesktop: $listLargeItemPaddingBottomDesktop,
+      listLargeItemPaddingLeftDesktop: $listLargeItemPaddingLeftDesktop,
+      listLargeMyListToggleColorDesktop: $listLargeMyListToggleColorDesktop,
+      listLargeMyListToggleActiveColorDesktop: $listLargeMyListToggleActiveColorDesktop,
+      listLargeMyListSwipeColorDesktop: $listLargeMyListSwipeColorDesktop,
+      listLargeMyListSwipeTextColorDesktop: $listLargeMyListSwipeTextColorDesktop,
+      listLargeMyListSwipeRightColorDesktop: $listLargeMyListSwipeRightColorDesktop,
+      listLargeMyListSwipeRightTextColorDesktop: $listLargeMyListSwipeRightTextColorDesktop,
+      listLargeMyListSwipeLeftColorDesktop: $listLargeMyListSwipeLeftColorDesktop,
+      listLargeMyListSwipeLeftTextColorDesktop: $listLargeMyListSwipeLeftTextColorDesktop,
+      listLargeVisibilityDesktop: $listLargeVisibilityDesktop
+    ),
+    $options
+  );
+
   $instanceSelector: '[data-widget-package="com.fliplet.list-large-thumbs"]';
-  @if $widgetInstanceUUID != '' {
+  @if $widgetInstanceUUID != "" {
     $instanceSelector: '#{$instanceSelector}[data-uuid="#{$widgetInstanceUUID}"]';
-  } @else if $widgetInstanceId != '' {
+  } @else if $widgetInstanceId != "" {
     $instanceSelector: '#{$instanceSelector}[data-id="#{$widgetInstanceId}"]';
   }
 
@@ -163,14 +166,14 @@
     position: map-get($configuration, listLargePosition) !important;
     z-index: map-get($configuration, listLargeIndex);
 
-    @if map-get($configuration, listLargePosition) == 'relative' {
-      @if map-get($configuration, listLargeVisibility) == 'visible' {
+    @if map-get($configuration, listLargePosition) == "relative" {
+      @if map-get($configuration, listLargeVisibility) == "visible" {
         display: map-get($configuration, listLargeDisplay) !important;
       } @else {
         display: none !important;
       }
     } @else {
-      @if map-get($configuration, listLargeVisibility) == 'visible' {
+      @if map-get($configuration, listLargeVisibility) == "visible" {
         display: block !important;
       } @else {
         display: none !important;
@@ -186,12 +189,10 @@
     min-width: map-get($configuration, listLargeMinWidth);
     max-width: map-get($configuration, listLargeMaxWidth);
     margin: map-get($configuration, listLargeMarginTop)
-      map-get($configuration, listLargeMarginRight)
-      map-get($configuration, listLargeMarginBottom)
+      map-get($configuration, listLargeMarginRight) map-get($configuration, listLargeMarginBottom)
       map-get($configuration, listLargeMarginLeft);
     padding: map-get($configuration, listLargePaddingTop)
-      map-get($configuration, listLargePaddingRight)
-      map-get($configuration, listLargePaddingBottom)
+      map-get($configuration, listLargePaddingRight) map-get($configuration, listLargePaddingBottom)
       map-get($configuration, listLargePaddingLeft);
 
     // Styles for tablet
@@ -199,14 +200,14 @@
       position: map-get($configuration, listLargePositionTablet) !important;
       z-index: map-get($configuration, listLargeIndexTablet);
 
-      @if map-get($configuration, listLargePositionTablet) == 'relative' {
-        @if map-get($configuration, listLargeVisibilityTablet) == 'visible' {
+      @if map-get($configuration, listLargePositionTablet) == "relative" {
+        @if map-get($configuration, listLargeVisibilityTablet) == "visible" {
           display: map-get($configuration, listLargeDisplayTablet) !important;
         } @else {
           display: none !important;
         }
       } @else {
-        @if map-get($configuration, listLargeVisibilityTablet) == 'visible' {
+        @if map-get($configuration, listLargeVisibilityTablet) == "visible" {
           display: block !important;
         } @else {
           display: none !important;
@@ -236,14 +237,14 @@
       position: map-get($configuration, listLargePositionDesktop) !important;
       z-index: map-get($configuration, listLargeIndexDesktop);
 
-      @if map-get($configuration, listLargePositionDesktop) == 'relative' {
-        @if map-get($configuration, listLargeVisibilityDesktop) == 'visible' {
+      @if map-get($configuration, listLargePositionDesktop) == "relative" {
+        @if map-get($configuration, listLargeVisibilityDesktop) == "visible" {
           display: map-get($configuration, listLargeDisplayDesktop) !important;
         } @else {
           display: none !important;
         }
       } @else {
-        @if map-get($configuration, listLargeVisibilityDesktop) == 'visible' {
+        @if map-get($configuration, listLargeVisibilityDesktop) == "visible" {
           display: block !important;
         } @else {
           display: none !important;
@@ -303,26 +304,30 @@
         }
 
         .list-title {
-          @include fontOnly((
-            fontFamily: map-get($configuration, listLargeTitleFont),
-            fontSize: map-get($configuration, listLargeTitleSize),
-            fontLineHeight: 1.5,
-            fontWeight: map-get($configuration, listLargeTitleWeight),
-            fontStyle: map-get($configuration, listLargeTitleStyle),
-            fontDecoration: map-get($configuration, listLargeTitleDecoration)
-          ));
+          @include fontOnly(
+            (
+              fontFamily: map-get($configuration, listLargeTitleFont),
+              fontSize: map-get($configuration, listLargeTitleSize),
+              fontLineHeight: 1.5,
+              fontWeight: map-get($configuration, listLargeTitleWeight),
+              fontStyle: map-get($configuration, listLargeTitleStyle),
+              fontDecoration: map-get($configuration, listLargeTitleDecoration)
+            )
+          );
           color: map-get($configuration, listLargeTitleColor);
         }
 
         p + p {
-          @include fontOnly((
-            fontFamily: map-get($configuration, listLargeDescriptionFont),
-            fontSize: map-get($configuration, listLargeDescriptionSize),
-            fontLineHeight: 1.5,
-            fontWeight: map-get($configuration, listLargeDescriptionWeight),
-            fontStyle: map-get($configuration, listLargeDescriptionStyle),
-            fontDecoration: map-get($configuration, listLargeDescriptionDecoration)
-          ));
+          @include fontOnly(
+            (
+              fontFamily: map-get($configuration, listLargeDescriptionFont),
+              fontSize: map-get($configuration, listLargeDescriptionSize),
+              fontLineHeight: 1.5,
+              fontWeight: map-get($configuration, listLargeDescriptionWeight),
+              fontStyle: map-get($configuration, listLargeDescriptionStyle),
+              fontDecoration: map-get($configuration, listLargeDescriptionDecoration)
+            )
+          );
           color: map-get($configuration, listLargeDescriptionColor);
         }
 
@@ -361,26 +366,30 @@
           }
 
           .list-title {
-            @include fontOnly((
-              fontFamily: map-get($configuration, listLargeTitleFontTablet),
-              fontSize: map-get($configuration, listLargeTitleSizeTablet),
-              fontLineHeight: 1.5,
-              fontWeight: map-get($configuration, listLargeTitleWeightTablet),
-              fontStyle: map-get($configuration, listLargeTitleStyleTablet),
-              fontDecoration: map-get($configuration, listLargeTitleDecorationTablet)
-            ));
+            @include fontOnly(
+              (
+                fontFamily: map-get($configuration, listLargeTitleFontTablet),
+                fontSize: map-get($configuration, listLargeTitleSizeTablet),
+                fontLineHeight: 1.5,
+                fontWeight: map-get($configuration, listLargeTitleWeightTablet),
+                fontStyle: map-get($configuration, listLargeTitleStyleTablet),
+                fontDecoration: map-get($configuration, listLargeTitleDecorationTablet)
+              )
+            );
             color: map-get($configuration, listLargeTitleColorTablet);
           }
 
           p + p {
-            @include fontOnly((
-              fontFamily: map-get($configuration, listLargeDescriptionFontTablet),
-              fontSize: map-get($configuration, listLargeDescriptionSizeTablet),
-              fontLineHeight: 1.5,
-              fontWeight: map-get($configuration, listLargeDescriptionWeightTablet),
-              fontStyle: map-get($configuration, listLargeDescriptionStyleTablet),
-              fontDecoration: map-get($configuration, listLargeDescriptionDecorationTablet)
-            ));
+            @include fontOnly(
+              (
+                fontFamily: map-get($configuration, listLargeDescriptionFontTablet),
+                fontSize: map-get($configuration, listLargeDescriptionSizeTablet),
+                fontLineHeight: 1.5,
+                fontWeight: map-get($configuration, listLargeDescriptionWeightTablet),
+                fontStyle: map-get($configuration, listLargeDescriptionStyleTablet),
+                fontDecoration: map-get($configuration, listLargeDescriptionDecorationTablet)
+              )
+            );
             color: map-get($configuration, listLargeDescriptionColorTablet);
           }
         }
@@ -395,7 +404,9 @@
             calc(#{map-get($configuration, listLargeItemPaddingLeftDesktop)} + 71px);
 
           &.linked {
-            padding-right: calc(#{map-get($configuration, listLargeItemPaddingRightDesktop)} + 34px);
+            padding-right: calc(
+              #{map-get($configuration, listLargeItemPaddingRightDesktop)} + 34px
+            );
 
             &:active {
               background-color: map-get($configuration, listLargeClickColorDesktop);
@@ -420,26 +431,30 @@
           }
 
           .list-title {
-            @include fontOnly((
-              fontFamily: map-get($configuration, listLargeTitleFontDesktop),
-              fontSize: map-get($configuration, listLargeTitleSizeDesktop),
-              fontLineHeight: 1.5,
-              fontWeight: map-get($configuration, listLargeTitleWeightDesktop),
-              fontStyle: map-get($configuration, listLargeTitleStyleDesktop),
-              fontDecoration: map-get($configuration, listLargeTitleDecorationDesktop)
-            ));
+            @include fontOnly(
+              (
+                fontFamily: map-get($configuration, listLargeTitleFontDesktop),
+                fontSize: map-get($configuration, listLargeTitleSizeDesktop),
+                fontLineHeight: 1.5,
+                fontWeight: map-get($configuration, listLargeTitleWeightDesktop),
+                fontStyle: map-get($configuration, listLargeTitleStyleDesktop),
+                fontDecoration: map-get($configuration, listLargeTitleDecorationDesktop)
+              )
+            );
             color: map-get($configuration, listLargeTitleColorDesktop);
           }
 
           p + p {
-            @include fontOnly((
-              fontFamily: map-get($configuration, listLargeDescriptionFontDesktop),
-              fontSize: map-get($configuration, listLargeDescriptionSizeDesktop),
-              fontLineHeight: 1.5,
-              fontWeight: map-get($configuration, listLargeDescriptionWeightDesktop),
-              fontStyle: map-get($configuration, listLargeDescriptionStyleDesktop),
-              fontDecoration: map-get($configuration, listLargeDescriptionDecorationDesktop)
-            ));
+            @include fontOnly(
+              (
+                fontFamily: map-get($configuration, listLargeDescriptionFontDesktop),
+                fontSize: map-get($configuration, listLargeDescriptionSizeDesktop),
+                fontLineHeight: 1.5,
+                fontWeight: map-get($configuration, listLargeDescriptionWeightDesktop),
+                fontStyle: map-get($configuration, listLargeDescriptionStyleDesktop),
+                fontDecoration: map-get($configuration, listLargeDescriptionDecorationDesktop)
+              )
+            );
             color: map-get($configuration, listLargeDescriptionColorDesktop);
           }
         }
@@ -496,7 +511,7 @@
         background: map-get($configuration, listLargeMyListSwipeColor);
         color: map-get($configuration, listLargeMyListSwipeTextColor);
 
-        &.swipe-action-right.active{
+        &.swipe-action-right.active {
           background: map-get($configuration, listLargeMyListSwipeRightColor);
           color: map-get($configuration, listLargeMyListSwipeRightTextColor);
         }
@@ -511,7 +526,7 @@
           background: map-get($configuration, listLargeMyListSwipeColorTablet);
           color: map-get($configuration, listLargeMyListSwipeTextColorTablet);
 
-          &.swipe-action-right.active{
+          &.swipe-action-right.active {
             background: map-get($configuration, listLargeMyListSwipeRightColorTablet);
             color: map-get($configuration, listLargeMyListSwipeRightTextColorTablet);
           }
@@ -527,7 +542,7 @@
           background: map-get($configuration, listLargeMyListSwipeColorDesktop);
           color: map-get($configuration, listLargeMyListSwipeTextColorDesktop);
 
-          &.swipe-action-right.active{
+          &.swipe-action-right.active {
             background: map-get($configuration, listLargeMyListSwipeRightColorDesktop);
             color: map-get($configuration, listLargeMyListSwipeRightTextColorDesktop);
           }
