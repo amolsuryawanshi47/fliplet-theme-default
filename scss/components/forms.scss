@@ -239,7 +239,13 @@
       formRequiredColorDesktop: $formRequiredColorDesktop,
       formVisibilityDesktop: $formVisibilityDesktop,
       primaryButtonPaddingRightTablet: $primaryButtonPaddingRightTablet,
-      primaryButtonPaddingRightDesktop: $primaryButtonPaddingRightDesktop
+      primaryButtonPaddingRightDesktop: $primaryButtonPaddingRightDesktop,
+      formReadOnlyBackgroundColor: $formReadOnlyBackgroundColor,
+      formReadOnlyBackgroundColorTablet: $formReadOnlyBackgroundColorTablet,
+      formReadOnlyBackgroundColorDesktop: $formReadOnlyBackgroundColorDesktop,
+      formReadOnlySelectedFillColor: $formReadOnlySelectedFillColor,
+      formReadOnlySelectedFillColorTablet: $formReadOnlySelectedFillColorTablet,
+      formReadOnlySelectedFillColorDesktop: $formReadOnlySelectedFillColorDesktop
     ),
     $options
   );
@@ -373,6 +379,10 @@
 
         color: map-get($configuration, formTextInputsFontColor);
 
+        &:read-only {
+          background-color: map-get($configuration, formReadOnlyBackgroundColor);
+        }
+
         &::placeholder {
           @include fontOnly(
             (
@@ -402,6 +412,10 @@
           );
 
           color: map-get($configuration, formTextInputsFontColorTablet);
+
+          &:read-only {
+            background-color: map-get($configuration, formReadOnlyBackgroundColorTablet);
+          }
 
           &::placeholder {
             @include fontOnly(
@@ -433,6 +447,10 @@
           );
 
           color: map-get($configuration, formTextInputsFontColorDesktop);
+
+          &:read-only {
+            background-color: map-get($configuration, formReadOnlyBackgroundColorDesktop);
+          }
 
           &::placeholder {
             @include fontOnly(
@@ -823,6 +841,23 @@
       }
     }
 
+    .form-group.fl-date-picker.readonly,
+    .form-group.fl-time-picker.readonly {
+      > .form-control {
+        background-color: map-get($configuration, formReadOnlyBackgroundColor);
+
+        // Styles for tablet
+        @include above($tabletBreakpoint) {
+          background-color: map-get($configuration, formReadOnlyBackgroundColorTablet);
+        }
+
+        // Styles for desktop
+        @include above($desktopBreakpoint) {
+          background-color: map-get($configuration, formReadOnlyBackgroundColorDesktop);
+        }
+      }
+    }
+
     .form-group.fl-date-picker,
     .form-group.fl-time-picker {
       > .form-control {
@@ -1028,6 +1063,36 @@
       }
     }
 
+    .checkbox.checkbox-icon.readonly input[type="checkbox"] + label > span.check,
+    .radio.radio-icon.readonly input[type="radio"] + label > span.check {
+      border: 1px solid map-get($configuration, formReadOnlySelectedFillColor);
+
+      // Styles for tablet
+      @include above($tabletBreakpoint) {
+        border: 1px solid map-get($configuration, formReadOnlySelectedFillColorTablet);
+      }
+
+      // Styles for desktop
+      @include above($desktopBreakpoint) {
+        border: 1px solid map-get($configuration, formReadOnlySelectedFillColorDesktop);
+      }
+    }
+
+    .checkbox.checkbox-icon.readonly input[type="checkbox"]:checked + label > span.check,
+    .radio.radio-icon.readonly input[type="radio"]:checked + label > span.check {
+      background-color: map-get($configuration, formReadOnlySelectedFillColor);
+
+      // Styles for tablet
+      @include above($tabletBreakpoint) {
+        background-color: 1px solid map-get($configuration, formReadOnlySelectedFillColorTablet);
+      }
+
+      // Styles for desktop
+      @include above($desktopBreakpoint) {
+        background-color: 1px solid map-get($configuration, formReadOnlySelectedFillColorDesktop);
+      }
+    }
+
     .radio.radio-icon input[type="radio"]:checked + label > span.check,
     .checkbox.checkbox-icon input[type="checkbox"]:checked + label > span.check {
       background-color: map-get($configuration, formToggleActiveBackgroundColor);
@@ -1214,6 +1279,35 @@
       }
     }
 
+    .select-proxy-display.readonly {
+      border: 1px solid $formInputBorderColor;
+      background-color: map-get($configuration, formReadOnlyBackgroundColor);
+
+      & > .icon {
+        background-color: map-get($configuration, formReadOnlySelectedFillColor);
+      }
+
+      // Styles for tablet
+      @include above($tabletBreakpoint) {
+        border: 1px solid $formInputBorderColor;
+        background-color: map-get($configuration, formReadOnlyBackgroundColorTablet);
+
+        & > .icon {
+          background-color: map-get($configuration, formReadOnlySelectedFillColorTablet);
+        }
+      }
+
+      // Styles for desktop
+      @include above($desktopBreakpoint) {
+        border: 1px solid $formInputBorderColor;
+        background-color: map-get($configuration, formReadOnlyBackgroundColorDesktop);
+
+        & > .icon {
+          background-color: map-get($configuration, formReadOnlySelectedFillColorDesktop);
+        }
+      }
+    }
+
     .select-proxy-display > .icon {
       background-color: map-get($configuration, formSelectArrowBackground);
       color: map-get($configuration, formSelectArrow);
@@ -1371,7 +1465,28 @@
       }
     }
 
-    [_type="flStarRating"] .rating-input:checked ~ .rating-star .fa {
+    [_type="flStarRating"] .rating-input ~ .readonly.rating-star .fa {
+      &:before {
+        -webkit-text-stroke: 1px map-get($configuration, formReadOnlySelectedFillColor);
+      }
+
+      // Styles for tablet
+      @include above($tabletBreakpoint) {
+        &:before {
+          -webkit-text-stroke: 1px map-get($configuration, formReadOnlySelectedFillColorTablet);
+        }
+      }
+
+      // Styles for desktop
+      @include above($desktopBreakpoint) {
+        &:before {
+          -webkit-text-stroke: 1px map-get($configuration, formReadOnlySelectedFillColorDesktop);
+        }
+      }
+    }
+
+    [_type="flStarRating"] .rating-input:checked ~ .rating-star .fa,
+    [_type="flStarRating"] .rating-input:checked ~ .readonly.rating-star .fa {
       color: map-get($configuration, formStarRatingSelected);
 
       // Styles for tablet
@@ -1382,6 +1497,20 @@
       // Styles for desktop
       @include above($desktopBreakpoint) {
         color: map-get($configuration, formStarRatingSelectedDesktop);
+      }
+    }
+
+    [_type="flStarRating"] .rating-input ~ .readonly.rating-star .fa {
+      color: map-get($configuration, formReadOnlyBackgroundColor);
+
+      // Styles for tablet
+      @include above($tabletBreakpoint) {
+        color: map-get($configuration, formReadOnlyBackgroundColorTablet);
+      }
+
+      // Styles for desktop
+      @include above($desktopBreakpoint) {
+        color: map-get($configuration, formReadOnlyBackgroundColorDesktop);
       }
     }
 
@@ -1462,6 +1591,34 @@
             box-shadow: 0px 0px 0px $focusOutlineWidthDesktop $focusOutlineColorDesktop !important;
           }
         }
+      }
+    }
+
+    [_type="flSignature"] .signature-editor.readonly .field-signature {
+      border-bottom: 1px solid map-get($configuration, formInputBorderColor);
+
+      // Styles for tablet
+      @include above($tabletBreakpoint) {
+        border-bottom: 1px solid map-get($configuration, formInputBorderColorTablet);
+      }
+
+      // Styles for desktop
+      @include above($desktopBreakpoint) {
+        border-bottom: 1px solid map-get($configuration, formInputBorderColorDesktop);
+      }
+    }
+
+    .form-group div.mce-edit-area {
+      background-color: map-get($configuration, formReadOnlyBackgroundColor);
+
+      // Styles for tablet
+      @include above($tabletBreakpoint) {
+        background-color: map-get($configuration, formReadOnlyBackgroundColorTablet);
+      }
+
+      // Styles for desktop
+      @include above($desktopBreakpoint) {
+        background-color: map-get($configuration, formReadOnlyBackgroundColorDesktop);
       }
     }
 
@@ -1552,6 +1709,20 @@
         border-right-color: rgba($spinnerColorDesktop, 0.3);
         border-bottom-color: rgba($spinnerColorDesktop, 0.3);
         border-left-color: $linkColorDesktop;
+      }
+    }
+
+    .fileUpload-disabled label {
+      background-color: map-get($configuration, formReadOnlySelectedFillColor) !important;
+
+      // Styles for tablet
+      @include above($tabletBreakpoint) {
+        background-color: map-get($configuration, formReadOnlySelectedFillColorTablet) !important;
+      }
+
+      // Styles for desktop
+      @include above($desktopBreakpoint) {
+        background-color: map-get($configuration, formReadOnlySelectedFillColorTablet) !important;
       }
     }
   }

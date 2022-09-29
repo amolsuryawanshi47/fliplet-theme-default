@@ -21904,7 +21904,10 @@
                 "styles": [
                   {
                     "parentSelector": "[data-widget-package='com.fliplet.form-builder']",
-                    "selectors": "[_type='flStarRating'] .rating-input:checked~.rating-star .fa",
+                    "selectors": [
+                      "[_type='flStarRating'] .rating-input:checked~.rating-star .fa",
+                      "[_type='flStarRating'] .rating-input:checked~.readonly.rating-star .fa"
+                    ],
                     "properties": ["color"]
                   }
                 ],
@@ -22001,6 +22004,88 @@
                   }
                 },
                 "label": "Clear text active color",
+                "type": "color"
+              }
+            ]
+          },
+          {
+            "description": "Read only field",
+            "fields": [
+              {
+                "name": "formReadOnlyBackgroundColor",
+                "default": "#f8f8f8",
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.form-builder']",
+                    "selectors": [
+                      "[_type='flStarRating'] .rating-input~.readonly.rating-star .fa"
+                    ],
+                    "properties": ["color"]
+                  },
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.form-builder']",
+                    "selectors": [
+                      ".form-group input.form-control[readonly]",
+                      ".form-group div.mce-edit-area",
+                      ".form-group.fl-date-picker.readonly > .form-control",
+                      ".form-group.fl-time-picker.readonly > .form-control",
+                      ".select-proxy-display.readonly"
+                    ],
+                    "properties": ["background-color"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "formReadOnlyBackgroundColorTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "formReadOnlyBackgroundColorDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "label": "Text background color",
+                "type": "color"
+              },
+              {
+                "name": "formReadOnlySelectedFillColor",
+                "default": "#e1e1e1",
+                "styles": [
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.form-builder']",
+                    "selectors": [
+                      ".checkbox.checkbox-icon.readonly input[type='checkbox']:checked+label > span.check",
+                      ".radio.radio-icon.readonly input[type='radio']:checked+label > span.check",
+                      ".select-proxy-display.readonly>.icon",
+                      ".fileUpload-disabled label"
+                    ],
+                    "properties": ["background-color"]
+                  },
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.form-builder']",
+                    "selectors": [
+                      ".radio.radio-icon.readonly input[type='radio']+label > span.check",
+                      ".checkbox.checkbox-icon.readonly input[type='checkbox']+label > span.check"
+                    ],
+                    "properties": ["border"]
+                  },
+                  {
+                    "parentSelector": "[data-widget-package='com.fliplet.form-builder']",
+                    "selectors": ["[_type='flStarRating'] .readonly.rating-star .fa"],
+                    "properties": ["-webkit-text-stroke"]
+                  }
+                ],
+                "breakpoints": {
+                  "tablet": {
+                    "name": "formReadOnlySelectedFillColorTablet",
+                    "default": "inherit-mobile"
+                  },
+                  "desktop": {
+                    "name": "formReadOnlySelectedFillColorDesktop",
+                    "default": "inherit-tablet"
+                  }
+                },
+                "label": "Selected fill color",
                 "type": "color"
               }
             ]
