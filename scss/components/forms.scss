@@ -1466,12 +1466,16 @@
     }
 
     [_type="flStarRating"] .rating-input ~ .readonly.rating-star .fa {
+      color: map-get($configuration, formReadOnlyBackgroundColor);
+
       &:before {
         -webkit-text-stroke: 1px map-get($configuration, formReadOnlySelectedFillColor);
       }
 
       // Styles for tablet
       @include above($tabletBreakpoint) {
+        color: map-get($configuration, formReadOnlyBackgroundColorTablet);
+
         &:before {
           -webkit-text-stroke: 1px map-get($configuration, formReadOnlySelectedFillColorTablet);
         }
@@ -1479,14 +1483,29 @@
 
       // Styles for desktop
       @include above($desktopBreakpoint) {
+        color: map-get($configuration, formReadOnlyBackgroundColorDesktop);
+
         &:before {
           -webkit-text-stroke: 1px map-get($configuration, formReadOnlySelectedFillColorDesktop);
         }
       }
     }
 
-    [_type="flStarRating"] .rating-input:checked ~ .rating-star .fa,
     [_type="flStarRating"] .rating-input:checked ~ .readonly.rating-star .fa {
+      color: map-get($configuration, formReadOnlySelectedFillColor);
+
+      // Styles for tablet
+      @include above($tabletBreakpoint) {
+        color: map-get($configuration, formReadOnlySelectedFillColorTablet);
+      }
+
+      // Styles for desktop
+      @include above($desktopBreakpoint) {
+        color: map-get($configuration, formReadOnlySelectedFillColorDesktop);
+      }
+    }
+
+    [_type="flStarRating"] .rating-input:checked ~ .rating-star .fa {
       color: map-get($configuration, formStarRatingSelected);
 
       // Styles for tablet
@@ -1497,20 +1516,6 @@
       // Styles for desktop
       @include above($desktopBreakpoint) {
         color: map-get($configuration, formStarRatingSelectedDesktop);
-      }
-    }
-
-    [_type="flStarRating"] .rating-input ~ .readonly.rating-star .fa {
-      color: map-get($configuration, formReadOnlyBackgroundColor);
-
-      // Styles for tablet
-      @include above($tabletBreakpoint) {
-        color: map-get($configuration, formReadOnlyBackgroundColorTablet);
-      }
-
-      // Styles for desktop
-      @include above($desktopBreakpoint) {
-        color: map-get($configuration, formReadOnlyBackgroundColorDesktop);
       }
     }
 
